@@ -11142,6 +11142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Living in Grosotto and working in Graubünden as a border worker',
     'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Tax exemption, commuting, cost of living: practical guide to moving to Grosotto to work in Graubünden.',
     'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Mountain landscape of Grosotto in Sondrio province, with the Alps and Swiss Grisons border in the background.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontier San Giacomo Filippo-Grisons: Guide 2024',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Living in San Giacomo Filippo and working in the Graubünden: G permit, €10,000 deductible, Swiss AVS/LPP, LAMal and declaration 730. Rules 2024.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Alpine landscape between Italy and Grigioni: green meadows and snow-capped peaks at Swiss-Italian border at dawn',
 };
 
 export default blogMetaEn;

@@ -11141,6 +11141,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Wohnen in Grosotto und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Steuerbefreiung, Pendeln, Lebenshaltungskosten: Praktischer Leitfaden für den Umzug nach Grosotto, um in Graubünden zu arbeiten.',
     'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Berglandschaft von Grosotto in der Provinz Sondrio mit den Alpen und der Schweizer Graubünden-Grenze im Hintergrund.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Grenzgänger St. Jakob Philippinen-Graubünden: Leitfaden 2024',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Leben in St. Jakob Philipp und Arbeiten in Graubünden: Bewilligung G, Franchise € 10.000, AHV/BVG schweizerisch, KVG und Erklärung 730. Regeln 2024.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Alpenlandschaft zwischen Italien und Graubünden: Grünwiesen und schneebedeckte Gipfel an der Schweizer Grenze, Morgenrot',
 };
 
 export default blogMetaDe;

@@ -11144,6 +11144,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Vivre à Grosotto et travailler dans les Grisons en tant que frontalier',
     'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Franchise fiscale, déplacements, coût de la vie : guide pratique pour se rendre à Grosotto pour travailler dans les Grisons.',
     'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Paysage montagneux de Grosotto dans la province de Sondrio avec les Alpes et la frontière suisse des Grisons en arrière-plan.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontière San Giacomo Filippo-Grigioni : guide 2024',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Vivre à San Giacomo Filippo et travailler dans les Grisons : permis G, franchise 10 000 € , AVS/LPP suisses, LAMal et déclaration 730. Règles 2024.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Paysage alpin entre l\'Italie et les Grisons: prairies vertes et pics enneigés à la frontière suisse, aurore',
 };
 
 export default blogMetaFr;

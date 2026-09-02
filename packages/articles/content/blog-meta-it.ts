@@ -11143,6 +11143,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.grosotto-frontaliere-grigioni-guida.title': 'Vivere a Grosotto e lavorare in Grigioni da frontaliere',
     'blog.article.grosotto-frontaliere-grigioni-guida.excerpt': 'Franchigia fiscale, pendolarismo, costo della vita: guida pratica al trasferimento a Grosotto per lavorare nei Grigioni.',
     'blog.article.grosotto-frontaliere-grigioni-guida.imageAlt': 'Paesaggio montano di Grosotto in provincia di Sondrio, con le Alpi e il confine svizzero dei Grigioni sullo sfondo.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.title': 'Frontaliere san giacomo filippo-grigioni: guida 2024',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.excerpt': 'Vivere a San Giacomo Filippo e lavorare nei Grigioni: permesso G, franchigia €10.000, AVS/LPP svizzeri, LAMal e dichiarazione 730. Regole 2024.',
+    'blog.article.san-giacomo-filippo-grigioni-frontaliere.imageAlt': 'Paesaggio montano alpino tra Italia e Grigioni: prati verdi e vette innevate al confine svizzero, alba',
 };
 
 export default blogMetaIt;
