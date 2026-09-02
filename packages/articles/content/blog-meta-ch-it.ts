@@ -5059,6 +5059,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mercato-lavoro-canton-grigioni.title': 'Mercato del lavoro nei Grigioni: salari e livelli',
     'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Guida completa a struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione e contratti collettivi.',
     'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Paesaggio montano del Canton Grigioni con insediamenti abitativi e aziende che rappresentano l\'economia alpina svizzera e il mercato del lavoro.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.title': 'Imposta di successione e donazione Basilea Città: aliquote',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.excerpt': 'Guida alle imposte di successione e donazione nel Cantone di Basilea Città: aliquote per grado di parentela, esenzioni e procedure di dichiarazione.',
+    'blog.article.imposta-di-successione-e-donazione-basilea-citta.imageAlt': 'Ufficio notarile svizzero con documenti di eredità e calcolatrice, simbolo di pianificazione patrimoniale e trasmissione del patrimonio',
 };
 
 export default blogMetaChIt;
