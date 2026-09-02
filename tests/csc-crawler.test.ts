@@ -141,6 +141,30 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(second?.identity).toBe(first?.identity);
   });
 
+  it('differentiates the fallback semantic hash for near-identical postings that only differ by a location marker carried in markup attributes', async () => {
+    const bodyText = 'Ricerchiamo un operaio edile qualificato per cantieri edili, esperienza pluriennale richiesta.';
+    const shellFor = (location: string) =>
+      `<!doctype html><html><body><main><article class="node node--type-work-position"><h1>Operaio edile</h1><p>${bodyText}</p><span class="icon-location" data-location="${location}"></span></article></main></body></html>`;
+
+    const bellinzona = parseCscPrimaryJobDetail(shellFor('Bellinzona'));
+    const locarno = parseCscPrimaryJobDetail(shellFor('Locarno'));
+    expect(bellinzona).toMatchObject({ hasJobPosting: false });
+    expect(bellinzona?.identity).toMatch(/^semantic:/);
+    expect(locarno?.identity).not.toBe(bellinzona?.identity);
+
+    const urlBellinzona = 'https://csc-sa.ch/lavoro-carriera-edilizia/operaio-edile-bellinzona';
+    const urlLocarno = 'https://csc-sa.ch/lavoro-carriera-edilizia/operaio-edile-locarno';
+    const verified = await verifyCscDetailUrls([urlBellinzona, urlLocarno], {
+      fetchImpl: vi.fn(async (url: string | URL) => {
+        if (String(url) === urlBellinzona) return htmlResponse(urlBellinzona, shellFor('Bellinzona'));
+        if (String(url) === urlLocarno) return htmlResponse(urlLocarno, shellFor('Locarno'));
+        throw new Error(`Unexpected URL ${url}`);
+      }),
+      timeoutMs: 1000,
+    });
+    expect(verified).toEqual([urlBellinzona, urlLocarno]);
+  });
+
   it('fails closed when the primary article never closes', () => {
     const unclosedShell = '<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>Testo senza chiusura del tag article primario.</p></main></body></html>';
     expect(parseCscPrimaryJobDetail(unclosedShell)).toBeNull();
