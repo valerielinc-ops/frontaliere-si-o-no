@@ -511,7 +511,7 @@ function buildTimedCrawlerShellBody(crawler, timeoutMinutes) {
     outer.push(`# ---- ${crawler.slug}: ${step.name} (outside timeout, only on target failure) ----`);
     outer.push("crawler_failure_timeout_detail=''");
     outer.push('if [ "$target_exit" -eq 124 ]; then');
-    outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${timeoutMinutes} minuti (exit 124).`)}`);
+    outer.push(`  crawler_failure_timeout_detail=${shellQuote(`\n**Causa:** timeout del target dopo ${crawler.targetTimeoutMinutes} minuti (exit 124).`)}`);
     outer.push('fi');
     outer.push('if [ "$target_exit" -ne 0 ]; then');
     outer.push(indentBlock(timeoutAwareRun.trimEnd(), 2));
