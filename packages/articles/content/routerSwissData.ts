@@ -1740,6 +1740,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-argovia': { it: 'avs-prestazioni-complementari-argovia', en: 'avs-supplementary-benefits-aargau', de: 'avs-ergaenzungsleistungen-aargau', fr: 'avs-prestations-complementaires-argovie' },
  'aiuti-malattie-rare-2025': { it: 'aiuti-malattie-rare-2025', en: 'aid-rare-diseases-2025', de: 'hilfe-seltene-krankheiten-2025', fr: 'aide-maladies-rares-2025' },
  'politica-agricola-2030-tagli-120-milioni': { it: 'politica-agricola-2030-tagli-120-milioni', en: 'agricultural-policy-2030-cuts-over-120-million', de: 'landwirtschaftspolitik-2030-kuerzungen-von-ueber-120-millionen', fr: 'politique-agricole-2030-coupures-de-plus-de-120-millions' },
+ 'consiglio-federale-consultazione-agricola-2030': { it: 'consiglio-federale-consultazione-agricola-2030', en: 'federal-council-agriculture-consultation-2030', de: 'bundesrat-agrarberatum-2030', fr: 'conseil-federal-consultation-agriculture-2030' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
