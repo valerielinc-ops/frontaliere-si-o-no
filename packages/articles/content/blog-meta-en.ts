@@ -11127,6 +11127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.title': 'Living in Ternate and working in Ticino as a border worker',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.excerpt': 'Learn about connections, travel times, cost of living, and the advantages and disadvantages of transferring.',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano',
+    'blog.article.besnate-lavorare-ticino-frontaliere.title': 'Living in Besnate and working in Ticino: as a border worker',
+    'blog.article.besnate-lavorare-ticino-frontaliere.excerpt': 'How taxation, rights and practical organisation work for those who live in Besnate and work in Ticino as border workers.',
+    'blog.article.besnate-lavorare-ticino-frontaliere.imageAlt': 'Northern Ticino border landscape at sunset, with Alpine hills and Italian valleys in the distance.',
 };
 
 export default blogMetaEn;

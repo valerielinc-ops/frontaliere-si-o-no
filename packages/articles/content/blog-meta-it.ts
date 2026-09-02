@@ -11128,6 +11128,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.title': 'Vivere a Ternate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi e svantaggi del trasferimento.',
     'blog.article.vivere-ternate-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano',
+    'blog.article.besnate-lavorare-ticino-frontaliere.title': 'Vivere a Besnate e lavorare in Ticino: come frontaliere',
+    'blog.article.besnate-lavorare-ticino-frontaliere.excerpt': 'Come funziona la fiscalità, i diritti e l\'organizzazione pratica per chi vive a Besnate e lavora in Ticino da frontaliere.',
+    'blog.article.besnate-lavorare-ticino-frontaliere.imageAlt': 'Paesaggio del confine nord del Ticino al tramonto, con colline alpine e valli italiane sullo sfondo.',
 };
 
 export default blogMetaIt;
