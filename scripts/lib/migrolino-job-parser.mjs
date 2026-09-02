@@ -352,6 +352,16 @@ export async function fetchMigrolinoListingHrefs() {
         if (allUrls.size > before) break;
       }
       if (allUrls.size === before) {
+        // A genuinely slow (but real) last page can still be mid-render after
+        // paginationStallPolls fixed-length polls. Give it one more chance
+        // keyed on actual network activity instead of another fixed wait: a
+        // page still fetching/rendering blocks here until it settles
+        // (bounded by paginationTimeoutMs); an already-idle page (the real
+        // stall case) resolves immediately, changing nothing.
+        await page.waitForLoadState('networkidle', { timeout: paginationTimeoutMs }).catch(() => {});
+        for (const u of await collect()) allUrls.add(u);
+      }
+      if (allUrls.size === before) {
         throw new Error(
           `migrolino discovery incomplete: page ${pageIdx} stalled while the next control remained enabled after ${paginationStallPolls} poll(s) (${allUrls.size} total URLs).`,
         );

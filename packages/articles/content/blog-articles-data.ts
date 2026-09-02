@@ -33087,6 +33087,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'bennet-cerca-personale-varese',
+ category: 'pratico',
+ date: '2026-09-02T00:16:48.866Z',
+ image: '/images/blog/bennet-cerca-personale-varese.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

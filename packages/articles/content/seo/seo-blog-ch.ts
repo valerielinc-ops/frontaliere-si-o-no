@@ -65189,6 +65189,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-grigioni-procedure-fondi': {
+    title: 'Comprare casa in Grigioni: guida a fondi e mutui',
+    description: 'Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, grigioni, fondi',
+    ogTitle: 'Comprare casa in Grigioni: guida a fondi e mutui',
+    ogDescription: 'Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-grigioni-procedure-fondi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa in Grigioni: guida a fondi e mutui",
+      "description": "Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-grigioni-procedure-fondi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere residenziale svizzero moderno con chalets tradizionali e appartamenti contemporanei su una valle alpina"
+      },
+      "datePublished": "2026-09-02T00:05:56+00:00",
+      "dateModified": "2026-09-02T00:05:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-grigioni-procedure-fondi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-affitti-grigioni-canoni-diritto': {
+    title: 'Affitti Grigioni: canoni, deposito e diritto di locazione',
+    description: 'Guida pratica al diritto di locazione svizzero nel Cantone Grigioni: deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta 1-3 mesi. Procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, affitti, grigioni, canoni, deposito',
+    ogTitle: 'Affitti Grigioni: canoni, deposito e diritto di locazione',
+    ogDescription: 'Guida completa al diritto di locazione nelle Grigioni: deposito di garanzia massimo 3 mesi di pigione, contestazione del canone iniziale entro 30 giorni presso l\'autorità di conciliazione, termini di disdetta 1-3 mesi secondo l\'anno. Procedure',
+    canonicalPath: '/articoli-svizzera/affitti-grigioni-canoni-diritto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Affitti Grigioni: canoni, deposito e diritto di locazione",
+      "description": "Guida pratica al diritto di locazione svizzero nel Cantone Grigioni: deposito max 3 mesi, contestazione canone entro 30 giorni, disdetta 1-3 mesi. Procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-grigioni-canoni-diritto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villaggio alpino svizzero con case tradizionali di pietra nelle Grigioni"
+      },
+      "datePublished": "2026-09-02T00:27:42+00:00",
+      "dateModified": "2026-09-02T00:27:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-grigioni-canoni-diritto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5023,6 +5023,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-soletta-diritti-inquilini.title': 'Affitti Soletta: canoni medi e diritto locazione',
     'blog.article.affitti-soletta-diritti-inquilini.excerpt': 'Deposito cauzionale, contestazione canoni, disdetta: le regole federali su affitti e locazione in Svizzera e le procedure cantonali di conciliazione.',
     'blog.article.affitti-soletta-diritti-inquilini.imageAlt': 'Edificio residenziale svizzero con balconate in quartiere urbano moderno.',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.title': 'Comprare casa in Grigioni: guida a fondi e mutui',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.excerpt': 'Procedura, fondi propri, mutuo ipotecario e tassazione su tre livelli. Come acquistare un immobile in Svizzera rispettando norme federali e cantonali.',
+    'blog.article.comprare-casa-grigioni-procedure-fondi.imageAlt': 'Quartiere residenziale svizzero moderno con chalets tradizionali e appartamenti contemporanei su una valle alpina',
+    'blog.article.affitti-grigioni-canoni-diritto.title': 'Affitti Grigioni: canoni, deposito e diritto di locazione',
+    'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Guida pratica al diritto di locazione svizzero: come funziona il deposito di garanzia, la contestazione del canone e i termini di disdetta nel Cantone Grigioni.',
+    'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Villaggio alpino svizzero con case tradizionali di pietra nelle Grigioni',
 };
 
 export default blogMetaChIt;
