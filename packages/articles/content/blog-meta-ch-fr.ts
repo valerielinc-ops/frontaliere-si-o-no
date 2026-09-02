@@ -5188,6 +5188,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aziende-svizzere-semestre-2026.title': 'Entreprises suisses, résultats semestriels supérieurs aux estimations',
     'blog.article.aziende-svizzere-semestre-2026.excerpt': 'Au premier semestre, 24 des 30 sociétés de l\'indice SLI ont dépassé les attentes du marché. Estimation des profits 2026 magazines à +18% grâce aux investissements dans l\'intelligence artificielle.',
     'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Bourse suisse: professionnels analysant les données financières des sociétés cotées aux indices SLI et SMI',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Abonnements transports Schaffhouse : zones et tarifs',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Guide complet des abonnements pour les transports publics dans le canton de Schaffhouse : communauté tarifaire, abonnements mensuels et annuels, demi-tarif, GA et réductions étudiantes.',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Gare ferroviaire suisse avec panneaux affichant les zones tarifaires et les abonnements',
 };
 
 export default blogMetaChFr;

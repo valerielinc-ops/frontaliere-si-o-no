@@ -1755,6 +1755,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-canton-sciaffusa-requisiti-procedura': { it: 'naturalizzazione-canton-sciaffusa-requisiti-procedura', en: 'naturalization-canton-schaffhausen-requirements-procedure', de: 'einburgerung-kanton-schaffhausen-voraussetzungen-verfahren', fr: 'naturalisation-canton-schaffhouse-requis-exigences-procedure' },
  'acquistare-casa-zurigo-mutuo-fondi': { it: 'acquistare-casa-zurigo-mutuo-fondi', en: 'buy-house-zurich-mortgage-financing', de: 'haus-kaufen-zuerich-hypothek-eigenkapital', fr: 'acheter-maison-zurich-hypotheque-fonds-propres' },
  'aziende-svizzere-semestre-2026': { it: 'aziende-svizzere-semestre-2026', en: 'swiss-companies-semester-2026', de: 'schweizer-unternehmen-semester-2026', fr: 'entreprises-suisses-semestre-2026' },
+ 'abbonamenti-trasporti-sciaffusa-tariffe': { it: 'abbonamenti-trasporti-sciaffusa-tariffe', en: 'schaffhausen-transport-passes-zones-fares', de: 'schaffhausen-oeffentliche-verkehrsmittel-abos-zonen', fr: 'schaffhouse-transports-publics-abonnements-zones' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

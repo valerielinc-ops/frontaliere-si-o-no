@@ -5188,6 +5188,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aziende-svizzere-semestre-2026.title': 'Aziende svizzere, risultati semestrali oltre le stime',
     'blog.article.aziende-svizzere-semestre-2026.excerpt': 'Nel primo semestre, 24 su 30 società dell\'indice SLI hanno superato le aspettative di mercato. Stime profitti 2026 riviste al +18% grazie a investimenti in intelligenza artificiale.',
     'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Borsa svizzera: professionisti analizzano dati finanziari di aziende quotate negli indici SLI e SMI',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Abbonamenti trasporti Sciaffusa: zone e tariffe',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Guida completa agli abbonamenti per i trasporti pubblici nel cantone Sciaffusa: comunità tariffaria, abbonamenti mensili e annuali, metà-prezzo, GA e sconti per studenti.',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Stazione ferroviaria svizzera con cartellonistica di zone tariffarie e informazioni su abbonamenti',
 };
 
 export default blogMetaChIt;
