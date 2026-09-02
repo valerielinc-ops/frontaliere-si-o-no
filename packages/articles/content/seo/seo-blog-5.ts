@@ -83063,6 +83063,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-malles-venosta-lavorare-grigioni': {
+    title: 'Malles Venosta e Grigioni: fiscalita frontaliere 2024',
+    description: 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri modifica tassazione e permessi. Scopri imposta alla fonte, franchigie, AVS e LAMal per chi vive in Val Venosta',
+    keywords: 'frontalieri, ticino, svizzera, italia, malles, venosta, grigioni, fiscalita',
+    ogTitle: 'Malles Venosta e Grigioni: fiscalita frontaliere 2024',
+    ogDescription: 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri modifica tassazione e permessi. Scopri imposta alla fonte, franchigie, AVS e LAMal per chi vive in Val Venosta e lavora in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/vivere-malles-venosta-lavorare-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malles Venosta e Grigioni: fiscalita frontaliere 2024",
+      "description": "Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri modifica tassazione e permessi. Scopri imposta alla fonte, franchigie, AVS e LAMal per chi vive in Val Venosta",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-malles-venosta-lavorare-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano della Val Venosta con vista verso i Grigioni svizzeri, zone frontaliere Italia-Svizzera"
+      },
+      "datePublished": "2026-09-02T23:22:13+00:00",
+      "dateModified": "2026-09-02T23:22:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-malles-venosta-lavorare-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

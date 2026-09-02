@@ -33321,6 +33321,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-malles-venosta-lavorare-grigioni',
+ category: 'fiscale',
+ date: '2026-09-02T23:22:12.929Z',
+ image: '/images/blog/vivere-malles-venosta-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11152,6 +11152,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franco-svizzero-crolla-minimi-2025.title': 'Il franco svizzero crolla ai minimi dall’estate 2025: impatto sui frontalieri',
     'blog.article.franco-svizzero-crolla-minimi-2025.excerpt': 'Il franco svizzero ha raggiunto i minimi dall\'estate 2025, con l\'euro a 0,9435 franchi il 2 settembre 2026. Scopri le implicazioni per i frontalieri.',
     'blog.article.franco-svizzero-crolla-minimi-2025.imageAlt': 'Vista di Lugano con il lago e le montagne sullo sfondo',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.title': 'Malles Venosta e Grigioni: fiscalita frontaliere 2024',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.excerpt': 'Dal 1° gennaio 2024 il Nuovo Accordo Frontalieri modifica tassazione e permessi. Scopri imposta alla fonte, franchigie, AVS e LAMal per chi vive in Val Venosta e lavora in Svizzera.',
+    'blog.article.vivere-malles-venosta-lavorare-grigioni.imageAlt': 'Paesaggio montano della Val Venosta con vista verso i Grigioni svizzeri, zone frontaliere Italia-Svizzera',
 };
 
 export default blogMetaIt;
