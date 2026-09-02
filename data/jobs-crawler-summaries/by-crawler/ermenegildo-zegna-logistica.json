@@ -1,65 +1,20 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-09-02T13:35:47.064Z",
+  "generatedAt": "2026-09-02T23:09:09.129Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 9982,
-  "avgDurationMs": 9982,
+  "durationMs": 9241,
+  "avgDurationMs": 9241,
   "durationHistory": [
-    9982
+    9241
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
-      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=270362936&Team=231361275",
-      "title": "Junior Brand Control & Pricing Specialist",
-      "company": "Ermenegildo Zegna Group",
-      "companyKey": "ermenegildo-zegna-logistica",
-      "location": "Stabio",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "junior-brand-control-pricing-specialista-ermenegildo-zegna-group-stabio",
-      "department": "Corporate and Staff Functions/Finance & Control",
-      "category": "Corporate and Staff Functions/Finance & Control",
-      "datePosted": "2026-06-23",
-      "source": "zegna-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "brand": "Zegna",
-      "contractType": "Permanent Job",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Stabio"
-      },
-      "sourceLang": "en",
-      "crawledAt": "",
-      "id": "ermenegildo-zegna-logistica-5ea47ef7d5ea",
-      "salaryMin": 41600,
-      "salaryMax": 63000,
-      "currency": "CHF",
-      "streetAddress": "Via Lugano 13",
-      "postalCode": "6855",
-      "addressLocality": "Stabio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "firstSeenAt": "2026-06-23T23:26:22.911Z",
-      "salarySource": "reported",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=272704425&Team=231361273",
