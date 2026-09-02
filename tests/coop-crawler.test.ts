@@ -902,6 +902,32 @@ describe('Coop-family source-detail contract (#5253)', () => {
     expect(jobs.every((job) => job.description === 'listing fallback')).toBe(true);
   });
 
+  it('retries a transient HTTP 503 on one detail page instead of failing the whole batch (#7180)', async () => {
+    process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+    try {
+      const jobs = cases.slice(0, 2).map(([companyKey, url]) => ({
+        id: `${companyKey}-stable`, companyKey, url, title: 'Verkäuferin Verkäufer',
+        description: 'listing fallback', location: 'Fallback Hauptsitz', canton: 'TI', sourceLang: 'de',
+      }));
+      let flakyAttempts = 0;
+      const fetchImpl = async (input: URL) => {
+        if (String(input).includes('22222222') && flakyAttempts === 0) {
+          flakyAttempts += 1;
+          return new Response('Service Unavailable', { status: 503 });
+        }
+        const locality = String(input).includes('22222222') ? 'Jegenstorf' : 'Oberbüren';
+        const region = String(input).includes('22222222') ? 'BE' : 'St. Gallen';
+        return new Response(`<script type="application/ld+json">${JSON.stringify(jsonLd(jobs[0].title, locality, region))}</script>`, { status: 200 });
+      };
+
+      const result = await enrichCoopSourceBackedJobs(jobs, { fetchImpl, concurrency: 2 });
+      expect(flakyAttempts).toBe(1);
+      expect(result.every((job) => job.description !== 'listing fallback')).toBe(true);
+    } finally {
+      delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+    }
+  });
+
   it('rejects a cross-host redirect before fetching or publishing its payload', async () => {
     const job = {
       id: 'stable', companyKey: 'jumbo', url: cases[2][1], title: 'Verkäuferin Verkäufer',
