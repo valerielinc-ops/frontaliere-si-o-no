@@ -12,6 +12,7 @@ import {
   parseListingPage,
 } from '../scripts/lib/chicco-doro-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OPEN_APPLICATION_FIXTURE = fs.readFileSync(
@@ -93,6 +94,57 @@ describe('Chicco d\u2019Oro crawler parser', () => {
       authoritativeSnapshotVerified: false,
       authoritativeEmptySnapshot: false,
     });
+  });
+
+  it('retires a real vacancy that disappears from a non-empty snapshot within a bounded number of runs', () => {
+    // Follow-up #7020 item 1: the runner never confirms a proven-zero
+    // snapshot while a real listing keeps showing up (`authoritativeSnapshotScope:
+    // 'empty-only'` only verifies empty batches), so `retainMissingJobs` stays
+    // at its shared default (true) for a job that goes missing here. That
+    // default is NOT unbounded — mergePreserveLocaleData caps it at
+    // GRACE_PERIOD_MAX_MISSES (2) consecutive misses regardless of company.
+    const goneJob = {
+      id: 'chicco-doro-gone-role',
+      url: 'https://www.chiccodoro.com/jobs/gone-role',
+      companyKey: CHICCO_DORO_KEY,
+      company: CHICCO_DORO_COMPANY_NAME,
+      title: 'Ruolo sparito',
+      slug: 'ruolo-sparito-chicco-doro-ch',
+    };
+    const stayingJob = {
+      id: 'chicco-doro-staying-role',
+      url: 'https://www.chiccodoro.com/jobs/staying-role',
+      companyKey: CHICCO_DORO_KEY,
+      company: CHICCO_DORO_COMPANY_NAME,
+      title: 'Ruolo presente',
+      slug: 'ruolo-presente-chicco-doro-ch',
+    };
+
+    let existing = [goneJob];
+    for (let run = 1; run <= 3; run++) {
+      // parsedJobs is never empty across these runs — the crawl never proves
+      // a complete zero, so authoritativeSnapshotVerified stays false and the
+      // runner never sets retainMissingJobs: false (mirrors the mergeOpts
+      // built in runStandardCrawlerPipeline).
+      const parsedJobs = [{ ...stayingJob }];
+      const { authoritativeSnapshotVerified } = evaluateAuthoritativeSnapshot(parsedJobs, {
+        validateAuthoritativeSnapshot: assertCompleteChiccoDoroSnapshot,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+        companyLabel: CHICCO_DORO_COMPANY_NAME,
+      });
+      expect(authoritativeSnapshotVerified).toBe(false);
+
+      existing = mergePreserveLocaleData(existing, parsedJobs, {
+        ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
+      });
+
+      if (run < 3) {
+        expect(existing.find((j) => j.id === goneJob.id)).toBeDefined();
+      }
+    }
+
+    expect(existing.find((j) => j.id === goneJob.id)).toBeUndefined();
   });
 
   it('fails closed when one source path is unresolved or the source identity disappears', async () => {
