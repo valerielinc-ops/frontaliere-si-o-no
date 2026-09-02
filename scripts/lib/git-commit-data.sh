@@ -348,6 +348,35 @@ for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
 
+# Path-class classifier for the batch snapshot fail-closed contract (#7054).
+# Reviewer follow-up #7060 flagged two open questions: whether the fail-closed
+# abort's blast radius on non-job paths (summary/translation-cache/adapter) is
+# frequent enough in production to outweigh its resurrection protection, and
+# whether these paths ever actually reach a create/modify snapshot in a real
+# run at all (unverified — covered only by unit tests before this change).
+# Neither is answerable from the repo alone; both need queryable production
+# signal. This classifier feeds that signal into the existing abort message
+# (commit_isolated_from_worktree, "snapshot conflicts with a newer remote
+# deletion") and into the per-run summary log below, so a real crawler-group
+# run's Actions log now states, by class, which paths reached a non-unchanged
+# operation and which class triggered any abort — greppable without a new
+# dashboard.
+classify_batch_snapshot_path() {
+  local file_path="$1"
+  case "$file_path" in
+    data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
+      echo "job-slice" ;;
+    data/jobs-crawler-summaries/by-crawler/*.json)
+      echo "summary" ;;
+    data/translation-cache/*.json)
+      echo "translation-cache" ;;
+    data/jobs-crawler-adapters/*)
+      echo "adapter" ;;
+    *)
+      echo "other" ;;
+  esac
+}
+
 if [ "$GROUP_BATCH" = true ]; then
   _batch_snapshots_file="$(mktemp /tmp/crawler-group-batch-snapshots.XXXXXX)"
   trap 'rm -f "${_batch_snapshots_file:-}"' EXIT
@@ -368,6 +397,24 @@ if [ "$GROUP_BATCH" = true ]; then
     _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
     _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
   done < "$_batch_snapshots_file"
+  # Observability for #7060: report, per path class, how many descriptors in
+  # THIS run reached each non-"unchanged" snapshot operation. "unchanged" is
+  # excluded — it is the expected steady state and not signal for either open
+  # question above.
+  declare -A _CLASS_OPERATION_COUNTS=()
+  for path_item in "${!_BATCH_SNAPSHOT_OPERATION[@]}"; do
+    snapshot_operation="${_BATCH_SNAPSHOT_OPERATION[$path_item]}"
+    [ "$snapshot_operation" = "unchanged" ] && continue
+    class_key="$(classify_batch_snapshot_path "$path_item"):${snapshot_operation}"
+    _CLASS_OPERATION_COUNTS["$class_key"]=$(( ${_CLASS_OPERATION_COUNTS[$class_key]:-0} + 1 ))
+  done
+  if [ "${#_CLASS_OPERATION_COUNTS[@]}" -gt 0 ]; then
+    _class_summary=""
+    for class_key in "${!_CLASS_OPERATION_COUNTS[@]}"; do
+      _class_summary="${_class_summary}${_class_summary:+, }${class_key}=${_CLASS_OPERATION_COUNTS[$class_key]}"
+    done
+    echo "ℹ️ crawler group batch: snapshot operations by class (excludes unchanged): ${_class_summary}"
+  fi
   if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
     echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
     [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
@@ -1373,7 +1420,7 @@ commit_isolated_from_worktree() {
       if [ -z "$remote_blob" ]; then
         if [ "$GROUP_BATCH" = true ]; then
           if [ -n "$base_blob" ]; then
-            echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f"
+            echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f (class=$(classify_batch_snapshot_path "$f"))"
             return 1
           fi
         elif [ -n "${JOBS_SLICE_FILE:-}" ]; then

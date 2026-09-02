@@ -418,6 +418,90 @@ describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', (
     }
   });
 
+  // #7060 follow-up on #7054: the fail-closed abort's blast radius and
+  // reachability on non-job paths (summary/translation-cache/adapter) were
+  // unmeasured in production. Both open questions need queryable signal in
+  // the batch's own Actions log, not just a passing unit test — this locks
+  // in that the abort message tags its path class and that a per-run
+  // summary line reports non-"unchanged" operations by class.
+  it.each<[string, string, string[]]>([
+    ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', []],
+    ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
+  ])('tags the fail-closed abort for a remotely deleted %s with its path class', (_kind, targetPath, extraPaths) => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    try {
+      mkdirSync(dirname(join(repoDir, targetPath)), { recursive: true });
+      writeFileSync(join(repoDir, targetPath), '{"state":"old"}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, targetPath), '{"state":"deferred"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', extraPaths).status).toBe(0);
+
+      const remoteDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-remote-'));
+      try {
+        execFileSync('git', ['clone', '-q', originDir, remoteDir]);
+        execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: remoteDir });
+        execFileSync('git', ['config', 'user.name', 'Test'], { cwd: remoteDir });
+        rmSync(join(remoteDir, targetPath));
+        execFileSync('git', ['add', '.'], { cwd: remoteDir });
+        execFileSync('git', ['commit', '-q', '-m', 'retire slice'], { cwd: remoteDir });
+        execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: remoteDir });
+
+        const batch = commitGroup(repoDir, runnerTemp);
+        expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(1);
+        const kindToClass: Record<string, string> = {
+          'crawler summary': 'summary',
+          'translation cache': 'translation-cache',
+          'explicit adapter': 'adapter',
+        };
+        expect(`${batch.stdout}${batch.stderr}`).toContain(
+          `snapshot conflicts with a newer remote deletion for ${targetPath} (class=${kindToClass[_kind]})`,
+        );
+      } finally {
+        rmSync(remoteDir, { recursive: true, force: true });
+      }
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
+  it('logs a per-class snapshot operation summary for a mixed non-job batch', () => {
+    const { originDir, repoDir } = initClonePair();
+    const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
+    const summaryPath = 'data/jobs-crawler-summaries/by-crawler/a.json';
+    const cachePath = 'data/translation-cache/a.json';
+    try {
+      mkdirSync(dirname(join(repoDir, summaryPath)), { recursive: true });
+      mkdirSync(dirname(join(repoDir, cachePath)), { recursive: true });
+      execFileSync('git', ['add', '-A'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed', '--allow-empty'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, summaryPath), '{"state":"created"}\n');
+      writeFileSync(join(repoDir, cachePath), '{"state":"created"}\n');
+      expect(deferGroupCommit(repoDir, runnerTemp, 'a', [summaryPath, cachePath]).status).toBe(0);
+
+      const batch = commitGroup(repoDir, runnerTemp);
+      expect(batch.status, `${batch.stdout}${batch.stderr}`).toBe(0);
+      expect(`${batch.stdout}${batch.stderr}`).toMatch(
+        /snapshot operations by class \(excludes unchanged\):.*summary:create=1/,
+      );
+      expect(`${batch.stdout}${batch.stderr}`).toMatch(
+        /snapshot operations by class \(excludes unchanged\):.*translation-cache:create=1/,
+      );
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(runnerTemp, { recursive: true, force: true });
+    }
+  });
+
   it('keeps create, unchanged and explicit delete semantics distinct for non-job descriptor paths', () => {
     const { originDir, repoDir } = initClonePair();
     const runnerTemp = mkdtempSync(join(tmpdir(), 'gcd-grouped-runner-'));
