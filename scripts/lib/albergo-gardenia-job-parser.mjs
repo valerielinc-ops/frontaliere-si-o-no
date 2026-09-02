@@ -9,9 +9,10 @@
  * closed and leaves the previous slice untouched.
  */
 import { JSDOM } from 'jsdom';
+import { ENTITY_MAP, ENTITY_PATTERN, decodeHtmlEntities } from './decode-html-entities.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
-import { decodeEntities } from './prospector/entities.mjs';
+import { NAMED, decodeEntities } from './prospector/entities.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
 
 export const ALBERGO_GARDENIA_KEY = 'albergo-gardenia';
@@ -237,6 +238,25 @@ export function createAlbergoGardeniaBrowserTransport({
   };
 }
 
+/**
+ * Source text for the browser-side sitemap `<loc>` decoder, injected verbatim
+ * into the Cloudflare browser-rendering script below. Built from the exact
+ * same functions and lookup tables `decodeSitemapLocation()` uses on the Node
+ * side (`.toString()` of the live functions, not a hand copy), so the two
+ * contexts cannot drift apart the way the former DOM-`textarea` decoder did.
+ */
+export function gardeniaInjectedDecodeSource() {
+  return `(() => {
+    const ENTITY_MAP = ${JSON.stringify(ENTITY_MAP)};
+    const ENTITY_PATTERN = new RegExp(${JSON.stringify(ENTITY_PATTERN.source)}, ${JSON.stringify(ENTITY_PATTERN.flags)});
+    const NAMED = ${JSON.stringify(NAMED)};
+    ${decodeHtmlEntities.toString()}
+    ${decodeEntities.toString()}
+    ${decodeSitemapLocation.toString()}
+    return decodeSitemapLocation;
+  })()`;
+}
+
 function gardeniaCloudflareInventoryScript() {
   return `(() => {
     const finish = (id, value) => {
@@ -245,17 +265,7 @@ function gardeniaCloudflareInventoryScript() {
       output.textContent = typeof value === 'string' ? value : JSON.stringify(value);
       document.body.replaceChildren(output);
     };
-    const decode = (value) => {
-      let decoded = String(value || '');
-      const textarea = document.createElement('textarea');
-      for (let pass = 0; pass < 3; pass += 1) {
-        textarea.innerHTML = decoded;
-        const next = textarea.value;
-        if (next === decoded) break;
-        decoded = next;
-      }
-      return decoded;
-    };
+    const decode = ${gardeniaInjectedDecodeSource()};
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
     const contentPathRx = new RegExp(${JSON.stringify(CONTENT_PATH_RX.source)}, '${CONTENT_PATH_RX.flags}');
     (async () => {
@@ -588,7 +598,7 @@ export async function fetchAlbergoGardeniaSourcePage(
   return last;
 }
 
-function decodeSitemapLocation(value = '') {
+export function decodeSitemapLocation(value = '') {
   let decoded = String(value).trim();
   // The live sitemap double-encodes query separators as `&amp;amp;`.
   // Decode to a fixed point instead of teaching URL identity about bad XML.

@@ -16,7 +16,7 @@
 import { decodeHtmlEntities } from '../decode-html-entities.mjs';
 
 /** Latin-1 letters that appear in Swiss employer names. */
-const NAMED = {
+export const NAMED = {
   agrave: 'à', aacute: 'á', acirc: 'â', atilde: 'ã', auml: 'ä', aring: 'å', aelig: 'æ',
   ccedil: 'ç', egrave: 'è', eacute: 'é', ecirc: 'ê', euml: 'ë',
   igrave: 'ì', iacute: 'í', icirc: 'î', iuml: 'ï',
