@@ -5089,6 +5089,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Die SBB bietet Lösungen an, um Sitzplätze in den Zügen zu finden',
     'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Die SBB hat mit ihren Tipps zur Suche nach Sitzplätzen in Zügen bei einigen Fahrgästen verärgerte Reaktionen ausgelöst.',
     'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Ein überfüllter Bahnhof in Zürich mit Pendlern, die auf ihre Züge warten.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AHV und Ergänzungsleistungen im Kanton Basel-Landschaft',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'So funktioniert die erste Säule in der kantonalen Ausgleichskasse. AHV-Renten, Beitragslücken und Leistungen zum Existenzminimum.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Älterer Einwohner stellt Rentenantrag im Kantonalamt Baselland mit Dokumenten und Taschenrechner.',
 };
 
 export default blogMetaChDe;

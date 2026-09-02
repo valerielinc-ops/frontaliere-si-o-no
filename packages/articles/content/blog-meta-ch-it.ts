@@ -5089,6 +5089,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ffs-consigli-posti-sedere-pendolari.title': 'Le FFS propongono soluzioni per trovare posti a sedere sui treni',
     'blog.article.ffs-consigli-posti-sedere-pendolari.excerpt': 'Le FFS hanno suscitato reazioni irritate tra alcuni utenti con i loro consigli per trovare posti a sedere sui treni.',
     'blog.article.ffs-consigli-posti-sedere-pendolari.imageAlt': 'Una stazione ferroviaria affollata a Zurigo con pendolari in attesa dei loro treni.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.title': 'AVS e prestazioni complementari Canton Basilea Campagna',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.excerpt': 'Come funziona il primo pilastro svizzero nella cassa di compensazione cantonale. Rendite AVS, lacune contributive e prestazioni per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-basilicacampagna.imageAlt': 'Anziano residente presenta domanda di rendita AVS presso ufficio cantonale con documenti.',
 };
 
 export default blogMetaChIt;
