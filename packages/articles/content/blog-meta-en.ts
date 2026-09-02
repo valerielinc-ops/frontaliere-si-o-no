@@ -11095,6 +11095,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'Living in Misinto and Working in Ticino',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'A Practical Guide for Cross-Border Workers: Taxation, G Permit, Step-by-Step Procedure, and What You Need to Know Before Moving from Misinto to Work in the Canton of Ticino.',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Swiss-Italian border landscape overlooking the lake, typical scenery for a cross-border worker living in Misinto and working in Ticino',
+    'blog.article.san-siro-frontaliere-permesso-g.title': 'San Siro and Ticino: A Guide for Commuters',
+    'blog.article.san-siro-frontaliere-permesso-g.excerpt': 'G Permit, Withholding Tax, Tax Rebates, and the New 2024 Agreement. Everything you need to know to work in Ticino from San Siro.',
+    'blog.article.san-siro-frontaliere-permesso-g.imageAlt': 'Commuter with documents at the Italy-Switzerland border crossing in Ticino',
 };
 
 export default blogMetaEn;

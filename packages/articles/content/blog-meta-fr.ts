@@ -11097,6 +11097,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.title': 'Vivre à Misinto et travailler au Tessin',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.excerpt': 'Guide pratique pour les frontaliers : fiscalité, permis G, imposition, procédure étape par étape et ce qu\'il faut savoir avant de déménager de Misinto pour aller travailler dans le canton du Tessin.',
     'blog.article.vivere-misinto-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier entre le Tessin et la Lombardie avec vue sur le lac, typique de la vie d\'un frontalier vivant à Misinto et travaillant au Tessin',
+    'blog.article.san-siro-frontaliere-permesso-g.title': 'San Siro et le Tessin : le guide du frontalier',
+    'blog.article.san-siro-frontaliere-permesso-g.excerpt': 'Permis G, retenue à la source, remboursements et nouvel accord 2024. Tout ce qu\'il faut savoir pour travailler au Tessin depuis San Siro.',
+    'blog.article.san-siro-frontaliere-permesso-g.imageAlt': 'Frontalier avec documents au passage frontalier entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;

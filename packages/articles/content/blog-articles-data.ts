@@ -33159,6 +33159,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'san-siro-frontaliere-permesso-g',
+ category: 'pratico',
+ date: '2026-09-02T07:06:27.682Z',
+ image: '/images/blog/san-siro-frontaliere-permesso-g.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
