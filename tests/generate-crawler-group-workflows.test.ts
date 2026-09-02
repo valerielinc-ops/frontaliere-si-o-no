@@ -661,6 +661,27 @@ describe('push-contention class (exit 42) in generated steps', () => {
   });
 });
 
+describe('#7116 — push-contention class (exit 42) on the group-batch commit step', () => {
+  it('captures the exit code and keeps "Commit crawler group data atomically" green on contention, without swallowing real failures', () => {
+    const WORKFLOWS_DIR = path.resolve(import.meta.dirname, '../.github/workflows');
+    const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) {
+      const doc = YAML.parse(fs.readFileSync(path.join(WORKFLOWS_DIR, f), 'utf8'));
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const commitStep = job.steps.find((step: any) => step.name === 'Commit crawler group data atomically');
+      expect(commitStep).toBeDefined();
+      // the exit code must be captured (not left to the bare `bash -e {0}` default)...
+      expect(commitStep.run).toContain('git_commit_exit=$?');
+      // ...42 must be handled explicitly and keep the step green...
+      expect(commitStep.run).toContain('[ "$git_commit_exit" -eq 42 ]');
+      expect(commitStep.run).toContain('exit 0');
+      // ...while any other non-zero exit still propagates and fails the step.
+      expect(commitStep.run).toContain('exit "$git_commit_exit"');
+    }
+  });
+});
+
 describe('#6380 — one atomic commit per crawler group', () => {
   it('defers every successful crawler commit and joins them before finalization', () => {
     const workflowsDir = path.resolve(import.meta.dirname, '../.github/workflows');
