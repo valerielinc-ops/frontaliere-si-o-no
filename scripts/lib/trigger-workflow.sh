@@ -116,6 +116,15 @@ if [ -n "$EXPECTED_SHA" ] && [[ ! "$EXPECTED_SHA" =~ ^[a-f0-9]{40,64}$ ]]; then
 fi
 
 MAX_RESPONSE_BYTES=1048576
+# The Compare API's `files[]` array (per-file unified diffs) is not bounded
+# by the `?per_page=1` used below to cap `commits[]` — a legitimate
+# large diff (e.g. a squash-merge touching thousands of files) can push the
+# response past MAX_RESPONSE_BYTES even though commit_is_expected_or_descendant
+# only reads status/ahead_by/behind_by/*_commit.sha/url, none of which live in
+# `files[]`. Give this endpoint its own, larger bound instead of either
+# false-blocking valid ancestry or loosening the tighter bound every other
+# endpoint here relies on.
+COMPARE_MAX_RESPONSE_BYTES=8388608
 TEMP_ROOT="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
 TEMP_DIR="$(mktemp -d "${TEMP_ROOT%/}/trigger-workflow.XXXXXX")"
 trap 'rm -rf "$TEMP_DIR"' EXIT
@@ -128,7 +137,8 @@ RESPONSE_HEADERS_FILE="${TEMP_DIR}/response-headers.txt"
 
 body_is_bounded() {
   local file="$1"
-  [ -f "$file" ] && [ "$(wc -c < "$file" | tr -d ' ')" -le "$MAX_RESPONSE_BYTES" ]
+  local max="${2:-$MAX_RESPONSE_BYTES}"
+  [ -f "$file" ] && [ "$(wc -c < "$file" | tr -d ' ')" -le "$max" ]
 }
 
 last_http_status_code() {
@@ -197,7 +207,7 @@ commit_is_expected_or_descendant() {
   if ! http_code="$(curl --silent --show-error \
     --connect-timeout 10 \
     --max-time 30 \
-    --max-filesize "$MAX_RESPONSE_BYTES" \
+    --max-filesize "$COMPARE_MAX_RESPONSE_BYTES" \
     --output "$response_file" \
     --dump-header "$RESPONSE_HEADERS_FILE" \
     --write-out "%{http_code}" \
@@ -207,7 +217,7 @@ commit_is_expected_or_descendant() {
     -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}")"; then
     return 1
   fi
-  [ "$http_code" = "200" ] && body_is_bounded "$response_file" || return 1
+  [ "$http_code" = "200" ] && body_is_bounded "$response_file" "$COMPARE_MAX_RESPONSE_BYTES" || return 1
 
   TRIGGER_COMPARE_FILE="$response_file" \
   TRIGGER_COMPARE_BASE="$expected_sha" \

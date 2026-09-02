@@ -140,6 +140,16 @@ elif [[ "$url" == */compare/* ]]; then
   if [ "$compare_count" -gt 1 ] && [ -n "\${CURL_COMPARE_POST_BODY:-}" ]; then
     body="$CURL_COMPARE_POST_BODY"
   fi
+  if [ -n "\${CURL_COMPARE_PAD_BYTES:-}" ]; then
+    # Synthesize an otherwise-valid "ahead" comparison whose \`files\` array
+    # is padded to an arbitrary size, mirroring how a real Compare API
+    # response embeds per-file patch text outside of \`?per_page=1\`'s reach.
+    stripped_url="\${url%%\\?*}"
+    compare_path="\${stripped_url##*/compare/}"
+    base_sha="\${compare_path%%...*}"
+    filler="$(head -c "\${CURL_COMPARE_PAD_BYTES}" /dev/zero | tr '\\0' x)"
+    body="{\\"status\\":\\"ahead\\",\\"ahead_by\\":1,\\"behind_by\\":0,\\"url\\":\\"\${stripped_url}\\",\\"base_commit\\":{\\"sha\\":\\"\${base_sha}\\"},\\"merge_base_commit\\":{\\"sha\\":\\"\${base_sha}\\"},\\"files\\":[{\\"patch\\":\\"\${filler}\\"}]}"
+  fi
 else
   increment "${directory}/get-count"
   printf '%s' "$url" > "${directory}/get-url"
@@ -353,6 +363,42 @@ describe('scripts/lib/trigger-workflow.sh', () => {
         TRIGGER_REF_WAIT_SECONDS: '0',
         CURL_REF_BODY: JSON.stringify({ sha: 'b'.repeat(40) }),
         CURL_COMPARE_STATUS: '502',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.refCount).toBe(2);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('accepts a legitimately large comparison response that exceeds the 1MB ref/dispatch bound', () => {
+    const expectedSha = 'a'.repeat(40);
+    const descendantSha = 'b'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: descendantSha }),
+        CURL_COMPARE_PAD_BYTES: String(2 * 1024 * 1024),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: descendantSha }),
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.compareCount).toBe(2);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
+  });
+
+  it('still fails closed before POST when the comparison response exceeds the raised compare bound', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '2',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: 'b'.repeat(40) }),
+        CURL_COMPARE_PAD_BYTES: String(9 * 1024 * 1024),
       },
     });
     expect(result.status).toBe(1);
