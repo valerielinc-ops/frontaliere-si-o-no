@@ -105,7 +105,20 @@ import {
 const DRY_RUN = process.argv.includes('--dry-run');
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const LOOKBACK_MINUTES = Number(process.env.TIMEOUT_SCAN_LOOKBACK_MINUTES || 75);
-const MAX_RUNS = 200; // safety cap per scan
+// `updated_at` e' il clock dell'osservatore, ma l'API filtra solo `created`.
+// Non basta quindi sommare il timeout del singolo job: una run puo' aspettare
+// in coda, attraversare job `needs` e restare in attesa di un'approvazione.
+// GitHub documenta 35 giorni come limite dell'INTERA run, inclusi waiting e
+// approval; oltre questo orizzonte la run viene cancellata. E' il solo bound
+// lato server che non esclude una run ancora capace di aggiornarsi nel cutoff.
+const MAX_WORKFLOW_RUN_AGE_MIN = 35 * 24 * 60;
+
+// Con qualunque filtro (`status` e `created` qui) GitHub restituisce al massimo
+// 1.000 risultati PER SEARCH. Un cap locale piu' alto sarebbe irraggiungibile:
+// per coprire l'intero orizzonte si biseca la finestra `created` finche' ogni
+// search e' sotto il limite, poi si paginano tutte le sue pagine.
+const RUN_SEARCH_RESULT_CAP = 1000;
+const RUN_SEARCH_MAX_SPLIT_DEPTH = 20;
 const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maximum number of minutes)/i;
 // A job that has only just failed can be read back mid-finalisation, with a step
 // still momentarily `in_progress` — indistinguishable from a host-kill. Ignore
@@ -141,25 +154,73 @@ function ghJson(path, { allowFailure = true } = {}) {
   }
 }
 
-function listRunsByStatus(status, cutoffMs) {
-  const runs = [];
+function listRunsByStatus(status, cutoffMs, nowMs = Date.now()) {
+  const runsById = new Map();
   const perPage = 100;
-  // The endpoint is not guaranteed to sort by `updated_at`, so an old-started,
-  // newly-completed run may sit after a recently-created one. Read at most the
-  // existing 200-run safety cap (two pages), then filter — never page until a
-  // timestamp happens to cross the cutoff.
-  for (let page = 1; page <= Math.ceil(MAX_RUNS / perPage); page += 1) {
-    const data = ghJson(repoPath(`actions/runs?status=${status}&per_page=${perPage}&page=${page}`));
-    const batch = data?.workflow_runs || [];
-    if (batch.length === 0) break;
+
+  const observe = (batch) => {
     for (const run of batch) {
       const observedAt = Date.parse(run.updated_at || run.created_at || '');
-      if (Number.isFinite(observedAt) && observedAt >= cutoffMs) runs.push(run);
-      if (runs.length >= MAX_RUNS) break;
+      if (Number.isFinite(observedAt) && observedAt >= cutoffMs) {
+        runsById.set(run.id, run);
+      }
     }
-    if (runs.length >= MAX_RUNS || batch.length < perPage) break;
-  }
-  return runs;
+  };
+
+  const fetchCreatedSlice = (startMs, endMs, depth = 0) => {
+    const created = encodeURIComponent(
+      `${new Date(startMs).toISOString()}..${new Date(endMs).toISOString()}`,
+    );
+    const pagePath = (page) => repoPath(
+      `actions/runs?status=${status}&created=${created}&per_page=${perPage}&page=${page}`,
+    );
+    const first = ghJson(pagePath(1));
+    if (!first) return;
+
+    const totalCount = Number(first.total_count);
+    if (Number.isFinite(totalCount) && totalCount > RUN_SEARCH_RESULT_CAP) {
+      const midpoint = Math.floor((startMs + endMs) / 2);
+      if (depth >= RUN_SEARCH_MAX_SPLIT_DEPTH || midpoint < startMs || midpoint >= endMs) {
+        console.warn(
+          `::warning::[scan-job-timeouts] search ${status} ancora oltre il limite API `
+            + `(${totalCount} > ${RUN_SEARCH_RESULT_CAP}) dopo ${depth} split — `
+            + `possibile troncamento tra ${new Date(startMs).toISOString()} e ${new Date(endMs).toISOString()}.`,
+        );
+        observe(first.workflow_runs || []);
+        return;
+      }
+      // Intervalli disgiunti al millisecondo: nessun buco, nessun doppio
+      // conteggio sul confine (runsById resta comunque l'ultima difesa).
+      fetchCreatedSlice(startMs, midpoint, depth + 1);
+      fetchCreatedSlice(midpoint + 1, endMs, depth + 1);
+      return;
+    }
+
+    const expectedPages = Number.isFinite(totalCount)
+      ? Math.ceil(totalCount / perPage)
+      : null;
+    let page = 1;
+    let data = first;
+    while (data) {
+      const batch = data.workflow_runs || [];
+      if (batch.length === 0) break;
+      observe(batch);
+      if (batch.length < perPage) break;
+      if (expectedPages !== null && page >= expectedPages) break;
+      if (expectedPages === null && page >= RUN_SEARCH_RESULT_CAP / perPage) {
+        console.warn(
+          `::warning::[scan-job-timeouts] search ${status} ha raggiunto il limite API `
+            + `senza total_count — possibile troncamento nella slice created.`,
+        );
+        break;
+      }
+      page += 1;
+      data = ghJson(pagePath(page));
+    }
+  };
+
+  fetchCreatedSlice(cutoffMs - MAX_WORKFLOW_RUN_AGE_MIN * 60_000, nowMs);
+  return [...runsById.values()];
 }
 
 function listJobs(runId) {
@@ -216,6 +277,15 @@ function issueRepoFlag() {
   return REPO ? ['--repo', REPO] : [];
 }
 
+// Rete di sicurezza, non filtro primario (#692, Item 3). Il listing sotto e'
+// il fallback per l'eventual consistency dell'indice di ricerca (una issue
+// appena creata potrebbe non comparire ancora in `--search`); prima del fix
+// era troncato a un `--limit 200` fisso, quindi oltre 200 issue aperte la
+// canonica poteva restare fuori e la dedup per run-URL falliva in silenzio,
+// aprendo un duplicato invece di commentare su quella esistente. Alzato e
+// segnalato ad alta voce se toccato, stesso stile di `RUN_LISTING_SAFETY_CAP`.
+const OPEN_ISSUE_LISTING_SAFETY_CAP = 1000;
+
 function parseIssueList(raw) {
   try {
     const parsed = JSON.parse(raw || '[]');
@@ -242,8 +312,14 @@ function findIssueReportingRun(title, runUrl) {
     '--limit', '20', ...common,
   ], { allowFailure: true }));
   const listed = parseIssueList(gh([
-    'issue', 'list', '--state', 'open', '--limit', '200', ...common,
+    'issue', 'list', '--state', 'open', '--limit', String(OPEN_ISSUE_LISTING_SAFETY_CAP), ...common,
   ], { allowFailure: true }));
+  if (listed.length >= OPEN_ISSUE_LISTING_SAFETY_CAP) {
+    console.warn(
+      `::warning::[scan-job-timeouts] cap di sicurezza (${OPEN_ISSUE_LISTING_SAFETY_CAP}) raggiunto `
+        + 'sul listing issue aperte — possibile troncamento della canonica.',
+    );
+  }
   const candidates = [...searched, ...listed]
     .filter((issue) => String(issue?.title || '').startsWith(titlePrefix))
     .filter((issue, index, all) => all.findIndex((candidate) => candidate?.number === issue?.number) === index);
@@ -268,8 +344,8 @@ function findIssueReportingRun(title, runUrl) {
 export async function main() {
   const nowMs = Date.now();
   const cutoffMs = nowMs - LOOKBACK_MINUTES * 60 * 1000;
-  const cancelledRuns = listRunsByStatus('cancelled', cutoffMs);
-  const failedRuns = listRunsByStatus('failure', cutoffMs);
+  const cancelledRuns = listRunsByStatus('cancelled', cutoffMs, nowMs);
+  const failedRuns = listRunsByStatus('failure', cutoffMs, nowMs);
   console.log(
     `[scan-job-timeouts] ${cancelledRuns.length} cancelled + ${failedRuns.length} failed run(s) `
       + `in the last ${LOOKBACK_MINUTES}m`,

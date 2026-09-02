@@ -2,6 +2,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { AI_MODELS, callLLM, clearResponseCache, getStats, resetExhaustedModel, resetState } from '../../scripts/lib/ai-models.mjs';
 
+function chatCompletionCalls(fetchSpy: ReturnType<typeof vi.fn>) {
+  return fetchSpy.mock.calls.filter(([input]) => String(input).includes('/chat/completions'));
+}
+
 // Opt-in response cache (opts.cache === true): identical deterministic prompts
 // within a run reuse the prior result instead of re-running the fallback cascade
 // (the dominant intra-run burn — see callLLM). The happy path is exercised through
@@ -60,7 +64,7 @@ describe('ai-models opt-in response cache', () => {
 
     expect(a).toBe('VERDICT-OK');
     expect(b).toBe('VERDICT-OK');
-    expect(fetchSpy).toHaveBeenCalledTimes(1); // second call served from cache
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(1); // second call served from cache
     expect(getStats().cacheHits).toBe(1);
   });
 
@@ -71,7 +75,7 @@ describe('ai-models opt-in response cache', () => {
     await callLLM(msgs, opts);
     await callLLM(msgs, opts);
 
-    expect(fetchSpy).toHaveBeenCalledTimes(2); // no dedup without opt-in
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(2); // no dedup without opt-in
     expect(getStats().cacheHits).toBe(0);
   });
 
@@ -81,7 +85,7 @@ describe('ai-models opt-in response cache', () => {
     await callLLM([{ role: 'user', content: 'claim A' }], opts);
     await callLLM([{ role: 'user', content: 'claim B' }], opts);
 
-    expect(fetchSpy).toHaveBeenCalledTimes(2);
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(2);
     expect(getStats().cacheHits).toBe(0);
   });
 
@@ -97,7 +101,7 @@ describe('ai-models opt-in response cache', () => {
     await callLLM(msgs, opts);
     await callLLM(msgs, opts);
 
-    expect(fetchSpy).toHaveBeenCalledTimes(2); // second call re-runs, never replayed from cache
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(2); // second call re-runs, never replayed from cache
     expect(getStats().cacheHits).toBe(0);
   });
 });
@@ -164,9 +168,10 @@ describe('ai-models opt-in response cache — model-aware storage key (#3080)', 
     });
     vi.stubGlobal('fetch', fetchSpy);
 
-    const first = await callLLM(msgs, { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true });
+    const opts = { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true };
+    const first = await callLLM(msgs, opts);
     expect(first).toBe('FALLBACK-GROQ-ANSWER');
-    expect(fetchSpy).toHaveBeenCalledTimes(2); // Mistral attempt (fails) + Groq attempt (succeeds)
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(2); // Mistral attempt (fails) + Groq attempt (succeeds)
 
     // Undo the exhaustion the 401 just recorded, so call 2 is a clean retry
     // attempt rather than being short-circuited by the breaker — mirrors a
@@ -185,10 +190,10 @@ describe('ai-models opt-in response cache — model-aware storage key (#3080)', 
     // answer comes back.
     fetchSpy.mockImplementation(async () => okCompletion('CALL-2-FRESH-ANSWER') as unknown as Response);
 
-    const second = await callLLM(msgs, { model: AI_MODELS.MISTRAL_SMALL, chain, temperature: 0.0, cache: true });
+    const second = await callLLM(msgs, opts);
     expect(second).toBe('CALL-2-FRESH-ANSWER');
     expect(second).not.toBe(first);
-    expect(fetchSpy).toHaveBeenCalledTimes(3); // a real attempt was made, not served from cache
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(3); // a real attempt was made, not served from cache
     expect(getStats().cacheHits).toBe(0); // no cross-model collision was ever registered as a "hit"
   });
 
@@ -204,7 +209,7 @@ describe('ai-models opt-in response cache — model-aware storage key (#3080)', 
 
     expect(a).toBe('MISTRAL-ANSWER');
     expect(b).toBe('MISTRAL-ANSWER');
-    expect(fetchSpy).toHaveBeenCalledTimes(1); // second call served from cache, exactly as before the fix
+    expect(chatCompletionCalls(fetchSpy)).toHaveLength(1); // second call served from cache, exactly as before the fix
     expect(getStats().cacheHits).toBe(1);
   });
 });

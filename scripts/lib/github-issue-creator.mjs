@@ -1129,8 +1129,13 @@ export async function createGithubIssue({
   // flapping red again. Reopen + comment instead of minting a new issue — this
   // is what stops the per-deploy-run churn (#928/#931/#937/#941) from recurring.
   if (Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
-    const recentlyClosed = preferredRecentlyClosed
-      || findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, normalizedDedupKey);
+    // With a family key the joint OPEN/CLOSED election above has already run
+    // the full CLOSED search+listing lookup, including the valid "not found"
+    // result. Reuse it explicitly: `preferredRecentlyClosed || finder()` would
+    // repeat both GitHub calls on every cold start where newestClosed is null.
+    const recentlyClosed = normalizedDedupKey
+      ? newestClosed
+      : findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours);
     if (recentlyClosed) {
       // Deploy-latency guard (#5539): a build started BEFORE the fix that closed
       // this issue merged cannot possibly contain it — a validation failing on

@@ -22,9 +22,10 @@
  * questo lato: sono scansioni di sorgente, quindi non toccano `data/` e
  * girano anche in un worktree sparse.
  */
-import { describe, expect, it } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import * as aiModels from '../scripts/lib/ai-models.mjs';
 
 const SCRIPTS_DIR = join(process.cwd(), 'scripts');
 const AI_MODELS = join(SCRIPTS_DIR, 'lib', 'ai-models.mjs');
@@ -166,6 +167,73 @@ describe('ledger dei punteggi: i due modi silenziosi di riaprire il buco', () =>
     expect(critical).toMatch(/_dirtyModels\.clear\(\)/);
     expect(critical).toMatch(/_pendingCounterDeltas\.delete\(modelId\)/);
     expect(stripComments(critical)).not.toMatch(/\bawait\b/);
+  });
+
+});
+
+describe('flush finale del ledger: esito e visibilita runtime', () => {
+  const MODEL = 'test/flush-model';
+
+  beforeEach(() => {
+    aiModels.resetState();
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2026-08-18T12:00:00.000Z'));
+  });
+
+  afterEach(() => {
+    aiModels.resetState();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+  });
+
+  function installSet(set: ReturnType<typeof vi.fn>) {
+    aiModels.__installScoreStoreForTests({
+      collection: () => ({ doc: () => ({ set }) }),
+    });
+  }
+
+  it('ritorna true e misura la latenza quando il write riesce', async () => {
+    const set = vi.fn().mockResolvedValue(undefined);
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    installSet(set);
+    aiModels.recordModelSuccess(MODEL);
+
+    await expect(aiModels.flushScoresBeforeExit(500)).resolves.toBe(true);
+
+    expect(set).toHaveBeenCalledOnce();
+    expect(log.mock.calls.flat().join(' ')).toContain('Final flush completed in 0ms (timeout=500ms, 1 model(s))');
+  });
+
+  it('ritorna false, annota il failure e conserva il delta per il retry', async () => {
+    const set = vi.fn()
+      .mockRejectedValueOnce(new Error('write rejected'))
+      .mockResolvedValueOnce(undefined);
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    installSet(set);
+    aiModels.recordModelSuccess(MODEL);
+
+    await expect(aiModels.flushScoresBeforeExit(500)).resolves.toBe(false);
+    expect(warn.mock.calls.flat().join(' ')).toContain('::warning::');
+    expect(warn.mock.calls.flat().join(' ')).toContain('Final flush failed after 0ms');
+
+    await expect(aiModels.flushScoresBeforeExit(500)).resolves.toBe(true);
+    expect(set).toHaveBeenCalledTimes(2);
+  });
+
+  it('ritorna false e annota timeout configurato ed elapsed', async () => {
+    const set = vi.fn(() => new Promise(() => {}));
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    installSet(set);
+    aiModels.recordModelSuccess(MODEL);
+
+    const flush = aiModels.flushScoresBeforeExit(125);
+    await vi.advanceTimersByTimeAsync(125);
+
+    await expect(flush).resolves.toBe(false);
+    const output = warn.mock.calls.flat().join(' ');
+    expect(output).toContain('::warning::');
+    expect(output).toContain('Final flush timed out after 125ms (elapsed 125ms)');
   });
 });
 
