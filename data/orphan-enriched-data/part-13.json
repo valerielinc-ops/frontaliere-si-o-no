@@ -16427,6 +16427,63 @@
       ]
     },
     {
+      "slug": "chippis",
+      "locale": "de",
+      "path": "/de/jobs-im-wallis/chippis/",
+      "observedPaths": {
+        "de": "/de/jobs-im-wallis/chippis/"
+      },
+      "queries": [
+        {
+          "query": "lehrstellen chippis",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "lehrstellen chippis",
+      "title": "Chippis",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "chippis",
+        "en": "chippis",
+        "de": "chippis",
+        "fr": "chippis"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/chippis",
+        "en": "/en/find-jobs-valais/chippis",
+        "de": "/de/jobs-im-wallis/chippis",
+        "fr": "/fr/trouver-emploi-valais/chippis"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "civil-engineering-project-engineer-structure-orientation-80-100-e-h-d-fribourg-afry-fribourg",
       "locale": "it",
       "path": "/cerca-lavoro-friburgo/civil-engineering-project-engineer-structure-orientation-80-100-e-h-d-fribourg-afry-fribourg",
@@ -30185,10 +30242,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "food-sales-assistant-coop-genossenschaft-unterseen",
+        "de": "verkaufer-in-food-coop-unterseen-bern-yf8ssx",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-unterseen",
         "en": "food-sales-assistant-coop-genossenschaft-unterseen",
-        "de": "food-sales-assistant-coop-genossenschaft-unterseen",
-        "fr": "food-sales-assistant-coop-genossenschaft-unterseen"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-unterseen"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/food-sales-assistant-coop-genossenschaft-unterseen",
@@ -30202,6 +30259,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -57213,10 +57271,10 @@
         "fr": "sales-assistant-food-coop-genossenschaft-koniz-sldz02"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
-        "en": "/en/find-jobs-ticino/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
-        "de": "/de/jobs-im-tessin/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
-        "fr": "/fr/trouver-emploi-tessin/sales-assistant-food-coop-genossenschaft-koniz-sldz02"
+        "it": "/cerca-lavoro-berna/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
+        "en": "/en/find-jobs-bern/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
+        "de": "/de/jobs-in-bern/sales-assistant-food-coop-genossenschaft-koniz-sldz02",
+        "fr": "/fr/trouver-emploi-berne/sales-assistant-food-coop-genossenschaft-koniz-sldz02"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72243,9 +72301,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "en": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland",
-        "de": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "it": "risoluzione-dei-problemi-tecnologia-di-qualita-del-processo-80-100-m-f-d-hitachi-energy-zurich-switzerland",
+        "en": "troubleshooting-process-quality-technician-80-100-f-m-d-hitachi-energy-zurich-switzerland",
+        "de": "troubleshooting-process-qualitat-techniker-80-100-f-m-d-hitachi-energy-zurich",
         "fr": "troubleshooting-process-qualite-technicien-80-100-f-m-d-hitachi-energy-zurich-switzerland"
       },
       "localePaths": {
@@ -72260,6 +72318,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -80881,10 +80940,10 @@
         "fr": "zusteller-in-pakete-post-kbvrmm"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/zusteller-in-pakete-post-kbvrmm",
-        "en": "/en/find-jobs-graubunden/zusteller-in-pakete-post-kbvrmm",
-        "de": "/de/jobs-in-graubunden/zusteller-in-pakete-post-kbvrmm",
-        "fr": "/fr/trouver-emploi-grisons/zusteller-in-pakete-post-kbvrmm"
+        "it": "/cerca-lavoro-lucerna/zusteller-in-pakete-post-kbvrmm",
+        "en": "/en/find-jobs-lucerne/zusteller-in-pakete-post-kbvrmm",
+        "de": "/de/jobs-in-luzern/zusteller-in-pakete-post-kbvrmm",
+        "fr": "/fr/trouver-emploi-lucerne/zusteller-in-pakete-post-kbvrmm"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
