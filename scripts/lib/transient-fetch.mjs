@@ -88,12 +88,22 @@ export function isTransientFetchError(err) {
   }
   const msg = String(err.message || '');
   // Node's fetch wraps network failures in a generic TypeError "fetch failed".
+  // This substring match is a DELIBERATE fallback, not an oversight: undici
+  // does not guarantee a `.cause.code` on every "fetch failed" TypeError (a
+  // vendor-wrapped rethrow, e.g. SuccessFactorsApiError below, can lose the
+  // whole cause chain and keep only the message), so there is no stable
+  // structured signal to prefer here. It IS a silent-drift risk — a future
+  // Node/undici wording change on this exact path would slip past unnoticed
+  // — which is why `tests/transient-fetch.test.ts` pins this literal wording
+  // in a dedicated case: touching the regex below without updating that test
+  // (and vice versa) is the signal that the coupling broke.
   if (err.name === 'TypeError' && /fetch failed|network|socket hang up/i.test(msg)) {
     return true;
   }
   // Generic message-level transient signals (Playwright navigation timeout,
   // wrapped client errors like SuccessFactorsApiError "network error: fetch
-  // failed" that lose the original TypeError name when re-thrown).
+  // failed" that lose the original TypeError name when re-thrown). Same
+  // wording-drift caveat as above applies here.
   if (/fetch failed|socket hang up|network error|ECONNRESET|ETIMEDOUT|EAI_AGAIN|ENOTFOUND|ECONNREFUSED/i.test(msg)) {
     return true;
   }
