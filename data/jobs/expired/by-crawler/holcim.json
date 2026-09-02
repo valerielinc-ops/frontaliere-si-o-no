@@ -21,15 +21,19 @@
     "slugByLocale": {
       "it": "chauffeur-in-ghiaia-cemento-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg",
       "en": "chauffeur-in-gravel-concrete-recycling-80-100-kirchberg-holcim-group-kirchberg",
-      "de": "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg",
+      "de": "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
       "fr": "chauffeur-en-gravier-beton-recyclage-80-100-kirchberg-holcim-group-kirchberg"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-09-02T13:46:20.906Z",
+    "expiredAt": "2026-09-02T23:18:16.152Z",
     "previousSlugs": [
-      "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
+      "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
+      "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg"
     ],
     "previousSlugsByLocale": {
+      "de": [
+        "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg"
+      ],
       "it": [
         "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
       ],
@@ -37,9 +41,6 @@
         "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
       ],
       "fr": [
-        "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
-      ],
-      "de": [
         "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
       ]
     },
@@ -74,7 +75,7 @@
       "fr": "mecanicien-operateur-d-installation-de-traitement-holcim-ch"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-09-02T13:46:20.906Z",
+    "expiredAt": "2026-09-02T23:18:16.152Z",
     "salaryMin": 71000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
@@ -102,31 +103,116 @@
     "slugByLocale": {
       "it": "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
       "en": "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-      "de": "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf",
+      "de": "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
       "fr": "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf"
     },
     "sector": "Materiali da costruzione / Cemento",
-    "expiredAt": "2026-09-02T13:46:20.906Z",
+    "expiredAt": "2026-09-02T23:18:16.152Z",
     "previousSlugs": [
       "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
       "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+      "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
     ],
     "previousSlugsByLocale": {
+      "de": [
+        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
+      ],
       "it": [
         "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
         "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
       ],
       "en": [
         "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch"
-      ],
-      "de": [
-        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch"
       ]
     },
     "salaryMin": 69500,
     "salaryMax": 106000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "responsabile-di-progetto-elektrotechnik-automatisierung-80-100-holcim-group-wurenlingen",
+    "title": "Projektleiter:in Elektrotechnik & Automatisierung 80-100%",
+    "titleByLocale": {
+      "it": "Responsabile di progetto Elektrotechnik & Automatisierung 80-100%",
+      "en": "Project Manager Elektrotechnik & Automatisierung 80-100%",
+      "de": "Projektleiter:in Elektrotechnik & Automatisierung 80-100%",
+      "fr": "Chef de projet Elektrotechnik & Automatisierung 80-100%"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Würenlingen",
+    "addressLocality": "Würenlingen",
+    "descriptionByLocale": {
+      "it": "Vuoi fare la differenza? Allora sei proprio a Holcim. Nel nostro team puoi contribuire alle tue idee e formarle attivamente. Siamo alla ricerca di una personalità motivata e potente per compiti entusiasmanti nel nostro reparto di progetto presso lo stabilimento di cemento Siggenthal.\n\nIl tuo campo di attività:\n\n•\nLei è responsabile della pianificazione, del controllo e dell'attuazione della parte elettrica e dell'automazione dei progetti di investimento in collaborazione con i dipartimenti specializzati interni e i partner esterni.\n\n•\nSei responsabile dell'intero ambito elettrotecnico e di automazione – da media tensione a MCC e sensori all'automazione con SIMATIC STEP 7 e della connessione a sistemi esperti di livello superiore.\n\n•\nTi assumerai la responsabilità per la gestione dei costi, delle scadenze e della qualità dei tuoi progetti e garantirai un'implementazione efficiente\n\n•\nIn stretto coordinamento con il team di approvvigionamento, si confrontano le offerte, fanno parte dei negoziati contrattuali con fornitori, clienti e subappaltatori e prendono decisioni informate\n\n•\nAssicurare il rispetto di tutti i processi di gestione della sicurezza degli appaltatori durante il montaggio e la messa in servizio\n\n•\nCome contatto interno, si consiglia dipartimenti specializzati su tutte le questioni di gestione del progetto\n\nIl tuo profilo:\n\n•\nHai completato i tuoi studi come ingegnere o un'istruzione tecnica superiore nei settori dell'ingegneria elettrica o dell'ingegneria dell'automazione\n\n•\nHai una conoscenza approfondita e un'esperienza pratica nella gestione e nella gestione dei progetti di impianti industriali e capire come combinare con successo aspetti tecnici ed economici\n\n•\nLavori in modo strutturato, auto-responsabile e orientato alla soluzione, come assumersi la responsabilità e contribuire al successo del team con il vostro impegno\n\n•\nSei aperto alle nuove tecnologie, sei interessato alla digitalizzazione e ai processi IT-supported e utilizza questo per gestire i progetti in modo efficiente\n\nAttendiamo con ansia la vostra applicazione #gerneperdu Best Greetings, Kevin",
+      "en": "You want to make a difference? Then you are right at Holcim. In our team you can contribute your ideas and actively shape them. We are looking for a motivated and powerful personality for exciting tasks in our project department at the cement plant Siggenthal.\n\nYour field of activity:\n\n•\nYou are responsible for planning, controlling and implementing the electrical and automation part of investment projects in cooperation with internal specialist departments and external partners.\n\n•\nYou are responsible for the entire electrotechnical and automation scope – from medium voltage to MCCs and sensors to automation with SIMATIC STEP 7 and the connection to higher-level expert systems.\n\n•\nYou take responsibility for the cost, deadline and quality management of your projects and ensure efficient implementation\n\n•\nIn close coordination with the procurement team, you compare offers, are part of the contract negotiations with suppliers, clients and subcontractors and make informed decisions\n\n•\nEnsure compliance with all contractor safety management processes during assembly and commissioning\n\n•\nAs an internal contact, you advise specialist departments on all questions of project management\n\nYour profile:\n\n•\nYou have completed your studies as an engineer or a higher technical education in the fields of electrical engineering or automation engineering\n\n•\nYou have in-depth knowledge and practical experience in project management and management of industrial plant projects and understand how to successfully combine technical and economic aspects\n\n•\nYou work in a structured, self-responsible and solution-oriented manner, like to take on responsibility and contribute to team success with your commitment\n\n•\nYou are open to new technologies, are interested in digitization and IT-supported processes and use this to manage projects efficiently\n\nWe look forward to your application #gerneperdu Best Greetings, Kevin",
+      "de": "Du willst etwas bewegen? Dann bist du bei Holcim richtig. In unserem Team kannst du deine Ideen einbringen und aktiv mitgestalten. Wir suchen eine motivierte und umsetzungsstarke Persönlichkeit für spannende Aufgaben in unserer Projektabteilung im Zementwerk Siggenthal .\n\nDein Wirkungsfeld:\n\n•\nDu verantwortest die Planung, Steuerung und Umsetzung des elektrischen und automatisierungstechnischen Teils von Investitionsprojekten in Zusammenarbeit mit internen Fachbereichen und externen Partnern.\n\n•\nDu verantwortest den gesamten elektrotechnischen und automatisierungstechnischen Umfang – von der Mittelspannung über MCCs und Sensorik bis zur Automatisierung mit SIMATIC STEP 7 und der Anbindung an übergeordnete Expertensysteme.\n\n•\nDu übernimmst die Verantwortung für Kosten-, Termin- und Qualitätsmanagement deiner Projekte und sorgst für eine effiziente Umsetzung\n\n•\nIn enger Abstimmung mit dem Procurement-Team vergleichst du Angebote, bist Teil der Vertragsverhandlungen mit Lieferanten, Auftraggebern und Subunternehmen und triffst fundierte Entscheidungen\n\n•\nDu stellst die Einhaltung aller Contractor-Safety-Management-Prozesse bei Montage und Inbetriebnahme sicher\n\n•\nAls interner Ansprechpartner berätst du Fachabteilungen in allen Fragen der Projektabwicklung\n\nDein Profil:\n\n•\nDu verfügst über ein abgeschlossenes Studium als Ingenieur oder eine höhere technische Ausbildung in den Fachrichtungen Elektrotechnik oder Automatisierungstechnik\n\n•\nDu hast fundierte Kenntnisse und praktische Erfahrung im Projektmanagement sowie in der Leitung von Industrieanlagenprojekten und verstehst es, technische und wirtschaftliche Aspekte erfolgreich zu verbinden\n\n•\nDu arbeitest strukturiert, eigenverantwortlich und lösungsorientiert, übernimmst gerne Verantwortung und trägst mit deinem Engagement zum Teamerfolg bei\n\n•\nDu bist offen für neue Technologien, interessierst dich für Digitalisierung und IT-gestützte Prozesse und setzt dies ein, um Projekte effizient zu steuern\n\nWir freuen uns auf deine Bewerbung #gerneperdu Beste Grüsse, Kevin",
+      "fr": "Tu veux faire une différence ? Alors vous avez raison à Holcim. Dans notre équipe, vous pouvez apporter vos idées et les façonner activement. Nous recherchons une personnalité motivée et puissante pour des tâches passionnantes dans notre département de projet à la cimenterie Siggenthal.\n\nVotre domaine d'activité:\n\n•\nVous êtes responsable de la planification, du contrôle et de la mise en œuvre de la partie électricité et automatisation des projets d'investissement en collaboration avec les services spécialisés internes et les partenaires externes.\n\n•\nVous êtes responsable de l'ensemble de l'électrotechnique et de l'automatisation – de la tension moyenne aux MCCs et capteurs à l'automatisation avec SIMATIC STEP 7 et la connexion aux systèmes experts de haut niveau.\n\n•\nVous assumez la responsabilité du coût, de la date limite et de la gestion de la qualité de vos projets et vous assurerez une mise en œuvre efficace\n\n•\nEn étroite coordination avec l'équipe d'approvisionnement, vous comparez les offres, faites partie des négociations contractuelles avec les fournisseurs, les clients et les sous-traitants et prenez des décisions éclairées\n\n•\nAssurer la conformité avec tous les processus de gestion de la sécurité des entrepreneurs pendant le montage et la mise en service\n\n•\nEn tant que contact interne, vous conseillez les services spécialisés sur toutes les questions de gestion de projet\n\nVotre profil:\n\n•\nVous avez terminé vos études d'ingénieur ou d'ingénieur technique supérieur dans les domaines du génie électrique ou de l'automatisation\n\n•\nVous avez une connaissance approfondie et une expérience pratique de la gestion de projets d'usines industrielles et vous comprenez comment combiner avec succès les aspects techniques et économiques\n\n•\nVous travaillez de façon structurée, auto-responsable et orientée vers la solution, comme prendre des responsabilités et contribuer au succès d'équipe avec votre engagement\n\n•\nVous êtes ouvert aux nouvelles technologies, vous êtes intéressé par la numérisation et les processus soutenus par l'informatique et utilisez ceci pour gérer efficacement les projets\n\nNous attendons avec impatience votre candidature #gerneperdu Best Greetings, Kevin"
+    },
+    "slugByLocale": {
+      "it": "responsabile-di-progetto-elektrotechnik-automatisierung-80-100-holcim-group-wurenlingen",
+      "en": "projektleiter-in-elektrotechnik-automatisierung-80-100-holcim-group-wurenlingen",
+      "de": "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch",
+      "fr": "projektleiter-in-elektrotechnik-automatisierung-80-100-holcim-group-wurenlingen"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-09-02T23:18:16.152Z",
+    "previousSlugs": [
+      "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "projektleiter-in-elektrotechnik-amp-automatisierung-80-100-holcim-ch"
+      ]
+    },
+    "salaryMin": 99500,
+    "salaryMax": 151000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "direttore-del-progetto-salute-e-sicurezza-h-s-80-100-holcim-group-wurenlingen",
+    "title": "Health & Safety (H&S) Project Manager 80-100%",
+    "titleByLocale": {
+      "it": "Direttore del progetto Salute e sicurezza (H&S) 80-100%",
+      "en": "Health & Safety (H&S) Project Manager 80-100 %",
+      "de": "Health & Safety (H&S) Project Manager 80-100%",
+      "fr": "Gestionnaire de projet Santé et sécurité (S et S) 80-100%"
+    },
+    "company": "Holcim Group",
+    "companyKey": "holcim",
+    "location": "Würenlingen",
+    "addressLocality": "Würenlingen",
+    "descriptionByLocale": {
+      "it": "La sostenibilità ci guida. Anche tu?\n\nSe vuoi fare la differenza, hai ragione con noi.\n\nVuoi fare la differenza e rendere i nostri progetti da A a Z al sicuro? Allora sei a Holcim\nGiusto. Nel nostro team di MaP Engineering CEW sei per il coaching e il supporto\ni nostri project manager e appaltatori in Svizzera, Germania meridionale, Haut-Rhin e Italia\nResponsabile e contribuire attivamente alla vostra esperienza di sicurezza.\n\nSiamo alla ricerca di una personalità motivata e ad alte prestazioni che possa condividere le loro esperienze in ambito Health & Health\nSicurezza nel nostro reparto progetti. La sede principale del lavoro è Würenlingen AG.\n\nCosa aspettarsi:\n\n• Promuovi una cultura di sicurezza sostenibile a tutti i livelli del progetto (\"prima sicurezza\")\n\n• Accompagnate la pianificazione sicura e l'implementazione di grandi progetti nel rispetto di tutti\nStandard H&S nazionali e interni\n\n• Si consiglia la gestione del progetto, la gestione delle costruzioni e gli appaltatori in tutte le questioni di H&S\n\n• Sei per lo sviluppo, l'implementazione e il miglioramento continuo dei concetti H&S\nResponsabile dei grandi progetti\n\n• Sosteni l'esecuzione di valutazioni dei rischi, analisi dei rischi e\nIspezioni di sicurezza sui cantieri\n\n• Si organizzerà l'attuazione della formazione di sicurezza, formazione e workshop per\nDipendenti e appaltatori\n\n• Coordinate le risorse interne ed esterne nei loro incarichi nel progetto e\nMonitoraggio del cantiere\n\n• Si monitora sui siti di costruzione del progetto conformi alle linee guida H&S, legali\nNorme e norme H&S interne all'azienda\n\n• Supporti i project manager nella selezione e nella valutazione degli appaltatori per quanto riguarda i loro\nH&S Performance\n\n• In collaborazione con il progetto e i direttori di linea, si indaga sugli incidenti,\nIncidenti vicini e incidenti legati alla sicurezza e garantire un miglioramento continuo\n\n• Crea e mantieni la documentazione generica H&S, crea report e report\nFigure chiave (KPI)\n\nCosa porti:\n\n• Hai completato l'istruzione / studio per\nIngegnere di sicurezza o professionista della sicurezza\n\n• Porti esperienza nella gestione dei progetti nell'industria del cemento o simili\nambiente industriale con\n\n• Hai una conoscenza approfondita della gestione del progetto e l'esperienza ideale in ambito internazionale\no strutture di progetto cross-cluster\n\n• Hai una buona conoscenza del tedesco e dell'inglese in parola e scrittura (francese e inglese).\nL'italiano è benefico\n\n• Tu sei una personalità comunicativa, di squadra e orientata al cliente con un outspoken\nPassione per la salute e la sicurezza\n\nLa nostra offerta:\n\n• Onboarding & ottenere iniziato: Attendere con ansia un ambiente di lavoro orientato al team, aperto e orientato al futuro. Vi accompagniamo dall'inizio con un'attenta formazione, pratica e strutturata, in modo da poter iniziare con successo.\n\n• Carriera & Sviluppo: creiamo opportunità. Con noi, siete al centro come una persona con i vostri punti di forza e potenziale individuali. Chiunque voglia è supportato da noi e può raggiungere molto.\n\n• Apprezzamento & Team Culture: Con noi, fai parte di un team forte e inclusivo che tiene insieme, condivide idee e master insieme. Una cultura di leadership affidabile assicura che il vostro impegno sia visto e apprezzato.\n\n• Flessibilità & Work-Life-Balance: Offriamo ore di lavoro flessibili, 41 ore, opportunità part-time, 25-30 giorni vacanze, acquisto vacanza, prolungato congedo di maternità e paternità\n\n• Compensazione attraente: Offriamo ai nostri dipendenti un pacchetto di compensazione attraente con molti benefici aggiuntivi e un ottimo fondo pensione\n\n• Vantaggi dei dipendenti: dai controlli Reka alle azioni a un prezzo preferenziale al mondo del vantaggio Swibeco - ci assicuriamo che vi sentite a vostro agio e beneficiate di attraenti servizi aggiuntivi",
+      "en": "Sustainability drives us. You too?\n\nIf you want to make a difference, you are right with us.\n\nYou want to make a difference and make our projects from A to Z safe? Then you are at Holcim\nJust right. In our MaP Engineering CEW team you are for the coaching and support\nour project managers and contractors in Switzerland, Southern Germany, Haut-Rhin and Italy\nResponsible and actively contribute your safety expertise.\n\nWe are looking for a motivated and high-performance personality who can share their experiences around Health &\nSafety in our project department. The main place of work is Würenlingen AG.\n\nWhat to expect:\n\n• You promote a sustainable safety culture at all project levels (\"Safety First\")\n\n• You accompany the safe planning and implementation of large projects in compliance with all\nNational and internal H&S standards\n\n• You advise the project management, construction management and contractors in all matters of H&S\n\n• You are for the development, implementation and continuous improvement of H&S concepts\nResponsible for major projects\n\n• You support in carrying out hazard assessments, risk analyses and\nSafety inspections on construction sites\n\n• You will organize the implementation of safety training, training and workshops for\nEmployees and contractors\n\n• You coordinate the internal and external resources in their assignments in the project and\nConstruction site monitoring\n\n• You monitor on the project construction sites compliance with H&S guidelines, legal\nRegulations and company-internal H&S standards\n\n• You support the project managers in the selection and evaluation of contractors with regard to their\nH&S Performance\n\n• In cooperation with the project and line managers, you investigate accidents,\nNear accidents as well as safety-related incidents and ensure continuous improvement\n\n• You create and maintain the generic H&S documentation, create reports and report\nKey figures (KPIs)\n\nWhat you bring:\n\n• You have completed education/study to\nSafety engineer or safety professional\n\n• You bring experience in project management in the cement industry or a comparable\nindustrial environment with\n\n• You have in-depth knowledge of project management and ideally experience in international\nor cross-cluster project structures\n\n• You have very good knowledge of German and English in word and writing (French and English).\nItalian is beneficial\n\n• You are a communicative, team- and customer-oriented personality with an outspoken\nPassion for Health & Safety\n\nOur offer :\n\n• Onboarding & getting started: Look forward to a team-oriented, open and future-oriented working environment. We accompany you from the beginning with a careful training, practical and structured, so that you can start successfully.\n\n• Career & Development: We create opportunities. With us, you are at the center as a person with your individual strengths and potential. Anyone who wants to is supported by us and can achieve a lot.\n\n• Appreciation & Team Culture: With us, you are part of a strong and inclusive team that holds together, shares ideas and masters challenges together. A trusting leadership culture ensures that your commitment is seen and appreciated.\n\n• Flexibility & Work-Life-Balance: We offer flexible working hours, 41 hours, part-time opportunities, 25-30 days holidays, holiday purchase, extended maternity and paternity leave\n\n• Attractive compensation: We offer our employees an attractive compensation package with many additional benefits and a very good pension fund\n\n• Employee benefits: From Reka checks to shares at a preferential price to the Swibeco advantage world - we make sure that you feel comfortable and benefit from attractive additional services",
+      "de": "Nachhaltigkeit treibt uns an. Dich auch?\n\nWenn du etwas bewegen möchtest, bist du bei uns richtig.\n\nDu möchtest etwas bewegen und unsere Projekte von A bis Z sicher machen? Dann bist du bei Holcim\ngenau richtig. In unserem MaP Engineering CEW Team bist du für das Coaching und die Unterstützung\nunserer Projektleiter sowie Auftragnehmer in der Schweiz, Süddeutschland, Haut-Rhin und Italien\nverantwortlich und bringst deine sicherheitstechnischen Fachkenntnisse aktiv ein.\n\nWir suchen eine motivierte und umsetzungsstarke Persönlichkeit, die ihre Erfahrungen rund um Health &\nSafety in unserer Projektabteilung einbringt. Hauptarbeitsort ist Würenlingen AG.\n\nWas dich erwartet:\n\n• Du förderst auf allen Projektebenen eine nachhaltige Sicherheitskultur („Safety First“)\n\n• Du begleitest die sichere Planung und Umsetzung von Gross-Projekten unter Einhaltung aller\nNationalen und Konzerninternen H&S-Standards\n\n• Du berätst die Projektleitung, Bauleitung und Auftragnehmer in allen Fragen von H&S\n\n• Du bist für die Entwicklung, Implementierung und kontinuierliche Verbesserung von H&S-Konzepten\nfür Grossprojekte verantwortlich\n\n• Du unterstützt bei der Durchführung von Gefährdungsbeurteilungen, Risikoanalysen und\nSicherheitsbegehungen auf Baustellen\n\n• Du organisierst die Durchführung von Sicherheitsunterweisungen, Schulungen und Workshops für\nMitarbeitende und Fremdfirmen\n\n• Du koordinierst die internen und externen Ressourcen in ihren Einsätzen bei der Projekt- und\nBaustellenüberwachung\n\n• Du überwachst auf den Projekt-Baustellen die Einhaltung von H&S-Richtlinien, gesetzlichen\nVorschriften sowie unternehmensinternen H&S Standards\n\n• Du unterstützt die Projektleiter bei der Auswahl und Bewertung von Auftragnehmern hinsichtlich ihrer\nH&S Performance\n\n• In Zusammenarbeit mit den Projekt- und Linienverantwortlichen untersuchst Du Unfälle,\nBeinaheunfälle sowie sicherheitsrelevante Vorfälle und stellst die kontinuierliche Verbesserung sicher\n\n• Du erstellst und pflegst die generischen H&S-Dokumentationen, erstellst Berichte und rapportierst\nKennzahlen (KPIs)\n\nWas du mitbringst:\n\n• Du verfügst über eine abgeschlossene Ausbildung/ein abgeschlossenes Studium zum\nSicherheitsingenieur oder Sicherheitsfachmann\n\n• Du bringst Erfahrung im Projektmanagement in der Zementindustrie oder einem vergleichbaren\nindustriellen Umfeld mit\n\n• Du hast fundierte Kenntnisse im Projektmanagement und idealerweise Erfahrung in internationalen\noder clusterübergreifenden Projektstrukturen\n\n• Du verfügst über sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift (Französisch und\nItalienisch von Vorteil)\n\n• Du bist eine kommunikative, team- und kundenorientierte Persönlichkeit mit einer ausgesprochenen\nLeidenschaft für Health&Safety\n\nUnser Angebot :\n\n• Onboarding & Einstieg: Freue dich auf ein teamorientiertes, offenes und zukunftsorientiertes Arbeitsumfeld. Wir begleiten dich von Anfang an mit einer sorgfältigen Einarbeitung, praxisnah und strukturiert, damit du erfolgreich durchstarten kannst.\n\n• Karriere & Entwicklung: Wir schaffen Möglichkeiten. Bei uns stehst du als Person mit deinen individuellen Stärken und deinem Potenzial im Zentrum. Wer will, wird bei uns gefördert und kann viel erreichen.\n\n• Wertschätzung & Teamkultur: Bei uns bist du Teil eines starken und inklusiven Teams, das zusammenhält, Ideen teilt und Herausforderungen gemeinsam meistert. Eine vertrauensvolle Führungskultur sorgt dafür, dass dein Engagement gesehen und geschätzt wird.\n\n• Flexibiliät & Work-Life-Balance: Wir bieten flexible Arbeitszeitgestaltung, 41 Stundenwoche, Teilzeitmöglichkeiten, 25-30 Tage Ferien, Ferienkauf, verlängerter Mutter- und Vaterschaftsurlaub\n\n• Attraktive Vergütung: Wir bieten unseren MItarbeitenden ein attraktives Vergütungspaket mit vielen Zusatzleistungen und einer sehr guten Pensionskasse\n\n• Mitarbeitervorteile: Von Reka-Checks über Aktien zum Vorzugspreis bis hin zur Swibeco-Vorteilswelt - wir sorgen dafür, dass du dich rundum wohlfühlst und von attraktiven Zusatzleistungen profitierst",
+      "fr": "La durabilité nous motive. Toi aussi ?\n\nSi vous voulez faire une différence, vous avez raison avec nous.\n\nVous voulez faire une différence et rendre nos projets de A à Z sûrs ? Alors vous êtes à Holcim\nC'est juste. Dans notre équipe MaP Engineering AI vous êtes pour le coaching et le support\nnos chefs de projet et entrepreneurs en Suisse, Allemagne du Sud, Haut-Rhin et Italie\nFaites preuve de responsabilité et contribuez activement à votre expertise en matière de sécurité.\n\nNous recherchons une personnalité motivée et performante qui peut partager leurs expériences autour de Santé &\nLa sécurité dans notre département de projet. Le principal lieu de travail est Würenlingen AG.\n\nÀ quoi s'attendre :\n\n• Vous faites la promotion d'une culture de sécurité durable à tous les niveaux du projet (\"Safety First\")\n\n• Vous accompagnez la planification et la mise en œuvre sûres de grands projets conformément à tous\nNormes nationales et internes en matière de santé et de sécurité\n\n• Vous conseillez la gestion du projet, la gestion de la construction et les entrepreneurs dans toutes les questions de H & S\n\n• Vous êtes pour l'élaboration, la mise en oeuvre et l'amélioration continue des concepts de S et S\nResponsable des grands projets\n\n• Vous soutenez la réalisation d'évaluations des risques, d'analyses des risques et\nInspections de sécurité sur les chantiers de construction\n\n• Vous organiserez la mise en place de formations, de formations et d'ateliers sur la sécurité\nEmployés et entrepreneurs\n\n• Vous coordonnez les ressources internes et externes dans leurs missions dans le projet et\nSurveillance des chantiers de construction\n\n• Vous surveillez la conformité des chantiers de construction avec les lignes directrices en matière de santé et de sécurité\nRèglement et normes internes de l'entreprise en matière de santé et de sécurité\n\n• Vous aidez les gestionnaires de projet dans la sélection et l'évaluation des entrepreneurs\nRendement en matière de santé et de sécurité\n\n• En coopération avec le projet et les gestionnaires hiérarchiques, vous enquêtez sur les accidents,\nPrès des accidents ainsi que des incidents liés à la sécurité et assurer une amélioration continue\n\n• Vous créez et maintenez la documentation générique sur la santé et la sécurité, créez des rapports et des rapports\nChiffres clés\n\nCe que vous apportez:\n\n• Vous avez terminé vos études\nIngénieur de sécurité ou professionnel de la sécurité\n\n• Vous apportez de l'expérience en gestion de projet dans l'industrie du ciment ou une comparable\nenvironnement industriel avec\n\n• Vous avez une connaissance approfondie de la gestion de projet et idéalement de l'expérience internationale\nou des structures de projets à groupes multiples\n\n• Vous avez une très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture (français et anglais).\nL'italien est bénéfique\n\n• Vous êtes une personnalité communicative, axée sur l'équipe et le client, avec une voix franche\nPassion pour la santé et la sécurité\n\nNotre offre :\n\n• À bord et pour commencer : Prospectivez un environnement de travail axé sur l'équipe, ouvert et tourné vers l'avenir. Nous vous accompagnons dès le début avec une formation soignée, pratique et structurée, afin que vous puissiez commencer avec succès.\n\n• Carrière & Développement: Nous créons des opportunités. Avec nous, vous êtes au centre en tant que personne avec vos forces et votre potentiel individuels. Quiconque le veut est soutenu par nous et peut réaliser beaucoup.\n\n• Appréciation et culture d'équipe : Avec nous, vous faites partie d'une équipe forte et inclusive qui tient ensemble, partage des idées et maîtrise les défis. Une culture de leadership confiante garantit que votre engagement est vu et apprécié.\n\n• Flexibilité & Work-Life-Balance: Nous offrons des horaires flexibles, 41 heures, des possibilités à temps partiel, 25-30 jours de vacances, achat de vacances, congé de maternité et de paternité prolongé\n\n• Rémunération attractive: Nous offrons à nos employés une rémunération attractive avec de nombreux avantages supplémentaires et une très bonne caisse de retraite\n\n• Avantages sociaux: De Reka vérifie à des actions à un prix préférentiel au monde avantage Swibeco - nous nous assurons que vous vous sentez à l'aise et bénéficier de services supplémentaires attrayants"
+    },
+    "slugByLocale": {
+      "it": "direttore-del-progetto-salute-e-sicurezza-h-s-80-100-holcim-group-wurenlingen",
+      "en": "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch",
+      "de": "health-safety-h-s-projektmanager-80-100-holcim-group-wurenlingen",
+      "fr": "gestionnaire-de-projet-sante-et-securite-s-et-s-80-100-holcim-group-wurenlingen"
+    },
+    "sector": "Materiali da costruzione / Cemento",
+    "expiredAt": "2026-09-02T23:18:16.152Z",
+    "previousSlugs": [
+      "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+      ],
+      "it": [
+        "health-amp-safety-h-amp-s-project-manager-80-100-holcim-ch"
+      ]
+    },
+    "salaryMin": 85500,
+    "salaryMax": 129500,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   },

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "holcim",
-  "assembledAt": "2026-09-02T13:46:24.007Z",
+  "assembledAt": "2026-09-02T23:18:20.862Z",
   "jobs": [
     {
       "id": "holcim-e40022c902ad",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "camion-driver-in-holcim-group-oberdorf",
         "en": "truck-driver-in-holcim-group-oberdorf",
-        "de": "lastwagenfuhrer-in-holcim-ch",
+        "de": "lastwagenfuhrer-in-holcim-group-oberdorf",
         "fr": "conducteur-de-camion-en-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
@@ -33,7 +33,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:20.515Z",
+      "crawledAt": "2026-09-02T23:18:15.766Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -49,11 +49,12 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "lastwagenfuhrer-in-holcim-ch",
+        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "camion-driver-in-holcim-group-oberdorf"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "lastwagenfuhrer-in-holcim-group-oberdorf",
-          "lastwagenfuhrer-in-holcim-ch"
-        ],
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
           "lastwagenfuhrer-in-holcim-group-oberdorf",
@@ -62,15 +63,14 @@
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ],
+        "de": [
+          "lastwagenfuhrer-in-holcim-ch",
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
+        ],
         "fr": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ]
       },
-      "previousSlugs": [
-        "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "camion-driver-in-holcim-group-oberdorf"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:39.818Z",
       "salaryMin": 69500,
@@ -93,7 +93,7 @@
       "slugByLocale": {
         "it": "h-s-coordinatore-in-kies-beton-80-100-holcim-group-oberdorf",
         "en": "h-s-coordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-        "de": "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
+        "de": "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf",
         "fr": "coordonnateur-de-la-sante-et-de-la-securite-a-kies-beton-80-100-holcim-group-oberdorf"
       },
       "company": "Holcim Group",
@@ -118,7 +118,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Koordinatorin-ArbeitssicherheitGesundheitsschutz-Kies&Beton-80-100-NW-6370/1358872357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:20.055Z",
+      "crawledAt": "2026-09-02T23:18:15.273Z",
       "addressLocality": "Oberdorf",
       "addressRegion": "NW",
       "addressCountry": "CH",
@@ -134,26 +134,25 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Koordinatorin-ArbeitssicherheitGesundheitsschutz-Kies&Beton-80-100-NW-6370/1358872357/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
+        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-          "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-          "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
-        ],
         "it": [
           "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
           "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
         ],
         "en": [
           "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch"
+        ],
+        "de": [
+          "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
+          "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
+          "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "h-s-koordinator-in-kies-beton-80-100-holcim-group-oberdorf",
-        "h-amp-s-koordinator-in-kies-amp-beton-80-100-holcim-ch",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-amp-beton-80-100-holcim-ch",
-        "koordinator-in-arbeitssicherheit-gesundheitsschutz-kies-beton-80-100-holcim-group-oberdorf"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:40.260Z",
       "salaryMin": 69500,
@@ -176,7 +175,7 @@
       "slugByLocale": {
         "it": "allrounder-holcim-group-ingenbohl-brunnen",
         "en": "allrounder-in-holcim-ch",
-        "de": "allrounder-in-holcim-ch",
+        "de": "allrounder-in-holcim-group-ingenbohl-brunnen",
         "fr": "tout-autour-dans-holcim-group-ingenbohl-brunnen"
       },
       "company": "Holcim Group",
@@ -201,7 +200,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:19.592Z",
+      "crawledAt": "2026-09-02T23:18:14.799Z",
       "addressLocality": "Ingenbohl-Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -217,24 +216,24 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "allrounder-in-holcim-ch",
+        "allrounder-holcim-group-ingenbohl-brunnen",
+        "allrounder-in-holcim-group-ingenbohl-brunnen"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "allrounder-in-holcim-group-ingenbohl-brunnen",
-          "allrounder-in-holcim-ch"
-        ],
         "it": [
           "allrounder-in-holcim-ch",
           "allrounder-holcim-group-ingenbohl-brunnen"
+        ],
+        "de": [
+          "allrounder-in-holcim-ch",
+          "allrounder-in-holcim-group-ingenbohl-brunnen"
         ],
         "fr": [
           "allrounder-in-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "allrounder-in-holcim-ch",
-        "allrounder-in-holcim-group-ingenbohl-brunnen",
-        "allrounder-holcim-group-ingenbohl-brunnen"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:53.801Z",
       "salaryMin": 69500,
@@ -282,7 +281,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Athenaz-%28Avusy%29-M%C3%A9canicien%2C-Op%C3%A9rateur-d&apos;installation-de-traitement-Gene-1285/1370546057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:46:19.140Z",
+      "crawledAt": "2026-09-02T23:18:14.251Z",
       "addressLocality": "Athenaz (Avusy)",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -345,7 +344,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Niederstetten-Springerin-Disposition-und-Fahrmischer-Region-Nordost-St_-9249/1367725457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:18.680Z",
+      "crawledAt": "2026-09-02T23:18:13.764Z",
       "addressLocality": "Niederstetten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -397,7 +396,7 @@
       "slugByLocale": {
         "it": "chauffeur-in-ghiaia-cemento-e-riciclaggio-80-100-kirchberg-holcim-group-kirchberg",
         "en": "chauffeur-in-gravel-concrete-recycling-80-100-kirchberg-holcim-group-kirchberg",
-        "de": "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
+        "de": "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg",
         "fr": "chauffeur-en-gravier-beton-recyclage-80-100-kirchberg-holcim-group-kirchberg"
       },
       "company": "Holcim Group",
@@ -422,7 +421,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Kirchberg-Chauffeurin-Kies%2C-Beton-&-Recycling-80-100-Kirchberg-St_-9533/1369275457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:18.229Z",
+      "crawledAt": "2026-09-02T23:18:13.299Z",
       "addressLocality": "Kirchberg",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -438,24 +437,23 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Kirchberg-Chauffeurin-Kies%2C-Beton-&-Recycling-80-100-Kirchberg-St_-9533/1369275457/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg"
-        ],
         "it": [
           "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
         ],
         "en": [
           "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
         ],
+        "de": [
+          "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
+        ],
         "fr": [
           "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-in-kies-beton-amp-recycling-80-100-kirchberg-holcim-ch",
-        "chauffeur-in-kies-beton-recycling-80-100-kirchberg-holcim-group-kirchberg"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:41:41.606Z",
       "salaryMin": 57500,
@@ -503,7 +501,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Wil-Verkauf-und-Stoffstrommanager-Region-Nordost-St_-9500/1361727757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:17.773Z",
+      "crawledAt": "2026-09-02T23:18:12.836Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -582,7 +580,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Schichtfachmann-Schichtfachfrau-in-Siggenthal-AG-5303/1366828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:17.292Z",
+      "crawledAt": "2026-09-02T23:18:12.378Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -660,7 +658,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-GR-7204/1368625757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:16.846Z",
+      "crawledAt": "2026-09-02T23:18:11.905Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -754,7 +752,7 @@
       "title": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
       "titleByLocale": {
         "it": "Experte/Expertin in Automations- e Steuerungstechnik 80-100%",
-        "en": "Expert in Automation and Control Technology 80-100 %",
+        "en": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "de": "Experte/Expertin in Automations- und Steuerungstechnik 80-100%",
         "fr": "Expert en technologie d'automatisation et de contrôle 80-100 %"
       },
@@ -770,7 +768,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-ExperteExpertin-in-Automations-und-Steuerungstechnik-80-100-AG-5303/1367844357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:16.394Z",
+      "crawledAt": "2026-09-02T23:18:11.434Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -830,7 +828,7 @@
       "companyDomain": "holcim.com",
       "title": "Installateur·trice électricien·ne 80-100%",
       "titleByLocale": {
-        "it": "Installatore elettrico 80-100%",
+        "it": "Installateur·trice électricien·ne 80-100%",
         "en": "Electrical equipment 80-100%",
         "de": "Elektrische Ausrüstung 80-100%",
         "fr": "Installateur·trice électricien·ne 80-100%"
@@ -847,7 +845,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Installateur%C2%B7trice-%C3%A9lectricien%C2%B7ne-80-100-VD-1312/1351942457/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:46:15.927Z",
+      "crawledAt": "2026-09-02T23:18:10.967Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -864,6 +862,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-08T22:25:49.237Z",
+      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -917,7 +916,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenf%C3%BChrerin-im-Steinbruch-80-100-AG-5303/1366126257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:15.459Z",
+      "crawledAt": "2026-09-02T23:18:10.468Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1009,7 +1008,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-Elektrotechnik-&-Automatisierung-80-100-AG-5303/1354026357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:15.010Z",
+      "crawledAt": "2026-09-02T23:18:09.998Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1080,7 +1079,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Bi%C3%A8re-Machiniste-polyvalent-Bi%C3%A8re-VD-1145/1366311957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:46:14.528Z",
+      "crawledAt": "2026-09-02T23:18:09.526Z",
       "addressLocality": "Bière",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1113,6 +1112,7 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:55:02.432Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1142,7 +1142,7 @@
       "title": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
       "titleByLocale": {
         "it": "Operazioni Excellence Manager AGG 80-100%",
-        "en": "Specialist:in processing technology 80-100% (Operations Excellence Manager:in)",
+        "en": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "de": "Spezialist:in Aufbereitungstechnik 80-100% (Operations Excellence Manager:in)",
         "fr": "Gestionnaire d'excellence des opérations AGG 80-100%"
       },
@@ -1158,7 +1158,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Spezialistin-Aufbereitungstechnik-80-100-%28Operations-Excellence-Managerin%29-AG-5303/1357553857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:13.999Z",
+      "crawledAt": "2026-09-02T23:18:09.056Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1244,7 +1244,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Anlagen-und-Apparatebauerin-GR-7204/1364250357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:13.548Z",
+      "crawledAt": "2026-09-02T23:18:08.571Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1323,7 +1323,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-Automation-GR-7204/1369828857/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:13.080Z",
+      "crawledAt": "2026-09-02T23:18:08.088Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1402,7 +1402,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Projektleiterin-80-100-AG-5303/1363974657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:12.629Z",
+      "crawledAt": "2026-09-02T23:18:07.615Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1480,7 +1480,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Technikerin-HF-im-Bereich-Elektrotechnik-oder-Systemtechnik-GR-7204/1327558657/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:12.171Z",
+      "crawledAt": "2026-09-02T23:18:07.136Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1558,7 +1558,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Stellvertretender-Leiterin-elektrische-Instandhaltung-GR-7204/1369947757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:11.702Z",
+      "crawledAt": "2026-09-02T23:18:06.640Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -1637,7 +1637,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Ecl%C3%A9pens-Responsable-Exploitation-%C3%89lectrique-%28BPEL-ou-IFCF%29-VD-1312/1354182257/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:46:11.238Z",
+      "crawledAt": "2026-09-02T23:18:06.169Z",
       "addressLocality": "Eclépens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1710,7 +1710,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/M%C3%BClligen-Lastwagenf%C3%BChrerin-AG-5243/1369761557/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:10.787Z",
+      "crawledAt": "2026-09-02T23:18:05.682Z",
       "addressLocality": "Mülligen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1795,7 +1795,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Praktikantin-People-Department-AG-5303/1369052157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:10.337Z",
+      "crawledAt": "2026-09-02T23:18:05.205Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1871,7 +1871,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Manno-Autista-di-autobetoniera-a-chiamata-TI-6928/1370811157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T13:46:09.873Z",
+      "crawledAt": "2026-09-02T23:18:04.725Z",
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1934,7 +1934,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Baumaschinenmechanikerin-AG-5303/1365325057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:09.399Z",
+      "crawledAt": "2026-09-02T23:18:04.201Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1999,7 +1999,7 @@
       "title": "Health & Safety (H&S) Project Manager 80-100%",
       "titleByLocale": {
         "it": "Direttore del progetto Salute e sicurezza (H&S) 80-100%",
-        "en": "Health & Safety (H&S) Project Manager 80-100 %",
+        "en": "Health & Safety (H&S) Project Manager 80-100%",
         "de": "Health & Safety (H&S) Project Manager 80-100%",
         "fr": "Gestionnaire de projet Santé et sécurité (S et S) 80-100%"
       },
@@ -2015,7 +2015,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/W%C3%BCrenlingen-Health-&-Safety-%28H&S%29-Project-Manager-80-100-AG-5303/1361727957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:08.945Z",
+      "crawledAt": "2026-09-02T23:18:03.729Z",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2089,7 +2089,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Schaffhausen-Lastwagenf%C3%BChrerin-Beton-Shaf-8207/1364150157/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:08.485Z",
+      "crawledAt": "2026-09-02T23:18:03.266Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -2170,7 +2170,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Untervaz-Betriebselektrikerin-GR-7204/1369246957/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:08.025Z",
+      "crawledAt": "2026-09-02T23:18:02.788Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2243,7 +2243,7 @@
       "url": "https://careers.holcimgroup.com/holcim_switzerland/job/Luzern-Disponentin-6074/1369717057/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:46:07.554Z",
+      "crawledAt": "2026-09-02T23:18:02.325Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2330,7 +2330,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-International-Mobility-Manager-6300/1367556757/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:46:07.072Z",
+      "crawledAt": "2026-09-02T23:18:01.849Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2406,7 +2406,7 @@
       "url": "https://careers.holcimgroup.com/job/Zug-Global-Head-of-Specification-Selling-6300/1367627357/",
       "source": "Holcim Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T13:46:06.610Z",
+      "crawledAt": "2026-09-02T23:18:01.377Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2536,7 +2536,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
