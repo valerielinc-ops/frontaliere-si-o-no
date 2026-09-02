@@ -5191,6 +5191,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Schaffhausen transport subscriptions: zones and rates',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Complete guide to public transport subscriptions in the canton of Schaffhausen: fare community, monthly and annual subscriptions, half-price, GA and student discounts.',
     'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Swiss railway station with zone tariff signage and pass information displays',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.title': 'Wages and labour market in Schaffhausen',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.excerpt': 'Swiss wage structure for training levels, collective agreements, social security system (AVS/LPP) and cantonal minimum wage. A practical guide to verifying your salary.',
+    'blog.article.salari-mercato-lavoro-sciaffusa-settori.imageAlt': 'Modern Swiss workplace with salary documents, calculator and Alpine landscape view from office window',
 };
 
 export default blogMetaChEn;

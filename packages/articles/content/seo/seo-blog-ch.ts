@@ -67373,6 +67373,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-sciaffusa-settori': {
+    title: 'Salari e mercato del lavoro a Sciaffusa | Frontaliere Ticino',
+    description: 'Struttura salariale svizzera per livelli di formazione, contributi previdenziali (AVS/LPP), fiscalità e contratti collettivi. Guida pratica al mercato',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, sciaffusa',
+    ogTitle: 'Salari e mercato del lavoro a Sciaffusa | Frontaliere Ticino',
+    ogDescription: 'Come funziona il mercato del lavoro svizzero: differenziali salariali per formazione, sistema previdenziale (AVS/LPP), contratti collettivi, salario minimo cantonale. Verifiche pratiche e calcolatore stipendi.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-sciaffusa-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro a Sciaffusa",
+      "description": "Struttura salariale svizzera per livelli di formazione, contributi previdenziali (AVS/LPP), fiscalità e contratti collettivi. Guida pratica al mercato",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-sciaffusa-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro svizzero con documenti di stipendio, calcolatore e vista sulle Alpi da ufficio moderno"
+      },
+      "datePublished": "2026-09-02T18:39:40+00:00",
+      "dateModified": "2026-09-02T18:39:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-sciaffusa-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
