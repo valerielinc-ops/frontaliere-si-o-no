@@ -47,53 +47,26 @@ function findUniqueStep(steps: any[], name: string) {
   return { index, step: steps[index] };
 }
 
-function projectStrictShadowAdditions(currentDocument: any, baseDocument: any, sourceDocument: any) {
-  const projected = cloneDocument(currentDocument);
-  expect(projected.concurrency).toEqual({
+function expectCurrentShadowContract(currentDocument: any, baseDocument: any, sourceDocument: any) {
+  expect(currentDocument).toEqual(baseDocument);
+  expect(currentDocument.concurrency).toEqual({
     group: 'jobs-data-pipeline',
     'cancel-in-progress': false,
     queue: 'max',
   });
-  projected.concurrency = cloneDocument(baseDocument.concurrency);
 
-  const currentSteps = projected.jobs.translate.steps;
-  const baseSteps = baseDocument.jobs.translate.steps;
+  const currentSteps = currentDocument.jobs.translate.steps;
   const sourceSteps = sourceDocument.jobs.translate.steps;
-  const baseNameCounts = new Map<string, number>();
-  for (const step of baseSteps) {
-    baseNameCounts.set(step.name, (baseNameCounts.get(step.name) ?? 0) + 1);
-  }
-  const addedStepNames = [];
-  for (const step of currentSteps) {
-    const remaining = baseNameCounts.get(step.name) ?? 0;
-    if (remaining > 0) baseNameCounts.set(step.name, remaining - 1);
-    else addedStepNames.push(step.name);
-  }
-  expect(addedStepNames).toEqual([shadowFinalizeName, shadowUploadName]);
-
   const cascadeName = 'Phase 2b: Translate pending jobs (cascade top-up)';
   const currentCascade = findUniqueStep(currentSteps, cascadeName).step;
-  const baseCascade = findUniqueStep(baseSteps, cascadeName).step;
   const sourceCascade = findUniqueStep(sourceSteps, cascadeName).step;
-  expect(Object.keys(currentCascade).sort()).toEqual([...Object.keys(baseCascade), 'id'].sort());
-  const { id: cascadeId, run: cascadeRun, ...currentCascadeRest } = currentCascade;
-  const currentCascadeLegacy = cloneDocument(currentCascadeRest);
-  const { run: baseCascadeRun, ...baseCascadeLegacy } = baseCascade;
-  expect(cascadeId).toBe('translation_shadow_preflight_v2_decision');
-  expect(typeof cascadeRun).toBe('string');
-  expect(sha256(cascadeRun)).toBe(expectedShadowHashes.cascadeRun);
+  expect(currentCascade.id).toBe('translation_shadow_preflight_v2_decision');
+  expect(typeof currentCascade.run).toBe('string');
+  expect(sha256(currentCascade.run)).toBe(expectedShadowHashes.cascadeRun);
   expect(Object.fromEntries(Object.keys(shadowCascadeEnv).map((key) => [
     key, currentCascade.env[key],
   ]))).toEqual(shadowCascadeEnv);
-  for (const key of Object.keys(shadowCascadeEnv)) {
-    expect(baseCascade.env).not.toHaveProperty(key);
-    delete currentCascadeLegacy.env[key];
-  }
-  expect(currentCascadeLegacy).toEqual(baseCascadeLegacy);
   expect(currentCascade).toEqual(sourceCascade);
-  delete currentCascade.id;
-  currentCascade.run = baseCascadeRun;
-  for (const key of Object.keys(shadowCascadeEnv)) delete currentCascade.env[key];
 
   const finalize = findUniqueStep(currentSteps, shadowFinalizeName);
   const upload = findUniqueStep(currentSteps, shadowUploadName);
@@ -123,24 +96,12 @@ function projectStrictShadowAdditions(currentDocument: any, baseDocument: any, s
   expect(sha256(JSON.stringify(finalize.step))).toBe(expectedShadowHashes.finalize);
   expect(sha256(JSON.stringify(upload.step))).toBe(expectedShadowHashes.upload);
   expect(upload.step.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
-  currentSteps.splice(upload.index, 1);
-  currentSteps.splice(finalize.index, 1);
-
-  const currentLegacyUpload = findUniqueStep(currentSteps, 'Upload translation observability report').step;
-  const baseLegacyUpload = findUniqueStep(baseSteps, 'Upload translation observability report').step;
-  expect(currentLegacyUpload.uses).toBe(`actions/upload-artifact@${uploadArtifactV7Sha}`);
-  expect(baseLegacyUpload.uses).toBe('actions/upload-artifact@v7');
-  currentLegacyUpload.uses = baseLegacyUpload.uses;
-  return projected;
-}
-
-function expectStrictLegacyParity(currentDocument: any, baseDocument: any, sourceDocument: any) {
-  expect(projectStrictShadowAdditions(currentDocument, baseDocument, sourceDocument))
-    .toEqual(baseDocument);
+  expect(findUniqueStep(currentSteps, 'Upload translation observability report').step)
+    .toEqual(findUniqueStep(sourceSteps, 'Upload translation observability report').step);
 }
 
 describe('crawler generation PR B workflow wiring', () => {
-  it('keeps the legacy dispatch unchanged while queuing only portable translation runs', () => {
+  it('keeps the current portable translation baseline and every generation group token/ref/hash-bound', () => {
     const base = execFileSync('git', ['show', `origin/main:${orchestratorPath}`], { encoding: 'utf8' });
     const current = fs.readFileSync(orchestratorPath, 'utf8');
     expect(translateStep(current)).toEqual(translateStep(base));
@@ -158,10 +119,10 @@ describe('crawler generation PR B workflow wiring', () => {
       '.github/workflows/translate-pending-logic.yml',
       'utf8',
     ));
-    expectStrictLegacyParity(portableCurrent, portableBase, sourceTranslate);
-    const legacyMutation = cloneDocument(portableCurrent);
-    legacyMutation.jobs.translate['timeout-minutes'] += 1;
-    expect(() => expectStrictLegacyParity(legacyMutation, portableBase, sourceTranslate))
+    expectCurrentShadowContract(portableCurrent, portableBase, sourceTranslate);
+    const baselineMutation = cloneDocument(portableCurrent);
+    baselineMutation.jobs.translate['timeout-minutes'] += 1;
+    expect(() => expectCurrentShadowContract(baselineMutation, portableBase, sourceTranslate))
       .toThrowError();
     const currentTriggerDeploy = portableCurrent.jobs.translate.steps
       .find((step: any) => step.name === 'Trigger deploy');
@@ -170,31 +131,54 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(currentTriggerDeploy).toBeDefined();
     expect(sourceTriggerDeploy).toBeDefined();
     expect(currentTriggerDeploy).toEqual(sourceTriggerDeploy);
+    const contract = JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'));
     for (const group of GROUP_IDS) {
-      const crawler = YAML.parse(fs.readFileSync(
-        `.github/corpus-workflows/crawler-group-${group}.yml`,
-        'utf8',
-      ));
+      const workflowPath = `.github/corpus-workflows/crawler-group-${group}.yml`;
+      const workflowSource = fs.readFileSync(workflowPath, 'utf8');
+      const crawler = YAML.parse(workflowSource);
+      expect(crawler).toEqual(YAML.parse(execFileSync(
+        'git', ['show', `origin/main:${workflowPath}`], { encoding: 'utf8' },
+      )));
       expect(crawler.concurrency).toEqual({
         group: `jobs-crawler-group-${group}`,
         'cancel-in-progress': false,
       });
+      expect(crawler['run-name']).toBe(`crawler-generation-${'${{ inputs.generation_token }}'}-group-${group}`);
+      expect(crawler.on.workflow_dispatch.inputs.generation_token)
+        .toMatchObject({ required: false, default: '', type: 'string' });
+      const job = Object.values(crawler.jobs)[0] as any;
+      expect(job.env.CRAWLER_GENERATION_TOKEN).toBe('${{ inputs.generation_token }}');
+      const siteCheckouts = job.steps.filter((step: any) => step.with?.repository === 'valerielinc-ops/frontaliere-si-o-no');
+      expect(siteCheckouts).toHaveLength(2);
+      expect(siteCheckouts.every((step: any) => step.with.ref === "${{ inputs.site_code_commit || 'main' }}"))
+        .toBe(true);
+      const artifact = contract.artifacts.find((entry: any) => entry.file === `crawler-group-${group}.yml`);
+      expect(artifact?.artifactSha256).toBe(sha256(workflowSource));
+      expect(artifact?.sourceSha256).toBe(sha256(fs.readFileSync(
+        `.github/workflows/${artifact.sourceLogic}`,
+        'utf8',
+      )));
     }
-    expect(JSON.parse(fs.readFileSync('.github/corpus-workflows/contract.json', 'utf8'))
-      .crawlerGeneration.dispatchesTranslation).toBe(false);
+    expect(contract.crawlerGeneration).toMatchObject({ mode: 'shadow', dispatchesTranslation: false });
   });
 
   it('wires checkpointed generation dispatch and an always-run sentinel without return_run_details', () => {
     const source = fs.readFileSync(orchestratorPath, 'utf8');
     const parsed = YAML.parse(source);
     const steps = parsed.jobs.dispatch.steps;
+    const preflight = steps.find((step: any) => step.name === 'Preflight crawler generation shadow transport');
     const dispatch = steps.find((step: any) => step.name === 'Dispatch crawler generation wave');
     const sentinel = steps.find((step: any) => step.name === 'Dispatch crawler generation sentinel');
     const cleanup = steps.find((step: any) => step.name === 'Cleanup accepted crawler generation ref');
+    const failureReporter = steps.find((step: any) => step.name === 'Report failure to GitHub Issues');
+    expect(preflight).not.toHaveProperty('continue-on-error');
     expect(dispatch.id).toBe('generation_wave');
+    expect(dispatch.if).toBe("steps.generation_preflight.outputs.ready == 'true'");
     expect(dispatch.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-groups');
     expect(dispatch.run).toContain('--corpus-code-commit "$CORPUS_CODE_COMMIT"');
     expect(dispatch.env.CORPUS_CODE_COMMIT).toContain('steps.generation_preflight.outputs.corpus_commit');
+    expect(dispatch.env.CORPUS_CODE_COMMIT).not.toContain('unavailable');
+    expect(dispatch.env.SHADOW_READY).toBe('${{ steps.generation_preflight.outputs.ready }}');
     expect(sentinel.if).toBe('always()');
     expect(sentinel.id).toBe('generation_sentinel');
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
@@ -206,6 +190,9 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(cleanup.run).toContain('scripts/crawler-generation-dispatch.mjs cleanup-ref');
     expect(cleanup.env).not.toHaveProperty('GITHUB_PAT_NANAKO');
     expect(JSON.stringify(cleanup)).not.toContain('secrets.GITHUB_PAT_NANAKO');
+    expect(failureReporter.if).toBe('failure()');
+    expect(failureReporter.run).toContain('scripts/lib/github-issue-creator.mjs');
+    expect(failureReporter.run).toContain('--title "Workflow Failure: ${{ github.workflow }}"');
     expect(source).not.toContain('return_run_details');
     const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
