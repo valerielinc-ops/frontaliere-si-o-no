@@ -11132,6 +11132,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.besnate-lavorare-ticino-frontaliere.title': 'Vivre à Besnate et travailler au Tessin : en tant que frontalière',
     'blog.article.besnate-lavorare-ticino-frontaliere.excerpt': 'Comment fonctionne la fiscalité, les droits et l\'organisation pratique pour ceux qui vivent à Besnate et travaillent au Tessin en tant que frontalier.',
     'blog.article.besnate-lavorare-ticino-frontaliere.imageAlt': 'Paysage frontalier nord du Tessin au coucher du soleil, avec collines alpines et vallées italiennes en arrière-plan.',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.title': 'Vivre à Varano Borghi, travailler au Tessin : guide frontalier',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.excerpt': 'Permis G, fiscalité et procédure pour les frontaliers qui vivent à Varano Borghi et travaillent dans le canton du Tessin.',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.imageAlt': 'Vue du passage frontalier de Brogeda entre la Suisse et l\'Italie avec paysage alpin.',
 };
 
 export default blogMetaFr;

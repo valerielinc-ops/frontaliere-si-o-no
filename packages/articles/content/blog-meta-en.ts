@@ -11130,6 +11130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.besnate-lavorare-ticino-frontaliere.title': 'Living in Besnate and working in Ticino: as a border worker',
     'blog.article.besnate-lavorare-ticino-frontaliere.excerpt': 'How taxation, rights and practical organisation work for those who live in Besnate and work in Ticino as border workers.',
     'blog.article.besnate-lavorare-ticino-frontaliere.imageAlt': 'Northern Ticino border landscape at sunset, with Alpine hills and Italian valleys in the distance.',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.title': 'Living in Varano Borghi, working in Ticino: border guide',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.excerpt': 'Permit G, taxation and procedure for border workers living in Varano Borghi and working in the Canton of Ticino.',
+    'blog.article.vivere-varano-borghi-lavorare-ticino.imageAlt': 'View of Brogeda border crossing between Switzerland and Italy with Alpine landscape.',
 };
 
 export default blogMetaEn;
