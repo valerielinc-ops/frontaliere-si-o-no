@@ -67490,6 +67490,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-usa-seco-svizzera-2026': {
+    title: 'Nuovi dazi USA su beni svizzeri: cosa cambia dal 2026',
+    description: 'Dal 24 luglio 2026, dazi USA fino al 12,5% sui beni svizzeri. Scopri le implicazioni per l\'export e il ruolo della SECO nell\'ottimizzazione degli accordi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovi, dazi, beni, svizzeri',
+    ogTitle: 'Nuovi dazi USA sui beni svizzeri: guida SECO 2026',
+    ogDescription: 'Dal 24 luglio 2026, gli Stati Uniti hanno introdotto dazi aggiuntivi fino al 12,5% sui prodotti elvetici. La SECO guida le imprese nella gestione dei costi e delle nuove norme commerciali dopo l\'accordo del 20 agosto 2026.',
+    canonicalPath: '/articoli-svizzera/dazi-usa-seco-svizzera-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovi dazi USA su beni svizzeri: cosa cambia dal 2026",
+      "description": "Dal 24 luglio 2026, dazi USA fino al 12,5% sui beni svizzeri. Scopri le implicazioni per l'export e il ruolo della SECO nell'ottimizzazione degli accordi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-usa-seco-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici della SECO in Svizzera"
+      },
+      "datePublished": "2026-09-02T20:36:08+00:00",
+      "dateModified": "2026-09-02T20:36:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-usa-seco-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

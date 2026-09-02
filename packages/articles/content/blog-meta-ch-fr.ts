@@ -5200,6 +5200,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consultazione-politica-agricola-2030.title': 'Consultation ouverte par le Département fédéral',
     'blog.article.consultazione-politica-agricola-2030.excerpt': 'Le Conseil fédéral a proposé une série d\'adaptations législatives pour la politique agricole 2030+.',
     'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Les agriculteurs suisses discutent des nouvelles réglementations agricoles dans un champ de blé.',
+    'blog.article.dazi-usa-seco-svizzera-2026.title': 'Nouveaux droits de douane USA sur les marchandises suisses : ce qui change',
+    'blog.article.dazi-usa-seco-svizzera-2026.excerpt': 'À compter du 24 juillet 2026, les États-Unis appliquent des droits variables allant jusqu\'à 12,5 % sur les biens suisses. Le SECO surveille les implications pour les entreprises.',
+    'blog.article.dazi-usa-seco-svizzera-2026.imageAlt': 'Bureaux du SECO en Suisse',
 };
 
 export default blogMetaChFr;
