@@ -82946,6 +82946,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-giacomo-filippo-grigioni-frontaliere': {
+    title: 'Frontaliere san giacomo filippo-grigioni: guida 2024',
+    description: 'Guida completa per frontalieri Italia-Grigioni: permesso G, franchigia €10.000, AVS/LPP, LAMal, dichiarazione 730, ristorni e procedure amministrative 2024.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giacomo, filippo-grigioni, vivere, filippo',
+    ogTitle: 'Frontaliere San Giacomo Filippo-Grigioni: guida 2024',
+    ogDescription: 'Scopri come vivere in Lombardia e lavorare nei Grigioni svizzeri: permesso G, sistema fiscale Italia-Svizzera, franchigia 2024 (€10.000 nuovi frontalieri), AVS/LPP, LAMal, diritti e procedura iscrizione per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/san-giacomo-filippo-grigioni-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere san giacomo filippo-grigioni: guida 2024",
+      "description": "Guida completa per frontalieri Italia-Grigioni: permesso G, franchigia €10.000, AVS/LPP, LAMal, dichiarazione 730, ristorni e procedure amministrative 2024.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/san-giacomo-filippo-grigioni-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano alpino tra Italia e Grigioni: prati verdi e vette innevate al confine svizzero, alba"
+      },
+      "datePublished": "2026-09-02T20:51:55+00:00",
+      "dateModified": "2026-09-02T20:51:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-giacomo-filippo-grigioni-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
