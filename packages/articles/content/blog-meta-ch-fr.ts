@@ -5170,6 +5170,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis supprime 130 emplois à Bâle',
     'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis annonce la suppression de jusqu\'à 130 emplois à Bâle d\'ici fin 2027. Motif : transfert des activités au Novartis Campus et expiration des contrats.',
     'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Campus moderne de production et de recherche d\'une entreprise pharmaceutique suisse avec architecture contemporaine',
+    'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprentissage dans le canton de Zurich : guide pratique',
+    'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Comment trouver un poste d\'apprentissage, comprendre le contrat d\'apprentissage, les rémunérations et la maturité professionnelle dans le canton de Zurich.',
+    'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Salle de formation professionnelle suisse avec apprentis travaillant à des postes d\'apprentissage',
 };
 
 export default blogMetaChFr;

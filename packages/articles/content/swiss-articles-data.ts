@@ -15508,6 +15508,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'formazione-professionale-tirocinio-zurigo',
+    category: 'pratico',
+    date: '2026-09-02T15:25:49.238Z',
+    image: '/images/blog/formazione-professionale-tirocinio-zurigo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

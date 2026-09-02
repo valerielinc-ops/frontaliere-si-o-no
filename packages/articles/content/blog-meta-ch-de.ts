@@ -5170,6 +5170,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis streicht 130 Stellen in Basel',
     'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis kündigt den Abbau von bis zu 130 Arbeitsplätzen in Basel bis Ende 2027 an. Grund: Übertragung von Vermögenswerten auf den Novartis Campus und Ablauf von Verträgen.',
     'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Modernes Produktions- und Forschungscampus eines Schweizer Pharmaunternehmens mit zeitgenössischer Architektur',
+    'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Lehre im Kanton Zürich: Praxisleitfaden',
+    'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Wie man eine Lehrstelle findet, den Lehrvertrag, die Löhne und die Berufsmaturität im Kanton Zürich versteht.',
+    'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Schweizer Berufsausbildungsklassenzimmer mit Lehrlingen an Trainingsarbeitsplätzen',
 };
 
 export default blogMetaChDe;
