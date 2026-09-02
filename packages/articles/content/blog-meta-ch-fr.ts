@@ -5197,6 +5197,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-argovia-registro-commercio.title': 'Ouvrir une entreprise en Argovie : registre du commerce et des coûts',
     'blog.article.aprire-attivita-argovia-registro-commercio.excerpt': 'Formes juridiques, immatriculation au registre du commerce, capital minimum, taxes et obligations fiscales dans le canton d\'Argovie : guide opérationnel.',
     'blog.article.aprire-attivita-argovia-registro-commercio.imageAlt': 'Entrée d\'un bureau administratif cantonal suisse pour le registre du commerce',
+    'blog.article.consultazione-politica-agricola-2030.title': 'Consultation ouverte par le Département fédéral',
+    'blog.article.consultazione-politica-agricola-2030.excerpt': 'Le Conseil fédéral a proposé une série d\'adaptations législatives pour la politique agricole 2030+.',
+    'blog.article.consultazione-politica-agricola-2030.imageAlt': 'Les agriculteurs suisses discutent des nouvelles réglementations agricoles dans un champ de blé.',
 };
 
 export default blogMetaChFr;
