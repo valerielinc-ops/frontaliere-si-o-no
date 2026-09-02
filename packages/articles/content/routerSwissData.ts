@@ -1749,6 +1749,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'svizzera-perde-attrattiva-multinazionali': { it: 'svizzera-perde-attrattiva-multinazionali', en: 'switzerland-loses-appeal-multinationals', de: 'schweiz-verliert-attraktivitaet-multinationalkonzerne', fr: 'suisse-perd-attractivite-multinationales' },
  'pa30-autonomia-agricoltori': { it: 'pa30-autonomia-agricoltori', en: 'pa30-farmer-autonomy', de: 'pa30-baeuerliche-autonomie', fr: 'pa30-autonomie-agriculteurs' },
  'novartis-130-ristrutturazione-basilea': { it: 'novartis-130-ristrutturazione-basilea', en: 'novartis-130-restructuring-basel', de: 'novartis-130-umstrukturierung-basel', fr: 'novartis-130-restructuration-bale' },
+ 'formazione-professionale-tirocinio-zurigo': { it: 'formazione-professionale-tirocinio-zurigo', en: 'vocational-training-apprenticeship-zurich', de: 'berufsausbildung-lehrling-zurich', fr: 'formation-professionnelle-apprentissage-zurich' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5170,6 +5170,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis taglia 130 posti di lavoro a Basilea',
     'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis annuncia il taglio di fino a 130 posti di lavoro a Basilea entro fine 2027. Motivo: trasferimento attività al Novartis Campus e scadenza contratti.',
     'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Campus di produzione e ricerca di un\'azienda farmaceutica svizzera con architettura moderna',
+    'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprendistato nel Canton Zurigo: guida pratica',
+    'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Come trovare un posto di tirocinio, comprendere il contratto di apprendista, le retribuzioni e la maturità professionale nel Canton Zurigo.',
+    'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Aula di formazione professionale svizzera con apprendisti al lavoro su postazioni didattiche',
 };
 
 export default blogMetaChIt;

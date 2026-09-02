@@ -5170,6 +5170,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-130-ristrutturazione-basilea.title': 'Novartis cuts 130 jobs in Basel',
     'blog.article.novartis-130-ristrutturazione-basilea.excerpt': 'Novartis announces the cut of up to 130 jobs in Basel by the end of 2027. Reason: transfer of activities to Novartis Campus and expiration of contracts.',
     'blog.article.novartis-130-ristrutturazione-basilea.imageAlt': 'Modern pharmaceutical production and research campus in Switzerland with contemporary architecture',
+    'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprenticeship in the Canton of Zurich: a practical guide',
+    'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'How to find an internship, understand the apprenticeship contract, salaries and professional maturity in the Canton of Zurich.',
+    'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Swiss vocational training classroom with apprentices working at professional workstations',
 };
 
 export default blogMetaChEn;
