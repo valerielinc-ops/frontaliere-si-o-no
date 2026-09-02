@@ -170,6 +170,18 @@ describe('CSC authoritative Drupal discovery', () => {
     expect(parseCscPrimaryJobDetail(unclosedShell)).toBeNull();
   });
 
+  it('accepts a legitimately long primary article whose raw markup exceeds the extractBalancedTagBlock scan cap', () => {
+    // Padding well past the old 50,000-char scan cap (#7067) with nested,
+    // depth-balanced <span> markup so a naive close-tag scan would still
+    // find a </article> inside the window — the real regression was the
+    // fail-closed reject, not a missing close tag.
+    const padding = '<span>Descrizione dettagliata del cantiere e dei requisiti richiesti. </span>'.repeat(1000);
+    const longShell = `<!doctype html><html><body><main><article data-history-node-id="401" class="node node--type-work-position"><h1>Operaio edile</h1><p>${padding}</p></article></main></body></html>`;
+    expect(padding.length).toBeGreaterThan(50000);
+    const detail = parseCscPrimaryJobDetail(longShell);
+    expect(detail).toEqual({ identity: 'drupal-node:401', nodeId: '401', hasJobPosting: false });
+  });
+
   it('fails closed when two Drupal routes expose the same semantic vacancy', async () => {
     const [first, alias] = fixture.details;
     const identitylessHtml = first.html.replace(/ data-history-node-id="301"/, '');
