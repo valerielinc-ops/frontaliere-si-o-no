@@ -5104,6 +5104,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Permesso dimora B Argovia: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permesso B è la dimora rinnovabile in Svizzera. Procedura federale SEM, competenza ufficio cantonale. Guida completa a requisiti, rinnovo e scadenze.',
     'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Ufficio dell\'amministrazione cantonale dell\'Argovia con documenti relativi ai permessi di residenza svizzeri',
+    'blog.article.malattie-rare-cure-efficaci-2027.title': 'Malattie rare: il Consiglio federale punta a cure più efficaci',
+    'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'Il Consiglio federale ha deciso di migliorare l’assistenza sanitaria per le persone con malattie rare, creando strutture specializzate e un registro nazionale.',
+    'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Svizzera',
 };
 
 export default blogMetaChIt;

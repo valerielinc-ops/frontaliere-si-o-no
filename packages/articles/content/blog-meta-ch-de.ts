@@ -5104,6 +5104,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-argovia-requisiti.title': 'Aufenthaltsbewilligung B Aargau: Voraussetzungen und Erneuerung',
     'blog.article.permesso-dimora-b-argovia-requisiti.excerpt': 'Permit B ist der erneuerbare Wohnsitz in der Schweiz. Bundesverfahren sem, Zuständigkeit kantonales Amt. Vollständiger Leitfaden zu Anforderungen, Erneuerung und Fristen.',
     'blog.article.permesso-dimora-b-argovia-requisiti.imageAlt': 'Kantonales Migrationsamt Aargau mit Schweizer Aufenthaltserlaubnisdokumenten',
+    'blog.article.malattie-rare-cure-efficaci-2027.title': 'Seltene Krankheiten: Bundesrat setzt auf wirksamere Behandlungen',
+    'blog.article.malattie-rare-cure-efficaci-2027.excerpt': 'Der Bundesrat hat beschlossen, die Gesundheitsversorgung für Menschen mit seltenen Krankheiten durch die Schaffung spezialisierter Strukturen und eines nationalen Registers zu verbessern.',
+    'blog.article.malattie-rare-cure-efficaci-2027.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz',
 };
 
 export default blogMetaChDe;

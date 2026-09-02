@@ -66242,6 +66242,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-malattie-rare-cure-efficaci-2027': {
+    title: 'Malattie rare: il Consiglio federale punta a cure più efficaci',
+    description: 'Il Consiglio federale ha deciso di migliorare l’assistenza sanitaria per le persone con malattie rare, creando strutture specializzate e un registro nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, malattie, rare, consiglio, federale',
+    ogTitle: 'Malattie rare: il Consiglio federale punta a cure più efficaci e continue nel tempo',
+    ogDescription: 'Il Consiglio federale ha deciso di migliorare l’assistenza sanitaria per le persone con malattie rare, creando strutture specializzate e un registro nazionale. Scopri di più sulle novità e le implicazioni pratiche.',
+    canonicalPath: '/articoli-svizzera/malattie-rare-cure-efficaci-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Malattie rare: il Consiglio federale punta a cure più efficaci",
+      "description": "Il Consiglio federale ha deciso di migliorare l’assistenza sanitaria per le persone con malattie rare, creando strutture specializzate e un registro nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/malattie-rare-cure-efficaci-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Castelgrande a Bellinzona, Svizzera"
+      },
+      "datePublished": "2026-09-02T08:38:14+00:00",
+      "dateModified": "2026-09-02T08:38:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/malattie-rare-cure-efficaci-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

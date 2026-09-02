@@ -1727,6 +1727,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'come-aprire-azienda-basilea-campagna': { it: 'come-aprire-azienda-basilea-campagna', en: 'how-to-open-business-basel-landschaft', de: 'geschaft-gruenden-basel-landschaft', fr: 'comment-ouvrir-entreprise-bale-campagne' },
  'guida-apertura-attivita-bc': { it: 'guida-apertura-attivita-bc', en: 'guide-opening-business-basel-countryside', de: 'anleitung-betriebseroffnung-basel-landschaft', fr: 'guide-creation-entreprise-bale-campagne' },
  'permesso-dimora-b-argovia-requisiti': { it: 'permesso-dimora-b-argovia-requisiti', en: 'residence-permit-b-aargau-requirements', de: 'aufenthaltsgenehmigung-b-aargau-anforderungen', fr: 'permis-sejour-b-argovie-exigences' },
+ 'malattie-rare-cure-efficaci-2027': { it: 'malattie-rare-cure-efficaci-2027', en: 'rare-diseases-effective-care-2027', de: 'seltene-krankheiten-effektive-versorgung-2027', fr: 'maladies-rares-soins-efficaces-2027' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
