@@ -39,6 +39,20 @@ function provider(source = `export function translate(_request, { succeedText })
   };
 }
 
+function spyOnExplicitParentPortCloses() {
+  const originalClose = MessagePort.prototype.close;
+  const closeCounts = new Map<MessagePort, number>();
+  const close = vi.spyOn(MessagePort.prototype, 'close').mockImplementation(function (this: MessagePort) {
+    // Node may also close transferred/internal endpoints through this prototype.
+    // Only the executor call site and its receiver identity belong to our contract.
+    if (new Error().stack?.includes('translation-candidate-executor-v2.mjs')) {
+      closeCounts.set(this, (closeCounts.get(this) ?? 0) + 1);
+    }
+    return Reflect.apply(originalClose, this, []);
+  });
+  return { close, closeCounts };
+}
+
 function input(overrides: Record<string, unknown> = {}) {
   return {
     identity,
@@ -269,10 +283,10 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
   });
 
   it('closes the private parent MessagePort before resolving an attempt', async () => {
-    const close = vi.spyOn(MessagePort.prototype, 'close');
+    const { close, closeCounts } = spyOnExplicitParentPortCloses();
     try {
       await expect(executeTranslationCandidateV2(input())).resolves.toMatchObject({ status: 'validated' });
-      expect(close).toHaveBeenCalled();
+      expect([...closeCounts.values()]).toEqual([1]);
     } finally {
       close.mockRestore();
     }
@@ -337,7 +351,7 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
         .filter((handle) => handle instanceof MessagePort).length
     );
     const activePortsBefore = activePortCount();
-    const close = vi.spyOn(MessagePort.prototype, 'close');
+    const { close, closeCounts } = spyOnExplicitParentPortCloses();
     const rejectBeforeCallback = provider(`
       export function translate(_request, { succeedText }) {
         setTimeout(() => succeedText(${JSON.stringify(candidateText)}), 100);
@@ -350,7 +364,8 @@ describe('translation candidate executor v2 isolated provider protocol', () => {
       )));
       await new Promise((resolve) => setImmediate(resolve));
       expect(results.every((result) => result.status === 'generation_failed')).toBe(true);
-      expect(close).toHaveBeenCalledTimes(8);
+      expect(closeCounts.size).toBe(8);
+      expect([...closeCounts.values()].every((count) => count === 1)).toBe(true);
       expect(activePortCount()).toBeLessThanOrEqual(activePortsBefore);
     } finally {
       close.mockRestore();
