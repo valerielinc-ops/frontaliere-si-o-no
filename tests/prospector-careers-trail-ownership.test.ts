@@ -57,4 +57,42 @@ describe('prospector careers ownership trail', () => {
     expect(result.externalHosts[0]).toMatchObject({ host: 'tenant.real-ats.example', verified: true });
     expect(result.externalHosts.some(({ host }) => host === 'partner.example')).toBe(false);
   });
+
+  it('keeps the ownership check aligned with a cross-origin homepage redirect', async () => {
+    const requestedDomain = 'acme.ch';
+    const redirectedHomeUrl = 'https://acme-official.example/';
+    const careersUrl = 'https://acme-official.example/lavora-con-noi';
+    const atsUrl = 'https://tenant.real-ats.example/openings';
+    const homepage = `<html><title>Acme</title><body><a href="/lavora-con-noi">Lavora con noi</a><main>Benvenuti in Acme${filler}</main></body></html>`;
+    const careers = `<html><title>Acme carriere</title><body><h1>Lavora con noi</h1><main>${filler}</main><a href="${atsUrl}">Posizioni aperte</a></body></html>`;
+    const ats = `<html><title>Acme jobs</title><body><script type="application/ld+json">${JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'JobPosting',
+      title: 'Contabile',
+      description: 'Gestione della contabilità generale e supporto al team finance per un cliente storico.',
+      url: `${atsUrl}/contabile`,
+      hiringOrganization: { '@type': 'Organization', name: 'Acme' },
+      jobLocation: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: 'Lugano', addressCountry: 'CH' } },
+    })}</script><a href="${atsUrl}/contabile">Contabile — candidati ora</a></body></html>`;
+
+    mocks.politeFetch.mockImplementation(async (url: string) => {
+      // The homepage request is answered from a different registrable domain
+      // than the one requested — a cross-origin redirect captured in `home.url`.
+      if (url === `https://${requestedDomain}/`) return response(redirectedHomeUrl, homepage);
+      if (url === careersUrl) return response(careersUrl, careers);
+      if (url === atsUrl) return response(atsUrl, ats);
+      return { ok: false, status: 404, url, body: '', host: url ? new URL(url).hostname : '' };
+    });
+
+    const result = await traceCareers(requestedDomain);
+
+    // A stale ownership check keyed on the pre-redirect `requestedDomain`
+    // would read the homepage's own relative careers link as pointing to an
+    // unrelated third party (its resolved host never matches `acme.ch`),
+    // dropping it as a candidate and never reaching the careers page at all.
+    expect(result.via).toContain('homepage-link');
+    expect(result.careersUrls).toEqual([careersUrl]);
+    expect(result.externalHosts).toHaveLength(1);
+    expect(result.externalHosts[0]).toMatchObject({ host: 'tenant.real-ats.example', verified: true });
+  });
 });
