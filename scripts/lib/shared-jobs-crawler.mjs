@@ -4509,6 +4509,13 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
   const singleScopedCompanyKey = scopeCompanyKeys.size === 1 ? [...scopeCompanyKeys][0] : '';
+  if (hasScopedCompanyKeys && !singleScopedCompanyKey && authoritativeLegacyAliasesByCompanyKey.size > 0) {
+    // Legacy-alias fallback (below) only disambiguates a bare `company` string
+    // to a companyKey when exactly one scoped key is requested — with 0 or 2+
+    // scoped keys it's silently skipped, so a legacy record without
+    // `companyKey` is preserved untouched instead of being scoped/pruned.
+    console.warn(`  ⚠️ scopeCompanyKeys has ${scopeCompanyKeys.size} entries — legacy alias fallback for ${[...authoritativeLegacyAliasesByCompanyKey.keys()].join(', ')} disabled (requires exactly 1 scoped key)`);
+  }
 
   const incomingFp = new Set((incomingJobs || []).map((j) => fingerprintJob(j)).filter(Boolean));
   const prunedExisting = [];
