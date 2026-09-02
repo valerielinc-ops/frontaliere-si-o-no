@@ -1,24 +1,24 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-01T23:06:53.618Z",
-  "total": 6,
+  "generatedAt": "2026-09-02T13:31:37.590Z",
+  "total": 7,
   "discovered": null,
-  "written": 6,
+  "written": 7,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37192,
-  "avgDurationMs": 37192,
+  "durationMs": 38367,
+  "avgDurationMs": 38367,
   "durationHistory": [
-    37192
+    38367
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "spital-zollikerberg-82230b011fcc",
-      "slug": "berufsbildnerin-berufsbildner-fachmann-fachfrau-gesundheit-auf-der-interdisziplinaren",
+      "slug": "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-f1aeee",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
@@ -45,12 +45,16 @@
       "postedDate": "2026-06-15",
       "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=418f1019-81e8-4689-b725-0c75a219bdd7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "_qualityScore": 85,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
   ],
