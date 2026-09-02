@@ -17229,9 +17229,7 @@
         "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-gravesano",
         "lehrlingsausbildung-im-einzelhandel-der-gfp-oder-afc-start-2026-gravesano-lidl-svizzera-gravesano-ixk693"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated",
-      "retranslationAttempts": 1,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -17314,9 +17312,7 @@
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadena-kscbfg",
         "im-einzelhandel-der-gfp-oder-afc-zugelassen-start-2026-locarno-lidl-svizzera-locarno-kscbfg"
       ],
-      "needsRetranslation": true,
       "salarySource": "estimated",
-      "retranslationAttempts": 1,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -17481,9 +17477,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
-      "retranslationAttempts": 1,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -17540,7 +17534,12 @@
           "ausbildung-im-einzelhandel-cfp-oder-efz-anfang-2026-sant-antonino-lidl-svizzera-sant-antonino",
           "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino",
           "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino",
-          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3"
+          "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3",
+          "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
+          "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-minusio",
+          "apprentissage-dans-le-commerce-de-detail-cfc-ou-afp-debut-2026-lidl-svizzera-lugano",
+          "retail-apprenticeship-cfp-or-afc-starting-2026-lidl-svizzera-sant-antonino",
+          "retail-trade-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino"
         ],
         "en": [
           "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino"
@@ -17560,7 +17559,12 @@
         "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-sant-antonino-lidl-svizzera-sant-antonino",
         "apprentissage-dans-le-commerce-de-detail-cfp-ou-efz-debut-2026-sant-antonino-lidl-svizzera-sant-antonino",
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-cadenazzo-sant-antonino-3",
-        "lehrlingsausbildung-im-einzelhandel-der-gfp-oder-afc-start-2026-sant-antonino-lidl-svizzera-sant-antonino-a6863z"
+        "lehrlingsausbildung-im-einzelhandel-der-gfp-oder-afc-start-2026-sant-antonino-lidl-svizzera-sant-antonino-a6863z",
+        "apprenticeship-in-retail-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
+        "apprentissage-commerce-de-detail-afp-ou-cfc-debut-2026-lidl-svizzera-minusio",
+        "apprentissage-dans-le-commerce-de-detail-cfc-ou-afp-debut-2026-lidl-svizzera-lugano",
+        "retail-apprenticeship-cfp-or-afc-starting-2026-lidl-svizzera-sant-antonino",
+        "retail-trade-apprenticeship-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -17576,9 +17580,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salarySource": "estimated",
-      "retranslationAttempts": 1,
       "salaryMin": 41600,
       "salaryMax": 63000
     },
@@ -18690,11 +18692,9 @@
       "addressRegion": "AG",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
-      "salarySource": "estimated",
-      "retranslationAttempts": 1
+      "salarySource": "estimated"
     },
     {
       "id": "company-gna31o",
