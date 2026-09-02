@@ -5038,6 +5038,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Permis C Bâle-Ville : exigences et demande',
     'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Permis domicile C Bâle : années requises, intégration, connaissances linguistiques et procédure de demande auprès du canton.',
     'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Bureau d\'immigration suisse avec documents de permis de résidence C et formulaires de demande',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Garderie et garde d\'enfants à Bâle-Ville : tarifs et subventions',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Guide de garde d\'enfants dans le canton de Bâle-Ville : tarifs progressifs, allocations cantonales et déductions fiscales fédérales pour les familles. Comment accéder aux services.',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Centre de garde d\'enfants suisse avec des enfants jouant dans une installation moderne et lumineuse.',
 };
 
 export default blogMetaChFr;

@@ -5038,6 +5038,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-basilea-requisiti-domanda.title': 'Ausweis C Basel-Stadt: Voraussetzungen und Antrag',
     'blog.article.permesso-c-basilea-requisiti-domanda.excerpt': 'Niederlassungsbewilligung C Basel: erforderliche Jahre, Integration, Sprachkenntnisse und Antragsverfahren beim Kanton.',
     'blog.article.permesso-c-basilea-requisiti-domanda.imageAlt': 'Schweizer Einwanderungsbüro mit offiziellen Aufenthaltserlaubnisdokumenten und Antragsformularen',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.title': 'Kindertagesstätte und Kinderbetreuung in Basel-Stadt: Tarife und Zuschüsse',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.excerpt': 'Leitfaden zur Kinderbetreuung im Kanton Basel-Stadt: Progressive Tarife, Kantonsbeiträge und eidgenössische Familiensteuerabzüge. So greifen Sie auf die Dienste zu.',
+    'blog.article.asilo-custodia-basilea-citta-tariffe.imageAlt': 'Schweizer Kinderbetreuungszentrum mit spielenden Kindern in einer modernen, hellen Einrichtung.',
 };
 
 export default blogMetaChDe;
