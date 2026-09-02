@@ -1,18 +1,18 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-09-01T23:22:34.565Z",
-  "total": 2,
+  "generatedAt": "2026-09-02T13:50:09.530Z",
+  "total": 1,
   "discovered": null,
-  "written": 2,
+  "written": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2774,
-  "avgDurationMs": 2774,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11375,
+  "avgDurationMs": 11375,
   "durationHistory": [
-    2774
+    11375
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1b00f75a-551d-4189-9e6c-7ebd0516daf2/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:31.968Z",
+      "crawledAt": "2026-09-02T13:50:07.060Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "visionapartments-c5738b21cd34",
       "slug": "coo-chief-operating-officer-100-vision-management-services-gmbh-zurich",
@@ -99,5 +98,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

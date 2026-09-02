@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-09-01T23:22:57.373Z",
+  "assembledAt": "2026-09-02T13:50:56.798Z",
   "jobs": [
     {
       "id": "bcvs-8ddcea45e662",
@@ -9,7 +9,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
+        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:22:54.539Z",
+      "crawledAt": "2026-09-02T13:50:51.880Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -53,18 +53,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
+        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personale-credito-back-office-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -114,7 +118,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:54.035Z",
+      "crawledAt": "2026-09-02T13:50:49.261Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -146,11 +150,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+        "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+          "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
@@ -160,6 +166,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.698Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -205,7 +212,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sales-manager-2600",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:53.626Z",
+      "crawledAt": "2026-09-02T13:50:46.658Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -244,7 +251,8 @@
         "central-file-manager-banque-cantonale-du-valais-sion",
         "zentraler-dateimanager-banque-cantonale-du-valais-sion",
         "gestionnaire-fichier-central-bcvs-sion",
-        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+        "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+        "responsabile-vendite-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -253,7 +261,8 @@
           "central-file-manager-banque-cantonale-du-valais-sion",
           "zentraler-dateimanager-banque-cantonale-du-valais-sion",
           "gestionnaire-fichier-central-bcvs-sion",
-          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion"
+          "gestionnaire-fichier-central-banque-cantonale-du-valais-sion",
+          "responsabile-vendite-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "central-file-manager-banque-cantonale-du-valais-sion"
@@ -278,102 +287,6 @@
           "@type": "QuantitativeValue",
           "minValue": 101500,
           "maxValue": 156000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "bcvs-2d0fb6fed759",
-      "slug": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey",
-      "slugByLocale": {
-        "it": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-monthey",
-        "en": "private-individual-client-advisor-banque-cantonale-du-valais-monthey",
-        "de": "privater-individueller-kundenberater-banque-cantonale-du-valais-monthey",
-        "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
-      },
-      "company": "Banque Cantonale du Valais",
-      "companyKey": "bcvs",
-      "companyDomain": "bcvs.ch",
-      "title": "Conseiller-ère clientèle des privés/individuelle",
-      "titleByLocale": {
-        "it": "Consulente privato / cliente individuale",
-        "en": "Private/Individual Client Advisor",
-        "de": "Privater / individueller Kundenberater",
-        "fr": "Conseiller-ère clientèle des privés/individuelle"
-      },
-      "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Monthey\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients à la suite d’une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale, avec expérience confirmée du monde bancaire ainsi que d’une expérience dans la gestion d’un portefeuille de clientèle bancaire.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et de l’allemand sont de réels atouts.\n\nVous souhaitez nous rejoindre ?\n Rencontrons-nous !\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse: recrutement@bcvs.ch au plus tard pour le 7 août 2026.",
-      "descriptionByLocale": {
-        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nConsulente privato / cliente individuale\n\n• Monessi\n\n• 80-100%\n\nState beneficiando della formazione commerciale e avete un'esperienza nel mondo bancario? Se siete alla ricerca di un'opportunità per valutare le vostre abilità, questo lavoro è per voi.\n\nIn particolare?\n\n• Sosterrete i clienti nelle loro richieste di finanziamento, investimenti e pianificazione del patrimonio.\n\n• Acquisirete in uno spirito imprenditoriale nuovi clienti.\n\n• Stabilirà e manterrà un rapporto di fiducia con i clienti.\n\n• Seguirà proattivamente i clienti a seguito di una richiesta di offerta/informazioni o di contatto personale.\n\n• Ti allenerai su base continuativa su modifiche alle direttive interne ed esterne.\n\n• Ti assicurerai il controllo dei rischi e il rispetto delle disposizioni legali.\n\nLa sfida ti sta tentando?\nQuesto post è per voi se...\n\n• Hai una formazione aziendale, con esperienza comprovata dal mondo bancario e esperienza nella gestione di un portafoglio clienti bancario.\n\n• Hai una buona capacità di vendita e consulenza su tutti gli investimenti, il finanziamento e la consulenza patrimoniale prodotti e servizi.\n\n• Dinamica e pragmatica, beneficiate di un forte senso di iniziativa e contribuite al successo del vostro team.\n\n• Hai buone capacità analitiche e sono in grado di agire rapidamente in situazioni impreviste.\n\n• La tua conoscenza dell'inglese e del tedesco è un bene reale.\n\nVuoi unirti a noi?\nIncontriamoci!\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a Marisa Berclaz, il nostro HR Business Partner, a recruit@bcvs.ch non oltre il 7 agosto 2026.",
-        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nPrivate/Individual Client Advisor\n\n• Monthey\n\n• 80-100%\n\nAre you benefiting from commercial training and have an experience in the banking world? If you are looking for an opportunity to value your skills, this job is for you.\n\nSpecifically?\n\n• You will support clients in their requests for funding, investments and heritage planning.\n\n• You will acquire in an entrepreneurial spirit new customers.\n\n• You will establish and maintain a relationship of trust with clients.\n\n• You will proactively monitor clients following a request for an offer/information or personal contact.\n\n• You will train on an ongoing basis on changes to internal and external directives.\n\n• You will ensure the control of risks and compliance with legal provisions.\n\nThe challenge is tempting you?\nThis post is for you if...\n\n• You have business training, with proven experience from the banking world and experience in managing a bank customer portfolio.\n\n• You have good sales and advisory capacity on all investment, financing and heritage consulting products and services.\n\n• Dynamic and pragmatic, you benefit from a strong sense of initiative and contribute to the success of your team.\n\n• You have good analytical skills and are able to act quickly in unforeseen situations.\n\n• Your knowledge of English and German is a real asset.\n\nWould you like to join us?\nLet's meet!\nWe look forward to discovering your application.\nTo do this, send your complete file to Marisa Berclaz, our HR Business Partner, at: recruitment@bcvs.ch no later than 7 August 2026.",
-        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater Kontaktieren Sie einen Berater\n\nKatze\n\nPrivater / individueller Kundenberater\n\n• Monthey\n\n• 80-100%\n\nProfitieren Sie von einer kaufmännischen Ausbildung und haben Erfahrung in der Bankenwelt? Wenn Sie nach einer Gelegenheit suchen, Ihre Fähigkeiten zu schätzen, ist dieser Job für Sie.\n\nKonkret?\n\n• Sie unterstützen Kunden bei ihren Anträgen auf Finanzierung, Investitionen und Kulturerbeplanung.\n\n• Sie werden in einem unternehmerischen Geist neue Kunden erwerben.\n\n• Sie werden eine vertrauensbeziehung mit kunden aufbauen und pflegen.\n\n• Sie werden Kunden proaktiv nach einer Anfrage für ein Angebot / Informationen oder persönlichen Kontakt überwachen.\n\n• Sie werden laufend zu Änderungen interner und externer Richtlinien geschult.\n\n• Sie gewährleisten die Kontrolle der Risiken und die Einhaltung der gesetzlichen Bestimmungen.\n\nDie Herausforderung verlockt dich?\nDieser Artikel ist für dich, wenn...\n\n• Sie haben Business-Training, mit nachgewiesener Erfahrung aus der Bankenwelt und Erfahrung in der Verwaltung eines Bankkundenportfolios.\n\n• Sie verfügen über gute Vertriebs- und Beratungskapazitäten für alle Anlage-, Finanzierungs- und Kulturerbeberatungsprodukte und -dienstleistungen.\n\n• Dynamisch und pragmatisch profitieren Sie von einem starken Sinn für Initiative und tragen zum Erfolg Ihres Teams bei.\n\n• Sie haben gute analytische Fähigkeiten und sind in der Lage, in unvorhergesehenen Situationen schnell zu handeln.\n\n• Ihre Englisch- und Deutschkenntnisse sind eine echte Bereicherung.\n\nMöchten Sie sich uns anschließen?\nTreffen wir uns!\nWir freuen uns auf Ihre Bewerbung.\nUm dies zu tun, senden Sie Ihre vollständige Datei an Marisa Berclaz, unseren HR Business Partner, unter: recruiting@bcvs.ch spätestens am 7. August 2026.",
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Monthey\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients à la suite d’une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale, avec expérience confirmée du monde bancaire ainsi que d’une expérience dans la gestion d’un portefeuille de clientèle bancaire.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et de l’allemand sont de réels atouts.\n\nVous souhaitez nous rejoindre ?\nRencontrons-nous !\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse: recrutement@bcvs.ch au plus tard pour le 7 août 2026."
-      },
-      "location": "Monthey",
-      "canton": "VS",
-      "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2605",
-      "source": "Banque Cantonale du Valais Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:53.120Z",
-      "addressLocality": "Monthey",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "pensum": "80-100%",
-      "sector": "Banca / Finanza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-14",
-      "applyUrl": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2605",
-      "requirements": [
-        "Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.",
-        "Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.",
-        "Vous établirez et maintiendrez une relation de confiance avec la clientèle.",
-        "Vous assurerez un suivi proactif des clients à la suite d’une demande d'offre/d'information ou suite à un contact personnel.",
-        "Vous vous formerez de manière permanente sur les modifications de directives internes et externes.",
-        "Vous veillerez à la maîtrise des risques et au respect des dispositions légales."
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.",
-          "Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.",
-          "Vous établirez et maintiendrez une relation de confiance avec la clientèle.",
-          "Vous vous formerez de manière permanente sur les modifications de directives internes et externes.",
-          "Vous veillerez à la maîtrise des risques et au respect des dispositions légales."
-        ]
-      },
-      "previousSlugs": [
-        "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-monthey"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
-        ],
-        "en": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
-        ],
-        "de": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-monthey"
-        ],
-        "fr": [
-          "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-monthey"
-        ]
-      },
-      "firstSeenAt": "2026-07-14T21:59:37.307Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
           "unitText": "YEAR"
         }
       }
@@ -409,7 +322,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-2620",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:52.712Z",
+      "crawledAt": "2026-09-02T13:50:44.036Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -440,11 +353,13 @@
       },
       "previousSlugs": [
         "collaborateur-trice-clientele-des-prives-bcvs-sion",
-        "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion"
+        "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion",
+        "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-clientele-des-prives-bcvs-sion"
+          "collaborateur-trice-clientele-des-prives-bcvs-sion",
+          "collaboratore-privato-del-cliente-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "collaborateur-trice-clientele-des-prives-bcvs-sion"
@@ -457,6 +372,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:16:24.889Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -502,7 +418,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-prevoyance-individuelle-2622",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:52.302Z",
+      "crawledAt": "2026-09-02T13:50:41.092Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -533,12 +449,14 @@
       },
       "previousSlugs": [
         "gestionnaire-prevoyance-individuelle-bcvs-sion",
-        "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion"
+        "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+        "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-prevoyance-individuelle-bcvs-sion",
-          "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion"
+          "gestionnaire-prevoyance-individuelle-banque-cantonale-du-valais-sion",
+          "gestione-del-fornitore-individuale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "gestionnaire-prevoyance-individuelle-bcvs-sion"
@@ -551,6 +469,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T11:16:24.476Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -596,7 +515,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-1-2640",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:51.796Z",
+      "crawledAt": "2026-09-02T13:50:38.500Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -631,11 +550,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
@@ -648,6 +569,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:29:03.955Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -693,7 +615,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-team-clientele-des-entreprises-bas-valais-2644",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:51.384Z",
+      "crawledAt": "2026-09-02T13:50:36.036Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -727,11 +649,13 @@
         ]
       },
       "previousSlugs": [
-        "responsable-team-clientele-des-entreprises-bas-valais-bcvs-martigny"
+        "responsable-team-clientele-des-entreprises-bas-valais-bcvs-martigny",
+        "business-customer-team-manager-bas-valais-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-team-clientele-des-entreprises-bas-valais-bcvs-martigny"
+          "responsable-team-clientele-des-entreprises-bas-valais-bcvs-martigny",
+          "business-customer-team-manager-bas-valais-banque-cantonale-du-valais-martigny"
         ],
         "en": [
           "responsable-team-clientele-des-entreprises-bas-valais-bcvs-martigny"
@@ -741,6 +665,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:39:27.092Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -759,34 +684,34 @@
       "id": "bcvs-6a957bd339ff",
       "slug": "risorse-umane-business-partner-banque-cantonale-du-valais-sion",
       "slugByLocale": {
-        "fr": "hr-business-partner-bcvs-sion",
         "it": "risorse-umane-business-partner-banque-cantonale-du-valais-sion",
         "en": "hr-business-partner-bcvs-sion",
-        "de": "hr-business-partner-bcvs-sion"
+        "de": "hr-business-partner-bcvs-sion",
+        "fr": "hr-business-partner-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "HR Business Partner",
       "titleByLocale": {
-        "fr": "HR Business Partner",
         "it": "Risorse Umane Business Partner",
         "en": "HR Business Partner",
-        "de": "Personalwesen Business Partner"
+        "de": "Personalwesen Business Partner",
+        "fr": "HR Business Partner"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
-        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
-        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
-        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch ."
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nHR Business Partner\n\n• Sion\n\n• 80-100%\n\nProfessionnel-le RH expérimenté-e, vous souhaitez mettre votre expertise, votre leadership et votre sens du partenariat au service de la Banque Cantonale du Valais ? Vous occuperez un rôle clé d'accompagnement des managers et des collaborateurs sur l'ensemble des enjeux RH opérationnels et stratégiques. Véritable partenaire de confiance, vous apportez votre expertise, votre capacité d'influence et votre vision pour soutenir les évolutions de l'organisation et le développement des équipes.\n\nConcrètement ?\n\n• Vous accompagnez et conseillez les managers sur toutes les étapes du cycle de vie des collaborateurs : recrutement, intégration, développement, performance, mobilité, gestion des situations sensibles, réorganisations et départs.\n\n• Grâce à votre expertise RH et à votre capacité d'analyse, vous contribuez à la qualité des décisions managériales et favorisez un climat de travail performant et durable.\n\n• En collaboration avec vos collègues des Relations Humaines, vous participez activement à l'amélioration et à l'évolution des processus RH : rémunération, gestion des talents, formation, relève, mobilité interne, administration RH et pilotage des indicateurs.\n\n• Vous contribuez à des projets RH stratégiques et transversaux, notamment dans le cadre de la transformation et de la digitalisation des processus RH.\n\n• Vous participez aux réflexions liées à la planification des effectifs et des coûts et contribuez à l'alignement des ressources humaines avec les objectifs de l'entreprise.\n\n• Vous représentez les Relations Humaines auprès de différents interlocuteurs internes et externes et assurez une communication RH claire, constructive et impactante.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.\n\n• Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.\n\n• Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.\n\n• Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.\n\n• Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.\n\n• Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.\n\n• Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.\n\n• Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.\n\n• Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à, notre Directrice des Relations humaines, Aline de Riedmatten, à l’adresse: recrutement@bcvs.ch ."
       },
       "location": "Sion",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/hr-business-partner-1-2656",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:50.970Z",
+      "crawledAt": "2026-09-02T13:50:33.596Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -814,18 +739,24 @@
       ],
       "requirementsByLocale": {
         "fr": [
-          "Vous êtes au bénéfice d'une formation supérieure (Bachelor, Master ou Brevet fédéral RH) et d'une expérience confirmée d’au moins 7 ans en tant que HR Business Partner, idéalement au sein d'une organisation de taille significative.",
           "Vous possédez une excellente maîtrise des pratiques RH ainsi que de solides connaissances du droit du travail suisse.",
-          "Reconnu-e pour votre leadership naturel, votre charisme et votre capacité à instaurer des relations de confiance, vous êtes un interlocuteur crédible et apprécié des managers.",
-          "Vous savez influencer, convaincre et accompagner les parties prenantes dans leurs prises de décision tout en faisant preuve de diplomatie et de pragmatisme.",
-          "Vous êtes à l'aise dans la gestion de situations complexes ou sensibles et faites preuve d'un excellent jugement ainsi que d'une grande discrétion.",
-          "Doté-e d'une forte intelligence relationnelle, vous adaptez votre approche à des interlocuteurs variés et évoluez avec aisance dans un environnement exigeant.",
           "Vous combinez vision stratégique et sens opérationnel et êtes capable de conduire plusieurs projets en parallèle.",
           "Votre maîtrise du français se complète par de bonnes connaissances de l'allemand.",
           "Vous êtes à l'aise avec les systèmes RH (Abacus notamment) et les technologies en lien avec l’intelligence artificielle."
         ]
       },
+      "previousSlugs": [
+        "hr-business-partner-bcvs-sion",
+        "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-business-partner-bcvs-sion",
+          "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T23:22:50.970Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -838,49 +769,40 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T23:22:50.970Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-business-partner-bcvs-sion"
-        ]
-      },
-      "previousSlugs": [
-        "hr-business-partner-bcvs-sion"
-      ]
+      }
     },
     {
       "id": "bcvs-9cc0ad298f60",
       "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
       "slugByLocale": {
-        "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
         "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
         "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
-        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
+        "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Conseiller-ère clientèle des privés/individuelle",
       "titleByLocale": {
-        "fr": "Conseiller-ère clientèle des privés/individuelle",
         "it": "Conseiller-ère clientèle des privés/individuelle",
         "en": "Conseiller-ère clientèle des privés/individuelle",
-        "de": "Conseiller-ère clientèle des privés/individuelle"
+        "de": "Conseiller-ère clientèle des privés/individuelle",
+        "fr": "Conseiller-ère clientèle des privés/individuelle"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
-        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
-        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
-        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
+        "it": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "en": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "de": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nConseiller-ère clientèle des privés/individuelle\n\n• Savièse\n\n• 80-100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une expérience du monde bancaire ? Si vous recherchez une opportunité où valoriser vos compétences, ce poste est fait pour vous.\n\nConcrètement ?\n\n• Vous accompagnerez les clients dans leurs demandes en matière de financements, placements et planification patrimoniale.\n\n• Vous acquerrez dans un esprit entrepreneurial de nouveaux clients.\n\n• Vous établirez et maintiendrez une relation de confiance avec la clientèle.\n\n• Vous assurerez un suivi proactif des clients suite à une demande d'offre/d'information ou suite à un contact personnel.\n\n• Vous vous formerez de manière permanente sur les modifications de directives internes et externes.\n\n• Vous veillerez à la maîtrise des risques et au respect des dispositions légales.\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale et/ou financière.\n\n• Vous avez de bonnes capacités de vente et de conseil sur l’ensemble des produits et services de placement, de financement et de conseil patrimonial.\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et contribuez au succès de votre équipe.\n\n• Vous avez de bonnes capacités analytiques et êtes capable d’agir rapidement dans les situations imprévues.\n\n• Vos connaissances de l’anglais et/ou de l’allemand sont de réels atouts.\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à Marisa Berclaz, notre HR Business Partner, à l’adresse : recrutement@bcvs.ch ."
       },
       "location": "Savièse",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2-2654",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-01T23:22:50.557Z",
+      "crawledAt": "2026-09-02T13:50:31.114Z",
       "addressLocality": "Savièse",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -914,6 +836,7 @@
         ]
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T23:22:50.557Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -926,8 +849,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-01T23:22:50.557Z"
+      }
     }
   ]
 }
