@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
+import { compareExpiredAt } from './compare-expired-at.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -118,7 +119,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     if (!prev) {
       bySlug.set(entry.slug, entry);
       added++;
-    } else if ((entry.expiredAt || '') >= (prev.expiredAt || '')) {
+    } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
       bySlug.set(entry.slug, entry);
     }
   }
@@ -126,7 +127,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (added === 0 && bySlug.size === sizeBefore) return 0;
 
   const archived = [...bySlug.values()].sort((a, b) =>
-    (b.expiredAt || '').localeCompare(a.expiredAt || ''),
+    compareExpiredAt(b.expiredAt, a.expiredAt),
   );
   writeJsonAtomic(slicePath, archived);
   return added;

@@ -30,6 +30,7 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -191,7 +192,7 @@ function processSlice(sliceFile) {
     if (!prev) {
       bySlug.set(entry.slug, entry);
       added++;
-    } else if ((prev.expiredAt || '') < (entry.expiredAt || '')) {
+    } else if (compareExpiredAt(prev.expiredAt, entry.expiredAt) < 0) {
       // Existing entry is older — refresh with newer historical data (rare
       // edge case: the same slug came/went multiple times).
       bySlug.set(entry.slug, entry);
@@ -201,7 +202,7 @@ function processSlice(sliceFile) {
   if (added === 0) return { crawlerKey, scannedCommits: sliceCommits.length, lost: lostById.size, added: 0 };
 
   const archived = [...bySlug.values()].sort((a, b) =>
-    (b.expiredAt || '').localeCompare(a.expiredAt || ''),
+    compareExpiredAt(b.expiredAt, a.expiredAt),
   );
   if (!DRY_RUN) {
     fs.mkdirSync(EXPIRED_DIR, { recursive: true });

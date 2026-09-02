@@ -60,6 +60,7 @@ import { readOrphanEnriched } from './lib/orphan-enriched-store.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -2618,7 +2619,7 @@ function assembleExpiredJobs() {
       const key = expiredKey(entry);
       const existing = bySlug.get(key);
       // Keep the most recently expired entry for each slug
-      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+      if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
       }
     }
@@ -2638,7 +2639,7 @@ function assembleExpiredJobs() {
       if (!entry.slug) continue;
       const key = expiredKey(entry);
       const existing = bySlug.get(key);
-      if (!existing || (entry.expiredAt || '') >= (existing.expiredAt || '')) {
+      if (!existing || compareExpiredAt(entry.expiredAt, existing.expiredAt) >= 0) {
         bySlug.set(key, entry);
       }
     }
@@ -2646,7 +2647,7 @@ function assembleExpiredJobs() {
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
   let assembled = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   if (assembled.length > EXPIRED_JOBS_CAP) {
     assembled = assembled.slice(0, EXPIRED_JOBS_CAP);
   }
