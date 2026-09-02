@@ -46,6 +46,17 @@
 #   CDN_IT_READY_INTERVAL_S jobs API poll interval for the first phase
 #                       (default 30s).
 #
+# Env (optional, #7106 job-deadline safety margin — see "WHY A THIRD CLOCK"
+# below):
+#   CDN_JOB_START_EPOCH  unix epoch seconds when the CALLING JOB started (not
+#                       this step). Unset/non-numeric → disabled, behaves
+#                       exactly as before.
+#   CDN_JOB_DEADLINE_S  seconds after CDN_JOB_START_EPOCH by which BOTH phases
+#                       combined must have already exited, leaving the job's
+#                       remaining budget for its own finish steps before
+#                       GitHub's own hard per-job kill. Unset/non-numeric →
+#                       disabled. Both must be set together to take effect.
+#
 # Exit codes:
 #   0  — the CDN marker matched <expected_build_id> within the timeout, OR the
 #        guard is intentionally a NO-OP (empty expected id → e.g. a local run /
@@ -105,6 +116,28 @@
 # were filed on 2026-08-06 blaming an expired shard deploy key for what was
 # actually a gate timeout caused by the IT build failing.
 #
+# WHY A THIRD CLOCK (#7106). Phase 1's ≤10800s and phase 2's ≤2700s are each
+# bounded, but the CALLING job (deploy.yml build-locale) has its OWN clock:
+# `timeout-minutes: 360`, which is not a budget this script can raise — it is
+# already at GitHub's hard per-job ceiling for ALL hosted runners (6h, fixed
+# platform-wide, independent of what timeout-minutes says; see "Usage limits
+# for GitHub Actions" in GitHub's docs). If the leg's own build+shard-push
+# before this step (T1, ~65-69 minutes in the #7049 measurement) plus a
+# genuine worst-case combined wait (up to 13500s/225min) plus the finish steps
+# after (push shard, purge, report) ever add up past 360 minutes, GitHub kills
+# the runner mid-poll — truncating readiness instead of the clean fail-closed
+# exit this script is built to guarantee.
+#
+# CDN_JOB_START_EPOCH/CDN_JOB_DEADLINE_S close that gap WITHOUT touching
+# either phase's nominal budget (which stays correct for a fast build) or
+# reducing it (which would resurrect the #7049 bug for a slow one): each
+# phase's effective timeout is clamped, once, to whatever time is actually
+# left before job_start + CDN_JOB_DEADLINE_S. Because that deadline is
+# anchored to the JOB's start, not this step's, it automatically absorbs
+# however long T1 turned out to be on THIS run — a slow build leaves less
+# room for the wait, a fast one leaves more — and the gate always exits on
+# its own terms, with margin, instead of racing GitHub's kill signal.
+#
 # Deliberately NOT `set -e`: every curl is allowed to fail (CDN not yet updated
 # is the EXPECTED transient case during the poll) and is guarded explicitly.
 # ─────────────────────────────────────────────────────────────────────────────
@@ -155,6 +188,38 @@ it_ready_interval_s="${CDN_IT_READY_INTERVAL_S:-30}"
 [[ "$it_ready_interval_s" =~ ^[0-9]+$ ]] || it_ready_interval_s=30
 [ "$it_check_every" -ge 1 ] || it_check_every=4
 [ "$it_ready_interval_s" -ge 1 ] || it_ready_interval_s=30
+
+# ── #7106 job-deadline safety margin (see "WHY A THIRD CLOCK" above) ─────────
+# Both must be present and numeric to arm; either missing/malformed disables
+# it entirely and every budget below behaves exactly as it did before this
+# clock existed — same safe-degradation shape as the #5331 abort above.
+job_deadline_epoch=""
+if [[ "${CDN_JOB_START_EPOCH:-}" =~ ^[0-9]+$ ]] && [[ "${CDN_JOB_DEADLINE_S:-}" =~ ^[0-9]+$ ]]; then
+  job_deadline_epoch=$((CDN_JOB_START_EPOCH + CDN_JOB_DEADLINE_S))
+  echo "[wait-cdn-build-id] #7106 job-deadline safety margin armed: both phases combined must exit by epoch ${job_deadline_epoch}"
+fi
+
+# Echoes $1 (a budget in seconds) clamped to whatever remains before
+# job_deadline_epoch, floored at 0. A no-op (echoes $1 unchanged) when the
+# clock above is disabled. Called once per phase, not per poll — the loops
+# below stay clock-free and count polls, exactly as before (#5251 batched
+# tests rely on this: elapsed tracks `interval_s` additions, never wall time).
+clamp_to_job_deadline() {
+  local budget="$1"
+  if [ -z "$job_deadline_epoch" ]; then
+    printf '%s' "$budget"
+    return
+  fi
+  local now remaining
+  now="$(date +%s)"
+  remaining=$((job_deadline_epoch - now))
+  [ "$remaining" -ge 0 ] || remaining=0
+  if [ "$remaining" -lt "$budget" ]; then
+    printf '%s' "$remaining"
+  else
+    printf '%s' "$budget"
+  fi
+}
 
 # Every precondition is checked ONCE, up front. The legacy #5331 observer keeps
 # its historical safe degradation (disabled → plain marker wait). The #7049
@@ -245,6 +310,11 @@ fail_before_marker() {
 # deadline. Only after the step starts/completes does the unchanged marker
 # budget begin at elapsed=0.
 if [ -n "$WAIT_CDN_IT_READY_STEP" ]; then
+  clamped_ready="$(clamp_to_job_deadline "$it_ready_timeout_s")"
+  if [ "$clamped_ready" -lt "$it_ready_timeout_s" ]; then
+    echo "[wait-cdn-build-id] #7106 job-deadline safety margin: shrinking phase 1/2 budget from ${it_ready_timeout_s}s to ${clamped_ready}s so this gate can still exit cleanly before the job's own hard kill"
+    it_ready_timeout_s="$clamped_ready"
+  fi
   echo "[wait-cdn-build-id] phase 1/2: waiting up to ${it_ready_timeout_s}s for IT step '${WAIT_CDN_IT_READY_STEP}' before starting the ${timeout_s}s marker budget"
   ready_elapsed=0
   ready_attempt=0
@@ -332,6 +402,12 @@ it_leg_dead_conclusion() {
     *)         : ;;
   esac
 }
+
+clamped_wait="$(clamp_to_job_deadline "$timeout_s")"
+if [ "$clamped_wait" -lt "$timeout_s" ]; then
+  echo "[wait-cdn-build-id] #7106 job-deadline safety margin: shrinking phase 2/2 budget from ${timeout_s}s to ${clamped_wait}s so this gate can still exit cleanly before the job's own hard kill"
+  timeout_s="$clamped_wait"
+fi
 
 echo "[wait-cdn-build-id] phase 2/2: gating shard publish on CDN build id=${expected} (url=${url}, timeout=${timeout_s}s, interval=${interval_s}s, near-miss<${margin_warn_s}s)"
 

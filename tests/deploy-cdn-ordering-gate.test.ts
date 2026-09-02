@@ -580,6 +580,76 @@ describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker 
   });
 });
 
+// ── #7106: the job-deadline safety margin, a third clock on top of the two
+// nominal ones. Full rationale in "WHY A THIRD CLOCK" in the script itself.
+describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
+  it('is a no-op (unchanged behavior) when CDN_JOB_START_EPOCH/CDN_JOB_DEADLINE_S are unset', () => {
+    const url = markerUrl('1718000000123');
+    const r = runGate(['1718000000123'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '5',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).not.toMatch(/job-deadline safety margin/);
+  });
+
+  it('shrinks the phase 2 marker budget to what remains before the deadline', () => {
+    const url = markerUrl('build-42');
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate(['build-42'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '3600', // nominal budget, far larger than what is left
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 10), // this "job" started 10s ago
+      CDN_JOB_DEADLINE_S: '15', // ...and only had 15s to give, total
+    });
+    // The marker already matches, so an immediate first poll still succeeds —
+    // the shrink is a ceiling, not a forced wait (mirrors the nominal budget).
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/#7106 job-deadline safety margin: shrinking phase 2\/2 budget from 3600s to \d+s/);
+  });
+
+  it('exits cleanly with a plain timeout — never a hang — once the job deadline has already passed', () => {
+    const url = markerUrl('an-older-build');
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate(['the-new-build'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '3600',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 100),
+      CDN_JOB_DEADLINE_S: '10', // deadline was 90s ago
+    });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toMatch(/shrinking phase 2\/2 budget from 3600s to 0s/);
+    expect(r.outputs.cdn_wait_result).toBe('timeout');
+    expect(r.outputs.cdn_waited_s, 'a passed deadline must not spend any of the nominal budget').toBe('0');
+  });
+
+  it('clamps phase 1 (readiness) the same way, and leaves phase 2 untouched (it never starts)', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('in_progress', null, 'Build', 'in_progress')],
+      'new-build',
+      'new-build',
+    );
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate([_expected], {
+      ...env,
+      CDN_JOB_START_EPOCH: String(now - 100),
+      CDN_JOB_DEADLINE_S: '10', // deadline was 90s ago
+    });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toMatch(/shrinking phase 1\/2 budget/);
+    expect(r.outputs.cdn_ready_result).toBe('timeout');
+    expect(r.outputs.cdn_ready_waited_s, 'a passed deadline must not spend any of the nominal readiness budget').toBe(
+      '0',
+    );
+    expect(r.outputs.cdn_waited_s, 'the marker budget must never start when phase 1 hits the job deadline').toBe(
+      '0',
+    );
+  });
+});
+
 /** Gate env wired for the abort, pointed at a fake `gh` serving `payload`. */
 function abortEnv(payload: unknown | null, marker: string, expectedId: string) {
   return {
@@ -791,6 +861,32 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
       step(EARLY_CDN_STEP),
       'the configured observer must name the real IT-only early push, not a stale sibling title',
     ).toMatch(/if: matrix\.locale == 'it'/);
+  });
+
+  it('#7106 anchors the gate to this leg\'s own job-start clock and holds back 30min under the platform hard-kill', () => {
+    const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
+    const stepsIdx = DEPLOY_YML.indexOf('\n    steps:', jobStart);
+    const firstStepIdx = DEPLOY_YML.indexOf('\n      - name:', stepsIdx);
+    const firstStep = DEPLOY_YML.slice(firstStepIdx, DEPLOY_YML.indexOf('\n      - name:', firstStepIdx + 1));
+    expect(
+      firstStep,
+      "the job-start clock must be the job's very first step, so no earlier step's time is left uncounted",
+    ).toMatch(/- name: Record job start \(#7106 CDN gate job-deadline safety margin\)/);
+    expect(firstStep).toMatch(/CDN_JOB_START_EPOCH=\$\(date \+%s\)" >> "\$GITHUB_ENV"/);
+
+    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
+    expect(gate, 'the gate must read the SAME clock the first step wrote').toMatch(
+      /CDN_JOB_START_EPOCH: \$\{\{ env\.CDN_JOB_START_EPOCH \}\}/,
+    );
+    expect(gate, '19800s = (360 - 30) * 60 — derived from timeout-minutes below, not an independent guess').toMatch(
+      /CDN_JOB_DEADLINE_S: 19800/,
+    );
+
+    const job = DEPLOY_YML.slice(jobStart, stepsIdx);
+    expect(
+      job,
+      'timeout-minutes is the input the 19800s constant is derived from — a drift here must be caught',
+    ).toMatch(/^ {4}timeout-minutes: 360$/m);
   });
 
   it('the surfacing step distinguishes the two failure shapes in the issue it files', () => {
