@@ -5188,6 +5188,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aziende-svizzere-semestre-2026.title': 'Swiss companies, half-year results beyond estimates',
     'blog.article.aziende-svizzere-semestre-2026.excerpt': 'In the first half of the year, 24 out of 30 companies in the SLI index exceeded market expectations. 2026 profit estimates revised to +18% thanks to investments in artificial intelligence.',
     'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Swiss stock exchange: professionals analyzing financial data of listed companies in SLI and SMI indices',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Schaffhausen transport subscriptions: zones and rates',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Complete guide to public transport subscriptions in the canton of Schaffhausen: fare community, monthly and annual subscriptions, half-price, GA and student discounts.',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Swiss railway station with zone tariff signage and pass information displays',
 };
 
 export default blogMetaChEn;

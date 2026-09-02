@@ -5188,6 +5188,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aziende-svizzere-semestre-2026.title': 'Schweizer Unternehmen, Halbjahresergebnisse über den Schätzungen',
     'blog.article.aziende-svizzere-semestre-2026.excerpt': 'Im ersten Halbjahr übertrafen 24 von 30 Unternehmen des SLI-Index die Markterwartungen. Gewinnschätzungen 2026 wurden dank Investitionen in künstliche Intelligenz mit +18% überarbeitet.',
     'blog.article.aziende-svizzere-semestre-2026.imageAlt': 'Schweizer Börse: Fachleute analysieren Finanzdaten börsennotierter Unternehmen in SLI- und SMI-Indizes',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.title': 'Verkehrstickets Schaffhausen: Zonen und Tarife',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.excerpt': 'Vollständiger Abo-Leitfaden für den öffentlichen Verkehr im Kanton Schaffhausen: Tarifgemeinschaft, Monats- und Jahresabonnements, Halbtax, GA und Studentenrabatte.',
+    'blog.article.abbonamenti-trasporti-sciaffusa-tariffe.imageAlt': 'Schweizer Bahnhof mit Zonengebühren und Abonnementinformationen auf Anzeigetafeln',
 };
 
 export default blogMetaChDe;
