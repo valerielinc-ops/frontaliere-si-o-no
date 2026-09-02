@@ -191,7 +191,17 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
       expect(job.steps.at(-3)).toEqual({
         name: 'Commit crawler group data atomically',
         if: 'always()',
-        run: `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
+        run: [
+          'set +e',
+          `bash scripts/lib/git-commit-data.sh --group-batch "Auto-update crawler group ${group} jobs"`,
+          'git_commit_exit=$?',
+          'if [ "$git_commit_exit" -eq 42 ]; then',
+          '  echo "::warning::group commit: push lost the ref race after all retries (contention) on the final aggregated commit. Cycle lost, self-heals next scheduled run — group not failed (systemic class)."',
+          '  echo "⚠️ group commit: push contention loss (exit 42) — crawl data was fine, group not failed" >> "$GITHUB_STEP_SUMMARY"',
+          '  exit 0',
+          'fi',
+          'exit "$git_commit_exit"',
+        ].join('\n'),
       });
       expect(job.steps.at(-2).env.CRAWLER_GENERATION_WAIT_OUTCOME).toBe('${{ job.status }}');
       expect(JSON.parse(job.steps.at(-2).env.CRAWLER_GENERATION_EXPECTED_CRAWLERS)).toEqual(
