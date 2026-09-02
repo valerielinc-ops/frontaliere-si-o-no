@@ -5131,6 +5131,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-argovia-guida.title': 'Permis L dans le canton d\'Argovie : validité et renouvellement',
     'blog.article.permesso-l-argovia-guida.excerpt': 'Guide du permis L de courte durée dans le canton d\'Argovie : règles de validité, procédures de prolongation et critères de passage au permis B.',
     'blog.article.permesso-l-argovia-guida.imageAlt': 'Office de la migration dans le canton d\'Argovie',
+    'blog.article.postazione-lavoro-sovranita-digitale.title': 'Papeterie : programme de travail numérique',
+    'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'D\'ici fin 2027, environ 3000 collaborateurs auront accès à un poste de travail basé sur la souveraineté numérique.',
+    'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Un espace de travail numérique dans un bureau fédéral suisse.',
 };
 
 export default blogMetaChFr;

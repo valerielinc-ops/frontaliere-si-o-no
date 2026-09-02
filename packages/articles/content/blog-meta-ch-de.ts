@@ -5131,6 +5131,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-argovia-guida.title': 'L-Bewilligung im Kanton Aargau: Gültigkeit und Erneuerung',
     'blog.article.permesso-l-argovia-guida.excerpt': 'Leitfaden zur Kurzzeitbewilligung L im Kanton Aargau: Gültigkeitsregeln, Verlängerungsverfahren und Kriterien für den Übergang zur Bewilligung B.',
     'blog.article.permesso-l-argovia-guida.imageAlt': 'Migrationsamt im Kanton Aargau',
+    'blog.article.postazione-lavoro-sovranita-digitale.title': 'Schreibwaren: Digitales Arbeitsprogramm',
+    'blog.article.postazione-lavoro-sovranita-digitale.excerpt': 'Bis Ende 2027 werden rund 3000 Mitarbeitende Zugang zu einem auf digitaler Souveränität basierenden Arbeitsplatz haben.',
+    'blog.article.postazione-lavoro-sovranita-digitale.imageAlt': 'Ein digitaler Arbeitsplatz in einem Schweizer Bundesamt.',
 };
 
 export default blogMetaChDe;

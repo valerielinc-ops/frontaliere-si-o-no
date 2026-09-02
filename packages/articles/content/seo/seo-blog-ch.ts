@@ -66593,6 +66593,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-postazione-lavoro-sovranita-digitale': {
+    title: 'Cancelleria: programma per lavoro digitale | Frontaliere Ticino',
+    description: 'La Cancelleria federale lancia un programma per una postazione di lavoro basata sulla sovranità digitale. Entro la fine del 2027, circa 3000 collaboratori',
+    keywords: 'frontalieri, ticino, svizzera, italia, cancelleria, programma, lavoro, digitale',
+    ogTitle: 'Postazione di lavoro basata sulla sovranità digitale',
+    ogDescription: 'La Cancelleria federale ha annunciato il lancio di un programma per una postazione di lavoro basata sulla sovranità digitale. Entro la fine del 2027, circa 3000 collaboratori avranno accesso a una postazione di lavoro basata sulla sovranità digitale',
+    canonicalPath: '/articoli-svizzera/postazione-lavoro-sovranita-digitale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cancelleria: programma per lavoro digitale",
+      "description": "La Cancelleria federale lancia un programma per una postazione di lavoro basata sulla sovranità digitale. Entro la fine del 2027, circa 3000 collaboratori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/postazione-lavoro-sovranita-digitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una postazione di lavoro digitale in un ufficio federale svizzero."
+      },
+      "datePublished": "2026-09-02T10:24:41+00:00",
+      "dateModified": "2026-09-02T10:24:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/postazione-lavoro-sovranita-digitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
