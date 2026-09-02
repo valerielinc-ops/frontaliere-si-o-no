@@ -5173,6 +5173,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.formazione-professionale-tirocinio-zurigo.title': 'Apprendistato nel Canton Zurigo: guida pratica',
     'blog.article.formazione-professionale-tirocinio-zurigo.excerpt': 'Come trovare un posto di tirocinio, comprendere il contratto di apprendista, le retribuzioni e la maturità professionale nel Canton Zurigo.',
     'blog.article.formazione-professionale-tirocinio-zurigo.imageAlt': 'Aula di formazione professionale svizzera con apprendisti al lavoro su postazioni didattiche',
+    'blog.article.franco-euro-minimi-anno.title': 'Franco svizzero ai minimi rispetto all\'euro: cosa significa per gli investitori',
+    'blog.article.franco-euro-minimi-anno.excerpt': 'Il franco svizzero continua a indebolirsi rispetto all\'euro, raggiungendo il minimo da un anno. Scopri le implicazioni per gli investitori.',
+    'blog.article.franco-euro-minimi-anno.imageAlt': 'Vista aerea del Lago di Lugano con le Alpi svizzere sullo sfondo',
 };
 
 export default blogMetaChIt;
