@@ -5113,6 +5113,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.accordo-investimenti-saudi-2026.title': 'Federal Council adopts message on Agreement with Saudi Arabia',
     'blog.article.accordo-investimenti-saudi-2026.excerpt': 'The Federal Council adopted the message on the Investment Protection and Promotion Agreement with Saudi Arabia, filling the legal vacuum created after the denunciation of the previous agreement.',
     'blog.article.accordo-investimenti-saudi-2026.imageAlt': 'Aerial view of Lugano with Lake Ceresio in the background',
+    'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Mountain hotels: 100 million for modernization',
+    'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'The Federal Council launches a program of 100 million francs over eight years for the energy rehabilitation of mountain hotel facilities.',
+    'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Modern mountain hotel in the Swiss Alps.',
 };
 
 export default blogMetaChEn;

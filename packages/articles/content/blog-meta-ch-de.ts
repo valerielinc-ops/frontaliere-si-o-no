@@ -5113,6 +5113,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.accordo-investimenti-saudi-2026.title': 'Bundesrat verabschiedet Botschaft zum Abkommen mit Saudi-Arabien',
     'blog.article.accordo-investimenti-saudi-2026.excerpt': 'Der Bundesrat hat die Botschaft zum Investitionsschutz- und Förderabkommen mit Saudi-Arabien verabschiedet und damit die nach der Kündigung des bisherigen Abkommens entstandene Rechtslücke geschlossen.',
     'blog.article.accordo-investimenti-saudi-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.programma-modernizzazione-alberghi-montagna.title': 'Berghotels: 100 Millionen für die Modernisierung',
+    'blog.article.programma-modernizzazione-alberghi-montagna.excerpt': 'Der Bundesrat hat über acht Jahre ein Programm von 100 Millionen CHF zur Energieerneuerung von Berghotels gestartet.',
+    'blog.article.programma-modernizzazione-alberghi-montagna.imageAlt': 'Modernes Berghotel in den Schweizer Alpen.',
 };
 
 export default blogMetaChDe;
