@@ -144,6 +144,9 @@ describe('Apleona Schweiz AG crawler parser', () => {
       expect(detail.description).toContain('Deine Aufgaben\n• Du unterstützt die Bewirtschaftung');
       expect(detail.description).toContain('Deine Anforderungen\n• Du verfügst über eine kaufmännische');
       expect(detail.description).not.toContain('Recruiting Kontakt und Personaldienstleister');
+      // A nested sub-heading (h4) inside the vacancy body must be stripped the
+      // same way as h1-h3: it is section chrome, not vacancy content.
+      expect(detail.description).not.toContain('Teamgrösse: 6 Personen');
     });
 
     it('rejects a canton suffix that fails independent verification without leaking the raw string', () => {
