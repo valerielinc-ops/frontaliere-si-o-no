@@ -102,6 +102,18 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+/**
+ * Resolve the canton for a retail listing's location. A bare `'Switzerland'`
+ * location (no source city — company-wide retail pipeline roles) carries no
+ * local evidence, so it gets an empty canton instead of guessing a specific
+ * one: mirrors `resolveSwissLocation()` in microsoft-job-parser.mjs for the
+ * same "country-only posting" case, avoiding a silent HQ (Zürich) route.
+ */
+export function resolveAppleRetailSwitzerlandCanton(location = '') {
+  if (location === 'Switzerland') return '';
+  return inferSwissTargetCanton(location) || 'ZH';
+}
+
 /* ── Fetch + Parse ─────────────────────────────────────────── */
 
 // Apple's own bespoke jobsite platform (jobs.apple.com) — NOT Workday
@@ -266,7 +278,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
     // for company-wide retail pipeline roles) — never a street/canton string.
     const locationEntry = Array.isArray(listing.locations) ? listing.locations[0] : null;
     const location = normalizeSpace(locationEntry?.name || 'Switzerland');
-    const canton = inferSwissTargetCanton(location) || 'ZH';
+    const canton = resolveAppleRetailSwitzerlandCanton(location);
     const descriptionSource = listing.jobSummary || '';
     const descriptionText =
       stripHtml(descriptionSource) || `${title} — Apple Retail Switzerland`;
@@ -300,7 +312,7 @@ export async function fetchAllAppleRetailSwitzerlandJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
-      addressLocality: location === 'Switzerland' ? 'Zurich' : location,
+      addressLocality: location,
       addressCountry: 'CH',
       country: 'CH',
       category: listing?.team?.teamName === 'Apple Retail' ? 'Commerciale' : detectCategory(title),
