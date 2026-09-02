@@ -3,10 +3,18 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, resolve } from 'node:path';
+import { basename, join, resolve } from 'node:path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT_PATH = resolve(ROOT, 'scripts/lib/git-commit-data.sh');
+const CRAWLER_ROSTER = JSON.parse(
+  readFileSync(resolve(ROOT, 'scripts/ci/crawler-generation-roster.json'), 'utf8'),
+) as { primarySlices: Record<string, string> };
+const [REGISTERED_SLICE_PATH, NEW_REGISTERED_SLICE_PATH] = Object.values(CRAWLER_ROSTER.primarySlices);
+if (!REGISTERED_SLICE_PATH || !NEW_REGISTERED_SLICE_PATH) {
+  throw new Error('crawler generation roster has fewer than two primary slices');
+}
+const REGISTERED_SLICE_FILE = basename(REGISTERED_SLICE_PATH);
 
 // The script uses `declare -A` (associative arrays), requiring bash 4+.
 // CI (ubuntu-latest) ships bash 5 as the default `bash`. macOS ships bash 3.2
@@ -190,10 +198,11 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
-  it('does not resurrect a slice deleted upstream after a stale writer checkout', () => {
+  it('preserves an unregistered retirement while allowing a registered base-absent create', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
     const concurrentDir = mkdtempSync(join(tmpdir(), 'git-commit-data-concurrent-'));
+    const postRetirementDir = mkdtempSync(join(tmpdir(), 'git-commit-data-post-retirement-'));
 
     try {
       execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
@@ -227,7 +236,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
 
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/active.json'), '[{"id":"active-1"}]\n');
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/retired.json'), '[{"id":"stale-1"}]\n');
-      writeFileSync(join(repoDir, 'data/jobs/by-crawler/fresh.json'), '[{"id":"fresh-1"}]\n');
+      writeFileSync(join(repoDir, NEW_REGISTERED_SLICE_PATH), '[{"id":"fresh-1"}]\n');
       writeFileSync(join(repoDir, 'data/translation-cache/retired.json'), '{"stale":true}\n');
 
       execFileSync(
@@ -258,7 +267,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       )).toContain('active-1');
       expect(execFileSync(
         'git',
-        ['show', 'origin/main:data/jobs/by-crawler/fresh.json'],
+        ['show', `origin/main:${NEW_REGISTERED_SLICE_PATH}`],
         { cwd: repoDir, encoding: 'utf8' },
       )).toContain('fresh-1');
       expect(() => execFileSync(
@@ -274,6 +283,155 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         ['show', 'origin/main:data/translation-cache/retired.json'],
         { cwd: repoDir, encoding: 'utf8' },
       )).toContain('stale');
+
+      // A writer starting only after retirement has no base blob. Registry
+      // absence must still distinguish the retired path from a genuine new,
+      // registered crawler slice.
+      execFileSync('git', ['clone', '-q', originDir, postRetirementDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: postRetirementDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: postRetirementDir });
+      writeFileSync(
+        join(postRetirementDir, 'data/jobs/by-crawler/retired.json'),
+        '[{"id":"post-retirement-resurrection"}]\n',
+      );
+      execFileSync(
+        BASH_BIN,
+        [SCRIPT_PATH, '--slice-only', 'post-retirement writer'],
+        {
+          cwd: postRetirementDir,
+          env: {
+            ...process.env,
+            JOBS_SLICE_FILE: '',
+            SKIP_AI_TRANSLATION: '1',
+            SLUG_HISTORY_SUMMARY_FILE: join(postRetirementDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: '',
+            GITHUB_TOKEN: '',
+            GITHUB_RUN_ID: '',
+            GITHUB_REPOSITORY: '',
+            GITHUB_OUTPUT: '',
+          },
+        },
+      );
+      expect(() => execFileSync(
+        'git',
+        ['cat-file', '-e', 'origin/main:data/jobs/by-crawler/retired.json'],
+        { cwd: postRetirementDir, stdio: 'pipe' },
+      )).toThrow();
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(concurrentDir, { recursive: true, force: true });
+      rmSync(postRetirementDir, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when a still-registered primary slice disappears upstream', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    const concurrentDir = mkdtempSync(join(tmpdir(), 'git-commit-data-concurrent-'));
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
+      writeFileSync(join(repoDir, REGISTERED_SLICE_PATH), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      execFileSync('git', ['clone', '-q', originDir, concurrentDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: concurrentDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: concurrentDir });
+      execFileSync('git', ['rm', '-q', REGISTERED_SLICE_PATH], { cwd: concurrentDir });
+      execFileSync('git', ['commit', '-q', '-m', 'accidental remote deletion'], { cwd: concurrentDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: concurrentDir });
+
+      writeFileSync(
+        join(repoDir, REGISTERED_SLICE_PATH),
+        `[{"id":"${REGISTERED_SLICE_FILE}-updated"}]\n`,
+      );
+
+      const malformedRosterPath = join(repoDir, 'malformed-crawler-roster.json');
+      writeFileSync(malformedRosterPath, JSON.stringify({ primarySlices: {} }));
+      for (const invalidRosterPath of [join(repoDir, 'missing-crawler-roster.json'), malformedRosterPath]) {
+        let invalidRosterOutput = '';
+        expect(() => {
+          try {
+            execFileSync(
+              BASH_BIN,
+              [SCRIPT_PATH, '--slice-only', 'invalid roster writer'],
+              {
+                cwd: repoDir,
+                env: {
+                  ...process.env,
+                  CRAWLER_GENERATION_ROSTER_FILE: invalidRosterPath,
+                  JOBS_SLICE_FILE: '',
+                  SKIP_AI_TRANSLATION: '1',
+                  SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+                  GH_TOKEN: '',
+                  GITHUB_TOKEN: '',
+                  GITHUB_RUN_ID: '',
+                  GITHUB_REPOSITORY: '',
+                  GITHUB_OUTPUT: '',
+                },
+                stdio: 'pipe',
+              },
+            );
+          } catch (error) {
+            const failure = error as { stdout?: Buffer; stderr?: Buffer };
+            invalidRosterOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+            throw error;
+          }
+        }).toThrow();
+        expect(invalidRosterOutput).toContain('cannot validate primary slice registry');
+      }
+
+      let failureOutput = '';
+      expect(() => {
+        try {
+          execFileSync(
+            BASH_BIN,
+            [SCRIPT_PATH, '--slice-only', 'registered slice writer'],
+            {
+              cwd: repoDir,
+              env: {
+                ...process.env,
+                JOBS_SLICE_FILE: '',
+                SKIP_AI_TRANSLATION: '1',
+                SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+                GH_TOKEN: '',
+                GITHUB_TOKEN: '',
+                GITHUB_RUN_ID: '',
+                GITHUB_REPOSITORY: '',
+                GITHUB_OUTPUT: '',
+              },
+              stdio: 'pipe',
+            },
+          );
+        } catch (error) {
+          const failure = error as { stdout?: Buffer; stderr?: Buffer };
+          failureOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+          throw error;
+        }
+      }).toThrow();
+      expect(failureOutput).toContain(
+        `${REGISTERED_SLICE_PATH} disappeared upstream but remains in crawler-generation-roster.json`,
+      );
+
+      expect(() => execFileSync(
+        'git',
+        ['cat-file', '-e', `origin/main:${REGISTERED_SLICE_PATH}`],
+        { cwd: repoDir, stdio: 'pipe' },
+      )).toThrow();
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
