@@ -11117,6 +11117,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-aziende.title': 'Die Schweiz verliert an Attraktivität für Unternehmen',
     'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Sieben von zehn CEOs sehen einen Rückgang der Schweizer Attraktivität im internationalen Wettbewerb.',
     'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit moderner Stadtlandschaft und umliegenden Bergen.',
+    'blog.article.mornago-frontaliere.title': 'Leben in Mornago, Arbeiten im Tessin: Besteuerung und Genehmigung G',
+    'blog.article.mornago-frontaliere.excerpt': 'Ab dem 1. Januar 2024 garantiert die Neue Grenzgängervereinbarung den neuen Grenzgängern eine Selbstbeteiligung von 10.000 €. Entdecken Sie Besteuerung, AHV, BVG und KVG für diejenigen, die in Mornago leben und im Tessin arbeiten.',
+    'blog.article.mornago-frontaliere.imageAlt': 'Grenze zwischen Tessin und der Lombardei von Mendrisio in Richtung Mornago, mit grünen Hügeln der Provinz Varese im Hintergrund',
 };
 
 export default blogMetaDe;

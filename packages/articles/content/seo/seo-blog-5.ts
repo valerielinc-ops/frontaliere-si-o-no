@@ -82634,6 +82634,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mornago-frontaliere': {
+    title: 'Vivere a Mornago, lavorare in Ticino: tassazione e permesso G',
+    description: 'Dal 1° gennaio 2024 nuove regole per frontalieri. Franchigia €10.000, imposta alla fonte svizzera, AVS, LPP, LAMal: guida completa per chi vive a Mornago',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, mornago, lavorare, tassazione',
+    ogTitle: 'Vivere a Mornago, lavorare in Ticino: tassazione e permesso G',
+    ogDescription: 'Sei frontaliere tra Mornago e Ticino? Scopri come funzionano il permesso G, l\'imposta alla fonte svizzera, i contributi AVS/LPP, la franchigia €10.000 e l\'assicurazione malattia LAMal. Guida pratica 2024–2025.',
+    canonicalPath: '/articoli-frontaliere/mornago-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Mornago, lavorare in Ticino: tassazione e permesso G",
+      "description": "Dal 1° gennaio 2024 nuove regole per frontalieri. Franchigia €10.000, imposta alla fonte svizzera, AVS, LPP, LAMal: guida completa per chi vive a Mornago",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mornago-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il confine tra Ticino e Lombardia da Mendrisio verso Mornago, con le colline verdi della provincia di Varese sullo sfondo"
+      },
+      "datePublished": "2026-09-02T13:35:07+00:00",
+      "dateModified": "2026-09-02T13:35:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mornago-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

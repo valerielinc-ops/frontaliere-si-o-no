@@ -11120,6 +11120,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-aziende.title': 'La Suisse perd de son attrait pour les entreprises',
     'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Sept PDG sur dix constatent une baisse de l\'attractivité suisse par rapport à la concurrence internationale.',
     'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Vue aérienne de Lugano, Suisse, avec skyline moderne et montagnes environnantes.',
+    'blog.article.mornago-frontaliere.title': 'Vivre à Mornago, travailler au Tessin : fiscalité et permis G',
+    'blog.article.mornago-frontaliere.excerpt': 'À partir du 1er janvier 2024, le nouvel accord frontalier garantit une franchise de 10 000 € aux nouveaux frontaliers. Découvrez la fiscalité, l\'AVS, la LPP et la LAMal pour ceux qui vivent à Mornago et travaillent au Tessin.',
+    'blog.article.mornago-frontaliere.imageAlt': 'Frontière entre le Tessin et la Lombardie depuis Mendrisio vers Mornago, avec les collines vertes de la province de Varèse en arrière-plan',
 };
 
 export default blogMetaFr;

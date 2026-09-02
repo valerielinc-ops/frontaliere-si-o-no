@@ -11118,6 +11118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-perde-attrattiva-aziende.title': 'Switzerland is losing its attractiveness for companies',
     'blog.article.svizzera-perde-attrattiva-aziende.excerpt': 'Seven out of ten CEOs see a decline in Swiss attractiveness compared to international competition.',
     'blog.article.svizzera-perde-attrattiva-aziende.imageAlt': 'Aerial view of Lugano, Switzerland, with modern cityscape and surrounding mountains.',
+    'blog.article.mornago-frontaliere.title': 'Living in Mornago, working in Ticino: taxation and permit G',
+    'blog.article.mornago-frontaliere.excerpt': 'From 1 January 2024, the New Frontier Agreement guarantees a €10,000 exemption to new frontier workers. Discover taxation, AVS, LPP and LAMal for those who live in Mornago and work in Ticino.',
+    'blog.article.mornago-frontaliere.imageAlt': 'Border between Ticino and Lombardy from Mendrisio towards Mornago, with green Varese hills in the distance',
 };
 
 export default blogMetaEn;
