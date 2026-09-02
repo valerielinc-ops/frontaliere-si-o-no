@@ -207,7 +207,8 @@ describe('exchange page generation', () => {
   it('referral partner links carry rel="sponsored nofollow noopener"', () => {
     const itHub = pages.find((p) => p.relPath === buildExchangeHubPath('it'))!;
     expect(itHub.html).toContain('rel="sponsored nofollow noopener"');
-    expect(itHub.html).toContain('wise.com');
+    expect(itHub.html).toContain('https://wise.prf.hn/l/5mGYVAl/');
+    expect(itHub.html).not.toContain('wise.com/invite');
     expect(itHub.html).toContain('cambiavalute.ch');
   });
 
