@@ -65618,6 +65618,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mercato-lavoro-canton-grigioni': {
+    title: 'Mercato del lavoro nei Grigioni: salari e livelli',
+    description: 'Struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione, contratti collettivi e come negoziare il tuo',
+    keywords: 'frontalieri, ticino, svizzera, italia, mercato, lavoro, grigioni, salari',
+    ogTitle: 'Mercato del lavoro nei Grigioni: salari e livelli',
+    ogDescription: 'Scopri come funzionano gli stipendi nel Canton Grigioni: livelli salariali per formazione, contratti collettivi, tassazione a tre livelli e contributi sociali obbligatori. Guida pratica per negoziare il tuo salario.',
+    canonicalPath: '/articoli-svizzera/mercato-lavoro-canton-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mercato del lavoro nei Grigioni: salari e livelli",
+      "description": "Struttura salariale, tassazione e contributi sociali nel Canton Grigioni. Stipendi, livelli di formazione, contratti collettivi e come negoziare il tuo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mercato-lavoro-canton-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio montano del Canton Grigioni con insediamenti abitativi e aziende che rappresentano l'economia alpina svizzera e il mercato del lavoro."
+      },
+      "datePublished": "2026-09-02T04:17:01+00:00",
+      "dateModified": "2026-09-02T04:17:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mercato-lavoro-canton-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

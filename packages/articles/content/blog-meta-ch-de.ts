@@ -5056,6 +5056,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-attivita-grigioni-forma-giuridica.title': 'Geschäft in Graubünden eröffnen: Rechtsformen und Kosten',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Graubünden: Rechtsformen, Handelsregister, Mindestkapital, Einschreibegebühren und eidgenössische Versicherungspflichten.',
     'blog.article.avviare-attivita-grigioni-forma-giuridica.imageAlt': 'Modernes Schweizer Büro mit Fachleuten bei Unternehmensgründungsprojekten',
+    'blog.article.mercato-lavoro-canton-grigioni.title': 'Arbeitsmarkt in Graubünden: Löhne und Niveaus',
+    'blog.article.mercato-lavoro-canton-grigioni.excerpt': 'Umfassender Leitfaden zu Lohnstruktur, Besteuerung und Sozialversicherungsbeiträgen im Kanton Graubünden. Löhne, Ausbildungsniveaus und Tarifverträge.',
+    'blog.article.mercato-lavoro-canton-grigioni.imageAlt': 'Berglandschaft des Kantons Graubünden mit Wohn- und Gewerbegebieten, die die Alpenwirtschaft und den Arbeitsmarkt der Schweiz darstellen.',
 };
 
 export default blogMetaChDe;
