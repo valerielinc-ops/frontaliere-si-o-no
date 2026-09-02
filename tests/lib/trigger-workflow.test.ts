@@ -67,7 +67,18 @@ function dispatch(options: DispatchOptions = {}) {
   const directory = mkdtempSync(join(tmpdir(), 'trigger-workflow-'));
   temporaryDirectories.push(directory);
   const stub = join(directory, 'curl');
+  const sleepStub = join(directory, 'sleep');
   const output = join(directory, 'github-output');
+
+  // Record the argument of every `sleep` call instead of actually waiting,
+  // so backoff duration decisions are assertable without slowing the suite.
+  writeFileSync(
+    sleepStub,
+    `#!/usr/bin/env bash
+printf '%s\\n' "$1" >> "${directory}/sleep-calls"
+`,
+  );
+  chmodSync(sleepStub, 0o755);
 
   writeFileSync(
     stub,
@@ -75,6 +86,7 @@ function dispatch(options: DispatchOptions = {}) {
 set -euo pipefail
 method=GET
 output_file=""
+header_file=""
 write_format=""
 payload=""
 url=""
@@ -83,6 +95,7 @@ while [ "$#" -gt 0 ]; do
   case "$1" in
     -X|--request) method="$2"; shift 2 ;;
     -o|--output) output_file="$2"; shift 2 ;;
+    -D|--dump-header) header_file="$2"; shift 2 ;;
     -w|--write-out) write_format="$2"; shift 2 ;;
     -d|--data|--data-raw) payload="$2"; shift 2 ;;
     -H|--header)
@@ -141,6 +154,16 @@ else
   body="\${CURL_GET_BODY:-}"
 fi
 
+if [ -n "$header_file" ]; then
+  {
+    printf 'HTTP/2 %s\\r\\n' "$status"
+    if [ "$status" = "403" ] && [ -n "\${CURL_RETRY_AFTER:-}" ]; then
+      printf 'retry-after: %s\\r\\n' "$CURL_RETRY_AFTER"
+    fi
+    printf '\\r\\n'
+  } > "$header_file"
+fi
+
 if [ -n "$output_file" ]; then printf '%s' "$body" > "$output_file"; else printf '%s' "$body"; fi
 if [ -n "$write_format" ]; then printf '%s' "$status"; fi
 `,
@@ -186,6 +209,9 @@ if [ -n "$write_format" ]; then printf '%s' "$status"; fi
     postCount: readNumber(join(directory, 'post-count')),
     postUrl: readFileIfPresent(join(directory, 'post-url')),
     refCount: readNumber(join(directory, 'ref-count')),
+    sleepCalls: readFileIfPresent(join(directory, 'sleep-calls'))
+      .split('\n')
+      .filter(Boolean),
   };
 }
 
@@ -334,6 +360,72 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.compareCount).toBe(2);
     expect(result.postCount).toBe(0);
     expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('honors Retry-After on a secondary rate-limit (403) during ref polling instead of the fixed wait', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '2',
+        TRIGGER_REF_WAIT_SECONDS: '2',
+        CURL_REF_STATUS: '403',
+        CURL_RETRY_AFTER: '7',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.refCount).toBe(2);
+    expect(result.compareCount).toBe(0);
+    expect(result.postCount).toBe(0);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+    expect(result.sleepCalls).toEqual(['7', '7']);
+    expect(result.stdout).toContain('secondary rate-limit (403)');
+    expect(result.stdout).toContain('Retry-After: 7s');
+  });
+
+  it('caps an oversized Retry-After value instead of sleeping the raw header value', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '2',
+        CURL_REF_STATUS: '403',
+        CURL_RETRY_AFTER: '999',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.sleepCalls).toEqual(['60']);
+  });
+
+  it('backs off at least 5s on a 403 without a Retry-After header', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '0',
+        CURL_REF_STATUS: '403',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.sleepCalls).toEqual(['5']);
+    expect(result.stdout).toContain('secondary rate-limit (403) without Retry-After');
+  });
+
+  it('uses the plain fixed wait for a non-403 polling miss', () => {
+    const expectedSha = 'a'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_REF_WAIT_ATTEMPTS: '1',
+        TRIGGER_REF_WAIT_SECONDS: '3',
+        CURL_REF_STATUS: '500',
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.sleepCalls).toEqual(['3']);
+    expect(result.stdout).not.toContain('secondary rate-limit');
   });
 
   it('fails closed before POST when the comparison response is bound to another head', () => {
