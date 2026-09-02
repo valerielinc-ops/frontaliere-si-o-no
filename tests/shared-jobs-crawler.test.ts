@@ -370,6 +370,20 @@ describe('toJobFromJsonLd — explicit adapter detail URLs', () => {
     )).toMatchObject({ job: null, reason: 'jsonld_not_detail_url' });
   });
 
+  it('accepts a canonical/shortlink JSON-LD url variant carrying the same job identity (#7026 item 2)', () => {
+    // Same UUID as frenchFustUrl, different path shell — the shape a shortlink
+    // or a template revision could plausibly emit for the SAME vacancy.
+    const shortlinkUrl = 'https://jobs.fust.ch/job/d7dc248c-e5eb-4e25-b42a-93c2a9e445d6';
+    const result = toJobFromJsonLd(
+      { ...node, url: shortlinkUrl },
+      'Fust',
+      frenchFustUrl,
+      { isSeedDetail: true, seedMeta: { location: 'Crissier', canton: 'VD', company: 'Fust' } },
+    );
+    expect(result.reason).toBeNull();
+    expect(result.job).toMatchObject({ company: 'Fust', canton: 'VD' });
+  });
+
   it('routes a detail-only adapter through JSON-LD even when its homepage is unavailable', async () => {
     const { processCompany, setCompanyAdaptersForTests } = __testables;
     setCompanyAdaptersForTests(new Map([['fust', {
