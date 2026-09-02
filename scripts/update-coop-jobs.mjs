@@ -249,6 +249,8 @@ export function findUnrecognizedCoopDivisions(allJobs) {
  * silently inert, and legitimate Coop jobs with only a legacy `company` text
  * match would fail-closed out of the lifecycle with no signal — precisely
  * the failure mode this crawler is supposed to fail LOUDLY against instead.
+ * This caller-side assertion is the enforcement point, not a second
+ * implementation of the shared legacy-alias fallback.
  */
 export function assertCoopSingleCompanyKeyScope(env = process.env) {
   const preExisting = String(env.JOBS_CRAWLER_COMPANY_KEYS || env.JOBS_CRAWLER_COMPANY_KEY || '')
