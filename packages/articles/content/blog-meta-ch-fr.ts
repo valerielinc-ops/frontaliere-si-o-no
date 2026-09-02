@@ -5026,6 +5026,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-procedure-fondi.title': 'Acheter une maison dans les Grisons : guide des fonds et des prêts',
     'blog.article.comprare-casa-grigioni-procedure-fondi.excerpt': 'Procédure, fonds propres, hypothèque et fiscalité à trois niveaux. Comment acheter un bien immobilier en Suisse en respectant les normes fédérales et cantonales.',
     'blog.article.comprare-casa-grigioni-procedure-fondi.imageAlt': 'Quartier résidentiel suisse moderne avec chalets traditionnels et appartements contemporains surplombant une vallée alpine',
+    'blog.article.affitti-grigioni-canoni-diritto.title': 'Loyers Grisons : redevances, dépôt et droit de location',
+    'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Guide pratique du droit locatif suisse : comment fonctionne le dépôt de garantie, la contestation de la redevance et les délais de résiliation dans le canton des Grisons.',
+    'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Village alpin suisse avec maisons de pierre traditionnelles dans les Grisons',
 };
 
 export default blogMetaChFr;

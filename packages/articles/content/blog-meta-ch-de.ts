@@ -5026,6 +5026,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-grigioni-procedure-fondi.title': 'Haus kaufen in Graubünden: Fonds- und Hypothekenleitfaden',
     'blog.article.comprare-casa-grigioni-procedure-fondi.excerpt': 'Verfahren, Eigenmittel, Hypothekendarlehen und dreistufige Besteuerung. So kaufen Sie eine Immobilie in der Schweiz unter Einhaltung von Bundes- und kantonalen Vorschriften.',
     'blog.article.comprare-casa-grigioni-procedure-fondi.imageAlt': 'Modernes schweizer Wohnquartier mit traditionellen Chalets und zeitgenössischen Apartments in einem Alpental',
+    'blog.article.affitti-grigioni-canoni-diritto.title': 'Mieten Graubünden: Mieten, Kaution und Mietrecht',
+    'blog.article.affitti-grigioni-canoni-diritto.excerpt': 'Praktischer Leitfaden zum Schweizer Mietrecht: Wie funktioniert die Kaution, die Anfechtung der Miete und die Kündigungsfristen im Kanton Graubünden?',
+    'blog.article.affitti-grigioni-canoni-diritto.imageAlt': 'Schweizer Alpendorf mit traditionellen Steinhäusern in Graubünden',
 };
 
 export default blogMetaChDe;
