@@ -65852,6 +65852,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-asilo-nido-custodia-basilea-campagna-costi': {
+    title: 'Asilo nido e custodia bambini a Basilea Campagna: costi',
+    description: 'Tariffe e sussidi per asili nido e custodia in Basilea Campagna. Come funziona la tariffazione calcolata sul reddito e quali agevolazioni sono disponibili.',
+    keywords: 'frontalieri, ticino, svizzera, italia, asilo, nido, custodia, bambini',
+    ogTitle: 'Asilo nido e custodia bambini a Basilea Campagna: costi',
+    ogDescription: 'Tariffe e sussidi per asili nido e custodia in Basilea Campagna. Come funziona la tariffazione calcolata sul reddito e quali agevolazioni sono disponibili.',
+    canonicalPath: '/articoli-svizzera/asilo-nido-custodia-basilea-campagna-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asilo nido e custodia bambini a Basilea Campagna: costi",
+      "description": "Tariffe e sussidi per asili nido e custodia in Basilea Campagna. Come funziona la tariffazione calcolata sul reddito e quali agevolazioni sono disponibili.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/asilo-nido-custodia-basilea-campagna-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula colorata di asilo nido svizzero con bambini piccoli e educatori durante attività didattiche"
+      },
+      "datePublished": "2026-09-02T05:50:07+00:00",
+      "dateModified": "2026-09-02T05:50:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/asilo-nido-custodia-basilea-campagna-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

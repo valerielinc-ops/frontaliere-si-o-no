@@ -5074,6 +5074,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-apprendistato-formazione-professionale.title': 'L\'apprentissage en Suisse : par où commencer ?',
     'blog.article.guida-apprendistato-formazione-professionale.excerpt': 'Système dual, contrats, rémunérations et maturité professionnelle : tout ce que vous devez savoir sur l\'apprentissage dans le canton de Bâle-Campagne et en Suisse.',
     'blog.article.guida-apprendistato-formazione-professionale.imageAlt': 'Apprenti travaillant dans un atelier de formation professionnelle suisse avec mentorat',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.title': 'Crèches et garde d\'enfants à Bâle-Campagne : tarifs',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.excerpt': 'Tarifs et aides financières pour les crèches et les services de garde d\'enfants à Bâle-Campagne. Comment fonctionne le calcul des tarifs en fonction des revenus et quelles sont les aides disponibles ?',
+    'blog.article.asilo-nido-custodia-basilea-campagna-costi.imageAlt': 'Salle colorée d\'une crèche suisse avec enfants et éducateurs engagés dans des activités éducatives',
 };
 
 export default blogMetaChFr;

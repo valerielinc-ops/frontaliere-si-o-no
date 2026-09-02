@@ -1717,6 +1717,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'basilea-campagna-scuola-iscrizione': { it: 'basilea-campagna-scuola-iscrizione', en: 'basel-countryside-school-enrollment-cycles', de: 'basel-landschaft-grundschule-einschulung', fr: 'bale-campagne-ecole-inscription-cycles' },
  'tirocinio-basilea-campagna-guida': { it: 'tirocinio-basilea-campagna-guida', en: 'apprenticeship-basel-landschaft-guide', de: 'lehrplan-basel-landschaft-anleitung', fr: 'apprentissage-bale-campagne-guide' },
  'guida-apprendistato-formazione-professionale': { it: 'guida-apprendistato-formazione-professionale', en: 'apprenticeship-training-guide-switzerland', de: 'lehrausbildung-berufsbildung-guide', fr: 'guide-apprentissage-formation-professionnelle' },
+ 'asilo-nido-custodia-basilea-campagna-costi': { it: 'asilo-nido-custodia-basilea-campagna-costi', en: 'nursery-childcare-basel-landschaft-costs', de: 'kindergarten-kinderbetreuung-basellandschaft-kosten', fr: 'creche-garde-enfants-bale-campagne-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
