@@ -277,6 +277,49 @@ describe('Albergo Gardenia authoritative crawler', () => {
     })).rejects.toMatchObject({ code: 'ERR_GARDENIA_RESOURCE_IDENTITY' });
   });
 
+  it('fails closed on a client-side redirect that lands after domcontentloaded', async () => {
+    const response = {
+      status: vi.fn(() => 200),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      body: vi.fn(async () => Buffer.from(representativeSitemap())),
+    };
+    const page = {
+      goto: vi.fn(async () => response),
+      // A late inline `window.location = ...` lands only after the bounded
+      // settle, so page.url() diverges from response.url() by the time we
+      // re-check it — a redirect `response.url()` alone can never observe.
+      url: vi.fn(() => 'https://www.albergo-gardenia.ch/story.php?mid=999&pid=1'),
+      waitForLoadState: vi.fn(async () => {}),
+      close: vi.fn(async () => {}),
+    };
+    const context = {
+      route: vi.fn(async () => {}),
+      newPage: vi.fn(async () => page),
+      close: vi.fn(async () => {}),
+    };
+    const browser = {
+      newContext: vi.fn(async () => context),
+      close: vi.fn(async () => {}),
+    };
+    const transport = createAlbergoGardeniaBrowserTransport({
+      launchBrowserImpl: vi.fn(async () => browser),
+      nowImpl: () => 1_000,
+      sleepImpl: vi.fn(async () => {}),
+    });
+
+    const result = await transport.fetchPage(ALBERGO_GARDENIA_SITEMAP_URL);
+    expect(page.waitForLoadState).toHaveBeenCalledWith('networkidle', expect.objectContaining({
+      timeout: expect.any(Number),
+    }));
+    expect(result).toMatchObject({
+      ok: false,
+      status: 0,
+      policyBlocked: true,
+      url: 'https://www.albergo-gardenia.ch/story.php?mid=999&pid=1',
+    });
+    expect(result.error).toMatch(/post-domcontentloaded redirect/);
+  });
+
   it('keeps the Chromium transport scoped to canonical Gardenia documents', async () => {
     let routeHandler: ((route: any) => Promise<void>) | undefined;
     const response = {
@@ -286,6 +329,8 @@ describe('Albergo Gardenia authoritative crawler', () => {
     };
     const page = {
       goto: vi.fn(async () => response),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      waitForLoadState: vi.fn(async () => {}),
       close: vi.fn(async () => {}),
     };
     const context = {
@@ -363,6 +408,8 @@ describe('Albergo Gardenia authoritative crawler', () => {
     };
     const page = {
       goto: vi.fn(async () => response),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      waitForLoadState: vi.fn(async () => {}),
       close: vi.fn(async () => {}),
     };
     const context = {
@@ -396,7 +443,12 @@ describe('Albergo Gardenia authoritative crawler', () => {
       url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
       body: vi.fn(async () => Buffer.from(representativeSitemap())),
     };
-    const page = { goto: vi.fn(async () => response), close: vi.fn(async () => {}) };
+    const page = {
+      goto: vi.fn(async () => response),
+      url: vi.fn(() => ALBERGO_GARDENIA_SITEMAP_URL),
+      waitForLoadState: vi.fn(async () => {}),
+      close: vi.fn(async () => {}),
+    };
     const context = { route: vi.fn(async () => {}), newPage: vi.fn(async () => page), close: vi.fn(async () => {}) };
     const browser = {
       newContext: vi.fn()
