@@ -88,12 +88,12 @@
     },
     {
       "id": "kanton-aargau-a487138cefad",
-      "slug": "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch",
+      "slug": "addetto-addetta-all-esecuzione-tipografia-e-legatoria-100-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch",
+        "it": "addetto-addetta-all-esecuzione-tipografia-e-legatoria-100-kanton-aargau-aarau",
+        "en": "execution-officer-print-shop-bookbinding-100-kanton-aargau-aarau",
         "de": "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch"
+        "fr": "agent-d-execution-imprimerie-et-reliure-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -149,7 +149,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-druckerei-buchbinderei-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-e393f97bba1a",
@@ -14429,7 +14443,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-empfang-kasse-shop-60-kanton-aargau-ch",
-        "reception-des-employes-caissier-magasin-60-kanton-aargau-aarau",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-qso6t0",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-qso6sz",
         "collaboratore-trice-empfang-kasse-shop-60-kanton-aargau-aarau-uilo9c",

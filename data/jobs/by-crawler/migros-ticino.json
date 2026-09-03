@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-gr3a0v",
-      "slug": "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v",
+      "slug": "aiutante-cuoco-aiutante-cuoca-migros-restaurant-spiez",
       "company": "Migros Restaurant",
       "title": "Hilfskoch*Hilfsköchin",
       "location": "Spiez",
@@ -64,10 +64,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v",
+        "it": "aiutante-cuoco-aiutante-cuoca-migros-restaurant-spiez",
         "en": "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v",
         "de": "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v",
-        "fr": "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v"
+        "fr": "aide-cuisinier-aide-cuisiniere-migros-restaurant-spiez"
       },
       "requirementsByLocale": {
         "it": [],
@@ -86,11 +86,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-migros-restaurant-spiez"
+          "hilfskoch-hilfskochin-migros-restaurant-spiez",
+          "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v"
         ]
       },
       "previousSlugs": [
-        "hilfskoch-hilfskochin-migros-restaurant-spiez"
+        "hilfskoch-hilfskochin-migros-restaurant-spiez",
+        "hilfskoch-hilfskochin-migros-restaurant-spiez-gr3a0v"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -112,7 +117,7 @@
     },
     {
       "id": "company-6ap7jy",
-      "slug": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
+      "slug": "aiutante-cuoco-aiutante-cuoca-migros-restaurant-thun",
       "company": "Migros Restaurant",
       "title": "Hilfskoch*Hilfsköchin",
       "location": "Thun",
@@ -172,10 +177,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
+        "it": "aiutante-cuoco-aiutante-cuoca-migros-restaurant-thun",
         "en": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
         "de": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
-        "fr": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
+        "fr": "aide-cuisinier-aide-cuisiniere-migros-restaurant-thun"
       },
       "requirementsByLocale": {
         "it": [],
@@ -194,11 +199,16 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-migros-restaurant-thun"
+          "hilfskoch-hilfskochin-migros-restaurant-thun",
+          "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
         ]
       },
       "previousSlugs": [
-        "hilfskoch-hilfskochin-migros-restaurant-thun"
+        "hilfskoch-hilfskochin-migros-restaurant-thun",
+        "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -371,9 +381,9 @@
       },
       "slugByLocale": {
         "it": "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon",
-        "en": "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40",
+        "en": "logistician-goods-outbound-afternoon-shift-from-1-pm-genossenschaft-migros-luzern-dierikon",
         "de": "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40",
-        "fr": "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40"
+        "fr": "logisticien-dans-les-marchandises-sortie-de-poste-apres-midi-a-partir-de-13h-genossenschaft-migros-luzern-dierikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -392,6 +402,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40"
+        ],
+        "en": [
+          "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40"
+        ],
+        "fr": [
           "logistiker-in-warenausgang-nachmittagsschicht-ab-13-uhr-genossenschaft-migros-luzern-dierikon-8b1a40"
         ]
       },
@@ -470,9 +486,9 @@
       },
       "slugByLocale": {
         "it": "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon",
-        "en": "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n",
+        "en": "warehouse-dispatcher-night-shift-from-7-pm-genossenschaft-migros-luzern-dierikon",
         "de": "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n",
-        "fr": "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n"
+        "fr": "logisticien-ne-expedition-marchandises-equipe-de-nuit-a-partir-de-19h-genossenschaft-migros-luzern-dierikon"
       },
       "requirementsByLocale": {
         "it": [],
@@ -491,6 +507,12 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n"
+        ],
+        "en": [
+          "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n"
+        ],
+        "fr": [
           "logistiker-in-warenausgang-nachtschicht-ab-19-uhr-genossenschaft-migros-luzern-dierikon-khgv2n"
         ]
       },
@@ -516,7 +538,7 @@
     },
     {
       "id": "company-vi9rqc",
-      "slug": "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc",
+      "slug": "capo-brigata-80-molard-ginevra-pizzeria-ristorante-molino-geneve",
       "company": "Pizzeria Ristorante Molino",
       "title": "Chef de Brigade 80 %, Molard Genève",
       "location": "Genève",
@@ -579,8 +601,8 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc",
-        "en": "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc",
+        "it": "capo-brigata-80-molard-ginevra-pizzeria-ristorante-molino-geneve",
+        "en": "head-server-80-molard-geneva-pizzeria-ristorante-molino-geneve",
         "de": "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc",
         "fr": "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc"
       },
@@ -601,11 +623,16 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve"
+          "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve",
+          "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc"
+        ],
+        "en": [
+          "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc"
         ]
       },
       "previousSlugs": [
-        "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve"
+        "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve",
+        "chef-de-brigade-80-molard-geneve-pizzeria-ristorante-molino-geneve-vi9rqc"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -627,7 +654,7 @@
     },
     {
       "id": "company-pvcueo",
-      "slug": "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo",
+      "slug": "capo-partita-90-molard-ginevra-pizzeria-ristorante-molino-geneve",
       "company": "Pizzeria Ristorante Molino",
       "title": "Chef de Partie 90 %, Molard Génève",
       "location": "Genève",
@@ -686,9 +713,9 @@
         "de": "Pizzas, Pasta-Rezepte, traditionelle Gerichte aus Fisch und Fleisch oder hausgemachte Desserts: Bei Molino verwöhnen Sie unsere Kunden in entspannter Atmosphäre und nach höchsten Qualitätsstandards. Sie wollen Teil dieser Italienerschaft sein? Dann bewerben Sie sich!\n\nMansioni - Organisation der zugewiesenen Position - Zubereitung und Service von Speisen und Desserts am Mittag und Abend - Reinigungs- und Kontrollaufgaben sowie Arbeitssicherheit im HACCP / KOPAS-Konzept - Schulung des Chiefs in Planung und Einhaltung von Qualität und Sicherheitsstandards - Unterstützung von Bestellungen, Empfang und Lagerung von Waren\n\nRequisiti - Mehrere Jahre Berufserfahrung in einem ähnlichen Beitrag: in der Gastronomie - Abgeschlossenes professionelles Lernen (CFC): Cook CFC - Unterstützung für Bestellungen, Empfang und Lagerung von Waren - Ein Service und kommunikative Persönlichkeit - Französisch (Gute Meisterschaft) - Italienisch (vorzugsweise)\n\nCosa offriamo - Flexibler Arbeitsplan: Wir bieten flexible Arbeitszeiten sowie Teilzeitarbeit - Mutterschafts-/ Vaterschaftsurlaub: Wir bieten 14 Wochen Mutterschaftsurlaub und 2 Wochen Vaterschaftsurlaub an. - Abteilungsübergreifende Vergütung: Bei uns erhalten Sie ein 13-monatiges Gehalt und ein Gehalt, das höher ist als die CCTT-Anforderungen - Mobiles Abo: Genießen Sie günstige Bedingungen für Handy-Abonnements.\n\n- Sozialleistungen: Erhalten Sie interessante Prämienermäßigungen bei einer Auswahl von Zusatzversicherungen mit SWICA - Catering: Kostenloses Catering während der Arbeitszeit - Migros Bank: Erhalten Sie besondere Konditionen bei der Migros Bank - Angebote für Mitarbeiter: Attraktive Sozialleistungen dank des Migros-Angebots und 25% Rabatt auf alle Leistungen der Ospina Group AG - Sport- und Fitnessangebote: 200 CHF Rabatt für ein Activ Fitness-Abo (Sie zahlen 540 CHF für ein Jahresabonnement und 440 CHF für Studenten) - Promotion\n\nGezielt: Wir fordern, ermutigen und erkennen.\n\n- Aus- und Weiterbildung: Unsere Mitarbeiter werden durch interne und externe Weiterbildungsmöglichkeiten gefördert und unterstützt.\n\nContatto Candidature und Kontakt Muhamed Polozhani HR-Sach-Kabeiter"
       },
       "slugByLocale": {
-        "it": "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo",
+        "it": "capo-partita-90-molard-ginevra-pizzeria-ristorante-molino-geneve",
         "en": "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo",
-        "de": "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo",
+        "de": "kuchenchef-90-molard-genf-pizzeria-ristorante-molino-geneve",
         "fr": "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo"
       },
       "requirementsByLocale": {
@@ -707,11 +734,16 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve"
+          "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve",
+          "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo"
+        ],
+        "de": [
+          "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo"
         ]
       },
       "previousSlugs": [
-        "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve"
+        "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve",
+        "chef-de-partie-90-molard-geneve-pizzeria-ristorante-molino-geneve-pvcueo"
       ],
       "salaryMin": 54500,
       "salaryMax": 82400,
@@ -732,7 +764,7 @@
     },
     {
       "id": "company-kbmmbe",
-      "slug": "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe",
+      "slug": "chef-di-sala-a-orario-molino-montreux-pizzeria-ristorante-molino-montreux",
       "company": "Pizzeria Ristorante Molino",
       "title": "Chef de Rang à l'heure, Molino Montreux",
       "location": "Montreux",
@@ -793,9 +825,9 @@
         "de": "Ob Pizza, Pasta-Rezepte, traditionelle Fisch- und Fleischgerichte oder hausgemachte Dolci, Molino verwöhnt seine Kunden in entspannter Atmosphäre und mit hohen Qualitätsstandards. Möchten Sie Teil dieses Italianità sein? Jetzt bewerben!\n\nMansioni - Kundenbetreuung von der Ankunft bis zur Abreise, Kundenberatung - Unabhängige Verwaltung der eigenen Servicestation - Garantie der Fluidität des Service - die Einrichtung - tun die Reinigungsarbeiten\n\nRequisiti - 1 bis 3 Jahre Berufserfahrung: im Service, in der italienischen Gastronomie - Erste oder kontinuierliche Ausbildung abgeschlossen: im Service - Sie sind ein guter Verkäufer, der gerne den besten Service für Kunden anbieten - Sie sind dynamisch und orientiert Service - Sie sind orientierte Kunden - Sie sind respektvoll und als ordentliches Aussehen - Französisch (Gute Meisterschaft) - Italienisch (vorzugsweise)\n\nCosa offriamo - Flexibler Arbeitsplan: Wir bieten flexible Arbeitszeiten sowie Teilzeitarbeit - Mutterschafts-/ Vaterschaftsurlaub: Wir bieten 14 Wochen Mutterschaftsurlaub und 2 Wochen Vaterschaftsurlaub an. - Abteilungsübergreifende Vergütung: Bei uns erhalten Sie ein 13-monatiges Gehalt und ein Gehalt, das höher ist als die CCTT-Anforderungen - Mobiles Abo: Genießen Sie günstige Bedingungen für Handy-Abonnements.\n\n- Sozialleistungen: Erhalten Sie interessante Prämienermäßigungen bei einer Auswahl von Zusatzversicherungen mit SWICA - Catering: Kostenloses Catering während der Arbeitszeit - Migros Bank: Erhalten Sie besondere Konditionen bei der Migros Bank - Angebote für Mitarbeiter: Attraktive Sozialleistungen dank des Migros-Angebots und 25% Rabatt auf alle Leistungen der Ospina Group AG - Sport- und Fitnessangebote: 200 CHF Rabatt für ein Activ Fitness-Abo (Sie zahlen 540 CHF für ein Jahresabonnement und 440 CHF für Studenten) - Promotion\n\nGezielt: Wir fordern, ermutigen und erkennen.\n\n- Aus- und Weiterbildung: Unsere Mitarbeiter werden durch interne und externe Weiterbildungsmöglichkeiten gefördert und unterstützt.\n\nContatto Candidature und Kontakt Muhamed Polozhani HR-Sach-Kabeiter\n\nGrado di occup (1): 197 %"
       },
       "slugByLocale": {
-        "it": "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe",
-        "en": "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe",
-        "de": "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe",
+        "it": "chef-di-sala-a-orario-molino-montreux-pizzeria-ristorante-molino-montreux",
+        "en": "head-of-dining-service-at-set-hours-molino-montreux-pizzeria-ristorante-molino-montreux",
+        "de": "oberkellner-in-zur-festgelegten-zeit-molino-montreux-pizzeria-ristorante-molino-montreux",
         "fr": "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe"
       },
       "requirementsByLocale": {
@@ -816,11 +848,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux"
+          "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux",
+          "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe"
+        ],
+        "en": [
+          "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe"
+        ],
+        "de": [
+          "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe"
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux"
+        "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux",
+        "chef-de-rang-a-l-heure-molino-montreux-pizzeria-ristorante-molino-montreux-kbmmbe"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -841,7 +881,7 @@
     },
     {
       "id": "company-bf20q0",
-      "slug": "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0",
+      "slug": "3-addette-al-rifornimento-f-m-d-societe-cooperative-migros-geneve-petit-lancy",
       "company": "Société coopérative Migros Genève",
       "title": "3 remplisseuses (F/H/D)",
       "location": "Petit-Lancy",
@@ -895,9 +935,9 @@
         "de": "Kommen Sie zu Migros Genf und genießen Sie eine dynamische Arbeit in einem motivierten Team! Wir suchen Kandidaten weniger als 15 Minuten von unserem Lancy Onex Store. In nur 3 Stunden am Tag, von 6:30 bis 9:30 Uhr, helfen Sie, ein angenehmes Erlebnis für die Kunden bieten. Wenn Sie sich uns wieder.\n\nMansioni - Ray-Experte: Sie sind vorsichtig mit der Füllung und der Organisation der Strahlen. Jedes Produkt ist an seinem Platz und mit Sorgfalt behandelt. - Pro der Frische: Nichts bleibt aus dem Kühlschrank und keine veralteten Produkt entweicht. Bei Ihnen, die kalte Kette ist perfekt respektiert. - Champion der Hygiene: Die HACCP-Regeln? Keine Sorge, Sie werden trainiert und uncollegiert zu dem Thema. - Ab der, Organisation: Dank Ihnen ist der Laden immer sauber, ordentlich und einladend. L, Ordnung wird eine Kunst in den Händen.\n\n- Unentbehrlicher Teamkollege: Mit Ihrem Teamgeist tragen Sie zu einem hochwertigen Service und einer positiven Arbeitsatmosphäre bei. - Ex-gepaarter Berater: Kunden profitieren von Ihrem herzlichen Empfang und Ihrem klugen Rat für ein 5-Sterne-Erlebnis.\n\nRequisiti - Sie kommunizieren leicht mit Ihren Kollegen und Kunden in Französisch. - Sie sind bereit, langfristig (mindestens 12 Monate), auch um eine andere Tätigkeit abzuschließen. - Sie sind verpflichtet, als Team zu arbeiten und immer gut zu tun. - Sie wohnen in der Nähe unseres Ladens (15 Minuten). - Für Ihre Bewerbung zu prüfen, Sie liefern uns eine vollständige Akte. - Ihre Persönlichkeit, Motivation und Fähigkeiten sind die wichtigsten. - Aus- oder Weiterbildung abgeschlossen - Französisch (Gute Meisterschaft)\n\nCosa offriamo - Essen & Trinken: Rabatt Fr.4 Mahlzeit (aus Käufen von 10) in Migros Restaurants. - Cum Points (2008): Rabatt von 2% und 5% je nach Sortiment. - Migros Bank: Zinsen zu Vorzugspreis und ohne Gebühr für ein Sparkonto.\n\nContatto Bewerbung und Kontakt Michaël Lassère Talent Acquisition Specialist - LinkedIn ## Einstellungsverfahren Vorauswahl von Dateien Wir überprüfen ständig die eingegangenen Bewerbungen, führen ein Screening durch und leiten sie an den Manager weiter.Die Entscheidung, den Einstellungsprozess fortzusetzen oder zu beenden, wird per Telefon oder E-Mail mitgeteilt.\n\nRücklaufzeit: bis zu 3 Wochen Professionelles Interview Im professionellen Interview stellt der Manager und/oder andere Fachperson oder sogar das Team spezifische Fragen zum Wissen, um die Arbeit zu erledigen. Wenn möglich, dann gibt es noch Zeit, den Arbeitsplatz und das Team in einer gebrochenen Stockdiskussion kennenzulernen. Rücklaufzeit: bis zu 3 Wochen Vertragsangebot und -gründung (digital) Nach unserem Angebot werden die wesentlichen Punkte des Vertrages erneut geprüft, verbale Beschäftigung.\n\nDer Vertrag wird dann einvernehmlich erstellt, bevor er per E-Mail zur digitalen Signatur versendet wird.\n\nGrado di occup (1): 04%"
       },
       "slugByLocale": {
-        "it": "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0",
-        "en": "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0",
-        "de": "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0",
+        "it": "3-addette-al-rifornimento-f-m-d-societe-cooperative-migros-geneve-petit-lancy",
+        "en": "3-shelf-fillers-f-m-d-societe-cooperative-migros-geneve-petit-lancy",
+        "de": "3-regalfuller-f-m-d-societe-cooperative-migros-geneve-petit-lancy",
         "fr": "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0"
       },
       "requirementsByLocale": {
@@ -918,11 +958,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy"
+          "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy",
+          "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0"
+        ],
+        "en": [
+          "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0"
+        ],
+        "de": [
+          "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0"
         ]
       },
       "previousSlugs": [
-        "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy"
+        "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy",
+        "3-remplisseuses-m-w-d-societe-cooperative-migros-geneve-petit-lancy-bf20q0"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -991,8 +1039,8 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges",
-        "en": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges-clck1b",
-        "de": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges-clck1b",
+        "en": "versatile-salesperson-m-f-d-societe-cooperative-migros-vaud-epalinges",
+        "de": "vielseitiger-verkaufer-m-w-d-societe-cooperative-migros-vaud-epalinges",
         "fr": "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges-clck1b"
       },
       "requirementsByLocale": {
@@ -1024,10 +1072,12 @@
           "mehrzweckverkaufer-h-f-d-societe-cooperative-migros-vaud-aigle"
         ],
         "en": [
-          "versatile-salesperson-m-f-d-societe-cooperative-migros-vaud-aigle"
+          "versatile-salesperson-m-f-d-societe-cooperative-migros-vaud-aigle",
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges-clck1b"
         ],
         "de": [
-          "vielseitiger-verkaufer-in-m-f-d-societe-cooperative-migros-vaud-aigle"
+          "vielseitiger-verkaufer-in-m-f-d-societe-cooperative-migros-vaud-aigle",
+          "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-epalinges-clck1b"
         ],
         "fr": [
           "vendeur-polyvalent-m-w-d-societe-cooperative-migros-vaud-aigle-w8ju63"
@@ -11873,9 +11923,9 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "collaboratore-trice-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e",
-        "en": "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e",
+        "en": "food-department-manager-genossenschaft-migros-ostschweiz-wittenbach",
         "de": "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e",
-        "fr": "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e"
+        "fr": "responsable-du-rayon-alimentation-genossenschaft-migros-ostschweiz-wittenbach"
       },
       "requirementsByLocale": {
         "de": [
@@ -11912,10 +11962,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach"
+        ],
+        "en": [
+          "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e"
+        ],
+        "fr": [
+          "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach"
+        "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach",
+        "mitarbeiter-in-food-magazin-genossenschaft-migros-ostschweiz-wittenbach-gr627e"
       ],
       "salarySource": "estimated",
       "baseSalary": {
