@@ -11168,6 +11168,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Déménagement à Berbenno : le guide du frontalier des Grisons',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Frontalier Berbenno-Grisons ? Guide des impôts, des cotisations AVS, LAMal et de la commodité économique de travailler en Suisse et d\'habiter en Italie.',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Vue aérienne de la vallée alpine avec passage frontalier Italie-Suisse et infrastructures routières reliant le Tessin et la Lombardie',
+    'blog.article.vivere-vione-lavorare-grigioni.title': 'Vivre à Vione et travailler dans les Grisons : guide du frontalier',
+    'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Frontière Vione-Grigioni : fiscalité, permis G, impôt à la source, LAMal et assurances. Avantages, inconvénients et checklist pratique pour le transfert.',
+    'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Paysage alpin de Vallecamonica avec vue vers les Grisons: maisons en pierre, montagnes brumeuses, automne.',
 };
 
 export default blogMetaFr;

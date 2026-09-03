@@ -11165,6 +11165,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Umzug nach Berbenno: Grenzführer Graubünden',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Grenzgänger Berbenno-Graubünden? Leitfaden zu Steuern, AHV-Beiträgen, KVG und Wirtschaftlichkeit des Arbeitens in der Schweiz und Wohnens in Italien.',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Luftaufnahme eines Alpentals mit Grenzübergang Italien-Schweiz und Straßeninfrastruktur zur Verbindung von Tessin und Lombardei',
+    'blog.article.vivere-vione-lavorare-grigioni.title': 'Leben in Vione und Arbeiten in Graubünden: Grenzgängerführer',
+    'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Grenzgänger Vione-Graubünden: Steuern, Bewilligung G, Quellensteuer, KVG und Versicherungen. Vor- und Nachteile sowie praktische Checklisten für den Transfer.',
+    'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Alpines Vallecamonica-Tal mit Blick auf Graubünden: Steinhäuser, Berge, Herbstlandschaft, Grenzregion.',
 };
 
 export default blogMetaDe;

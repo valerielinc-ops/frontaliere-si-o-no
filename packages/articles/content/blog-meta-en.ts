@@ -11166,6 +11166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Moving to Berbenno: the guide of the Grisons border crossing',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Berbenno-Grisioni Frontier? Guide to taxes, AVS contributions, LAMal and economic convenience of working in Switzerland and living in Italy.',
     'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Aerial view of Alpine valley with Italy-Switzerland border crossing and highway infrastructure connecting Ticino and Lombardy regions',
+    'blog.article.vivere-vione-lavorare-grigioni.title': 'Living in Vione and working in Graubünden: a guide to the frontier',
+    'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Frontier Vione-Grisioni: taxation, G permit, source tax, LAMal and insurance. Advantages, disadvantages and practical checklist for the transfer.',
+    'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Alpine Vallecamonica landscape with view towards Graubünden: traditional stone houses, misty mountains, autumn setting.',
 };
 
 export default blogMetaEn;
