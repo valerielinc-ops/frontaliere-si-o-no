@@ -11267,6 +11267,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Living in Cuasso al Monte and working in Ticino as a border worker',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Find out how to live in Cuasso al Monte and work in Ticino as a border worker: connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer, what to consider before moving.',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Cuasso al Monte, Ticino, Switzerland',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Living in Grandate and working in Ticino as a border worker',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, the journey times, the cost of living and the advantages of living in Grandate and working in Ticino.',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;
