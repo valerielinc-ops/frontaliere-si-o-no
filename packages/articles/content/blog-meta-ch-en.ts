@@ -5350,6 +5350,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Appenzell Innerrhoden inheritance tax',
     'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Inheritance and gift taxation in the canton of Appenzell Innerrhoden: rates by degree of kinship, exemptions for spouses and descendants, declaration procedures and cantonal deadlines.',
     'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Tax administration office of Appenzello Interno canton with inheritance documents and succession declaration forms',
+    'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS Uri: Calculation of annuity and contribution gaps',
+    'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'First Uri pillar: compensation fund, calculation of the AVH annuity and supplementary benefits for contribution gaps and minimum living allowance.',
+    'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Swiss cantonal social security office managing AVS contributions and retirement pension administration records.',
 };
 
 export default blogMetaChEn;
