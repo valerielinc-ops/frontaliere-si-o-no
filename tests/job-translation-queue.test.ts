@@ -83,15 +83,15 @@ function concurrencyConfig(workflowPath: string): Record<string, unknown> {
  * Textual mention, unlike strict `group === JOBS_DATA_PIPELINE_GROUP`: catches a
  * `group` built from a GH expression (`${{ ... }}`) that resolves to the same
  * queue at runtime but is a different literal string at YAML-parse time, which
- * the strict-equality inventory below would silently miss.
+ * the strict-equality inventory below would silently miss. Checked on the raw
+ * value (not narrowed to the mapping form first) so the shorthand string form
+ * of `concurrency:` (e.g. `concurrency: jobs-data-pipeline-${{ github.run_id }}`)
+ * cannot evade this fail-closed guard the way it would evade the strict
+ * mapping-only inventory above.
  */
 function concurrencyMentionsJobsDataPipeline(workflowPath: string): boolean {
   const concurrency = workflowConfig(workflowPath).concurrency;
-  if (concurrency === null || typeof concurrency !== 'object' || Array.isArray(concurrency)) {
-    return false;
-  }
-
-  return JSON.stringify(concurrency).includes(JOBS_DATA_PIPELINE_GROUP);
+  return JSON.stringify(concurrency ?? null).includes(JOBS_DATA_PIPELINE_GROUP);
 }
 
 describe('measureTranslationQueue', () => {
