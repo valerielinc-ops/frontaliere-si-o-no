@@ -53,6 +53,7 @@ import {
   matchSecretsScopedShape,
 } from '../lib/secrets-scope-detect.mjs';
 import { isBackoffActive, maxQuotaResetsAt } from './claude-rate-limit.mjs';
+import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { runBudgetFromEnv } from './lib/run-budget.mjs';
 
 export {
@@ -375,7 +376,6 @@ export function verdictExitDecision(outcome, { hasPR = false, noAutoclose = fals
 // recupero PR fixato in #5099: un verdetto che nessun predicato copriva.
 export const ZERO_WORK = new Set(['rate-limited']);
 
-const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 // I fallback deterministici del backstop (issue-fix.yml "post-step
 // deterministico") taggano run crashate/max_turns con un marker generico: NON
 // sono il verdetto diagnostico del fixer → vanno ignorati, così una run morta

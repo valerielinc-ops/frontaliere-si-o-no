@@ -189,10 +189,14 @@ const CRAWLER_RUN_GH_TOKEN = process.env.CRAWLER_RUN_GH_TOKEN
 
 // ── Structural hold (#5454) ───────────────────────────────────────────────────────────
 
-// Same shape followup-drainer.mjs parses (`FIX_OUTCOME_RE` there). Kept as a local
-// literal rather than an import: this module is `mode: identical` in the corpus
-// loop-sync manifest and must stay copyable with only scripts/lib/github-issue-creator
-// alongside it.
+// Canonical shape of the `<!-- FIX_OUTCOME: <code> -->` marker the fixer posts.
+// Defined HERE and imported by the other scripts/ci consumers (followup-drainer,
+// needs-human-prepass, harvest-agent-lessons): re-declaring the literal per file
+// let the parsers drift apart silently. This module keeps it as a local literal
+// rather than importing it from a shared lib because it is `mode: identical` in
+// the corpus loop-sync manifest and must stay copyable with only
+// scripts/lib/github-issue-creator alongside it — a constraint on what it may
+// import, not on who may import FROM it (same as `TITLE_RE`).
 export const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 
 /**
