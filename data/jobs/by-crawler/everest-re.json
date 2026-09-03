@@ -1,6 +1,6 @@
 {
   "crawlerKey": "everest-re",
-  "assembledAt": "2026-09-03T13:43:56.889Z",
+  "assembledAt": "2026-09-03T23:21:08.139Z",
   "jobs": [
     {
       "id": "everest-re-f1d13b3c25ab",
@@ -9,7 +9,7 @@
         "it": "assistente-di-sottoscrizione-senior-everest-re-zurich",
         "en": "senior-underwriting-assistant-everest-re-ch",
         "de": "senior-underwriting-assistant-everest-re-ch",
-        "fr": "assistant-principal-de-souscription-everest-re-zurich"
+        "fr": "senior-underwriting-assistant-everest-re-zurich"
       },
       "company": "Everest Re",
       "companyKey": "everest-re",
@@ -33,7 +33,7 @@
       "url": "https://everestre.wd5.myworkdayjobs.com/en-US/External/job/Zurich-Switzerland/Senior-Underwriting-Assistant_R7298",
       "source": "Everest Re Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:43:54.262Z",
+      "crawledAt": "2026-09-03T23:21:05.145Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,8 +52,9 @@
       "jobReqId": "R7298",
       "previousSlugs": [
         "senior-underwriting-assistant-everest-re-ch",
-        "senior-underwriting-assistant-everest-re-zurich",
-        "assistente-di-sottoscrizione-senior-everest-re-zurich"
+        "assistant-principal-de-souscription-everest-re-zurich",
+        "assistente-di-sottoscrizione-senior-everest-re-zurich",
+        "senior-underwriting-assistant-everest-re-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61,6 +62,7 @@
           "assistente-di-sottoscrizione-senior-everest-re-zurich"
         ],
         "fr": [
+          "assistant-principal-de-souscription-everest-re-zurich",
           "senior-underwriting-assistant-everest-re-zurich"
         ]
       },

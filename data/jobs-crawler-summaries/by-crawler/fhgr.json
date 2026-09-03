@@ -1,7 +1,7 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-09-03T13:43:09.700Z",
+  "generatedAt": "2026-09-03T23:20:23.090Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7314,
-  "avgDurationMs": 7314,
+  "durationMs": 7845,
+  "avgDurationMs": 7845,
   "durationHistory": [
-    7314
+    7845
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/797/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:05.038Z",
+      "crawledAt": "2026-09-03T23:20:18.262Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:06.077Z",
+      "crawledAt": "2026-09-03T23:20:19.484Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -82,6 +82,7 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/749/Application/CheckLogin/1",
       "department": "Institut für Bauen im alpinen Raum (IBAR)",
       "contractDuration": "temporary",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-04-13T10:32:26.327Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
