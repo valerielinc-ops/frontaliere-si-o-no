@@ -11263,6 +11263,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lainf-denuncia-infortunio-confine.title': 'Reiseunfall: UVG-Anzeige für Grenzgänger',
     'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'Das UVG deckt Unfälle während des Arbeitsweges an der Grenze. Hier erfahren Sie, was sich im Vergleich zu einer Dienstreise ändert und wie Sie sich beschweren können.',
     'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Auto eines Grenzgängers am Schweizer Grenzübergang Brogeda an der Grenze Tessin-Italien während der Pendelfahrt',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Leben in Cuasso al Monte und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in Cuasso al Monte leben und im Tessin arbeiten können: Verbindungen, Reisezeiten, Lebenshaltungskosten, empfohlene Gebiete, Vor- und Nachteile des Transfers, was Sie vor dem Umzug beachten sollten.',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Cuasso al Monte, Tessin, Schweiz',
 };
 
 export default blogMetaDe;

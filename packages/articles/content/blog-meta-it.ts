@@ -11265,6 +11265,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lainf-denuncia-infortunio-confine.title': 'Infortunio in itinere: denuncia LAINF per frontalieri',
     'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'La LAINF copre gli infortuni durante il tragitto casa-lavoro al confine. Ecco cosa cambia rispetto a una trasferta e come presentare la denuncia.',
     'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Auto di frontaliere al valico svizzero di Brogeda durante il tragitto casa-lavoro mattutino al confine Ticino-Italia',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Vivere a Cuasso al Monte e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Scopri come vivere a Cuasso al Monte e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi.',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Cuasso al Monte, Ticino, Svizzera',
 };
 
 export default blogMetaIt;
