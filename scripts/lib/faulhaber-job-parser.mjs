@@ -28,7 +28,7 @@ import {
   isConnectionLevelFetchError,
   WAF_IP_BLOCK_STATUS,
 } from './crawler-template.mjs';
-import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
+import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -318,6 +318,11 @@ async function fetchFaulhaberHtml(url, {
 }) {
   try {
     const html = await fetchHtmlImpl(url, { timeoutMs, validateRedirectUrl });
+    if (looksLikeAntiBotChallenge(html)) {
+      console.warn(`  Direct fetch to the ${label} returned a WAF challenge page — retrying via Jina clean-IP proxy...`);
+      const rescued = await fetchJinaImpl(url, { timeoutMs });
+      if (rescued != null) return parseBody(rescued);
+    }
     return parseBody(html);
   } catch (err) {
     if (!(isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status) || err?.status === 500)) {
