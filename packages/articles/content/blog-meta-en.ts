@@ -11187,6 +11187,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: cable theft, suspended Como-Milano',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'The theft of copper cables on the Como-Milan route has suspended traffic between Fino Mornasco and Milan Cadorna. Impact on commuters and alternative active services.',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Trenord train on the Como-Milan line with lake view in the background.',
+    'blog.article.cambio-chf-eur-quando-conviene.title': 'Border CHF/EUR exchange rate: when appropriate',
+    'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'CHF/EUR exchange strategies for border crossers Ticino. Multi-currency accounts, platforms, net salary impact and Italian taxation. Find out when to change euros.',
+    'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Currency exchange counter in a Swiss bank with CHF and EUR banknotes',
 };
 
 export default blogMetaEn;

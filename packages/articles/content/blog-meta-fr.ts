@@ -11189,6 +11189,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trainord : vol de câbles, suspendue Como-Milano',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Le vol de câbles en cuivre sur le tronçon Côme-Milan a suspendu la circulation entre Fino Mornasco et Milan Cadorna. Impact sur les navetteurs et les services alternatifs actifs.',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Train Trenord sur la ligne Côme-Milan avec vue sur le lac en arrière-plan.',
+    'blog.article.cambio-chf-eur-quando-conviene.title': 'Change CHF/EUR frontaliers : le cas échéant',
+    'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Stratégies de change CHF/EUR pour les frontaliers Tessin. Comptes multi-devises, plateformes, impact salaire net et fiscalité italienne. Découvrez quand changer des euros.',
+    'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Comptoir de change dans une banque suisse avec billets CHF et EUR',
 };
 
 export default blogMetaFr;
