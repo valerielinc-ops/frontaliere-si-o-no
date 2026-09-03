@@ -1793,6 +1793,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lista-nera-asili-nidi-svizzera': { it: 'lista-nera-asili-nidi-svizzera', en: 'blacklist-childcare-staff-switzerland', de: 'schwarze-liste-kitas-schweiz', fr: 'liste-noire-structures-accueil-suisse' },
  'tardoc-rivalutazione-famiglia': { it: 'tardoc-rivalutazione-famiglia', en: 'tardoc-devaluation-family-medicine', de: 'tardoc-aufwertung-hausarzt', fr: 'tardoc-revalorisation-medecins-famille' },
  'comitato-consultivo-svizzera-digitale': { it: 'comitato-consultivo-svizzera-digitale', en: 'digital-switzerland-advisory-committee', de: 'beirat-digitale-schweiz', fr: 'comite-consultatif-suisse-numerique' },
+ 'ubs-pil-crescita-2026-rialzo': { it: 'ubs-pil-crescita-2026-rialzo', en: 'ubs-gdp-growth-2026-upward-revision', de: 'ubs-bip-wachstum-2026-erhoehung', fr: 'ubs-pib-croissance-2026-hausse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

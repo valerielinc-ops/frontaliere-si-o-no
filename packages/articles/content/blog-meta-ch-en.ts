@@ -5302,6 +5302,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comitato-consultivo-svizzera-digitale.title': 'Digital Switzerland Committee: security and e-ID priorities',
     'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'On 3 September 2026, the Advisory Committee discussed the national digital strategy, postponing the e-ID to ensure maximum security and trust.',
     'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Meeting of the Digital Switzerland Advisory Committee in Bern.',
+    'blog.article.ubs-pil-crescita-2026-rialzo.title': 'UBS corrects growth upwards 2026: +1.8%',
+    'blog.article.ubs-pil-crescita-2026-rialzo.excerpt': 'UBS revises Swiss GDP 2026 from +0.7% to +1.8%. Inflation August 0.8%, estimates 2026-2027 stable at 0.6%. What changes for wages and cost of living.',
+    'blog.article.ubs-pil-crescita-2026-rialzo.imageAlt': 'Aerial view of Bellinzona\'s business district with modern office buildings representing Switzerland\'s economic growth.',
 };
 
 export default blogMetaChEn;
