@@ -446,6 +446,27 @@ describe('translation state store v2', () => {
     await expect(fresh.readAcknowledgment(patch.patchHash)).rejects.toThrow(/canonical queue and crawler index disagree/);
   });
 
+  it('fails closed loading a legacy persisted patch whose targetLocale is out of the allowlist', async () => {
+    const { one } = createRepositories();
+    const store = createTranslationStateStoreV2({ repository: one });
+    const patch = patchFor();
+    await store.initialize();
+    const checkpoint = await store.checkpointBatch({ slicePath: SLICE_PATH, patches: [patch] });
+    const patchTreePath = `v2/patches/${patch.patchHash.slice(0, 2)}/${patch.patchHash}.json`;
+    const stored = JSON.parse(git(one, 'show', `${checkpoint.commit}:${patchTreePath}`));
+    stored.destination.targetLocale = 'es';
+
+    git(one, 'checkout', '-q', '-B', 'legacy-out-of-allowlist-patch', checkpoint.commit);
+    writeFileSync(join(one, patchTreePath), `${JSON.stringify(stored)}\n`);
+    git(one, 'add', patchTreePath);
+    git(one, 'commit', '-q', '-m', 'simulate legacy patch with out-of-allowlist targetLocale');
+    git(one, 'push', '-q', 'origin', 'HEAD:refs/heads/translation-state-v2');
+
+    const fresh = createTranslationStateStoreV2({ repository: one });
+    await expect(fresh.listPending({ crawlerKey: 'example-crawler' }))
+      .rejects.toThrow(/targetLocale must be it, en, de or fr/);
+  });
+
   it.each([
     ['applied acknowledgment without provenance', (receipt: any) => {
       receipt.outcome = 'applied';
