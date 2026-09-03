@@ -11262,6 +11262,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-cantone-tasse-frontaliere.title': 'Cambio cantone di lavoro: guida fiscale',
     'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Il passaggio da un cantone svizzero all\'altro incide su permesso, tassazione e contributi. Scopri come il Nuovo Accordo 2024 modifica le regole.',
     'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Vista di Lugano dal Monte San Salvatore, capoluogo del Canton Ticino',
+    'blog.article.lainf-denuncia-infortunio-confine.title': 'Infortunio in itinere: denuncia LAINF per frontalieri',
+    'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'La LAINF copre gli infortuni durante il tragitto casa-lavoro al confine. Ecco cosa cambia rispetto a una trasferta e come presentare la denuncia.',
+    'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Auto di frontaliere al valico svizzero di Brogeda durante il tragitto casa-lavoro mattutino al confine Ticino-Italia',
 };
 
 export default blogMetaIt;

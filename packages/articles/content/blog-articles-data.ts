@@ -33645,6 +33645,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'lainf-denuncia-infortunio-confine',
+ category: 'pratico',
+ date: '2026-09-03T20:59:40.736Z',
+ image: '/images/blog/lainf-denuncia-infortunio-confine.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
