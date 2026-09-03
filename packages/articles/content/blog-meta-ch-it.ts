@@ -5305,6 +5305,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ubs-pil-crescita-2026-rialzo.title': 'UBS corregge al rialzo la crescita 2026: +1,8%',
     'blog.article.ubs-pil-crescita-2026-rialzo.excerpt': 'UBS rivede il PIL svizzero 2026 da +0,7% a +1,8%. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Cosa cambia per salari e costo della vita.',
     'blog.article.ubs-pil-crescita-2026-rialzo.imageAlt': 'Vista aerea del centro economico di Bellinzona con edifici moderni che rappresentano la crescita economica della Svizzera.',
+    'blog.article.seco-ampia-base-crescita.title': 'SECO: crescita Q2, non è boom ma reale',
+    'blog.article.seco-ampia-base-crescita.excerpt': 'PIL Svizzera +1,5% nel Q2 2026. SECO frena su boom, ma crescita allargata e domanda interna recupera. Previsioni annuali in revisione fra due settimane.',
+    'blog.article.seco-ampia-base-crescita.imageAlt': 'Vista del lago di Lugano con grattacieli e centro urbano economico della Svizzera',
 };
 
 export default blogMetaChIt;
