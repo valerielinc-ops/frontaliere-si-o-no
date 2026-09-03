@@ -11254,6 +11254,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontalier change de canton : les implications fiscales',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Changement de canton = nouvelle taxation, permis G modifié et frais de déplacement différents. Guide pratique pour les frontaliers en transition entre le Tessin et les Grisons.',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Frontalier changeant vers les Grisons: permis et impôts',
+    'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varèse : plus de 20 000 sans médecin, un défi pour les frontaliers',
+    'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Plus de 20 000 résidents sans médecin à Varesotto. En deux ans 92 médecins à la retraite. Une crise qui touche les frontaliers du Tessin résidant en province.',
+    'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Vue panoramique de la province de Varèse avec les montagnes du Tessin en arrière-plan, domicile de nombreux travailleurs frontaliers Suisse-Italie',
 };
 
 export default blogMetaFr;
