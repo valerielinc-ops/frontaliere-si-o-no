@@ -5275,6 +5275,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pil-q2-2026-industria-forte.title': 'Q2 GDP 2026: +1.5% quarterly, industry growth',
     'blog.article.pil-q2-2026-industria-forte.excerpt': 'In Q2 2026, Swiss GDP grew by 1.5% net of sporting events, the strongest since 2021. Boosted by the chemical-pharmaceutical industry (+10.5%) and rebound in domestic demand.',
     'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Swiss financial district skyscrapers with economic growth charts on digital display',
+    'blog.article.calo-natalita-finanze-pubbliche.title': 'AFF: declining birth rate weighs on Swiss finances',
+    'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'The AFF analyses the impact of the historical low of births on the stability of social security systems and on public funds in the long term.',
+    'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Swiss Federal Finance Administration building in Bern.',
 };
 
 export default blogMetaChEn;

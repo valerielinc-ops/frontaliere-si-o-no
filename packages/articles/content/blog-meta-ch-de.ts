@@ -5275,6 +5275,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pil-q2-2026-industria-forte.title': 'BIP Q2 2026: +1,5% vierteljährlich, Wachstum Industrie',
     'blog.article.pil-q2-2026-industria-forte.excerpt': 'Im Q2 2026 wuchs das Schweizer BIP ohne Sportveranstaltungen um 1,5%, stärker seit 2021. Auftrieb durch die chemisch-pharmazeutische Industrie (+10,5%) und Erholung der Inlandsnachfrage.',
     'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Schweizer Finanzviertel mit Wirtschaftswachstumsgrafiken auf digitalem Display',
+    'blog.article.calo-natalita-finanze-pubbliche.title': 'EFV: Geburtenrückgang belastet Schweizer Finanzen',
+    'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'Die EFV analysiert die Auswirkungen des historischen Geburtenminimums auf die langfristige Stabilität der Sozialversicherungssysteme und der öffentlichen Kassen.',
+    'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Gebäude der Eidgenössischen Finanzverwaltung in Bern.',
 };
 
 export default blogMetaChDe;

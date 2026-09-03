@@ -68465,6 +68465,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-calo-natalita-finanze-pubbliche': {
+    title: 'AFF: il calo della natalità pesa sulle finanze svizzere',
+    description: 'L\'Amministrazione federale delle finanze analizza l\'impatto del calo delle nascite sulla stabilità economica e previdenziale della Svizzera nel documento n. 30.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calo, natalità, pesa, sulle',
+    ogTitle: 'AFF: il calo della natalità pesa sulle finanze svizzere',
+    ogDescription: 'Nuovo documento di lavoro dell\'AFF sui rischi demografici per il sistema di sicurezza sociale e le casse pubbliche svizzere.',
+    canonicalPath: '/articoli-svizzera/calo-natalita-finanze-pubbliche/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AFF: il calo della natalità pesa sulle finanze svizzere",
+      "description": "L'Amministrazione federale delle finanze analizza l'impatto del calo delle nascite sulla stabilità economica e previdenziale della Svizzera nel documento n. 30.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/calo-natalita-finanze-pubbliche.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede dell'Amministrazione federale delle finanze a Berna."
+      },
+      "datePublished": "2026-09-03T09:13:41+00:00",
+      "dateModified": "2026-09-03T09:13:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/calo-natalita-finanze-pubbliche/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
