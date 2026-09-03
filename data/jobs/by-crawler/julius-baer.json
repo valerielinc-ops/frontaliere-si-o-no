@@ -1,6 +1,6 @@
 {
   "crawlerKey": "julius-baer",
-  "assembledAt": "2026-09-03T13:36:09.275Z",
+  "assembledAt": "2026-09-03T23:15:40.420Z",
   "jobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Human-Resource-Consultant-80---100---Zurich-_r-19518-1",
@@ -1477,7 +1477,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Engineer---Infrastructure-Automation-100---f-m-d-_r-18113-1",
@@ -3980,7 +3981,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,33 +1,33 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-09-03T13:35:55.316Z",
-  "total": 11,
+  "generatedAt": "2026-09-03T23:15:39.607Z",
+  "total": 12,
   "newCount": 1,
   "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 16174,
-  "avgDurationMs": 16174,
+  "unchangedCount": 1,
+  "durationMs": 15808,
+  "avgDurationMs": 15808,
   "durationHistory": [
-    16174
+    15808
   ],
   "newJobs": [
     {
-      "title": "Regionaler Serviceleiter/in Mitte (m/w/d)",
-      "slug": "regionaler-serviceleiter-in-mitte-m-w-d-hoval-feldmeilen",
-      "url": "https://www.hoval.it/it_IT/job/4038",
-      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4038/Application/New/1?DesignID=00&lang=ita",
+      "title": "Servicetechniker/in Gas & Fernwärmesysteme - Stadt Zürich und Umgebung (m/w/d)",
+      "slug": "servicetechniker-in-gas-fernwarmesysteme-stadt-zurich-und-umgebung-m-w-d-hoval-rc-mitte",
+      "url": "https://www.hoval.it/it_IT/job/4037",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4037/Application/New/1?DesignID=00&lang=ita",
       "company": "Hoval",
       "companyKey": "hoval",
       "companyDomain": "hoval.it",
-      "location": "Feldmeilen",
-      "addressLocality": "Feldmeilen",
+      "location": "RC Mitte",
+      "addressLocality": "RC Mitte",
       "addressRegion": "CH",
       "addressCountry": "CH",
       "canton": "CH",
       "country": "CH",
-      "category": "technician",
+      "category": "it",
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "de",
@@ -111,6 +111,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-07-28T11:43:47.058Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -421,5 +422,43 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Regionaler Serviceleiter/in Mitte (m/w/d)",
+      "slug": "regionaler-serviceleiter-in-mitte-m-w-d-hoval-feldmeilen",
+      "url": "https://www.hoval.it/it_IT/job/4038",
+      "applyUrl": "https://recruitingapp-2710.umantis.com/Vacancies/4038/Application/New/1?DesignID=00&lang=ita",
+      "company": "Hoval",
+      "companyKey": "hoval",
+      "companyDomain": "hoval.it",
+      "location": "Feldmeilen",
+      "addressLocality": "Feldmeilen",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "CH",
+      "country": "CH",
+      "category": "technician",
+      "sector": "Assistenza Tecnica",
+      "source": "hoval-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "id": "hoval-0cf96325d7df",
+      "needsRetranslation": true,
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-03T13:35:55.310Z",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ]
 }

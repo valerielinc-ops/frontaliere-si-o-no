@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-09-03T13:41:26.039Z",
+  "assembledAt": "2026-09-03T23:20:45.436Z",
   "jobs": [
     {
       "id": "company-6oyznf",
@@ -79,7 +79,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-6oyzne",
@@ -145,7 +146,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-6oyznd",
@@ -213,7 +215,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-6oyznh",
@@ -271,7 +274,8 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO"
+      "addressRegion": "SO",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-6oyznk",
@@ -291,7 +295,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-02T23:15:23.133Z",
+      "crawledAt": "2026-09-03T23:20:39.912Z",
       "firstSeenAt": "2026-08-25T09:54:22.537Z",
       "slugByLocale": {
         "it": "messs-specialist-metrologe-flessibilita-produzione-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone",
@@ -370,8 +374,7 @@
           "messs-specialist-metrologe-flexibilite-eta-sa-swatch-group-2540-grenchen-phone-5bb886"
         ]
       },
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     },
     {
       "id": "company-6oyzng",
@@ -393,7 +396,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-02T23:15:23.133Z",
+      "crawledAt": "2026-09-03T23:20:39.912Z",
       "firstSeenAt": "2026-08-07T01:14:57.622Z",
       "titleByLocale": {
         "it": "IT-SYSTEM Ingegnere 100%, VOR ORT | Manufacture Horlogère Suisse | ETA SA",
@@ -470,8 +473,7 @@
       "country": "CH",
       "addressRegion": "SO",
       "needsRetranslation": true,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1
+      "salarySource": "estimated"
     },
     {
       "id": "company-6oyznl",
@@ -491,7 +493,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-02T23:15:23.133Z",
+      "crawledAt": "2026-09-03T23:20:39.912Z",
       "firstSeenAt": "2026-08-04T22:21:42.130Z",
       "titleByLocale": {
         "it": "Responsabile QUALITAETSSICHERUNG, vor Ort | Manufacture Horlogère Suisse | ETA SA",
@@ -578,8 +580,7 @@
       "country": "CH",
       "addressRegion": "SO",
       "needsRetranslation": true,
-      "salarySource": "reported",
-      "crawlerMissStreak": 1
+      "salarySource": "reported"
     }
   ]
 }
