@@ -120,7 +120,7 @@ function readJson(filePath) {
  * in scope when it is flagged for retranslation OR has incomplete locale
  * coverage, and is NOT currently suppressed.
  */
-function needsWork(job) {
+export function needsWork(job) {
   if (job.localeMismatchSuppressed) return false;
   if (job.needsRetranslation) return true;
   return isIncomplete(job);
@@ -242,6 +242,60 @@ export function finalizeMopupTranslation({
     fieldType,
     protectedTokens,
   }).trim();
+}
+
+/**
+ * The write loop's REJECTION CHAIN, in one place, so the thing that decides
+ * whether an Argos output reaches the corpus is a single callable instead of a
+ * sequence of inline `continue`s only main() can reach.
+ *
+ * Extracted for the reject audit (workspace issue 13): the pipeline drops ~96%
+ * of the Argos outputs it successfully produces and no caller could observe
+ * WHICH guard did it — the drops are silent and un-instrumented. An audit that
+ * re-implemented this chain would be measuring a gate that does not exist, so
+ * both main() below and scripts/research/argos-reject-audit.mjs call this.
+ *
+ * Order and semantics are byte-faithful to the previous inline chain.
+ *
+ * @returns {{decision: string, incoming: string, sourceText: string, existing: string}}
+ *   decision is 'write' or one of 'skip:source-locale' | 'skip:empty-raw' |
+ *   'skip:finalize-empty' | 'skip:source-copy' | 'skip:existing-good'.
+ */
+export function classifyMopupWrite({ job, locale, field, rawText, protectedTokens = [] }) {
+  const srcLang = job.sourceLang || 'it';
+  const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
+  const sourceText = field === 'title'
+    ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
+    : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
+  const existing = String(job[bag]?.[locale] || '').trim();
+  const base = { incoming: '', sourceText, existing };
+
+  if (locale === srcLang) return { ...base, decision: 'skip:source-locale' };
+
+  const raw = String(rawText || '').trim();
+  if (!raw) return { ...base, decision: 'skip:empty-raw' };
+
+  const incoming = finalizeMopupTranslation({
+    sourceText,
+    rawText: raw,
+    targetLang: locale,
+    fieldType: field,
+    protectedTokens,
+  });
+  if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
+
+  // Never write a value that is just a copy of the source (would re-flag).
+  if (incoming.toLowerCase() === sourceText.toLowerCase()) {
+    return { ...base, incoming, decision: 'skip:source-copy' };
+  }
+
+  // Don't overwrite an already-good translation (one that isn't a source copy
+  // and meets the min length). Only fill genuinely-missing/bad slots.
+  const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
+    || existing.toLowerCase() === sourceText.toLowerCase();
+  if (existing && !existingIsBad) return { ...base, incoming, decision: 'skip:existing-good' };
+
+  return { ...base, incoming, decision: 'write' };
 }
 
 function normalizeCompanyKey(value = '') {
@@ -468,15 +522,6 @@ async function main() {
       const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
       if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
 
-      const raw = String(text || '').trim();
-      if (!raw) continue; // never write empty (safety guard)
-
-      // Source text for the copy guards — computed BEFORE glossary so corrections
-      // compare against the true source.
-      const sourceText = field === 'title'
-        ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
-        : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
-
       // Quality parity with the other two entry points: the SAME shared exit
       // transform (`finalizeTranslatedText`, via finalizeMopupTranslation) —
       // balance markdown markers, restore the masked gender trigraphs in the
@@ -487,25 +532,11 @@ async function main() {
       // markers, meaning-inverted MT (e.g. DE "Nachtwache" → IT "orologio
       // notturno") never corrected, a German "(m/w/d)" surviving verbatim into an
       // Italian title, and a leaked "(ORGANIZZAZIONE)" reaching the dataset.
-      // Returns '' when nothing meaningful survives, which the guard below skips.
-      const incoming = finalizeMopupTranslation({
-        sourceText,
-        rawText: raw,
-        targetLang: locale,
-        fieldType: field,
-        protectedTokens,
-      });
-      if (!incoming) continue;
-
-      // Never write a value that is just a copy of the source (would re-flag).
-      if (incoming.toLowerCase() === sourceText.toLowerCase()) continue;
-
-      const existing = String(job[bag][locale] || '').trim();
-      // Don't overwrite an already-good translation (one that isn't a source copy
-      // and meets the min length). Only fill genuinely-missing/bad slots.
-      const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-        || existing.toLowerCase() === sourceText.toLowerCase();
-      if (existing && !existingIsBad) continue;
+      // Returns '' when nothing meaningful survives, which the guard chain skips.
+      // The whole chain (empty-raw → finalize-empty → source-copy → existing-good)
+      // lives in classifyMopupWrite() so the reject audit can observe it.
+      const { decision, incoming } = classifyMopupWrite({ job, locale, field, rawText: text, protectedTokens });
+      if (decision !== 'write') continue;
 
       job[bag][locale] = incoming;
       fileChanged = true;
