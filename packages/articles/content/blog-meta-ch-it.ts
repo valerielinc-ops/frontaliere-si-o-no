@@ -5251,6 +5251,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.appenzello-interno-sostenibilita.title': 'Comprare casa Appenzello Interno: mutuo e tasse',
     'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procedura, fondi propri, sostenibilità mutuo, spese notarili e imposte cantonali per acquistare immobili in Appenzello Interno.',
     'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Facciate di edifici residenziali in una regione alpina svizzera con illuminazione mattutina.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalizzazione Appenzello Interno: requisiti e procedura',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'La naturalizzazione ordinaria in Svizzera: requisiti, procedure e cosa sapere per richiedere la cittadinanza nel canton Appenzello Interno.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Ufficio amministrativo svizzero con documenti di naturalizzazione e paesaggio di Appenzello Interno.',
 };
 
 export default blogMetaChIt;

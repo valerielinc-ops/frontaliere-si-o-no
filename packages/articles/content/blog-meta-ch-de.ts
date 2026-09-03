@@ -5251,6 +5251,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.appenzello-interno-sostenibilita.title': 'Haus kaufen Appenzell Innerrhoden: Hypothek und Steuern',
     'blog.article.appenzello-interno-sostenibilita.excerpt': 'Verfahren, Eigenmittel, Tragbarkeit Darlehen, Notarkosten und kantonale Steuern zum Kauf von Immobilien in Appenzell Innerrhoden.',
     'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Wohngebäudefassaden in einer Schweizer Alpenregion bei Morgenlicht.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Einbürgerung Appenzell Innerrhoden: Voraussetzungen und Verfahren',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'Die ordentliche Einbürgerung in der Schweiz: Voraussetzungen, Verfahren und Wissenswertes zur Beantragung der Staatsbürgerschaft im Kanton Appenzell Innerrhoden.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Schweizer Verwaltungsbüro mit Einbürgerungsdokumenten und Appenzeller Landschaft im Hintergrund.',
 };
 
 export default blogMetaChDe;

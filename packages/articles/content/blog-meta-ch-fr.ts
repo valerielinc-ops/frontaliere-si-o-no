@@ -5251,6 +5251,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.appenzello-interno-sostenibilita.title': 'Acheter maison Appenzell Interne : hypothèque et taxes',
     'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procédure, fonds propres, viabilité hypothécaire, frais de notaire et impôts cantonaux pour l\'achat de biens immobiliers à Appenzell Interne.',
     'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Façades de bâtiments résidentiels dans une région alpine suisse avec lumière du matin.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalisation Appenzell Interne : exigences et procédure',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'La naturalisation ordinaire en Suisse : exigences, procédures et ce qu\'il faut savoir pour demander la nationalité dans le canton d\'Appenzell.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Bureau administratif suisse avec documents de naturalisation et paysage d\'Appenzell en arrière-plan.',
 };
 
 export default blogMetaChFr;

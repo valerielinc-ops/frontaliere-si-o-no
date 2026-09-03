@@ -1776,6 +1776,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-interno-ch': { it: 'apprendistato-formazione-interno-ch', en: 'apprenticeship-professional-training-swiss', de: 'berufslehre-ausbildung-schweiz', fr: 'apprentissage-formation-suisse' },
  'mutuo-ipotecario-appenzello-interno': { it: 'mutuo-ipotecario-appenzello-interno', en: 'mortgage-appenzello-inner-rhoden', de: 'hypothek-appenzell-innerrhoden-guide', fr: 'pret-hypothecaire-appenzell-rhodes' },
  'appenzello-interno-sostenibilita': { it: 'appenzello-interno-sostenibilita', en: 'appenzell-innerrhoden-home-sustainability', de: 'appenzell-innerrhoden-hauserwerb', fr: 'appenzell-rhodes-interieures-immobilier' },
+ 'naturalizzazione-appenzello-interno-procedura': { it: 'naturalizzazione-appenzello-interno-procedura', en: 'naturalization-appenzell-innerrhoden-procedure', de: 'einbuergerung-appenzell-innerrhoden-verfahren', fr: 'naturalisation-appenzell-rhodes-interieures-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
