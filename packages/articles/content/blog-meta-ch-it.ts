@@ -5356,6 +5356,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-uri-settori.title': 'Salari e mercato del lavoro nel canton Uri',
     'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analisi dei livelli salariali per formazione, settori di impiego, contratti collettivi e salario minimo nel mercato del lavoro del canton Uri.',
     'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Paesaggio alpino del cantone Uri con vista sulle montagne e ambiente lavorativo moderno',
+    'blog.article.assicurazioni-tagli-occupazione-2028.title': 'Swiss Life prevede di tagliare 600 posti entro il 2028',
+    'blog.article.assicurazioni-tagli-occupazione-2028.excerpt': 'La compagnia zurighese annuncia 600 tagli occupazionali entro il 2028, nonostante crescita dei ricavi del 2-10% nel primo semestre 2026.',
+    'blog.article.assicurazioni-tagli-occupazione-2028.imageAlt': 'Ufficio moderno di Swiss Life, sede zurighese, architettura contemporanea con vetrate e ambiente lavorativo professionale.',
 };
 
 export default blogMetaChIt;

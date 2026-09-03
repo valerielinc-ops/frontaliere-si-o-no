@@ -1811,6 +1811,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-appenzello-interno': { it: 'imposta-successione-donazione-appenzello-interno', en: 'estate-tax-inheritance-appenzello-interno', de: 'erbschaftsteuer-donationen-appenzell-innerrhoden', fr: 'impot-succession-appenzell-rhodes-interieures' },
  'uri-rendita-avs-lacune-contributive': { it: 'uri-rendita-avs-lacune-contributive', en: 'uri-avs-pension-calculation-contribution-gaps', de: 'uri-ahv-rente-beitragslucken-berechnung', fr: 'uri-ava-pension-lacunes-cotisations' },
  'salari-mercato-lavoro-uri-settori': { it: 'salari-mercato-lavoro-uri-settori', en: 'wages-labor-market-uri-canton-sectors', de: 'loehne-arbeitsmarkt-uri-kanton-sektoren', fr: 'salaires-marche-travail-canton-uri-secteurs' },
+ 'assicurazioni-tagli-occupazione-2028': { it: 'assicurazioni-tagli-occupazione-2028', en: 'insurance-job-cuts-occupational-2028', de: 'versicherungen-personalabbau-2028', fr: 'assurances-reductions-emplois-2028' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
