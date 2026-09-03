@@ -84233,6 +84233,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-notifica-pagamento-multa-frontaliere': {
+    title: 'Multa stradale svizzera: pagamento e ricorsi | Frontaliere Ticino',
+    description: 'Come funziona la notifica di una multa stradale in Svizzera per residenti italiani? Guida al pagamento, ricorsi e conseguenze del mancato pagamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, multa, stradale, pagamento, ricorsi',
+    ogTitle: 'Multa stradale svizzera: pagamento e ricorsi per italiani',
+    ogDescription: 'Un residente italiano riceve una multa stradale in Svizzera? Scopri come funziona la notifica, come pagare, e quali sono le procedure di ricorso. Guida pratica per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/notifica-pagamento-multa-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multa stradale svizzera: pagamento e ricorsi",
+      "description": "Come funziona la notifica di una multa stradale in Svizzera per residenti italiani? Guida al pagamento, ricorsi e conseguenze del mancato pagamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/notifica-pagamento-multa-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada svizzera con segnaletica stradale e limite di velocità, contesto per frontalieri italiani"
+      },
+      "datePublished": "2026-09-03T18:00:15+00:00",
+      "dateModified": "2026-09-03T18:00:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/notifica-pagamento-multa-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

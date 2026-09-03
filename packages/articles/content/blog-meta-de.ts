@@ -11242,6 +11242,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontend über 55: Jobwechsel und Aufprall AHV-LPP',
     'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Praktischer Leitfaden für Grenzgänger über 55, die den Arbeitgeber wechseln. Erfahren Sie, wie Sie mit der neuen Vereinbarung 2024 G-Bewilligung, AHV-LPP, Quellensteuer und Rückerstattungen verwalten.',
     'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Hauptplatz von Mendrisio mit Grenzgaengern waehrend der Morgenspitze',
+    'blog.article.notifica-pagamento-multa-frontaliere.title': 'Schweizer Bußgeld: Zahlung und Einspruch',
+    'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Benachrichtigung, Zahlung, Rechtsmittel: So gehen Sie mit einem in der Schweiz von einem italienischen Grenzgänger erhaltenen Bußgeld und den Folgen der Trägheit um.',
+    'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Schweizer Straße mit Verkehrsschildern und Tempolimitanzeigen für italienische Grenzpendler',
 };
 
 export default blogMetaDe;

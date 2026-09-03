@@ -11244,6 +11244,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontaliere over 55: cambio lavoro e impatto AVS-LPP',
     'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Guida pratica per frontalieri over 55 che cambiano datore di lavoro. Scopri come gestire Permesso G, AVS-LPP, imposta alla fonte e ristorni con il nuovo accordo 2024.',
     'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Piazza centrale di Mendrisio con pendolari frontalieri durante l\'ora di punta mattutina',
+    'blog.article.notifica-pagamento-multa-frontaliere.title': 'Multa stradale svizzera: pagamento e ricorsi',
+    'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notifica, pagamento, ricorsi: ecco come affrontare una multa stradale ricevuta in Svizzera da residente italiano frontaliere, e le conseguenze dell\'inerzia.',
+    'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Strada svizzera con segnaletica stradale e limite di velocità, contesto per frontalieri italiani',
 };
 
 export default blogMetaIt;
