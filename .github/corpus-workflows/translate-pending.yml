@@ -202,6 +202,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Argos bulk
@@ -292,6 +293,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
       - name: Re-assemble dataset after Phase 2c mop-up
