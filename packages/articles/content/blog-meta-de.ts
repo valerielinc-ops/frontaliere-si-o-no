@@ -11174,6 +11174,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Leben in Avise und Arbeiten im Wallis: Praktischer Leitfaden',
     'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Umzug nach Avise, um im Wallis zu arbeiten: Schweizer Steuer, Bewilligungen, AHV, KVG und alles, was Sie als Grenzgänger Italien-Schweiz wissen müssen.',
     'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Alpenpanorama zwischen Italien und der Schweiz mit Tal und Bergen, typisch für die Grenzregion Wallis-Aostatal',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Leben in Saint-Marcel, Arbeiten im Wallis als Grenzgänger',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Bewilligung G, Quellensteuer 4-10%, Neuer Vertrag 2024 mit Selbstbehalt € 10.000, AHV/BVG und Rückerstattungen',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Panoramablick auf die Schweizer Walliser Region mit schneebedeckten Bergen',
 };
 
 export default blogMetaDe;

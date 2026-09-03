@@ -11175,6 +11175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Living in Avise and working in Valais: a practical guide',
     'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Moving to Avise to work in Valais: Swiss tax, permits, AVS, LAMal and everything you need to know as an Italy-Switzerland border worker.',
     'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Alpine landscape between Italy and Switzerland with valley and mountains, typical of the Vallese-Valle d\'Aosta border area',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Living in Saint-Marcel, working in Valais as a border worker',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Permit G, tax at source 4-10%, New Agreement 2024 with deductible €10,000, AVS/LPP and refunds',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Panoramic view of the Swiss Valais region with snowy mountains',
 };
 
 export default blogMetaEn;

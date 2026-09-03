@@ -11177,6 +11177,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Vivre à Avise et travailler en Valais : guide pratique',
     'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Déménager à Avise pour travailler en Valais : fiscalité suisse, permis, AVS, LAMal et tout ce qu\'il faut savoir en tant que frontalier Italie-Suisse.',
     'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Paysage alpin entre l\'Italie et la Suisse avec vallée et montagnes, typique de la région frontalière Valais-Vallée d\'Aoste',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Vivre à Saint-Marcel, travailler en Valais comme frontalier',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Permis G, impôt à la source 4-10 %, Nouvel Accord 2024 avec franchise € 10 000, AVS/LPP et restaurations',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Vue panoramique de la région du Valais suisse avec montagnes enneigées',
 };
 
 export default blogMetaFr;

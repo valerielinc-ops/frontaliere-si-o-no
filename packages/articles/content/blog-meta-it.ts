@@ -11176,6 +11176,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Vivere ad Avise e lavorare in Vallese: guida pratica',
     'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Trasferirsi ad Avise per lavorare in Vallese: fisco svizzero, permessi, AVS, LAMal e tutto ciò che serve sapere come frontaliere Italia-Svizzera.',
     'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Paesaggio alpino tra Italia e Svizzera con valle e montagne, tipico dell\'area frontaliere Vallese-Valle d\'Aosta',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Vivere a Saint-Marcel, lavorare in Vallese da frontaliere',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Permesso G, imposta alla fonte 4-10%, Nuovo Accordo 2024 con franchigia €10.000, AVS/LPP e ristorni',
+    'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Veduta panoramica del Vallese svizzero con montagne innevate',
 };
 
 export default blogMetaIt;
