@@ -5254,6 +5254,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalization of the Inner Apenzello: requirements and procedure',
     'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'Ordinary naturalization in Switzerland: requirements, procedures and what to know to apply for citizenship in the Inner Appenzell canton.',
     'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Swiss administrative office with citizenship documents and Appenzell region landscape in background.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Internal Appenzello transport subscriptions: tariff zones',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Public transport in Appenzello Interno: fare community, zones, annual and monthly subscriptions, half-price, GA, discounts for students and apprentices.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Public transit station in Appenzell canton with ticketing counter and regional transport schedules',
 };
 
 export default blogMetaChEn;

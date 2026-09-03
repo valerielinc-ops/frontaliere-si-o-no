@@ -5254,6 +5254,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalizzazione Appenzello Interno: requisiti e procedura',
     'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'La naturalizzazione ordinaria in Svizzera: requisiti, procedure e cosa sapere per richiedere la cittadinanza nel canton Appenzello Interno.',
     'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Ufficio amministrativo svizzero con documenti di naturalizzazione e paesaggio di Appenzello Interno.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Abbonamenti trasporti Appenzello Interno: zone tariffe',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Trasporti pubblici ad Appenzello Interno: comunità tariffaria, zone, abbonamenti annuali e mensili, metà-prezzo, GA, sconti per studenti e apprendisti.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Stazione dei trasporti pubblici nel canton Appenzello Interno con biglietteria, orari regionali e passeggeri',
 };
 
 export default blogMetaChIt;

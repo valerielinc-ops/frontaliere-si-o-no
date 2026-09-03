@@ -5254,6 +5254,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Einbürgerung Appenzell Innerrhoden: Voraussetzungen und Verfahren',
     'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'Die ordentliche Einbürgerung in der Schweiz: Voraussetzungen, Verfahren und Wissenswertes zur Beantragung der Staatsbürgerschaft im Kanton Appenzell Innerrhoden.',
     'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Schweizer Verwaltungsbüro mit Einbürgerungsdokumenten und Appenzeller Landschaft im Hintergrund.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Fahrkarten Appenzell Innerrhoden: Tarifzonen',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Öffentlicher Verkehr in Appenzell Innerrhoden: Tarifgemeinschaft, Zonen, Jahres- und Monatsabonnements, Halbtax, GA, Studenten- und Lehrlingsrabatte.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Öffentliche Verkehrsstation im Kanton Appenzell Innerrhoden mit Fahrkartenschalter und Fahrplan',
 };
 
 export default blogMetaChDe;
