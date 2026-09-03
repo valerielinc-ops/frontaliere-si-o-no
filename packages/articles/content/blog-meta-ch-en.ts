@@ -5236,6 +5236,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lavoro-argovia-salari-diritti.title': 'Wages and labour market canton Aargau',
     'blog.article.lavoro-argovia-salari-diritti.excerpt': 'How the labour market works in Aargau: wages, entitlements, collective agreements and social security contributions according to Swiss federal law.',
     'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'Swiss business district with modern offices and workers representing labor market and employment',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Health insurance premiums Canton Thurgau: reduction',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'How to get the LAMal premium reduction in the canton of Thurgau: available deductibles, subsidy requirements and procedures to apply for the cantonal benefit.',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Swiss cantonal health administration office with insurance documents on desk',
 };
 
 export default blogMetaChEn;
