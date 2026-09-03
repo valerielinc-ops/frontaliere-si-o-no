@@ -1,20 +1,21 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-09-03T13:33:00.929Z",
+  "generatedAt": "2026-09-03T23:10:17.580Z",
   "total": 6,
   "discovered": null,
   "written": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5963,
-  "avgDurationMs": 5963,
+  "durationMs": 5970,
+  "avgDurationMs": 5970,
   "durationHistory": [
-    5963
+    5970
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "straumann-e645c45f1e85",
       "slug": "packaging-development-engineer-straumann-ch",
@@ -27,7 +28,7 @@
       "url": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:58.193Z",
+      "crawledAt": "2026-09-03T23:10:14.810Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -42,16 +43,16 @@
       "featured": false,
       "postedDate": "2026-09-03",
       "applyUrl": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
-      "_qualityScore": 58,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-03T13:32:58.193Z",
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "straumann-14050b270e0d",
       "slug": "clinical-workflow-product-manager-straumann-ch",
@@ -64,7 +65,7 @@
       "url": "https://careers.straumann.com/global/en/job/21501/clinical-workflow-product-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:57.511Z",
+      "crawledAt": "2026-09-03T23:10:14.127Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -101,7 +102,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:56.802Z",
+      "crawledAt": "2026-09-03T23:10:13.511Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -138,7 +139,7 @@
       "url": "https://careers.straumann.com/global/en/job/21609/global-launch-education-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:57.195Z",
+      "crawledAt": "2026-09-03T23:10:13.831Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -174,7 +175,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:57.857Z",
+      "crawledAt": "2026-09-03T23:10:14.489Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -189,7 +190,7 @@
       "featured": false,
       "postedDate": "2026-07-07",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -211,7 +212,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:32:56.269Z",
+      "crawledAt": "2026-09-03T23:10:12.825Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
