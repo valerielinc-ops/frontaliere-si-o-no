@@ -3421,11 +3421,11 @@
   },
   "AG::it::verkaufer-in-food-coop-aarau-aargau": {
     "winnerJobIdentifier": "company-4q7j27",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-aarau",
+    "winnerCanonical": "venditore-trice-food-coop-genossenschaft-aarau",
     "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.3333,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-food-coop-adliswil-zurich-izbi0b": {
@@ -3686,7 +3686,7 @@
     "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "AG"
   },
   "AG::it::verkaufer-in-kassen-services-coop-baden-aargau-can6kx": {
@@ -3699,11 +3699,11 @@
     "canton": "AG"
   },
   "AG::it::verkaufer-in-kassen-services-coop-genossenschaft-baden-can6kx": {
-    "winnerJobIdentifier": "company-5jos32",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-baden",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.875,
+    "winnerJobIdentifier": "company-aueqqx",
+    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-unterentfelden",
+    "decidedAt": "2026-08-05T00:00:00.000Z",
+    "lastSeenAt": "2026-08-31T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -7596,9 +7596,9 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::lehre-als-detailhandelsfachmann-frau-efz-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-6436f87c17ef",
-    "winnerCanonical": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-laufen",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-ef7d5a8a8f7a",
+    "winnerCanonical": "apprendistato-come-addetto-a-al-commercio-al-dettaglio-cfc-die-schweizerische-post-basel",
+    "decidedAt": "2026-08-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.0588,
     "candidatesCount": 1,
@@ -7608,7 +7608,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-758fd682c883",
     "winnerCanonical": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-basel",
     "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 1,
     "canton": "BASILEA"
@@ -9237,7 +9237,7 @@
     "winnerJobIdentifier": "sro-60981647f16f",
     "winnerCanonical": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
     "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.5714,
     "candidatesCount": 1,
     "canton": "BE"
@@ -10773,10 +10773,10 @@
     "canton": "BE"
   },
   "BE::en::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-a3a7f2e58ddd",
-    "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-langenthal",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-48721a52e191",
+    "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-ostermundigen",
+    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "lastSeenAt": "2026-08-24T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "BE"
@@ -12438,10 +12438,10 @@
     "canton": "BE"
   },
   "BE::fr::lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-a3a7f2e58ddd",
-    "winnerCanonical": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-9bb431",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-48721a52e191",
+    "winnerCanonical": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-3817e7",
+    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "lastSeenAt": "2026-08-24T00:00:00.000Z",
     "score": 0.0769,
     "candidatesCount": 1,
     "canton": "BE"
@@ -12690,11 +12690,11 @@
     "canton": "BE"
   },
   "BE::fr::professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal": {
-    "winnerJobIdentifier": "sro-60981647f16f",
-    "winnerCanonical": "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
+    "winnerJobIdentifier": "sro-e0073630457a",
+    "winnerCanonical": "assistant-medical-assistant-professionnel-100-cardiologie-sro-ag-spital-region-oberaargau-langenthal",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.5238,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -15390,10 +15390,10 @@
     "canton": "BE"
   },
   "BE::it::lehre-als-kaufmann-frau-efz-bank-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-e052aca88f3c",
-    "winnerCanonical": "apprendistato-come-kaufmann-frau-cfc-bank-die-schweizerische-post-thun",
-    "decidedAt": "2026-08-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-2542a4f3029d",
+    "winnerCanonical": "apprendistato-come-kaufmann-frau-cfc-bank-die-schweizerische-post-bern",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.3077,
     "candidatesCount": 1,
     "canton": "BE"
@@ -16113,7 +16113,7 @@
     "winnerJobIdentifier": "company-6v5t35",
     "winnerCanonical": "specialista-di-carne-mann-coop-genossenschaft-bern",
     "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 2,
     "canton": "BE"
@@ -17508,7 +17508,7 @@
     "winnerJobIdentifier": "company-6v5t35",
     "winnerCanonical": "specialista-di-carne-mann-coop-genossenschaft-bern",
     "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.625,
     "candidatesCount": 2,
     "canton": "BE"
@@ -18768,7 +18768,7 @@
     "winnerJobIdentifier": "company-ulm9sh",
     "winnerCanonical": "verkaufsberater-in-parfumerie-coop-city-bern-ulm9sh",
     "decidedAt": "2026-08-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 2,
     "canton": "BE"
@@ -33507,11 +33507,11 @@
     "canton": "SG"
   },
   "SG::it::lehre-als-logistiker-in-efz-distribution-paketzustellung-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-484788c067f1",
-    "winnerCanonical": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-berneck",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-2fa343455033",
+    "winnerCanonical": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-paketzustellung-die-schweizerische-post-st-gallen",
+    "decidedAt": "2026-08-10T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.2353,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -41085,12 +41085,12 @@
     "canton": "SZ"
   },
   "SZ::it::verkaufer-in-kassen-services-coop-lachen-schwyz": {
-    "winnerJobIdentifier": "company-jsqyoo",
+    "winnerJobIdentifier": "company-a3j973",
     "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-lachen",
-    "decidedAt": "2026-08-14T00:00:00.000Z",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.75,
-    "candidatesCount": 2,
+    "candidatesCount": 1,
     "canton": "SZ"
   },
   "SZ::it::verkaufsberater-in-deco-jumbo-schwyz": {
@@ -41754,7 +41754,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-d1af47d67502",
     "winnerCanonical": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-romanshorn",
     "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 2,
     "canton": "TG"
@@ -42339,7 +42339,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-d1af47d67502",
     "winnerCanonical": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-dc870c",
     "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.0769,
     "candidatesCount": 2,
     "canton": "TG"
@@ -43401,7 +43401,7 @@
     "winnerJobIdentifier": "posta-svizzera-centro-regionale-d1af47d67502",
     "winnerCanonical": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-romanshorn",
     "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.0741,
     "candidatesCount": 2,
     "canton": "TG"
@@ -52587,18 +52587,18 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-wadenswil-zurich-2": {
-    "winnerJobIdentifier": "company-3mzw8",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-wadenswil-zurich-03mzw8",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uy14mm",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-wadenswil-zurich-uy14mm",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-wadenswil-zurich-jmd8ow": {
-    "winnerJobIdentifier": "company-3mzw8",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-wadenswil-zurich-03mzw8",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uy14mm",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-wadenswil-zurich-uy14mm",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 1,
@@ -52731,11 +52731,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-uungxy": {
-    "winnerJobIdentifier": "company-voc0xk",
-    "winnerCanonical": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-voc0xk",
-    "decidedAt": "2026-08-22T00:00:00.000Z",
+    "winnerJobIdentifier": "company-cx1qcc",
+    "winnerCanonical": "verkaufsberater-in-kuche-und-elektro-coop-genossenschaft-zurich-cx1qcc",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -54657,11 +54657,11 @@
     "canton": "ZH"
   },
   "ZH::en::non-food-sales-assistant-coop-genossenschaft-zurich-82c34a": {
-    "winnerJobIdentifier": "company-1fq0mh",
-    "winnerCanonical": "food-sales-associate-coop-genossenschaft-zurich-e16877",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-hf09t8",
+    "winnerCanonical": "sales-assistant-non-food-genossenschaft-migros-zurich-zurich",
+    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "lastSeenAt": "2026-08-31T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -54999,29 +54999,29 @@
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-fresh-products-coop-genossenschaft-zurich-f8b2c7": {
-    "winnerJobIdentifier": "company-c2i0sg",
-    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-kleinandelfingen",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-31T00:00:00.000Z",
-    "score": 0.4,
+    "winnerJobIdentifier": "company-8yflny",
+    "winnerCanonical": "sales-associate-food-fresh-products-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-fresh-products-coop-genossenschaft-zurich-v8nef4": {
-    "winnerJobIdentifier": "company-eousq0",
-    "winnerCanonical": "sales-associate-food-fresh-products-coop-genossenschaft-kusnacht-zurich",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-08-31T00:00:00.000Z",
-    "score": 0.5455,
+    "winnerJobIdentifier": "company-8yflny",
+    "winnerCanonical": "sales-associate-food-fresh-products-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "score": 0.6,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-non-food-coop-genossenschaft-zurich-82c34a": {
-    "winnerJobIdentifier": "company-1fq0mh",
-    "winnerCanonical": "food-sales-associate-coop-genossenschaft-zurich-e16877",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-hf09t8",
+    "winnerCanonical": "sales-assistant-non-food-genossenschaft-migros-zurich-zurich",
+    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "lastSeenAt": "2026-08-31T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -55119,7 +55119,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "sales-consultant-in-household-and-electric-coop-genossenschaft-zurich-2642f4",
     "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -57315,7 +57315,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich-2642f4",
     "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -61689,7 +61689,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
     "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.1667,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -64341,9 +64341,9 @@
     "canton": "ZH"
   },
   "ZH::it::lehre-als-kaufmann-frau-efz-dienstleistung-und-administration-post": {
-    "winnerJobIdentifier": "posta-svizzera-centro-regionale-71d7ab1f620d",
-    "winnerCanonical": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-bulach",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
+    "winnerJobIdentifier": "posta-svizzera-centro-regionale-5fbc633be4f2",
+    "winnerCanonical": "apprendistato-come-kaufmann-frau-cfc-dienstleistung-e-administration-die-schweizerische-post-zurich",
+    "decidedAt": "2026-08-31T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
     "score": 0.3125,
     "candidatesCount": 1,
@@ -65079,11 +65079,11 @@
     "canton": "ZH"
   },
   "ZH::it::macellaio-specialista-della-carne-coop-genossenschaft-dielsdorf": {
-    "winnerJobIdentifier": "company-zehsf3",
-    "winnerCanonical": "macellaio-a-specialista-in-carne-coop-genossenschaft-dielsdorf",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "company-rd9oys",
+    "winnerCanonical": "metzger-in-specialista-di-carne-specialista-di-carne-coop-genossenschaft-dielsdorf-5963fb",
+    "decidedAt": "2026-08-07T00:00:00.000Z",
+    "lastSeenAt": "2026-08-22T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -67188,7 +67188,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
     "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.1875,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -67206,7 +67206,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
     "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.2143,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -69528,7 +69528,7 @@
     "winnerJobIdentifier": "company-1fq0mh",
     "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -69903,11 +69903,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-adliswil-zurich": {
-    "winnerJobIdentifier": "company-z80mbg",
-    "winnerCanonical": "venditore-in-food-coop-genossenschaft-adliswil",
-    "decidedAt": "2026-08-23T00:00:00.000Z",
+    "winnerJobIdentifier": "company-42mu6a",
+    "winnerCanonical": "venditore-trice-food-coop-genossenschaft-adliswil",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -70111,10 +70111,10 @@
   },
   "ZH::it::verkaufer-in-food-frischprodukte-coop-zurich": {
     "winnerJobIdentifier": "company-8yflny",
-    "winnerCanonical": "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich",
+    "winnerCanonical": "commesso-a-food-prodotti-freschi-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -70344,19 +70344,19 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-zurich-8j3o1g": {
-    "winnerJobIdentifier": "company-8yflny",
+    "winnerJobIdentifier": "company-3xf1gl",
     "winnerCanonical": "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-zurich-v8nef4": {
-    "winnerJobIdentifier": "company-8yflny",
+    "winnerJobIdentifier": "company-3xf1gl",
     "winnerCanonical": "verkaufer-in-food-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -70626,7 +70626,7 @@
     "winnerJobIdentifier": "company-3mzw8",
     "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-wadenswil-b9f792",
     "decidedAt": "2026-08-12T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -70686,11 +70686,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-wadenswil-zurich": {
-    "winnerJobIdentifier": "company-3mzw8",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-wadenswil-b9f792",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
+    "winnerJobIdentifier": "company-uy14mm",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-wadenswil",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.25,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71049,26 +71049,26 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
     "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.8889,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-uungxy": {
-    "winnerJobIdentifier": "company-voc0xk",
-    "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-cx1qcc",
+    "winnerCanonical": "verkaufsberater-in-kuche-e-elektro-coop-genossenschaft-zurich-cx1qcc",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.8,
+    "score": 0.6364,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-voc0xk",
-    "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-g82yh4",
+    "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-03T00:00:00.000Z",
     "lastSeenAt": "2026-09-03T00:00:00.000Z",
-    "score": 0.7,
+    "score": 0.7778,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -71076,7 +71076,7 @@
     "winnerJobIdentifier": "company-voc0xk",
     "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
     "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-03T00:00:00.000Z",
+    "lastSeenAt": "2026-09-02T00:00:00.000Z",
     "score": 0.6364,
     "candidatesCount": 1,
     "canton": "ZH"
