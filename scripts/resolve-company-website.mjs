@@ -14,6 +14,12 @@ const DEFAULT_TIMEOUT_MS = 6_000;
 const MAX_REDIRECTS = 5;
 const MAX_DOMAIN_CONCURRENCY = 4;
 const DEFAULT_DOMAIN_CONCURRENCY = 2;
+// node:dns/promises' `lookup` has no cancellation hook, so a lookup that
+// outlives its race against `timeoutMs` keeps running in the background
+// (#7149 item 3). This gate bounds how many real lookups (including those
+// abandoned stragglers) can be in flight at once, so the count stays
+// constant instead of growing with the size of the company queue.
+const MAX_CONCURRENT_LOOKUPS = 16;
 const REDIRECT_STATUSES = new Set([300, 301, 302, 303, 307, 308]);
 const HEAD_FALLBACK_STATUSES = new Set([403, 405, 501]);
 const BLOCKED_HOSTNAMES = new Set(['localhost', 'metadata.google.internal']);
@@ -75,6 +81,30 @@ async function validatePublicHttpsUrl(value, lookupImpl) {
     .map((record) => typeof record === 'string' ? record : record?.address)
     .filter(Boolean);
   return addresses.length > 0 && addresses.every((address) => !isBlockedAddress(address)) ? canonical : null;
+}
+
+// A stuck lookup never releases its slot until it actually settles, but the
+// slot count itself is capped: it cannot grow past `maxConcurrent` no matter
+// how many companies/hostnames are processed over the run.
+function createLookupGate(maxConcurrent) {
+  let active = 0;
+  const queue = [];
+  return async function gatedLookup(lookupImpl, hostname, options) {
+    if (active >= maxConcurrent) await new Promise((resolve) => queue.push(resolve));
+    active += 1;
+    try {
+      return await lookupImpl(hostname, options);
+    } finally {
+      active -= 1;
+      const next = queue.shift();
+      if (next) next();
+    }
+  };
+}
+
+function gateLookup(lookupImpl, maxConcurrent) {
+  const gate = createLookupGate(maxConcurrent);
+  return (hostname, options) => gate(lookupImpl, hostname, options);
 }
 
 async function cancelBody(response) {
@@ -208,10 +238,14 @@ export async function resolveCompanyWebsite(domain, {
 } = {}) {
   if (!domain) return null;
   const ownsDispatcher = !dispatcher;
-  const activeDispatcher = dispatcher || createBoundedPublicDispatcher(lookupImpl, timeoutMs);
+  // A caller-supplied dispatcher (the batch path in `resolveCompanyWebsites`)
+  // already wires a gated `lookupImpl` consistently across the whole run;
+  // only a standalone call needs its own gate, scoped to itself.
+  const boundedLookupImpl = ownsDispatcher ? gateLookup(lookupImpl, MAX_CONCURRENT_LOOKUPS) : lookupImpl;
+  const activeDispatcher = dispatcher || createBoundedPublicDispatcher(boundedLookupImpl, timeoutMs);
   try {
     const deadline = Date.now() + Math.max(0, Number(timeoutMs) || 0);
-    const options = { fetchImpl, lookupImpl, deadline, dispatcher: activeDispatcher };
+    const options = { fetchImpl, lookupImpl: boundedLookupImpl, deadline, dispatcher: activeDispatcher };
     const results = await Promise.all([
       request(`https://${domain}/`, options),
       request(`https://www.${domain}/`, options),
@@ -241,8 +275,14 @@ export async function resolveCompanyWebsites(companies, options = {}) {
   const concurrency = Math.min(MAX_DOMAIN_CONCURRENCY, Math.max(1, requestedConcurrency), selected.length);
   const entries = Array(selected.length);
   const ownsDispatcher = !options.dispatcher;
+  // Gate once for the whole batch: shared across every domain/worker so a
+  // stalled DNS lookup on company N throttles company N+1 instead of piling
+  // up unboundedly as the queue grows (#7149 item 3).
+  const sharedLookupImpl = ownsDispatcher
+    ? gateLookup(options.lookupImpl || lookup, MAX_CONCURRENT_LOOKUPS)
+    : (options.lookupImpl || lookup);
   const dispatcher = options.dispatcher || createBoundedPublicDispatcher(
-    options.lookupImpl || lookup,
+    sharedLookupImpl,
     options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
   );
   let cursor = 0;
@@ -251,7 +291,10 @@ export async function resolveCompanyWebsites(companies, options = {}) {
       const index = cursor;
       cursor += 1;
       const domain = selected[index];
-      entries[index] = [domain, await resolveCompanyWebsite(domain, { ...options, dispatcher })];
+      entries[index] = [
+        domain,
+        await resolveCompanyWebsite(domain, { ...options, lookupImpl: sharedLookupImpl, dispatcher }),
+      ];
     }
   }
   try {
