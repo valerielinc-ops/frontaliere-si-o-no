@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-09-03T13:49:20.262Z",
+  "generatedAt": "2026-09-03T23:39:48.971Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4263,
-  "avgDurationMs": 4263,
+  "durationMs": 6862,
+  "avgDurationMs": 6862,
   "durationHistory": [
-    4263
+    6862
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -271,7 +271,7 @@
       "salaryMax": 71400,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {

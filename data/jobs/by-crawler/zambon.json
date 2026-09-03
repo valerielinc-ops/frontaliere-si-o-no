@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zambon",
-  "assembledAt": "2026-09-03T13:49:02.200Z",
+  "assembledAt": "2026-09-03T23:39:25.969Z",
   "jobs": [
     {
       "id": "zambon-810317",
@@ -35,6 +35,8 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -48,8 +50,7 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:49:02.200Z"
+      }
     },
     {
       "id": "zambon-786111",
@@ -113,7 +114,7 @@
       "previousSlugs": [
         "tirocinante-laboratorio-chimico-controllo-qualita-zambon-svizzera-sa-cadempino"
       ],
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "salarySource": "reported"
     }
   ]

@@ -1,18 +1,19 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-03T13:49:02.201Z",
+  "generatedAt": "2026-09-03T23:39:25.970Z",
   "total": 2,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5721,
-  "avgDurationMs": 5721,
+  "durationMs": 5665,
+  "avgDurationMs": 5665,
   "durationHistory": [
-    5721
+    5665
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "zambon-810317",
       "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
@@ -38,6 +39,8 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
+      "needsRetranslation": true,
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,7 +50,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -75,6 +77,8 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
+      "needsRetranslation": true,
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -113,8 +117,9 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "firstSeenAt": "2026-04-14T10:54:06.797Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
