@@ -5263,6 +5263,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-guida.title': 'Family allowances in the canton of Lucerne: an application guide',
     'blog.article.assegni-familiari-lucerna-guida.excerpt': 'How do family allowances work in the Canton of Lucerne? Learn about the claim process and the role of clearinghouses.',
     'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Administrative documents and a calculator on an office desk.',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'In August consumer prices increased by 0.4%',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'The consumer price index (CPI) increased by 0.4% in August 2026 compared to the previous month, reaching 101.5 points (December 2025 = 100).',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showing economic activity and daily life.',
 };
 
 export default blogMetaChEn;

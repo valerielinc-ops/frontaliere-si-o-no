@@ -68309,6 +68309,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-consumo-aumentati-agosto-2026': {
+    title: 'In agosto i prezzi al consumo sono aumentati dello 0,4%',
+    description: 'L\'indice dei prezzi al consumo (IPC) è aumentato dello 0,4% ad agosto 2026 rispetto al mese precedente, raggiungendo 101,5 punti (dicembre 2025 = 100).',
+    keywords: 'frontalieri, ticino, svizzera, italia, agosto, prezzi, consumo, sono',
+    ogTitle: 'In agosto i prezzi al consumo sono aumentati dello 0,4%',
+    ogDescription: 'L\'indice dei prezzi al consumo (IPC) è aumentato dello 0,4% ad agosto 2026 rispetto al mese precedente, raggiungendo 101,5 punti (dicembre 2025 = 100). Questo aumento ha implicazioni pratiche per i consumatori svizzeri e per i frontalieri',
+    canonicalPath: '/articoli-svizzera/prezzi-consumo-aumentati-agosto-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "In agosto i prezzi al consumo sono aumentati dello 0,4%",
+      "description": "L'indice dei prezzi al consumo (IPC) è aumentato dello 0,4% ad agosto 2026 rispetto al mese precedente, raggiungendo 101,5 punti (dicembre 2025 = 100).",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzi-consumo-aumentati-agosto-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra l'attività economica e la vita quotidiana."
+      },
+      "datePublished": "2026-09-03T07:46:38+00:00",
+      "dateModified": "2026-09-03T07:46:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzi-consumo-aumentati-agosto-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

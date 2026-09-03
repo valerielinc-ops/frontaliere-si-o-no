@@ -5263,6 +5263,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-guida.title': 'Familienzulagen im Kanton Luzern: Leitfaden zur Beantragung',
     'blog.article.assegni-familiari-lucerna-guida.excerpt': 'Wie funktioniert die Familienzulage im Kanton Luzern? Erfahren Sie mehr über das Antragsverfahren und die Rolle der Ausgleichskassen.',
     'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Verwaltungsunterlagen und ein Taschenrechner auf einem Bürotisch.',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'Im August stiegen die Verbraucherpreise um 0,4%',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'Der Verbraucherpreisindex (VPI) stieg im August 2026 gegenüber dem Vormonat um 0,4% auf 101,5 Punkte (Dezember 2025 = 100).',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund, die wirtschaftliche Aktivität und das tägliche Leben zeigt.',
 };
 
 export default blogMetaChDe;

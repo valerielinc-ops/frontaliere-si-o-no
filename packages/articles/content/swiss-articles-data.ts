@@ -15787,6 +15787,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'prezzi-consumo-aumentati-agosto-2026',
+    category: 'fiscale',
+    date: '2026-09-03T07:46:38.720Z',
+    image: '/images/blog/prezzi-consumo-aumentati-agosto-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
