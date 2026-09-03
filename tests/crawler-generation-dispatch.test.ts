@@ -1727,4 +1727,57 @@ describe('generation checkpoint and preflight', () => {
       .toHaveLength(0);
     expect(fs.existsSync(checkpointPath)).toBe(false);
   });
+
+  it('retries a transient transport exception on the ref-pin read instead of treating it as a real conflict (#7150 item 1)', async () => {
+    let getAttempts = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'GET') {
+        getAttempts += 1;
+        if (getAttempts === 1) throw new Error('fetch failed');
+        return { status: 404 };
+      }
+      if (input.method === 'POST') {
+        return {
+          status: 201,
+          body: { ref: `refs/heads/${dispatchRef}`, object: { type: 'commit', sha: corpusCodeCommit } },
+        };
+      }
+      throw new Error(`unexpected method ${input.method}`);
+    });
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request, generationToken, corpusCodeCommit, sleep: async () => {},
+    })).resolves.toBe(dispatchRef);
+    expect(getAttempts).toBe(2);
+  });
+
+  it('retries a transient transport exception on the ref-pin create before giving up (#7150 item 1)', async () => {
+    let postAttempts = 0;
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'GET') return { status: 404 };
+      if (input.method === 'POST') {
+        postAttempts += 1;
+        if (postAttempts === 1) throw new Error('fetch failed');
+        return {
+          status: 201,
+          body: { ref: `refs/heads/${dispatchRef}`, object: { type: 'commit', sha: corpusCodeCommit } },
+        };
+      }
+      throw new Error(`unexpected method ${input.method}`);
+    });
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request, generationToken, corpusCodeCommit, sleep: async () => {},
+    })).resolves.toBe(dispatchRef);
+    expect(postAttempts).toBe(2);
+  });
+
+  it('still raises crawler_generation_ref_pin_failed once the transient-retry backoff is exhausted (#7150 item 1)', async () => {
+    const request = vi.fn(async (input: any) => {
+      if (input.method === 'GET') throw new Error('fetch failed');
+      throw new Error(`unexpected method ${input.method}`);
+    });
+    await expect(ensureCrawlerGenerationDispatchRef({
+      request, generationToken, corpusCodeCommit, sleep: async () => {},
+    })).rejects.toThrow('crawler_generation_ref_pin_failed');
+    expect(request).toHaveBeenCalledTimes(DISPATCH_REF_CONFLICT_BACKOFF_MS.length + 1);
+  });
 });
