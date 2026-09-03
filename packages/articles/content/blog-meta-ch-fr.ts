@@ -5254,6 +5254,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalisation Appenzell Interne : exigences et procédure',
     'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'La naturalisation ordinaire en Suisse : exigences, procédures et ce qu\'il faut savoir pour demander la nationalité dans le canton d\'Appenzell.',
     'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Bureau administratif suisse avec documents de naturalisation et paysage d\'Appenzell en arrière-plan.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Abonnements transports Appenzell Intérieur : zones tarifaires',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Transports publics à Appenzell Interne : communauté tarifaire, zones, abonnements annuels et mensuels, demi-tarif, GA, réductions pour étudiants et apprentis.',
+    'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Gare de transports publics du canton d\'Appenzell Rhodes-Intérieures avec billetterie et horaires régionaux',
 };
 
 export default blogMetaChFr;
