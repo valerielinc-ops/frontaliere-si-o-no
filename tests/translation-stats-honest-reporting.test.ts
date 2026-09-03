@@ -10,6 +10,8 @@ import {
   emptyCounters,
   finalizeEntry,
   formatReport,
+  slotsPresentByLength,
+  isLanguageVerified,
 } from '../scripts/log-translation-stats.mjs';
 import {
   formatFlaggedRate,
@@ -196,10 +198,22 @@ describe('summarizeJobs / formatReport — presence is separated from translatio
     expect(entry.verifiedTranslated).toBe(1);
   });
 
-  it('records "not measured", never zero, for the un-wired language check', () => {
+  it('reports the wired language check as a ratio against presence, not "not measured"', () => {
     const entry = finalizeEntry(summarizeJobs([slotComplete()]), { label: 'test', timestamp: 'T' });
-    expect(entry.languageVerified).toBeNull();
-    expect(formatReport(entry).join('\n')).toContain('not measured');
+    expect(entry.slotsPresentByLength).toBe(1);
+    expect(entry.languageVerified).toBe(1);
+    const text = formatReport(entry).join('\n');
+    expect(text).toContain('1/1 (100%)');
+    expect(text).not.toContain('not measured');
+  });
+
+  it('still prints "not measured" for a pre-wiring history row (null, never 0)', () => {
+    // The 200 committed rows written before #6389 carry `languageVerified: null`.
+    // A reader of the series must keep being able to tell "we did not look"
+    // apart from "we looked and found zero".
+    const legacy = { ...finalizeEntry(emptyCounters(), { label: 'old', timestamp: 'T' }),
+      languageVerified: null, slotsPresentByLength: undefined };
+    expect(formatReport(legacy).join('\n')).toContain('not measured');
   });
 
   it('reserves the word COMPLETE for zero incomplete AND zero flagged', () => {
@@ -387,5 +401,92 @@ describe('source-level regression guards', () => {
     const exits = validatorSrc.match(/process\.exit\(1\)/g) || [];
     expect(exits.length).toBe(3);
     expect(validatorSrc).toContain('if (strict && (flagged.length > 0');
+  });
+});
+
+/**
+ * languageVerified (#6389) — the two failures a language check MUST catch.
+ *
+ * Both shapes are taken from the live corpus (data/jobs/by-crawler, origin/main
+ * 2026-09-03), because a check that misses either is not a language check:
+ *
+ *  1. `fachkraft.json` — 2,217 jobs whose EN title is BYTE-IDENTICAL to the
+ *     German one, and 2,226 whose FR title is. All 3,198 jobs in that slice have
+ *     four populated slots, so pure presence counts every one of them.
+ *  2. The case byte-equality alone cannot reach: German with only its two
+ *     prepositions translated ("mit" -> "con"), which reads as Italian to a
+ *     presence counter and is not equal to its source.
+ *
+ * They are asserted against `isLanguageVerified` (which composes the two
+ * production detectors) rather than against a hand-rolled expectation, so the
+ * day a detector is retuned this test tells us whether the corpus families it
+ * was built for still land.
+ */
+describe('log-translation-stats.mjs — languageVerified catches what presence cannot', () => {
+  const germanTitle = 'Sachbearbeiter/in Rechnungswesen mit Führungsaufgaben';
+
+  /** The fachkraft shape: every slot populated, EN/FR left as the German. */
+  function byteCopiedTitles(): Job {
+    const job = slotComplete({ slug: 'fachkraft-shape' });
+    job.title = germanTitle;
+    job.titleByLocale = {
+      de: germanTitle,
+      it: 'Impiegato/a di contabilità con compiti di direzione',
+      en: germanTitle,
+      fr: germanTitle,
+    };
+    return job;
+  }
+
+  it('counts the byte-copied fachkraft shape as PRESENT but not language-verified', () => {
+    const job = byteCopiedTitles();
+    expect(slotsPresentByLength(job)).toBe(true);   // four slots, long enough
+    expect(isLanguageVerified(job)).toBe(false);    // …and two of them are German
+  });
+
+  it('catches German whose prepositions alone were translated (byte-equality cannot)', () => {
+    const source = 'Zimmermann/Zimmerin mit vielseitigen Holzbauaufgaben';
+    const job = slotComplete({ slug: 'zimmermann' });
+    job.title = source;
+    job.titleByLocale = {
+      de: source,
+      it: 'Zimmermann/Zimmerin con vielseitigen Holzbauaufgaben',
+      en: 'Carpenter with varied timber-construction duties',
+      fr: 'Charpentier aux tâches variées de construction bois',
+    };
+    // Not a byte copy of its source — the IT slot really is a different string.
+    expect((job.titleByLocale as Record<string, string>).it).not.toBe(source);
+    expect(slotsPresentByLength(job)).toBe(true);
+    expect(isLanguageVerified(job)).toBe(false);
+  });
+
+  it('verifies a genuinely translated job', () => {
+    expect(isLanguageVerified(slotComplete())).toBe(true);
+  });
+
+  it('requires presence first: a short slot is never language-verified', () => {
+    const job = slotComplete();
+    (job.descriptionByLocale as Record<string, string>).fr = 'troppo corto';
+    expect(slotsPresentByLength(job)).toBe(false);
+    expect(isLanguageVerified(job)).toBe(false);
+  });
+
+  /**
+   * OBSERVATIONAL — the whole point of the field. Adding it must not move a
+   * single number the pipeline acts on: `incomplete` selects the retranslation
+   * work, `verifiedTranslated` is the reported success rate.
+   */
+  it('does not feed incomplete / complete / verifiedTranslated', () => {
+    const jobs = [slotComplete({ slug: 'clean' }), byteCopiedTitles()];
+    const entry = finalizeEntry(summarizeJobs(jobs), { label: 'test', timestamp: 'T' });
+    // The byte-copied job is judged by the canonical predicate, exactly as
+    // before: classifyJob is the only thing that decides `incomplete`.
+    expect(entry.incomplete).toBe(jobs.filter((j) => classifyJob(j).incomplete).length);
+    expect(entry.complete).toBe(entry.total - entry.incomplete);
+    expect(entry.slotsPresent).toBe(entry.complete);
+    expect(entry.verifiedTranslated).toBe(entry.complete - entry.flaggedAmongSlotsPresent);
+    // …while the observational pair records the gap presence alone hides.
+    expect(entry.slotsPresentByLength).toBe(2);
+    expect(entry.languageVerified).toBe(1);
   });
 });

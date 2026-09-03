@@ -63,6 +63,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
+import { titleOffence, descriptionOffence } from './mark-mistranslated-jobs.mjs';
 import { summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
@@ -138,6 +139,53 @@ export function isIncomplete(job) {
   return isIncompleteCanonical(job);
 }
 
+/**
+ * All four locale slots populated by CHARACTER COUNT alone — no language
+ * judgment of any kind.
+ *
+ * This is the measure the `Language-verified:` note has always *claimed* to
+ * contrast itself against, and until now nothing in this file actually
+ * computed it: `complete` stopped being a pure presence count on 2026-08-13,
+ * when #5593 folded `titleLooksUntranslated()` and the >= 0.65 description
+ * detector into the canonical `isIncomplete()`. Measured on origin/main
+ * 2026-09-03 the two are far apart — 27,928 jobs have four populated slots,
+ * only 12,766 clear `isIncomplete()` — so reporting `languageVerified` against
+ * `complete` would be a tautology (every complete job passes the language
+ * check BY CONSTRUCTION, because the check is already inside the predicate
+ * that defined it). Against presence it is a real number.
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function slotsPresentByLength(job) {
+  const tbl = job.titleByLocale || {};
+  const dbl = job.descriptionByLocale || {};
+  return LOCALES.every((locale) =>
+    String(tbl[locale] || '').trim().length >= MIN_TITLE &&
+    String(dbl[locale] || '').trim().length >= MIN_DESC);
+}
+
+/**
+ * Does a job with four populated slots actually READ in the four locales it
+ * claims? STRICTLY OBSERVATIONAL: nothing here feeds `incomplete`, marks a job,
+ * or changes what the pipeline translates — see the module header.
+ *
+ * Both detectors are imported, never re-implemented (#5593's lesson):
+ *   - titles   -> `titleOffence`, exact-lexical `titleLooksUntranslated()`.
+ *     The statistical detector is NOT usable here: measured on 300 live titles
+ *     it false-alarms on 32.7% of correct Italian and misses 55.0% of broken
+ *     ones (scripts/lib/job-locale-utils.mjs, TITLE_LANG_CONFIDENCE_FLOOR).
+ *   - descriptions -> `descriptionOffence`, the statistical detector at its
+ *     production operating point (>= 120 chars, confidence >= 0.65).
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+export function isLanguageVerified(job) {
+  if (!slotsPresentByLength(job)) return false;
+  return !titleOffence(job) && !descriptionOffence(job);
+}
+
 /** @returns {object} a zeroed counter bag for {@link summarizeJobs}. */
 export function emptyCounters() {
   return {
@@ -147,6 +195,10 @@ export function emptyCounters() {
     flaggedAmongSlotsPresent: 0,
     suppressed: 0,
     sourceCopyExcused: 0,
+    // Observational pair (#6389): presence with no language judgment, and the
+    // subset of it that also reads in its own locale. Neither feeds `incomplete`.
+    slotsPresentByLength: 0,
+    languageVerified: 0,
     byLocale: { it: 0, en: 0, de: 0, fr: 0 },
     // One minimal timestamp-bearing stand-in per FLAGGED job, for the queue-age
     // metric (#5653 item 2). Not the job objects themselves: keeping references
@@ -182,6 +234,12 @@ export function summarizeJobs(jobs) {
     if (flagged && !incomplete) c.flaggedAmongSlotsPresent++;
     if (job.localeMismatchSuppressed) c.suppressed++;
     if (sourceCopyExcused) c.sourceCopyExcused++;
+    // Observational, and deliberately OUTSIDE the `incomplete` branch below:
+    // this pair is measured for every job and steers nothing.
+    if (slotsPresentByLength(job)) {
+      c.slotsPresentByLength++;
+      if (isLanguageVerified(job)) c.languageVerified++;
+    }
     if (incomplete) {
       c.incomplete++;
       const sourceDesc = (job.description || '').trim().toLowerCase();
@@ -207,6 +265,8 @@ export function mergeCounters(dst, src) {
   dst.flaggedAmongSlotsPresent += src.flaggedAmongSlotsPresent;
   dst.suppressed += src.suppressed;
   dst.sourceCopyExcused += src.sourceCopyExcused;
+  dst.slotsPresentByLength += src.slotsPresentByLength;
+  dst.languageVerified += src.languageVerified;
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
   if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
   return dst;
@@ -249,9 +309,14 @@ export function finalizeEntry(counters, { label, topPending = [], timestamp = ne
     flaggedAmongSlotsPresent: counters.flaggedAmongSlotsPresent,
     verifiedTranslated: complete - counters.flaggedAmongSlotsPresent,
     sourceCopyExcused: counters.sourceCopyExcused,
-    // Seam: null = "not measured", never 0. Wired once titleLooksUntranslated
-    // (see validate-translation-completeness.mjs) lands and is costed.
-    languageVerified: null,
+    // Wired 2026-09-03 (#6389). The seam used to read `null` = "not measured";
+    // `null` is now reserved for the 200 history rows written before the wiring,
+    // so a series reader can still tell "we did not look" from "we looked and
+    // found zero". The DENOMINATOR is `slotsPresentByLength`, not `complete`:
+    // measured against `complete` this ratio is 100% by construction, because
+    // #5593 put the same language check inside `isIncomplete()`.
+    slotsPresentByLength: counters.slotsPresentByLength,
+    languageVerified: counters.languageVerified,
     missingByLocale: counters.byLocale,
     // Measured from the job's first-seen timestamp (100% coverage on the live
     // queue), so it is an UPPER bound on time-in-queue — no field records when
@@ -280,8 +345,15 @@ export function formatReport(entry) {
       `(${entry.flaggedAmongSlotsPresent} of them counted as "present" above — flagged is NOT translated)`);
   row('Verified translated:', formatCompleteRatio(entry.verifiedTranslated, entry.total),
       '= present minus flagged');
-  row('Language-verified:', entry.languageVerified ?? 'not measured',
-      '(presence is a character count, not a language check)');
+  // Denominator is presence-by-character-count, never `complete`: see the
+  // finalizeEntry comment. `null` only ever comes from a pre-#6389 history row.
+  row('4 slots by char count:', entry.slotsPresentByLength ?? 'not measured',
+      '(pure presence — no language judgment)');
+  row('Language-verified:',
+      entry.languageVerified == null
+        ? 'not measured'
+        : formatCompleteRatio(entry.languageVerified, entry.slotsPresentByLength ?? entry.total),
+      '= of those, the ones that read in their own locale (observational)');
   row('Source-copy titles excused:', entry.sourceCopyExcused,
       '(byte-copy of the source title, waved through by the "others differ" rule)');
   row('Suppressed (gave up):', entry.suppressed);

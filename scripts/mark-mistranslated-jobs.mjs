@@ -116,8 +116,16 @@ export function isAlreadyQueued(job) {
   return Boolean(job?.needsRetranslation) || Boolean(job?.localeMismatchSuppressed);
 }
 
-/** Wrong-language description slot? (unchanged semantics) */
-function descriptionOffence(job) {
+/**
+ * Wrong-language description slot? (unchanged semantics)
+ *
+ * Exported since #6389 so `scripts/log-translation-stats.mjs` can REPORT the
+ * same verdict this file ACTS on. It is deliberately the same function and not
+ * a second copy: the one lesson this area has already paid for (see that file's
+ * "One `isIncomplete()`, not two" header) is that a duplicated predicate drifts
+ * and then the marker and the reporter disagree about the same job.
+ */
+export function descriptionOffence(job) {
   for (const locale of LOCALES) {
     const desc = String(job.descriptionByLocale?.[locale] || '').trim();
     if (desc.length < MIN_DESCRIPTION_CHARS) continue;
@@ -129,8 +137,9 @@ function descriptionOffence(job) {
   return null;
 }
 
-/** Wrong-language title slot? */
-function titleOffence(job) {
+/** Wrong-language title slot? Exported for the same reason as
+ *  `descriptionOffence` above — one implementation, two readers. */
+export function titleOffence(job) {
   const sourceLang = String(job.sourceLang || 'it').toLowerCase();
   const titles = job.titleByLocale && typeof job.titleByLocale === 'object' ? job.titleByLocale : {};
   const sourceTitle = String(titles[sourceLang] || job.title || '');
