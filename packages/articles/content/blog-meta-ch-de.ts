@@ -5365,6 +5365,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.settori-salari-uri-lavoro.title': 'Löhne in Uri: Ebenen nach Branche und Ausbildung',
     'blog.article.settori-salari-uri-lavoro.excerpt': 'Wie die Löhne im Kanton Uri nach Bildungsgrad und Branche ermittelt werden. Praktischer Leitfaden zu Tarifverträgen, Sozialversicherungsbeiträgen und offiziellen Ressourcen zur Überprüfung der Löhne.',
     'blog.article.settori-salari-uri-lavoro.imageAlt': 'Modernes Büro im Alpental Uri mit Arbeitsmarkt-Informationen und Schweizer Beschäftigungsmaterialien.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Kantonale Steuern: Steuersätze, Abzüge und Erklärung',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'Die Schweizer Besteuerung funktioniert auf 3 Ebenen. Erfahren Sie, wie sich die kantonalen Steuersätze unterscheiden, welche Abzüge zulässig sind und wie Sie die Erklärung fristgerecht einreichen können.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Verwaltungsgebäuden, die das kantonale Steuersystem darstellt',
 };
 
 export default blogMetaChDe;

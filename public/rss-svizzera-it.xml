@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Thu, 03 Sep 2026 22:31:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 23:08:41 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,86 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Imposte cantonali: aliquote, deduzioni e dichiarazione</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-svizzera-aliquote-deduzioni/</link>
+      <description><![CDATA[La fiscalità svizzera funziona su 3 livelli. Scopri come variano le aliquote cantonali, quali deduzioni ammettere e come presentare la dichiarazione entro i termini previsti.]]></description>
+      <content:encoded><![CDATA[## In breve
+- La fiscalità svizzera opera su tre livelli: federale, cantonale e comunale
+- Ogni cantone stabilisce le proprie aliquote e deduzioni ammesse
+- La dichiarazione federale va presentata entro il 30 aprile dell'anno successivo
+
+## Fatti chiave
+- **Cosa**: Sistema impositivo decentralizzato a 3 livelli
+- Quando: Scadenza dichiarazione IFD: 30 aprile (o più tardi secondo cantone)
+- Dove: Ogni cantone gestisce autonomamente imposte cantonali e comunali
+- Chi: Amministrazioni fiscali cantonali e comunali, Confederazione per IFD
+- Importo: Aliquote e deduzioni variano per cantone (non uniformi a livello nazionale)
+
+La fiscalità in Svizzera opera su tre livelli distinti: [l'imposta federale diretta (IFD)](nav:calculator), gestita dalla Confederazione; le imposte cantonali, amministrate da ogni cantone; e le imposte comunali, calcolate mediante un moltiplicatore sull'importo imponibile cantonale. Questo sistema decentralizzato garantisce che ogni cantone adotti le proprie aliquote e strutture di tassazione, riflettendo le specificità locali e le esigenze di bilancio regionale.
+
+Le imposte cantonali rappresentano la componente principale della pressione fiscale per i residenti svizzeri. A differenza dell'imposta federale, che è uniforme su tutto il territorio nazionale, le aliquote cantonali e i sistemi di deduzione variano significativamente da un cantone all'altro. Questa varietà è uno dei motivi per cui cittadini e imprese confrontano attentamente la fiscalità relativa tra i diversi cantoni prima di decidere il luogo di residenza o sedi di attività.
+
+### Struttura a tre livelli del sistema impositivo svizzero
+
+L'imposta federale diretta (IFD) è riscossa dalla Confederazione secondo aliquote nazionali uguali per tutti i cantoni. Le amministrazioni fiscali cantonali (e comunali) raccolgono invece imposte secondo le loro leggi locali specifiche. I comuni applicano un moltiplicatore sull'importo imponibile cantonale, il che significa che la quota comunale dipende direttamente dalla gestione finanziaria locale e dal peso delle spese municipali.
+
+Questo sistema tripartito consente a ogni cantone di adattare la propria politica fiscale alle esigenze locali. Un cantone ad economia robusta potrebbe mantenere aliquote più basse per attrarre contribuenti e imprese, mentre uno con minori entrate fiscali potrebbe elevare le aliquote. Allo stesso modo, le deduzioni ammesse — voci che riducono il reddito imponibile — possono differire significativamente tra i cantoni.
+
+### Chi stabilisce le aliquote cantonali?
+
+Le aliquote cantonali sono stabilite dal Parlamento cantonale, secondo le leggi fiscali del singolo cantone. Non esiste un'aliquota nazionale cantonale uniforme: ogni amministrazione fiscale cantonale gestisce autonomamente sia le tariffe sia le modalità di riscossione e controllo. Questa autonomia locale crea una competizione virtuosa tra cantoni: coloro che desiderano attrarre lavoratori dipendenti e imprese spesso adottano aliquote più competitive rispetto ai cantoni vicini.
+## Deduzioni fiscali federali e variabilità cantonale
+
+Nel sistema svizzero, le deduzioni fiscali riducono l'importo imponibile, diminuendo così l'imposta dovuta. Alcune deduzioni sono ammesse a livello federale per l'IFD; altre sono gestite esclusivamente dal cantone di residenza, con regole che possono variare considerevolmente.
+
+### Deduzioni ammesse a livello federale
+
+Tra le deduzioni federali riconosciute dalla Confederazione figurano i premi dell'assicurazione malattia obbligatoria ([LAMal/KVG](nav:health)), versati da chi non ha un datore di lavoro che li copre. Sono deducibili anche i [versamenti al terzo pilastro 3a](nav:pillar3), il conto individuale di previdenza complementare. Rientrano nelle deduzioni federali pure le quote deducibili di contributi sindacali, gli interessi su mutui per immobili di proprietà personale (secondo condizioni federali precise), e le spese di perfezionamento professionale documentate. Queste deduzioni federali sono generalmente ammesse in ogni cantone quando si compila la dichiarazione federale dell'IFD.
+
+### Variabilità delle deduzioni cantonali
+
+I cantoni, tuttavia, dispongono di ampia discrezionalità nel prevedere deduzioni aggiuntive rispetto a quelle federali. Alcuni cantoni permettono la deduzione di spese di trasporto verso il luogo di lavoro, spese di assistenza per i figli, contributi a enti filantropici locali, e costi di ristrutturazione energetica della prima abitazione. Questa varietà significa che la medesima spesa potrebbe essere deducibile in un cantone e non in un altro, a volte con limiti di importo differenti.
+
+Per questo motivo, chi si trasferisce da un cantone a un altro (o cambia residenza cantonale durante l'anno) deve sempre verificare le regole locali della nuova amministrazione fiscale. Un'imposta cantonale di uno stesso anno può quindi variare di centinaia di franchi svizzeri rispetto a quella di un cantone confinante, a parità di reddito lordo.
+
+### Il ruolo delle amministrazioni fiscali cantonali
+
+Le amministrazioni fiscali cantonali curano la riscossione e il controllo delle imposte cantonali e comunali secondo il diritto locale. Sono loro a determinare il modulo di dichiarazione specifico, i termini di presentazione, le modalità di pagamento, gli avvisi di imposta, e — sempre più frequentemente — a gestire portali online per la presentazione telematica. Ogni cantone pubblica inoltre guide di compilazione e istruzioni sui calcoli, spesso disponibili in formato digitale sul sito web dell'amministrazione. Gli uffici fiscali cantonali rimangono il riferimento unico per chiarimenti su aliquote e deduzioni locali.
+## Come compilare e presentare la dichiarazione: procedura e scadenze
+
+La dichiarazione delle imposte in Svizzera segue scadenze federali uniformi per l'IFD, ma i cantoni gestiscono moduli e procedure specifici per le loro componenti di tassazione.
+
+### Scadenze federali e margini cantonali
+
+La dichiarazione federale (IFD) deve essere presentata entro il 30 aprile dell'anno successivo a quello di imposta. Tuttavia, molti cantoni fissano scadenze leggermente diverse per la dichiarazione cantonale-comunale, talvolta prorogabili su richiesta. Alcuni cantoni allungano il termine fino a fine maggio, altri concedono automaticamente una breve proroga entro maggio. È essenziale verificare i termini specifici presso l'amministrazione fiscale del cantone di residenza, poiché una dichiarazione scaduta comporta sanzioni amministrative: tassa di mora, interesse legale, e in alcuni casi ammenda per ritardo di presentazione.
+
+### Procedura step-by-step per la dichiarazione
+
+**1. Raccogliere la documentazione**
+Prima di iniziare, riunire tutti i giustificativi: certificato della fonte del datore di lavoro con salario lordo, importo di IFD versata, versamenti pensionali e contributi sociali. Conservare inoltre la documentazione per le deduzioni: ricevute dei premi LAMal, estratti di versamento al terzo pilastro 3a, tabulati di interessi su mutui, fatture di spese professionali e documentazione di tasse scolastiche se applicabili. Chi possiede immobili deve disporre di costi di ristrutturazione energetica con fatture originali.
+
+2. Consultare il portale online del cantone
+La quasi totalità dei cantoni svizzeri offre oggi la compilazione online tramite un portale fiscale cantonale. Accedere con il numero contribuente (fornito dall'amministrazione fiscale) e compilare i campi secondo le istruzioni locali. Il portale guida il contribuente attraverso le voci di reddito e deduzioni, calcolando progressivamente l'importo imponibile.
+
+3. Allegare i documenti di supporto
+Se il portale online lo richiede, caricare i giustificativi digitali in formato PDF o immagine. Non è sempre necessario allegare la totalità dei documenti originali, ma è opportuno conservarli per il caso di un controllo posteriore da parte dell'amministrazione fiscale.
+
+4. Sottoscrivere e inviare
+Una volta compilata la dichiarazione, firmare (digitalmente se il sistema lo consente, altrimenti cartaceamente) e inviare secondo le modalità indicate dal cantone: per via telematica tramite portale, per posta, o consegna diretta presso gli sportelli.
+
+5. Ricevimento dell'avviso di imposta e pagamento
+L'amministrazione fiscale calcolerà l'imposta cantonale-comunale dovuta e comunicherà il termine di pagamento tramite avviso di tassazione. Se è dovuta un'imposta supplementare, il cantone emetterà un avviso con gli estremi di pagamento; se c'è invece un rimborso, l'importo sarà accreditato sul numero di conto indicato nella dichiarazione.
+
+### Dove trovare informazioni specifiche per il vostro cantone
+
+Ogni amministrazione fiscale cantonale mantiene un portale online dove consultare moduli di dichiarazione, istruzioni di compilazione dettagliate, tariffe e aliquote locali per l'anno fiscale di riferimento, elenco completo delle deduzioni ammesse a livello cantonale, e contatti diretti per assistenza. [È possibile accedere al sito dell'amministrazione fiscale del cantone di residenza per verificare le regole locali e presentare la dichiarazione telematicamente.](nav:tax-return) La consultazione del portale cantonale rimane lo strumento più affidabile per evitare errori di compilazione e rispettare i termini di presentazione.]]></content:encoded>
+      <pubDate>Thu, 03 Sep 2026 23:08:41 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/imposte-cantonali-svizzera-aliquote-deduzioni</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-svizzera-aliquote-deduzioni.webp" medium="image"/>
+    </item>
     <item>
       <title>Salari in Uri: livelli per settore e formazione</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/settori-salari-uri-lavoro/</link>
@@ -3491,67 +3571,6 @@ La riduzione dei premi dell'assicurazione malattia obbligatoria nel Cantone di A
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/premi-cassa-malati-appenzello-interno-riduzione</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-appenzello-interno-riduzione.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Permesso di dimora B nel Cantone di Appenzello Interno: requisiti e rinnovo</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/permesso-dimora-b-appenzello-interno-requisiti-rinnovo/</link>
-      <description><![CDATA[Scopri i requisiti e la procedura di rinnovo del permesso di dimora B nel Cantone di Appenzello Interno.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Permesso di dimora B nel Cantone di Appenzello Interno.
-- Requisiti, documenti, durata e rinnovo.
-- Ufficio cantonale della migrazione competente.
-
-## Fatti chiave
-- **Cosa**: Permesso di dimora B.
-- Dove: Cantone di Appenzello Interno.
-- Chi: Ufficio cantonale della migrazione.
-- Requisiti: Documenti specifici.
-- Durata: Rinnovabile.
-
-Il permesso di dimora B nel Cantone di Appenzello Interno è un documento fondamentale per chi desidera risiedere in Svizzera per un periodo prolungato. Questo permesso è rinnovabile e richiede la presentazione di specifici documenti all'ufficio cantonale della migrazione competente. La procedura di rinnovo è regolata da leggi cantonali e federali, garantendo una gestione trasparente e uniforme.
-
-### Requisiti e Documenti
-Per ottenere il permesso di dimora B, è necessario presentare una serie di documenti all'ufficio cantonale della migrazione. Questi includono il passaporto valido, un certificato di residenza, e una dichiarazione di impiego o di studio. È importante verificare i requisiti specifici del Cantone di Appenzello Interno, poiché possono variare leggermente rispetto ad altri cantoni.
-
-### Durata e Rinnovo
-Il permesso di dimora B ha una durata limitata e deve essere rinnovato periodicamente. La procedura di rinnovo richiede la presentazione di nuovi documenti e la verifica del rispetto dei requisiti. È fondamentale rispettare le scadenze per evitare problemi legali e garantire la continuità della residenza in Svizzera.
-
-### Ufficio Cantonale della Migrazione
-L'ufficio cantonale della migrazione del Cantone di Appenzello Interno è responsabile della gestione dei permessi di dimora. Questo ufficio fornisce assistenza e informazioni sui requisiti, i documenti necessari e le procedure di rinnovo. È possibile contattare l'ufficio per ottenere chiarimenti e supporto durante il processo.
-## Implicazioni Pratiche
-La gestione del permesso di dimora B ha implicazioni pratiche significative per i residenti nel Cantone di Appenzello Interno. La possibilità di rinnovare il permesso garantisce stabilità e sicurezza per chi desidera vivere e lavorare in Svizzera. Tuttavia, è importante essere consapevoli delle scadenze e dei requisiti per evitare problemi legali.
-
-### Confronto con Altri Cantoni
-Le procedure per il permesso di dimora B possono variare leggermente tra i diversi cantoni svizzeri. Tuttavia, il Cantone di Appenzello Interno segue le linee guida federali, garantendo una gestione uniforme e trasparente. Questo confronto è utile per chi si trasferisce da un altro cantone e desidera comprendere le differenze procedurali.
-
-### Scenari Ipotesi
-Un frontaliere che si trovi in una situazione simile potrebbe beneficiare di una consulenza personalizzata presso l'ufficio cantonale della migrazione. Questo ufficio offre supporto e assistenza per la presentazione dei documenti e il rispetto delle scadenze. È importante pianificare con anticipo il rinnovo del permesso per evitare problemi legali e garantire la continuità della residenza in Svizzera.
-
-### Confronti Prima e Dopo
-Prima dell'introduzione delle nuove procedure, il rinnovo del permesso di dimora B era un processo più complesso e meno trasparente. Le nuove linee guida federali hanno semplificato la procedura, rendendola più accessibile e comprensibile per i residenti. Questo confronto mostra come le modifiche legislative possano migliorare la gestione dei permessi di dimora in Svizzera.
-
-## Tool consigliati
-Per una stima aggiornata, usa il [calcolatore stipendio netto](nav:calculator) e il [comparatore cambio CHF-EUR](nav:exchange).
-## Procedura di Rinnovo
-La procedura di rinnovo del permesso di dimora B nel Cantone di Appenzello Interno segue una serie di passaggi ben definiti. È importante rispettare le scadenze e presentare i documenti richiesti per evitare problemi legali. L'ufficio cantonale della migrazione fornisce assistenza e supporto durante tutto il processo.
-
-### Passaggi Step-by-Step
-1. **Verifica dei Requisiti**: Controllare i requisiti specifici del Cantone di Appenzello Interno.
-2. Raccolta dei Documenti: Preparare tutti i documenti necessari, come il passaporto valido e il certificato di residenza.
-3. Presentazione dei Documenti: Inviare i documenti all'ufficio cantonale della migrazione.
-4. Verifica e Approvazione: L'ufficio cantonale della migrazione verifica i documenti e approva il rinnovo del permesso.
-5. Ricezione del Permesso: Una volta approvato, il permesso di dimora B viene rinnovato e consegnato al richiedente.
-
-### Strumenti e Risorse
-Per facilitare il processo di rinnovo, è possibile utilizzare vari strumenti e risorse disponibili. L'ufficio cantonale della migrazione offre guide e supporto online, mentre il sito web del Cantone di Appenzello Interno fornisce informazioni dettagliate sui requisiti e le procedure. È possibile contattare l'ufficio per ottenere chiarimenti e assistenza durante il processo.
-
-### CTA Finale
-Per ottenere ulteriori informazioni e supporto durante il processo di rinnovo del permesso di dimora B, è possibile utilizzare il [calcolatore stipendio](nav:calculator) disponibile sul sito. Questo strumento fornisce una panoramica dettagliata dei requisiti e delle procedure, garantendo una gestione trasparente e uniforme del permesso di dimora in Svizzera.]]></content:encoded>
-      <pubDate>Wed, 02 Sep 2026 23:10:49 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/permesso-dimora-b-appenzello-interno-requisiti-rinnovo</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/permesso-dimora-b-appenzello-interno-requisiti-rinnovo.webp" medium="image"/>
     </item>
   </channel>
 </rss>
