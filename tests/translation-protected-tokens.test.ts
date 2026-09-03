@@ -527,7 +527,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // main() sits behind a direct-invocation guard: without it, importing the
     // module would scan data/jobs/by-crawler, seed the shared run clock, and
     // spawn the Python worker.
-    expect(Object.keys(mopup).sort()).toEqual(['buildMopupRequest', 'finalizeMopupTranslation', 'missingSlots']);
+    expect(Object.keys(mopup).sort()).toEqual(['buildMopupRequest', 'classifyMopupWrite', 'finalizeMopupTranslation', 'missingSlots', 'needsWork']);
   });
 });
 
