@@ -52,6 +52,7 @@
  * di famiglia e la issue resta `keep` per il giudizio dello sweep.
  */
 import { execFileSync } from 'node:child_process';
+import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { NON_RETRYABLE } from './followup-drainer.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
@@ -97,7 +98,6 @@ export const AGGREGATE_TITLE_RE = /\b(\d+)\s+item\s+deferred\b/i;
  */
 export const STALE_BLOCK_VERDICTS = new Set(['blocked-secrets']);
 
-const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 
 /** Ultimo verdetto da una lista di commenti (forma REST o GraphQL). Pura. */
 export function latestVerdict(comments) {
