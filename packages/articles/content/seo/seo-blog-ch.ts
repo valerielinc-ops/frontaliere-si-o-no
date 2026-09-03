@@ -69206,6 +69206,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tariffario-ambulatoriale-cure-base': {
+    title: 'Medici famiglia criticano tariffario Tardoc | Frontaliere Ticino',
+    description: 'Tardoc non ha rivalutato la medicina di famiglia e aumenta i costi ambulatoriali in Svizzera. L\'associazione mfe chiede al Consiglio federale aggiustamenti',
+    keywords: 'frontalieri, ticino, svizzera, italia, medici, famiglia, criticano, tariffario',
+    ogTitle: 'Medici famiglia criticano tariffario Tardoc',
+    ogDescription: 'Il nuovo tariffario medico Tardoc aumenta i costi ambulatoriali ma non rivaluta la medicina di famiglia. L\'associazione mfe critica il sistema e chiede al Consiglio federale aggiustamenti mirati. Scopri le implicazioni per il sistema sanitario',
+    canonicalPath: '/articoli-svizzera/tariffario-ambulatoriale-cure-base/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medici famiglia criticano tariffario Tardoc",
+      "description": "Tardoc non ha rivalutato la medicina di famiglia e aumenta i costi ambulatoriali in Svizzera. L'associazione mfe chiede al Consiglio federale aggiustamenti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tariffario-ambulatoriale-cure-base.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studio medico svizzero con medico di famiglia che consulta paziente anziano in ambulatorio moderno"
+      },
+      "datePublished": "2026-09-03T17:34:19+00:00",
+      "dateModified": "2026-09-03T17:34:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tariffario-ambulatoriale-cure-base/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

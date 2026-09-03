@@ -5332,6 +5332,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprendistato in Lucerna: guida pratica',
     'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Ricerca del tirocinio, retribuzione, contributi sociali e maturità professionale: ecco come orientarsi nella formazione duale svizzera a Lucerna.',
     'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano e il Verbano: simbolo della formazione professionale in Svizzera',
+    'blog.article.tariffario-ambulatoriale-cure-base.title': 'Medici famiglia criticano tariffario Tardoc',
+    'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc non rivaluta la medicina di famiglia e aumenta i costi ambulatoriali. L\'associazione mfe chiede al Consiglio federale di evitare una svalutazione lineare.',
+    'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Studio medico svizzero con medico di famiglia che consulta paziente anziano in ambulatorio moderno',
 };
 
 export default blogMetaChIt;

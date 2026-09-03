@@ -5332,6 +5332,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Lehre in Luzern: Praxisleitfaden',
     'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Praktikumssuche, Entlohnung, Sozialbeiträge und Berufsmaturität - so orientieren Sie sich an der dualen Schweizer Ausbildung in Luzern.',
     'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano und Verbano: Symbol der beruflichen Ausbildung in der Schweiz',
+    'blog.article.tariffario-ambulatoriale-cure-base.title': 'Hausärzte kritisieren Tardoc-Tarif',
+    'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc schätzt die Familienmedizin nicht auf und erhöht die ambulanten Kosten. Der Verband mfe fordert den Bundesrat auf, eine lineare Abwertung zu vermeiden.',
+    'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Schweizer Arztpraxis mit Hausarzt, der Patientin in moderner Ambulanz berät',
 };
 
 export default blogMetaChDe;

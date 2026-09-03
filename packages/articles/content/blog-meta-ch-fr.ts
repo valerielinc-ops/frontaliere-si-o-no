@@ -5332,6 +5332,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprentissage à Lucerne : guide pratique',
     'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Recherche de stage, rémunération, cotisations sociales et maturité professionnelle : voici comment s\'orienter dans la formation duale suisse à Lucerne.',
     'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano et le Verbano: symbole de la formation professionale en Suisse',
+    'blog.article.tariffario-ambulatoriale-cure-base.title': 'Médecins de famille critiquent tarif Tardoc',
+    'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc ne réévalue pas la médecine familiale et augmente les coûts ambulatoires. L\'association mfe demande au Conseil fédéral d\'éviter une dévaluation linéaire.',
+    'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Cabinet médical suisse avec médecin généraliste consultant patient âgé en ambulatoire moderne',
 };
 
 export default blogMetaChFr;

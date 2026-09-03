@@ -15994,6 +15994,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tariffario-ambulatoriale-cure-base',
+    category: 'novita',
+    date: '2026-09-03T17:34:19.024Z',
+    image: '/images/blog/tariffario-ambulatoriale-cure-base.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
