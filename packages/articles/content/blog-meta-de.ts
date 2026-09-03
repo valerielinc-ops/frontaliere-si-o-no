@@ -11192,6 +11192,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontier: Steuern und Hypothek für zu Hause in Italien',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Erfahren Sie, wie sich die neue Grenzabfertigungsvereinbarung 2024 auf den Hypothekenantrag in Italien auswirkt. Quellensteuer, Selbstbehalt von 10.000 € und Steuergutschrift für Grenzgänger erklärt.',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Blick auf Lugano: Schweizer Grenzstadt für Grenzgänger bei Hypothekenanträgen in Italien',
+    'blog.article.nuovo-accordo-frontalieri-2024.title': 'Grenzabzüge 2026: Steuergutschrift und Selbstbehalte',
+    'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Schweizer Quellensteuer, italienische Steuergutschrift, neue Vereinbarung mit Franchisen: Kompletter Leitfaden für Grenzgänger Tessin-Italien 2024-2033.',
+    'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Steuerdokumente für Grenzgänger, Euro und Schweizer Franken, Rechner und Grenze Tessin-Italien',
 };
 
 export default blogMetaDe;

@@ -11194,6 +11194,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontaliere: fiscalità e mutuo per casa in Italia',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Scopri come il nuovo accordo frontalieri 2024 influisce sulla richiesta di mutuo in Italia. Imposta alla fonte, franchigia €10.000 e credito d\'imposta spiegati per frontalieri.',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Veduta di Lugano: città svizzera di riferimento per i frontalieri italiani che richiedono mutui transfrontalieri',
+    'blog.article.nuovo-accordo-frontalieri-2024.title': 'Detrazioni frontalieri 2026: credito d\'imposta e franchigie',
+    'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Imposta alla fonte svizzera, credito d\'imposta italiano, nuovo accordo con franchigie: guida completa per frontalieri Ticino-Italia 2024-2033.',
+    'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Documenti fiscali frontalieri, euro e franchi svizzeri, calcolatrice e vista del confine Ticino-Italia',
 };
 
 export default blogMetaIt;

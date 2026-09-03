@@ -11195,6 +11195,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontalier : fiscalité et hypothèque à domicile en Italie',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Découvrez comment le nouvel accord frontalier 2024 affecte la demande de prêt en Italie. Impôt à la source, franchise 10 000 € et crédit d\'impôt expliqué pour les frontaliers.',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Vue de Lugano: ville suisse frontière pour les travailleurs frontaliers demandant des prêts auprès de banques italiennes',
+    'blog.article.nuovo-accordo-frontalieri-2024.title': 'Déductions frontalières 2026 : crédit d\'impôt et franchises',
+    'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Impôt à la source suisse, crédit d\'impôt italien, nouvel accord avec franchises : guide complet pour les frontaliers Tessin-Italie 2024-2033.',
+    'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Documents fiscaux pour frontaliers, euros et francs suisses, calculatrice et frontière Tessin-Italie',
 };
 
 export default blogMetaFr;

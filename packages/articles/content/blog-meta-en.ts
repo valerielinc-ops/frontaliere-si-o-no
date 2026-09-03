@@ -11193,6 +11193,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontier: taxation and home loans in Italy',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Find out how the new 2024 border agreement affects mortgage applications in Italy. Tax at source, €10,000 deductible and tax credit explained for border workers.',
     'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'View of Lugano: Swiss border city for cross-border workers applying for mortgages with Italian banks',
+    'blog.article.nuovo-accordo-frontalieri-2024.title': 'Border deductions 2026: tax credit and deductibles',
+    'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Swiss source tax, Italian tax credit, new agreement with deductibles: complete guide for border workers Ticino-Italy 2024-2033.',
+    'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Cross-border worker tax documents, euros and Swiss francs, calculator and Ticino-Italy border view',
 };
 
 export default blogMetaEn;
