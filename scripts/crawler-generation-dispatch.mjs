@@ -430,6 +430,24 @@ function isExactRefAlreadyExistsConflict(response) {
   return response?.status === 422 && response.body?.message === 'Reference already exists';
 }
 
+// A raw transport exception (network blip, DNS hiccup) on the ref-pin read/create is the
+// same class of transient failure the reaper's own list call can hit — retry it with the
+// existing conflict backoff schedule instead of letting a single blip hard-abort the wave
+// as a `crawler_generation_ref_pin_failed`, indistinguishable from a genuine stale-ref
+// conflict (#7150 item 1). A real conflict is still a definitive HTTP response, never an
+// exception, so this only widens resilience for the transport layer.
+async function requestWithTransientRetry({ request, sleep, ...requestArgs }) {
+  for (let attempt = 0; attempt <= DISPATCH_REF_CONFLICT_BACKOFF_MS.length; attempt += 1) {
+    if (attempt > 0) await sleep(DISPATCH_REF_CONFLICT_BACKOFF_MS[attempt - 1]);
+    try {
+      return await request(requestArgs);
+    } catch {
+      // retry on the next iteration; exhausting the schedule falls through to undefined
+    }
+  }
+  return undefined;
+}
+
 /** Pin one dedicated branch before the wave so a moving corpus main cannot split the generation. */
 export async function ensureCrawlerGenerationDispatchRef({
   request,
@@ -440,11 +458,15 @@ export async function ensureCrawlerGenerationDispatchRef({
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   const dispatchRef = crawlerGenerationDispatchRef(generationToken);
   const endpoint = `/repos/${CALLER_REPOSITORY}/git/ref/heads/${dispatchRef}`;
-  const current = await request({ method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION });
+  const current = await requestWithTransientRetry({
+    request, sleep, method: 'GET', path: endpoint, apiVersion: GITHUB_API_VERSION,
+  });
   if (exactPinnedRef(current, dispatchRef, corpusCodeCommit)) return dispatchRef;
 
   if (current?.status === 404) {
-    const created = await request({
+    const created = await requestWithTransientRetry({
+      request,
+      sleep,
       method: 'POST',
       path: `/repos/${CALLER_REPOSITORY}/git/refs`,
       apiVersion: GITHUB_API_VERSION,
