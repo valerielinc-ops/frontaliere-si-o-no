@@ -1504,8 +1504,20 @@ commit_isolated_from_worktree() {
                 if [ "$registry_status" -ne 1 ]; then
                   return 1
                 fi
-                echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
-                continue
+                if [ -z "$base_blob" ]; then
+                  # No base blob means this path never existed in git history
+                  # before this run — there is nothing to retire. Registry
+                  # absence here means the roster hasn't been (yet) updated
+                  # to include this brand-new slice, not that it was retired
+                  # (issue #7151 item 1: pre-registration ordering between the
+                  # roster-regeneration step and a crawler's first data commit
+                  # isn't asserted anywhere else). Treat as a genuine unregistered
+                  # first-run create rather than silently dropping the data.
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry but has no base blob — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
+                else
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
+                  continue
+                fi
               fi
               ;;
             data/jobs/expired/by-crawler/*.json)
