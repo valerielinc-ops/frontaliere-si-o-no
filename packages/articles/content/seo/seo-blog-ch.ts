@@ -67958,6 +67958,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-premi-cassa-malati-canton-turgovia-riduzione': {
+    title: 'Premi cassa malati Canton Turgovia: riduzione | Frontaliere Ticino',
+    description: 'Scopri i premi e le franchigie della LAMal nel Canton Turgovia: guida completa a riduzione, sussidi e procedure di richiesta per risparmiare. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, canton',
+    ogTitle: 'Premi cassa malati Canton Turgovia: riduzione',
+    ogDescription: 'Come ottenere la riduzione dei premi della LAMal nel Canton Turgovia: franchigie disponibili (CHF 300-2500), criteri di elegibilità, procedure di richiesta e passaggi per richiedere il sussidio cantonale. Guida pratica 2026.',
+    canonicalPath: '/articoli-svizzera/premi-cassa-malati-canton-turgovia-riduzione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati Canton Turgovia: riduzione",
+      "description": "Scopri i premi e le franchigie della LAMal nel Canton Turgovia: guida completa a riduzione, sussidi e procedure di richiesta per risparmiare. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/premi-cassa-malati-canton-turgovia-riduzione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo cantonale svizzero con documenti di assicurazione malattia su scrivania"
+      },
+      "datePublished": "2026-09-03T02:24:34+00:00",
+      "dateModified": "2026-09-03T02:24:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/premi-cassa-malati-canton-turgovia-riduzione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

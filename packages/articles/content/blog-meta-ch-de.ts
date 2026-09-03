@@ -5236,6 +5236,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lavoro-argovia-salari-diritti.title': 'Löhne und Arbeitsmarkt Kanton Aargau',
     'blog.article.lavoro-argovia-salari-diritti.excerpt': 'Wie der Arbeitsmarkt im Aargau funktioniert: Löhne, Ansprüche, Kollektivverträge und Sozialversicherungsbeiträge gemäss Schweizer Bundesgesetz.',
     'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'Schweizer Geschäftsviertel mit modernen Büros und Arbeitnehmern: Symbol des Arbeitsmarktes',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Krankenkassenprämien Kanton Thurgau: Reduktion',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'So erhalten Sie die KVG-Prämienreduktion im Kanton Thurgau: Verfügbare Franchisen, Beitragsvoraussetzungen und Verfahren zur Beantragung der kantonalen Leistung.',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Schweizer Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

@@ -5236,6 +5236,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lavoro-argovia-salari-diritti.title': 'Salaires et marché du travail canton d\'Argovie',
     'blog.article.lavoro-argovia-salari-diritti.excerpt': 'Comment fonctionne le marché du travail en Argovie : salaires, droits, conventions collectives et cotisations de sécurité sociale selon la loi fédérale suisse.',
     'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'District commercial suisse avec bureaux modernes et travailleurs : symbole du marché du travail',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Primes caisse-maladie Canton Thurgovie : réduction',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'Comment obtenir la réduction sur les primes de LAMal dans le canton de Thurgovie : franchises disponibles, conditions de subvention et procédures pour demander l\'avantage cantonal.',
+    'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Bureau administratif cantonal suisse avec documents d\'assurance-maladie sur le bureau',
 };
 
 export default blogMetaChFr;
