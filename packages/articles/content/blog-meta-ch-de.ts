@@ -5299,6 +5299,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC unter dem Zug von Hausärzten',
     'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe kritisiert den neuen Tarif: Ambulante Kosten steigen, Familienmedizin ohne Neubewertung. Das Risiko für den Zugang zur Grundversorgung.',
     'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Hausarzt in Sprechstunde mit Patient, Thema TARDOC-Tarifreform und Kritik der Aufwertung von Hausarztmedizin',
+    'blog.article.comitato-consultivo-svizzera-digitale.title': 'Digital Swiss Committee: Sicherheit und e-ID-Prioritäten',
+    'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'Am 3. September 2026 erörterte der Beirat die nationale digitale Strategie und verschob die e-ID, um ein Höchstmaß an Sicherheit und Vertrauen zu gewährleisten.',
+    'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Sitzung des Beirats Digitale Schweiz in Bern.',
 };
 
 export default blogMetaChDe;

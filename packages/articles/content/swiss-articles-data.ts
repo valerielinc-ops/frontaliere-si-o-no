@@ -15895,6 +15895,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comitato-consultivo-svizzera-digitale',
+    category: 'novita',
+    date: '2026-09-03T14:15:06.066Z',
+    image: '/images/blog/comitato-consultivo-svizzera-digitale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

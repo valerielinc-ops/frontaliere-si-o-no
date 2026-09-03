@@ -5299,6 +5299,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC under the scrutiny of family doctors',
     'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe criticizes the new tariff: rising outpatient costs, family medicine without revaluation. The risk to access to basic care.',
     'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Family doctor consulting with patient in Swiss medical office regarding TARDOC tariff reforms and primary care valuation',
+    'blog.article.comitato-consultivo-svizzera-digitale.title': 'Digital Switzerland Committee: security and e-ID priorities',
+    'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'On 3 September 2026, the Advisory Committee discussed the national digital strategy, postponing the e-ID to ensure maximum security and trust.',
+    'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Meeting of the Digital Switzerland Advisory Committee in Bern.',
 };
 
 export default blogMetaChEn;

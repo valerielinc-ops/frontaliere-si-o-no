@@ -5299,6 +5299,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC sous le feu des médecins de famille',
     'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe critique le nouveau tarif : coûts ambulatoires en hausse, médecine de famille sans réévaluation. Le risque pour l\'accès aux soins de base.',
     'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Médecin généraliste en consultation avec patient, réformes tarifaires TARDOC et critiques de la revalorisation des médecins généralistes',
+    'blog.article.comitato-consultivo-svizzera-digitale.title': 'Comité Suisse numérique : priorité à la sécurité et e-ID',
+    'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'Le 3 septembre 2026, le Comité consultatif a discuté de la stratégie numérique nationale, reportant l\'e-ID pour assurer un maximum de sécurité et de confiance.',
+    'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Réunion du comité consultatif Suisse numérique à Berne.',
 };
 
 export default blogMetaChFr;
