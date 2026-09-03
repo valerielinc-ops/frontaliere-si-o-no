@@ -1,7 +1,7 @@
 {
   "key": "barry-callebaut",
   "label": "Barry Callebaut",
-  "generatedAt": "2026-09-03T13:44:05.549Z",
+  "generatedAt": "2026-09-03T23:23:28.093Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 4958,
-  "avgDurationMs": 4958,
+  "durationMs": 5020,
+  "avgDurationMs": 5020,
   "durationHistory": [
-    4958
+    5020
   ],
   "newJobs": [
     {
@@ -27,7 +27,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&amp;A-Cocoa-Sourcing-8005/1411992200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:44:01.536Z",
+      "crawledAt": "2026-09-03T23:23:23.829Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -40,6 +40,7 @@
       "featured": false,
       "postedDate": "2026-07-23",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&amp;A-Cocoa-Sourcing-8005/1411992200/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-23T22:30:18.202Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -63,7 +64,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Commercial-Excellence-Manager-Gourmet-Business-8005/1421035000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:44:01.532Z",
+      "crawledAt": "2026-09-03T23:23:23.821Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -97,7 +98,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Global-Brand-Manager-8005/1420013500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:44:01.520Z",
+      "crawledAt": "2026-09-03T23:23:23.827Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -131,7 +132,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Executive-Assistant-CPCO-8005/1405562000/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:44:01.529Z",
+      "crawledAt": "2026-09-03T23:23:23.830Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -144,6 +145,7 @@
       "featured": false,
       "postedDate": "2026-07-03",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Executive-Assistant-CPCO-8005/1405562000/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:24:25.530Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -167,7 +169,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:22:20.576Z",
+      "crawledAt": "2026-09-03T13:44:01.536Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -181,6 +183,7 @@
       "postedDate": "2026-07-23",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Manager-FP&A-Cocoa-Sourcing-8005/1411992200/",
       "firstSeenAt": "2026-07-23T22:30:18.202Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
