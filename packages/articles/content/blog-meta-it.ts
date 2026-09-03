@@ -11259,6 +11259,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Vivere Gravedona ed Uniti, lavorare Ticino da frontaliere',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Frontaliere da Gravedona ed Uniti verso il Ticino: fiscalità, permessi, Nuovo Accordo, contributi e cosa valutare prima di trasferirsi.',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Vista del Ticino da Gravedona: sponda ticinese del Ceresio con monti sullo sfondo',
+    'blog.article.cambio-cantone-tasse-frontaliere.title': 'Cambio cantone di lavoro: guida fiscale',
+    'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Il passaggio da un cantone svizzero all\'altro incide su permesso, tassazione e contributi. Scopri come il Nuovo Accordo 2024 modifica le regole.',
+    'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Vista di Lugano dal Monte San Salvatore, capoluogo del Canton Ticino',
 };
 
 export default blogMetaIt;

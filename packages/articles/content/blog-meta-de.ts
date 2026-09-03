@@ -11257,6 +11257,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Gravedona ed Uniti erleben, als Grenzgänger im Tessin arbeiten',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Grenzgänger aus Gravedona und den Vereinigten Staaten ins Tessin: Steuern, Genehmigungen, Neues Abkommen, Beiträge und was vor dem Umzug zu bewerten ist.',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Blick auf Tessin von Gravedona: Ceresio-Ufer mit Bergen, Schweizer Seite des Grenzgebietes sichtbar',
+    'blog.article.cambio-cantone-tasse-frontaliere.title': 'Wechsel des Arbeitskantons: steuerlicher Leitfaden',
+    'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Der Wechsel von einem Schweizer Kanton in einen anderen wirkt sich auf Bewilligung, Besteuerung und Beiträge aus. Erfahren Sie, wie das Neue Abkommen 2024 die Regeln ändert.',
+    'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Blick auf Lugano vom Monte San Salvatore, Hauptstadt des Kantons Tessin',
 };
 
 export default blogMetaDe;

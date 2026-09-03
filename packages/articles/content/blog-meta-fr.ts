@@ -11260,6 +11260,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Vivre Gravedona ed Uniti, travailler au Tessin en tant que frontalier',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Frontière de Gravedona ed Unidos vers le Tessin : fiscalité, permis, nouvel accord, contributions et quoi évaluer avant de déménager.',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Vue du Tessin depuis Gravedona : rive du Ceresio avec montagnes et zone transfrontalière suisse visible',
+    'blog.article.cambio-cantone-tasse-frontaliere.title': 'Changement de canton de travail : guide fiscal',
+    'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Le passage d\'un canton suisse à l\'autre influe sur le permis, la fiscalité et les cotisations. Découvrez comment le Nouvel Accord 2024 modifie les règles.',
+    'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Vue de Lugano depuis le Monte San Salvatore, chef-lieu du canton du Tessin',
 };
 
 export default blogMetaFr;
