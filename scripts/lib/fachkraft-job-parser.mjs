@@ -234,13 +234,14 @@ function reusableExistingListing(row, existing) {
   const preGeography = {
     ...row,
     location,
-    addressLocality: existing.addressLocality || rowLocation || location,
     // When the location diverged (locationMatches === false), `location` above was
     // just refreshed to rowLocation from the current listing; falling back to
-    // existing.canton here would pair that fresh location with a stale canton from
-    // a previous run (#7249). Only reuse the existing canton when location did NOT
-    // change, leaving resolveDetailOrListingSwissGeography to decide from
-    // row.addressRegion/current listing text otherwise.
+    // existing.addressLocality/canton here would pair that fresh location with a
+    // stale city/canton from a previous run (#7249). Only reuse the existing
+    // addressLocality/canton when location did NOT change, leaving
+    // resolveDetailOrListingSwissGeography to decide from row.addressRegion/
+    // current listing text otherwise.
+    addressLocality: (locationMatches ? existing.addressLocality : '') || rowLocation || location,
     addressRegion: row.addressRegion || (locationMatches ? existing.addressRegion || existing.canton || '' : ''),
     addressCountry: existing.addressCountry || existing.country || row.addressCountry,
     country: existing.country || existing.addressCountry || row.country,

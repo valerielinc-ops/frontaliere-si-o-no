@@ -489,6 +489,7 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(jobs[0]?.location).toBe('Luzern');
       expect(jobs[0]?.canton).toBe('LU');
       expect(jobs[0]?.addressRegion).toBe('LU');
+      expect(jobs[0]?.addressLocality).toBe('Luzern');
       expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
     });
 
