@@ -147,7 +147,7 @@ function isSwissLocation(locationsText = '') {
  * table). Returns `{ rows, total }` where `total` is the "Results X to Y of
  * TOTAL" count parsed from the page (0 if not found).
  */
-function parseSearchPage(html = '') {
+export function parseSearchPage(html = '') {
   const rows = [];
   const blocks = String(html || '').split('<tr class="data-row">').slice(1);
   for (const block of blocks) {
