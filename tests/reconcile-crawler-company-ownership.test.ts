@@ -200,6 +200,20 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
+  it('does not collapse two jobs sharing a legacy slug when slugByLocale.it diverges', () => {
+    const jobA = { slug: 'legacy-slug', slugByLocale: { it: 'nuovo-slug-a' } };
+    const jobB = { slug: 'legacy-slug', slugByLocale: { it: 'nuovo-slug-b' } };
+
+    const sharedRoutes = [...localeRouteKeys(jobA)].filter((route) => localeRouteKeys(jobB).has(route));
+    expect(sharedRoutes).toEqual([]);
+  });
+
+  it('still keeps the legacy slug as an it route when slugByLocale.it is absent', () => {
+    const legacyOnly = { slug: 'legacy-only-slug', slugByLocale: {} };
+
+    expect(localeRouteKeys(legacyOnly).has('it:legacy-only-slug')).toBe(true);
+  });
+
   it('keeps locale-route parity when a merged history exceeds a locale cap', () => {
     const canonical = job('canonical', '1', 'canonical-slug');
     canonical.previousSlugs = [];
