@@ -1,21 +1,23 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-02T23:24:01.743Z",
-  "total": 50,
+  "generatedAt": "2026-09-03T13:47:21.142Z",
+  "total": 55,
   "discovered": null,
-  "written": 50,
+  "written": 55,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 28484,
-  "avgDurationMs": 28484,
+  "unchangedCount": 1,
+  "durationMs": 31313,
+  "avgDurationMs": 31313,
   "durationHistory": [
-    28484
+    31313
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5777",
       "slug": "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
@@ -48,7 +50,7 @@
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -57,7 +59,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
