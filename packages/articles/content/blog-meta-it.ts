@@ -11247,6 +11247,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.notifica-pagamento-multa-frontaliere.title': 'Multa stradale svizzera: pagamento e ricorsi',
     'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notifica, pagamento, ricorsi: ecco come affrontare una multa stradale ricevuta in Svizzera da residente italiano frontaliere, e le conseguenze dell\'inerzia.',
     'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Strada svizzera con segnaletica stradale e limite di velocità, contesto per frontalieri italiani',
+    'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Multa stradali svizzere: pagamento da residente italiano',
+    'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Come funziona la notifica e il pagamento di una multa stradali svizzera per un residente italiano. Procedure, termini, ricorsi e implicazioni per il Permesso G.',
+    'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'La città di Bellinzona sullo sfondo, simbolo dell\'amministrazione cantonale ticinese competente per le sanzioni stradali',
 };
 
 export default blogMetaIt;

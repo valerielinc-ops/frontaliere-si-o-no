@@ -11245,6 +11245,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.notifica-pagamento-multa-frontaliere.title': 'Schweizer Bußgeld: Zahlung und Einspruch',
     'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Benachrichtigung, Zahlung, Rechtsmittel: So gehen Sie mit einem in der Schweiz von einem italienischen Grenzgänger erhaltenen Bußgeld und den Folgen der Trägheit um.',
     'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Schweizer Straße mit Verkehrsschildern und Tempolimitanzeigen für italienische Grenzpendler',
+    'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Schweizer Strassenbusse: Bezahlung durch italienischen Residenten',
+    'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Wie funktioniert die Zustellung und Zahlung eines schweizerischen Bußgeldes für einen italienischen Einwohner? Verfahren, Fristen, Rechtsbehelfe und Implikationen für die Genehmigung G.',
+    'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'Stadt Bellinzona im Hintergrund, Symbol der Verwaltung des Kantons Tessin für Verkehrsstrafen',
 };
 
 export default blogMetaDe;

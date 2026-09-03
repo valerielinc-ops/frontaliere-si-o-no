@@ -11248,6 +11248,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.notifica-pagamento-multa-frontaliere.title': 'Amende routière suisse : paiement et recours',
     'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notification, paiement, recours : voici comment faire face à une amende routière reçue en Suisse par un résident frontalier italien, et les conséquences de l\'inertie.',
     'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Route suisse avec signalisation routière pour les frontaliers italiani se rendant au travail',
+    'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Amende routière suisse : paiement par un résident italien',
+    'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Comment fonctionne la notification et le paiement d\'une amende routière suisse pour un résident italien. Procédures, délais, recours et implications pour le permis G.',
+    'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'La ville de Bellinzona en arrière-plan, symbolisant l\'administration cantonale du Tessin responsable des amendes routières',
 };
 
 export default blogMetaFr;
