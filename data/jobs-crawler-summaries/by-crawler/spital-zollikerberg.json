@@ -1,43 +1,41 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-02T23:05:32.470Z",
-  "total": 11,
+  "generatedAt": "2026-09-03T13:31:57.629Z",
+  "total": 12,
   "discovered": null,
-  "written": 11,
+  "written": 12,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 35267,
-  "avgDurationMs": 35267,
+  "unchangedCount": 0,
+  "durationMs": 35720,
+  "avgDurationMs": 35720,
   "durationHistory": [
-    35267
+    35720
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "spital-zollikerberg-82230b011fcc",
-      "slug": "formazione-professionale-formazione-professionale-specialista-salute-presso-la-stazione-privata-interdisciplinare-f1aeee",
+      "id": "spital-zollikerberg-0f1711611a04",
+      "slug": "apprendistato-come-kauffrau-kaufmann-cfc-middle-office-spital-zollikerberg",
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
       "companyDomain": "spitalzollikerberg.ch",
-      "title": "Berufsbildnerin / Berufsbildner Fachmann / Fachfrau Gesundheit auf der interdisziplinären Privatstation 1",
-      "needsRetranslation": false,
+      "title": "Lehrstelle als Kauffrau / Kaufmann EFZ Middle Office /",
+      "needsRetranslation": true,
       "location": "Zollikerberg",
       "canton": "ZH",
-      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=418f1019-81e8-4689-b725-0c75a219bdd7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3a5d2bce-94f8-4ec4-b273-b2d99345170c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:06:50.998Z",
+      "crawledAt": "2026-09-02T13:31:34.805Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "8125",
-      "category": "Sanità / Ospedali",
+      "category": "Risorse Umane",
       "contract": "full-time",
       "employmentType": "OTHER",
       "experienceLevel": "mid",
@@ -45,10 +43,10 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-15",
-      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=418f1019-81e8-4689-b725-0c75a219bdd7,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
+      "applyUrl": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=3a5d2bce-94f8-4ec4-b273-b2d99345170c,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
       "_qualityScore": 90,
@@ -59,5 +57,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

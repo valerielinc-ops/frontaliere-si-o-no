@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-09-02T23:05:09.912Z",
+  "generatedAt": "2026-09-03T13:31:33.559Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 11763,
-  "avgDurationMs": 11763,
+  "durationMs": 10956,
+  "avgDurationMs": 10956,
   "durationHistory": [
-    11763
+    10956
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -257,13 +257,13 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 15
       }
@@ -365,13 +365,13 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 83,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 15
       }
@@ -655,7 +655,7 @@
         "canton": "TI",
         "location": "Mendrisio"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-68c6c1916cca",
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
@@ -663,10 +663,10 @@
       "salaryMax": 169000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 80,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 20,
         "translation": 25,
         "completeness": 20
       }
@@ -780,7 +780,7 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "en",
+      "sourceLang": "it",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -788,10 +788,10 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 88,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
+        "richness": 10,
         "translation": 25,
         "completeness": 20
       }
