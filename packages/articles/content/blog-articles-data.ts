@@ -33366,6 +33366,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-vione-lavorare-grigioni',
+ category: 'pratico',
+ date: '2026-09-03T02:13:25.513Z',
+ image: '/images/blog/vivere-vione-lavorare-grigioni.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
