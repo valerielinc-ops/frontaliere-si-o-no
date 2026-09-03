@@ -139,9 +139,12 @@ function createRollbackJournal() {
 export function localeRouteKeys(job = {}) {
   const routes = new Set();
   for (const locale of LOCALES) {
-    const current = job.slugByLocale?.[locale] || (locale === 'it' ? job.slug : '');
+    const localeSlug = job.slugByLocale?.[locale];
+    const current = localeSlug || (locale === 'it' ? job.slug : '');
     if (current) routes.add(`${locale}:${current}`);
-    if (locale === 'it' && job.slug) routes.add(`${locale}:${job.slug}`);
+    if (locale === 'it' && job.slug && (!localeSlug || localeSlug === job.slug)) {
+      routes.add(`${locale}:${job.slug}`);
+    }
     for (const slug of getPreviousSlugsForLocale(job, locale)) {
       if (slug) routes.add(`${locale}:${slug}`);
     }
