@@ -28,6 +28,7 @@
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
+import { AUTHORS, getAuthorBySlug } from '../data/authors';
 
 const ROOT = join(__dirname, '..');
 
@@ -75,5 +76,49 @@ describe('article:author names the article author, not the Redazione', () => {
     // the same page cannot disagree.
     expect(src).toMatch(/updateOrCreateMetaTag\(\s*'property',\s*'article:author',\s*articleAuthorUrl\s*\)/);
     expect(src).toMatch(/sdAuthor\?\.\['@type'\]\s*===\s*'Person'/);
+  });
+});
+
+/**
+ * Second half of the same incident. The editorial-transparency aside is the
+ * only place on the article page that states HOW the piece came to exist, and
+ * it printed "bozza assistita da intelligenza artificiale, revisionata dalla
+ * redazione" on every article unconditionally — including the ones a guest
+ * journalist wrote himself and submitted through the dashboard. On those it is
+ * simply false, and it reads as if the redazione, not the author, had produced
+ * the piece: the same complaint, on the surface the reader actually sees.
+ *
+ * The discriminator is `uid` in the author registry — a Firebase Auth uid,
+ * documented as set for guest journalists only. Everyone else is an editorial
+ * persona for AI-drafted content.
+ */
+describe('editorial transparency disclosure matches how the article was produced', () => {
+  it('uid marks the guest journalists and nobody else', () => {
+    // The registry must keep at least one, or the gate below is dead code.
+    expect(AUTHORS.some((a) => a.uid)).toBe(true);
+    expect(getAuthorBySlug('samuele-valente')?.uid).toBeTruthy();
+
+    // The editorial personas must never carry one: a uid on any of them makes
+    // the disclosure claim AI-drafted articles were written by a human.
+    // Asserted on the property, not on a frozen list, so adding a real guest
+    // journalist does not fail this — adding a persona with a uid does.
+    for (const author of AUTHORS.filter((a) => a.uid)) {
+      expect(author.slug).not.toBe('redazione');
+      expect(author.role).not.toContain('Team editoriale');
+    }
+  });
+
+  it('the AI-drafted wording is gated, not printed unconditionally', () => {
+    const src = readFileSync(join(ROOT, 'components/community/BlogArticles.tsx'), 'utf-8');
+
+    // The claim still exists — this gate is about when it is shown, not about
+    // dropping the Google News disclosure.
+    expect(src).toContain('bozza assistita da intelligenza artificiale');
+
+    // ...and it sits in the false branch of the human-contributor check.
+    expect(src).toMatch(
+      /isHumanContributor[\s\S]{0,400}bozza assistita da intelligenza artificiale/,
+    );
+    expect(src).toMatch(/const isHumanContributor = Boolean\(bylineAuthor\?\.uid\)/);
   });
 });
