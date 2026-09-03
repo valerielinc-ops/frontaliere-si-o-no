@@ -15751,6 +15751,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'naturalizzazione-appenzello-interno-procedura',
+    category: 'pratico',
+    date: '2026-09-03T05:16:23.780Z',
+    image: '/images/blog/naturalizzazione-appenzello-interno-procedura.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

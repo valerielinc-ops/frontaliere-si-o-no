@@ -5251,6 +5251,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.appenzello-interno-sostenibilita.title': 'Buying a house in Appenzello Interno: mortgage and taxes',
     'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procedure, own funds, mortgage sustainability, notary fees and cantonal taxes to purchase properties in Appenzell Internno.',
     'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Residential building facades in an Alpine Swiss region with morning lighting.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.title': 'Naturalization of the Inner Apenzello: requirements and procedure',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.excerpt': 'Ordinary naturalization in Switzerland: requirements, procedures and what to know to apply for citizenship in the Inner Appenzell canton.',
+    'blog.article.naturalizzazione-appenzello-interno-procedura.imageAlt': 'Swiss administrative office with citizenship documents and Appenzell region landscape in background.',
 };
 
 export default blogMetaChEn;
