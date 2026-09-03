@@ -208,7 +208,7 @@ function parsePostedDate(raw = '') {
  *   - td.colDepartment span.jobDepartment          → département (category hint)
  *   - td.colFacility span.jobFacility               → contrat (CDI/CDD/Stage)
  */
-function parseListingPage(html, pageUrl) {
+export function parseListingPage(html, pageUrl) {
   const out = [];
   const seen = new Set();
   let origin = ATS_ORIGIN;
