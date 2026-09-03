@@ -1,6 +1,6 @@
 {
   "crawlerKey": "careers",
-  "assembledAt": "2026-09-02T23:16:27.094Z",
+  "assembledAt": "2026-09-03T13:39:41.205Z",
   "jobs": [
     {
       "id": "careers-74c7232eb1c8",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten",
         "en": "operational-mechanic-in-maintenance-80-100-lepatron-lugano",
-        "de": "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
+        "de": "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
         "fr": "mecanicien-operationnel-en-maintenance-80-100-lepatron-lugano"
       },
       "company": "lepatron",
@@ -33,7 +33,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:16:24.231Z",
+      "crawledAt": "2026-09-03T13:39:38.209Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -49,28 +49,32 @@
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
-        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-        "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
+          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
+          "betriebsmechaniker-in-instandhaltung-80-100-careers-ch"
+        ],
         "it": [
           "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-          "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano"
+          "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
+          "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten"
         ],
         "en": [
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
-        ],
-        "de": [
-          "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
-          "betriebsmechaniker-in-instandhaltung-80-100-careers-ch"
         ],
         "fr": [
           "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano"
         ]
       },
+      "previousSlugs": [
+        "betriebsmechaniker-in-instandhaltung-80-100-careers-ch",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-lugano",
+        "meccanico-operativo-in-manutenzione-80-100-lepatron-lugano",
+        "betriebsmechaniker-in-instandhaltung-80-100-lepatron-bockten",
+        "meccanico-operativo-in-manutenzione-80-100-lepatron-bockten"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:28:48.595Z",
       "salaryMin": 72500,
@@ -118,7 +122,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:16:24.230Z",
+      "crawledAt": "2026-09-03T13:39:38.207Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -134,16 +138,16 @@
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:12:06.514Z",
+      "previousSlugs": [
+        "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
         ]
       },
-      "previousSlugs": [
-        "praktikant-in-product-manager-convenience-80-100-lepatron-lugano"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:12:06.514Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
