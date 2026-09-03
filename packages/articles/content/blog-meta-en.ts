@@ -11240,6 +11240,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Change of job for border workers over 55: protections and pension',
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'When you change position after the age of 55 as a border worker, the tax treatment, occupational pension and the impact on LPP reset. Here are the protections provided by the New 2024 Agreement.',
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Mature professional walking through a modern office with Lake Lugano visible through windows',
+    'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontier workers over 55: job change and AVS-LPP impact',
+    'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Practical guide for border workers over 55 who change employers. Learn how to manage Permit G, AVS-LPP, tax at source, and rebates with the new 2024 agreement.',
+    'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Mendrisio main square with cross-border commuters during morning rush hour',
 };
 
 export default blogMetaEn;

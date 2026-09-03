@@ -33582,6 +33582,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'frontaliere-55-nuovo-datore-avs',
+ category: 'pratico',
+ date: '2026-09-03T17:27:44.821Z',
+ image: '/images/blog/frontaliere-55-nuovo-datore-avs.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

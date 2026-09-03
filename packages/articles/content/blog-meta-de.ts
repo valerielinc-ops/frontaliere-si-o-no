@@ -11239,6 +11239,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Jobwechsel als Grenzgänger über 55: Schutz und Rente',
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'Wenn Sie nach 55 Jahren als Grenzgänger die Position wechseln, werden die steuerliche Behandlung, die berufliche Vorsorge und die Auswirkungen auf das BVG neu geregelt. Hier sind die Schutzmaßnahmen, die im Neuen Abkommen 2024 vorgesehen sind.',
     'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Reifer Fachmann in modernem Büro mit Blick auf den Lugano-See',
+    'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontend über 55: Jobwechsel und Aufprall AHV-LPP',
+    'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Praktischer Leitfaden für Grenzgänger über 55, die den Arbeitgeber wechseln. Erfahren Sie, wie Sie mit der neuen Vereinbarung 2024 G-Bewilligung, AHV-LPP, Quellensteuer und Rückerstattungen verwalten.',
+    'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Hauptplatz von Mendrisio mit Grenzgaengern waehrend der Morgenspitze',
 };
 
 export default blogMetaDe;
