@@ -5317,6 +5317,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-carriera-amministrazione.title': 'Arbeiten beim SECO: Chancen und Bundeslaufbahn',
     'blog.article.seco-carriera-amministrazione.excerpt': 'Das Staatssekretariat für Wirtschaft beschäftigt über 900 Mitarbeiter an drei Standorten. Entdecken Sie Lehrstellen, Hochschulpraktika und Möglichkeiten in der schweizerischen Bundesverwaltung.',
     'blog.article.seco-carriera-amministrazione.imageAlt': 'Moderner Arbeitsplatz in Schweizer Bundesverwaltung mit Wirtschaftspolitik-Dokumentation',
+    'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation in der Schweiz steigt: Könnte die SNB die Zinsen revidieren?',
+    'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'Die Inflation in der Schweiz stieg im August auf 0,8%, was zu Spekulationen über eine mögliche Änderung der Geldpolitik der SNB führte.',
+    'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit Fokus auf den Finanzbezirk.',
 };
 
 export default blogMetaChDe;

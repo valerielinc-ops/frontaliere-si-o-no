@@ -69011,6 +69011,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-svizzera-bns-tassi': {
+    title: 'Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?',
+    description: 'L\'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, aumenta, potrebbe, rivedere',
+    ogTitle: 'Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?',
+    ogDescription: 'L\'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/inflazione-svizzera-bns-tassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?",
+      "description": "L'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/inflazione-svizzera-bns-tassi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con focus sul distretto finanziario."
+      },
+      "datePublished": "2026-09-03T15:18:35+00:00",
+      "dateModified": "2026-09-03T15:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/inflazione-svizzera-bns-tassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

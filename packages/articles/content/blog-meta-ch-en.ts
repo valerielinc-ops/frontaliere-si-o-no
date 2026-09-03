@@ -5317,6 +5317,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-carriera-amministrazione.title': 'Working at SECO: Opportunities and Federal Career',
     'blog.article.seco-carriera-amministrazione.excerpt': 'The Secretariat of State for the Economy employs over 900 people in three locations. Discover apprenticeships, university internships and opportunities in Swiss federal public administration.',
     'blog.article.seco-carriera-amministrazione.imageAlt': 'Modern workspace in Swiss federal administration office with economic policy documentation',
+    'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation rises in Switzerland: could the SNB revise rates?',
+    'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'Inflation in Switzerland rose to 0.8% in August, leading to speculation about a possible change in the SNB\'s monetary policy.',
+    'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Aerial view of Lugano, Switzerland, focusing on the financial district.',
 };
 
 export default blogMetaChEn;

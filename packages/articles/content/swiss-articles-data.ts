@@ -15949,6 +15949,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'inflazione-svizzera-bns-tassi',
+    category: 'fiscale',
+    date: '2026-09-03T15:18:35.781Z',
+    image: '/images/blog/inflazione-svizzera-bns-tassi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

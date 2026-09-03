@@ -5317,6 +5317,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-carriera-amministrazione.title': 'Travailler au SECO : opportunités et carrières fédérales',
     'blog.article.seco-carriera-amministrazione.excerpt': 'Le Secrétariat d\'Etat à l\'économie emploie plus de 900 personnes sur trois sites. Découvrez les apprentissages, les stages universitaires et les opportunités dans l\'administration fédérale suisse.',
     'blog.article.seco-carriera-amministrazione.imageAlt': 'Espace de travail moderne dans administration fédérale suisse avec documentation économique',
+    'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation en hausse en Suisse : la BNS pourrait-elle réviser ses taux ?',
+    'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'L\'inflation en Suisse a grimpé à 0,8% en août, conduisant à des spéculations sur un possible changement de politique monétaire de la BNS.',
+    'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Vue aérienne de Lugano, Suisse, avec un focus sur le quartier financier.',
 };
 
 export default blogMetaChFr;
