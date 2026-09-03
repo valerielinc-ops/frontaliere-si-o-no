@@ -16,6 +16,19 @@
 # reaped (zombie) continua a rispondere successo finché qualcuno lo reap, cioè
 # esattamente il ciclo che non si accorge mai della fine del lavoro.
 #
+# ── Perché l'attesa NON è uno `sleep` ────────────────────────────────────────
+# `kill` sul subshell del sampler NON uccide lo `sleep` che ha in corso: quello
+# è un processo figlio a sé, resta orfano e continua a tenere aperto l'fd di
+# stdout che ha ereditato. Un consumatore che legge lo stdout dello step fino a
+# EOF (il log-capture del runner, o un semplice `spawnSync`) aspetta quindi
+# l'orfano, non il comando osservato — misurato su questo script: comando da
+# 0,2 s con `INTERVAL_S=5` tornava in 5,0 s. È lo STESSO antipattern che questo
+# file esiste per rimuovere, solo accorciato all'intervallo. Per questo
+# l'attesa è `read -t` — un BUILTIN di bash, nessun processo figlio da
+# uccidere — su un fd tenuto aperto da una fifo che nessuno scrive mai, e il
+# subshell ha stdout su /dev/null così nemmeno un `awk` in volo può trattenere
+# la pipe dello step.
+#
 # Uso: scripts/ci/sample-mem-during.sh -- <comando...>
 # Exit code = quello del comando osservato, mai del sampler.
 set -uo pipefail
@@ -33,8 +46,26 @@ if [ "$#" -eq 0 ]; then
   exit 2
 fi
 
+# Intervallo non numerico = `read -t` fallisce all'ISTANTE dentro `while true`,
+# cioè il sampler brucia una CPU intera appendendo campioni finché il comando
+# osservato non finisce — perturbando proprio la misura per cui esiste. Loud e
+# subito, prima ancora di lanciare il comando.
+case "$INTERVAL_S" in
+  '' | . | *[!0-9.]* | *.*.*)
+    echo "${LOG_PREFIX} intervallo non valido: SAMPLE_MEM_DURING_INTERVAL_S='${INTERVAL_S}' (atteso un numero di secondi)" >&2
+    exit 2
+    ;;
+esac
+
 samples_file=$(mktemp)
-cleanup_tmp() { rm -f "$samples_file"; }
+tick_dir=$(mktemp -d)
+mkfifo "${tick_dir}/tick"
+# Aperta in lettura-SCRITTURA: c'è sempre uno scrittore (noi), quindi la fifo
+# non va mai in EOF e `read -t` blocca per l'intervallo intero invece di
+# tornare subito. Nessuno ci scrive mai dentro: serve solo come sorgente che
+# non diventa mai pronta.
+exec 9<>"${tick_dir}/tick"
+cleanup_tmp() { rm -f "$samples_file"; rm -rf "$tick_dir"; }
 trap cleanup_tmp EXIT
 
 "$@" &
@@ -45,9 +76,11 @@ if [ -r "$MEMINFO" ]; then
   (
     while true; do
       awk '/^MemAvailable:/ { print int($2 / 1024); exit }' "$MEMINFO" 2>/dev/null >>"$samples_file"
-      sleep "$INTERVAL_S"
+      # Builtin, non `sleep`: niente processo figlio che sopravviva al kill del
+      # subshell tenendosi lo stdout ereditato (vedi la testata).
+      read -r -t "$INTERVAL_S" -u 9 _ || true
     done
-  ) &
+  ) >/dev/null 2>&1 &
   sampler_pid=$!
 else
   echo "${LOG_PREFIX} MemAvailable non leggibile (${MEMINFO}): sampler spento (host non Linux)" >&2

@@ -124,6 +124,66 @@ describe('sample-mem-during.sh', () => {
         .split('\n')
         .filter(Boolean).length;
       expect(after).toBeLessThanOrEqual(before);
+      // `pgrep -f sample-mem-during` da solo NON vede il figlio che conta: un
+      // `sleep` o un `awk` orfano ha una command line che non nomina lo
+      // script. Il marcatore che li becca e' il path del meminfo, che il
+      // sampler passa ad `awk` a ogni iterazione ed e' unico per questo test.
+      const strays = spawnSync('pgrep', ['-f', meminfo], { encoding: 'utf8' }).stdout
+        .split('\n')
+        .filter(Boolean);
+      expect(strays, `processi residui che nominano ${meminfo}`).toEqual([]);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  // Regression guard del 🔴 della review di #7256 (misurato: comando da 0,2s
+  // con INTERVAL_S=5 tornava in 5,0s). `kill` sul subshell del sampler non
+  // uccideva il suo `sleep`, che restava orfano tenendo aperto lo stdout
+  // ereditato: chi legge quello stdout fino a EOF — `spawnSync` qui, il
+  // log-capture del runner in CI — aspettava l'orfano invece del comando
+  // osservato. Cioe' la durata tornava legata al timer del sampler, che e'
+  // esattamente l'antipattern che questo script esiste per rimuovere.
+  it('non fa aspettare l\'intervallo a chi drena il suo stdout (nessuno sleep orfano)', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'sample-mem-'));
+    try {
+      const meminfo = makeMeminfo(tmp, 12000);
+      const start = Date.now();
+      // `run()` usa spawnSync, che legge stdout da una pipe fino a EOF: e' la
+      // riproduzione fedele del consumatore che scopriva il difetto.
+      const result = run(['--', 'bash', '-c', 'sleep 0.2; exit 0'], {
+        SAMPLE_MEM_DURING_MEMINFO: meminfo,
+        SAMPLE_MEM_DURING_INTERVAL_S: '5',
+      });
+      const elapsedMs = Date.now() - start;
+      expect(result.status).toBe(0);
+      expect(elapsedMs).toBeLessThan(2000);
+    } finally {
+      fs.rmSync(tmp, { recursive: true, force: true });
+    }
+  });
+
+  it('rifiuta loud un intervallo non numerico invece di girare in busy-spin', () => {
+    const result = run(['--', 'bash', '-c', 'exit 0'], {
+      SAMPLE_MEM_DURING_INTERVAL_S: 'cinque',
+    });
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('intervallo non valido');
+  });
+
+  // Adversarial check della review: il caso che il sampler esiste per
+  // diagnosticare e' proprio l'OOM killer che stronca `tsc` a meta'. Se il 137
+  // non risalisse pulito attraverso il wrapper, il gate diventerebbe VERDE
+  // nell'unico caso che deve rendere visibile.
+  it('propaga il 137 di un comando ucciso dal kernel (caso OOM)', () => {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'sample-mem-'));
+    try {
+      const meminfo = makeMeminfo(tmp, 12000);
+      const result = run(['--', 'bash', '-c', 'kill -9 $$'], {
+        SAMPLE_MEM_DURING_MEMINFO: meminfo,
+        SAMPLE_MEM_DURING_INTERVAL_S: '0.1',
+      });
+      expect(result.status).toBe(137);
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true });
     }
