@@ -315,12 +315,12 @@ jobs:
           ISSUE_NUMBER: ${{ github.event.issue.number }}
           CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
           APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
-        # Tier high (claude-sonnet-5, max-turns alti): issue funnel-critical — crawler/parser/
+        # Tier high (claude-opus-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # rigoroso paga. Tier normal per il resto (stesso modello claude-sonnet-5,
-        # unificato owner 2026-07-17 — mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
+        # rigoroso paga. Tier normal per il resto (stesso modello claude-opus-5,
+        # unificato owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
         # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
@@ -378,7 +378,7 @@ jobs:
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -390,7 +390,7 @@ jobs:
             echo "max_turns=70" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
@@ -609,7 +609,7 @@ jobs:
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
           # (rationale completo: post-merge-followup.yml claude_args comment, stesso
           # fix, evita drift tra copie duplicate).
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
