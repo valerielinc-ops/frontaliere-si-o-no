@@ -1353,6 +1353,37 @@ describe('translation shadow preflight v2 mapping and run observation', () => {
     expect(emptyCheck).toBeGreaterThan(postClearFilter);
   });
 
+  it('company-scoped early return cannot skip another company\'s pending work (#7127 item 2)', () => {
+    // PR #7109 review ❓: the post-preclear early return moved from the
+    // dataset-wide `stillPendingJobs.length === 0` to the company-scoped
+    // `filteredStillPendingJobs.length === 0`, so a `--company-key` rerun now
+    // returns before `orderPendingByTraffic`/capWindow whenever ITS OWN
+    // filtered queue is empty, even if some other company still has pending
+    // jobs dataset-wide. That branch difference cannot change what gets
+    // translated: `pending` is filtered to the requested company key before
+    // either check runs, so the other company's job was never in scope of
+    // this invocation to begin with, and ordering an empty, already-filtered
+    // queue is a documented no-op (assertTrafficPriorityUsable returns
+    // without throwing when `stats.queued === 0`).
+    const other = { ...job(2), companyKey: 'company-b' };
+    // Models `jobs.filter(needsTranslation)` right after the pre-clear:
+    // company-a's own job is already done, only company-b's remains
+    // dataset-wide.
+    const datasetWideStillPending = [other];
+    // Pre-#7109 branch condition: non-empty, so the OLD dataset-wide check
+    // would NOT have returned early — it would have kept going into
+    // orderPendingByTraffic/capWindow purely because of company-b.
+    expect(datasetWideStillPending.length).toBeGreaterThan(0);
+    // Post-#7109 branch condition: company-a's own queue is empty regardless.
+    const filteredForTarget = filterPendingForCompany(datasetWideStillPending, 'company-a');
+    expect(filteredForTarget).toEqual([]);
+
+    const capture: Record<string, unknown> = {};
+    const ordered = orderPendingByTraffic(filteredForTarget, { capture });
+    expect(ordered).toEqual([]);
+    expect(ordered.some((j: { companyKey?: string }) => j.companyKey === 'company-b')).toBe(false);
+  });
+
   it('binds a preclear-empty decision to its filtered and post-clear pending counts', () => {
     const decision = createTranslationShadowPreflightDecisionV2({
       baselineMainSha: BASELINE,
