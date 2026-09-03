@@ -5263,6 +5263,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-lucerna-guida.title': 'Assegni familiari nel Canton Lucerna: guida alla domanda',
     'blog.article.assegni-familiari-lucerna-guida.excerpt': 'Come funzionano gli assegni familiari nel Canton Lucerna? Scopri la procedura per la richiesta e il ruolo delle casse di compensazione.',
     'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Documenti amministrativi e calcolatrice su una scrivania in ufficio.',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'In agosto i prezzi al consumo sono aumentati dello 0,4%',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'L\'indice dei prezzi al consumo (IPC) è aumentato dello 0,4% ad agosto 2026 rispetto al mese precedente, raggiungendo 101,5 punti (dicembre 2025 = 100).',
+    'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra l\'attività economica e la vita quotidiana.',
 };
 
 export default blogMetaChIt;

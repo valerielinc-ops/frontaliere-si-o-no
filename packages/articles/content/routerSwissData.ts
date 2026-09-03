@@ -1780,6 +1780,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'abbonamenti-trasporti-appenzello-interno': { it: 'abbonamenti-trasporti-appenzello-interno', en: 'public-transit-passes-appenzell-canton', de: 'fahrkarten-appenzell-innerrhoden', fr: 'abonnements-transports-appenzell-rhodes-interieures' },
  'avs-prestazioni-complementari-lacune-contributive': { it: 'avs-prestazioni-complementari-lacune-contributive', en: 'avs-supplementary-benefits-contribution-gaps', de: 'ahv-ergaenzungsleistungen-versicherungsluecken', fr: 'ava-prestations-complementaires-lacunes-cotisations' },
  'assegni-familiari-lucerna-guida': { it: 'assegni-familiari-lucerna-guida', en: 'family-allowances-lucerne-guide', de: 'familienzulagen-luzern-leitfaden', fr: 'allocations-familiales-lucerne-guide' },
+ 'prezzi-consumo-aumentati-agosto-2026': { it: 'prezzi-consumo-aumentati-agosto-2026', en: 'consumer-prices-increased-august-2026', de: 'verbraucherpreise-steigen-im-august-2026', fr: 'hausse-des-prix-a-la-consommation-en-aout-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
