@@ -1,0 +1,140 @@
+name: Main Ruleset Invariants Monitor
+
+# Sorveglia una protezione che NON vive nel repo: il Ruleset di `main` che
+# rende `vitest (unit + integration)` un required status check.
+#
+# Perché serve un monitor e non basta averlo configurato una volta (#6590,
+# follow-up di #6584): quella riga di configurazione è l'unica cosa che
+# impedisce a `auto-merge-on-lgtm` di portare su `main` una PR con il check
+# vitest rosso. Se il ruleset viene disattivato, ri-targettato o svuotato dei
+# suoi context, nel repository non cambia NIENTE — nessun file, nessun test,
+# nessun log — e il ciclo autonomo continua a mergiare esattamente come prima,
+# solo che da quel momento in poi mergia anche il rosso. È il classico difetto
+# che si scopre dalla produzione rotta invece che da un allarme.
+#
+# Lo script è read-only e non tocca le impostazioni del repo: rilevare il drift
+# e ripararlo sono due decisioni diverse, e la seconda merita di essere presa
+# guardando l'allarme.
+on:
+  schedule:
+    # Daily 05:10 UTC — fuori dalle finestre cron affollate; un drift di
+    # configurazione non ha bisogno di una latenza inferiore al giorno.
+    - cron: '10 5 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: main-ruleset-invariants-monitor
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check-ruleset:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        # Carica GITHUB_PAT (Firebase Remote Config). L'API dei ruleset è più
+        # generosa col PAT che col token di Actions; se il PAT manca lo script
+        # ripiega su GITHUB_TOKEN da solo e, se nemmeno quello basta, esce 2
+        # (indeterminato) invece di inventare un verdetto.
+        run: node scripts/load-rc-env.mjs
+
+      - name: Verify main ruleset invariants
+        id: verify
+        env:
+          GH_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          # GH_TOKEN preferito dallo script; vuoto se il PAT non è stato caricato.
+          export GH_TOKEN="${GITHUB_PAT:-}"
+          out="$(node scripts/ci/check-main-ruleset-invariants.mjs --json 2>&1)"
+          code=$?
+          printf '%s\n' "$out"
+          {
+            echo "code=$code"
+            echo "report<<REPORT_EOF"
+            printf '%s\n' "$out"
+            echo "REPORT_EOF"
+          } >> "$GITHUB_OUTPUT"
+          # Exit 2 = indeterminato (rete/credenziale): il job resta rosso perché
+          # un monitor inerte in silenzio è il difetto che questo file esiste per
+          # evitare, ma NON apre una issue — non c'è nessun drift accertato.
+          [ "$code" -eq 0 ]
+
+      - name: File drift alert
+        if: ${{ failure() && steps.verify.outputs.code == '1' }}
+        env:
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          DESC="$(printf '%s\n' \
+            "## Il Ruleset di \`main\` non impone più il check vitest" \
+            "" \
+            "\`scripts/ci/check-main-ruleset-invariants.mjs\` ha rilevato che il check" \
+            "richiesto da \`VITEST_CHECK_NAME\` non è più imposto su \`main\`." \
+            "" \
+            "### Verdetto" \
+            '```json' \
+            "${{ steps.verify.outputs.report }}" \
+            '```' \
+            "" \
+            "### Impatto" \
+            "Finché dura, \`auto-merge-on-lgtm\` può mergiare su \`main\` una PR con il" \
+            "check vitest rosso: il gate che impedisce a test rossi e build rotte di" \
+            "arrivare in produzione è scoperto." \
+            "" \
+            "### Azione" \
+            "Ripristinare nel Ruleset di \`main\` il required status check con il" \
+            "context esatto di \`VITEST_CHECK_NAME\` (\`scripts/ci/lib/constants.mjs\`)," \
+            "poi ri-lanciare questo workflow: verifica e chiude da solo." \
+            "" \
+            "_Aperta automaticamente dal workflow Main Ruleset Invariants Monitor._")"
+
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Ruleset di main: il check vitest non è più obbligatorio" \
+            --description "$DESC" \
+            --priority 1 \
+            --label automation \
+            --workflow "Main Ruleset Invariants Monitor"
+
+      - name: Close alert on recovery
+        if: ${{ success() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          TITLE="Ruleset di main: il check vitest non è più obbligatorio"
+          OPEN="$(gh issue list --state open --search "in:title \"${TITLE}\"" --limit 10 \
+            --json number,title --jq "[.[] | select(.title == \"${TITLE}\")][0].number" 2>/dev/null || true)"
+          if [ -n "$OPEN" ] && [ "$OPEN" != "null" ]; then
+            gh issue comment "$OPEN" --body "✅ Recovery — l'invariante del Ruleset di \`main\` è di nuovo rispettata. Auto-closing." || true
+            gh issue close "$OPEN" --reason completed || true
+          fi
