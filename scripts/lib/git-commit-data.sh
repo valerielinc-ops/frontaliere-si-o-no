@@ -1504,16 +1504,19 @@ commit_isolated_from_worktree() {
                 if [ "$registry_status" -ne 1 ]; then
                   return 1
                 fi
-                if [ -z "$base_blob" ]; then
-                  # No base blob means this path never existed in git history
-                  # before this run — there is nothing to retire. Registry
-                  # absence here means the roster hasn't been (yet) updated
-                  # to include this brand-new slice, not that it was retired
-                  # (issue #7151 item 1: pre-registration ordering between the
-                  # roster-regeneration step and a crawler's first data commit
-                  # isn't asserted anywhere else). Treat as a genuine unregistered
-                  # first-run create rather than silently dropping the data.
-                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry but has no base blob — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
+                # `base_blob` only reflects the CURRENT tree at this writer's
+                # checkout, which every CI job starts fresh from origin/main —
+                # so it is empty just as often for a path that was already
+                # retired before checkout as for one that has genuinely never
+                # existed. Distinguish the two with reachable history instead:
+                # a path that was ever committed still shows up in `git log`
+                # even after being removed from the tree, while a brand-new
+                # slice (issue #7151 item 1: pre-registration ordering between
+                # the roster-regeneration step and a crawler's first data
+                # commit isn't asserted anywhere else) has no history at all.
+                history_blob="$(git log -1 --format=%H -- "$f" 2>/dev/null || true)"
+                if [ -z "$history_blob" ]; then
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry and has no prior history — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
                 else
                   echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
                   continue

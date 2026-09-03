@@ -325,6 +325,72 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
+  it('treats an unregistered path with no prior history as a first-run create, not a retirement', () => {
+    // Regression for issue #7221: a fresh CI checkout always starts from the
+    // current origin/main tree, so an absent `base_blob` alone cannot tell a
+    // genuinely brand-new (not-yet-registered) slice apart from one that was
+    // already retired before this checkout existed — both look identical at
+    // the tree level. Only reachable git history disambiguates them.
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    const NEW_UNREGISTERED_SLICE_PATH = 'data/jobs/by-crawler/unregistered-new.json';
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/active.json'), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      // NEW_UNREGISTERED_SLICE_PATH never appears in the seed commit, so it
+      // has no base_blob AND no reachable history — a genuine first-run
+      // create for a crawler the roster doesn't know about yet.
+      writeFileSync(
+        join(repoDir, NEW_UNREGISTERED_SLICE_PATH),
+        '[{"id":"unregistered-new-1"}]\n',
+      );
+
+      execFileSync(
+        BASH_BIN,
+        [SCRIPT_PATH, '--slice-only', 'unregistered first-run create'],
+        {
+          cwd: repoDir,
+          env: {
+            ...process.env,
+            JOBS_SLICE_FILE: '',
+            SKIP_AI_TRANSLATION: '1',
+            SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: '',
+            GITHUB_TOKEN: '',
+            GITHUB_RUN_ID: '',
+            GITHUB_REPOSITORY: '',
+            GITHUB_OUTPUT: '',
+          },
+        },
+      );
+
+      expect(execFileSync(
+        'git',
+        ['show', `origin/main:${NEW_UNREGISTERED_SLICE_PATH}`],
+        { cwd: repoDir, encoding: 'utf8' },
+      )).toContain('unregistered-new-1');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
   it('fails closed when a still-registered primary slice disappears upstream', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
