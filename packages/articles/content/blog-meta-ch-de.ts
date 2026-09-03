@@ -5272,6 +5272,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-benzina-spingono-inflazione.title': 'Inflation steigt nach 4 Monaten wieder an',
     'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'Im August liegt die Schweizer Inflation nach viermonatigen Rückgängen bei 0,8%. Mieten und Benzin gehören zu den Ursachen. Die Nationalbank überwacht aufmerksam.',
     'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'Ein Ökonom analysiert Inflationsdiagramme und Verbraucherpreisindexdaten mit Berner Skyline im Hintergrund.',
+    'blog.article.pil-q2-2026-industria-forte.title': 'BIP Q2 2026: +1,5% vierteljährlich, Wachstum Industrie',
+    'blog.article.pil-q2-2026-industria-forte.excerpt': 'Im Q2 2026 wuchs das Schweizer BIP ohne Sportveranstaltungen um 1,5%, stärker seit 2021. Auftrieb durch die chemisch-pharmazeutische Industrie (+10,5%) und Erholung der Inlandsnachfrage.',
+    'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Schweizer Finanzviertel mit Wirtschaftswachstumsgrafiken auf digitalem Display',
 };
 
 export default blogMetaChDe;

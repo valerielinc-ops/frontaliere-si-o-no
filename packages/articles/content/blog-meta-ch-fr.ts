@@ -5272,6 +5272,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-benzina-spingono-inflazione.title': 'L\'inflation repart à la hausse au bout de 4 mois',
     'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'En août, l\'inflation suisse est à 0,8%, après quatre mois de baisse. Loyers et essence entre les causes. La Banque nationale surveille de près.',
     'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'Un économiste analyse des graphiques d\'inflation et des données d\'indice des prix à la consommation, vue de Berne.',
+    'blog.article.pil-q2-2026-industria-forte.title': 'PIB Q2 2026 : +1,5% trimestriel, croissance de l\'industrie',
+    'blog.article.pil-q2-2026-industria-forte.excerpt': 'Au Q2 2026, le PIB suisse croît de 1,5% hors événements sportifs, au plus fort depuis 2021. Poussée par l\'industrie chimique et pharmaceutique (+10,5 %) et rebond de la demande intérieure.',
+    'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Gratte-ciel du quartier financier suisse avec graphiques de croissance économique sur écran numérique',
 };
 
 export default blogMetaChFr;
