@@ -11200,6 +11200,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.inflazione-svizzera-agosto-2026.title': 'Inflazione accelera in Svizzera, sale a 0,8% in agosto',
     'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'L\'inflazione in Svizzera è salita allo 0,8% in agosto, con aumenti significativi degli affitti e del carburante.',
     'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Vista aerea del centro di Lugano con il Lago di Lugano sullo sfondo',
+    'blog.article.sciopero-treni-settembre-2026.title': 'Sciopero treni 7-8 settembre: 24 ore di stop',
+    'blog.article.sciopero-treni-settembre-2026.excerpt': 'La protesta nazionale proclamata da Cub Trasporti e Sgb coinvolgerà il personale del Gruppo Fs, Trenitalia e Trenord. Previste le fasce di garanzia e bus sostitutivi per il collegamento con Malpensa.',
+    'blog.article.sciopero-treni-settembre-2026.imageAlt': 'Vista aerea di una stazione ferroviaria in Ticino durante uno sciopero, con autobus che sostituiscono i treni.',
 };
 
 export default blogMetaIt;
