@@ -11210,6 +11210,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-dichiarazione-730-2026.title': 'Frontalier : déclaration 730 et crédit d\'impôt',
     'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Guide pratique de la déclaration 730 pour les frontaliers 2026 : comment obtenir le crédit d\'impôt, éviter les doubles impositions, nouvelles franchises du Nouvel Accord.',
     'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Formulaire fiscal italien 730 avec documents, calculatrice et billets suisses sur bureau',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.title': 'Déductions fiscales pour les frontaliers 2026',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.excerpt': 'Déductions et crédits d\'impôt pour ceux qui travaillent en Suisse et résident en Italie : franchises € 7.500–€ 10.000, cadre CE, déclaration de revenus.',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.imageAlt': 'Vue aérienne de Mendrisio et du passage douanier suisse-italien',
 };
 
 export default blogMetaFr;

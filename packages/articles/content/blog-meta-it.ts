@@ -11209,6 +11209,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-dichiarazione-730-2026.title': 'Frontaliere: dichiarazione 730 e credito d\'imposta',
     'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Guida pratica alla dichiarazione 730 per frontalieri 2026: come ottenere il credito d\'imposta, evitare doppia imposizione, nuove franchigie dal Nuovo Accordo.',
     'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Modulo 730 con documenti fiscali, calcolatrice e banconote svizzere su scrivania in legno',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.title': 'Detrazioni fiscali per frontalieri 2026',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.excerpt': 'Detrazioni e crediti d\'imposta per chi lavora in Svizzera e risiede in Italia: franchigie €7.500–€10.000, quadro CE, dichiarazione redditi.',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.imageAlt': 'Veduta aerea di Mendrisio e del valico doganale tra Svizzera e Italia al mattino',
 };
 
 export default blogMetaIt;

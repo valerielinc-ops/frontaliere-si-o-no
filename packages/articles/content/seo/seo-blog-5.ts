@@ -83804,6 +83804,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-tassazione-crediti-detrazioni': {
+    title: 'Detrazioni fiscali per frontalieri 2026 | Frontaliere Ticino',
+    description: 'Detrazioni e crediti d\'imposta per chi lavora in Svizzera e risiede in Italia: franchigie €7.500–€10.000, quadro CE, dichiarazione redditi. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, detrazioni, fiscali, crediti, imposta',
+    ogTitle: 'Detrazioni fiscali per frontalieri 2026',
+    ogDescription: 'Detrazioni e crediti d\'imposta per chi lavora in Svizzera e risiede in Italia: franchigie €7.500–€10.000, quadro CE, dichiarazione redditi.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-tassazione-crediti-detrazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detrazioni fiscali per frontalieri 2026",
+      "description": "Detrazioni e crediti d'imposta per chi lavora in Svizzera e risiede in Italia: franchigie €7.500–€10.000, quadro CE, dichiarazione redditi. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-tassazione-crediti-detrazioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea di Mendrisio e del valico doganale tra Svizzera e Italia al mattino"
+      },
+      "datePublished": "2026-09-03T09:20:22+00:00",
+      "dateModified": "2026-09-03T09:20:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-tassazione-crediti-detrazioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
