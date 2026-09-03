@@ -5341,6 +5341,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.acquisto-immobiliare-lucerna-mutuo.title': 'Haus kaufen im Kanton Luzern: Leitfaden für Hypotheken und Steuern',
     'blog.article.acquisto-immobiliare-lucerna-mutuo.excerpt': 'Wie funktioniert der Immobilienkauf im Kanton Luzern: Verfahren, Besteuerung, Tragbarkeit des Darlehens und Notarkosten nach schweizerischem Recht.',
     'blog.article.acquisto-immobiliare-lucerna-mutuo.imageAlt': 'Ein Wohnhaus im Kanton Luzern mit Alpenpanorama',
+    'blog.article.patente-estera-lucerna-procedura.title': 'Führerschein Luzern: Umbau und Prüfungen',
+    'blog.article.patente-estera-lucerna-procedura.excerpt': 'Umwandlungsverfahren des ausländischen Führerscheins im Kanton Luzern: Theorie- und Praxisprüfung, Pflichtkurse, Strassenverkehrsamt.',
+    'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Schweizer Straße im Kanton Luzern mit Verkehrsschildern und Alpenpanorama',
 };
 
 export default blogMetaChDe;

@@ -1806,6 +1806,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tariffario-ambulatoriale-cure-base': { it: 'tariffario-ambulatoriale-cure-base', en: 'tariff-ambulatory-care-base', de: 'tarif-ambulante-grundversorgung', fr: 'tarif-ambulatoire-soins-base' },
  'comprare-casa-lucerna-ipoteca-pratica': { it: 'comprare-casa-lucerna-ipoteca-pratica', en: 'buy-home-lucerne-mortgage-guide', de: 'haus-kaufen-luzern-hypothek-anleitung', fr: 'acheter-maison-lucerne-hypotheque-guide' },
  'acquisto-immobiliare-lucerna-mutuo': { it: 'acquisto-immobiliare-lucerna-mutuo', en: 'buying-real-estate-lucerne-mortgage', de: 'immobilienerwerb-luzern-hypothek', fr: 'achat-immobilier-lucerne-hypotheque' },
+ 'patente-estera-lucerna-procedura': { it: 'patente-estera-lucerna-procedura', en: 'driving-licence-lucerne-conversion-procedure', de: 'fahrerausweis-luzern-umschreibung-verfahren', fr: 'permis-lucerne-conversion-procedure' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

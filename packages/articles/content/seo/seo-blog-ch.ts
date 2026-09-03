@@ -69323,6 +69323,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-estera-lucerna-procedura': {
+    title: 'Patente guida Lucerna: conversione ed esami | Frontaliere Ticino',
+    description: 'Guida completa alla conversione della patente estera nel Cantone Lucerna: esami teorici e pratici, corsi obbligatori, procedura step-by-step e contatti Ufficio',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, lucerna, conversione, esami',
+    ogTitle: 'Patente guida Lucerna: conversione ed esami',
+    ogDescription: 'Conversione della patente estera nel Cantone Lucerna: procedura completa con esami teorici e pratici, corsi obbligatori, documentazione necessaria e step-by-step per ottenere la patente svizzera.',
+    canonicalPath: '/articoli-svizzera/patente-estera-lucerna-procedura/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente guida Lucerna: conversione ed esami",
+      "description": "Guida completa alla conversione della patente estera nel Cantone Lucerna: esami teorici e pratici, corsi obbligatori, procedura step-by-step e contatti Ufficio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-estera-lucerna-procedura.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada svizzera nel Cantone Lucerna con segnaletica stradale e paesaggio alpino"
+      },
+      "datePublished": "2026-09-03T19:12:14+00:00",
+      "dateModified": "2026-09-03T19:12:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-estera-lucerna-procedura/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
