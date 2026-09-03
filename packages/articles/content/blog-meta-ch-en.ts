@@ -5248,6 +5248,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Buying a house in Appenzello Interno: mortgage and taxes',
     'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guide to buying a property in Appenzello Interno. Analysis of costs, transfer taxes, notary fees, mortgage and financial sustainability.',
     'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Swiss residential property with mortgage documents and house keys, symbolizing home purchase and financing.',
+    'blog.article.appenzello-interno-sostenibilita.title': 'Buying a house in Appenzello Interno: mortgage and taxes',
+    'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procedure, own funds, mortgage sustainability, notary fees and cantonal taxes to purchase properties in Appenzell Internno.',
+    'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Residential building facades in an Alpine Swiss region with morning lighting.',
 };
 
 export default blogMetaChEn;

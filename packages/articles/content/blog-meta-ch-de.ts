@@ -5248,6 +5248,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Darlehen und Steuern',
     'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Leitfaden zum Kauf einer Immobilie in Appenzell Innerrhoden. Kostenanalyse, Übertrittssteuern, Notarkosten, Hypothekendarlehen und finanzielle Tragbarkeit.',
     'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Schweizer Einfamilienhaus mit Hypothekendokumenten und Schlüsseln, Symbol für Immobilienerwerb und Finanzierung.',
+    'blog.article.appenzello-interno-sostenibilita.title': 'Haus kaufen Appenzell Innerrhoden: Hypothek und Steuern',
+    'blog.article.appenzello-interno-sostenibilita.excerpt': 'Verfahren, Eigenmittel, Tragbarkeit Darlehen, Notarkosten und kantonale Steuern zum Kauf von Immobilien in Appenzell Innerrhoden.',
+    'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Wohngebäudefassaden in einer Schweizer Alpenregion bei Morgenlicht.',
 };
 
 export default blogMetaChDe;
