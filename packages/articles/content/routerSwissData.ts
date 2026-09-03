@@ -1779,6 +1779,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'naturalizzazione-appenzello-interno-procedura': { it: 'naturalizzazione-appenzello-interno-procedura', en: 'naturalization-appenzell-innerrhoden-procedure', de: 'einbuergerung-appenzell-innerrhoden-verfahren', fr: 'naturalisation-appenzell-rhodes-interieures-procedure' },
  'abbonamenti-trasporti-appenzello-interno': { it: 'abbonamenti-trasporti-appenzello-interno', en: 'public-transit-passes-appenzell-canton', de: 'fahrkarten-appenzell-innerrhoden', fr: 'abonnements-transports-appenzell-rhodes-interieures' },
  'avs-prestazioni-complementari-lacune-contributive': { it: 'avs-prestazioni-complementari-lacune-contributive', en: 'avs-supplementary-benefits-contribution-gaps', de: 'ahv-ergaenzungsleistungen-versicherungsluecken', fr: 'ava-prestations-complementaires-lacunes-cotisations' },
+ 'assegni-familiari-lucerna-guida': { it: 'assegni-familiari-lucerna-guida', en: 'family-allowances-lucerne-guide', de: 'familienzulagen-luzern-leitfaden', fr: 'allocations-familiales-lucerne-guide' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

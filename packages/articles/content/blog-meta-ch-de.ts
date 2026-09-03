@@ -5260,6 +5260,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AHV und Ergänzungsleistungen: Beitragslücken',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'So funktioniert die erste Säule im Schweizer System: AHV-Rentenberechnung, Beitragslücken, kantonale Ausgleichskasse und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Ältere Person überprüft Beitragsverlauf AVS von der kantonalen Ausgleichskasse',
+    'blog.article.assegni-familiari-lucerna-guida.title': 'Familienzulagen im Kanton Luzern: Leitfaden zur Beantragung',
+    'blog.article.assegni-familiari-lucerna-guida.excerpt': 'Wie funktioniert die Familienzulage im Kanton Luzern? Erfahren Sie mehr über das Antragsverfahren und die Rolle der Ausgleichskassen.',
+    'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Verwaltungsunterlagen und ein Taschenrechner auf einem Bürotisch.',
 };
 
 export default blogMetaChDe;

@@ -5260,6 +5260,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AVS et prestations complémentaires : lacunes contributives',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'Comment fonctionne le premier pilier dans le système suisse : calcul de la rente AVS, lacunes contributives, caisse de compensation cantonale et prestations complémentaires pour le minimum vital.',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Personne âgée examinant historique des cotisations AVS auprès de la caisse de compensation cantonale',
+    'blog.article.assegni-familiari-lucerna-guida.title': 'Allocations familiales dans le canton de Lucerne : guide à la demande',
+    'blog.article.assegni-familiari-lucerna-guida.excerpt': 'Comment fonctionnent les allocations familiales dans le canton de Lucerne ? Découvrez la procédure de demande et le rôle des caisses de compensation.',
+    'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Documents administratifs et calculatrice sur un bureau.',
 };
 
 export default blogMetaChFr;
