@@ -33627,6 +33627,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-gravedona-uniti-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-03T19:42:46.390Z',
+ image: '/images/blog/vivere-gravedona-uniti-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

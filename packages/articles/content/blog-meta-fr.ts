@@ -11257,6 +11257,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varèse : plus de 20 000 sans médecin, un défi pour les frontaliers',
     'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Plus de 20 000 résidents sans médecin à Varesotto. En deux ans 92 médecins à la retraite. Une crise qui touche les frontaliers du Tessin résidant en province.',
     'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Vue panoramique de la province de Varèse avec les montagnes du Tessin en arrière-plan, domicile de nombreux travailleurs frontaliers Suisse-Italie',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Vivre Gravedona ed Uniti, travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Frontière de Gravedona ed Unidos vers le Tessin : fiscalité, permis, nouvel accord, contributions et quoi évaluer avant de déménager.',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Vue du Tessin depuis Gravedona : rive du Ceresio avec montagnes et zone transfrontalière suisse visible',
 };
 
 export default blogMetaFr;

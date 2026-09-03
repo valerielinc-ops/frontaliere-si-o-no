@@ -11255,6 +11255,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: over 20,000 without a doctor, a challenge for border workers',
     'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Over 20,000 residents without a doctor in Varese. In two years 92 retired doctors. A crisis that affects Ticino border workers residing in the province.',
     'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panoramic view of Varese province with Ticino mountains in the background, home to many Swiss-Italian frontier workers',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Living in Gravedona and the United States, working in Ticino as a border worker',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Border crossing from Gravedona and the United States to Ticino: taxation, permits, New Agreement, contributions and what to evaluate before moving.',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'View of Ticino from Gravedona: Ceresio waterfront with mountains, Ticino jurisdiction visible across border',
 };
 
 export default blogMetaEn;

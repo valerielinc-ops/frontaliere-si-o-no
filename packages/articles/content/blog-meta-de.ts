@@ -11254,6 +11254,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: Über 20.000 ohne Arzt, Herausforderung für Grenzgänger',
     'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Mehr als 20.000 Einwohner ohne Arzt in Varese. In zwei Jahren waren 92 Ärzte im Ruhestand. Eine Krise, die die in der Provinz ansässigen Grenzgänger des Tessins betrifft.',
     'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panoramablick auf die Provinz Varese mit Tessiner Bergen im Hintergrund, Heimat vieler Schweizer-italienischer Grenzgänger',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Gravedona ed Uniti erleben, als Grenzgänger im Tessin arbeiten',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Grenzgänger aus Gravedona und den Vereinigten Staaten ins Tessin: Steuern, Genehmigungen, Neues Abkommen, Beiträge und was vor dem Umzug zu bewerten ist.',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Blick auf Tessin von Gravedona: Ceresio-Ufer mit Bergen, Schweizer Seite des Grenzgebietes sichtbar',
 };
 
 export default blogMetaDe;

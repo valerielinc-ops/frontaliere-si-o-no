@@ -84389,6 +84389,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-gravedona-uniti-lavorare-ticino': {
+    title: 'Vivere Gravedona ed Uniti, lavorare Ticino da frontaliere',
+    description: 'Frontaliere Gravedona (Como): imposta fonte, Nuovo Accordo 2024, AVS/LPP, LAMal, credito d\'imposta 730 e procedura trasferimento in Ticino. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, gravedona, uniti, lavorare',
+    ogTitle: 'Vivere a Gravedona e lavorare in Ticino: frontaliere G',
+    ogDescription: 'Trasferirsi a Gravedona ed Uniti per lavorare in Ticino: guide a fiscalità frontalieri (imposta fonte, credito d\'imposta 730), Nuovo Accordo (CHF 7.500-10.000), AVS/LPP/LAMal, procedure registrazione e simulatore stipendio netto.',
+    canonicalPath: '/articoli-frontaliere/vivere-gravedona-uniti-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere Gravedona ed Uniti, lavorare Ticino da frontaliere",
+      "description": "Frontaliere Gravedona (Como): imposta fonte, Nuovo Accordo 2024, AVS/LPP, LAMal, credito d'imposta 730 e procedura trasferimento in Ticino. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-gravedona-uniti-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del Ticino da Gravedona: sponda ticinese del Ceresio con monti sullo sfondo"
+      },
+      "datePublished": "2026-09-03T19:42:46+00:00",
+      "dateModified": "2026-09-03T19:42:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-gravedona-uniti-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
