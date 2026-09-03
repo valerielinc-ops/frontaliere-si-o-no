@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Agent, fetch as undiciFetch } from 'undici';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { gateLookup } from './lib/dns-lookup-gate.mjs';
 import {
   createPublicConnectionLookup,
   isPrivateOrLocalAddress,
@@ -81,30 +82,6 @@ async function validatePublicHttpsUrl(value, lookupImpl) {
     .map((record) => typeof record === 'string' ? record : record?.address)
     .filter(Boolean);
   return addresses.length > 0 && addresses.every((address) => !isBlockedAddress(address)) ? canonical : null;
-}
-
-// A stuck lookup never releases its slot until it actually settles, but the
-// slot count itself is capped: it cannot grow past `maxConcurrent` no matter
-// how many companies/hostnames are processed over the run.
-function createLookupGate(maxConcurrent) {
-  let active = 0;
-  const queue = [];
-  return async function gatedLookup(lookupImpl, hostname, options) {
-    if (active >= maxConcurrent) await new Promise((resolve) => queue.push(resolve));
-    active += 1;
-    try {
-      return await lookupImpl(hostname, options);
-    } finally {
-      active -= 1;
-      const next = queue.shift();
-      if (next) next();
-    }
-  };
-}
-
-function gateLookup(lookupImpl, maxConcurrent) {
-  const gate = createLookupGate(maxConcurrent);
-  return (hostname, options) => gate(lookupImpl, hostname, options);
 }
 
 async function cancelBody(response) {

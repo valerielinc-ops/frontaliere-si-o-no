@@ -14,6 +14,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
+import { gateLookup } from './dns-lookup-gate.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -33,6 +34,7 @@ export const FACHKRAFT_COMPANY_NAME = 'fachkraft.ch GmbH';
 export const FACHKRAFT_COMPANY_DOMAIN = 'fachkraft.ch';
 
 const CAREER_URL = 'https://www.fachkraft.ch/stellen/';
+const MAX_CONCURRENT_LOOKUPS = 16;
 
 export const FACHKRAFT_DESCRIPTION_MIN_WORDS = 50;
 export const FACHKRAFT_FETCH_BUDGET = Object.freeze({
@@ -115,7 +117,10 @@ function createBoundedRuntime(options, runSignal) {
     max: 10_000,
   });
   const fetchImpl = options.fetchImpl || globalThis.fetch;
-  const lookupImpl = options.lookupImpl || dnsLookup;
+  // `raceWithSignal` below only stops *waiting* on a timed-out lookup, not the
+  // underlying `lookupImpl` call itself (node:dns/promises has no cancellation
+  // hook) — gate it so abandoned lookups can't pile up unbounded (#7149 item 3).
+  const lookupImpl = gateLookup(options.lookupImpl || dnsLookup, MAX_CONCURRENT_LOOKUPS);
   const sleepImpl = options.sleepImpl || ((ms) => new Promise((resolve) => setTimeout(resolve, ms)));
 
   const boundedFetch = async (url, init = {}) => {
