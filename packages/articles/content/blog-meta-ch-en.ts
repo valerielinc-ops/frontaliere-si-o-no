@@ -5368,6 +5368,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Cantonal taxes: rates, deductions and declaration',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'Swiss taxation works on 3 levels. Find out how cantonal rates vary, what deductions are allowed, and how to file your return on time.',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Panoramic view of a Swiss city with administrative buildings representing the cantonal tax system',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Residence Permit B St. Gallen: Requirements and Renewal',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Practical guide to residence permit B in the Canton of St. Gallen: requirements, documents, duration and renewal procedure at the cantonal migration office.',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'View of St. Gallen city with administrative buildings and Swiss alpine architecture',
 };
 
 export default blogMetaChEn;
