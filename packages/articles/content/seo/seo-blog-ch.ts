@@ -69167,6 +69167,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricerca-tirocinio-canton-lucerna': {
+    title: 'Apprendistato in Lucerna: guida pratica | Frontaliere Ticino',
+    description: 'Guida completa all\'apprendistato a Lucerna: ricerca tirocinio, retribuzione, contributi, diritti e maturità professionale. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, lucerna, pratica, ricerca',
+    ogTitle: 'Apprendistato in Lucerna: guida pratica',
+    ogDescription: 'La tua guida completa all\'apprendistato nel Canton Lucerna: come trovare un tirocinio, retribuzione, contributi sociali, diritti e il percorso verso la maturità professionale.',
+    canonicalPath: '/articoli-svizzera/ricerca-tirocinio-canton-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato in Lucerna: guida pratica",
+      "description": "Guida completa all'apprendistato a Lucerna: ricerca tirocinio, retribuzione, contributi, diritti e maturità professionale. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricerca-tirocinio-canton-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano e il Verbano: simbolo della formazione professionale in Svizzera"
+      },
+      "datePublished": "2026-09-03T17:16:02+00:00",
+      "dateModified": "2026-09-03T17:16:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricerca-tirocinio-canton-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

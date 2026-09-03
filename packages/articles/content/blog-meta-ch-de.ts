@@ -5329,6 +5329,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-apprendistato-lucerna.title': 'Lehre in Luzern: Vertrag, Vergütung und Maturität',
     'blog.article.guida-apprendistato-lucerna.excerpt': 'Wie man eine Lehrstelle im Kanton Luzern findet, was der Lehrvertrag enthalten muss und wie man die Berufsmaturität erlangt: Praktischer Leitfaden.',
     'blog.article.guida-apprendistato-lucerna.imageAlt': 'Schweizer Lehrling in Werkstatt während praktischer Ausbildung mit erfahrenem Mentor',
+    'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Lehre in Luzern: Praxisleitfaden',
+    'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Praktikumssuche, Entlohnung, Sozialbeiträge und Berufsmaturität - so orientieren Sie sich an der dualen Schweizer Ausbildung in Luzern.',
+    'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano und Verbano: Symbol der beruflichen Ausbildung in der Schweiz',
 };
 
 export default blogMetaChDe;

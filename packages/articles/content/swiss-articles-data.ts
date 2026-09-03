@@ -15985,6 +15985,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ricerca-tirocinio-canton-lucerna',
+    category: 'pratico',
+    date: '2026-09-03T17:16:02.539Z',
+    image: '/images/blog/ricerca-tirocinio-canton-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
