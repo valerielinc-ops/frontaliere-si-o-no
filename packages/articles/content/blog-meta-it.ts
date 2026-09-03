@@ -11203,6 +11203,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-treni-settembre-2026.title': 'Sciopero treni 7-8 settembre: 24 ore di stop',
     'blog.article.sciopero-treni-settembre-2026.excerpt': 'La protesta nazionale proclamata da Cub Trasporti e Sgb coinvolgerà il personale del Gruppo Fs, Trenitalia e Trenord. Previste le fasce di garanzia e bus sostitutivi per il collegamento con Malpensa.',
     'blog.article.sciopero-treni-settembre-2026.imageAlt': 'Vista aerea di una stazione ferroviaria in Ticino durante uno sciopero, con autobus che sostituiscono i treni.',
+    'blog.article.frontaliere-730-ristorni-2026.title': 'Detrazioni fiscali frontalieri Italia 2026',
+    'blog.article.frontaliere-730-ristorni-2026.excerpt': 'Nuovo Accordo Frontalieri dal 2024: come recuperare le tasse con il 730. Esenzione €7.500 (vecchi) vs €10.000 (nuovi). Ristorni e credito d\'imposta spiegati.',
+    'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano al confine CH-Italia: fulcro del lavoro transfrontaliero e della tassazione',
 };
 
 export default blogMetaIt;

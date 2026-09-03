@@ -83726,6 +83726,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-730-ristorni-2026': {
+    title: 'Detrazioni fiscali frontalieri Italia 2026 | Frontaliere Ticino',
+    description: 'Nuovo Accordo Frontalieri dal 2024: come recuperare le tasse con il 730. Esenzione €7.500 (vecchi) vs €10.000 (nuovi). Ristorni e credito d\'imposta spiegati.',
+    keywords: 'frontalieri, ticino, svizzera, italia, detrazioni, fiscali, nuovo, accordo',
+    ogTitle: 'Detrazioni fiscali frontalieri Italia 2026',
+    ogDescription: 'Nuovo Accordo Frontalieri dal 2024: come recuperare le tasse con il 730. Esenzione €7.500 (vecchi) vs €10.000 (nuovi). Ristorni e credito d\'imposta spiegati.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-730-ristorni-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Detrazioni fiscali frontalieri Italia 2026",
+      "description": "Nuovo Accordo Frontalieri dal 2024: come recuperare le tasse con il 730. Esenzione €7.500 (vecchi) vs €10.000 (nuovi). Ristorni e credito d'imposta spiegati.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-730-ristorni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lugano al confine CH-Italia: fulcro del lavoro transfrontaliero e della tassazione"
+      },
+      "datePublished": "2026-09-03T08:45:12+00:00",
+      "dateModified": "2026-09-03T08:45:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-730-ristorni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

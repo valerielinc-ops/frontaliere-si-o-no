@@ -11202,6 +11202,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-treni-settembre-2026.title': 'Train strike 7-8 September: 24-hour stoppage',
     'blog.article.sciopero-treni-settembre-2026.excerpt': 'The national protest proclaimed by Cub Trasporti and SGB will involve the personnel of the FS Group, Trenitalia and Trenord. Warranty bands and replacement buses are provided for the connection with Malpensa.',
     'blog.article.sciopero-treni-settembre-2026.imageAlt': 'Aerial view of a train station in Ticino during a strike, with buses replacing train services.',
+    'blog.article.frontaliere-730-ristorni-2026.title': 'Border tax deductions Italy 2026',
+    'blog.article.frontaliere-730-ristorni-2026.excerpt': 'New Frontier Agreement from 2024: how to recover taxes with 730. Exemption €7,500 (old) vs €10,000 (new). Explained returns and tax credit.',
+    'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano at the Swiss-Italian border: heart of cross-border work and dual taxation',
 };
 
 export default blogMetaEn;
