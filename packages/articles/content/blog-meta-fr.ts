@@ -11180,6 +11180,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Vivre à Saint-Marcel, travailler en Valais comme frontalier',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Permis G, impôt à la source 4-10 %, Nouvel Accord 2024 avec franchise € 10 000, AVS/LPP et restaurations',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Vue panoramique de la région du Valais suisse avec montagnes enneigées',
+    'blog.article.cambio-euro-franco-conviene.title': 'Change euro franc : est-ce vraiment utile ?',
+    'blog.article.cambio-euro-franco-conviene.excerpt': 'L\'impôt à la source suisse et l\'IRPEF italien pèsent sur le net. Découvrez comment le change CHF-EUR impacte le salaire frontalier et quelles stratégies adopter.',
+    'blog.article.cambio-euro-franco-conviene.imageAlt': 'Conseiller financier explique les stratégies de change EUR-CHF aux frontaliers dans un bureau moderne à Mendrisio',
 };
 
 export default blogMetaFr;

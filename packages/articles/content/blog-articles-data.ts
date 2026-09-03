@@ -33402,6 +33402,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cambio-euro-franco-conviene',
+ category: 'fiscale',
+ date: '2026-09-03T04:35:46.914Z',
+ image: '/images/blog/cambio-euro-franco-conviene.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11177,6 +11177,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Leben in Saint-Marcel, Arbeiten im Wallis als Grenzgänger',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Bewilligung G, Quellensteuer 4-10%, Neuer Vertrag 2024 mit Selbstbehalt € 10.000, AHV/BVG und Rückerstattungen',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Panoramablick auf die Schweizer Walliser Region mit schneebedeckten Bergen',
+    'blog.article.cambio-euro-franco-conviene.title': 'Euro-Franken-Wechselkurs: Lohnt sich das wirklich?',
+    'blog.article.cambio-euro-franco-conviene.excerpt': 'Die schweizerische Quellensteuer und die italienische IRPEF belasten das Netto. Erfahren Sie, wie sich der Wechselkurs CHF-EUR auf den Grenzlohn auswirkt und welche Strategien verfolgt werden.',
+    'blog.article.cambio-euro-franco-conviene.imageAlt': 'Finanzberater erklärt EUR-CHF-Wechselkursstrategien für Grenzpendler in modernem Büro in Mendrisio',
 };
 
 export default blogMetaDe;
