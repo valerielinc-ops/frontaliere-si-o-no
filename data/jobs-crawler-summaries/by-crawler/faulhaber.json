@@ -1,20 +1,21 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-03T13:34:03.885Z",
+  "generatedAt": "2026-09-03T23:11:19.653Z",
   "total": 4,
   "discovered": null,
   "written": 4,
-  "newCount": 1,
-  "updatedCount": 3,
+  "newCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 66796,
-  "avgDurationMs": 66796,
+  "durationMs": 67182,
+  "avgDurationMs": 67182,
   "durationHistory": [
-    66796
+    67182
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "faulhaber-e3d5f6700c02",
       "slug": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
@@ -40,17 +41,17 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:48.674Z",
-      "_qualityScore": 66,
+      "crawledAt": "2026-09-03T23:11:04.836Z",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:33:48.674Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "faulhaber-cd396bb6e76c",
       "slug": "tecnico-di-misura-croglio-faulhaber",
@@ -76,7 +77,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:33:24.424Z",
+      "crawledAt": "2026-09-03T23:10:39.766Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 83,
@@ -112,7 +113,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T13:33:36.652Z",
+      "crawledAt": "2026-09-03T23:10:53.209Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 83,
@@ -148,14 +149,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:34:01.317Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:11:17.593Z",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
-      "_qualityScore": 62,
+      "_qualityScore": 68,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 14,
+        "translation": 20,
         "completeness": 17
       }
     }

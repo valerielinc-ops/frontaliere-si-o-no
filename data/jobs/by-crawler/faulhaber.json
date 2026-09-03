@@ -1,6 +1,6 @@
 {
   "crawlerKey": "faulhaber",
-  "assembledAt": "2026-09-03T13:34:03.884Z",
+  "assembledAt": "2026-09-03T23:11:19.652Z",
   "jobs": [
     {
       "id": "faulhaber-2bee9b1324a0",
@@ -16,8 +16,8 @@
       "companyDomain": "faulhaber.com",
       "title": "Candidatura spontanea",
       "titleByLocale": {
-        "en": "Candidatura spontanea",
         "it": "Candidatura spontanea",
+        "en": "Candidatura spontanea",
         "de": "Candidatura spontanea",
         "fr": "Candidatura spontanea"
       },
@@ -46,8 +46,12 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T13:34:01.317Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-09-03T23:11:17.593Z",
+      "previousSlugs": [
+        "spontaneous-application-faulhaber-croglio",
+        "spontananwendung-faulhaber-croglio",
+        "demande-spontanee-faulhaber-croglio"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "spontaneous-application-faulhaber-croglio"
@@ -59,11 +63,7 @@
           "demande-spontanee-faulhaber-croglio"
         ]
       },
-      "previousSlugs": [
-        "spontaneous-application-faulhaber-croglio",
-        "spontananwendung-faulhaber-croglio",
-        "demande-spontanee-faulhaber-croglio"
-      ],
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -82,29 +82,29 @@
     },
     {
       "id": "faulhaber-e3d5f6700c02",
-      "slug": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+      "slug": "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio",
       "slugByLocale": {
-        "de": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-        "it": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+        "it": "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio",
         "en": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-        "fr": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+        "de": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+        "fr": "r-d-mechanical-ingenieur-gearbox-design-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
       "companyDomain": "faulhaber.com",
       "title": "R&D Mechanical Engineer - Gearbox design",
       "titleByLocale": {
-        "de": "R&D Mechanical Ingenieur - Gearbox design",
-        "en": "R&D Mechanical Engineer - Gearbox design",
         "it": "R&D Mechanical Ingegnere - Gearbox design",
+        "en": "R&D Mechanical Engineer - Gearbox design",
+        "de": "R&D Mechanical Ingenieur - Gearbox design",
         "fr": "R&D Mechanical Ingénieur - Gearbox design"
       },
       "description": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\n Act as Project Leader for the development of new products, in particular the Gearheads\n TASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\n PROFILE\n The minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
       "descriptionByLocale": {
-        "de": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\n Act as Project Leader for the development of new products, in particular the Gearheads\n TASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\n PROFILE\n The minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
-        "en": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\n Act as Project Leader for the development of new products, in particular the Gearheads\n TASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\n PROFILE\n The minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
-        "it": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\n Act as Project Leader for the development of new products, in particular the Gearheads\n TASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\n PROFILE\n The minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
-        "fr": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\n Act as Project Leader for the development of new products, in particular the Gearheads\n TASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\n PROFILE\n The minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio"
+        "it": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\nAct as Project Leader for the development of new products, in particular the Gearheads\nTASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\nPROFILE\nThe minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "en": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\nAct as Project Leader for the development of new products, in particular the Gearheads\nTASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\nPROFILE\nThe minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "de": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\nAct as Project Leader for the development of new products, in particular the Gearheads\nTASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\nPROFILE\nThe minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio",
+        "fr": "CH - Croglio\n\nR&D\n\nFixed employment\n\nExpert\n\nMISSION\nAct as Project Leader for the development of new products, in particular the Gearheads\nTASKS\n\n• Execution of the activities related to the development of products such as design proposal, construction drawings, prototypes, manufacturing procedures, calculations, test results analyzes, for standard and special products\n\n• Evaluation and optimize the environmental and sustainability aspects associated with the entire life cycle of a product (LCA) during to the product design and development phases\n\n• Optimization of products from technical and logistical point of view and considering production and control processes for equipment and machines\n\n• Collaboration for the control of the projects progress, including the activities of industrialization in production\n\n• Preparation and management of the projects technical documentation\n\n• Execution of change requests\n\n• Contact with suppliers in different languages for the definition of the technical components\n\n• If necessary assistance to the sales force by providing technical advices\n\n• Collaboration in the analysis and evaluation of the feasibility of investments in production\n\n• Collaboration with the concerned departments for analysis of non-compliances and certification of products\n\n• Act as a Project Manager including the presentation of results and decisions in front of the Management or steering committee\nPROFILE\nThe minimum requirements are:\n• Master in Mechanical Engineering or equivalent (Mechatronics, Robotics, etc. …)\n• Experience in mechanical design and development of mechanical products, preferably with small gearheads\n• Knowledge of project management key concept\n• Knowledge of 3D CAD Siemens NX and PLM Teamcenter\n• Strong aptitude to work with methodic procedure in order to achieve defined target.\n• Aptitude to work on different project at the same time\n• Aptitude to work in team\n• Sense of organization, creativity, analytical capacity and problem solving\n• Interpersonal skills\n• Languages: Italian and English as a must, German and French as a plus\n\nAbout FAULHABER SA\n\nFAULHABER has been producing and distributing drive solutions in Switzerland for more than 60 years. The headquarters are located in Croglio, Ticino, where Faulhaber initially founded its first Swiss location in 1962.\nThe site in Croglio, located close to the Italian border, is covering an area of around 6600 m² and employs more than 300 people who develop and produce a broad spectrum of motor, gearhead and linear drive technology that form part of the extensive range of FAULHABER products.\n\nApply now\n\nPrint Job\n\nBenefits\n\n• Canteen\n\n• Barrier-free\n\n• Parking lots\n\n• Flexible working conditions\n\n• Well-being initiatives\n\nGiovanna Biggi\n\nFaulhaber SA\n\nVia Cantonale 6980 Croglio"
       },
       "location": "Croglio",
       "canton": "TI",
@@ -124,8 +124,20 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:33:48.674Z",
+      "crawledAt": "2026-09-03T23:11:04.836Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:33:48.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+        ],
+        "fr": [
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+        ]
+      },
+      "previousSlugs": [
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
+      ],
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
@@ -139,8 +151,7 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:33:48.674Z"
+      }
     },
     {
       "id": "faulhaber-7c490c9a513f",
@@ -186,7 +197,11 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:33:36.652Z",
+      "crawledAt": "2026-09-03T23:10:53.209Z",
+      "previousSlugs": [
+        "junior-logistica-specialista-faulhaber-croglio",
+        "junior-logistics-specialist-croglio-faulhaber"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-logistica-specialista-faulhaber-croglio",
@@ -199,10 +214,6 @@
           "junior-logistics-specialist-croglio-faulhaber"
         ]
       },
-      "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
-        "junior-logistics-specialist-croglio-faulhaber"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "salaryMin": 41600,
@@ -264,15 +275,15 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T13:33:24.424Z",
+      "crawledAt": "2026-09-03T23:10:39.766Z",
+      "previousSlugs": [
+        "technicien-di-misura-faulhaber-croglio"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "technicien-di-misura-faulhaber-croglio"
         ]
       },
-      "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "salaryMin": 58000,
