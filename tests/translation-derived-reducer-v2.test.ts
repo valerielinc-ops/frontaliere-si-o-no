@@ -174,6 +174,29 @@ describe('translation derived reducer v2', () => {
     }
   });
 
+  it('rejects a raw patch with an out-of-ALLOWED_TARGET_LOCALES destination before mutating slice or outcomes at both public entry points', () => {
+    const job = structuredClone(BASE_JOB);
+    const validPatch = patchFor(job);
+    const rawPatch = {
+      ...validPatch,
+      destination: { ...validPatch.destination, targetLocale: 'es' },
+    };
+
+    const singleActive = slice(job);
+    const singleBefore = structuredClone(singleActive);
+    expect(() => reduceTranslationDerivedPatchV2(singleActive, rawPatch as any)).toThrow(
+      /targetLocale must be it, en, de or fr/,
+    );
+    expect(singleActive).toEqual(singleBefore);
+
+    const batchActive = slice(job);
+    const batchBefore = structuredClone(batchActive);
+    expect(() => reduceTranslationDerivedPatchBatchV2(batchActive, [rawPatch] as any)).toThrow(
+      /targetLocale must be it, en, de or fr/,
+    );
+    expect(batchActive).toEqual(batchBefore);
+  });
+
   it('rejects a huge sparse JSON array without allocating from its length', () => {
     const huge: unknown[] = [];
     huge.length = 0xffffffff;
