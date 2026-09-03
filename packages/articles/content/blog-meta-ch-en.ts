@@ -5266,6 +5266,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'In August consumer prices increased by 0.4%',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'The consumer price index (CPI) increased by 0.4% in August 2026 compared to the previous month, reaching 101.5 points (December 2025 = 100).',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background, showing economic activity and daily life.',
+    'blog.article.emissioni-co2-vcp-2025.title': 'VCP CO2 emissions: 2025 results and achievable targets',
+    'blog.article.emissioni-co2-vcp-2025.excerpt': 'In 2025, the CO2 requirements for heavy commercial vehicles in Switzerland come into force: importers reach their targets with 20.8% of the fleet being fully electric.',
+    'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Electric heavy-duty truck on Swiss road with Alpine mountains in the background',
 };
 
 export default blogMetaChEn;

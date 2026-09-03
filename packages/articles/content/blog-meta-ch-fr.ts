@@ -5266,6 +5266,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'En août, les prix à la consommation ont augmenté de 0,4 %',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'L\'indice des prix à la consommation (IPC) a augmenté de 0,4 % en août 2026 par rapport au mois précédent, pour atteindre 101,5 points (décembre 2025 = 100).',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan, montrant l\'activité économique et la vie quotidienne.',
+    'blog.article.emissioni-co2-vcp-2025.title': 'Émissions de CO2 VCP : résultats 2025 et objectifs atteignables',
+    'blog.article.emissioni-co2-vcp-2025.excerpt': 'En 2025, les prescriptions CO2 sur les poids lourds entrent en vigueur en Suisse : les importateurs atteignent les cibles avec 20,8% de flotte entièrement électrique.',
+    'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Camion électrique sur route suisse avec chaîne alpine en arrière-plan',
 };
 
 export default blogMetaChFr;

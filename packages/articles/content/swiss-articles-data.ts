@@ -15796,6 +15796,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'emissioni-co2-vcp-2025',
+    category: 'novita',
+    date: '2026-09-03T08:20:50.376Z',
+    image: '/images/blog/emissioni-co2-vcp-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
