@@ -15778,6 +15778,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'assegni-familiari-lucerna-guida',
+    category: 'pratico',
+    date: '2026-09-03T06:36:14.033Z',
+    image: '/images/blog/assegni-familiari-lucerna-guida.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5260,6 +5260,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AVS and supplementary benefits: contribution gaps',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'How the first pillar works in the Swiss system: calculation of the AVS pension, contribution gaps, cantonal compensation fund and supplementary benefits for the minimum living wage.',
     'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Elderly person reviewing AVS contribution history statement from cantonal compensation fund',
+    'blog.article.assegni-familiari-lucerna-guida.title': 'Family allowances in the canton of Lucerne: an application guide',
+    'blog.article.assegni-familiari-lucerna-guida.excerpt': 'How do family allowances work in the Canton of Lucerne? Learn about the claim process and the role of clearinghouses.',
+    'blog.article.assegni-familiari-lucerna-guida.imageAlt': 'Administrative documents and a calculator on an office desk.',
 };
 
 export default blogMetaChEn;
