@@ -117,6 +117,12 @@ jobs:
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Il report è `JSON.stringify(verdict, null, 2)`: contiene sempre doppi
+          # apici, backtick e parentesi (`vitest (unit + integration)`). Passa da
+          # `env:` e NON interpolato raw nel `run:`, altrimenti i `"` del JSON
+          # chiudono il quoting del printf e lo step muore in syntax error —
+          # proprio sul drift che deve segnalare.
+          REPORT: ${{ steps.verify.outputs.report }}
         run: |
           set -euo pipefail
           DESC="$(printf '%s\n' \
@@ -127,7 +133,7 @@ jobs:
             "" \
             "### Verdetto" \
             '```json' \
-            "${{ steps.verify.outputs.report }}" \
+            "$REPORT" \
             '```' \
             "" \
             "### Impatto" \
