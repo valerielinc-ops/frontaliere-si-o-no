@@ -5302,6 +5302,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comitato-consultivo-svizzera-digitale.title': 'Comité Suisse numérique : priorité à la sécurité et e-ID',
     'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'Le 3 septembre 2026, le Comité consultatif a discuté de la stratégie numérique nationale, reportant l\'e-ID pour assurer un maximum de sécurité et de confiance.',
     'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Réunion du comité consultatif Suisse numérique à Berne.',
+    'blog.article.ubs-pil-crescita-2026-rialzo.title': 'UBS corrige à la hausse la croissance 2026 : +1,8%',
+    'blog.article.ubs-pil-crescita-2026-rialzo.excerpt': 'UBS révise le PIB suisse 2026 de +0,7% à +1,8%. Inflation août 0,8 %, estimations 2026-2027 stables à 0,6 %. Ce qui change pour les salaires et le coût de la vie.',
+    'blog.article.ubs-pil-crescita-2026-rialzo.imageAlt': 'Vue aérienne du centre économique de Bellinzona avec immeubles modernes symbolisant la croissance économique suisse.',
 };
 
 export default blogMetaChFr;

@@ -68816,6 +68816,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ubs-pil-crescita-2026-rialzo': {
+    title: 'UBS corregge al rialzo la crescita 2026: +1,8%',
+    description: 'UBS rivede il PIL svizzero 2026 da +0,7% a +1,8%. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Cosa cambia per salari e costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, corregge, rialzo, crescita, rivede',
+    ogTitle: 'UBS corregge al rialzo: PIL Svizzera +1,8% nel 2026',
+    ogDescription: 'UBS rivede al rialzo la crescita economica svizzera: PIL 2026 da +0,7% a +1,8% (al netto sport), +2,2% con sport. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Implicazioni per salari, costo della vita, mercato del lavoro.',
+    canonicalPath: '/articoli-svizzera/ubs-pil-crescita-2026-rialzo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS corregge al rialzo la crescita 2026: +1,8%",
+      "description": "UBS rivede il PIL svizzero 2026 da +0,7% a +1,8%. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Cosa cambia per salari e costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-pil-crescita-2026-rialzo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro economico di Bellinzona con edifici moderni che rappresentano la crescita economica della Svizzera."
+      },
+      "datePublished": "2026-09-03T14:31:01+00:00",
+      "dateModified": "2026-09-03T14:31:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-pil-crescita-2026-rialzo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
