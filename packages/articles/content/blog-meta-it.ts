@@ -11182,6 +11182,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-euro-franco-conviene.title': 'Cambio euro franco: conviene davvero?',
     'blog.article.cambio-euro-franco-conviene.excerpt': 'Imposta alla fonte svizzera e IRPEF italiana pesano sul netto. Scopri come il cambio CHF-EUR impatta lo stipendio frontaliere e quali strategie adottare.',
     'blog.article.cambio-euro-franco-conviene.imageAlt': 'Consulente finanziario spiega strategie di cambio euro-franco a frontaliere in ufficio moderno a Mendrisio',
+    'blog.article.quando-cambiare-franco-euro.title': 'Quando conviene cambiare franco per euro',
+    'blog.article.quando-cambiare-franco-euro.excerpt': 'Il cambio CHF-EUR incide direttamente sullo stipendio frontaliere. Strategie, piattaforme, conti multi-valuta: come massimizzare il valore della busta paga svizzera.',
+    'blog.article.quando-cambiare-franco-euro.imageAlt': 'Veduta di Lugano e del lago, simbolo della regione frontaliera Ticino-Italia',
 };
 
 export default blogMetaIt;

@@ -11180,6 +11180,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-euro-franco-conviene.title': 'Euro-Franken-Wechselkurs: Lohnt sich das wirklich?',
     'blog.article.cambio-euro-franco-conviene.excerpt': 'Die schweizerische Quellensteuer und die italienische IRPEF belasten das Netto. Erfahren Sie, wie sich der Wechselkurs CHF-EUR auf den Grenzlohn auswirkt und welche Strategien verfolgt werden.',
     'blog.article.cambio-euro-franco-conviene.imageAlt': 'Finanzberater erklärt EUR-CHF-Wechselkursstrategien für Grenzpendler in modernem Büro in Mendrisio',
+    'blog.article.quando-cambiare-franco-euro.title': 'Wann es sich lohnt, Franken in Euro umzutauschen',
+    'blog.article.quando-cambiare-franco-euro.excerpt': 'Der Wechselkurs CHF-EUR wirkt sich direkt auf den Grenzlohn aus. Strategien, Plattformen, Multi-Währungs-Konten: So maximieren Sie den Wert Ihrer Schweizer Gehaltsabrechnung.',
+    'blog.article.quando-cambiare-franco-euro.imageAlt': 'Lugano-Panorama und See, landschaftliches Symbol der Grenzregion Schweiz-Italien',
 };
 
 export default blogMetaDe;

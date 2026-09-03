@@ -11181,6 +11181,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-euro-franco-conviene.title': 'Euro franc exchange rate: is it really worth it?',
     'blog.article.cambio-euro-franco-conviene.excerpt': 'Swiss source tax and Italian personal income tax weigh on the net. Find out how the CHF-EUR change impacts border pay and what strategies to adopt.',
     'blog.article.cambio-euro-franco-conviene.imageAlt': 'Financial advisor explains EUR-CHF exchange strategies to cross-border workers in modern Mendrisio office',
+    'blog.article.quando-cambiare-franco-euro.title': 'When it is worth exchanging francs for euros',
+    'blog.article.quando-cambiare-franco-euro.excerpt': 'The CHF-EUR exchange rate has a direct impact on the border salary. Strategies, platforms, multi-currency accounts: how to maximize the value of the Swiss paycheck.',
+    'blog.article.quando-cambiare-franco-euro.imageAlt': 'Lugano Lake view with Alps in background, representing the Swiss-Italian border region',
 };
 
 export default blogMetaEn;

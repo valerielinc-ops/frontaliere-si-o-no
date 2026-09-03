@@ -83453,6 +83453,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-quando-cambiare-franco-euro': {
+    title: 'Quando conviene cambiare franco per euro | Frontaliere Ticino',
+    description: 'Cambio CHF-EUR: strategie ottimali, piattaforme a bassa commissione, conti multi-valuta e impatto sullo stipendio frontaliere. Guida pratica e confronto tassi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quando, conviene, cambiare, franco',
+    ogTitle: 'Quando conviene cambiare franco per euro',
+    ogDescription: 'Scopri le migliori strategie di cambio CHF-EUR per frontalieri: piattaforme, commissioni reali, conti multi-valuta e come massimizzare lo stipendio svizzero in euro. Procedure pratiche.',
+    canonicalPath: '/articoli-frontaliere/quando-cambiare-franco-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Quando conviene cambiare franco per euro",
+      "description": "Cambio CHF-EUR: strategie ottimali, piattaforme a bassa commissione, conti multi-valuta e impatto sullo stipendio frontaliere. Guida pratica e confronto tassi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/quando-cambiare-franco-euro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano e del lago, simbolo della regione frontaliera Ticino-Italia"
+      },
+      "datePublished": "2026-09-03T05:01:56+00:00",
+      "dateModified": "2026-09-03T05:01:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/quando-cambiare-franco-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
