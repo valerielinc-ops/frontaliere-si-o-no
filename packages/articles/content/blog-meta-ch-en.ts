@@ -5290,6 +5290,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tardoc-medici-famiglia-svizzera.title': 'Family doctors, the TARDOC tariff system does not convince',
     'blog.article.tardoc-medici-famiglia-svizzera.excerpt': 'A few months after its entry into force, the new TARDOC tariff system for outpatient medical services does not convince family doctors and paediatricians.',
     'blog.article.tardoc-medici-famiglia-svizzera.imageAlt': 'Aerial view of Lugano with the lake and mountains in the background',
+    'blog.article.economia-svizzera-crescita-q2-2026.title': 'Swiss economy accelerates, GDP +1.5% in 2026',
+    'blog.article.economia-svizzera-crescita-q2-2026.excerpt': 'SECO confirms strong growth in Q2 2026 with GDP +1.5%. Manufacturing and chemical-pharmaceutical industries are driving the Swiss economic recovery.',
+    'blog.article.economia-svizzera-crescita-q2-2026.imageAlt': 'Modern Swiss business district showcasing economic activity and growth in the national economy.',
 };
 
 export default blogMetaChEn;
