@@ -11161,6 +11161,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Vivere a Albosaggia e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Albosaggia ai Grigioni.',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Vivere a Edolo e lavorare in Grigioni: collegamenti e costi',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Edolo e lavorare in Grigioni, inclusi i tempi di percorrenza e il costo della vita.',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica di Edolo con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
