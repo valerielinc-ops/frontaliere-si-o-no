@@ -69479,6 +69479,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-mercato-lavoro-uri-settori': {
+    title: 'Salari e mercato del lavoro nel canton Uri | Frontaliere Ticino',
+    description: 'Analisi dei livelli salariali per formazione, settori di impiego, contratti collettivi e salario minimo nel mercato del lavoro del canton Uri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, mercato, lavoro, canton',
+    ogTitle: 'Salari e mercato del lavoro nel canton Uri',
+    ogDescription: 'Scopri i livelli salariali per qualifica, i settori che assumono, i contratti collettivi e la previdenza nel mercato del lavoro del canton Uri. Guida completa a salari, contributi sociali e formazione nel cantone svizzero.',
+    canonicalPath: '/articoli-svizzera/salari-mercato-lavoro-uri-settori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari e mercato del lavoro nel canton Uri",
+      "description": "Analisi dei livelli salariali per formazione, settori di impiego, contratti collettivi e salario minimo nel mercato del lavoro del canton Uri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-mercato-lavoro-uri-settori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino del cantone Uri con vista sulle montagne e ambiente lavorativo moderno"
+      },
+      "datePublished": "2026-09-03T21:16:59+00:00",
+      "dateModified": "2026-09-03T21:16:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-mercato-lavoro-uri-settori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
