@@ -5284,6 +5284,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-svizzera-2026-inflazione.title': 'Wages in Switzerland: 0.4% increase in 2026, but inflation will be higher',
     'blog.article.salari-svizzera-2026-inflazione.excerpt': 'Nominal wages in Switzerland will increase by 0.4% in 2026, but expected inflation could nullify this benefit.',
     'blog.article.salari-svizzera-2026-inflazione.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background.',
+    'blog.article.benzina-diesel-massimi-anno-2026.title': 'Gasoline and diesel at year\'s highs',
+    'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Petrol 95 at 2.10 CHF, diesel at 2.26 CHF according to TCS. Middle East conflict and Rhine water scarcity cause increases: +20-26% since February.',
+    'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Swiss gas station fuel pump displaying current prices for gasoline and diesel, illustrating article theme',
 };
 
 export default blogMetaChEn;

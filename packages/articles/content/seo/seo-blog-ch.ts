@@ -68582,6 +68582,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-diesel-massimi-anno-2026': {
+    title: 'Benzina e diesel ai massimi dell\'anno | Frontaliere Ticino',
+    description: 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d\'acqua Reno causano rincari +20-26% da febbraio 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, massimi, dell',
+    ogTitle: 'Benzina e diesel ai massimi dell\'anno',
+    ogDescription: 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo il TCS. Conflitto Medio Oriente e difficoltà logistiche Reno causano rincari +20-26% da febbraio. Ancora lontani dai massimi storici del 2022 (2,30 CHF).',
+    canonicalPath: '/articoli-svizzera/benzina-diesel-massimi-anno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel ai massimi dell'anno",
+      "description": "Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d'acqua Reno causano rincari +20-26% da febbraio 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-diesel-massimi-anno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante svizzera con display dei prezzi di benzina e diesel, illustrazione del tema dell'articolo"
+      },
+      "datePublished": "2026-09-03T12:07:42+00:00",
+      "dateModified": "2026-09-03T12:07:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-diesel-massimi-anno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

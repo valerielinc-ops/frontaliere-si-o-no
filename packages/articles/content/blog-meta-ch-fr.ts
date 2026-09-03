@@ -5284,6 +5284,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-svizzera-2026-inflazione.title': 'Salaires en Suisse: +0,4% en 2026, mais inflation plus élevée',
     'blog.article.salari-svizzera-2026-inflazione.excerpt': 'Les salaires nominaux en Suisse augmenteront de 0,4% en 2026, mais l\'inflation prévue pourrait annuler ce bénéfice.',
     'blog.article.salari-svizzera-2026-inflazione.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan.',
+    'blog.article.benzina-diesel-massimi-anno-2026.title': 'Essence et diesel au plus haut de l\'année',
+    'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Essence 95 à 2,10 CHF, diesel à 2,26 CHF selon TCS. Le conflit au Moyen-Orient et les pénuries d\'eau du Rhin provoquent des hausses : +20-26 % depuis février.',
+    'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Station-service suisse avec affichage des prix du carburant et diesel, illustration du thème de l\'article',
 };
 
 export default blogMetaChFr;

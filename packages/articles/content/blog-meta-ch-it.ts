@@ -5284,6 +5284,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-svizzera-2026-inflazione.title': 'Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l\'inflazione sarà più alta',
     'blog.article.salari-svizzera-2026-inflazione.excerpt': 'I salari nominali in Svizzera aumenteranno dello 0,4% nel 2026, ma l\'inflazione prevista potrebbe annullare questo beneficio.',
     'blog.article.salari-svizzera-2026-inflazione.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo.',
+    'blog.article.benzina-diesel-massimi-anno-2026.title': 'Benzina e diesel ai massimi dell\'anno',
+    'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d\'acqua Reno causano rincari: +20-26% da febbraio.',
+    'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Pompa di carburante svizzera con display dei prezzi di benzina e diesel, illustrazione del tema dell\'articolo',
 };
 
 export default blogMetaChIt;
