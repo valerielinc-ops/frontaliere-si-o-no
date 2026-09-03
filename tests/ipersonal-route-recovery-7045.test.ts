@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { archiveRemovedJobsToSlice } from '../scripts/lib/expired-jobs-archive.mjs';
+import { computeCrawlDiff, snapshotJobSlugs } from '../scripts/jobs-url-helper.mjs';
 import { IPERSONAL_7045_LOST_ROUTES } from './fixtures/ipersonal-7045-routes';
 
 type Job = {
@@ -103,6 +104,55 @@ describe('iPersonal route recovery for issue 7045', () => {
       const firstCompleteSnapshot = readFileSync(archiveFile, 'utf8');
       expect(archiveRemovedJobsToSlice(removed, 'ipersonal', { dir: archiveDir })).toBe(0);
       expect(readFileSync(archiveFile, 'utf8')).toBe(firstCompleteSnapshot);
+    } finally {
+      rmSync(archiveDir, { recursive: true, force: true });
+    }
+  });
+
+  it('wires the real crawler-pipeline classifier (snapshotJobSlugs + computeCrawlDiff) into the same removed set assertRetirementAccounting assumes', () => {
+    // assertRetirementAccounting above is a test-local reimplementation fed a
+    // hand-authored `removed` array. This test instead runs the ACTUAL
+    // functions runStandardCrawlerPipeline (scripts/lib/crawler-template.mjs,
+    // used by update-ipersonal-jobs.mjs) calls before archiveRemovedJobsToSlice:
+    // snapshotJobSlugs() to build before/after maps, then computeCrawlDiff() to
+    // classify vacancies as removed — proving the live pipeline feeds the
+    // archive the same set/shape this suite assumes, not just the reimplementation.
+    const recovered = incidentRemovedJobs(); // 12 jobs — vanish upstream THIS run
+    // 3 jobs archived by an EARLIER run: already gone from the active slice
+    // before this run starts, so (unlike `recovered`) they must not appear in
+    // this run's before-snapshot — only in the archive file from that prior run.
+    const priorRunArchived = Array.from({ length: 3 }, (_, index) => ({
+      id: `prior-run-archived-${index}`,
+      url: `https://jobs.example.invalid/prior-run-archived-${index}/`,
+      slug: `prior-run-archived-${index}`,
+    }));
+    const retainedFresh = Array.from({ length: 15 }, (_, index) => syntheticJob('fresh', index));
+
+    const archiveDir = mkdtempSync(join(tmpdir(), 'ipersonal-7045-wiring-'));
+    const archiveFile = join(archiveDir, 'ipersonal.json');
+    try {
+      expect(archiveRemovedJobsToSlice(priorRunArchived, 'ipersonal', { dir: archiveDir })).toBe(3);
+
+      // THIS run's active slice (before-snapshot) still holds `recovered` (about
+      // to vanish) plus the retained jobs — priorRunArchived is already gone,
+      // exactly as production leaves it after the earlier run dropped it.
+      const beforeSnapshot = snapshotJobSlugs([...retainedFresh, ...recovered]);
+      const afterSnapshot = snapshotJobSlugs(retainedFresh);
+      const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+
+      expect(new Set(diff.removedJobs.map((job) => job.id))).toEqual(
+        new Set(recovered.map((job) => job.id)),
+      );
+
+      expect(archiveRemovedJobsToSlice(diff.removedJobs, 'ipersonal', { dir: archiveDir })).toBe(12);
+      const archived = JSON.parse(readFileSync(archiveFile, 'utf8')) as Job[];
+      const removedAcrossRuns = [...recovered, ...priorRunArchived];
+      expect(assertRetirementAccounting(removedAcrossRuns, retainedFresh, archived)).toEqual({
+        removed: 15,
+        archived: 15,
+        routesLost: 0,
+        routeCollisions: 0,
+      });
     } finally {
       rmSync(archiveDir, { recursive: true, force: true });
     }
