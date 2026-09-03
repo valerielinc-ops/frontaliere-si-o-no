@@ -5329,6 +5329,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-apprendistato-lucerna.title': 'Apprendistato in Lucerna: contratto, retribuzione e maturità',
     'blog.article.guida-apprendistato-lucerna.excerpt': 'Come trovare un posto di tirocinio nel Canton Lucerna, cosa deve contenere il contratto di apprendistato e come ottenere la maturità professionale: guida pratica.',
     'blog.article.guida-apprendistato-lucerna.imageAlt': 'Apprendista in officina tecnica svizzera durante la formazione pratica con un mentore esperto',
+    'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprendistato in Lucerna: guida pratica',
+    'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Ricerca del tirocinio, retribuzione, contributi sociali e maturità professionale: ecco come orientarsi nella formazione duale svizzera a Lucerna.',
+    'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano e il Verbano: simbolo della formazione professionale in Svizzera',
 };
 
 export default blogMetaChIt;
