@@ -69362,6 +69362,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aeroporto-ginevra-motore-3-3-miliardi': {
+    title: 'Aeroporto Ginevra è un motore per la regione, vale 3,3 miliardi',
+    description: 'Studio Infras quantifica 3,3 miliardi CHF di valore aggiunto per Aeroporto Ginevra-Cointrin, con 22\'000 posti di lavoro e impatto nazionale. Gestiti 17,8',
+    keywords: 'frontalieri, ticino, svizzera, italia, aeroporto, ginevra, motore, regione',
+    ogTitle: 'Aeroporto Ginevra è un motore per la regione, vale 3,3 miliardi',
+    ogDescription: 'L\'aeroporto di Ginevra-Cointrin genera 3,3 miliardi CHF di valore aggiunto annuale, sostenendo 22\'000 posti di lavoro. Nel 2025 gestiti 17,8 milioni di passeggeri. Nuovi voli verso Singapore e San Paolo in studio.',
+    canonicalPath: '/articoli-svizzera/aeroporto-ginevra-motore-3-3-miliardi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aeroporto Ginevra è un motore per la regione, vale 3,3 miliardi",
+      "description": "Studio Infras quantifica 3,3 miliardi CHF di valore aggiunto per Aeroporto Ginevra-Cointrin, con 22'000 posti di lavoro e impatto nazionale. Gestiti 17,8",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aeroporto-ginevra-motore-3-3-miliardi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sala partenze dell'aeroporto di Ginevra con schermi di volo e aerei visibili dal terminal."
+      },
+      "datePublished": "2026-09-03T19:31:08+00:00",
+      "dateModified": "2026-09-03T19:31:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aeroporto-ginevra-motore-3-3-miliardi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

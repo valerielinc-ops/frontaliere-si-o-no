@@ -5344,6 +5344,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.patente-estera-lucerna-procedura.title': 'Permis de conduire Lucerne : conversion et examens',
     'blog.article.patente-estera-lucerna-procedura.excerpt': 'Procédure de conversion du permis étranger dans le canton de Lucerne : examen théorique et pratique, cours obligatoires, bureau de la circulation.',
     'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Route suisse dans le canton de Lucerne avec signalisation et paysage alpin',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'L\'aéroport de Genève est un moteur pour la région, il vaut 3,3 milliards',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Étude Infras quantifie 3,3 milliards CHF de valeur ajoutée, 22\'000 emplois et impact sur l\'ensemble de l\'économie suisse. En 2025, 17,8 millions de passagers ont été pris en charge.',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Hall de départ de l\'aéroport de Genève avec panneaux d\'information sur les vols et avions visibles.',
 };
 
 export default blogMetaChFr;

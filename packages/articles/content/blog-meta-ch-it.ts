@@ -5344,6 +5344,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-estera-lucerna-procedura.title': 'Patente guida Lucerna: conversione ed esami',
     'blog.article.patente-estera-lucerna-procedura.excerpt': 'Procedura di conversione della patente estera nel Cantone Lucerna: esame teorico e pratico, corsi obbligatori, ufficio della circolazione.',
     'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Una strada svizzera nel Cantone Lucerna con segnaletica stradale e paesaggio alpino',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Aeroporto Ginevra è un motore per la regione, vale 3,3 miliardi',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Studio Infras quantifica 3,3 miliardi CHF di valore aggiunto, 22\'000 posti di lavoro e impatto su intera economia svizzera. Nel 2025 gestiti 17,8 milioni di passeggeri.',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Sala partenze dell\'aeroporto di Ginevra con schermi di volo e aerei visibili dal terminal.',
 };
 
 export default blogMetaChIt;

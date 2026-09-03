@@ -5344,6 +5344,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-estera-lucerna-procedura.title': 'Führerschein Luzern: Umbau und Prüfungen',
     'blog.article.patente-estera-lucerna-procedura.excerpt': 'Umwandlungsverfahren des ausländischen Führerscheins im Kanton Luzern: Theorie- und Praxisprüfung, Pflichtkurse, Strassenverkehrsamt.',
     'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Schweizer Straße im Kanton Luzern mit Verkehrsschildern und Alpenpanorama',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Flughafen Genf ist ein Motor für die Region, im Wert von 3,3 Milliarden',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Infras-Studie beziffert 3,3 Milliarden CHF Wertschöpfung, 22\'000 Arbeitsplätze und Auswirkungen auf die gesamte Schweizer Wirtschaft. Im Jahr 2025 wurden 17,8 Millionen Passagiere abgefertigt.',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Abflughalle des Flughafens Genf mit Anzeigetafeln und sichtbaren Flugzeugen.',
 };
 
 export default blogMetaChDe;

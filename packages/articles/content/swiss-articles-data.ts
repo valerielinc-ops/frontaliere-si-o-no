@@ -16030,6 +16030,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'aeroporto-ginevra-motore-3-3-miliardi',
+    category: 'novita',
+    date: '2026-09-03T19:31:08.063Z',
+    image: '/images/blog/aeroporto-ginevra-motore-3-3-miliardi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
