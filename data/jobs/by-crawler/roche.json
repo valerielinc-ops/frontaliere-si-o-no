@@ -82921,7 +82921,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Mannheim/Intern_202608-122100",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "intern-roche-ch",
         "compliance-tirocinante-roche-shanghai",
@@ -82955,14 +82954,14 @@
           "internal-roche-basel",
           "intern-roche-basel"
         ],
-        "de": [
-          "compliance-praktikant-roche-shanghai",
-          "marketing-praktikant-roche-fuzhou"
-        ],
         "fr": [
           "intern-roche-ch",
           "compliance-stagiaire-roche-shanghai",
           "marketing-stagiaire-roche-fuzhou"
+        ],
+        "de": [
+          "compliance-praktikant-roche-shanghai",
+          "marketing-praktikant-roche-fuzhou"
         ]
       },
       "firstSeenAt": "2026-09-01T14:10:46.414Z",
@@ -82979,7 +82978,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "needsRetranslation": true
     },
     {
       "id": "roche-6eea6b7836f4",
