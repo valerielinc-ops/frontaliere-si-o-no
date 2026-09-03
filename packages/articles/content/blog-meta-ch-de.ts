@@ -5257,6 +5257,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Fahrkarten Appenzell Innerrhoden: Tarifzonen',
     'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Öffentlicher Verkehr in Appenzell Innerrhoden: Tarifgemeinschaft, Zonen, Jahres- und Monatsabonnements, Halbtax, GA, Studenten- und Lehrlingsrabatte.',
     'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Öffentliche Verkehrsstation im Kanton Appenzell Innerrhoden mit Fahrkartenschalter und Fahrplan',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AHV und Ergänzungsleistungen: Beitragslücken',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'So funktioniert die erste Säule im Schweizer System: AHV-Rentenberechnung, Beitragslücken, kantonale Ausgleichskasse und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Ältere Person überprüft Beitragsverlauf AVS von der kantonalen Ausgleichskasse',
 };
 
 export default blogMetaChDe;

@@ -5257,6 +5257,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Abbonamenti trasporti Appenzello Interno: zone tariffe',
     'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Trasporti pubblici ad Appenzello Interno: comunità tariffaria, zone, abbonamenti annuali e mensili, metà-prezzo, GA, sconti per studenti e apprendisti.',
     'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Stazione dei trasporti pubblici nel canton Appenzello Interno con biglietteria, orari regionali e passeggeri',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AVS e prestazioni complementari: lacune contributive',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'Come funziona il primo pilastro nel sistema svizzero: calcolo della rendita AVS, lacune contributive, cassa di compensazione cantonale e prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Persona anziana consulta estratto della carriera contributiva AVS presso cassa di compensazione cantonale',
 };
 
 export default blogMetaChIt;

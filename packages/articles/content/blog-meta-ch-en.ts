@@ -5257,6 +5257,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Internal Appenzello transport subscriptions: tariff zones',
     'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Public transport in Appenzello Interno: fare community, zones, annual and monthly subscriptions, half-price, GA, discounts for students and apprentices.',
     'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Public transit station in Appenzell canton with ticketing counter and regional transport schedules',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AVS and supplementary benefits: contribution gaps',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'How the first pillar works in the Swiss system: calculation of the AVS pension, contribution gaps, cantonal compensation fund and supplementary benefits for the minimum living wage.',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Elderly person reviewing AVS contribution history statement from cantonal compensation fund',
 };
 
 export default blogMetaChEn;
