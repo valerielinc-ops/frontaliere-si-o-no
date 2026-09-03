@@ -11201,6 +11201,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-treni-settembre-2026.title': 'Streik der Züge vom 7. bis 8. September: 24 Stunden Stopp',
     'blog.article.sciopero-treni-settembre-2026.excerpt': 'Der von Cub Trasporti und Sgb proklamierte nationale Protest wird die Mitarbeiter der Gruppe Fs, Trenitalia und Trenord einbeziehen. Garantieleistungen und Ersatzbusse für die Verbindung mit Malpensa sind vorgesehen.',
     'blog.article.sciopero-treni-settembre-2026.imageAlt': 'Luftaufnahme eines Bahnhofs in Tessin während eines Streiks, mit Bussen, die den Zugverkehr ersetzen.',
+    'blog.article.frontaliere-730-ristorni-2026.title': 'Grenzsteuerabzüge Italien 2026',
+    'blog.article.frontaliere-730-ristorni-2026.excerpt': 'Neue Frontalieri-Vereinbarung ab 2024: So erhalten Sie die Steuern mit der 730 zurück. Befreiung € 7.500 (alt) vs. € 10.000 (neu). Restaurants und Steuergutschriften erklärt.',
+    'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano an der Schweiz-Italien-Grenze: Zentrum der Grenzarbeit und Doppelbesteuerung',
 };
 
 export default blogMetaDe;
