@@ -11185,6 +11185,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.quando-cambiare-franco-euro.title': 'Quando conviene cambiare franco per euro',
     'blog.article.quando-cambiare-franco-euro.excerpt': 'Il cambio CHF-EUR incide direttamente sullo stipendio frontaliere. Strategie, piattaforme, conti multi-valuta: come massimizzare il valore della busta paga svizzera.',
     'blog.article.quando-cambiare-franco-euro.imageAlt': 'Veduta di Lugano e del lago, simbolo della regione frontaliera Ticino-Italia',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: furto di cavi, sospesa Como-Milano',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Il furto di cavi di rame sulla tratta Como-Milano ha sospeso la circolazione tra Fino Mornasco e Milano Cadorna. Impatto sui pendolari e servizi alternativi attivi.',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Treno Trenord sulla linea Como-Milano con vista del lago sullo sfondo.',
 };
 
 export default blogMetaIt;

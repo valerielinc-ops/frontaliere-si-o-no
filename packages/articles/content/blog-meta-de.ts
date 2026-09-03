@@ -11183,6 +11183,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.quando-cambiare-franco-euro.title': 'Wann es sich lohnt, Franken in Euro umzutauschen',
     'blog.article.quando-cambiare-franco-euro.excerpt': 'Der Wechselkurs CHF-EUR wirkt sich direkt auf den Grenzlohn aus. Strategien, Plattformen, Multi-Währungs-Konten: So maximieren Sie den Wert Ihrer Schweizer Gehaltsabrechnung.',
     'blog.article.quando-cambiare-franco-euro.imageAlt': 'Lugano-Panorama und See, landschaftliches Symbol der Grenzregion Schweiz-Italien',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: Kabeldiebstahl, suspendiert Como-Mailand',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Der Diebstahl von Kupferkabeln auf der Strecke Como-Mailand hat den Verkehr zwischen Fino Mornasco und Milano Cadorna eingestellt. Auswirkungen auf Pendler und aktive alternative Dienste.',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Trenord-Zug auf der Como-Mailand-Strecke mit Seeblick im Hintergrund.',
 };
 
 export default blogMetaDe;

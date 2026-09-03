@@ -11186,6 +11186,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.quando-cambiare-franco-euro.title': 'Quand il convient de changer le franc en euros',
     'blog.article.quando-cambiare-franco-euro.excerpt': 'Le taux de change CHF-EUR a un impact direct sur le salaire des travailleurs transfrontaliers. Stratégies, plateformes, comptes multidevises : comment maximiser la valeur de votre salaire suisse.',
     'blog.article.quando-cambiare-franco-euro.imageAlt': 'Vue de Lugano et du lac, paysage emblématique de la région frontalière suisse-italienne',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trainord : vol de câbles, suspendue Como-Milano',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Le vol de câbles en cuivre sur le tronçon Côme-Milan a suspendu la circulation entre Fino Mornasco et Milan Cadorna. Impact sur les navetteurs et les services alternatifs actifs.',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Train Trenord sur la ligne Côme-Milan avec vue sur le lac en arrière-plan.',
 };
 
 export default blogMetaFr;
