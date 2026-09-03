@@ -163,6 +163,29 @@ describe('company website resolver', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(12);
   });
 
+  it('bounds the whole redirect chain to the single declared timeout budget', async () => {
+    const fetchImpl = vi.fn((_input: string, init: ResolverRequestInit) => new Promise<ResolverResponse>((resolve, reject) => {
+      const timer = setTimeout(() => resolve(response(301, 'https://redirect.example.net/')), 20);
+      init.signal?.addEventListener('abort', () => {
+        clearTimeout(timer);
+        reject(init.signal?.reason);
+      }, { once: true });
+    }));
+    const startedAt = Date.now();
+    await expect(resolveCompanyWebsite('example.ch', {
+      fetchImpl,
+      lookupImpl: PUBLIC_DNS,
+      timeoutMs: 50,
+    })).resolves.toBeNull();
+    const elapsedMs = Date.now() - startedAt;
+    // A per-hop deadline (recomputed at every redirect) lets each 20ms hop
+    // renew its own 50ms budget, so the chain runs well past a single
+    // timeoutMs (measured ~130ms across the MAX_REDIRECTS+1 hops). The
+    // shared, single-entry deadline must instead cut the chain off close to
+    // the declared 50ms budget (measured ~52ms).
+    expect(elapsedMs).toBeLessThan(90);
+  });
+
   it('settles a genuinely pending fetch only when its AbortSignal fires', async () => {
     const aborted: AbortSignal[] = [];
     const fetchImpl = vi.fn((_input: string, init: ResolverRequestInit) => new Promise<ResolverResponse>((_resolve, reject) => {
