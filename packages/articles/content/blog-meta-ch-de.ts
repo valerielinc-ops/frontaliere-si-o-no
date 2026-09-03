@@ -5230,6 +5230,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-proroga-appenzello-interno.title': 'Bewilligung L: Dauer und Verlängerung in der Schweiz',
     'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Mit der Kurzzeitbewilligung L können Sie bis zu 1 Jahr in der Schweiz arbeiten. Erfahren Sie, wie die Verlängerung, die Einschränkungen des Arbeitgebers und der Übergang zur B-Bewilligung funktionieren.',
     'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Schweizer Einwanderungsbüro mit Arbeitserlaubnisunterlagen und offiziellen Dokumenten',
+    'blog.article.salari-lavoro-argovia-guida.title': 'Löhne und Arbeitsmarkt im Aargau: Leitfaden',
+    'blog.article.salari-lavoro-argovia-guida.excerpt': 'Wie funktioniert der Arbeitsmarkt im Kanton Aargau? Löhne, Branchen, Steuern und Beiträge gemäss den schweizerischen eidgenössischen und kantonalen Vorschriften.',
+    'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Modernes Schweizer Büro mit Arbeitnehmer*innen bei der Arbeit, die den Schweizer Arbeitsmarkt repräsentieren.',
 };
 
 export default blogMetaChDe;

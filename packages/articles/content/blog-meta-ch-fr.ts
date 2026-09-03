@@ -5230,6 +5230,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-proroga-appenzello-interno.title': 'Permis L : durée et prolongation en Suisse',
     'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Le permis L de courte durée permet de travailler jusqu\'à 1 an en Suisse. Découvrez comment fonctionne la prolongation, les contraintes de l\'employeur et le passage au permis B.',
     'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Bureau d\'immigration suisse avec dossiers de permis de travail et documents officiels',
+    'blog.article.salari-lavoro-argovia-guida.title': 'Salaires et marché du travail en Argovie : guide',
+    'blog.article.salari-lavoro-argovia-guida.excerpt': 'Comment fonctionne le marché du travail dans le canton d\'Argovie ? Salaires, secteurs, fiscalité et cotisations selon les réglementations fédérales et cantonales suisses.',
+    'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Bureau suisse moderne avec des employés au travail, représentant le marché du travail suisse.',
 };
 
 export default blogMetaChFr;

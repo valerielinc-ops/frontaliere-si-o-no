@@ -5230,6 +5230,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-proroga-appenzello-interno.title': 'Permit L: duration and extension in Switzerland',
     'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'The short-term L permit allows you to work for up to 1 year in Switzerland. Learn how extension works, employer constraints, and the move to B leave.',
     'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Swiss immigration office with work permit files and official documents on desk',
+    'blog.article.salari-lavoro-argovia-guida.title': 'Wages and the labour market in Aargau: a guide',
+    'blog.article.salari-lavoro-argovia-guida.excerpt': 'How does the labour market in the canton of Aargau work? Wages, sectors, taxation and contributions according to Swiss federal and cantonal regulations.',
+    'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Modern Swiss office with employees at work, representing the Swiss labor market.',
 };
 
 export default blogMetaChEn;
