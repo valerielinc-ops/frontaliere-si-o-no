@@ -10982,7 +10982,8 @@
           "infirmier-ere-en-cdd-a-90-flex-hirslanden-lausanne",
           "suivez-nous-hirslanden-lausanne",
           "80-infermiera-in-cdd-hirslanden-klinik-lausanne",
-          "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne"
+          "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne",
+          "poolist-nurse-in-70-cdd-hirslanden-klinik-lausanne"
         ],
         "en": [
           "infirmier-ere-a-80-flex-en-cdd-hirslanden-lausanne",
@@ -11009,10 +11010,10 @@
         "suivez-nous-hirslanden-lausanne",
         "krankenschwester-bei-80-flex-hirslanden-klinik-lausanne",
         "80-infermiera-in-cdd-hirslanden-klinik-lausanne",
-        "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne"
+        "infirmier-ere-a-80-en-cdd-hirslanden-klinik-lausanne",
+        "poolist-nurse-in-70-cdd-hirslanden-klinik-lausanne"
       ],
       "firstSeenAt": "2026-07-16T22:07:47.303Z",
-      "needsRetranslation": true,
       "salaryMin": 69200,
       "salaryMax": 96400,
       "salarySource": "estimated",
@@ -11025,7 +11026,8 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "hirslanden-9cd4c331fa8c",
