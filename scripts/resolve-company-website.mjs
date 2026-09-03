@@ -137,10 +137,9 @@ async function fetchBeforeDeadline(url, method, fetchImpl, deadline, dispatcher)
   }
 }
 
-async function followRedirects(startUrl, method, { fetchImpl, lookupImpl, timeoutMs, dispatcher }) {
+async function followRedirects(startUrl, method, { fetchImpl, lookupImpl, deadline, dispatcher }) {
   let current = startUrl;
   for (let redirectCount = 0; redirectCount <= MAX_REDIRECTS; redirectCount += 1) {
-    const deadline = Date.now() + Math.max(0, Number(timeoutMs) || 0);
     const validated = await finishBeforeDeadline(
       () => validatePublicHttpsUrl(current, lookupImpl),
       deadline,
@@ -207,7 +206,8 @@ export async function resolveCompanyWebsite(domain, {
   const ownsDispatcher = !dispatcher;
   const activeDispatcher = dispatcher || createBoundedPublicDispatcher(lookupImpl, timeoutMs);
   try {
-    const options = { fetchImpl, lookupImpl, timeoutMs, dispatcher: activeDispatcher };
+    const deadline = Date.now() + Math.max(0, Number(timeoutMs) || 0);
+    const options = { fetchImpl, lookupImpl, deadline, dispatcher: activeDispatcher };
     const results = await Promise.all([
       request(`https://${domain}/`, options),
       request(`https://www.${domain}/`, options),
