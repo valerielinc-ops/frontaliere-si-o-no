@@ -11245,6 +11245,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontière de plus de 55 ans : changement de travail et impact AVS-LPP',
     'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Guide pratique pour les frontaliers de plus de 55 ans qui changent d\'employeur. Découvrez comment gérer le permis G, AVS-LPP, la taxe à la source et les restaurations avec le nouvel accord 2024.',
     'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Place centrale de Mendrisio avec les navetteurs frontaliers pendant les heures de pointe du matin',
+    'blog.article.notifica-pagamento-multa-frontaliere.title': 'Amende routière suisse : paiement et recours',
+    'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notification, paiement, recours : voici comment faire face à une amende routière reçue en Suisse par un résident frontalier italien, et les conséquences de l\'inertie.',
+    'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Route suisse avec signalisation routière pour les frontaliers italiani se rendant au travail',
 };
 
 export default blogMetaFr;

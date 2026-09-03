@@ -11243,6 +11243,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontier workers over 55: job change and AVS-LPP impact',
     'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Practical guide for border workers over 55 who change employers. Learn how to manage Permit G, AVS-LPP, tax at source, and rebates with the new 2024 agreement.',
     'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Mendrisio main square with cross-border commuters during morning rush hour',
+    'blog.article.notifica-pagamento-multa-frontaliere.title': 'Swiss traffic fine: payment and appeals',
+    'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notification, payment, appeals: here\'s how to deal with a traffic fine received in Switzerland from an Italian border resident, and the consequences of inertia.',
+    'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Swiss road with traffic signs and speed limit markers, relevant to Italian cross-border commuters',
 };
 
 export default blogMetaEn;
