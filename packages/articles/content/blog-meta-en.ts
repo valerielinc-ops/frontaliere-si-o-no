@@ -11205,6 +11205,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-730-ristorni-2026.title': 'Border tax deductions Italy 2026',
     'blog.article.frontaliere-730-ristorni-2026.excerpt': 'New Frontier Agreement from 2024: how to recover taxes with 730. Exemption €7,500 (old) vs €10,000 (new). Explained returns and tax credit.',
     'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano at the Swiss-Italian border: heart of cross-border work and dual taxation',
+    'blog.article.frontaliere-dichiarazione-730-2026.title': 'Cross-border workers: 730 tax return and tax credit',
+    'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Practical guide to the 730 declaration for border workers 2026: how to obtain the tax credit, avoid double taxation, new deductibles from the New Agreement.',
+    'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Italian tax form 730 with fiscal documents, calculator and Swiss banknotes on wooden desk',
 };
 
 export default blogMetaEn;

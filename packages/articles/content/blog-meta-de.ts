@@ -11204,6 +11204,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-730-ristorni-2026.title': 'Grenzsteuerabzüge Italien 2026',
     'blog.article.frontaliere-730-ristorni-2026.excerpt': 'Neue Frontalieri-Vereinbarung ab 2024: So erhalten Sie die Steuern mit der 730 zurück. Befreiung € 7.500 (alt) vs. € 10.000 (neu). Restaurants und Steuergutschriften erklärt.',
     'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano an der Schweiz-Italien-Grenze: Zentrum der Grenzarbeit und Doppelbesteuerung',
+    'blog.article.frontaliere-dichiarazione-730-2026.title': 'Frontend: Erklärung 730 und Steuergutschrift',
+    'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Ein praktischer Leitfaden zur Abgabe der Steuererklärung 730 für Grenzgänger im Jahr 2026: Wie man die Steuergutschrift erhält, Doppelbesteuerung vermeidet und welche neuen Ausnahmen es im Rahmen des neuen Abkommens gibt.',
+    'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Italienisches Steuerformular 730 mit Dokumenten, Taschenrechner und Schweizer Banknoten auf Schreibtisch',
 };
 
 export default blogMetaDe;
