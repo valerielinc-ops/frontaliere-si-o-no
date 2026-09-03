@@ -1,18 +1,19 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-03T13:45:11.816Z",
+  "generatedAt": "2026-09-03T23:29:45.391Z",
   "total": 9,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15815,
-  "avgDurationMs": 15815,
+  "durationMs": 17802,
+  "avgDurationMs": 17802,
   "durationHistory": [
-    15815
+    17802
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "url": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
       "applyUrl": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
@@ -36,6 +37,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "firstSeenAt": "2026-09-03T13:45:11.813Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
       "_qualityScore": 66,
@@ -45,9 +47,7 @@
         "translation": 8,
         "completeness": 15
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-operator-mfd-0",
       "applyUrl": "https://www.mikron.com/en/warehouse-logistic-operator-mfd-0",
@@ -319,7 +319,7 @@
       "salaryMax": 63000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,

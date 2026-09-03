@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csl-behring",
-  "assembledAt": "2026-09-03T13:45:51.363Z",
+  "assembledAt": "2026-09-03T23:30:22.512Z",
   "jobs": [
     {
       "id": "csl-behring-5aaaad023a0a",
@@ -34,7 +34,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Global-Safety-Lead---Formulation-Safety_R-276125",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:48.296Z",
+      "crawledAt": "2026-09-03T23:30:18.901Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -119,7 +119,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Director--Nonclinical-Due-Diligence---External-Innovation_R-280300",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:47.648Z",
+      "crawledAt": "2026-09-03T23:30:18.090Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -199,7 +199,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Director--Policy--Advocacy-and-Government-Affairs-Switzerland_R-280279-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:47.002Z",
+      "crawledAt": "2026-09-03T23:30:17.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -280,7 +280,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Glbl-Principal-Clinical-Scientist-Cardio_R-283631",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:46.368Z",
+      "crawledAt": "2026-09-03T23:30:16.311Z",
       "addressLocality": "Glattbrugg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-GB-Berkshire-Maidenhead-CSL-Behring/Director--Regional-Ecosystem-Lead--Northern-Europe---UK-_R-279917",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:45.567Z",
+      "crawledAt": "2026-09-03T23:30:15.582Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-Talent-Acquisition-Partner_R-284722",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:44.792Z",
+      "crawledAt": "2026-09-03T23:30:14.717Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -517,7 +517,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director-Device-Engineering_R-284641",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:44.135Z",
+      "crawledAt": "2026-09-03T23:30:13.925Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Vaccines-Safety-Sciences-Lead_R-284072-2",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:43.481Z",
+      "crawledAt": "2026-09-03T23:30:13.148Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -675,7 +675,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Associate-Director--Analytical-Strategy--m-w-x-_R-287031",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:42.850Z",
+      "crawledAt": "2026-09-03T23:30:12.268Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -794,7 +794,8 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "csl-behring-433d27dfd3af",
@@ -883,7 +884,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "csl-behring-21b67a6cbfa3",
@@ -916,7 +918,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-St-Gallen-St-Gallen-CSL-Vifor/Senior-Laboratory-Specialist_R-285780-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:40.677Z",
+      "crawledAt": "2026-09-03T23:30:11.595Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -996,7 +998,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Director--BD-Early-Stage_R-284311",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:40.058Z",
+      "crawledAt": "2026-09-03T23:30:10.844Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1076,7 +1078,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Associate-Director--Global-Knowledge-Management_R-288013",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:39.418Z",
+      "crawledAt": "2026-09-03T23:30:09.975Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1156,7 +1158,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Global-Asset-Integrity---Lifecycle-Lead_R-275462",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:38.752Z",
+      "crawledAt": "2026-09-03T23:30:09.252Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1236,7 +1238,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert---Risk-Management---Technical-Safety--f-m-d-_R-274754",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:45:38.061Z",
+      "crawledAt": "2026-09-03T23:30:08.423Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1313,7 +1315,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Senior-EHS-Expert--f-m-d-_R-274753",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:45:37.350Z",
+      "crawledAt": "2026-09-03T23:30:07.662Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1377,7 +1379,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-PA-King-of-Prussia-CSL-Behring/Clinical-Trial-Supply--CTS--Study-Manager_R-282866",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:36.710Z",
+      "crawledAt": "2026-09-03T23:30:06.916Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1455,7 +1457,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-St-Gallen-St-Gallen-CSL-Vifor/Scientist--Analytical-Science---Method-Transfer_R-287328-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:36.068Z",
+      "crawledAt": "2026-09-03T23:30:06.051Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1519,7 +1521,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Glattbrugg-CSL-Behring/Senior-Director--Search---Evaluation-Late-TA-Lead--Immunology_R-289516-1",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:35.419Z",
+      "crawledAt": "2026-09-03T23:30:05.302Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1599,7 +1601,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-MA-Waltham-CSL-Behring/Director--Search---Evaluation-Early-TA-Lead_R-289512",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:34.721Z",
+      "crawledAt": "2026-09-03T23:30:04.584Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1698,7 +1700,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/Americas-US-MA-Waltham-CSL-Behring/Director--Search---Evaluation-Early-TA-Lead--CVR-and-Haem-_R-289651",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:34.008Z",
+      "crawledAt": "2026-09-03T23:30:03.730Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1778,7 +1780,7 @@
       "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/GRA-CMC-Specialist_R-284584",
       "source": "CSL Behring Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:45:33.254Z",
+      "crawledAt": "2026-09-03T23:30:02.793Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1817,6 +1819,72 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "csl-behring-79440e4adc01",
+      "slug": "global-supply-planner-csl-behring-ch",
+      "slugByLocale": {
+        "en": "global-supply-planner-csl-behring-ch",
+        "it": "global-supply-planner-csl-behring-ch",
+        "de": "global-supply-planner-csl-behring-ch",
+        "fr": "global-supply-planner-csl-behring-ch"
+      },
+      "company": "CSL Behring",
+      "companyKey": "csl-behring",
+      "companyDomain": "cslbehring.com",
+      "title": "Global Supply Planner",
+      "titleByLocale": {
+        "en": "Global Supply Planner",
+        "it": "Global Supply Planner",
+        "de": "Global Supply Planner",
+        "fr": "Global Supply Planner"
+      },
+      "description": "Responsibilities:\n• Responsible for supporting planning activities related to eitehr demand or site supply and global planning functions\n• Prepares operations forecast to align with sales forecast and manages demand or supply forecast for production planning in computerized system\n• Evaluates supply/demand imbalances and implements solutions working closely with Commercial planners regarding product allocation between markets\n• Monitors, manages and reports work in process and finished goods inventory across the entire supply chain, optimizing inventory and service levels\n• Manages coordination of supply for new product launches and product phase-outs, working closely with Commercial Development, regional demand planners and site planning\n• Monitors key performance indicators (KPIs) to measure performance of planning and execution processes\n\nQualifications:\n• Bachelor degree in business, supply chain management or technical field relevant to CSL products\n• 7+ years' experience in supply and demand planning functions\n• American Production and Inventory Control Society (APICS) Certification preferred; Certified Planning Management (CPM) preferred\n• Proficiency in advanced supply chain systems /SAP applications\n\nDifferent qualifications or responsibilities may apply based on local legal and/or educational requirements. Refer to local job documentation where applicable.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest technologies, we discover, develop and deliver innovative therapies for people living with conditions in the immunology, hematology, cardiovascular and metabolic, respiratory, and transplant therapeutic areas. We use three strategic scientific platforms of plasma fractionation, recombinant protein technology, and cell and gene therapy to support continued innovation and continually refine ways in which products can address unmet medical needs and help patients lead full lives.\n\nCSL Behring operates one of the world’s largest plasma collection networks, CSL Plasma. Our parent company, CSL, headquartered in Melbourne, Australia, employs 32,000 people, and delivers its lifesaving therapies to people in more than 100 countries.\nTo learn more about CSL, CSL Behring, CSL Seqirus and CSL Vifor visit https://www.csl.com/ and CSL Plasma at https://www.cslplasma.com/ .\n\nOur Benefits\nFor more information on CSL benefits visit How CSL Supports Your Well-being | CSL .\n\nYou Belong at CSL\nAt CSL, Inclusion and Belonging is at the core of our mission and who we are. It fuels our innovation day in and day out. By celebrating our differences and creating a culture of curiosity and empathy, we are able to better understand and connect with our patients and donors, foster strong relationships with our stakeholders, and sustain a diverse workforce that will move our company and industry into the future.\nTo learn more about inclusion and belonging visit https://www.csl.com/careers/inclusion-and-belonging\n\nEqual Opportunity Employer\nCSL is an Equal Opportunity Employer. If you are an individual with a disability and need a reasonable accommodation for any part of the application process, please visit https://www.csl.com/accessibility-statement .",
+      "descriptionByLocale": {
+        "en": "Responsibilities:\n• Responsible for supporting planning activities related to eitehr demand or site supply and global planning functions\n• Prepares operations forecast to align with sales forecast and manages demand or supply forecast for production planning in computerized system\n• Evaluates supply/demand imbalances and implements solutions working closely with Commercial planners regarding product allocation between markets\n• Monitors, manages and reports work in process and finished goods inventory across the entire supply chain, optimizing inventory and service levels\n• Manages coordination of supply for new product launches and product phase-outs, working closely with Commercial Development, regional demand planners and site planning\n• Monitors key performance indicators (KPIs) to measure performance of planning and execution processes\n\nQualifications:\n• Bachelor degree in business, supply chain management or technical field relevant to CSL products\n• 7+ years' experience in supply and demand planning functions\n• American Production and Inventory Control Society (APICS) Certification preferred; Certified Planning Management (CPM) preferred\n• Proficiency in advanced supply chain systems /SAP applications\n\nDifferent qualifications or responsibilities may apply based on local legal and/or educational requirements. Refer to local job documentation where applicable.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest technologies, we discover, develop and deliver innovative therapies for people living with conditions in the immunology, hematology, cardiovascular and metabolic, respiratory, and transplant therapeutic areas. We use three strategic scientific platforms of plasma fractionation, recombinant protein technology, and cell and gene therapy to support continued innovation and continually refine ways in which products can address unmet medical needs and help patients lead full lives.\n\nCSL Behring operates one of the world’s largest plasma collection networks, CSL Plasma. Our parent company, CSL, headquartered in Melbourne, Australia, employs 32,000 people, and delivers its lifesaving therapies to people in more than 100 countries.\nTo learn more about CSL, CSL Behring, CSL Seqirus and CSL Vifor visit https://www.csl.com/ and CSL Plasma at https://www.cslplasma.com/ .\n\nOur Benefits\nFor more information on CSL benefits visit How CSL Supports Your Well-being | CSL .\n\nYou Belong at CSL\nAt CSL, Inclusion and Belonging is at the core of our mission and who we are. It fuels our innovation day in and day out. By celebrating our differences and creating a culture of curiosity and empathy, we are able to better understand and connect with our patients and donors, foster strong relationships with our stakeholders, and sustain a diverse workforce that will move our company and industry into the future.\nTo learn more about inclusion and belonging visit https://www.csl.com/careers/inclusion-and-belonging\n\nEqual Opportunity Employer\nCSL is an Equal Opportunity Employer. If you are an individual with a disability and need a reasonable accommodation for any part of the application process, please visit https://www.csl.com/accessibility-statement .",
+        "it": "Responsibilities:\n• Responsible for supporting planning activities related to eitehr demand or site supply and global planning functions\n• Prepares operations forecast to align with sales forecast and manages demand or supply forecast for production planning in computerized system\n• Evaluates supply/demand imbalances and implements solutions working closely with Commercial planners regarding product allocation between markets\n• Monitors, manages and reports work in process and finished goods inventory across the entire supply chain, optimizing inventory and service levels\n• Manages coordination of supply for new product launches and product phase-outs, working closely with Commercial Development, regional demand planners and site planning\n• Monitors key performance indicators (KPIs) to measure performance of planning and execution processes\n\nQualifications:\n• Bachelor degree in business, supply chain management or technical field relevant to CSL products\n• 7+ years' experience in supply and demand planning functions\n• American Production and Inventory Control Society (APICS) Certification preferred; Certified Planning Management (CPM) preferred\n• Proficiency in advanced supply chain systems /SAP applications\n\nDifferent qualifications or responsibilities may apply based on local legal and/or educational requirements. Refer to local job documentation where applicable.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest technologies, we discover, develop and deliver innovative therapies for people living with conditions in the immunology, hematology, cardiovascular and metabolic, respiratory, and transplant therapeutic areas. We use three strategic scientific platforms of plasma fractionation, recombinant protein technology, and cell and gene therapy to support continued innovation and continually refine ways in which products can address unmet medical needs and help patients lead full lives.\n\nCSL Behring operates one of the world’s largest plasma collection networks, CSL Plasma. Our parent company, CSL, headquartered in Melbourne, Australia, employs 32,000 people, and delivers its lifesaving therapies to people in more than 100 countries.\nTo learn more about CSL, CSL Behring, CSL Seqirus and CSL Vifor visit https://www.csl.com/ and CSL Plasma at https://www.cslplasma.com/ .\n\nOur Benefits\nFor more information on CSL benefits visit How CSL Supports Your Well-being | CSL .\n\nYou Belong at CSL\nAt CSL, Inclusion and Belonging is at the core of our mission and who we are. It fuels our innovation day in and day out. By celebrating our differences and creating a culture of curiosity and empathy, we are able to better understand and connect with our patients and donors, foster strong relationships with our stakeholders, and sustain a diverse workforce that will move our company and industry into the future.\nTo learn more about inclusion and belonging visit https://www.csl.com/careers/inclusion-and-belonging\n\nEqual Opportunity Employer\nCSL is an Equal Opportunity Employer. If you are an individual with a disability and need a reasonable accommodation for any part of the application process, please visit https://www.csl.com/accessibility-statement .",
+        "de": "Responsibilities:\n• Responsible for supporting planning activities related to eitehr demand or site supply and global planning functions\n• Prepares operations forecast to align with sales forecast and manages demand or supply forecast for production planning in computerized system\n• Evaluates supply/demand imbalances and implements solutions working closely with Commercial planners regarding product allocation between markets\n• Monitors, manages and reports work in process and finished goods inventory across the entire supply chain, optimizing inventory and service levels\n• Manages coordination of supply for new product launches and product phase-outs, working closely with Commercial Development, regional demand planners and site planning\n• Monitors key performance indicators (KPIs) to measure performance of planning and execution processes\n\nQualifications:\n• Bachelor degree in business, supply chain management or technical field relevant to CSL products\n• 7+ years' experience in supply and demand planning functions\n• American Production and Inventory Control Society (APICS) Certification preferred; Certified Planning Management (CPM) preferred\n• Proficiency in advanced supply chain systems /SAP applications\n\nDifferent qualifications or responsibilities may apply based on local legal and/or educational requirements. Refer to local job documentation where applicable.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest technologies, we discover, develop and deliver innovative therapies for people living with conditions in the immunology, hematology, cardiovascular and metabolic, respiratory, and transplant therapeutic areas. We use three strategic scientific platforms of plasma fractionation, recombinant protein technology, and cell and gene therapy to support continued innovation and continually refine ways in which products can address unmet medical needs and help patients lead full lives.\n\nCSL Behring operates one of the world’s largest plasma collection networks, CSL Plasma. Our parent company, CSL, headquartered in Melbourne, Australia, employs 32,000 people, and delivers its lifesaving therapies to people in more than 100 countries.\nTo learn more about CSL, CSL Behring, CSL Seqirus and CSL Vifor visit https://www.csl.com/ and CSL Plasma at https://www.cslplasma.com/ .\n\nOur Benefits\nFor more information on CSL benefits visit How CSL Supports Your Well-being | CSL .\n\nYou Belong at CSL\nAt CSL, Inclusion and Belonging is at the core of our mission and who we are. It fuels our innovation day in and day out. By celebrating our differences and creating a culture of curiosity and empathy, we are able to better understand and connect with our patients and donors, foster strong relationships with our stakeholders, and sustain a diverse workforce that will move our company and industry into the future.\nTo learn more about inclusion and belonging visit https://www.csl.com/careers/inclusion-and-belonging\n\nEqual Opportunity Employer\nCSL is an Equal Opportunity Employer. If you are an individual with a disability and need a reasonable accommodation for any part of the application process, please visit https://www.csl.com/accessibility-statement .",
+        "fr": "Responsibilities:\n• Responsible for supporting planning activities related to eitehr demand or site supply and global planning functions\n• Prepares operations forecast to align with sales forecast and manages demand or supply forecast for production planning in computerized system\n• Evaluates supply/demand imbalances and implements solutions working closely with Commercial planners regarding product allocation between markets\n• Monitors, manages and reports work in process and finished goods inventory across the entire supply chain, optimizing inventory and service levels\n• Manages coordination of supply for new product launches and product phase-outs, working closely with Commercial Development, regional demand planners and site planning\n• Monitors key performance indicators (KPIs) to measure performance of planning and execution processes\n\nQualifications:\n• Bachelor degree in business, supply chain management or technical field relevant to CSL products\n• 7+ years' experience in supply and demand planning functions\n• American Production and Inventory Control Society (APICS) Certification preferred; Certified Planning Management (CPM) preferred\n• Proficiency in advanced supply chain systems /SAP applications\n\nDifferent qualifications or responsibilities may apply based on local legal and/or educational requirements. Refer to local job documentation where applicable.\n\nAbout CSL Behring\nCSL Behring is a global biotherapeutics leader driven by our promise to save lives. Focused on serving patients’ needs by using the latest technologies, we discover, develop and deliver innovative therapies for people living with conditions in the immunology, hematology, cardiovascular and metabolic, respiratory, and transplant therapeutic areas. We use three strategic scientific platforms of plasma fractionation, recombinant protein technology, and cell and gene therapy to support continued innovation and continually refine ways in which products can address unmet medical needs and help patients lead full lives.\n\nCSL Behring operates one of the world’s largest plasma collection networks, CSL Plasma. Our parent company, CSL, headquartered in Melbourne, Australia, employs 32,000 people, and delivers its lifesaving therapies to people in more than 100 countries.\nTo learn more about CSL, CSL Behring, CSL Seqirus and CSL Vifor visit https://www.csl.com/ and CSL Plasma at https://www.cslplasma.com/ .\n\nOur Benefits\nFor more information on CSL benefits visit How CSL Supports Your Well-being | CSL .\n\nYou Belong at CSL\nAt CSL, Inclusion and Belonging is at the core of our mission and who we are. It fuels our innovation day in and day out. By celebrating our differences and creating a culture of curiosity and empathy, we are able to better understand and connect with our patients and donors, foster strong relationships with our stakeholders, and sustain a diverse workforce that will move our company and industry into the future.\nTo learn more about inclusion and belonging visit https://www.csl.com/careers/inclusion-and-belonging\n\nEqual Opportunity Employer\nCSL is an Equal Opportunity Employer. If you are an individual with a disability and need a reasonable accommodation for any part of the application process, please visit https://www.csl.com/accessibility-statement ."
+      },
+      "needsRetranslation": true,
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Global-Supply-Planner_R-288290",
+      "source": "CSL Behring Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T23:30:01.806Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Biotech / Farmaceutico",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://csl.wd1.myworkdayjobs.com/en-US/CSL_External/job/EMEA-CH-Kanton-Bern-Bern-CSL-Behring/Global-Supply-Planner_R-288290",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "jobReqId": "Regular",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:30:01.806Z"
     }
   ]
 }
