@@ -2770,6 +2770,11 @@ Règles :
  'consultingCta.article.button': 'Réserver une consultation',
 
  // v3.71.0 — calculateur boosté
+ 'whatsNew.v3961.title': 'Mises à jour pour une meilleure expérience utilisateur',
+ 'whatsNew.v3961.seo.title': 'Nom de l\'auteur de l\'article corrigé',
+ 'whatsNew.v3961.seo.desc': 'Vous verrez désormais le nom correct de l\'auteur de l\'article, et non plus \'Redazione\'. Cela améliore la clarté et la transparence.',
+ 'whatsNew.v3961.blog.title': 'Les articles écrits par des humains ne sont plus étiquetés comme AI',
+ 'whatsNew.v3961.blog.desc': 'Les articles écrits par des humains ne seront plus étiquetés comme \'AI-drafted\'. Cela évite la confusion et garantit que vous savez qui a écrit l\'article.',
  'whatsNew.v3951.title': 'Améliorations internes et stabilité',
  'whatsNew.v3951.email.title': 'Envoi d\'e-mails plus fiable',
  'whatsNew.v3951.email.desc': 'Nous avons renforcé le contrôle des quotas du fournisseur d\'e-mails afin de ne pas dépasser les limites, même lorsque plusieurs notifications partent ensemble.',
