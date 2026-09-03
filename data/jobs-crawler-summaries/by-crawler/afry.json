@@ -1,18 +1,19 @@
 {
   "key": "afry",
   "label": "AFRY",
-  "generatedAt": "2026-09-03T13:42:38.138Z",
+  "generatedAt": "2026-09-03T23:17:57.898Z",
   "total": 66,
-  "newCount": 2,
-  "updatedCount": 64,
+  "newCount": 0,
+  "updatedCount": 66,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 145812,
-  "avgDurationMs": 145812,
+  "durationMs": 116802,
+  "avgDurationMs": 116802,
   "durationHistory": [
-    145812
+    116802
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Ingénieur-e Orientation Eaux et eaux usée (f/h/d) 80-100% - Lausanne",
       "slug": "ingenieur-e-orientation-eaux-et-eaux-usee-f-h-d-80-100-lausanne-afry-lausanne",
@@ -35,12 +36,19 @@
       "validThrough": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 68,
+      "id": "afry-6c61f6ca525a",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:42:38.118Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
     },
     {
@@ -65,16 +73,21 @@
       "validThrough": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 68,
+      "id": "afry-bdc832a7bb95",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:42:38.118Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Initiativbewerbung Energy",
       "slug": "initiativbewerbung-energy-afry-zurich",
@@ -103,7 +116,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:31:23.660Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -215,7 +227,6 @@
       "postalCode": "8001",
       "firstSeenAt": "2026-07-01T21:43:04.412Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -252,7 +263,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-25T21:46:23.162Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1084,78 +1094,6 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-13T22:46:01.997Z",
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Projektleiter:in Tief- und Strassenbau 60-100% - Zürich",
-      "slug": "projektleiter-in-tief-und-strassenbau-60-100-zurich-afry-zurich",
-      "url": "https://afry.com/en/career/available-jobs/REF15190U-projektleiterin-tief-und-strassenbau-60-100-zurich",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000136235504-projektleiter-in-tief-und-strassenbau-60-100-zurich?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-03",
-      "validThrough": "2026-07-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-43a8b13762bb",
-      "salaryMin": 113500,
-      "salaryMax": 172000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-07T22:36:38.446Z",
-      "salarySource": "estimated",
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Junior Projektleiter:in Tiefbau / Strassenbau 80-100% - Zürich",
-      "slug": "junior-projektleiter-in-tiefbau-strassenbau-80-100-zurich-afry-zurich",
-      "url": "https://afry.com/en/career/available-jobs/REF15189T-junior-projektleiterin-tiefbau-strassenbau-80-100-zurich",
-      "applyUrl": "https://jobs.smartrecruiters.com/AFRY/744000136235039-junior-projektleiter-in-tiefbau-strassenbau-80-100-zurich?oga=true",
-      "company": "AFRY",
-      "companyKey": "afry",
-      "companyDomain": "afry.com",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Ingegneria & Consulenza",
-      "source": "afry-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-03",
-      "validThrough": "2026-07-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "afry-2dfe594f65dc",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-07T22:36:38.446Z",
       "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
