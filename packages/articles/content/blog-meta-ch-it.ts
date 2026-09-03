@@ -5272,6 +5272,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-benzina-spingono-inflazione.title': 'L\'inflazione torna a salire dopo 4 mesi',
     'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'Ad agosto l\'inflazione svizzera è al 0,8%, dopo quattro mesi di cali. Affitti e benzina tra le cause. La Banca nazionale monitora con attenzione.',
     'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'Un economista analizza grafici di inflazione e indice dei prezzi al consumo, con vista su Berna di sfondo.',
+    'blog.article.pil-q2-2026-industria-forte.title': 'PIL Q2 2026: +1,5% trimestrale, crescita industria',
+    'blog.article.pil-q2-2026-industria-forte.excerpt': 'Nel Q2 2026 il PIL svizzero cresce dell\'1,5% al netto degli eventi sportivi, più forte dal 2021. Spinta dall\'industria chimico-farmaceutica (+10,5%) e rimbalzo della domanda interna.',
+    'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Grattacieli del distretto finanziario svizzero con grafici di crescita economica su schermo digitale',
 };
 
 export default blogMetaChIt;

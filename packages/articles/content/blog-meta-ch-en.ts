@@ -5272,6 +5272,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-benzina-spingono-inflazione.title': 'Inflation rises again after 4 months',
     'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'In August, Swiss inflation was at 0.8%, after four months of declines. Rent and gasoline among the causes. The National Bank monitors carefully.',
     'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'An economist analyzes inflation charts and consumer price index data with Bern cityscape in background.',
+    'blog.article.pil-q2-2026-industria-forte.title': 'Q2 GDP 2026: +1.5% quarterly, industry growth',
+    'blog.article.pil-q2-2026-industria-forte.excerpt': 'In Q2 2026, Swiss GDP grew by 1.5% net of sporting events, the strongest since 2021. Boosted by the chemical-pharmaceutical industry (+10.5%) and rebound in domestic demand.',
+    'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Swiss financial district skyscrapers with economic growth charts on digital display',
 };
 
 export default blogMetaChEn;
