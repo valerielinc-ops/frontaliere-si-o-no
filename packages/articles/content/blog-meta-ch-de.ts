@@ -5305,6 +5305,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-pil-crescita-2026-rialzo.title': 'UBS korrigiert Wachstum 2026 nach oben: +1,8%',
     'blog.article.ubs-pil-crescita-2026-rialzo.excerpt': 'UBS revidiert das Schweizer BIP 2026 von +0,7% auf +1,8%. Inflation August 0,8%, Schätzungen 2026-2027 stabil bei 0,6%. Was ändert sich bei Löhnen und Lebenshaltungskosten?',
     'blog.article.ubs-pil-crescita-2026-rialzo.imageAlt': 'Luftaufnahme des Wirtschaftszentrums Bellinzona mit modernen Bürogebäuden, Symbol für Schweizer Wirtschaftswachstum.',
+    'blog.article.seco-ampia-base-crescita.title': 'Trocken: Q2-Wachstum, kein Boom, sondern real',
+    'blog.article.seco-ampia-base-crescita.excerpt': 'BIP Schweiz +1,5% im Q2 2026. TROCKEN bremst den Boom, aber das Wachstum nimmt zu und die Binnennachfrage erholt sich. Jährliche Prognosen werden in zwei Wochen überprüft.',
+    'blog.article.seco-ampia-base-crescita.imageAlt': 'Blick auf den Luganersee mit Skyline des Schweizer Wirtschaftszentrums',
 };
 
 export default blogMetaChDe;

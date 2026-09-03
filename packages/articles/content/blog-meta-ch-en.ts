@@ -5305,6 +5305,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-pil-crescita-2026-rialzo.title': 'UBS corrects growth upwards 2026: +1.8%',
     'blog.article.ubs-pil-crescita-2026-rialzo.excerpt': 'UBS revises Swiss GDP 2026 from +0.7% to +1.8%. Inflation August 0.8%, estimates 2026-2027 stable at 0.6%. What changes for wages and cost of living.',
     'blog.article.ubs-pil-crescita-2026-rialzo.imageAlt': 'Aerial view of Bellinzona\'s business district with modern office buildings representing Switzerland\'s economic growth.',
+    'blog.article.seco-ampia-base-crescita.title': 'DRY: Q2 growth, it\'s not boom but real',
+    'blog.article.seco-ampia-base-crescita.excerpt': 'Swiss GDP +1.5% in Q2 2026. SECO slows down on boom, but enlarged growth and domestic demand recovers. Annual forecasts under review in two weeks.',
+    'blog.article.seco-ampia-base-crescita.imageAlt': 'Panoramic view of Lake Lugano with financial district skyline of Switzerland',
 };
 
 export default blogMetaChEn;
