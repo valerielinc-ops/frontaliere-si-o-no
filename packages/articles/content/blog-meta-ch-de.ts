@@ -5281,6 +5281,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.petizione-delocalizzazioni-svizzera.title': 'Petition gegen Standortverlagerung von Post und Swisscom',
     'blog.article.petizione-delocalizzazioni-svizzera.excerpt': 'Transfair lanciert eine Petition, um die Verlagerung von Arbeitsplätzen und Know-how ins Ausland durch die Post und Swisscom zu stoppen.',
     'blog.article.petizione-delocalizzazioni-svizzera.imageAlt': 'Luftaufnahme von Bellinzona, Schweiz, mit historischen Schlössern und moderner Infrastruktur.',
+    'blog.article.salari-svizzera-2026-inflazione.title': 'Löhne in der Schweiz: 0,4% mehr im Jahr 2026, aber Inflation höher',
+    'blog.article.salari-svizzera-2026-inflazione.excerpt': 'Die Nominallöhne in der Schweiz werden 2026 um 0,4% steigen, aber die prognostizierte Inflation könnte diesen Vorteil zunichte machen.',
+    'blog.article.salari-svizzera-2026-inflazione.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaChDe;

@@ -68543,6 +68543,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-svizzera-2026-inflazione': {
+    title: 'Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l\'inflazione sarà più alta',
+    description: 'I salari nominali in Svizzera aumenteranno dello 0,4% nel 2026, ma l\'inflazione prevista potrebbe annullare questo beneficio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, aumento, dello, inflazione',
+    ogTitle: 'Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l\'inflazione sarà più alta',
+    ogDescription: 'Scopri come l\'aumento dei salari nominali dello 0,4% in Svizzera nel 2026 potrebbe essere annullato dall\'inflazione prevista, che si attesterà tra lo 0,4% e lo 0,8%.',
+    canonicalPath: '/articoli-svizzera/salari-svizzera-2026-inflazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l'inflazione sarà più alta",
+      "description": "I salari nominali in Svizzera aumenteranno dello 0,4% nel 2026, ma l'inflazione prevista potrebbe annullare questo beneficio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-svizzera-2026-inflazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo."
+      },
+      "datePublished": "2026-09-03T11:50:43+00:00",
+      "dateModified": "2026-09-03T11:50:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-svizzera-2026-inflazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
