@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Agent, fetch as undiciFetch } from 'undici';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './lib/dns-lookup-gate.mjs';
 import {
   createPublicConnectionLookup,
   isPrivateOrLocalAddress,
@@ -208,10 +209,14 @@ export async function resolveCompanyWebsite(domain, {
 } = {}) {
   if (!domain) return null;
   const ownsDispatcher = !dispatcher;
-  const activeDispatcher = dispatcher || createBoundedPublicDispatcher(lookupImpl, timeoutMs);
+  // A caller-supplied dispatcher (the batch path in `resolveCompanyWebsites`)
+  // already wires a gated `lookupImpl` consistently across the whole run;
+  // only a standalone call needs its own gate, scoped to itself.
+  const boundedLookupImpl = ownsDispatcher ? gateLookup(lookupImpl, MAX_CONCURRENT_LOOKUPS) : lookupImpl;
+  const activeDispatcher = dispatcher || createBoundedPublicDispatcher(boundedLookupImpl, timeoutMs);
   try {
     const deadline = Date.now() + Math.max(0, Number(timeoutMs) || 0);
-    const options = { fetchImpl, lookupImpl, deadline, dispatcher: activeDispatcher };
+    const options = { fetchImpl, lookupImpl: boundedLookupImpl, deadline, dispatcher: activeDispatcher };
     const results = await Promise.all([
       request(`https://${domain}/`, options),
       request(`https://www.${domain}/`, options),
@@ -241,8 +246,14 @@ export async function resolveCompanyWebsites(companies, options = {}) {
   const concurrency = Math.min(MAX_DOMAIN_CONCURRENCY, Math.max(1, requestedConcurrency), selected.length);
   const entries = Array(selected.length);
   const ownsDispatcher = !options.dispatcher;
+  // Gate once for the whole batch: shared across every domain/worker so a
+  // stalled DNS lookup on company N throttles company N+1 instead of piling
+  // up unboundedly as the queue grows (#7149 item 3).
+  const sharedLookupImpl = ownsDispatcher
+    ? gateLookup(options.lookupImpl || lookup, MAX_CONCURRENT_LOOKUPS)
+    : (options.lookupImpl || lookup);
   const dispatcher = options.dispatcher || createBoundedPublicDispatcher(
-    options.lookupImpl || lookup,
+    sharedLookupImpl,
     options.timeoutMs ?? DEFAULT_TIMEOUT_MS,
   );
   let cursor = 0;
@@ -251,7 +262,10 @@ export async function resolveCompanyWebsites(companies, options = {}) {
       const index = cursor;
       cursor += 1;
       const domain = selected[index];
-      entries[index] = [domain, await resolveCompanyWebsite(domain, { ...options, dispatcher })];
+      entries[index] = [
+        domain,
+        await resolveCompanyWebsite(domain, { ...options, lookupImpl: sharedLookupImpl, dispatcher }),
+      ];
     }
   }
   try {
