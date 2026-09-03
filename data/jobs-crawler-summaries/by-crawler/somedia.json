@@ -1,7 +1,7 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-09-03T13:43:48.227Z",
+  "generatedAt": "2026-09-03T23:24:28.388Z",
   "total": 5,
   "discovered": null,
   "written": 5,
@@ -9,10 +9,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10375,
-  "avgDurationMs": 10375,
+  "durationMs": 9948,
+  "avgDurationMs": 9948,
   "durationHistory": [
-    10375
+    9948
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:40.932Z",
+      "crawledAt": "2026-09-03T23:24:21.678Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -71,7 +71,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j412.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:39.790Z",
+      "crawledAt": "2026-09-03T23:24:20.590Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -92,6 +92,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia Production AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:32:05.410Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -113,7 +114,7 @@
       "url": "https://jobs.somedia.ch/Fachperson-Personalentwicklung-Kultur-100-de-j407.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:43.846Z",
+      "crawledAt": "2026-09-03T23:24:24.468Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -134,6 +135,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:44:33.146Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -155,7 +157,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:41.809Z",
+      "crawledAt": "2026-09-03T23:24:22.532Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -176,6 +178,7 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:08:48.087Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -197,7 +200,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:43:42.682Z",
+      "crawledAt": "2026-09-03T23:24:23.360Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -218,6 +221,7 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
