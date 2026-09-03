@@ -5245,6 +5245,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-interno-ch.title': 'Apprentissage et formation Appenzell Interne : le guide',
     'blog.article.apprendistato-formazione-interno-ch.excerpt': 'Comment trouver un stage dans le canton d\'Appenzell, signer le contrat d\'apprentissage, connaître le salaire minimum, les cotisations sociales et accéder à la maturité professionnelle.',
     'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Atelier d\'apprentissage professionnel en Suisse: apprenti en formation pratique avec outils et machines modernes',
+    'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : hypothèque et taxes',
+    'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guide d\'achat d\'un bien immobilier à Appenzell Interne. Analyse des coûts, taxes de passage, frais de notaire, hypothèque et viabilité financière.',
+    'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Maison suisse résidentielle avec documents hypothécaires, représentant l\'achat immobiliare et le financement.',
 };
 
 export default blogMetaChFr;

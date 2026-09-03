@@ -5245,6 +5245,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-interno-ch.title': 'Apprendistato e formazione Appenzello Interno: la guida',
     'blog.article.apprendistato-formazione-interno-ch.excerpt': 'Come trovare un tirocinio nel Cantone Appenzello Interno, sottoscrivere il contratto di apprendista, conoscere la retribuzione minima, i contributi sociali e accedere alla maturità professionale.',
     'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Laboratorio di tirocinio professionale in Svizzera: apprendista al lavoro con attrezzi e macchinari moderni in aula di formazione',
+    'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Comprare casa ad Appenzello Interno: mutuo e imposte',
+    'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guida all\'acquisto di un immobile in Appenzello Interno. Analisi di costi, imposte sui trapassi, spese notarili, mutuo ipotecario e sostenibilità finanziaria.',
+    'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Una casa svizzera moderna con documenti ipotecari su tavolo, rappresenta l\'acquisto immobiliare e il mutuo.',
 };
 
 export default blogMetaChIt;

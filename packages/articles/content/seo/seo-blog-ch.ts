@@ -68075,6 +68075,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mutuo-ipotecario-appenzello-interno': {
+    title: 'Comprare casa ad Appenzello Interno: mutuo e imposte',
+    description: 'Guida all\'acquisto di un immobile in Appenzello Interno. Analisi di costi, imposte sui trapassi, spese notarili, mutuo ipotecario e sostenibilità finanziaria.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, appenzello, interno',
+    ogTitle: 'Comprare casa ad Appenzello Interno: mutuo e imposte',
+    ogDescription: 'Acquistare immobili in Appenzello Interno: guida completa a prezzi, mutui ipotecari, imposte federali e cantonali, spese notarili e criteri di solvibilità finanziaria per i compratori in Svizzera.',
+    canonicalPath: '/articoli-svizzera/mutuo-ipotecario-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa ad Appenzello Interno: mutuo e imposte",
+      "description": "Guida all'acquisto di un immobile in Appenzello Interno. Analisi di costi, imposte sui trapassi, spese notarili, mutuo ipotecario e sostenibilità finanziaria.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mutuo-ipotecario-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una casa svizzera moderna con documenti ipotecari su tavolo, rappresenta l'acquisto immobiliare e il mutuo."
+      },
+      "datePublished": "2026-09-03T04:12:57+00:00",
+      "dateModified": "2026-09-03T04:12:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mutuo-ipotecario-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
