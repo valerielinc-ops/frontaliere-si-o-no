@@ -5323,6 +5323,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-lucerna.title': 'Apprentissage et formation professionnelle : guide Lucerne',
     'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'Comment trouver un stage dans le canton de Lucerne, souscrire un contrat d\'apprentissage, comprendre la rémunération et atteindre la maturité professionnelle.',
     'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Classe de formation professionnelle dans une école suisse avec des apprentis travaillant sur des équipements techniques',
+    'blog.article.riserve-naturali-siccita-estate-2024.title': 'Réserves naturelles mises à rude épreuve par la sécheresse',
+    'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'La sécheresse estivale a durement frappé les marais suisses, avec des niveaux d\'eau descendus à des niveaux critiques dans de nombreuses régions.',
+    'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Zones humides suisses pendant une sévère sécheresse estivale, avec une végétation clairsemée et des cours d\'eau asséchés.',
 };
 
 export default blogMetaChFr;
