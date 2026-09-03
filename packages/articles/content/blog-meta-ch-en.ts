@@ -5296,6 +5296,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lista-nera-asili-nidi-svizzera.title': 'Nurseries: Parliament requests blacklist for staff',
     'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Cross-cutting motion to the Federal Council to prevent childcare abuse. The government stalls and promises a report by the end of 2027.',
     'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Modern Swiss neighborhood with childcare facilities representing child safety in daycare centers',
+    'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC under the scrutiny of family doctors',
+    'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe criticizes the new tariff: rising outpatient costs, family medicine without revaluation. The risk to access to basic care.',
+    'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Family doctor consulting with patient in Swiss medical office regarding TARDOC tariff reforms and primary care valuation',
 };
 
 export default blogMetaChEn;

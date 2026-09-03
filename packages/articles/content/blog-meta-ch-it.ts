@@ -5296,6 +5296,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.lista-nera-asili-nidi-svizzera.title': 'Asili nidi: Parlamento chiede lista nera per il personale',
     'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027.',
     'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Quartiere moderno in Svizzera con strutture di accoglienza per bambini, simbolo della sicurezza negli asili nidi',
+    'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC sotto il tiro di medici di famiglia',
+    'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe critica il nuovo tariffario: costi ambulatoriali in aumento, medicina di famiglia senza rivalutazione. Il rischio per l\'accesso alle cure di base.',
+    'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Medico di famiglia in consulto con paziente in ambulatorio svizzero, tema TARDOC e critiche sulla rivalutazione delle cure primarie',
 };
 
 export default blogMetaChIt;
