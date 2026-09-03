@@ -11215,6 +11215,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-03.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 3. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-03.seoDescription': 'Grenzgänger-Bulletin vom 3. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-03.ogDescription': 'Die Zahlen vom 3. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Wohnungsbaudarlehen in der Schweiz für Grenzgänger',
+    'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Ein Haus in der Schweiz als Grenzgänger zu kaufen ist möglich. Hier sind die Voraussetzungen, Banken und Verfahren, um ein Hypothekendarlehen im Tessin und in den Grenzregionen zu erhalten.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Ein modernes Haus mit Blick auf den Luganer See und die Tessiner Berge',
 };
 
 export default blogMetaDe;

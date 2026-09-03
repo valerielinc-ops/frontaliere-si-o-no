@@ -11218,6 +11218,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-03.imageAlt': 'Les chiffres du jour pour les frontaliers – 3 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-03.seoDescription': 'Bulletin du frontalier du 3 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-03.ogDescription': 'Les chiffres du 3 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Prêt maison en Suisse pour frontaliers',
+    'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Acheter une maison en Suisse auprès d\'un frontalier est possible. Voici les exigences, les banques et les procédures pour obtenir un prêt hypothécaire au Tessin et dans les régions frontalières.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Une maison moderne surplombant le lac Lugano et les montagnes tessinoises',
 };
 
 export default blogMetaFr;

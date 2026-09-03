@@ -83882,6 +83882,44 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-mutuo-banche-svizzera': {
+    title: 'Mutuo casa in Svizzera per frontalieri | Frontaliere Ticino',
+    description: 'Acquistare casa in Svizzera da frontaliere è possibile. Ecco requisiti, banche e procedure per ottenere un mutuo ipotecario in Ticino e nelle regioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, mutuo, casa, acquistare, possibile',
+    ogTitle: 'Mutuo casa in Svizzera per frontalieri',
+    ogDescription: 'Acquistare casa in Svizzera da frontaliere è possibile. Ecco requisiti, banche e procedure per ottenere un mutuo ipotecario in Ticino e nelle regioni di confine.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-mutuo-banche-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mutuo casa in Svizzera per frontalieri",
+      "description": "Acquistare casa in Svizzera da frontaliere è possibile. Ecco requisiti, banche e procedure per ottenere un mutuo ipotecario in Ticino e nelle regioni",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-mutuo-banche-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una casa moderna con vista sul Lago di Lugano e sulle montagne ticinesi"
+      },
+      "datePublished": "2026-09-03T09:47:47+00:00",
+      "dateModified": "2026-09-03T09:47:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-mutuo-banche-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_SEO_METADATA_5;

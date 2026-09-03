@@ -33510,6 +33510,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'frontaliere-mutuo-banche-svizzera',
+ category: 'pratico',
+ date: '2026-09-03T09:47:47.149Z',
+ image: '/images/blog/frontaliere-mutuo-banche-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

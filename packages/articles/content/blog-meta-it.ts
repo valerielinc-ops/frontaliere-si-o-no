@@ -11217,6 +11217,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-03.imageAlt': 'I numeri del giorno per i frontalieri – 3 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-03.seoDescription': 'Bollettino frontalieri del 3 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-03.ogDescription': 'I numeri del 3 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Mutuo casa in Svizzera per frontalieri',
+    'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Acquistare casa in Svizzera da frontaliere è possibile. Ecco requisiti, banche e procedure per ottenere un mutuo ipotecario in Ticino e nelle regioni di confine.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Una casa moderna con vista sul Lago di Lugano e sulle montagne ticinesi',
 };
 
 export default blogMetaIt;

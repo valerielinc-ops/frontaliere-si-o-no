@@ -11216,6 +11216,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-03.imageAlt': 'The day\'s numbers for cross-border commuters – September 3, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-03.seoDescription': 'Cross-border brief, September 3, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-03.ogDescription': 'The numbers for September 3, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Home loan in Switzerland for frontier workers',
+    'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Buying a house in Switzerland from a border agent is possible. Here are requirements, banks and procedures to obtain a mortgage loan in Ticino and border regions.',
+    'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'A modern house overlooking Lake Lugano and Ticino mountains at sunrise',
 };
 
 export default blogMetaEn;
