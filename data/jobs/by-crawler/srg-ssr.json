@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-02T23:09:32.033Z",
+  "assembledAt": "2026-09-03T13:35:52.653Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:09:27.435Z",
+      "crawledAt": "2026-09-03T13:35:36.925Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:09:26.506Z",
+      "crawledAt": "2026-09-03T13:35:36.320Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -160,7 +169,7 @@
       "id": "srg-ssr-d9ec5b9a657a",
       "slug": "service-operator-srg-ssr-bern",
       "slugByLocale": {
-        "it": "operatore-di-servizio-srg-ssr-bern",
+        "it": "service-operator-srg-ssr-bern",
         "en": "service-operator-srg-ssr-bern",
         "de": "service-operator-srg-ssr-bern",
         "fr": "operateur-de-service-srg-ssr-bern"
@@ -170,7 +179,7 @@
       "companyDomain": "srgssr.ch",
       "title": "Service Operator",
       "titleByLocale": {
-        "it": "Operatore di servizio",
+        "it": "Service Operator",
         "en": "Service",
         "de": "Service Operator",
         "fr": "Opérateur de Service"
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/service-operator/b7aea4ab-5915-4645-a639-79a98c2543ff",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:25.930Z",
+      "crawledAt": "2026-09-03T13:35:35.732Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -251,6 +260,15 @@
         "pensumMax": 80
       },
       "firstSeenAt": "2026-06-29T11:35:27.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operatore-di-servizio-srg-ssr-bern"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-di-servizio-srg-ssr-bern"
+      ],
+      "needsRetranslation": true,
       "salaryMin": 71500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -297,7 +315,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-veranstaltungsfachmann-fachfrau-efz/6ceb5b23-a763-4947-88be-2df9ce20cca3",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:25.393Z",
+      "crawledAt": "2026-09-03T13:35:35.070Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -333,14 +351,18 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich"
         ],
         "it": [
-          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+          "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+          "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
         ]
       },
       "previousSlugs": [
-        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich"
+        "grundausbildung-als-veranstaltungsfachmann-fachfrau-efz-srg-ssr-zurich",
+        "grundbildung-als-veranstaltungsfachmann-frau-efz-srg-ssr-zurich",
+        "grundbildung-come-veranstaltungsfachmann-frau-cfc-srg-ssr-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:37:04.179Z",
@@ -390,7 +412,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:24.852Z",
+      "crawledAt": "2026-09-03T13:35:34.361Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -425,11 +447,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
@@ -483,7 +507,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:24.299Z",
+      "crawledAt": "2026-09-03T13:35:33.695Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -582,7 +606,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:09:23.567Z",
+      "crawledAt": "2026-09-03T13:35:33.021Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -619,11 +643,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -633,6 +659,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -679,7 +706,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:22.832Z",
+      "crawledAt": "2026-09-03T13:35:29.949Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -718,11 +745,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -779,7 +808,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:22.130Z",
+      "crawledAt": "2026-09-03T13:35:20.996Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -818,11 +847,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -847,89 +878,6 @@
         }
       },
       "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-4d93aa82d500",
-      "slug": "praktikant-in-news-inland-srg-ssr-zurich",
-      "slugByLocale": {
-        "it": "praktikant-in-news-inland-srg-ssr-zurich",
-        "en": "praktikant-in-news-inland-srg-ssr-zurich",
-        "de": "praktikant-in-news-inland-srg-ssr-zurich",
-        "fr": "stagiaire-dans-news-inland-srg-ssr-zurich"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Praktikant:in News Inland",
-      "titleByLocale": {
-        "it": "Interno: in News Inland",
-        "en": "Intern: in News Inland",
-        "de": "Praktikant:in News Inland",
-        "fr": "Stagiaire: dans News Inland"
-      },
-      "description": "Was sind Ihre Aufgaben? Die TV-Redaktion Inland im SRF Newsroom beliefert die tagesaktuellen TV-Sendungen \"Schweiz aktuell\", \"Tagesschau\" und \"10vor10\" mit TV-Berichten aus der Schweiz. Für unsere Redaktion suchen wir ab dem 4. Januar 2027 zwei Praktikant:innen für die Dauer von sechs Monaten (bis 30. Juni 2027). Dabei erwarten Sie folgende Aufgaben:\n• Sie arbeiten im SRF Newsroom und unterstützen erfahrene TV-Journalist:innen\n• Sie übernehmen Abklärungen und Recherchen und bringen sich mit eigenen Ideen ein\n• Sie führen selbstständig TV-Interviews\n• Sie adaptieren TV-Beiträge von RTS/RSI/RTR für SRF und setzen nach Möglichkeit TV-Beiträge eigenhändig um Was bringen Sie mit?\n• Offenheit und Freude an journalistischen Fragestellungen - hohe Eigenständigkeit, Hartnäckigkeit und Ausdauer\n• Erste Erfahrung im journalistischen Handwerk auf einer Redaktion (Print, Online, Radio oder TV)\n• Grosses Interesse an Innenpolitik, an der Funktionsweise der Schweiz und an Alltagsthemen\n• Begeisterung für das Erzählen in Bildern und das Fernsehhandwerk (auch, was die technischen Belange betrifft, allenfalls VJ-Erfahrung) Worauf können Sie sich freuen?\n• Mitarbeit im News-Alltag, im grössten bimedialen Newsroom der Schweiz\n• Grundlagen des TV-Handwerks erlernen, auch mittels Einführungskursen\n• Weiterbildung im Umgang mit Newsthemen, Entwicklung von Inhalten und von Recherchen\n• Möglichkeit zur Umsetzung eigener TV-Beiträge zum Bewerbungsprozess Leyla Hausammann Spezialistin HR-Administration +41 58 135 05 32 Die Abteilung Information produziert zahlreiche Angebote für Audio, Video und die digitalen Kanäle von SRF. Mit vielseitigen News- und Hintergrundformaten sowie einordnenden Diskussions- und Ratgebersendungen zum aktuellen Geschehen in Politik, Wirtschaft und Gesellschaft erleichtert SRF dem Publikum dessen Meinungsbildung – informativ, kompetent und unabhängig.",
-      "descriptionByLocale": {
-        "it": "Quali sono i tuoi compiti? L'équipe editoriale della SRF Newsroom fornisce l'attuale serie TV \"Switzerland aktuell\", \"Tagesschau\" e \"10vor10\" con rapporti televisivi dalla Svizzera. Per il nostro editoriale stiamo guardando dal 4. Gennaio 2027 due tirocinanti: donne per un periodo di sei mesi (fino al 30 giugno 2027). Ti aspetti i seguenti compiti:\n• Lavori nella sala stampa SRF e supporti giornalisti TV esperti:\n• Accetti chiarimenti e ricerche e contribuisci con le tue idee\n• Conducono in modo indipendente interviste TV\n• Adattare i contributi TV da RTS/RSI/RTR per SRF e, se possibile, mettere i contributi TV da soli Cosa porti?\n• Apertura e gioia nelle domande giornalistiche - alta indipendenza, tenacia e perseveranza\n• Prima esperienza nell'artigianato giornalistico su una redazione (stampa, online, radio o TV)\n• Grande interesse per la politica interna, il funzionamento della Svizzera e le questioni quotidiane\n• Entusiasmo per la narrazione in immagini e artigianato televisivo (anche in termini di aspetti tecnici, alla maggior parte dell'esperienza VJ) Cosa puoi aspettare?\n• Collaborazione nelle notizie quotidiane, nella più grande sala stampa bimedia in Svizzera\n• Imparare le basi dell'artigianato TV, anche attraverso corsi introduttivi\n• Ulteriore formazione nel trattare argomenti di notizie, sviluppo dei contenuti e ricerca\n• Possibilità di implementare i propri contributi TV al processo di applicazione Leyla Hausammann specialista HR-Administration +41 58 135 05 32 Il reparto informazioni produce numerose offerte per canali audio, video e digitali SRF. Grazie ai formati di notizie e di background versatili e ai programmi di discussione e consulenza dettagliati sugli eventi attuali in politica, business e società, SRF rende più facile per il pubblico formare opinioni – informative, competenti e indipendenti.",
-        "en": "What are your tasks? The domestic TV editorial team in the SRF Newsroom supplies the current TV shows \"Switzerland aktuell\", \"Tagesschau\" and \"10vor10\" with TV reports from Switzerland. For our editorial we are looking from the 4. January 2027 two interns: women for a period of six months (until 30 June 2027). You expect the following tasks:\n• You work in the SRF Newsroom and support experienced TV journalists:\n• You take on clarifications and research and contribute with your own ideas\n• They independently conduct TV interviews\n• You adapt TV contributions from RTS/RSI/RTR for SRF and, if possible, put TV contributions by yourself What do you bring?\n• Openness and joy in journalistic questions - high independence, tenacity and perseverance\n• First experience in journalistic crafts on an editorial board (print, online, radio or TV)\n• Great interest in domestic politics, the functioning of Switzerland and everyday issues\n• Enthusiasm for the storytelling in pictures and the television craft (also in terms of technical aspects, at most VJ experience) What can you look forward to?\n• Collaboration in daily news, in the largest bimedia newsroom in Switzerland\n• Learning the basics of the TV craft, also through introductory courses\n• Further training in dealing with news topics, content development and research\n• Possibility to implement own TV contributions to the application process Leyla Hausammann specialist HR-Administration +41 58 135 05 32 The Information department produces numerous offers for SRF audio, video and digital channels. With versatile news and background formats as well as detailed discussion and advisory programmes on current events in politics, business and society, SRF makes it easier for the audience to form opinions – informative, competent and independent.",
-        "de": "Was sind Ihre Aufgaben? Die TV-Redaktion Inland im SRF Newsroom beliefert die tagesaktuellen TV-Sendungen \"Schweiz aktuell\", \"Tagesschau\" und \"10vor10\" mit TV-Berichten aus der Schweiz. Für unsere Redaktion suchen wir ab dem 4. Januar 2027 zwei Praktikant:innen für die Dauer von sechs Monaten (bis 30. Juni 2027). Dabei erwarten Sie folgende Aufgaben:\n• Sie arbeiten im SRF Newsroom und unterstützen erfahrene TV-Journalist:innen\n• Sie übernehmen Abklärungen und Recherchen und bringen sich mit eigenen Ideen ein\n• Sie führen selbstständig TV-Interviews\n• Sie adaptieren TV-Beiträge von RTS/RSI/RTR für SRF und setzen nach Möglichkeit TV-Beiträge eigenhändig um Was bringen Sie mit?\n• Offenheit und Freude an journalistischen Fragestellungen - hohe Eigenständigkeit, Hartnäckigkeit und Ausdauer\n• Erste Erfahrung im journalistischen Handwerk auf einer Redaktion (Print, Online, Radio oder TV)\n• Grosses Interesse an Innenpolitik, an der Funktionsweise der Schweiz und an Alltagsthemen\n• Begeisterung für das Erzählen in Bildern und das Fernsehhandwerk (auch, was die technischen Belange betrifft, allenfalls VJ-Erfahrung) Worauf können Sie sich freuen?\n• Mitarbeit im News-Alltag, im grössten bimedialen Newsroom der Schweiz\n• Grundlagen des TV-Handwerks erlernen, auch mittels Einführungskursen\n• Weiterbildung im Umgang mit Newsthemen, Entwicklung von Inhalten und von Recherchen\n• Möglichkeit zur Umsetzung eigener TV-Beiträge zum Bewerbungsprozess Leyla Hausammann Spezialistin HR-Administration +41 58 135 05 32 Die Abteilung Information produziert zahlreiche Angebote für Audio, Video und die digitalen Kanäle von SRF. Mit vielseitigen News- und Hintergrundformaten sowie einordnenden Diskussions- und Ratgebersendungen zum aktuellen Geschehen in Politik, Wirtschaft und Gesellschaft erleichtert SRF dem Publikum dessen Meinungsbildung – informativ, kompetent und unabhängig.",
-        "fr": "Quelles sont vos tâches ? L'équipe de rédaction de la SRF Newsroom fournit les émissions de télévision actuelles \"Suisse aktuell\", \"Tagesschau\" et \"10vor10\" avec des reportages de la Suisse. Pour notre éditorial, nous cherchons depuis le 4. Janvier 2027 deux stagiaires : femmes pour une période de six mois (jusqu'au 30 juin 2027). Vous attendez les tâches suivantes :\n• Vous travaillez dans le SRF Newsroom et soutenez des journalistes expérimentés de la télévision :\n• Vous prenez des clarifications et des recherches et contribuez avec vos propres idées\n• Ils mènent indépendamment des interviews TV\n• Vous adaptez les contributions TV de RTS/RSI/RTR pour SRF et, si possible, mettez les contributions TV par vous-même Qu'est-ce que tu apportes ?\n• Ouverture et joie dans les questions journalistiques - haute indépendance, ténacité et persévérance\n• Première expérience dans l'artisanat journalistique dans un comité de rédaction (impression, en ligne, radio ou télévision)\n• Grand intérêt pour la politique intérieure, le fonctionnement de la Suisse et les questions quotidiennes\n• Enthousiasme pour la narration en images et l'artisanat de télévision (aussi en termes d'aspects techniques, au plus expérience VJ) Que pouvez-vous attendre avec impatience?\n• Collaboration dans l'actualité quotidienne, dans la plus grande salle de nouvelles bimedia de Suisse\n• Apprendre les bases de l'artisanat de la télévision, également par des cours d'initiation\n• Formation continue sur les sujets d'actualité, le développement du contenu et la recherche\n• Possibilité de mettre en œuvre ses propres contributions TV au processus de demande Leyla Hausammann spécialiste HR-Administration +41 58 135 05 32 Le département Information produit de nombreuses offres pour les canaux audio, vidéo et numérique SRF. Avec des formats d'information et d'information polyvalents ainsi que des programmes de discussion et de conseil détaillés sur les événements actuels en politique, en affaires et dans la société, SRF facilite la formation d'opinions – informatives, compétentes et indépendantes."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:21.451Z",
-      "addressLocality": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8052",
-      "streetAddress": "Fernsehstrasse 1 - 4",
-      "category": "Media / Giornalismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-18",
-      "applyUrl": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-news-inland/1e86685a-44f9-4f3b-8a07-c7e65b35428d",
-      "requirements": [
-        "Offenheit und Freude an journalistischen Fragestellungen - hohe Eigenständigkeit, Hartnäckigkeit und Ausdauer",
-        "Erste Erfahrung im journalistischen Handwerk auf einer Redaktion (Print, Online, Radio oder TV)",
-        "Grosses Interesse an Innenpolitik, an der Funktionsweise der Schweiz und an Alltagsthemen",
-        "Begeisterung für das Erzählen in Bildern und das Fernsehhandwerk (auch, was die technischen Belange betrifft, allenfalls VJ-Erfahrung)"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Offenheit und Freude an journalistischen Fragestellungen - hohe Eigenständigkeit, Hartnäckigkeit und Ausdauer",
-          "Erste Erfahrung im journalistischen Handwerk auf einer Redaktion (Print, Online, Radio oder TV)",
-          "Grosses Interesse an Innenpolitik, an der Funktionsweise der Schweiz und an Alltagsthemen"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "1e86685a-44f9-4f3b-8a07-c7e65b35428d",
-        "org": "srf",
-        "orgLabel": "SRF",
-        "pensumMin": 100,
-        "pensumMax": 100
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-18T10:11:06.236Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH"
     },
     {
       "id": "srg-ssr-589d7502a014",
@@ -962,7 +910,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:20.759Z",
+      "crawledAt": "2026-09-03T13:35:20.289Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -999,11 +947,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -1013,6 +963,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -1059,7 +1010,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/hostess-steward-servizio-eventi/3e7ba70d-5105-4c69-a753-d1a91815a68b",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:09:10.987Z",
+      "crawledAt": "2026-09-03T13:35:19.609Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1108,6 +1059,7 @@
         "orgLabel": "RSI"
       },
       "firstSeenAt": "2026-08-24T10:00:42.039Z",
+      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -1154,7 +1106,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/hr-partner-in/1432cf4e-143c-4306-901f-03755cdb69ad",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:07.718Z",
+      "crawledAt": "2026-09-03T13:35:18.829Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1254,7 +1206,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/810e9f92-64d4-46d6-8bf9-c0cb4dcd151c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:07.035Z",
+      "crawledAt": "2026-09-03T13:35:18.124Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1338,7 +1290,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/presentatrice-ou-presentateur-meteo/af977dd7-0da1-45f7-b728-14e5db8a1863",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:09:06.367Z",
+      "crawledAt": "2026-09-03T13:35:17.448Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1435,7 +1387,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/genre-verantwortliche-r-information-national-angebot-operationen/1605ae19-d84f-46f0-9aaa-0f64f15cb740",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:05.633Z",
+      "crawledAt": "2026-09-03T13:35:16.776Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1519,7 +1471,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-di-genere-informazione-nazionale-offerta-operazioni/cfb04e9b-a468-42ae-a4d6-b8a57d4f6c50",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:09:04.906Z",
+      "crawledAt": "2026-09-03T13:35:16.079Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1604,7 +1556,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-de-genre-information-nationale-offre-operations/fca8cd93-f3cf-4a4b-b9df-57375b965e87",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:09:04.209Z",
+      "crawledAt": "2026-09-03T13:35:15.390Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1664,7 +1616,7 @@
       "slugByLocale": {
         "it": "stage-social-media-content-creator-rsi-info-digitale-srg-ssr-comano",
         "en": "stage-social-media-content-creator-rsi-info-digitale-srg-ssr-comano",
-        "de": "stage-social-media-content-creator-rsi-info-digitale-srg-ssr-comano",
+        "de": "buhne-social-media-content-creator-rsi-digital-info-srg-ssr-comano",
         "fr": "stage-createur-de-contenu-de-medias-sociaux-rsi-digital-info-srg-ssr-comano"
       },
       "company": "SRG SSR",
@@ -1689,7 +1641,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:09:03.463Z",
+      "crawledAt": "2026-09-03T13:35:14.716Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1754,34 +1706,34 @@
       "id": "srg-ssr-6f3e9bd90f5d",
       "slug": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
       "slugByLocale": {
-        "fr": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
         "it": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
         "en": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
-        "de": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne"
+        "de": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne",
+        "fr": "stagiaire-interactive-media-designer-rts-couleur-3-srg-ssr-lausanne"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
       "companyDomain": "srgssr.ch",
       "title": "Stagiaire Interactive Media Designer, RTS Couleur 3",
       "titleByLocale": {
-        "fr": "Stagiaire Interactive Media Designer, RTS Couleur 3",
         "it": "Stagiaire Interactive Media Designer, RTS Couleur 3",
         "en": "Stagiaire Interactive Media Designer, RTS Couleur 3",
-        "de": "Stagiaire Interactive Media Designer, RTS Couleur 3"
+        "de": "Stagiaire Interactive Media Designer, RTS Couleur 3",
+        "fr": "Stagiaire Interactive Media Designer, RTS Couleur 3"
       },
       "description": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
       "descriptionByLocale": {
-        "fr": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
         "it": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
         "en": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
-        "de": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3."
+        "de": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3.",
+        "fr": "Votre mission Au sein de l'équipe, vous participerez à la production et à la diffusion de contenus audiovisuels et digitaux. À ce titre, vous serez amené·e à : Réaliser le dérushage, le montage, la post-production et le sous-titrage de différents formats vidéo. Assurer la prise d'images et de son lors des tournages. Concevoir des contenus visuels destinés aux réseaux sociaux (vignettes, habillages, publications). Utiliser et assurer le suivi des outils internes, notamment pour l'organisation des contenus et le suivi des diffusions. Participer à la conception éditoriale en élaborant des moodboards et en réalisant des recherches visuelles. Contribuer à la préparation et au bon déroulement des tournages en apportant un soutien technique et logistique. Réaliser des montages vidéo adaptés aux différents canaux de diffusion. Participer ponctuellement à la gestion, à la programmation et à la publication de contenus sur les réseaux sociaux. Votre profil\n• En cours de formation de Concepteur.rice-Monteur.euse (p.ex. CFC de Interactive Media Designer) ou équivalent\n• Maîtrise de la suite Adobe, Da Vinci Resolve est un atout\n• Aisance dans l'utilisation des appareils hybrides et caméras DSLR\n• Intérêt pour RTS Couleur 3 et connaissances de ses différents contenus et formats\n• Forte sensibilité éditoriale et artistique\n• Maîtrise des codes et pratiques sur les réseaux sociaux, en lien avec le public-cible\n• Sens de l'organisation, créativité et rigueur\n• Capacité à travailler seul.e et en groupe Ce que nous vous offrons\n• Un cadre de travail dans un environnement captivant\n• Un environnement dynamique au sein d'une équipe motivée et soudée\n• L'occasion de découvrir un média audiovisuel de service public A propos du processus de recrutement Le stage doit faire impérativement partie d'un cursus de formation dans le domaine. En tant que stagiaire Interactive Media Designer, vous rejoindrez RTS Couleur 3 et sa team digitale. Vous créerez quotidiennement des contenus adressés à la communauté de RTS Couleur 3."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-rts-couleur-3/6814b6b0-96af-427f-a369-8f1d4275a816",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:09:02.702Z",
+      "crawledAt": "2026-09-03T13:35:13.983Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1826,6 +1778,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T23:09:02.702Z",
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1839,8 +1792,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-09-02T23:09:02.702Z"
+      "addressRegion": "VD"
     }
   ]
 }
