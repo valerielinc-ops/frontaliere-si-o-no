@@ -11230,6 +11230,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Dritte Säule Grenzgänger: Abzugsfähigkeit und Renditen',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Steuervorteile und Vorsorgestrategien: So funktioniert die dritte Säule 3a für Italiener, die in der Schweiz arbeiten.',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Panoramablick auf den Luganersee vom Schweizer Ufer bei Sonnenuntergang mit Wasserreflexionen und Alpen in der Ferne.',
+    'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: Verfahren und Kosten für Grenzgänger',
+    'blog.article.g-bewilligung-guida-5-anni.excerpt': 'G-Genehmigung: 65 CHF Kosten, 5 Jahre Gültigkeit. Vollständiger Leitfaden zur Bewerbung beim Migrationsamt für Grenzgänger Tessin-Italien.',
+    'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Grenzübergang Chiasso während der morgendlichen Rushhour mit Pendlerverkehr in die Schweiz, Schweizer und italienische Flaggen.',
 };
 
 export default blogMetaDe;

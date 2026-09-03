@@ -84077,6 +84077,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-g-bewilligung-guida-5-anni': {
+    title: 'G-bewilligung: procedura e costi per frontalieri',
+    description: 'Permesso G: 65 CHF di costo, 5 anni di validità. Guida completa alla domanda presso il Migrationsamt per frontalieri Ticino-Italia. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, g-bewilligung, procedura, costi, permesso',
+    ogTitle: 'G-bewilligung: procedura e costi per frontalieri',
+    ogDescription: 'Permesso G: 65 CHF di costo, 5 anni di validità. Guida completa alla domanda presso il Migrationsamt per frontalieri Ticino-Italia.',
+    canonicalPath: '/articoli-frontaliere/g-bewilligung-guida-5-anni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "G-bewilligung: procedura e costi per frontalieri",
+      "description": "Permesso G: 65 CHF di costo, 5 anni di validità. Guida completa alla domanda presso il Migrationsamt per frontalieri Ticino-Italia. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/g-bewilligung-guida-5-anni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di Chiasso durante le ore di punta mattutina con traffico pendolare frontaliero in entrata in Svizzera, bandiere svizzere e italiane."
+      },
+      "datePublished": "2026-09-03T16:03:35+00:00",
+      "dateModified": "2026-09-03T16:03:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/g-bewilligung-guida-5-anni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

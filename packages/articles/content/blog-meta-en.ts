@@ -11231,6 +11231,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Third border pillar: deductibility and returns',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Tax advantages and social security strategies: how the third pillar 3a works for those who work in Switzerland as an Italian resident.',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Panoramic view of Lake Lugano at sunset from Swiss shore, with water reflections and distant Alps.',
+    'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: procedure and costs for border workers',
+    'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permit G: CHF 65 cost, 5 years validity. Complete application guide at the Migrationsamt for border workers Ticino-Italy.',
+    'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Chiasso border crossing during morning rush hour with commuter traffic entering Switzerland, Swiss and Italian flags visible.',
 };
 
 export default blogMetaEn;

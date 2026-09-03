@@ -11232,6 +11232,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Terzo pilastro frontalieri: deducibilità e rendimenti',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Vantaggi fiscali e strategie previdenziali: come il terzo pilastro 3a funziona per chi lavora in Svizzera da residente italiano.',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Vista panoramica del lago di Lugano al tramonto da sponda svizzera, con riflessi sull\'acqua e Alpi in lontananza.',
+    'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: procedura e costi per frontalieri',
+    'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permesso G: 65 CHF di costo, 5 anni di validità. Guida completa alla domanda presso il Migrationsamt per frontalieri Ticino-Italia.',
+    'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Valico di Chiasso durante le ore di punta mattutina con traffico pendolare frontaliero in entrata in Svizzera, bandiere svizzere e italiane.',
 };
 
 export default blogMetaIt;

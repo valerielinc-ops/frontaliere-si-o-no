@@ -11233,6 +11233,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Troisième pilier frontalier : déductibilité et rendements',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Avantages fiscaux et stratégies de sécurité sociale : comment le troisième pilier 3a fonctionne pour ceux qui travaillent en Suisse en tant que résidents italiens.',
     'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Vue panoramique du lac de Lugano au coucher de soleil depuis la rive suisse, avec reflets sur l\'eau et Alpes lointaines.',
+    'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung : procédure et coûts pour les frontaliers',
+    'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permis G : 65 CHF de coût, 5 ans de validité. Guide complet de la demande auprès du Migrationsamt pour les frontaliers Tessin-Italie.',
+    'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Passage frontalier de Chiasso pendant les heures de pointe matinales avec circulation des frontaliers vers la Suisse, drapeaux suisse et italien.',
 };
 
 export default blogMetaFr;
