@@ -147,7 +147,7 @@ Cosa resta invariato, perché non è mai stato parte di questa sezione:
 | Data | Decisione | Fonte |
 |---|---|---|
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
-| 2026-07-17 | Modello unificato claude-sonnet-5 per i tier del fixer (mai claude-sonnet-4-6) | issue-fix.yml → Tier |
+| 2026-09-03 | Modello unificato claude-opus-5 a `--effort medium` per i tier del fixer (supersede claude-sonnet-5 del 2026-07-17; mai claude-sonnet-4-6) | issue-fix.yml → Tier |
 | 2026-06-24 | Moratorium SEO landing RIMOSSO; posizione GSC solo informativa | AGENTS.md → Static SEO Pages |
 | 2026-08-12 | Re-permission consensi: NON si fa, per ora | #5681 (commento 12-08) |
 | 2026-08-13 | Avvisi di lavoro: cadenza a decadenza + soffitto 7 giorni; non spegnere in blocco | #5705 (commento 13-08 07:12) |
