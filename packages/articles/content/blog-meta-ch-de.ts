@@ -5338,6 +5338,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.title': 'Haus kaufen in Luzern: Hypothekendarlehen und Steuern',
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.excerpt': 'Der Kauf einer Immobilie im Kanton Luzern erfordert steuerliche und finanzielle Kompetenzen: Abgeltungssteuern, nachhaltiges Darlehen, Notarkosten. Betriebsanleitung 2026.',
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.imageAlt': 'Schweizer Immobilienkauf: Kaufverträge und Hypothekendokumente auf dem Schreibtisch, Wohngebäude im Hintergrund',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.title': 'Haus kaufen im Kanton Luzern: Leitfaden für Hypotheken und Steuern',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.excerpt': 'Wie funktioniert der Immobilienkauf im Kanton Luzern: Verfahren, Besteuerung, Tragbarkeit des Darlehens und Notarkosten nach schweizerischem Recht.',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.imageAlt': 'Ein Wohnhaus im Kanton Luzern mit Alpenpanorama',
 };
 
 export default blogMetaChDe;

@@ -5338,6 +5338,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.title': 'Comprare casa a Lucerna: mutuo ipotecario e imposte',
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.excerpt': 'Acquistare una proprietà nel Canton Lucerna richiede competenze fiscal-finanziarie: imposte sui trapassi, mutuo sostenibile, spese notarili. Guida operativa 2026.',
     'blog.article.comprare-casa-lucerna-ipoteca-pratica.imageAlt': 'Compravendita immobiliare in Svizzera: contratti d\'acquisto e documenti mutuo ipotecario su scrivania, edificio residenziale svizzero sullo sfondo',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.title': 'Acquistare casa in Canton Lucerna: guida a mutuo e imposte',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.excerpt': 'Come funziona l\'acquisto immobiliare nel Canton Lucerna: procedura, fiscalità, sostenibilità del mutuo e costi notarili secondo la normativa svizzera.',
+    'blog.article.acquisto-immobiliare-lucerna-mutuo.imageAlt': 'Una casa in vendita nel Canton Lucerna con paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaChIt;

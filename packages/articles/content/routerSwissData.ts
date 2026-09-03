@@ -1805,6 +1805,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ricerca-tirocinio-canton-lucerna': { it: 'ricerca-tirocinio-canton-lucerna', en: 'finding-apprenticeship-lucerne-canton', de: 'lehrstellensuche-kanton-luzern', fr: 'recherche-apprentissage-canton-lucerne' },
  'tariffario-ambulatoriale-cure-base': { it: 'tariffario-ambulatoriale-cure-base', en: 'tariff-ambulatory-care-base', de: 'tarif-ambulante-grundversorgung', fr: 'tarif-ambulatoire-soins-base' },
  'comprare-casa-lucerna-ipoteca-pratica': { it: 'comprare-casa-lucerna-ipoteca-pratica', en: 'buy-home-lucerne-mortgage-guide', de: 'haus-kaufen-luzern-hypothek-anleitung', fr: 'acheter-maison-lucerne-hypotheque-guide' },
+ 'acquisto-immobiliare-lucerna-mutuo': { it: 'acquisto-immobiliare-lucerna-mutuo', en: 'buying-real-estate-lucerne-mortgage', de: 'immobilienerwerb-luzern-hypothek', fr: 'achat-immobilier-lucerne-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
