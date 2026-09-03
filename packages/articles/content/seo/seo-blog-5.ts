@@ -83375,6 +83375,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-saint-marcel-vallese-frontaliere': {
+    title: 'Vivere a Saint-Marcel, lavorare in Vallese da frontaliere',
+    description: 'Guida frontalieri: Permesso G, imposta alla fonte 4-10%, Nuovo Accordo 2024, franchigia €10.000, AVS/LPP, procedure e ristorni. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, saint-marcel, lavorare, vallese',
+    ogTitle: 'Vivere a Saint-Marcel, lavorare in Vallese da frontaliere',
+    ogDescription: 'Guida completa: vivere a Saint-Marcel (Valle d\'Aosta) e lavorare nel Vallese. Permesso G, tassazione frontaliere, imposta alla fonte, AVS/LPP, Nuovo Accordo 2024, franchigia €10.000, procedura e ristorni fiscali.',
+    canonicalPath: '/articoli-frontaliere/vivere-saint-marcel-vallese-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Saint-Marcel, lavorare in Vallese da frontaliere",
+      "description": "Guida frontalieri: Permesso G, imposta alla fonte 4-10%, Nuovo Accordo 2024, franchigia €10.000, AVS/LPP, procedure e ristorni. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-saint-marcel-vallese-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta panoramica del Vallese svizzero con montagne innevate"
+      },
+      "datePublished": "2026-09-03T04:02:10+00:00",
+      "dateModified": "2026-09-03T04:02:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-saint-marcel-vallese-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
