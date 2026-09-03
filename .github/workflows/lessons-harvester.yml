@@ -124,8 +124,8 @@ jobs:
           # (permissionMode resta "default", quasi ogni Bash bloccato); i workflow con
           # trigger workflow_run/issues invece funzionano con la stessa config identica.
           # 20→30 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns Claude.
-          # Modello → claude-sonnet-5 (owner 2026-07-17: mai claude-sonnet-4-6).
-          claude_args: "--max-turns 30 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
+          # Modello → claude-opus-5 (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6).
+          claude_args: "--effort medium --max-turns 30 --model claude-opus-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob,Edit,Write'"
           prompt: |
             Sei l'agent di **auto-improvement** dei doc-contract per agenti. Obiettivo: dai pattern RICORRENTI rilevati, proporre miglioramenti CHIRURGICI alle istruzioni (AGENTS.md / ISSUES.md / REVIEW.md / FOLLOWUP.md) così che reviewer/fixer smettano di ripetere lo stesso problema → turnaround più basso.
 

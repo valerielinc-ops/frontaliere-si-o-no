@@ -297,7 +297,7 @@ jobs:
           # ABBASSARE i turni di post-merge-followup (15→20
           # fu un fix di `error_max_turns` su PR perse); qui processiamo N PR in una
           # sessione → vanno ALZATI in proporzione, mai sotto il floor. Modello →
-          # claude-sonnet-5 (owner 2026-07-17: mai claude-sonnet-4-6).
+          # claude-opus-5 (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6).
           # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
           # success → watermark non avanza → la prossima run schedulata ri-copre la
           # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.
@@ -313,7 +313,7 @@ jobs:
           # anche con actor umano), non con settings/claude_args. Torniamo allo
           # scoped `--allowedTools` precedente (problema noto ma minore: rifiuta
           # a volte sintassi shell non staticamente analizzabile, non blocca TUTTO).
-          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          claude_args: "--effort medium --max-turns ${{ steps.collect.outputs.max_turns }} --model claude-opus-5 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}

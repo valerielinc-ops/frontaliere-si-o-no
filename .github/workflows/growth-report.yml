@@ -99,7 +99,7 @@ jobs:
           github_token: ${{ env.APP_TOKEN }}
           show_full_output: true
           allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
-          claude_args: "--max-turns 50 --model claude-sonnet-5 --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns 50 --model claude-opus-5 --dangerously-skip-permissions"
           prompt: |
             Sei il growth report settimanale di frontaliereticino.ch. Il tuo compito: leggere i dati di prodotto DISPONIBILI e proporre al massimo 2 leve di crescita misurate, instradate nel ciclo autonomo. NON implementi nulla.
 

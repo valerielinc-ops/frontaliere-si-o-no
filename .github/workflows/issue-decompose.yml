@@ -134,7 +134,7 @@ jobs:
           github_token: ${{ env.APP_TOKEN }}
           show_full_output: true
           allowed_bots: 'github-actions[bot], claude[bot], frontaliere-automation[bot]'
-          claude_args: "--max-turns 35 --model claude-sonnet-5 --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns 35 --model claude-opus-5 --dangerously-skip-permissions"
           prompt: |
             Sei l'agente di DECOMPOSIZIONE per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}").
             La issue è stata instradata qui perché è troppo grande o eterogenea per un singolo run di fix (max-turns, contenitore di lavoro residuo, o escalation too-large). Il tuo compito NON è implementare: è scorporarla in sub-issue ATOMICHE che il fixer autonomo possa chiudere una alla volta.
