@@ -11268,6 +11268,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Vivere a Cuasso al Monte e lavorare in Ticino da frontaliere',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Scopri come vivere a Cuasso al Monte e lavorare in Ticino da frontaliere: collegamenti, tempi di percorrenza, costo della vita, zone consigliate, vantaggi e svantaggi del trasferimento, cosa considerare prima di trasferirsi.',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Vista aerea di Cuasso al Monte, Ticino, Svizzera',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Vivere a Grandate e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Grandate e lavorare in Ticino.',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

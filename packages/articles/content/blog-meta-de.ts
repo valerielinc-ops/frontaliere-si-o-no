@@ -11266,6 +11266,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Leben in Cuasso al Monte und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Erfahren Sie, wie Sie als Grenzgänger in Cuasso al Monte leben und im Tessin arbeiten können: Verbindungen, Reisezeiten, Lebenshaltungskosten, empfohlene Gebiete, Vor- und Nachteile des Transfers, was Sie vor dem Umzug beachten sollten.',
     'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Luftaufnahme von Cuasso al Monte, Tessin, Schweiz',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Leben in Grandate und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Grandate zu leben und im Tessin zu arbeiten.',
+    'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;
