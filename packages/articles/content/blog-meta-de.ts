@@ -11171,6 +11171,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Leben in Vilminore di Scalve und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Vilminore di Scalve nach Graubünden.',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
+    'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Leben in Avise und Arbeiten im Wallis: Praktischer Leitfaden',
+    'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Umzug nach Avise, um im Wallis zu arbeiten: Schweizer Steuer, Bewilligungen, AHV, KVG und alles, was Sie als Grenzgänger Italien-Schweiz wissen müssen.',
+    'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Alpenpanorama zwischen Italien und der Schweiz mit Tal und Bergen, typisch für die Grenzregion Wallis-Aostatal',
 };
 
 export default blogMetaDe;

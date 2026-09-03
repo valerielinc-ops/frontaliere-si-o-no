@@ -11173,6 +11173,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Vivere a Vilminore di Scalve e lavorare in Grigioni da frontaliere',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Vilminore di Scalve ai Grigioni.',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
+    'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Vivere ad Avise e lavorare in Vallese: guida pratica',
+    'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Trasferirsi ad Avise per lavorare in Vallese: fisco svizzero, permessi, AVS, LAMal e tutto ciò che serve sapere come frontaliere Italia-Svizzera.',
+    'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Paesaggio alpino tra Italia e Svizzera con valle e montagne, tipico dell\'area frontaliere Vallese-Valle d\'Aosta',
 };
 
 export default blogMetaIt;
