@@ -534,8 +534,8 @@
       "slug": "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
       "slugByLocale": {
         "it": "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
-        "en": "gestionnaire-en-prevoyance-professionnelle-lpp-h-f-d-80-100-zurich-insurance-sede-ticino-crissier",
-        "de": "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8",
+        "en": "professional-provident-manager-ppa-m-f-d-80-100-zurich-insurance-sede-ticino-crissier",
+        "de": "professioneller-provident-manager-ppa-m-w-d-80-100-zurich-insurance-sede-ticino-crissier",
         "fr": "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8"
       },
       "company": "Zurich Insurance (sede Ticino)",
@@ -584,13 +584,18 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8"
+        "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8",
+        "gestionnaire-en-prevoyance-professionnelle-lpp-h-f-d-80-100-zurich-insurance-sede-ticino-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8"
         ],
         "en": [
+          "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8",
+          "gestionnaire-en-prevoyance-professionnelle-lpp-h-f-d-80-100-zurich-insurance-sede-ticino-crissier"
+        ],
+        "de": [
           "gestionnaire-en-prevoyance-professionnelle-lpp-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-ruwhm8"
         ]
       },
@@ -1469,9 +1474,9 @@
     },
     {
       "id": "company-8auyll",
-      "slug": "responsable-d-equipe-sinistres-complexes-f-m-d-80-100-zurich-insurance-sede-ticino-crissier",
+      "slug": "capo-del-complesso-team-di-disastri-m-f-d-80-100-zurich-insurance-sede-ticino-crissier",
       "slugByLocale": {
-        "it": "responsable-d-equipe-sinistres-complexes-f-m-d-80-100-zurich-insurance-sede-ticino-crissier",
+        "it": "capo-del-complesso-team-di-disastri-m-f-d-80-100-zurich-insurance-sede-ticino-crissier",
         "en": "complex-casualty-team-manager-h-f-d-80-100-zurich-insurance-sede-ticino-lugano",
         "de": "komplexer-unfallteammanager-h-w-d-80-100-zurich-insurance-sede-ticino-lugano",
         "fr": "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll"
@@ -1521,12 +1526,14 @@
       },
       "previousSlugs": [
         "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
-        "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll"
+        "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll",
+        "responsable-d-equipe-sinistres-complexes-f-m-d-80-100-zurich-insurance-sede-ticino-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
-          "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll"
+          "responsable-d-equipe-sinistres-complexes-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-8auyll",
+          "responsable-d-equipe-sinistres-complexes-f-m-d-80-100-zurich-insurance-sede-ticino-crissier"
         ]
       },
       "firstSeenAt": "2026-08-07T10:35:40.380Z",
@@ -2824,9 +2831,9 @@
     },
     {
       "id": "company-j6if3t",
-      "slug": "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-j6if3t",
+      "slug": "specialista-di-supporto-nelle-prestazioni-di-malattia-francese-e-tedesco-m-f-d-80-100-zurich-insurance-sede-ticino",
       "slugByLocale": {
-        "it": "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-j6if3t",
+        "it": "specialista-di-supporto-nelle-prestazioni-di-malattia-francese-e-tedesco-m-f-d-80-100-zurich-insurance-sede-ticino",
         "en": "support-specialist-in-french-and-german-sickness-allowance-h-f-d-80-100-zurich-insurance-sede-ticino-lugano",
         "de": "unterstutzungsfachkraft-fur-franzosisches-und-deutsches-krankengeld-h-w-d-80-100-zurich-insurance-sede-ticino-lugano",
         "fr": "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-j6if3t"
@@ -2876,11 +2883,13 @@
         ]
       },
       "previousSlugs": [
-        "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+        "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+        "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-j6if3t"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano"
+          "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano",
+          "specialiste-support-en-indemnites-journalieres-maladie-francais-et-allemand-m-w-d-80-100-zurich-insurance-sede-ticino-lugano-j6if3t"
         ]
       },
       "firstSeenAt": "2026-07-06T15:48:04.514Z",

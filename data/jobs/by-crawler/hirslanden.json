@@ -90,9 +90,9 @@
     },
     {
       "id": "hirslanden-b9ace2fc5d81",
-      "slug": "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern",
+      "slug": "professionista-della-salute-a-70-100-chirurgia-di-messa-a-fuoco-ortopedia-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern",
+        "it": "professionista-della-salute-a-70-100-chirurgia-di-messa-a-fuoco-ortopedia-hirslanden-klinik-hirslanden-salem-spital",
         "en": "health-professional-a-70-100-focus-surgery-orthopaedics-hirslanden-klinik-bern",
         "de": "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern",
         "fr": "professionnels-de-la-sante-a-70-100-chirurgie-de-foyer-orthopedie-hirslanden-klinik-bern"
@@ -149,7 +149,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-a-70-100-schwerpunkt-chirurgie-orthopadie-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-23ef1b001a80",
@@ -4713,9 +4721,9 @@
     },
     {
       "id": "hirslanden-6aee554a801f",
-      "slug": "fachfrau-fachmann-hauswirtschaft-mit-zusatzverantwortung-a-80-hirslanden-bern",
+      "slug": "professionista-specialista-pulizia-con-responsabilita-aggiuntiva-a-80-hirslanden-klinik-hirslanden-klinik-beau-site",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-hauswirtschaft-mit-zusatzverantwortung-a-80-hirslanden-bern",
+        "it": "professionista-specialista-pulizia-con-responsabilita-aggiuntiva-a-80-hirslanden-klinik-hirslanden-klinik-beau-site",
         "en": "professional-specialist-housekeeping-with-additional-responsibility-a-80-hirslanden-klinik-bern",
         "de": "fachfrau-fachmann-hauswirtschaft-mit-zusatzverantwortung-a-80-hirslanden-bern",
         "fr": "menage-professionnel-specialise-avec-responsabilite-supplementaire-a-80-hirslanden-klinik-bern"
@@ -4772,7 +4780,15 @@
           "maxValue": 67600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hauswirtschaft-mit-zusatzverantwortung-a-80-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hauswirtschaft-mit-zusatzverantwortung-a-80-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-cd2ae1cb7579",
@@ -4853,9 +4869,9 @@
     },
     {
       "id": "hirslanden-f2f74c6d43d4",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern",
+      "slug": "dipl-infermieristica-professionale-a-90-con-formazione-professionale-hirslanden-klinik-hirslanden-klinik-permanence",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern",
+        "it": "dipl-infermieristica-professionale-a-90-con-formazione-professionale-hirslanden-klinik-hirslanden-klinik-permanence",
         "en": "dipl-nursing-specialist-a-90-with-vocational-trainer-hirslanden-klinik-bern",
         "de": "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern",
         "fr": "dipl-specialiste-des-soins-infirmiers-a-90-avec-formateur-professionnel-hirslanden-klinik-bern"
@@ -4912,7 +4928,15 @@
           "maxValue": 107100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-a-90-mit-berufsbildner-hirslanden-bern"
+      ]
     },
     {
       "id": "hirslanden-52603791e0b6",
@@ -16264,9 +16288,9 @@
     },
     {
       "id": "hirslanden-8cc0ebdeea69",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-uberwachungsstation-mit-fachverantwortung-pflege-a-80",
+      "slug": "dipl-specialista-infermieristica-infermieristica-stazione-di-monitoraggio-con-responsabilita-specialistica-nursing-a-80",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-uberwachungsstation-mit-fachverantwortung-pflege-a-80",
+        "it": "dipl-specialista-infermieristica-infermieristica-stazione-di-monitoraggio-con-responsabilita-specialistica-nursing-a-80",
         "en": "dipl-nursing-specialist-nursing-specialist-monitoring-station-with-specialist-responsibility-nursing-a-80-100-hirslanden",
         "de": "dipl-pflegefachfrau-pflegefachmann-uberwachungsstation-mit-fachverantwortung-pflege-a-80",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-poste-de-surveillance-responsable-des-soins"
@@ -16311,11 +16335,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-poste-de-surveillance-a-responsabilite"
+        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-poste-de-surveillance-a-responsabilite",
+        "dipl-pflegefachfrau-pflegefachmann-uberwachungsstation-mit-fachverantwortung-pflege-a-80"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-poste-de-surveillance-a-responsabilite"
+        ],
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-uberwachungsstation-mit-fachverantwortung-pflege-a-80"
         ]
       },
       "firstSeenAt": "2026-08-18T21:35:20.883Z",
@@ -16723,7 +16751,7 @@
         "it": "personale-personale-servizi-radiologia-a-80-100-hirslanden-klinik-bern",
         "en": "personnel-personnel-services-radiology-a-80-100-hirslanden-klinik-bern",
         "de": "sachbearbeiterin-sachbearbeiter-services-radiologie-a-80-100-hirslanden-bern",
-        "fr": "sachbearbeiterin-sachbearbeiter-services-radiologie-a-80-100-hirslanden-bern"
+        "fr": "personnel-services-du-personnel-radiologie-a-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -16769,6 +16797,9 @@
           "sachbearbeiterin-sachbearbeiter-services-radiologie-a-80-100-hirslanden-bern"
         ],
         "en": [
+          "sachbearbeiterin-sachbearbeiter-services-radiologie-a-80-100-hirslanden-bern"
+        ],
+        "fr": [
           "sachbearbeiterin-sachbearbeiter-services-radiologie-a-80-100-hirslanden-bern"
         ]
       },
@@ -23335,9 +23366,9 @@
       "slug": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
       "slugByLocale": {
         "it": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
-        "en": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
+        "en": "senior-assistant-physician-assistant-physician-aim-with-perspective-stv-senior-physician-a-80-100-hirslanden-klinik",
         "de": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80",
-        "fr": "senior-assistenzarztin-assistenzarzt-aim-mit-perspektive-stv-oberarztin-stv-oberarzt-a-80"
+        "fr": "medecin-adjoint-principal-medecin-assistant-aim-avec-perspective-stv-medecin-chef-a-80-100-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -23399,9 +23430,9 @@
       "slug": "fachperson-gesundheit-cfc-80-a-interdisziplinare-chirurgie-hirslanden-klinik-st-gallen",
       "slugByLocale": {
         "it": "fachperson-gesundheit-cfc-80-a-interdisziplinare-chirurgie-hirslanden-klinik-st-gallen",
-        "en": "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen",
+        "en": "health-professional-efz-80-a-interdisciplinary-surgery-hirslanden-klinik-hirslanden-klinik-stephanshorn",
         "de": "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen",
-        "fr": "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen"
+        "fr": "professionnels-de-la-sante-efz-80-a-chirurgie-interdisciplinaire-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -23446,6 +23477,12 @@
         "it": [
           "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen",
           "fachperson-gesundheit-cfc-a-interdisziplinare-chirurgie-con-schwerpunkt-viszeralchirurgie-50-70-hirslanden-klinik-st"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-80-a-interdisziplinare-chirurgie-hirslanden-st-gallen"
         ]
       },
       "previousSlugs": [
@@ -24114,9 +24151,9 @@
       "slug": "dipl-pflegefachperson-hf-fh-o-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-klinik-st-gallen",
       "slugByLocale": {
         "it": "dipl-pflegefachperson-hf-fh-o-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-klinik-st-gallen",
-        "en": "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen",
+        "en": "dipl-care-specialist-hf-fh-or-dipl-exp-nds-emergency-care-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
         "de": "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen",
-        "fr": "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen"
+        "fr": "dipl-specialiste-des-soins-hf-fh-ou-dipl-exp-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24162,6 +24199,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-oder-dipl-exp-nds-notfallpflege-a-80-100-hirslanden-st-gallen"
         ]
       },
@@ -26140,9 +26183,9 @@
     },
     {
       "id": "hirslanden-adb471ea5152",
-      "slug": "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100",
+      "slug": "dipl-sports-physiotherapist-sport-physiotherapist-con-supervisione-del-team-bsc-yb-a-80-100-hirslanden-klinik-medical",
       "slugByLocale": {
-        "it": "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100",
+        "it": "dipl-sports-physiotherapist-sport-physiotherapist-con-supervisione-del-team-bsc-yb-a-80-100-hirslanden-klinik-medical",
         "en": "dipl-sports-physiotherapist-sports-physiotherapist-with-team-supervision-bsc-yb-a-80-100-hirslanden-klinik-bern",
         "de": "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100",
         "fr": "dipl-physiotherapeute-sportif-physiotherapeute-sportif-avec-supervision-d-equipe-bsc-yb-a-80-100-hirslanden-klinik-bern"
@@ -26199,7 +26242,15 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-sportphysiotherapeutin-sportphysiotherapeut-mit-mannschaftsbetreuung-bsc-yb-a-80-100"
+      ]
     },
     {
       "id": "hirslanden-282bb2d5bf32",

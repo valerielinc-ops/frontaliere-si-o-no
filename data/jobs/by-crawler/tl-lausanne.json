@@ -377,14 +377,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "streetAddress": "Chemin du Closel 15-17",
-      "previousSlugsByLocale": {
-        "fr": [
-          "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
-      ],
       "firstSeenAt": "2026-08-31T22:21:28.735Z",
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -398,7 +390,15 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "fr": [
+          "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-logisticien-ne-tl-transports-publics-de-la-region-lausannoise-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-035401abf960",
@@ -662,11 +662,11 @@
     },
     {
       "id": "tl-lausanne-cfbb9bce415b",
-      "slug": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
+      "slug": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-        "en": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
-        "de": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne",
+        "it": "direttore-o-direttore-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "en": "director-or-director-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
+        "de": "direktor-oder-direktor-road-real-estate-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "fr": "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
       },
       "company": "tl (Transports publics de la région lausannoise)",
@@ -723,13 +723,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+        ],
+        "en": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+        ],
+        "de": [
+          "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "directrice-ou-directeur-route-immobilier-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-a7b1d2ccd0b4",
-      "slug": "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne",
+      "slug": "corporate-strategy-transformation-director-tl-transports-publics-de-la-region-lausannoise-lausanne",
       "slugByLocale": {
-        "it": "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne",
+        "it": "corporate-strategy-transformation-director-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "en": "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne",
         "de": "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne",
         "fr": "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne"
@@ -787,7 +801,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "directrice-ou-directeur-strategie-transformation-d-entreprise-tl-lausanne-lausanne"
+      ]
     },
     {
       "id": "tl-lausanne-89a5b0ee385c",
@@ -848,8 +870,7 @@
         "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-        "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -861,8 +882,7 @@
           "meccanica-del-treno-per-la-linea-leb-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "train-mechanics-for-the-leb-line-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "zugmechaniker-fur-die-leb-strecke-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne",
-          "driver-per-il-bus-e-driver-filobus-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "mecanicien-ne-s-de-train-pour-la-ligne-du-leb-tl-lausanne-lausanne"
         ],
         "en": [
           "railway-constructors-tl-transports-publics-de-la-region-lausannoise-lausanne"
@@ -952,8 +972,7 @@
         "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
         "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-        "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+        "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -969,8 +988,7 @@
           "automatico-per-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatician-for-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
           "automatik-fur-metro-m2-tl-transports-publics-de-la-region-lausannoise-lausanne",
-          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne",
-          "data-ingegnere-tl-transports-publics-de-la-region-lausannoise-lausanne"
+          "automaticien-ne-pour-le-metro-m2-tl-lausanne-lausanne"
         ],
         "en": [
           "rail-project-manager-security-installations-tl-transports-publics-de-la-region-lausannoise-lausanne"

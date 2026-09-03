@@ -132,9 +132,9 @@
     },
     {
       "id": "kellerhals-carrard-49c40fa4136e",
-      "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
+      "slug": "assistente-di-ricerca-assistente-di-ricerca-50-kellerhals-carrard-basel",
       "slugByLocale": {
-        "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-50-kellerhals-carrard-basel",
+        "it": "assistente-di-ricerca-assistente-di-ricerca-50-kellerhals-carrard-basel",
         "en": "research-assistant-research-assistant-50-kellerhals-carrard-basel",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
         "fr": "assistant-de-recherche-assistant-de-recherche-50-kellerhals-carrard-basel"
@@ -211,12 +211,12 @@
     },
     {
       "id": "kellerhals-carrard-59cb2c47bf96",
-      "slug": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
+      "slug": "programma-di-tirocinio-estivo-stage-brevi-kellerhals-carrard-zurich",
       "slugByLocale": {
-        "it": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
+        "it": "programma-di-tirocinio-estivo-stage-brevi-kellerhals-carrard-zurich",
         "en": "summer-trainee-program-short-internships-kellerhals-carrard-zurich",
         "de": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich",
-        "fr": "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
+        "fr": "programme-de-stagiaires-d-ete-stages-de-courte-duree-kellerhals-carrard-zurich"
       },
       "company": "Kellerhals Carrard",
       "companyKey": "kellerhals-carrard",
@@ -270,7 +270,18 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
+        ],
+        "fr": [
+          "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "summer-trainee-programm-kurzpraktika-kellerhals-carrard-zurich"
+      ]
     },
     {
       "id": "kellerhals-carrard-5adbfb3c729a",
@@ -448,13 +459,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "initiativbewerbung-kellerhals-carrard-basel",
-        "applicazione-d-iniziativa-kellerhals-carrard-basel"
+        "initiativbewerbung-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "initiativbewerbung-kellerhals-carrard-basel",
-          "applicazione-d-iniziativa-kellerhals-carrard-basel"
+          "initiativbewerbung-kellerhals-carrard-basel"
         ],
         "en": [
           "initiativbewerbung-kellerhals-carrard-basel"
@@ -527,13 +536,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "wildcard-bewerbung-kellerhals-carrard-bern",
-        "applicazione-wildcard-kellerhals-carrard-bern"
+        "wildcard-bewerbung-kellerhals-carrard-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "wildcard-bewerbung-kellerhals-carrard-bern",
-          "applicazione-wildcard-kellerhals-carrard-bern"
+          "wildcard-bewerbung-kellerhals-carrard-bern"
         ],
         "en": [
           "wildcard-bewerbung-kellerhals-carrard-bern"
@@ -607,13 +614,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-          "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+          "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
         ],
         "en": [
           "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
@@ -687,13 +692,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": false,
       "previousSlugs": [
-        "anwaltspraktikum-kellerhals-carrard-bern",
-        "stage-di-diritto-kellerhals-carrard-bern"
+        "anwaltspraktikum-kellerhals-carrard-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anwaltspraktikum-kellerhals-carrard-bern",
-          "stage-di-diritto-kellerhals-carrard-bern"
+          "anwaltspraktikum-kellerhals-carrard-bern"
         ],
         "en": [
           "anwaltspraktikum-kellerhals-carrard-bern"
@@ -766,13 +769,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
-        "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
+        "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich",
-          "avvocato-avvocato-100-nel-team-bancario-kellerhals-carrard-zurich"
+          "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
         ],
         "fr": [
           "rechtsanwaltin-rechtsanwalt-100-im-banking-team-kellerhals-carrard-zurich"
@@ -843,13 +844,11 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "previousSlugs": [
-        "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
-        "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
+        "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich",
-          "substitut-in-banking-finanza-fintech-e-kapitalmarktrecht-kellerhals-carrard-zurich"
+          "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
         ],
         "en": [
           "substitut-in-banking-finance-fintech-und-kapitalmarktrecht-kellerhals-carrard-zurich"
@@ -922,13 +921,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-        "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+        "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
-          "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
+          "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"
         ],
         "en": [
           "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel"

@@ -10396,9 +10396,9 @@
     },
     {
       "id": "jumbo-d1b91360-8e6",
-      "slug": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-crissier",
+      "slug": "consulente-vendite-giardino-m-f-d-jumbo-crissier",
       "slugByLocale": {
-        "it": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-crissier",
+        "it": "consulente-vendite-giardino-m-f-d-jumbo-crissier",
         "en": "garden-sales-advisor-e-h-d-jumbo-crissier",
         "de": "gartenverkaufsberater-e-h-d-jumbo-crissier",
         "fr": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-crissier"
@@ -10459,7 +10459,8 @@
         "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle",
         "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-monthey",
         "garden-sales-advisor-e-h-d-jumbo-monthey",
-        "gartenverkaufsberater-e-h-d-jumbo-monthey"
+        "gartenverkaufsberater-e-h-d-jumbo-monthey",
+        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-crissier"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10471,7 +10472,8 @@
           "berater-verkaufsberater-gartenmaschinen-bau-e-h-d-jumbo-bulle",
           "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-monthey",
           "garden-sales-advisor-e-h-d-jumbo-monthey",
-          "gartenverkaufsberater-e-h-d-jumbo-monthey"
+          "gartenverkaufsberater-e-h-d-jumbo-monthey",
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-crissier"
         ],
         "en": [
           "garden-sales-advisor-e-h-d-jumbo-bulle"
@@ -13116,9 +13118,9 @@
     },
     {
       "id": "jumbo-dabb7f78-e43",
-      "slug": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
+      "slug": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
       "slugByLocale": {
-        "it": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier",
+        "it": "chef-capo-dipartimento-giardino-m-f-d-jumbo-crissier",
         "en": "chef-head-of-department-garden-m-f-d-jumbo-crissier",
         "de": "chef-abteilungsleiter-garten-m-w-d-jumbo-crissier",
         "fr": "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
@@ -13183,7 +13185,15 @@
           "maxValue": 156000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-chef-de-rayon-garden-f-h-d-jumbo-crissier"
+      ]
     },
     {
       "id": "jumbo-65437168-0a8",
@@ -13663,9 +13673,9 @@
     },
     {
       "id": "jumbo-7d3dff42-dd2",
-      "slug": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
+      "slug": "consigliere-vendite-deco-m-f-d-jumbo-bienne",
       "slugByLocale": {
-        "it": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne",
+        "it": "consigliere-vendite-deco-m-f-d-jumbo-bienne",
         "en": "sales-advisor-deco-m-f-d-jumbo-bienne",
         "de": "verkaufsberater-deco-m-w-d-jumbo-bienne",
         "fr": "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
@@ -13730,13 +13740,21 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-deco-f-h-d-jumbo-bienne"
+      ]
     },
     {
       "id": "jumbo-606a5374-6a4",
-      "slug": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
+      "slug": "consulente-vendite-giardino-m-f-d-jumbo-bienne",
       "slugByLocale": {
-        "it": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne",
+        "it": "consulente-vendite-giardino-m-f-d-jumbo-bienne",
         "en": "sales-advisor-garden-m-f-d-jumbo-bienne",
         "de": "verkaufsberater-garden-m-w-d-jumbo-bienne",
         "fr": "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
@@ -13801,7 +13819,15 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-conseiller-de-vente-garden-f-h-d-jumbo-bienne"
+      ]
     },
     {
       "id": "jumbo-43fc348a-b36",

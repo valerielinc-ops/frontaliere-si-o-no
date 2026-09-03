@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne",
         "en": "support-in-the-operating-room-or-technical-assistant-specialized-in-the-operating-room-atsso-clinique-generale-ste-anne",
-        "de": "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
+        "de": "unterstutzung-im-operationssaal-oder-technischer-assistent-spezialisiert-auf-den-operationssaal-atsso-clinique-generale",
         "fr": "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
       },
       "company": "Clinique Générale Ste-Anne",
@@ -52,15 +52,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+        "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne",
-          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne"
+          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
         ],
         "en": [
+          "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
+        ],
+        "de": [
           "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-clinique-generale-ste-anne"
         ]
       },
@@ -133,14 +134,12 @@
         "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
         "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-clinique-generale-ste-anne-fribourg",
         "physiotherapy-outpatient-practice-hospital-monitoring-clinique-generale-ste-anne-fribourg",
-        "physiotherapie-ambulante-praxis-krankenhausuberwachung-clinique-generale-ste-anne-fribourg",
-        "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-swiss-medical-network-fribourg"
+        "physiotherapie-ambulante-praxis-krankenhausuberwachung-clinique-generale-ste-anne-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",
-          "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-clinique-generale-ste-anne-fribourg",
-          "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-swiss-medical-network-fribourg"
+          "fisioterapia-pratica-ambulatoriale-e-monitoraggio-ospedaliero-clinique-generale-ste-anne-fribourg"
         ],
         "en": [
           "physiotherapeute-cabinet-ambulatoire-suivi-hospitalier-clinique-generale-ste-anne",

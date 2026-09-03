@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "externalId": "0045",
       "previousSlugs": [
-        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide"
+        "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-seilbahnen-e-liftanlagen-arosa-lenzerheide"
+          "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide"
@@ -134,13 +132,11 @@
       "requirementsByLocale": {},
       "externalId": "0021",
       "previousSlugs": [
-        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-        "collaboratore-trice-beschneiung-arosa-lenzerheide"
+        "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide",
-          "collaboratore-trice-beschneiung-arosa-lenzerheide"
+          "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
           "mitarbeiter-in-beschneiung-arosa-lenzerheide-lenzerheide"
@@ -166,12 +162,12 @@
     },
     {
       "id": "arosa-lenzerheide-cca09befafd3",
-      "slug": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
+      "slug": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
       "slugByLocale": {
         "de": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-        "it": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-        "en": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
-        "fr": "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
+        "it": "azienda-elettrica-in-arosa-lenzerheide-lenzerheide",
+        "en": "company-electrician-in-arosa-lenzerheide-lenzerheide",
+        "fr": "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide"
       },
       "company": "Arosa Lenzerheide",
       "companyKey": "arosa-lenzerheide",
@@ -234,13 +230,16 @@
           "company-electrician-in-arosa-lenzerheide-lenzerheide",
           "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide",
           "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-          "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
+          "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
         ],
         "en": [
-          "company-electrician-in-arosa-lenzerheide-lenzerheide"
+          "company-electrician-in-arosa-lenzerheide-lenzerheide",
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
         ],
         "fr": [
-          "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide"
+          "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide",
+          "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
         ]
       },
       "previousSlugs": [
@@ -248,7 +247,8 @@
         "company-electrician-in-arosa-lenzerheide-lenzerheide",
         "electricien-d-entreprise-in-arosa-lenzerheide-lenzerheide",
         "societa-elettricista-in-arosa-lenzerheide-lenzerheide",
-        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide"
+        "entreprise-electricien-in-arosa-lenzerheide-lenzerheide",
+        "betriebselektriker-in-arosa-lenzerheide-lenzerheide"
       ]
     }
   ]

@@ -653,9 +653,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-mpa-berit-klinik-speicher",
-        "en": "lehrstelle-mpa-berit-klinik",
+        "en": "apprenticeship-mpa-berit-klinik-speicher",
         "de": "lehrstelle-mpa-berit-klinik",
-        "fr": "lehrstelle-mpa-berit-klinik"
+        "fr": "apprentissage-mpa-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_lehrstelle_mpa_fe07e6de67.pdf"
@@ -666,6 +666,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-mpa-berit-klinik"
+        ],
+        "en": [
+          "lehrstelle-mpa-berit-klinik"
+        ],
+        "fr": [
           "lehrstelle-mpa-berit-klinik"
         ]
       },
@@ -902,7 +908,7 @@
     },
     {
       "title": "Restaurant, 50%",
-      "slug": "restaurant-50-berit-klinik",
+      "slug": "ristorante-50-berit-klinik-wattwil",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -938,7 +944,7 @@
         "fr": "Berit Klinik cherche une personnalité engagée pour l'emplacement de Wattwil.\n\nFonction: Restaurant, 50%.\n\nBerit Klinik AG (en anglais seulement) Vögelinsegg 5 (en anglais seulement) 9042 Speicher (en anglais seulement) +41 71 335 06 06 (en anglais seulement) info@beritklinik.ch Le groupe Berit Klinik exploite sept sites dans l'est de la Suisse et est un chef de file en médecine, chirurgie spinale et réhabilitation à Speicher et Niederteufen. À Wattwil, un service d'urgence 24/7, une clinique de jour, diverses heures de consultation, la radiologie, un laboratoire et le PSA, une thérapie à court terme pour les patients alcooliques, sont disponibles. À Goldach, la clinique offre une chirurgie nerveuse manuelle et périphérique, des heures de consultation en ophtalmologie et en orthopédie ainsi qu'un petit centre intestinal. Berit Sportclinic est représenté à Speicher, Arbon et Heerbrugg. Depuis 2025, le Berit Sportslab de St. Gallen complète la gamme d'entraînements sportifs. Personne-ressource pour les questions Mme Sandra Egger Chef de la Gastronomie T +41 71 335 06 28 sandra.egger@klinik.ch Demande à Mme Vanessa Grimaldi Chef des Ressources humaines hr@klinik.ch Employé/dans le restaurant, 50% pour notre emplacement à Wattwil.\n• Servir et soigner nos patients et clients dans nos restaurants\n• Fourniture de la mise en place requise comme spécifié\n• Préparation et encaissement des factures des clients\n• Tâches générales de nettoyage mineur de votre profil\n• Vous apportez de l'expérience dans l'opération de restauration, formation d'avantage\n• Tu parles couramment allemand\n• Des affectations régulières les week-ends et les vacances sont possibles pour vous (pas de travail de nuit)\n• Vous êtes une équipe capable, résistant et fidèle personnalité\n• Ils sont flexibles Nous leur offrons\n• Assistance dans une équipe établie et dynamique\n• 5 semaines de vacances\n• Parking gratuit, à 5 minutes à pied de la gare de Wattwil\n• Heures de travail attrayantes Fonctionnement quotidien\n\nSource: https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat ma restaurant wattwil 50 37d803f497.pdf\n\nPortail de carrière: https://www.beritklinik.ch/fr/karriere-offene Stellen\n\nSecteur: Santé / Clinique"
       },
       "slugByLocale": {
-        "it": "restaurant-50-berit-klinik",
+        "it": "ristorante-50-berit-klinik-wattwil",
         "en": "restaurant-50-berit-klinik",
         "de": "restaurant-50-berit-klinik",
         "fr": "restaurant-50-berit-klinik-wattwil"
@@ -961,7 +967,15 @@
           "maxValue": 57000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-50-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "restaurant-50-berit-klinik"
+      ]
     },
     {
       "title": "Köchin, 100%",

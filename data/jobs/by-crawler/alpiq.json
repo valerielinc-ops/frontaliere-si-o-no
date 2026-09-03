@@ -6,7 +6,8 @@
       "id": "alpiq-183e0087fef4",
       "slug": "enterprise-architect-etrm-alpiq-olten",
       "slugByLocale": {
-        "it": "enterprise-architect-etrm-alpiq-olten"
+        "it": "enterprise-architect-etrm-alpiq-olten",
+        "fr": "architecte-d-entreprise-etrm-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -61,7 +62,8 @@
       "id": "alpiq-32ea120ec164",
       "slug": "senior-asset-trader-alpiq-lausanne",
       "slugByLocale": {
-        "it": "senior-asset-trader-alpiq-lausanne"
+        "it": "senior-asset-trader-alpiq-lausanne",
+        "fr": "trafic-principal-d-actifs-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -168,17 +170,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "gas-operator-alpiq-olten",
-          "operatore-di-gas-alpiq-olten"
-        ]
-      },
-      "previousSlugs": [
-        "gas-operator-alpiq-olten",
-        "operatore-di-gas-alpiq-olten"
-      ]
+      }
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
