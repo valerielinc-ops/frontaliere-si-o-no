@@ -1,7 +1,11 @@
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
@@ -69,7 +73,10 @@ export function parseSkyguideListings(html = '') {
     const parsed = {
       href: String(link?.getAttribute('href') || '').trim(),
       title: normalizeSpace(link?.textContent || ''),
-      location: normalizeSpace(row.querySelector('.colLocation .jobLocation, .jobdetail-phone .jobLocation')?.textContent || ''),
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
+      location: stripSuccessFactorsMoreLocations(
+        normalizeSpace(row.querySelector('.colLocation .jobLocation, .jobdetail-phone .jobLocation')?.textContent || ''),
+      ),
       department: normalizeSpace(row.querySelector('.colDepartment .jobDepartment, .jobdetail-phone .jobFacility')?.textContent || ''),
     };
     // A row whose title IS the j2w page chrome (cookie-consent widget,

@@ -31,6 +31,22 @@ describe('damiani-job-parser', () => {
     expect(ignoredNonJobRows).toBe(0);
   });
 
+  it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+    const html = `
+      <table id="searchresults">
+        <tr class="data-row">
+          <td class="colTitle"><a href="/job/Mendrisio-Treasury-Specialist/1327326955/" class="jobTitle-link">Treasury Specialist</a></td>
+          <td class="colLocation"><span class="jobLocation">Mendrisio <small class="nobr">+1 more&hellip;</small></span></td>
+          <td class="colDate"><span class="jobDate">9 mar 2026</span></td>
+        </tr>
+      </table>
+    `;
+    const { rows, skippedMalformedRows } = parseDamianiSearchPage(html);
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('Mendrisio');
+    expect(skippedMalformedRows).toBe(0);
+  });
+
   it('separates malformed vacancy rows from SuccessFactors page chrome', () => {
     const html = `
       <table id="searchresults">

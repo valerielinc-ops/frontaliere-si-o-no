@@ -207,6 +207,15 @@ describe('Clariant crawler parser', () => {
       expect(rows[1].location).toBe('Muttenz, CH');
     });
 
+    it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+      const multiLocation = listingHtml.replace(
+        '                  Pratteln, CH\n',
+        '                  Pratteln, CH <small class="nobr">+2 more&hellip;</small>\n',
+      );
+      const rows = parseClariantListing(multiLocation);
+      expect(rows[0].location).toBe('Pratteln, CH');
+    });
+
     it('de-duplicates rows sharing the same href', () => {
       const dup = listingHtml + listingHtml;
       const rows = parseClariantListing(dup);

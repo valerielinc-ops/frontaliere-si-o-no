@@ -403,6 +403,16 @@ describe('Prada Group crawler — SuccessFactors listing parsing', () => {
     expect(stMoritzJob!.location).toBe('St. Moritz');
   });
 
+  it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+    const multiLocation = LISTING_HTML_FIXTURE.replace(
+      '<td class="colLocation hidden-phone">Mendrisio</td>',
+      '<td class="colLocation hidden-phone">Mendrisio <small class="nobr">+3 more&hellip;</small></td>',
+    );
+    const jobs = parsePradaListingHtml(multiLocation);
+    const mendrisioJob = jobs.find((j) => j.title.includes('Mendrisio'));
+    expect(mendrisioJob!.location).toBe('Mendrisio');
+  });
+
   it('deduplicates desktop and mobile rows by jobId', () => {
     // The fixture has 4 rows (2 desktop + 2 mobile) but only 2 unique jobs
     const jobs = parsePradaListingHtml(LISTING_HTML_FIXTURE);
