@@ -11184,6 +11184,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.quando-cambiare-franco-euro.title': 'When it is worth exchanging francs for euros',
     'blog.article.quando-cambiare-franco-euro.excerpt': 'The CHF-EUR exchange rate has a direct impact on the border salary. Strategies, platforms, multi-currency accounts: how to maximize the value of the Swiss paycheck.',
     'blog.article.quando-cambiare-franco-euro.imageAlt': 'Lugano Lake view with Alps in background, representing the Swiss-Italian border region',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: cable theft, suspended Como-Milano',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'The theft of copper cables on the Como-Milan route has suspended traffic between Fino Mornasco and Milan Cadorna. Impact on commuters and alternative active services.',
+    'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Trenord train on the Como-Milan line with lake view in the background.',
 };
 
 export default blogMetaEn;

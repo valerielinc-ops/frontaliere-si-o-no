@@ -83492,6 +83492,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trenord-furto-di-cavi-sospesa-como-milano': {
+    title: 'Trenord: furto di cavi, sospesa Como-Milano | Frontaliere Ticino',
+    description: 'Il furto di cavi di rame sulla tratta Como-Milano ha sospeso la circolazione tra Fino Mornasco e Milano Cadorna. Impatto sui pendolari e servizi alternativi',
+    keywords: 'frontalieri, ticino, svizzera, italia, trenord, furto, cavi, sospesa',
+    ogTitle: 'Trenord: furto di cavi, sospesa Como-Milano',
+    ogDescription: 'Il furto di cavi di rame sulla tratta Como-Milano ha sospeso la circolazione tra Fino Mornasco e Milano Cadorna. Impatto sui pendolari e servizi alternativi attivi.',
+    canonicalPath: '/articoli-frontaliere/trenord-furto-di-cavi-sospesa-como-milano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trenord: furto di cavi, sospesa Como-Milano",
+      "description": "Il furto di cavi di rame sulla tratta Como-Milano ha sospeso la circolazione tra Fino Mornasco e Milano Cadorna. Impatto sui pendolari e servizi alternativi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trenord-furto-di-cavi-sospesa-como-milano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno Trenord sulla linea Como-Milano con vista del lago sullo sfondo."
+      },
+      "datePublished": "2026-09-03T05:21:21+00:00",
+      "dateModified": "2026-09-03T05:21:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trenord-furto-di-cavi-sospesa-como-milano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

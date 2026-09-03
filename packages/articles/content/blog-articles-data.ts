@@ -33420,6 +33420,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trenord-furto-di-cavi-sospesa-como-milano',
+ category: 'pratico',
+ date: '2026-09-03T05:21:21.854Z',
+ image: '/images/blog/trenord-furto-di-cavi-sospesa-como-milano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
