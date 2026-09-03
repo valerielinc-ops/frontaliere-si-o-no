@@ -11197,6 +11197,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-2024.title': 'Detrazioni frontalieri 2026: credito d\'imposta e franchigie',
     'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Imposta alla fonte svizzera, credito d\'imposta italiano, nuovo accordo con franchigie: guida completa per frontalieri Ticino-Italia 2024-2033.',
     'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Documenti fiscali frontalieri, euro e franchi svizzeri, calcolatrice e vista del confine Ticino-Italia',
+    'blog.article.inflazione-svizzera-agosto-2026.title': 'Inflazione accelera in Svizzera, sale a 0,8% in agosto',
+    'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'L\'inflazione in Svizzera è salita allo 0,8% in agosto, con aumenti significativi degli affitti e del carburante.',
+    'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Vista aerea del centro di Lugano con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

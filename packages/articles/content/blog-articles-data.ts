@@ -33456,6 +33456,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'inflazione-svizzera-agosto-2026',
+ category: 'novita',
+ date: '2026-09-03T07:55:28.751Z',
+ image: '/images/blog/inflazione-svizzera-agosto-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
