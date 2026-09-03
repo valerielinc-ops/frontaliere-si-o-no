@@ -5317,6 +5317,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-carriera-amministrazione.title': 'Lavorare alla SECO: opportunità e carriera federale',
     'blog.article.seco-carriera-amministrazione.excerpt': 'La Segreteria di Stato dell\'Economia impiega oltre 900 persone in tre sedi. Scopri apprendistati, stage universitari e opportunità nella pubblica amministrazione federale svizzera.',
     'blog.article.seco-carriera-amministrazione.imageAlt': 'Spazio di lavoro moderno presso amministrazione federale svizzera con documentazione su politica economica',
+    'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?',
+    'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'L\'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS.',
+    'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Vista aerea di Lugano, Svizzera, con focus sul distretto finanziario.',
 };
 
 export default blogMetaChIt;
