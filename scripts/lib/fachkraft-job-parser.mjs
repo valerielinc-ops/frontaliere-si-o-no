@@ -227,15 +227,22 @@ function reusableExistingListing(row, existing) {
   if (!isPublishableFachkraftDescription(description)) return null;
   const existingLocation = normalizeSpace(existing.location || existing.addressLocality || '');
   const rowLocation = normalizeSpace(row.location || '');
-  const location = existingLocation
-    && (!rowLocation || normalize(existingLocation).includes(normalize(rowLocation)))
-    ? existingLocation
-    : rowLocation || existingLocation;
+  const locationMatches = Boolean(
+    existingLocation && (!rowLocation || normalize(existingLocation).includes(normalize(rowLocation))),
+  );
+  const location = locationMatches ? existingLocation : rowLocation || existingLocation;
   const preGeography = {
     ...row,
     location,
-    addressLocality: existing.addressLocality || rowLocation || location,
-    addressRegion: row.addressRegion || existing.addressRegion || existing.canton || '',
+    // When the location diverged (locationMatches === false), `location` above was
+    // just refreshed to rowLocation from the current listing; falling back to
+    // existing.addressLocality/canton here would pair that fresh location with a
+    // stale city/canton from a previous run (#7249). Only reuse the existing
+    // addressLocality/canton when location did NOT change, leaving
+    // resolveDetailOrListingSwissGeography to decide from row.addressRegion/
+    // current listing text otherwise.
+    addressLocality: (locationMatches ? existing.addressLocality : '') || rowLocation || location,
+    addressRegion: row.addressRegion || (locationMatches ? existing.addressRegion || existing.canton || '' : ''),
     addressCountry: existing.addressCountry || existing.country || row.addressCountry,
     country: existing.country || existing.addressCountry || row.country,
   };
