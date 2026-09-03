@@ -1,20 +1,55 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-02T23:08:42.728Z",
-  "total": 3,
+  "generatedAt": "2026-09-03T13:34:03.885Z",
+  "total": 4,
   "discovered": null,
-  "written": 3,
-  "newCount": 0,
+  "written": 4,
+  "newCount": 1,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 50885,
-  "avgDurationMs": 50885,
+  "durationMs": 66796,
+  "avgDurationMs": 66796,
   "durationHistory": [
-    50885
+    66796
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "faulhaber-e3d5f6700c02",
+      "slug": "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
+      "company": "Faulhaber",
+      "companyKey": "faulhaber",
+      "companyDomain": "faulhaber.com",
+      "title": "R&D Mechanical Engineer - Gearbox design",
+      "location": "Croglio",
+      "canton": "TI",
+      "addressLocality": "Croglio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6981",
+      "category": "engineering",
+      "sector": "Meccanica di precisione / Motori elettrici",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "url": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
+      "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
+      "source": "Faulhaber Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T13:33:48.674Z",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "faulhaber-cd396bb6e76c",
@@ -41,7 +76,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:08:16.987Z",
+      "crawledAt": "2026-09-03T13:33:24.424Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 83,
@@ -77,7 +112,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:08:29.341Z",
+      "crawledAt": "2026-09-03T13:33:36.652Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 83,
@@ -113,14 +148,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:08:40.882Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-03T13:34:01.317Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
-      "_qualityScore": 64,
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 16,
+        "translation": 14,
         "completeness": 17
       }
     }
