@@ -5233,6 +5233,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.salari-lavoro-argovia-guida.title': 'Salari e mercato del lavoro in Argovia: guida',
     'blog.article.salari-lavoro-argovia-guida.excerpt': 'Come funziona il mercato del lavoro nel cantone Argovia? Salari, settori, tassazione e contributi secondo le normative federali e cantonali svizzere.',
     'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Ufficio moderno svizzero con dipendenti al lavoro, che rappresenta il mercato del lavoro elvetico.',
+    'blog.article.lavoro-argovia-salari-diritti.title': 'Salari e mercato del lavoro canton Argovia',
+    'blog.article.lavoro-argovia-salari-diritti.excerpt': 'Come funziona il mercato del lavoro in Argovia: stipendi, diritti, contratti collettivi e contributi previdenziali secondo la legge federale svizzera.',
+    'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'Distretto commerciale svizzero con uffici moderni e lavoratori: simbolo del mercato del lavoro e dell\'occupazione',
 };
 
 export default blogMetaChIt;
