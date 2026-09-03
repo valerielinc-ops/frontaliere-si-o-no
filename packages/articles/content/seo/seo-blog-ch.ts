@@ -68972,6 +68972,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-seco-carriera-amministrazione': {
+    title: 'Lavorare alla SECO: opportunità e carriera federale',
+    description: 'La SECO impiega oltre 900 persone in tre sedi svizzere. Scopri apprendistati, stage e carriere nella pubblica amministrazione federale economica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, alla, seco, opportunità',
+    ogTitle: 'Lavorare alla SECO: opportunità di carriera federale svizzera',
+    ogDescription: 'La Segreteria di Stato dell\'Economia (SECO) conta 900+ dipendenti in 3 sedi. Offre apprendistati AFC, stage universitari e tirocini. Scopri come candidarsi alla pubblica amministrazione federale svizzera.',
+    canonicalPath: '/articoli-svizzera/seco-carriera-amministrazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare alla SECO: opportunità e carriera federale",
+      "description": "La SECO impiega oltre 900 persone in tre sedi svizzere. Scopri apprendistati, stage e carriere nella pubblica amministrazione federale economica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-carriera-amministrazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio di lavoro moderno presso amministrazione federale svizzera con documentazione su politica economica"
+      },
+      "datePublished": "2026-09-03T15:05:49+00:00",
+      "dateModified": "2026-09-03T15:05:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-carriera-amministrazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
