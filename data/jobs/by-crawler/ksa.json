@@ -3531,12 +3531,12 @@
     },
     {
       "id": "ksa-f74b60cfe3ee",
-      "slug": "facharztin-facharzt-ksa-ch",
+      "slug": "specialista-medico-specialista-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "facharztin-facharzt-ksa-ch",
-        "en": "facharztin-facharzt-ksa-ch",
+        "it": "specialista-medico-specialista-kantonsspital-aarau-ksa-aarau",
+        "en": "specialist-doctor-specialist-kantonsspital-aarau-ksa-aarau",
         "de": "facharztin-facharzt-ksa-ch",
-        "fr": "facharztin-facharzt-ksa-ch"
+        "fr": "medecin-specialiste-specialiste-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3581,10 +3581,20 @@
       "previousSlugsByLocale": {
         "de": [
           "facharztin-facharzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "it": [
+          "facharztin-facharzt-ksa-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-ksa-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-ksa-ch"
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-kantonsspital-aarau-ksa-aarau"
+        "facharztin-facharzt-kantonsspital-aarau-ksa-aarau",
+        "facharztin-facharzt-ksa-ch"
       ],
       "firstSeenAt": "2026-08-26T09:53:28.950Z",
       "salaryMin": 88000,
@@ -3603,12 +3613,12 @@
     },
     {
       "id": "ksa-93147abf78cb",
-      "slug": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
+      "slug": "assistente-medico-assistente-medico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
-        "en": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
+        "it": "assistente-medico-assistente-medico-kantonsspital-aarau-ksa-aarau",
+        "en": "assistant-doctor-assistant-doctor-kantonsspital-aarau-ksa-aarau",
         "de": "assistenzarztin-assistenzarzt-ksa-ch",
-        "fr": "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        "fr": "assistant-medecin-assistant-medecin-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3652,11 +3662,19 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ksa-ch"
+          "assistenzarztin-assistenzarzt-ksa-ch",
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ksa-ch"
+        "assistenzarztin-assistenzarzt-ksa-ch",
+        "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
       ],
       "firstSeenAt": "2026-08-26T09:53:28.951Z",
       "salaryMin": 88000,

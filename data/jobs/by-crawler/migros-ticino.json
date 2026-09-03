@@ -15514,8 +15514,8 @@
       },
       "slugByLocale": {
         "it": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz",
-        "en": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt",
-        "de": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt",
+        "en": "fresh-produce-sales-manager-societe-cooperative-migros-vaud-la-tour-de-peilz",
+        "de": "frischprodukt-verkaufsleiter-in-societe-cooperative-migros-vaud-la-tour-de-peilz",
         "fr": "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt"
       },
       "requirementsByLocale": {
@@ -15556,10 +15556,12 @@
           "ultra-fresh-sales-manager-societe-cooperative-migros-vaud-rolle"
         ],
         "en": [
-          "butcher-societe-cooperative-migros-vaud-rolle"
+          "butcher-societe-cooperative-migros-vaud-rolle",
+          "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt"
         ],
         "de": [
-          "metzger-societe-cooperative-migros-vaud-rolle"
+          "metzger-societe-cooperative-migros-vaud-rolle",
+          "gestionnaire-de-vente-ultra-frais-societe-cooperative-migros-vaud-la-tour-de-peilz-houxyt"
         ],
         "fr": [
           "boucher-societe-cooperative-migros-vaud-rolle-4gc8oz"
@@ -16229,15 +16231,7 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "salaryMin": 73500,
-      "salaryMax": 111500,
-      "previousSlugsByLocale": {
-        "it": [
-          "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-regensdorf"
-        ]
-      },
-      "previousSlugs": [
-        "verkaufer-in-fleisch-fischtheke-genossenschaft-migros-zurich-regensdorf"
-      ]
+      "salaryMax": 111500
     },
     {
       "id": "company-465kcx",
@@ -18595,8 +18589,8 @@
       },
       "slugByLocale": {
         "it": "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
-        "en": "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd",
-        "de": "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd",
+        "en": "administrative-manager-v-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
+        "de": "verwaltungsleiter-v-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier",
         "fr": "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd"
       },
       "requirementsByLocale": {
@@ -18617,6 +18611,12 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd"
+        ],
+        "en": [
+          "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd"
+        ],
+        "de": [
           "gestionnaire-administratif-ve-societe-cooperative-migros-neuchatel-fribourg-marin-epagnier-1jewhd"
         ]
       },
