@@ -1792,6 +1792,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economia-svizzera-crescita-q2-2026': { it: 'economia-svizzera-crescita-q2-2026', en: 'swiss-economy-growth-q2-2026', de: 'schweizer-wirtschaft-wachstum-q2-2026', fr: 'economie-suisse-croissance-q2-2026' },
  'lista-nera-asili-nidi-svizzera': { it: 'lista-nera-asili-nidi-svizzera', en: 'blacklist-childcare-staff-switzerland', de: 'schwarze-liste-kitas-schweiz', fr: 'liste-noire-structures-accueil-suisse' },
  'tardoc-rivalutazione-famiglia': { it: 'tardoc-rivalutazione-famiglia', en: 'tardoc-devaluation-family-medicine', de: 'tardoc-aufwertung-hausarzt', fr: 'tardoc-revalorisation-medecins-famille' },
+ 'comitato-consultivo-svizzera-digitale': { it: 'comitato-consultivo-svizzera-digitale', en: 'digital-switzerland-advisory-committee', de: 'beirat-digitale-schweiz', fr: 'comite-consultatif-suisse-numerique' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

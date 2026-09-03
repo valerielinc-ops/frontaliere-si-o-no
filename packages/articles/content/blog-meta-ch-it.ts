@@ -5299,6 +5299,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC sotto il tiro di medici di famiglia',
     'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe critica il nuovo tariffario: costi ambulatoriali in aumento, medicina di famiglia senza rivalutazione. Il rischio per l\'accesso alle cure di base.',
     'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Medico di famiglia in consulto con paziente in ambulatorio svizzero, tema TARDOC e critiche sulla rivalutazione delle cure primarie',
+    'blog.article.comitato-consultivo-svizzera-digitale.title': 'Comitato Svizzera digitale: priorità a sicurezza e e-ID',
+    'blog.article.comitato-consultivo-svizzera-digitale.excerpt': 'Il 3 settembre 2026 il Comitato consultivo ha discusso la strategia digitale nazionale, rinviando l\'e-ID per garantire massima sicurezza e fiducia.',
+    'blog.article.comitato-consultivo-svizzera-digitale.imageAlt': 'Riunione del Comitato consultivo Svizzera digitale a Berna.',
 };
 
 export default blogMetaChIt;
