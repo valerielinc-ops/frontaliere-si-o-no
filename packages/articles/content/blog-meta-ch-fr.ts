@@ -5287,6 +5287,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.benzina-diesel-massimi-anno-2026.title': 'Essence et diesel au plus haut de l\'année',
     'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Essence 95 à 2,10 CHF, diesel à 2,26 CHF selon TCS. Le conflit au Moyen-Orient et les pénuries d\'eau du Rhin provoquent des hausses : +20-26 % depuis février.',
     'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Station-service suisse avec affichage des prix du carburant et diesel, illustration du thème de l\'article',
+    'blog.article.tardoc-medici-famiglia-svizzera.title': 'Médecins de famille, le système tarifaire TARDOC ne convainc pas',
+    'blog.article.tardoc-medici-famiglia-svizzera.excerpt': 'Quelques mois après son entrée en vigueur, le nouveau système tarifaire TARDOC pour les prestations médicales ambulatoires ne convainc pas les médecins de famille et les pédiatres.',
+    'blog.article.tardoc-medici-famiglia-svizzera.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes en arrière-plan',
 };
 
 export default blogMetaChFr;

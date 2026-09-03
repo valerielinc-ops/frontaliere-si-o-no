@@ -5287,6 +5287,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.benzina-diesel-massimi-anno-2026.title': 'Gasoline and diesel at year\'s highs',
     'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Petrol 95 at 2.10 CHF, diesel at 2.26 CHF according to TCS. Middle East conflict and Rhine water scarcity cause increases: +20-26% since February.',
     'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Swiss gas station fuel pump displaying current prices for gasoline and diesel, illustrating article theme',
+    'blog.article.tardoc-medici-famiglia-svizzera.title': 'Family doctors, the TARDOC tariff system does not convince',
+    'blog.article.tardoc-medici-famiglia-svizzera.excerpt': 'A few months after its entry into force, the new TARDOC tariff system for outpatient medical services does not convince family doctors and paediatricians.',
+    'blog.article.tardoc-medici-famiglia-svizzera.imageAlt': 'Aerial view of Lugano with the lake and mountains in the background',
 };
 
 export default blogMetaChEn;
