@@ -68231,6 +68231,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-prestazioni-complementari-lacune-contributive': {
+    title: 'AVS e prestazioni complementari: lacune contributive',
+    description: 'Guida completa al primo pilastro AVS svizzero: calcolo rendita, lacune contributive, cassa di compensazione cantonale e prestazioni complementari per il minimo',
+    keywords: 'frontalieri, ticino, svizzera, italia, prestazioni, complementari, lacune, contributive',
+    ogTitle: 'AVS e prestazioni complementari: calcolo della rendita',
+    ogDescription: 'Come funziona il primo pilastro della previdenza svizzera: calcolo rendita AVS, lacune contributive, ruolo della cassa di compensazione cantonale e prestazioni complementari per garantire il minimo vitale.',
+    canonicalPath: '/articoli-svizzera/avs-prestazioni-complementari-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e prestazioni complementari: lacune contributive",
+      "description": "Guida completa al primo pilastro AVS svizzero: calcolo rendita, lacune contributive, cassa di compensazione cantonale e prestazioni complementari per il minimo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-prestazioni-complementari-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Persona anziana consulta estratto della carriera contributiva AVS presso cassa di compensazione cantonale"
+      },
+      "datePublished": "2026-09-03T06:11:24+00:00",
+      "dateModified": "2026-09-03T06:11:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-prestazioni-complementari-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

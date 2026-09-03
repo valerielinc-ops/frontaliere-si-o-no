@@ -15769,6 +15769,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-prestazioni-complementari-lacune-contributive',
+    category: 'pensione',
+    date: '2026-09-03T06:11:24.934Z',
+    image: '/images/blog/avs-prestazioni-complementari-lacune-contributive.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

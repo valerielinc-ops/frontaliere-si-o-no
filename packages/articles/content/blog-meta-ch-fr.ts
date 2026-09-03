@@ -5257,6 +5257,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.abbonamenti-trasporti-appenzello-interno.title': 'Abonnements transports Appenzell Intérieur : zones tarifaires',
     'blog.article.abbonamenti-trasporti-appenzello-interno.excerpt': 'Transports publics à Appenzell Interne : communauté tarifaire, zones, abonnements annuels et mensuels, demi-tarif, GA, réductions pour étudiants et apprentis.',
     'blog.article.abbonamenti-trasporti-appenzello-interno.imageAlt': 'Gare de transports publics du canton d\'Appenzell Rhodes-Intérieures avec billetterie et horaires régionaux',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.title': 'AVS et prestations complémentaires : lacunes contributives',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.excerpt': 'Comment fonctionne le premier pilier dans le système suisse : calcul de la rente AVS, lacunes contributives, caisse de compensation cantonale et prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-prestazioni-complementari-lacune-contributive.imageAlt': 'Personne âgée examinant historique des cotisations AVS auprès de la caisse de compensation cantonale',
 };
 
 export default blogMetaChFr;
