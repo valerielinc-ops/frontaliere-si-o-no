@@ -1674,7 +1674,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
-        # Tier high (claude-sonnet-5, max-turns 60, adversarial pass): toccato CODE
+        # Tier high (claude-opus-5, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
@@ -1738,7 +1738,7 @@ jobs:
           # `normal`, scavalcando il guard di incompletezza dieci righe sotto.
           if [ -z "$files" ] && [ "$files_complete" = "1" ]; then
             echo "Empty file list (rebase-only or empty PR)."
-            set_tier normal claude-sonnet-5 35
+            set_tier normal claude-opus-5 35
             exit 0
           fi
           # Elenco incompleto: il tier NON si decide su un campione. Senza questo
@@ -1754,7 +1754,7 @@ jobs:
             else
               echo "Elenco file INCOMPLETO ($count/$expected, causa: $reason) → tier high forzato: niente minimal, niente decisione funnel su un campione."
             fi
-            set_tier high claude-sonnet-5 60
+            set_tier high claude-opus-5 60
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -1771,7 +1771,7 @@ jobs:
             # contract, posta review (~4-6 turni osservati). REVERT-TRIGGER: se
             # compaiono `error_max_turns` sul tier minimal → bump 12→16.
             echo "Data/docs-only PR (no reviewable code touched) → tier minimal."
-            set_tier minimal claude-sonnet-5 12
+            set_tier minimal claude-opus-5 12
             exit 0
           fi
           # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
@@ -1787,7 +1787,7 @@ jobs:
 
           # (Rimossa 2026-07-17 la variante crawler_parser_only del 2026-06-30:
           # discriminava SOLO il modello — claude-sonnet-4-6 sui diff
-          # crawler/parser-only — e il modello è ora UNIFICATO claude-sonnet-5
+          # crawler/parser-only — e il modello è ora UNIFICATO claude-opus-5
           # su ogni tier per decisione owner. Stesso scope e stessi turni.)
 
           # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
@@ -1795,8 +1795,8 @@ jobs:
           # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
           # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
           # su #3038: review Opus full ripetute sullo stesso codice). Modello per
-          # criticità del DELTA: funnel-critical → tier high/claude-sonnet-5 (rigore,
-          # scope ridotto); altrimenti tier incremental (modello sempre claude-sonnet-5). Prima review /
+          # criticità del DELTA: funnel-critical → tier high/claude-opus-5 (rigore,
+          # scope ridotto); altrimenti tier incremental (modello sempre claude-opus-5). Prima review /
           # nessun commit precedente / delta vuoto
           # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
           # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
@@ -1813,12 +1813,12 @@ jobs:
               if funnel_crit "$delta_code"; then
                 # Keep the historical 35-turn safety margin until a live run
                 # proves that the stricter delta-scoped prompt is safe below it.
-                set_tier incremental-high claude-sonnet-5 35
+                set_tier incremental-high claude-opus-5 35
               else
                 # Mantieni il cap storico di 35: il bundle riduce il contesto e
                 # i turni medi, ma non deve trasformare un delta complesso in un
                 # max_turns senza ancora avere una misura live sufficiente.
-                set_tier incremental claude-sonnet-5 35
+                set_tier incremental claude-opus-5 35
               fi
               exit 0
             fi
@@ -1826,7 +1826,7 @@ jobs:
           fi
 
           # CODE funnel-critical → high (full scope, 60 turni), altrimenti normal
-          # (35 turni). Modello UNIFICATO claude-sonnet-5 su OGNI tier (owner
+          # (35 turni). Modello UNIFICATO claude-opus-5 su OGNI tier (owner
           # 2026-07-17: mai claude-sonnet-4-6).
           #
           # high-mega (2026-07-17, analisi Fable-5): la coda di PR sovradimensionate
@@ -1839,12 +1839,12 @@ jobs:
           code_file_count=$(echo "$code_files" | grep -c . || true)
           if funnel_crit "$code_files"; then
             if [ "$code_file_count" -ge 25 ]; then
-              set_tier high-mega claude-sonnet-5 90
+              set_tier high-mega claude-opus-5 90
             else
-              set_tier high claude-sonnet-5 60
+              set_tier high claude-opus-5 60
             fi
           else
-            set_tier normal claude-sonnet-5 35
+            set_tier normal claude-opus-5 35
           fi
 
       - name: Wait for background Headroom install
@@ -2041,7 +2041,7 @@ jobs:
           # Rischio noto e accettato: reviewer gira su OGNI PR (incluse quelle
           # aperte da bot/automation) con GITHUB_TOKEN pull-requests:write +
           # issues:write, senza restrizione su Bash/Write/Edit.
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             PR review automation for #${{ steps.resolve.outputs.pr_number }} (HEAD ${{ steps.resolve.outputs.head_sha }}), tier ${{ steps.tier.outputs.tier }}.
 
