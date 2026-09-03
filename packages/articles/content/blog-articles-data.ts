@@ -33564,6 +33564,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'autonomi-frontalieri-svizzera-come-aprire',
+ category: 'fiscale',
+ date: '2026-09-03T16:43:30.923Z',
+ image: '/images/blog/autonomi-frontalieri-svizzera-come-aprire.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

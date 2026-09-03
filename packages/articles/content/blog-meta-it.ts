@@ -11235,6 +11235,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: procedura e costi per frontalieri',
     'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permesso G: 65 CHF di costo, 5 anni di validità. Guida completa alla domanda presso il Migrationsamt per frontalieri Ticino-Italia.',
     'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Valico di Chiasso durante le ore di punta mattutina con traffico pendolare frontaliero in entrata in Svizzera, bandiere svizzere e italiane.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Partita IVA frontaliere: aprire autonomo in Svizzera',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Guida pratica per frontalieri che vogliono avviare un\'attività autonoma in Svizzera. Requisiti permesso G, fiscalità, franchigie e previdenza dal 2024.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Vista panoramica di Lugano, Canton Ticino, con il lago e le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;
