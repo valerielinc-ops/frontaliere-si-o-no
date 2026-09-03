@@ -328,10 +328,16 @@
         "de": "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
-        "de": "Fachfrau / Fachmann Gesundheit Schlafmedizin"
+        "de": "Fachfrau / Fachmann Gesundheit Schlafmedizin",
+        "it": "Medicina sanitaria specialistica del sonno",
+        "en": "Specialist Health Sleep Medicine",
+        "fr": "Spécialiste en médecine du sommeil"
       },
       "descriptionByLocale": {
-        "de": "Starte am 1. Oktober 2026 als\n\nAufgaben:\n• Du bereitest schlafmedizinische Untersuchungen wie Polysomnographien und respiratorische Polygraphien vor und begleitest deren Durchführung\n\n• Du betreust Patientinnen und Patienten während des Nachtdienstes und stellst eine einwandfreie Datenaufzeichnung sicher\n\n• Du erkennst technische Störungen, leitest Massnahmen ein und wirkst bei organisatorischen, administrativen sowie gerätebezogenen Aufgaben mit\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Gesundheit EFZ; eine Weiterbildung in neurophysiologischer Diagnostik (FND) ist von Vorteil\n\n• Bereitschaft zu zwei bis drei Nachtdiensten pro Monat zwischen Montag und Donnerstag\n\n• Technisches Interesse und Freude an einem spezialisierten diagnostischen Arbeitsgebiet sowie eine selbstständige, zuverlässige Arbeitsweise und ein wertschätzender Umgang mit Patientinnen, Patienten und Teammitgliedern\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!"
+        "de": "Starte am 1. Oktober 2026 als\n\nAufgaben:\n• Du bereitest schlafmedizinische Untersuchungen wie Polysomnographien und respiratorische Polygraphien vor und begleitest deren Durchführung\n\n• Du betreust Patientinnen und Patienten während des Nachtdienstes und stellst eine einwandfreie Datenaufzeichnung sicher\n\n• Du erkennst technische Störungen, leitest Massnahmen ein und wirkst bei organisatorischen, administrativen sowie gerätebezogenen Aufgaben mit\n\nAnforderungen:\n• Eine abgeschlossene Ausbildung als Fachfrau / Fachmann Gesundheit EFZ; eine Weiterbildung in neurophysiologischer Diagnostik (FND) ist von Vorteil\n\n• Bereitschaft zu zwei bis drei Nachtdiensten pro Monat zwischen Montag und Donnerstag\n\n• Technisches Interesse und Freude an einem spezialisierten diagnostischen Arbeitsgebiet sowie eine selbstständige, zuverlässige Arbeitsweise und ein wertschätzender Umgang mit Patientinnen, Patienten und Teammitgliedern\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
+        "it": "Iniziare il 1 ottobre 2026 come\n\nCompiti:\n• Preparate esami medici del sonno come polisomnografie e poligrafie respiratorie e accompagnate la loro implementazione\n\n• Si prende cura dei pazienti durante il servizio notturno e garantire la corretta registrazione dei dati\n\n• Riconoscere i problemi tecnici, avviare misure e partecipare a compiti organizzativi, amministrativi e connessi con i dispositivi\n\nRequisiti\n• Formazione completa come specialista in salute EFZ; ulteriore formazione nella diagnostica neurofisiologica (FND) è un vantaggio\n\n• Prontezza per due o tre servizi notturni al mese tra lunedì e giovedì\n\n• Interesse tecnico e piacere in un campo diagnostico specializzato del lavoro nonché un metodo di lavoro indipendente e affidabile e un trattamento apprezzativo di pazienti e membri del team\n\nPuoi fare qualcosa che gli altri non possono?\nFai la differenza?\nAllora appartieni a noi!",
+        "en": "Start on October 1, 2026 as\n\nTasks:\n• You prepare sleep medical examinations such as polysomnographies and respiratory polygraphs and accompany their implementation\n\n• You look after patients during night service and ensure proper data recording\n\n• You recognize technical problems, initiate measures and participate in organizational, administrative and device-related tasks\n\nRequirements\n• Completed training as a specialist in health EFZ; further training in neurophysiological diagnostics (FND) is an advantage\n\n• Readiness for two to three night services per month between Monday and Thursday\n\n• Technical interest and pleasure in a specialized diagnostic field of work as well as an independent, reliable working method and an appreciative treatment of patients and team members\n\nCan you do something that others can’t?\nYou make the difference?\nThen you belong to us!",
+        "fr": "Commencer le 1er octobre 2026\n\nTâches :\n• Vous préparez des examens médicaux du sommeil tels que les polysomnographies et les polygraphies respiratoires et accompagnez leur mise en œuvre\n\n• Vous prenez soin des patients pendant le service de nuit et assurez un enregistrement de données approprié\n\n• Vous reconnaissez les problèmes techniques, prenez des mesures et participez à des tâches organisationnelles, administratives et liées aux appareils\n\nExigences\n• Formation complète en tant que spécialiste de la santé EFZ; formation continue en diagnostic neurophysiologique (FND) est un avantage\n\n• Préparation aux services de deux à trois nuits par mois entre lundi et jeudi\n\n• Intérêt technique et plaisir dans un domaine de diagnostic spécialisé ainsi qu'une méthode de travail indépendante et fiable et un traitement apprécié des patients et des membres de l'équipe\n\nPouvez-vous faire quelque chose que les autres peuvent faire?\nTu fais la différence ?\nAlors tu nous appartiens !"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -344,7 +350,6 @@
         }
       },
       "featured": false,
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 114000,
@@ -1749,7 +1754,7 @@
       },
       "titleByLocale": {
         "de": "Biomedizinische:r Analytiker:in HF/FH digitale Labormedizin",
-        "it": "Biomedical:r Analista: in HF/FH medicina digitale di laboratorio",
+        "it": "Biomedica: Analista: nella medicina di laboratorio digitale",
         "en": "Biomedical:r Analyst: in HF/FH digital laboratory medicine",
         "fr": "Analyste biomédical: en médecine de laboratoire numérique HF/FH"
       },
@@ -3190,8 +3195,8 @@
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
         "en": "Nurse/Care Professional Palliative Care",
-        "it": "Pflegefachfrau / Pflegefachmann Cure Palliative",
-        "fr": "Pflegefachfrau / Pflegefachmann Soins palliatifs"
+        "it": "Infermiera/Care Professional Palliative Care",
+        "fr": "Soins palliatifs professionnels"
       },
       "descriptionByLocale": {
         "de": "## Mansioni\n- Promuovi la qualità della vita di persone gravemente malate e in fin di vita, nonché dei loro cari, preservando al meglio l'autonomia e la volontà individuale\n- Assumi la responsabilità di fornire assistenza e cure infermieristiche competenti, applicando in modo sicuro concetti di cura e trattamento moderni e specializzati\n- Collabora strettamente con il team interdisciplinare e i partner multiprofessionali per garantire un'assistenza olistica e dignitosa\n- Accompagna e supporta gli apprendisti durante la loro formazione, contribuendo attivamente a un ambiente di apprendimento positivo con la tua conoscenza e la tua empatia\n\n## Requisiti\n- Possiedi un diploma di infermiere/a HF/FH e hai esperienza in un ospedale acuto svizzero\n- Hai completato o sei disposto a completare la formazione specialistica in Cure palliative B2\n- La tua metodologia di lavoro è caratterizzata da una forte affidabilità e da una comunicazione chiara, rispettosa ed empatica\n- Possiedi la maturità emotiva necessaria per instaurare e mantenere relazioni professionali con persone gravemente malate, in fin di vita e con i loro cari\n\n## Cosa offriamo\n- Hai una competenza che altri non hanno?\n- Fai la differenza?\n- Allora sei uno di noi!",
@@ -3218,7 +3223,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3257,8 +3261,8 @@
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann",
         "en": "Nurse/Care Professional Palliative Care",
-        "it": "Cure palliative Pflegefachfrau / Pflegefachmann",
-        "fr": "Pflegefachfrau / Pflegefachmann Soins palliatifs"
+        "it": "Infermiera/Care Professional Palliative Care",
+        "fr": "Soins palliatifs professionnels"
       },
       "descriptionByLocale": {
         "de": "Starte am 1. Juli 2026 oder nach Vereinbarung als\n\nAufgaben:\n• Du förderst die Lebensqualität von schwerkranken und sterbenden Menschen sowie deren Angehörigen unter dem bestmöglichen Erhalt von Autonomie und individuellem Willen\n\n• Du trägst die Verantwortung für eine fachkompetente Pflege und Betreuung und wendest dabei moderne sowie spezialisierte Pflege- und Behandlungskonzepte sicher an\n\n• Du arbeitest eng mit dem interdisziplinären Team und multiprofessionellen Partnern zusammen, um eine ganzheitliche und würdevolle Versorgung zu gewährleisten\n\n• Du begleitest und förderst unsere Lernenden in ihrer Ausbildung und trägst durch dein Wissen und deine Empathie aktiv zu einem positiven Lernumfeld bei\n\nAnforderungen:\n• Du verfügst über ein Diplom als Pflegefachperson HF/FH und bringst Erfahrung in einem Schweizer Akutspital mit\n\n• Du hast die fachspezifische Weiterbildung Palliative Care B2 oder bist bereit diese zu absolvieren\n\n• Deine Arbeitsweise zeichnet sich durch hohe Zuverlässigkeit sowie eine klare, wertschätzende und empathische Kommunikation aus\n\n• Du bringst die emotionale Reife mit, professionelle Beziehungen zu Schwerkranken, Sterbenden und ihren Angehörigen aufzubauen und zu halten\n\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -3285,7 +3289,6 @@
           "pflegefachfrau-pflegefachmann-palliative-care-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -3984,8 +3987,8 @@
       "titleByLocale": {
         "de": "Nach dem Tod Dipl. Expertin / Experte Notfallpflege HF für Pädiatrie",
         "en": "Postgraduate degree Dipl. Expert / Expert Emergency Care HF for Pediatrics",
-        "it": "Nachdiplomstudium Dipl. Expertin / Experte Notfallpflege HF per Pädiatrie",
-        "fr": "Expertin / Experte Notfallpflege HF für Pädiatrie"
+        "it": "Laurea specialistica Dipl. Expert / Expert Emergency Care HF per Pediatrics",
+        "fr": "Diplôme supérieur Dipl. Expert / Expert Soins d'urgence HF pour la pédiatrie"
       },
       "descriptionByLocale": {
         "de": "## Descrizione\nStarte bestenfalls schon vor dem 1. Januar 2027 das\n\n## Mansioni\n- Du übernimmst die strukturierte Ersteinschätzung (Triage) von pädiatrischen Notfallpatientinnen / Notfallpatienten, leitest prioritätsgerechte Massnahmen ein und triffst fundierte klinische Entscheidungen\n- Du koordinierst und steuerst den Pflegeprozess bei komplexen und instabilen Patientensituationen, unterstützt aktiv bei notfallmedizinischen Interventionen und gewährleistest eine evidenzbasierte Pflegequalität\n- Du begleitest und unterstützt Familien in akuten Krisensituationen durch klare, alters- und situationsgerechte Kommunikation, förderst den Einbezug der Bezugspersonen in die Versorgung und übernimmst eine zentrale Rolle in der interprofessionellen Zusammenarbeit sowie in der Anleitung von Mitarbeitenden\n- Den praktischen Teil deiner Ausbildung absolvierst du primär auf der pädiatrischen Notfallstation des KSGR. Zusätzlich leistest du ein viermonatiges Praktikum am Kinderspital Zürich\n\n## Requisiti\n- Du verfügst über ein Diplom als Pflegefachfrau / Pflegefachmann HF oder FH\n- Idealerweise bringst du mindestens ein Jahr Berufserfahrung in der Pädiatrie mit\n- Du bist flexibel, arbeitest gerne teamorientiert und in einer dynamischen Arbeitsumgebung\n- Du triffst Entscheidungen verantwortungsbewusst, trägst sie mit und bleibst auch bei hoher Belastung resilient\n- Du hast Freude am kontinuierlichen Lernen und an deiner fachlichen Weiterentwicklung\n\n## Contatto\nDu kannst etwas, was andere nicht können?\nDu machst den Unterschied aus?\nDann gehörst du zu uns!",
@@ -4019,7 +4022,6 @@
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,
@@ -4058,7 +4060,7 @@
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Notfallstation Kinder- und Jugendmedizin",
         "en": "Specialist / Professional Health Emergency Care Children and Youth Medicine",
-        "it": "Fachfrau / Fachmann Gesundheit Notfallstation Kinder- e Jugendmedizin",
+        "it": "Specialista / Special Health Emergency Department of Pediatrics and Adolescent Medicine",
         "fr": "Spécialiste / Santé professionnelle Soins d'urgence Médecine pour les enfants et les jeunes"
       },
       "descriptionByLocale": {
@@ -4088,7 +4090,6 @@
           "specialista-assistenza-sanitaria-professionale-bambini-e-medicina-della-gioventu-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "salaryMin": 41080,
       "salaryMax": 75000,

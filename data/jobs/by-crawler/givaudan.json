@@ -131,7 +131,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:19:46.350Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -236,8 +235,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "givaudan-dc49024d2d45",
@@ -254,7 +252,7 @@
       "title": "Automation Engineer (h/f/d)",
       "titleByLocale": {
         "it": "Automazione Ingegnere (h/f/d)",
-        "en": "Automation Engineer (h/f/d)",
+        "en": "Automation Engineer (m/f/d)",
         "de": "Automation Ingenieur (h/f/d)",
         "fr": "Automation Ingénieur (h/f/d)"
       },
@@ -303,7 +301,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.831Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -332,7 +329,7 @@
       "companyDomain": "givaudan.com",
       "title": "Operator (m/w/d)",
       "titleByLocale": {
-        "it": "Operator (m/w/d)",
+        "it": "Operatore (m/f/d)",
         "en": "Operator (m/f/d)",
         "de": "Operator (m/w/d)",
         "fr": "Opérateur (m/w/d)"
@@ -379,7 +376,6 @@
           "operator-m-w-d-givaudan-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:39:23.115Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -566,7 +562,7 @@
       "title": "Industrial Automation Project Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Industrial Automation Project Ingegnere (m/w/d)",
-        "en": "Industrial Automation Project Engineer (m/w/d)",
+        "en": "Industrial Automation Project Engineer (m/f/d)",
         "de": "Industrial Automation Project Ingenieur (m/w/d)",
         "fr": "Industrial Automation Project Ingénieur (m/w/d)"
       },
@@ -693,7 +689,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:41:56.858Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -780,7 +775,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:08:16.688Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -877,7 +871,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:13.918Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -907,7 +900,7 @@
       "title": "Quality Control & Process Technology Intern (m/w/d)",
       "titleByLocale": {
         "it": "Quality Control & Process Technology Tirocinante (m/w/d)",
-        "en": "Quality Control & Process Technology Intern (m/w/d)",
+        "en": "Quality Control & Process Technology Intern (m/f/d)",
         "de": "Qualität Control & Process Technology Praktikant (m/w/d)",
         "fr": "Qualité Control & Process Technology Stagiaire (m/w/d)"
       },
@@ -951,7 +944,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:37:22.103Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1056,7 +1048,7 @@
       "companyDomain": "givaudan.com",
       "title": "Produktionsmitarbeiter Misch- und Abfüllanlagen (m/w/d)",
       "titleByLocale": {
-        "it": "Produktionsmitarbeiter Misch- e Abfüllanlagen (m/w/d)",
+        "it": "Impianti di miscelazione e riempimento (m/f/d)",
         "en": "Production staff Mixing and filling plants (m/f/d)",
         "de": "Produktionsmitarbeiter Misch- und Abfüllanlagen (m/w/d)",
         "fr": "Personnel de production Installations de mélange et de remplissage (m/f/d)"
@@ -1104,7 +1096,6 @@
           "produktionsmitarbeiter-misch-und-abfullanlagen-m-w-d-givaudan-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T11:51:59.065Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1135,7 +1126,7 @@
       "title": "Produktion & Continuous Improvement Intern (m/w/d)",
       "titleByLocale": {
         "it": "Produktion & Continuous Improvement Tirocinante (m/w/d)",
-        "en": "Produktion & Continuous Improvement Intern (m/w/d)",
+        "en": "Production & Continuous Improvement Intern (m/f/d)",
         "de": "Produktion & Continuous Improvement Praktikant (m/w/d)",
         "fr": "Produktion & Continuous Improvement Stagiaire (m/w/d)"
       },
@@ -1182,7 +1173,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:37.765Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1275,7 +1265,7 @@
       "title": "Quality Control Technician (m/w/d)",
       "titleByLocale": {
         "it": "Tecnologia di controllo qualità (m/f/d)",
-        "en": "Quality Control Technician (m/w/d)",
+        "en": "Quality Control Technician (m/f/d)",
         "de": "Qualität Control Techniker (m/w/d)",
         "fr": "Qualité Control Technicien (m/w/d)"
       },
@@ -1324,7 +1314,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T11:58:10.965Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1354,7 +1343,7 @@
       "title": "Quality Control Technician 50% (m/w/d)",
       "titleByLocale": {
         "it": "Controllo qualità Tecnico 50% (m/f/d)",
-        "en": "Quality Control Technician 50% (m/w/d)",
+        "en": "Quality Control Technician 50% (m/f/d)",
         "de": "Qualität Control Techniker 50% (m/w/d)",
         "fr": "Qualité Control Technicien 50% (m/w/d)"
       },
@@ -1403,7 +1392,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T11:58:10.483Z",
-      "needsRetranslation": true,
       "salaryMin": 33500,
       "salaryMax": 51000,
       "salarySource": "estimated",
@@ -1432,7 +1420,7 @@
       "companyDomain": "givaudan.com",
       "title": "Agent prévention et intervention (h/f/d) 3x8 - CDD jusqu'au 31.12.2027",
       "titleByLocale": {
-        "it": "Agent prévention et intervention (f/m/d) 3x8 - CDD jusqu'au 31.12.2027",
+        "it": "Prevenzione e intervento agente (m/f/d) 3x8 - CSD fino al 31.12.2027",
         "en": "Prevention and intervention agent (h/f/d) 3x8 - CSD until 31.12.2027",
         "de": "Präventions- und Interventionsbeauftragter (h/f/d) 3x8 - CSD bis 31.12.2027",
         "fr": "Agent prévention et intervention (h/f/d) 3x8 - CDD jusqu'au 31.12.2027"
@@ -1466,7 +1454,6 @@
       "applyUrl": "https://careers.givaudan.com/global/en/job/GIVGIVGB119102EXTERNALENGLOBAL/agent-prevention-et-intervention-h-f-d-3x8-cdd-jusqu-au-31-12-2027",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T11:22:34.784Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -1497,7 +1484,7 @@
       "title": "Quality Control Analyst (h/f/d)",
       "titleByLocale": {
         "it": "Quality Control Analista (f/m/d)",
-        "en": "Quality Control Analyst (h/f/d)",
+        "en": "Quality Control Analyst (m/f/d)",
         "de": "Qualität Control Analyst (h/f/d)",
         "fr": "Qualité Control Analyste (h/f/d)"
       },
@@ -1547,7 +1534,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:49.838Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

@@ -378,7 +378,6 @@
         "sottoscrizione-del-personale-in-reparto-specializzato-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.785Z",
-      "needsRetranslation": true,
       "salaryMin": 64000,
       "salaryMax": 106500,
       "salarySource": "estimated",
@@ -492,7 +491,6 @@
         "specialista-nella-sottoscrizione-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
       "firstSeenAt": "2026-07-04T12:46:45.786Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -521,7 +519,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Collaborateur/Collaboratrice Contact Center",
       "titleByLocale": {
-        "it": "Collaborateur/Collaboratrice Contact Center",
+        "it": "Centro contatti Collaboratore",
         "en": "Collaborator Contact Center, 40-80%",
         "de": "Collaborator Contact Center, 40-80%",
         "fr": "Collaborateur/Collaboratrice Contact Center"
@@ -602,7 +600,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:46:45.787Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -632,7 +629,7 @@
       "title": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
       "titleByLocale": {
         "it": "Sachbearbeiter/-in Operations Pensionskasse (con Fachverantwortung)",
-        "en": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
+        "en": "Personnel/in Operations Pension Fund (with specialist responsibility)",
         "de": "Sachbearbeiter/-in Operations Pensionskasse (mit Fachverantwortung)",
         "fr": "Personnel/dans la Caisse de retraite des opérations (avec responsabilité spécialisée), 80-100 %"
       },
@@ -721,8 +718,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Kundenbetreuer/-in Pensionskasse",
       "titleByLocale": {
-        "it": "Account Manager/-in Pension Fund, 80-100 %",
-        "en": "Account Manager/-in Pension Fund, 80-100 %",
+        "it": "Account manager / fondo pensione",
+        "en": "Account manager/pension fund",
         "de": "Kundenbetreuer/-in Pensionskasse",
         "fr": "Gestionnaire de comptes/fonds de pension, 80-100 %"
       },
@@ -787,7 +784,6 @@
         "kundenbetreuer-in-pensionskasse-vz-vermoegenszentrum-ch",
         "account-manager-in-pension-fund-80-100-vz-vermogenszentrum-zurich-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.776Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -878,7 +874,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:04.955Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -972,7 +967,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -1001,7 +995,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Netzwerkmanager mit Flair für Infrastrukturprojekte",
       "titleByLocale": {
-        "it": "Netzwerkmanager con predisposizione per Infrastrukturprojekte",
+        "it": "Network Manager con Flair per progetti infrastrutturali",
         "en": "Network manager with flair for infrastructure projects, 80-100 %",
         "de": "Netzwerkmanager mit Flair für Infrastrukturprojekte",
         "fr": "Gestionnaire de réseau avec flair pour les projets d'infrastructure, 80-100 %"
@@ -1070,7 +1064,6 @@
           "netzwerkmanager-mit-flair-fur-infrastrukturprojekte-80-100-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:46:45.771Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -1258,7 +1251,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:14:04.949Z",
-      "needsRetranslation": true,
       "salaryMin": 108500,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -1348,7 +1340,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T22:44:22.430Z",
-      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -1527,7 +1518,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T12:09:12.091Z",
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -1625,7 +1615,6 @@
         "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-winterthur-zurich"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.757Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1654,8 +1643,8 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Consultant Unternehmensnachfolge / M&A",
       "titleByLocale": {
-        "it": "Consulente Unternehmensnachfolge / M&A",
-        "en": "Consultant Unternehmensnachfolge / M&A",
+        "it": "Successione commerciale / M&A",
+        "en": "Consultant Business Succession / M&A",
         "de": "Berater Unternehmensnachfolge / M&A",
         "fr": "(Aîné) Consultant Succession d'entreprise / M&A, 80-100 %"
       },
@@ -1734,7 +1723,6 @@
         "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
         "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1837,7 +1825,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:40.710Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -1867,7 +1854,7 @@
       "title": "IMS Praktikum Software Entwicklung",
       "titleByLocale": {
         "it": "Sviluppo software di stage IMS, 100%",
-        "en": "IMS Praktikum Software Entwicklung",
+        "en": "IMS Internship Software Development",
         "de": "IMS Praktikum Software Entwicklung",
         "fr": "Développement de logiciels de stage IMS, 100%"
       },
@@ -1932,7 +1919,6 @@
         ]
       },
       "firstSeenAt": "2026-08-02T22:02:02.737Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -1962,7 +1948,7 @@
       "title": "Lehre als Informatiker/-in Plattformentwicklung",
       "titleByLocale": {
         "it": "Apprendistato come Informatiker/-in Plattformentwicklung",
-        "en": "Lehre als Informatiker/-in Plattformentwicklung",
+        "en": "Teaching as a computer scientist/in platform development",
         "de": "Lehre als Informatiker/-in Plattformentwicklung",
         "fr": "L'enseignement en tant qu'informaticien/en développement de plateforme"
       },
@@ -2058,7 +2044,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Lehre als Entwickler/-in Digitales Business",
       "titleByLocale": {
-        "it": "Apprendistato come Entwickler/-in Digitales Business",
+        "it": "Insegnamento come sviluppatore/ in Digital Business",
         "en": "Teaching as a Developer/ in Digital Business",
         "de": "Lehre als Entwickler/-in Digitales Business",
         "fr": "Enseignement en tant que développeur/ en affaires numériques"
@@ -2115,7 +2101,6 @@
           "apprendistato-come-entwickler-in-digitales-business-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T10:44:22.787Z",
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -2212,7 +2197,6 @@
         "entrata-in-consulenza-finanziaria-consulenza-indipendente-80-100-vz-vermogenszentrum-uster-zurich"
       ],
       "firstSeenAt": "2026-08-06T12:10:39.219Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -2302,7 +2286,6 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:19:05.458Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 131000,
       "salarySource": "estimated",
@@ -2425,7 +2408,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Lehre als Kauffrau/Kaufmann Bank",
       "titleByLocale": {
-        "it": "Apprendistato come Kauffrau/Kaufmann Bank",
+        "it": "Apprendistato come un commerciante / banca commerciale",
         "en": "Apprenticeship as a merchant/merchant bank",
         "de": "Lehre als Kauffrau/Kaufmann Bank",
         "fr": "Apprentissage en tant que banque marchande"
@@ -2513,7 +2496,6 @@
           "lehre-als-kauffrau-kaufmann-privatversicherung-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T21:41:35.317Z",
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -2544,7 +2526,7 @@
       "title": "Lehre als Informatiker/-in Applikationsentwicklung",
       "titleByLocale": {
         "it": "Apprendistato come Informatiker/-in Applikationsentwicklung",
-        "en": "Lehre als Informatiker/-in Applikationsentwicklung",
+        "en": "Teaching as a computer scientist/in application development",
         "de": "Lehre als Informatiker/-in Applikationsentwicklung",
         "fr": "Enseignement en tant qu'informaticien/en développement d'applications"
       },
@@ -2638,7 +2620,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Einstieg in die Privatkundenberatung",
       "titleByLocale": {
-        "it": "Einstieg in la Privatkundenberatung",
+        "it": "Entrata in consulenza clienti privati",
         "en": "Entry into private customer consulting",
         "de": "Einstieg in die Privatkundenberatung",
         "fr": "Entrée dans la consultation privée des clients"
@@ -2702,7 +2684,6 @@
           "einstieg-in-die-privatkundenberatung-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-14T10:19:05.456Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
@@ -2799,7 +2780,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:03.283Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -2893,7 +2873,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:11:03.272Z",
-      "needsRetranslation": true,
       "salaryMin": 80000,
       "salaryMax": 137000,
       "salarySource": "estimated",
@@ -3073,7 +3052,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:11:08.043Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -3102,7 +3080,7 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Mitarbeiter/-in Kundenempfang",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Kundenempfang",
+        "it": "Ricevimento dei dipendenti/clienti",
         "en": "Reception of employees/customers",
         "de": "Mitarbeiter/-in Kundenempfang",
         "fr": "Réception des employés/clients"
@@ -3172,7 +3150,6 @@
           "mitarbeiter-in-kundenempfang-vz-vermogenszentrum-horgen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T22:08:44.501Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3374,7 +3351,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:11:08.033Z",
-      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -3468,7 +3444,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:03.004Z",
-      "needsRetranslation": true,
       "salaryMin": 99000,
       "salaryMax": 174000,
       "salarySource": "estimated",
@@ -3560,7 +3535,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T21:43:03.016Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -3675,17 +3649,17 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "Payroll Manager – Firmenkunden",
       "titleByLocale": {
-        "it": "Payroll Manager – Firmenkunden",
-        "en": "Payroll Manager – Firmenkunden",
+        "it": "Payroll Manager – Clienti aziendali",
+        "en": "Payroll Manager – Corporate Clients",
         "de": "Payroll Manager – Firmenkunden",
-        "fr": "Payroll Manager – Firmenkunden"
+        "fr": "Gestionnaire de la paie – Clients ministériels"
       },
       "description": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
-        "it": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "en": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
+        "it": "VZ è il principale fornitore di servizi finanziari indipendenti in Svizzera. Consigliamo individui e aziende di soldi, gestire le attività e offrire servizi finanziari attraenti. Mentre stiamo crescendo fortemente, stiamo cercando rinforzi nella nostra sede di Paradeplatz a Zurigo.\n\n• Effettuate l'elaborazione mensile dei salari dei nostri clienti incl. amministrazione e fatturazione.\n\n• Si prende il controllo del vice del capo Payroll Services in loro assenza e progetti di supporto.\n\n• Aiuterai il team e i clienti come esperto in questioni riguardanti il libro paga, l'assicurazione sociale e il diritto del lavoro.\n\n• Condurre conti mensili e annuali in tutti i settori della sicurezza sociale e delle imposte.\n\n• Si assume la responsabilità di nuovi progetti e l'acquisizione dei clienti.\n\n• Contribuisci ad un ulteriore sviluppo e ottimizzazione dei processi, soprattutto attraverso iniziative di digitalizzazione.\n\n• Le risorse umane federali svizzere o il certificato di sicurezza sociale, l'ulteriore istruzione nel campo della sicurezza sociale e del diritto del lavoro sono vantaggiose\n\n• Esperienza approfondita nel libro paga\n\n• Desiderio sviluppare la zona e assumersi la responsabilità\n\n• Conoscenza sete e orientamento del cliente\n\n• Buona conoscenza IT e esperienza iniziale con Abacus\n\n• Stylistic fiducioso in tedesco e inglese, buona conoscenza del francese è un plus\n\n• Siamo orgogliosi della nostra cultura, che si concentra su uno scambio aperto: la vostra opinione conta, il feedback è desiderato, e si può partecipare allo sviluppo della nostra azienda unica.\n\n• Questa posizione è anche aperta per il lavoro part-time, in modo che ci sia tempo per ulteriori istruzione, famiglia, sport e progetti che sono importanti per voi.\n\n• Indagini sulla soddisfazione mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente. Diventa parte di esso!",
+        "en": "VZ is the leading independent financial services provider in Switzerland. We advise individuals and companies about money, manage assets and offer attractive financial services. As we are growing strongly, we are looking for reinforcements at our headquarters at Paradeplatz in Zurich.\n\n• You carry out the monthly wage processing of our customers incl. administration and billing.\n\n• You take over the deputy from Head Payroll Services in their absence and support projects.\n\n• You will assist the team and customers as an expert in questions regarding payroll, social insurance and employment law.\n\n• You conduct monthly and year-end accounts in all areas of social security and taxes.\n\n• You take responsibility for new projects and the takeover of customers.\n\n• You contribute to further development and process optimization, especially through digitalization initiatives.\n\n• Swiss Federal HR or social security certificate, further education in the field of social security and employment law are advantageous\n\n• In-depth experience in payroll\n\n• Desire to develop the area and take responsibility\n\n• Knowledge thirst and customer orientation\n\n• Good IT knowledge and initial experience with Abacus\n\n• Stylistic confident in German and English, good knowledge of French is a plus\n\n• We are proud of our culture, which focuses on an open exchange: your opinion counts, feedback is desired, and you can participate in the development of our unique company.\n\n• This position is also open for part-time work, so that there is time for further education, family, sports and projects that are important to you.\n\n• Surveys on satisfaction regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop. Become part of it!",
         "de": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
-        "fr": "Das VZ ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Da wir kräftig wachsen, suchen wir Verstärkung an unserem Hauptsitz beim Paradeplatz in Zürich.\n\n• Du führst die monatlichen Lohnverarbeitungen unserer Kunden inkl. Administration und Abrechnungen durch.\n\n• Du übernimmst die Stellvertretung vom Head Payroll Services in deren Abwesenheit und unterstützt bei Projekten.\n\n• Du stehst dem Team und den Kunden als Fachexperte bei Fragen zu Lohnabrechnungen, Sozialversicherungen und Arbeitsrecht zur Seite.\n\n• Du führst Monats- und Jahresendabrechnungen in allen Bereichen der Sozialversicherungen und Steuern durch.\n\n• Du übernimmst Verantwortung bei neuen Projekten und der Übernahme von Kunden.\n\n• Du trägst zur Weiterentwicklung und Prozessoptimierung bei, besonders durch Digitalisierungsinitiativen.\n\n• Eidgenössischer HR- oder Sozialversicherungsfachausweis, Weiterbildung im Bereich Sozialversicherungs- und Arbeitsrecht sind von Vorteil\n\n• Fundierte Erfahrung im Bereich Payroll\n\n• Lust den Bereich weiterzuentwickeln und Verantwortung zu übernehmen\n\n• Wissensdurst und Kundenorientierung\n\n• Gute IT-Kenntnisse und erste Erfahrungen mit Abacus\n\n• Stilsicher in Deutsch und Englisch, gute Französischkenntnisse sind ein Pluspunkt\n\n• Wir sind stolz auf unsere Kultur, die auf einen offenen Austausch setzt: Deine Meinung zählt, Feedback ist erwünscht, und du kannst an der Entwicklung unseres einzigartigen Unternehmens mitwirken.\n\n• Diese Stelle ist auch für ein Teilzeit-Pensum offen, damit Zeit bleibt für Weiterbildung, Familie, Sport und Projekte, die dir wichtig sind.\n\n• Umfragen zur Zufriedenheit zeigen regelmässig, dass Mitarbeitende das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!"
+        "fr": "VZ est le premier fournisseur de services financiers indépendant en Suisse. Nous conseillons les particuliers et les entreprises sur l'argent, gérons les actifs et offrons des services financiers attrayants. Alors que nous croissons fortement, nous cherchons des renforts à notre siège de Paradeplatz à Zurich.\n\n• Vous effectuez le traitement mensuel des salaires de nos clients, y compris l'administration et la facturation.\n\n• Vous remplacez l'adjoint des Services de la paye en leur absence et en soutien de projets.\n\n• Vous assisterez l'équipe et les clients en tant qu'expert en matière de rémunération, d'assurance sociale et de droit du travail.\n\n• Vous réalisez des comptes mensuels et de fin d'année dans tous les domaines de la sécurité sociale et des impôts.\n\n• Vous assumez la responsabilité de nouveaux projets et la prise de contrôle des clients.\n\n• Vous contribuez au développement et à l'optimisation des processus, notamment par des initiatives de numérisation.\n\n• Certificat fédéral de ressources humaines ou de sécurité sociale, formation complémentaire dans le domaine de la sécurité sociale et du droit du travail\n\n• Expérience approfondie en matière de paie\n\n• Désir de développer la zone et d'assumer la responsabilité\n\n• Connaissance de la soif et orientation client\n\n• Bonnes connaissances en TI et expérience initiale avec Abacus\n\n• Styliste confiant en allemand et en anglais, bonne connaissance du français est un plus\n\n• Nous sommes fiers de notre culture, qui se concentre sur un échange ouvert : votre opinion compte, votre rétroaction est souhaitée, et vous pouvez participer au développement de notre entreprise unique.\n\n• Ce poste est également ouvert au travail à temps partiel, de sorte qu'il y a du temps pour l'éducation, la famille, les sports et les projets qui sont importants pour vous.\n\n• Les enquêtes sur la satisfaction montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement. Faites-en partie !"
       },
       "location": "Zürich, Zürich",
       "canton": "ZH",
@@ -3734,7 +3708,6 @@
           "payroll-manager-firmenkunden-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:54:04.863Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -3947,17 +3920,17 @@
       "companyDomain": "vermoegenszentrum.ch",
       "title": "WML-Praktikum im Financial Consulting (Start 2027)",
       "titleByLocale": {
-        "it": "WML-Praktikum im Financial Consulting (Start 2027)",
-        "en": "WML-Praktikum im Financial Consulting (Start 2027)",
+        "it": "Stage WML in Financial Consulting (start 2027)",
+        "en": "WML internship in Financial Consulting (start 2027)",
         "de": "WML-Praktikum im Financial Consulting (Start 2027)",
-        "fr": "WML-Praktikum im Financial Consulting (Start 2027)"
+        "fr": "Stage WML en conseil financier (début 2027)"
       },
       "description": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
       "descriptionByLocale": {
-        "it": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
-        "en": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
+        "it": "I nostri clienti si ritirano ben preparati, investono i loro soldi con successo, sono assicurati in modo ottimale e risparmiano tasse, premi e tasse. Questo ci rende il servizio di consulenza finanziaria indipendente numero uno. Per le personalità giovani e impegnate, offriamo una panoramica della consulenza clienti come parte dello stage WML.\n\n• Lei sostiene il nostro team in ufficio a Sursee e conosce la vita quotidiana dei nostri consulenti.\n\n• Si otterrà informazioni su vari argomenti come la gestione degli asset, consulenza di investimento, pianificazione fiscale, regolamento immobiliare e finanziamento immobiliare.\n\n• Lavora con un consulente esperto, che accompagna durante i progetti e le consultazioni dei clienti.\n\n• Stai frequentando la Wirtschaftsmittelschule e vorresti ottenere la tua laurea professionale con questo stage.\n\n• Argomenti finanziari come azioni e obbligazioni, nonché il contatto con il cliente sono divertenti per voi.\n\n• Hai una rapida comprensione, un tocco per i numeri e sono una personalità motivata e consolidata.\n\n• Impara ogni giorno dai nostri consulenti esperti.\n\n• Dopo il completamento dello stage, vi è la possibilità di un impiego permanente (anche parziale).\n\n• Indagini mostrano regolarmente che i dipendenti classificano il VZ come un ambiente positivo sopra la media in cui possono sviluppare pienamente.",
+        "en": "Our customers retire well prepared, invest their money successfully, are optimally secured and save taxes, premiums and fees. This makes us the number one independent financial advisory service. For young and committed personalities, we offer an insight into customer advice as part of the WML internship.\n\n• You support our team at the office in Sursee and get to know the everyday life of our consultants.\n\n• You will gain insight into various topics such as asset management, investment advice, tax planning, estate regulation and real estate financing.\n\n• You work with an experienced consultant, whom you accompany during customer projects and consultations.\n\n• You are attending the Wirtschaftsmittelschule and would like to obtain your vocational degree with this internship.\n\n• Financial topics such as shares and bonds as well as customer contact are fun for you.\n\n• You have a quick apprehension, a flair for numbers and are a motivated and established personality.\n\n• You learn every day from our experienced consultants.\n\n• After completion of the internship, there is the possibility of permanent employment (also part-time).\n\n• Surveys regularly show that employees classify the VZ as an above-average positive environment in which they can fully develop.",
         "de": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können.",
-        "fr": "Unsere Kundinnen und Kunden gehen gut vorbereitet in Pension, legen ihr Geld erfolgreich an, sind optimal abgesichert und sparen Steuern, Prämien und Gebühren. Das macht uns zur Nummer 1 der unabhängigen Finanzberatung. Für junge und engagierte Persönlichkeiten bieten wir im Rahmen des WML-Praktikums einen Einblick in die Kundenberatung.\n\n• Du unterstützt unser Team in der Niederlassung in Sursee und lernst den Alltag unserer Beraterinnen und Berater kennen.\n\n• Du erhältst Einblick in verschiedene Themen wie Vermögensmanagement, Anlageberatung, Steuerplanung, Nachlassregelung und Liegenschaftsfinanzierung.\n\n• Du arbeitest mit einem erfahrenen Consultant zusammen, den du bei den Kundenprojekten und Beratungsgesprächen begleitest.\n\n• Du besuchst die Wirtschaftsmittelschule und möchtest mit diesem Praktikum die Berufsmatura erlangen.\n\n• Finanzthemen wie Aktien und Obligationen sowie der Kundenkontakt machen dir Spass.\n\n• Du hast eine rasche Auffassungsgabe, ein Flair für Zahlen und bist eine motivierte und aufgestellte Persönlichkeit.\n\n• Du lernst täglich von unseren erfahrenen Beraterinnen und Beratern.\n\n• Nach Abschluss des Praktikums besteht die Möglichkeit einer Festanstellung (auch studienbegleitend in Teilzeit).\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können."
+        "fr": "Nos clients se retirent bien préparés, investissent leur argent avec succès, sont parfaitement sécurisés et économisent les taxes, les primes et les frais. Cela fait de nous le premier service de conseil financier indépendant. Pour des personnalités jeunes et engagées, nous offrons un aperçu des conseils à la clientèle dans le cadre du stage WML.\n\n• Vous soutenez notre équipe au bureau de Sursee et apprenez à connaître la vie quotidienne de nos consultants.\n\n• Vous y découvrirez divers sujets tels que la gestion d'actifs, les conseils en placement, la planification fiscale, la réglementation immobilière et le financement immobilier.\n\n• Vous travaillez avec un consultant expérimenté, que vous accompagnez lors de projets clients et de consultations.\n\n• Vous fréquentez la Wirtschaftsmittelschule et souhaitez obtenir votre diplôme professionnel avec ce stage.\n\n• Les sujets financiers tels que les actions et les obligations ainsi que les contacts avec les clients sont amusants pour vous.\n\n• Vous avez une appréhension rapide, un flair pour les chiffres et sont une personnalité motivée et établie.\n\n• Vous apprenez chaque jour de nos consultants expérimentés.\n\n• Après le stage, il y a la possibilité d'un emploi permanent (également à temps partiel).\n\n• Les enquêtes montrent régulièrement que les employés classent la ZV comme un environnement positif supérieur à la moyenne dans lequel ils peuvent se développer pleinement."
       },
       "location": "Sursee, Luzern",
       "canton": "LU",
@@ -4003,7 +3976,6 @@
           "wml-praktikum-im-financial-consulting-start-2027-vz-vermogenszentrum-sursee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:39:40.361Z",
       "salaryMin": 59500,
       "salaryMax": 110000,
