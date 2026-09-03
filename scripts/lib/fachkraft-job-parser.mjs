@@ -227,22 +227,34 @@ function reusableExistingListing(row, existing) {
     && (!rowLocation || normalize(existingLocation).includes(normalize(rowLocation)))
     ? existingLocation
     : rowLocation || existingLocation;
-  const candidate = {
+  const preGeography = {
     ...row,
     location,
     addressLocality: existing.addressLocality || rowLocation || location,
     addressRegion: row.addressRegion || existing.addressRegion || existing.canton || '',
     addressCountry: existing.addressCountry || existing.country || row.addressCountry,
     country: existing.country || existing.addressCountry || row.country,
+  };
+  const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, preGeography));
+  if (!geography) return null;
+  // Merge the accepted geography fields in now (parity with freshDetailListing
+  // below): the acceptance decision above is the ONLY authoritative evaluation
+  // of this listing's geography. Downstream (fetchAllFachkraftJobs) must read
+  // these fields as-is rather than re-deriving them, because that decision can
+  // legitimately accept a listing via loose canton inference (no explicit
+  // addressLocality/addressRegion) while the fields synthesized here as a
+  // fallback are not guaranteed to pass the same evaluator's *stricter*
+  // explicit-evidence branch a second time — re-running it would silently
+  // drop a listing already counted as published in the snapshot audit (#7134).
+  return {
+    ...preGeography,
+    ...geography,
     description,
     postedDate: existing.postedDate || existing.datePosted || null,
     employmentType: existing.employmentType || existing.contract || '',
     ...(existing.postalCode ? { postalCode: existing.postalCode } : {}),
     ...(existing.streetAddress ? { streetAddress: existing.streetAddress } : {}),
   };
-  return geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, candidate))
-    ? candidate
-    : null;
 }
 
 function freshDetailListing(row, page) {
@@ -527,11 +539,18 @@ export async function fetchAllFachkraftJobs(options = {}) {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = geographyFieldsForDecision(resolveDetailOrListingSwissGeography({}, listing));
-    if (!geography) continue;
-    const { location, canton } = geography;
-    const descriptionHtml = listing.description || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+    // Trust the geography already accepted by fetchFachkraftSnapshot (via
+    // reusableExistingListing/freshDetailListing) rather than re-deriving it:
+    // that evaluator's acceptance can rest on loose canton inference from raw
+    // evidence, while re-running it here on the *synthesized* addressLocality/
+    // addressRegion fallback fields hits its stricter explicit-evidence branch
+    // and can reject a listing that was already counted in the snapshot audit
+    // (`published`), breaking the published===jobs.length invariant that
+    // validateFachkraftAuthoritativeSnapshot enforces (#7134).
+    const location = normalizeSpace(listing.location || '');
+    const canton = normalizeSpace(listing.canton || '');
+    if (!location || !canton) continue;
+    const descriptionText = normalizeSpace(stripHtml(listing.description || ''));
     if (!isPublishableFachkraftDescription(descriptionText)) continue;
     const publicUrl = listing.url || CAREER_URL;
 

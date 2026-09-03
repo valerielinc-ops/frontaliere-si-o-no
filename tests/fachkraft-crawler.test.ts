@@ -417,6 +417,36 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(new Set(jobs.map((job) => job.slug)).size).toBe(jobs.length);
     });
 
+    it('publishes a job whose canton is only inferred from rendered detail text, not re-rejected on re-derivation (#7134)', async () => {
+      const title = 'Montage-Elektriker/in';
+      const cards = listingHtml(listingCard({ title, path: 'montage-elektriker-in-zug-789', location: '', canton: '' }));
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        const html = `<html><body>
+          <h1>${title}</h1>
+          <div class="job-location">Grossraum Zug</div>
+          <div class="job-description"><p>${words(55, 'rendered')}</p></div>
+        </body></html>`;
+        return new Response(html, { status: 200 });
+      };
+
+      const jobs = await fetchAllFachkraftJobs({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+      });
+
+      // The snapshot audit ("published") reflects what fetchFachkraftSnapshot
+      // already accepted; a job counted there must not silently disappear
+      // from the final jobs array, or validateFachkraftAuthoritativeSnapshot
+      // rejects a genuinely complete, correct snapshot (#7134).
+      expect(jobs.fachkraftSnapshot?.published).toBe(1);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]?.canton).toBe('ZG');
+      expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
+    });
+
     it('is idempotent across two runs and preserves every prior route token on merge', async () => {
       const title = 'Polymechaniker/in';
       const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));
