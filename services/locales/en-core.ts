@@ -2767,6 +2767,11 @@ Rules:
  'consultingCta.article.button': 'Book a consultation',
 
  // v3.71.0 — calculator boost
+ 'whatsNew.v3961.title': 'Updates for a better user experience',
+ 'whatsNew.v3961.seo.title': 'Fixed article author name',
+ 'whatsNew.v3961.seo.desc': 'You will now see the correct name of the article\'s author, not \'Redazione\'. This improves clarity and transparency.',
+ 'whatsNew.v3961.blog.title': 'Human-written articles no longer labeled as AI',
+ 'whatsNew.v3961.blog.desc': 'Human-written articles will no longer be labeled as \'AI-drafted\'. This avoids confusion and ensures you know who wrote the article.',
  'whatsNew.v3951.title': 'Internal improvements and stability',
  'whatsNew.v3951.email.title': 'More reliable email delivery',
  'whatsNew.v3951.email.desc': 'We strengthened email-provider quota controls, preventing sends above the limit even when several notifications start at once.',
