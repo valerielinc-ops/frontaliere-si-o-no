@@ -5353,6 +5353,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS Uri: Calculation of annuity and contribution gaps',
     'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'First Uri pillar: compensation fund, calculation of the AVH annuity and supplementary benefits for contribution gaps and minimum living allowance.',
     'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Swiss cantonal social security office managing AVS contributions and retirement pension administration records.',
+    'blog.article.salari-mercato-lavoro-uri-settori.title': 'Wages and labour market in canton Uri',
+    'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analysis of wage levels by training, employment sectors, collective agreements and minimum wage in the labour market of canton Uri.',
+    'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Alpine landscape of Uri canton with mountain views and modern work environment',
 };
 
 export default blogMetaChEn;

@@ -5353,6 +5353,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS URI : calcul de la rente et lacunes contributives',
     'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Premier pilier URI : caisse de compensation, calcul de la rente AVS et prestations complémentaires pour lacunes contributives et minimum vital.',
     'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Bureau administratif cantonal suisse gérant les cotisations AVS et les prestations de retraite pour la sécurité sociale.',
+    'blog.article.salari-mercato-lavoro-uri-settori.title': 'Salaires et marché du travail dans le canton d\'Uri',
+    'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analyse des niveaux de salaire pour la formation, les secteurs d\'emploi, les conventions collectives et le salaire minimum sur le marché du travail du canton d\'Uri.',
+    'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Paysage alpin du canton d\'Uri avec vue montagne et environnement de travail moderne',
 };
 
 export default blogMetaChFr;

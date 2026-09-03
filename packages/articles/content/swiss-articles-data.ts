@@ -16057,6 +16057,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'salari-mercato-lavoro-uri-settori',
+    category: 'pratico',
+    date: '2026-09-03T21:16:59.901Z',
+    image: '/images/blog/salari-mercato-lavoro-uri-settori.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

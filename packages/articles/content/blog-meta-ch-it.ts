@@ -5353,6 +5353,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS Uri: calcolo della rendita e lacune contributive',
     'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Primo pilastro Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per lacune contributive e minimo vitale.',
     'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Ufficio amministrativo della cassa di compensazione cantonale svizzera che gestisce i contributi AVS e le rendite di vecchiaia.',
+    'blog.article.salari-mercato-lavoro-uri-settori.title': 'Salari e mercato del lavoro nel canton Uri',
+    'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analisi dei livelli salariali per formazione, settori di impiego, contratti collettivi e salario minimo nel mercato del lavoro del canton Uri.',
+    'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Paesaggio alpino del cantone Uri con vista sulle montagne e ambiente lavorativo moderno',
 };
 
 export default blogMetaChIt;
