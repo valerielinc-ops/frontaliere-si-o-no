@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-09-02T10:17:22.641Z",
+  "assembledAt": "2026-09-03T10:29:34.971Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -11324,48 +11324,6 @@
       "imageUrl": "/images/events/guidle-AjXT2av.jpg"
     },
     {
-      "id": "guidle:AkqG49K",
-      "title": "Öffentlicher Seniorenrundgang",
-      "titleByLocale": {
-        "it": "Öffentlicher Seniorenrundgang",
-        "en": "Öffentlicher Seniorenrundgang",
-        "de": "Öffentlicher Seniorenrundgang",
-        "fr": "Öffentlicher Seniorenrundgang"
-      },
-      "description": "Senioren führen Senioren",
-      "descriptionByLocale": {
-        "it": "Senioren führen Senioren",
-        "en": "Senioren führen Senioren",
-        "de": "Senioren führen Senioren",
-        "fr": "Senioren führen Senioren"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "14:00",
-      "category": "Visita guidata al museo d'arte",
-      "venue": "Forum Würth Rorschach",
-      "comune": "Rorschach",
-      "canton": "SG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/rorschach/oeffentlicher-seniorenrundgang_AkqG49K",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 3,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Churerstrasse 10",
-        "postalCode": "9400"
-      },
-      "geo": {
-        "lat": 47.4786506,
-        "lng": 9.5064734
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AkqG49K.jpg"
-    },
-    {
       "id": "guidle:AgrUakX",
       "title": "Salonkonzert",
       "titleByLocale": {
@@ -12500,43 +12458,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AyYLvgJ.jpg"
-    },
-    {
-      "id": "guidle:AXE5LAq",
-      "title": "Werkgespräch «Pierre Huyghe»",
-      "titleByLocale": {
-        "it": "Un'opera in conversazione \"Pierre Huyghe\" (in tedesco)",
-        "en": "A Work In Conversation \"Pierre Huyghe\" (in German)",
-        "de": "Ein Werk im Gespräch \"Pierre Huyghe\"",
-        "fr": "Conversation autour d'une œuvre « Pierre Huyghe » (en allemand)"
-      },
-      "description": "Alle 14 Tage findet am Mittwoch über Mittag das 30-minütige Werkgespräch statt, während der Sie eine kurze, aber intensive Auseinandersetzung mit einem ausgewählten Werk in der Ausstellung «Pierre",
-      "descriptionByLocale": {
-        "it": "Ogni secondo mercoledì del mese a mezzogiorno, si svolge una visione di lavoro di 30 minuti durante la quale può essere effettuato un breve ma intenso esame di un'opera selezionata della mostra \"Pierre Huyghe\"",
-        "en": "Every second Wednesday in the month at midday, a 30-minute work viewing takes place during which a brief but intensive examination of a selected artwork from the \"Pierre Huyghe\" exhibition can be",
-        "de": "Jeden zweiten Mittwoch im Monat um die Mittagszeit findet eine 30-minütige Werkschau statt, bei der eine kurze, aber intensive Auseinandersetzung mit einem ausgewählten Kunstwerk aus der Ausstellung „Pierre Huyghe“",
-        "fr": "Un mercredi sur deux, nous organisons à midi une séance de trente minutes consacrée à l’examen bref, mais dense, d’une œuvre sélectionnée dans l’exposition « Pierre Huyghe »."
-      },
-      "startDate": "2026-08-19",
-      "endDate": "2026-09-02",
-      "startTime": "12:30",
-      "category": "Visita guidata al museo d'arte",
-      "venue": "Fondation Beyeler",
-      "comune": "Riehen",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/riehen/werkgespraech-pierre-huyghe_AXE5LAq",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Baselstrasse 101",
-        "postalCode": "4125"
-      },
-      "geo": {
-        "lat": 47.587166,
-        "lng": 7.6508354
-      },
-      "recurring": true,
-      "imageUrl": "/images/events/guidle-AXE5LAq.jpg"
     },
     {
       "id": "guidle:AqUSsEn",
@@ -13773,42 +13694,6 @@
       "imageUrl": "/images/events/guidle-ADh32B6.jpg"
     },
     {
-      "id": "guidle:AmHeFAd",
-      "title": "Fermata Musica September 26",
-      "titleByLocale": {
-        "it": "Fermata Musica September 26",
-        "en": "Fermata Musica September 26",
-        "de": "Fermata Musica September 26",
-        "fr": "Fermata Musica September 26"
-      },
-      "description": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
-      "descriptionByLocale": {
-        "it": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
-        "en": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
-        "de": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)",
-        "fr": "L’heure exquise – Michel Lambert (1610-1696) / Franz Schubert (1797-1828) / Reynaldo Hahn (1874-1947)"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "17:30",
-      "category": "Musica di chiesa",
-      "venue": "Röm.-kath. Jesuitenkirche",
-      "canton": "SO",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/solothurn/fermata-musica-september-26_AmHeFAd",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Hauptgasse 60",
-        "postalCode": "4500"
-      },
-      "geo": {
-        "lat": 47.2076967,
-        "lng": 7.5379929
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AmHeFAd.jpg"
-    },
-    {
       "id": "guidle:AWpn1md",
       "title": "Jubiläumskonzert - 90 Jahre Solothurner Kammerorchester",
       "titleByLocale": {
@@ -14423,42 +14308,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AdJE62T.jpg"
-    },
-    {
-      "id": "guidle:AkiubeR",
-      "title": "Der «Blüthner» auf Reisen",
-      "titleByLocale": {
-        "it": "Der «Blüthner» auf Reisen",
-        "en": "Der «Blüthner» auf Reisen",
-        "de": "Der «Blüthner» auf Reisen",
-        "fr": "Der «Blüthner» auf Reisen"
-      },
-      "description": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
-      "descriptionByLocale": {
-        "it": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
-        "en": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
-        "de": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat",
-        "fr": "Studierende der Hochschule für Musik FHNW, Klassik spielen Werke aus ihrer Heimat"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "13:00",
-      "category": "Musica per piano / organo",
-      "venue": "Museum Kleines Klingental",
-      "canton": "BS",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/der-bluethner-auf-reisen_AkiubeR",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "address": {
-        "street": "Unterer Rheinweg 26",
-        "postalCode": "4058"
-      },
-      "geo": {
-        "lat": 47.5620463,
-        "lng": 7.5896853
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AkiubeR.jpg"
     },
     {
       "id": "guidle:Ahde4eZ",
@@ -15328,48 +15177,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AMNj7ay.webp"
-    },
-    {
-      "id": "guidle:A5eJPnD",
-      "title": "Summer-Festival: Freiburger Barockorchester",
-      "titleByLocale": {
-        "it": "Summer-Festival: Freiburger Barockorchester",
-        "en": "Summer-Festival: Freiburger Barockorchester",
-        "de": "Summer-Festival: Freiburger Barockorchester",
-        "fr": "Summer-Festival: Freiburger Barockorchester"
-      },
-      "description": "Freiburger Barockorchester | Sir Simon Rattle | Isabelle Faust | Schumann",
-      "descriptionByLocale": {
-        "it": "Freiburger Barockorchester | Sir Simon Rattle | Isabelle Faust | Schumann",
-        "en": "Freiburger Barockorchester | Sir Simon Rattle | Isabelle Faust | Schumann",
-        "de": "Freiburger Barockorchester | Sir Simon Rattle | Isabelle Faust | Schumann",
-        "fr": "Freiburger Barockorchester | Sir Simon Rattle | Isabelle Faust | Schumann"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "19:30",
-      "category": "Musica romantica",
-      "venue": "KKL Luzern",
-      "comune": "Luzern",
-      "canton": "LU",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/summer-festival-freiburger-barockorchester_A5eJPnD",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Europaplatz 1",
-        "postalCode": "6005"
-      },
-      "geo": {
-        "lat": 47.0501561,
-        "lng": 8.3130727
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-A5eJPnD.webp"
     },
     {
       "id": "guidle:AwAagdm",
@@ -17394,48 +17201,6 @@
       "imageUrl": "/images/events/guidle-AhhswLX.webp"
     },
     {
-      "id": "guidle:AySHQXQ",
-      "title": "Julia Lezhneva & Kammerorchester Basel",
-      "titleByLocale": {
-        "it": "Julia Lezhneva & Kammerorchester Basel",
-        "en": "Julia Lezhneva & Kammerorchester Basel",
-        "de": "Julia Lezhneva & Kammerorchester Basel",
-        "fr": "Julia Lezhneva & Kammerorchester Basel"
-      },
-      "description": "Julia Lezhneva kehrt mit dem Kammerorchester Basel zurück und präsentiert barocke Pracht: Händels Concerti grossi im Dialog mit virtuosen italienischen Kofferarien voller vokaler Brillanz.",
-      "descriptionByLocale": {
-        "it": "Julia Lezhneva kehrt mit dem Kammerorchester Basel zurück und präsentiert barocke Pracht: Händels Concerti grossi im Dialog mit virtuosen italienischen Kofferarien voller vokaler Brillanz.",
-        "en": "Julia Lezhneva kehrt mit dem Kammerorchester Basel zurück und präsentiert barocke Pracht: Händels Concerti grossi im Dialog mit virtuosen italienischen Kofferarien voller vokaler Brillanz.",
-        "de": "Julia Lezhneva kehrt mit dem Kammerorchester Basel zurück und präsentiert barocke Pracht: Händels Concerti grossi im Dialog mit virtuosen italienischen Kofferarien voller vokaler Brillanz.",
-        "fr": "Julia Lezhneva kehrt mit dem Kammerorchester Basel zurück und präsentiert barocke Pracht: Händels Concerti grossi im Dialog mit virtuosen italienischen Kofferarien voller vokaler Brillanz."
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "19:30",
-      "category": "Musica classica",
-      "venue": "Evang.-ref. Mauritiuskirche",
-      "comune": "Saanen",
-      "canton": "BE",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/saanen/julia-lezhneva-und-kammerorchester-basel_AySHQXQ",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Chilchgasse 5",
-        "postalCode": "3792"
-      },
-      "geo": {
-        "lat": 46.4906314,
-        "lng": 7.2589692
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AySHQXQ.webp"
-    },
-    {
       "id": "guidle:Ag6bbsX",
       "title": "Celebration | Bach h-Moll Messe | Arcangelo & Jonathan Cohen",
       "titleByLocale": {
@@ -18033,47 +17798,6 @@
       "imageUrl": "/images/events/guidle-AyNqMBB.webp"
     },
     {
-      "id": "guidle:AebCBgy",
-      "title": "Ein Blick: Markus Eichhorn",
-      "titleByLocale": {
-        "it": "Ein Blick: Markus Eichhorn",
-        "en": "Ein Blick: Markus Eichhorn",
-        "de": "Ein Blick: Markus Eichhorn",
-        "fr": "Ein Blick: Markus Eichhorn"
-      },
-      "description": "Im monatlichen Wechsel geben Freiämter Kunstschaffende wieder Einblick in ihr Schaffen. Jeden 1. Mittwoch im Monat findet eine Vernissage statt.",
-      "descriptionByLocale": {
-        "it": "Im monatlichen Wechsel geben Freiämter Kunstschaffende wieder Einblick in ihr Schaffen. Jeden 1. Mittwoch im Monat findet eine Vernissage statt.",
-        "en": "Im monatlichen Wechsel geben Freiämter Kunstschaffende wieder Einblick in ihr Schaffen. Jeden 1. Mittwoch im Monat findet eine Vernissage statt.",
-        "de": "Im monatlichen Wechsel geben Freiämter Kunstschaffende wieder Einblick in ihr Schaffen. Jeden 1. Mittwoch im Monat findet eine Vernissage statt.",
-        "fr": "Im monatlichen Wechsel geben Freiämter Kunstschaffende wieder Einblick in ihr Schaffen. Jeden 1. Mittwoch im Monat findet eine Vernissage statt."
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "12:15",
-      "category": "L'arte in generale",
-      "venue": "Singisen Forum",
-      "canton": "AG",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/muri-ag/ein-blick-markus-eichhorn_AebCBgy",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 0,
-        "currency": "CHF",
-        "isFree": true
-      },
-      "address": {
-        "street": "Marktstrasse 4",
-        "postalCode": "5630"
-      },
-      "geo": {
-        "lat": 47.275146,
-        "lng": 8.3375717
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AebCBgy.webp"
-    },
-    {
       "id": "guidle:ABkNUPU",
       "title": "Ein Blick: Susanne Brem",
       "titleByLocale": {
@@ -18603,48 +18327,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-Aa4qNYE.webp"
-    },
-    {
-      "id": "guidle:AFkUKsn",
-      "title": "Concerto di riscaldamento del festival: Tra Mondi - Between Worlds | Anteprima Cornèr Banca",
-      "titleByLocale": {
-        "it": "Concerto di riscaldamento del festival: Tra Mondi - Between Worlds | Anteprima Cornèr Banca",
-        "en": "Festival Warm Up Concert: Tra Mondi - Between Worlds | Anteprima Cornèr Banca",
-        "de": "Festival Warm Up Concert: Tra Mondi – Zwischen Welten | Anteprima Cornèr Banca",
-        "fr": "Festival Warm Up Concert : Tra Mondi - Entre les mondes | Anteprima Cornèr Banca"
-      },
-      "description": "Ludwig van Beethoven | Antonín Dvořák",
-      "descriptionByLocale": {
-        "it": "Ludwig van Beethoven | Antonín Dvořák",
-        "en": "Ludwig van Beethoven | Antonín Dvořák",
-        "de": "Ludwig van Beethoven | Antonín Dvořák",
-        "fr": "Ludwig van Beethoven | Antonín Dvořák"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "20:00",
-      "category": "Musica per piano / organo",
-      "venue": "Chiesa San Francesco Locarno",
-      "comune": "Locarno",
-      "canton": "TI",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/locarno/festival-warm-up-concert-tra-mondi-zwischen-welten-anteprima-corner-banca_AFkUKsn",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": 40,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Piazza San Francesco 19",
-        "postalCode": "6600"
-      },
-      "geo": {
-        "lat": 46.1675704,
-        "lng": 8.791564
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-AFkUKsn.webp"
     },
     {
       "id": "guidle:A32kcq3",
@@ -20555,48 +20237,6 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AqhNMYp.webp"
-    },
-    {
-      "id": "guidle:ANerD3L",
-      "title": "Erzählcafé im Rahmen der Kunstausstellung Homesick - Anderswo: Pravoslav Sovak",
-      "titleByLocale": {
-        "it": "Erzählcafé im Rahmen der Kunstausstellung Homesick - Anderswo: Pravoslav Sovak",
-        "en": "Erzählcafé im Rahmen der Kunstausstellung Homesick - Anderswo: Pravoslav Sovak",
-        "de": "Erzählcafé im Rahmen der Kunstausstellung Homesick - Anderswo: Pravoslav Sovak",
-        "fr": "Erzählcafé im Rahmen der Kunstausstellung Homesick - Anderswo: Pravoslav Sovak"
-      },
-      "description": "Offenes Erzähl-Café im Rahmen der Kunstausstellung von Pravoslav Sovak",
-      "descriptionByLocale": {
-        "it": "Offenes Erzähl-Café im Rahmen der Kunstausstellung von Pravoslav Sovak",
-        "en": "Offenes Erzähl-Café im Rahmen der Kunstausstellung von Pravoslav Sovak",
-        "de": "Offenes Erzähl-Café im Rahmen der Kunstausstellung von Pravoslav Sovak",
-        "fr": "Offenes Erzähl-Café im Rahmen der Kunstausstellung von Pravoslav Sovak"
-      },
-      "startDate": "2026-09-02",
-      "endDate": "2026-09-02",
-      "startTime": "14:00",
-      "category": "L'arte in generale",
-      "venue": "Nidwaldner Museum Winkelriedhaus",
-      "comune": "Stans",
-      "canton": "NW",
-      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/stans/erzaehlcafe-im-rahmen-der-kunstausstellung-homesick-anderswo-pravoslav-sovak_ANerD3L",
-      "sourceKey": "guidle",
-      "sourceName": "Guidle",
-      "price": {
-        "amount": null,
-        "currency": "CHF",
-        "isFree": false
-      },
-      "address": {
-        "street": "Engelbergstrasse 54a",
-        "postalCode": "6370"
-      },
-      "geo": {
-        "lat": 46.9555316,
-        "lng": 8.3725084
-      },
-      "recurring": false,
-      "imageUrl": "/images/events/guidle-ANerD3L.webp"
     },
     {
       "id": "guidle:A7rx7h7",
@@ -29023,6 +28663,375 @@
       },
       "recurring": false,
       "imageUrl": "/images/events/guidle-AfbMf98.webp"
+    },
+    {
+      "id": "guidle:AMaKaQe",
+      "title": "Konzert mit dem Walder Gitarrenensemble",
+      "titleByLocale": {
+        "it": "Konzert mit dem Walder Gitarrenensemble",
+        "en": "Konzert with the Walder Gitarrenensemble",
+        "de": "Konzert mit dem ⑤alder Gitarrenensemble",
+        "fr": "Konzert avec le Walder Gitarrenensemble"
+      },
+      "description": "Es erklingen Tänze wie Menuett, Walzer, Ballett u.a. - umrahmt von stimmungsvollen und gesanglichen Gitarrenstücken von Barock, Klassik, Romantik bis zu Eigenkompositionen. Leitung: Martin Brenner.",
+      "descriptionByLocale": {
+        "it": "Es erklingen Tänze wie Menuett, Walzer, Ballett u.a. - umrahmt von stimmungsvollen und gesanglichen Gitarrenstücken von Barock, Klassik, Romantik bis zu Eigenkompositionen. Leitung: Martin Brenner.",
+        "en": "It is erklingen Tänze wie Menuett, Walzer, Ballett u.a. - umrahmt von stimmungsvollen und gesanglichen Gitarrenstücken von Barock, Klassik, Romantik bis zu Eigenkompositionen. Leitung: Martin Brenner.",
+        "de": "Es erklingen Tänze wie Menuett, Walzer, Ballett u.a. - umrahmt von stimmungsvollen und stimmigen Gitarrenstücken von Barock, Klassik, Romantik bis zu Eigenkompositionen. Leitung: Martin Brenner.",
+        "fr": "C'est erklingen Tänze wie Menuett, Walzer, Ballett u.a. - umrahmt von stimmungsvollen und gesanglichen Gitarrenstücken von Barock, Klassik, Romantik bis zu Eigenkompositionen. Leitung : Martin Brenner."
+      },
+      "startDate": "2026-10-31",
+      "endDate": "2026-10-31",
+      "startTime": "17:00",
+      "category": "Barocco",
+      "venue": "Evang.-ref. Kirche Greifensee",
+      "comune": "Greifensee",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/greifensee/konzert-mit-dem-walder-gitarrenensemble_AMaKaQe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
+      "address": {
+        "street": "Im Städtli 2",
+        "postalCode": "8606"
+      },
+      "geo": {
+        "lat": 47.364627,
+        "lng": 8.6769358
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AMaKaQe.webp"
+    },
+    {
+      "id": "guidle:ANaeqjS",
+      "title": "Kunst über Mittag «Octogone» – Chalisée Naamani",
+      "titleByLocale": {
+        "it": "Kunst über Mittag «Octogone» – Chalisée Naamani",
+        "en": "Kunst über Mittag “Octogone” – Chalisée Naamani",
+        "de": "Kunst ①ber Mittag \"Octogone\" - Chalisee Naamani",
+        "fr": "Kunst über Mittag « Octogone » – Chalisée Naamani"
+      },
+      "description": "Eine Führung, ein Drei-Gänge-Menü und gute Gesellschaft: Kunst über Mittag!",
+      "descriptionByLocale": {
+        "it": "Eine Führung, ein Drei-Gänge-Menü und gute Gesellschaft: Kunst über Mittag!",
+        "en": "Eine Fhr Hrung, ein Drei-G Dr Nge-men un",
+        "de": "Eine F ⑤hrung, ein Drei-G Graffnge-Men ⑤ und gute Gesellschaft: Kunst ②mittag!",
+        "fr": "Eine Führung, ein Drei-Gänge-Menü und gute Gesellschaft : Kunst über Mittag !"
+      },
+      "startDate": "2027-08-27",
+      "endDate": "2027-08-27",
+      "startTime": "12:00",
+      "category": "L'arte in generale",
+      "venue": "Kunst Halle Sankt Gallen",
+      "canton": "SG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/st-gallen/kunst-ueber-mittag-octogone-chalisee-naamani_ANaeqjS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 22,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Davidstrasse 40",
+        "postalCode": "9000"
+      },
+      "geo": {
+        "lat": 47.4200703,
+        "lng": 9.3680405
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-ANaeqjS.webp"
+    },
+    {
+      "id": "guidle:AKVL9GP",
+      "title": "Ausstellungsrundgang durch die Ausstellung \"Phantastische Flugobjekte\"",
+      "titleByLocale": {
+        "it": "Ausstellungsrundgang durch die Ausstellung \"Phantastische Flugobjekte\"",
+        "en": "Ausstellungsrundgang durch die Ausstellung \"Phantastische Flugob Fl",
+        "de": "Ausstellungsrundgang durch die Ausstellung „Phantastische Flugobjekte“",
+        "fr": "Ausstellungsrundgang durch die Ausstellung « Phantastische Flugobjekte »"
+      },
+      "description": "Rundgang durch die Ausstellung \"Phantastische Flugobjekte\" mit&#160;&#160;Katja Herlach, Co-Direktorin des Kunstmuseums Olten, und Heinz Stahlhut, Kurator der Ausstellung",
+      "descriptionByLocale": {
+        "it": "Rundgang durch die Ausstellung \"Phantastische Flugobjekte\" mit&#160;&#160;Katja Herlach, Co-Direktorin des Kunstmuseums Olten, und Heinz Stahlhut, Kurator der Ausstellung",
+        "en": "Rundgang durch die Ausstellung \"Phantastische Flugobjekte\" mit Katja Herlach, Co-Direktorin des Kunstmuseums Olten, und Heinz Stahlhut, Kurator der Ausstellung",
+        "de": "Rundgang durch die Ausstellung \"Phantastische Flugobjekte\" mit Katja Herlach, Co-Direktorin des Kunstmuseums Olten, und Heinz Stahlhut, Kurator der Ausstellung",
+        "fr": "Rundgang durch die Ausstellung \"Phantastische Flugobjekte\" mit Katja Herlach, Co-Direktorin des Kunstmuseums Olten, und Heinz Stahlhut, Kurator der Ausstellung"
+      },
+      "startDate": "2028-03-16",
+      "endDate": "2028-03-16",
+      "startTime": "18:00",
+      "category": "Visita guidata al museo d'arte",
+      "venue": "Hans Erni Museum",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/luzern/ausstellungsrundgang-durch-die-ausstellung-phantastische-flugobjekte_AKVL9GP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Haldenstrasse 44",
+        "postalCode": "6006"
+      },
+      "geo": {
+        "lat": 47.05191142600734,
+        "lng": 8.336775537573255
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AKVL9GP.webp"
+    },
+    {
+      "id": "guidle:A184ZaT",
+      "title": "Kammermusik am Picassoplatz",
+      "titleByLocale": {
+        "it": "Kammermusik am Picassoplatz",
+        "en": "Kammermusik am Picassoplatz",
+        "de": "Kammermusik am Picassoplatz",
+        "fr": "Musique de chambre sur la place Picasso"
+      },
+      "description": "Kunstvoll böhmisch",
+      "descriptionByLocale": {
+        "it": "Kunstvoll böhmisch",
+        "en": "Kunstvoll bohmisch",
+        "de": "Kunstvoll bohmisch",
+        "fr": "Kunstvoll bohème"
+      },
+      "startDate": "2027-03-07",
+      "endDate": "2027-03-07",
+      "startTime": "11:00",
+      "category": "Musica da Camera",
+      "venue": "Proberaum des Sinfonieorchester Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/basel/kammermusik-am-picassoplatz_A184ZaT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Picassoplatz 2",
+        "postalCode": "4052"
+      },
+      "geo": {
+        "lat": 47.5536759,
+        "lng": 7.5955824
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-A184ZaT.webp"
+    },
+    {
+      "id": "guidle:AYmBsUW",
+      "title": "Claire Huangci & Daniel Dodds",
+      "titleByLocale": {
+        "it": "Claire Huangci & Daniel Dodds",
+        "en": "Claire Huangci & Daniel Dodds",
+        "de": "Claire Huangci & Daniel Dodds",
+        "fr": "Claire Huangci et Daniel Dodds"
+      },
+      "description": "Ein kammermusikalisches Highlight in einem besonderen Ambiente",
+      "descriptionByLocale": {
+        "it": "Ein kammermusikalisches Highlight in einem besonderen Ambiente",
+        "en": "Ein kammermusikalisches Highlight in einem besonderen Environment",
+        "de": "Ein kammermusikalisches Highlight in einer besonderen Umgebung",
+        "fr": "Ein kammermusikalisches Highlight in einem besonderen Environnement"
+      },
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "startTime": "19:30",
+      "category": "Musica classica",
+      "venue": "Kloster Sursee",
+      "comune": "Sursee",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sursee/claire-huangci-und-daniel-dodds_AYmBsUW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Geuenseestrasse 2b",
+        "postalCode": "6210"
+      },
+      "geo": {
+        "lat": 47.1742027,
+        "lng": 8.1111504
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AYmBsUW.webp"
+    },
+    {
+      "id": "guidle:AbTjvXm",
+      "title": "Claire Huangci Klavierrezital",
+      "titleByLocale": {
+        "it": "Claire Huangci Klavierrezital",
+        "en": "Claire Huangci Klavierrezital",
+        "de": "Claire Huangci Klavierrezital",
+        "fr": "Claire Huangci Klavierrezital"
+      },
+      "description": "Ein exklusiver Konzertabend mit der international gefeierten Starpianistin",
+      "descriptionByLocale": {
+        "it": "Ein exklusiver Konzertabend mit der international gefeierten Starpianistin",
+        "en": "Ein exklusiver Konzertabend mit der international gefeierten Starpianistin",
+        "de": "Ein exklusiver Konzertabend mit der international gefeierten Starpianistin",
+        "fr": "Ein exklusiver Konzertabend mit der international gefeierten Starpianistin"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "startTime": "19:30",
+      "category": "Musica classica",
+      "venue": "Kloster Sursee",
+      "comune": "Sursee",
+      "canton": "LU",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/sursee/claire-huangci-klavierrezital_AbTjvXm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 1,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Geuenseestrasse 2b",
+        "postalCode": "6210"
+      },
+      "geo": {
+        "lat": 47.1742027,
+        "lng": 8.1111504
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AbTjvXm.webp"
+    },
+    {
+      "id": "guidle:AnDHhtX",
+      "title": "Streicherkonzert mit Akkordeon",
+      "titleByLocale": {
+        "it": "Streicherkonzert mit Akkordeon",
+        "en": "Streicherkonzert mit Akkordeon",
+        "de": "Streicherkonzert mit Akkordeon",
+        "fr": "Streicherkonzert mit Akkordeon"
+      },
+      "description": "Concerto per archi con fisarmonica",
+      "descriptionByLocale": {
+        "it": "Concerto per archi con fisarmonica",
+        "en": "String concert with accordion",
+        "de": "Streicherkonzert mit Akkordeon",
+        "fr": "Concert de cordes avec accordéon"
+      },
+      "startDate": "2027-06-12",
+      "endDate": "2027-06-12",
+      "startTime": "20:00",
+      "category": "Fisarmonica",
+      "venue": "Gemeindehaus Ennenda",
+      "canton": "GL",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/ennenda/streicherkonzert-mit-akkordeon_AnDHhtX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Poststrasse 2a",
+        "postalCode": "8755"
+      },
+      "geo": {
+        "lat": 47.0330315,
+        "lng": 9.0783025
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:AfXk2Dn",
+      "title": "Les Papillons",
+      "titleByLocale": {
+        "it": "Les Papillons",
+        "en": "Les Papillons",
+        "de": "Les Papillons",
+        "fr": "Les Papillons"
+      },
+      "description": "Les Papillons",
+      "descriptionByLocale": {
+        "it": "Les Papillons",
+        "en": "Les Papillons",
+        "de": "Les Papillons",
+        "fr": "Les Papillons"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "startTime": "19:00",
+      "category": "Cabaret",
+      "venue": "Schule Bettwil",
+      "comune": "Bettwil",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/klassisch/bettwil/les-papillons_AfXk2Dn",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Schulhausstrasse 11",
+        "postalCode": "5618"
+      },
+      "geo": {
+        "lat": 47.291272,
+        "lng": 8.266898
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AfXk2Dn.webp"
+    },
+    {
+      "id": "guidle:AA632jm",
+      "title": "Al ritmo del silenzio",
+      "titleByLocale": {
+        "it": "Al ritmo del silenzio",
+        "en": "To the beat of silence",
+        "de": "Im Takt der Stille",
+        "fr": "Au rythme du silence"
+      },
+      "description": "I musicisti dilettanti prendono posto alle macchine da cucire, non per lavorare il tessuto, ma per \"cucire\" il ritmo.",
+      "descriptionByLocale": {
+        "it": "I musicisti dilettanti prendono posto alle macchine da cucire, non per lavorare il tessuto, ma per \"cucire\" il ritmo.",
+        "en": "Amateur musicians take their places at sewing machines - not to process fabric, but to \"sew\" rhythm.",
+        "de": "Laienmusiker:innen nehmen an Nähmaschinen Platz – nicht um Stoff zu verarbeiten, sondern um Rhythmus zu „nähen“.",
+        "fr": "Des musiciens amateurs prennent place autour de machines à coudre - non pas pour travailler le tissu, mais pour \"coudre\" le rythme."
+      },
+      "startDate": "2026-09-17",
+      "endDate": "2026-09-17",
+      "startTime": "19:21",
+      "category": "Sperimentale",
+      "venue": "Schloss Leuk",
+      "comune": "Leuk",
+      "canton": "VS",
+      "url": "https://www.guidle.com/it/veranstaltungen/kleinkunst/leuk-stadt/im-takt-der-stille_AA632jm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rathausplatz 5",
+        "postalCode": "3953"
+      },
+      "geo": {
+        "lat": 46.3162188,
+        "lng": 7.6338528
+      },
+      "recurring": false,
+      "imageUrl": "/images/events/guidle-AA632jm.webp"
     }
   ]
 }
