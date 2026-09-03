@@ -11227,6 +11227,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Stellen- und Praktikumsangebote in der Provinz Varese - 2. SEPTEMBER 2026',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Entdecken Sie die neuen Arbeits- und Praktikumsmöglichkeiten, die von den Beschäftigungszentren der Provinz Varese angeboten werden.',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Dritte Säule Grenzgänger: Abzugsfähigkeit und Renditen',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Steuervorteile und Vorsorgestrategien: So funktioniert die dritte Säule 3a für Italiener, die in der Schweiz arbeiten.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Panoramablick auf den Luganersee vom Schweizer Ufer bei Sonnenuntergang mit Wasserreflexionen und Alpen in der Ferne.',
 };
 
 export default blogMetaDe;
