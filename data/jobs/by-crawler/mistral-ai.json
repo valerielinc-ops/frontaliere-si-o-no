@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-02T23:23:24.133Z",
+  "assembledAt": "2026-09-03T13:49:16.672Z",
   "jobs": [
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/2ed434c7-2e1d-4acd-acb2-01edaa4a1208",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.862Z",
+      "crawledAt": "2026-09-03T13:49:12.451Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/8c71b069-0eda-40d1-8cb1-4094fd9c81de",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.861Z",
+      "crawledAt": "2026-09-03T13:49:12.450Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -200,7 +200,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/6f5451cb-ecb6-45af-8a03-6bb658c6c5a1",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.859Z",
+      "crawledAt": "2026-09-03T13:49:12.448Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -231,6 +231,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:24:20.994Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -277,7 +278,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0b0c3fab-5c79-43e7-b66c-de7fef7d28b7",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.858Z",
+      "crawledAt": "2026-09-03T13:49:12.446Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -322,7 +323,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -355,7 +357,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/395b93c4-2185-4c83-990f-5325cd739e0e",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.854Z",
+      "crawledAt": "2026-09-03T13:49:12.444Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -400,7 +402,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -433,7 +436,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/0e578cff-741d-4870-9c2c-aac85f9de266",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.853Z",
+      "crawledAt": "2026-09-03T13:49:12.441Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -511,7 +514,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.852Z",
+      "crawledAt": "2026-09-03T13:49:12.440Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -596,7 +599,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/556595b2-d78b-486e-a3b2-14ad533f8caa",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.850Z",
+      "crawledAt": "2026-09-03T13:49:12.434Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -674,7 +677,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/e91d8785-a4a1-4fc5-b214-21d285005cd0",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:20.845Z",
+      "crawledAt": "2026-09-03T13:49:12.429Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
