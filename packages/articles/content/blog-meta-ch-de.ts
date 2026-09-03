@@ -5353,6 +5353,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uri-rendita-avs-lacune-contributive.title': 'AHV Uri: Rentenberechnung und Beitragslücken',
     'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Erste Säule Uri: Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für Beitragslücken und Lebensminimum.',
     'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Kantonal Verwaltungsbüro für AHV-Beitragsverwaltung und Altersversicherungsrenten in der Schweiz.',
+    'blog.article.salari-mercato-lavoro-uri-settori.title': 'Löhne und Arbeitsmarkt im Kanton Uri',
+    'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analyse des Lohnniveaus nach Ausbildung, Berufsfeldern, Tarifverträgen und Mindestlohn auf dem Arbeitsmarkt des Kantons Uri.',
+    'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Berglandschaft des Kantons Uri mit Alpenblick und modernem Arbeitsumfeld',
 };
 
 export default blogMetaChDe;
