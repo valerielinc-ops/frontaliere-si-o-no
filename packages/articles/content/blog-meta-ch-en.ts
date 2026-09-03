@@ -5362,6 +5362,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.uri-stipendi-settori-qualifica.title': 'Canton Uri salaries: levels by qualification',
     'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Maximum hours, minimum holidays, wage contributions and taxes: the Swiss national rules governing the labour market in the Canton of Uri.',
     'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Professional alpine office environment with Swiss colleagues collaborating in mountain valley workspace',
+    'blog.article.settori-salari-uri-lavoro.title': 'Salaries in URIs: levels by sector and training',
+    'blog.article.settori-salari-uri-lavoro.excerpt': 'How wages are determined in Canton Uri by degree of training and sector. Practical guide to collective agreements, social security contributions and official resources to verify salaries.',
+    'blog.article.settori-salari-uri-lavoro.imageAlt': 'Modern office in Alpine Uri valley with labor market information and Swiss employment materials displayed.',
 };
 
 export default blogMetaChEn;

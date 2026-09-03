@@ -69595,6 +69595,46 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-settori-salari-uri-lavoro': {
+    title: 'Salari in Uri: livelli per settore e formazione',
+    description: 'Guida ai salari nel Cantone Uri per settore e grado di formazione. Come si determinano gli stipendi in Svizzera, contratti collettivi, salari minimi e risorse',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, livelli, settore, formazione',
+    ogTitle: 'Salari in Uri: livelli per settore e formazione',
+    ogDescription: 'Scopri i salari nel Cantone Uri per settore e formazione. Guida pratica ai contratti collettivi, salari minimi svizzeri, contributi previdenziali (AVS, LPP) e risorse ufficiali per verificare stipendi competitivi.',
+    canonicalPath: '/articoli-svizzera/settori-salari-uri-lavoro/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari in Uri: livelli per settore e formazione",
+      "description": "Guida ai salari nel Cantone Uri per settore e grado di formazione. Come si determinano gli stipendi in Svizzera, contratti collettivi, salari minimi e risorse",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/settori-salari-uri-lavoro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno in Valle Leventina, Cantone Uri, con materiali informativi sul mercato del lavoro e stipendi svizzeri."
+      },
+      "datePublished": "2026-09-03T22:31:28+00:00",
+      "dateModified": "2026-09-03T22:31:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/settori-salari-uri-lavoro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

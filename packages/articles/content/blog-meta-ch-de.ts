@@ -5362,6 +5362,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.uri-stipendi-settori-qualifica.title': 'Löhne Kanton Uri: Stufen nach Qualifikation',
     'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Maximale Arbeitszeiten, Mindestferien, Lohnbeiträge und Steuern: Die schweizerischen nationalen Regeln für den Arbeitsmarkt im Kanton Uri.',
     'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Moderner Arbeitsplatz in Schweizer Bergregion mit professionellen Mitarbeitern bei gemeinsamer Arbeit',
+    'blog.article.settori-salari-uri-lavoro.title': 'Löhne in Uri: Ebenen nach Branche und Ausbildung',
+    'blog.article.settori-salari-uri-lavoro.excerpt': 'Wie die Löhne im Kanton Uri nach Bildungsgrad und Branche ermittelt werden. Praktischer Leitfaden zu Tarifverträgen, Sozialversicherungsbeiträgen und offiziellen Ressourcen zur Überprüfung der Löhne.',
+    'blog.article.settori-salari-uri-lavoro.imageAlt': 'Modernes Büro im Alpental Uri mit Arbeitsmarkt-Informationen und Schweizer Beschäftigungsmaterialien.',
 };
 
 export default blogMetaChDe;
