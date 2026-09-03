@@ -68,8 +68,7 @@
           "sales-consultant-in-household-and-electric-coop-genossenschaft-zurich-919ac9",
           "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-po1fdg",
           "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich-919ac9",
-          "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
-          "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich"
+          "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich"
         ],
         "en": [
           "sales-consultant-in-household-and-electric-coop-genossenschaft-zurich-919ac9",
@@ -89,7 +88,6 @@
         "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich-po1fdg",
         "consultant-en-ventes-en-menage-et-electrique-coop-genossenschaft-zurich-919ac9",
         "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
-        "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich",
         "verkaufsberater-in-haushalt-und-elektro-coop-city-zurich-g82yh4"
       ]
     },
@@ -293,7 +291,7 @@
     },
     {
       "id": "company-ati0lu",
-      "slug": "verkaufer-in-food-coop-bern-ati0lu",
+      "slug": "commesso-a-generi-alimentari-coop-genossenschaft-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Bern",
@@ -339,10 +337,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-bern-ati0lu",
-        "en": "verkaufer-in-food-coop-bern-ati0lu",
+        "it": "commesso-a-generi-alimentari-coop-genossenschaft-bern",
+        "en": "food-sales-associate-coop-genossenschaft-bern-632964",
         "de": "verkaufer-in-food-coop-bern-ati0lu",
-        "fr": "verkaufer-in-food-coop-bern-ati0lu"
+        "fr": "vendeur-aliment-coop-genossenschaft-bern"
       },
       "addressLocality": "Bern",
       "sourceLang": "de",
@@ -359,11 +357,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-bern"
+        "verkaufer-in-food-coop-bern",
+        "verkaufer-in-food-coop-bern-ati0lu"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-bern"
+          "verkaufer-in-food-coop-bern",
+          "verkaufer-in-food-coop-bern-ati0lu"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-bern-ati0lu"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-bern-ati0lu"
         ]
       },
       "salaryMin": 68500,
@@ -457,7 +463,7 @@
     },
     {
       "id": "company-o2abbl",
-      "slug": "verkaufer-in-food-coop-zurzach-aargau-o2abbl",
+      "slug": "addetto-a-vendite-settore-alimentare-coop-genossenschaft-zurzach-aargau",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zurzach, Aargau",
@@ -503,10 +509,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zurzach-aargau-o2abbl",
-        "en": "verkaufer-in-food-coop-zurzach-aargau-o2abbl",
+        "it": "addetto-a-vendite-settore-alimentare-coop-genossenschaft-zurzach-aargau",
+        "en": "food-sales-associate-coop-genossenschaft-zurzach-aargau",
         "de": "verkaufer-in-food-coop-zurzach-aargau-o2abbl",
-        "fr": "verkaufer-in-food-coop-zurzach-aargau-o2abbl"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-zurzach-aargau"
       },
       "addressLocality": "Zurzach",
       "sourceLang": "de",
@@ -528,16 +534,19 @@
           "verkaufer-in-food-coop-genossenschaft-zurzach-aargau-1w7t5h",
           "food-sales-assistant-coop-genossenschaft-zurzach-1w7t5h",
           "assistant-commercial-alimentaire-coop-genossenschaft-zurzach-1w7t5h",
-          "verkaufer-in-food-coop-zurzach-aargau"
+          "verkaufer-in-food-coop-zurzach-aargau",
+          "verkaufer-in-food-coop-zurzach-aargau-o2abbl"
         ],
         "en": [
-          "food-sales-assistant-coop-genossenschaft-zurzach-1w7t5h"
+          "food-sales-assistant-coop-genossenschaft-zurzach-1w7t5h",
+          "verkaufer-in-food-coop-zurzach-aargau-o2abbl"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-zurzach-aargau-1w7t5h"
         ],
         "fr": [
-          "assistant-commercial-alimentaire-coop-genossenschaft-zurzach-1w7t5h"
+          "assistant-commercial-alimentaire-coop-genossenschaft-zurzach-1w7t5h",
+          "verkaufer-in-food-coop-zurzach-aargau-o2abbl"
         ]
       },
       "previousSlugs": [
@@ -545,7 +554,8 @@
         "verkaufer-in-food-coop-genossenschaft-zurzach-aargau-1w7t5h",
         "food-sales-assistant-coop-genossenschaft-zurzach-1w7t5h",
         "assistant-commercial-alimentaire-coop-genossenschaft-zurzach-1w7t5h",
-        "verkaufer-in-food-coop-zurzach-aargau"
+        "verkaufer-in-food-coop-zurzach-aargau",
+        "verkaufer-in-food-coop-zurzach-aargau-o2abbl"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000
@@ -887,7 +897,7 @@
     },
     {
       "id": "company-r8h422",
-      "slug": "verkaufer-in-food-coop-frutigen-bern-r8h422",
+      "slug": "venditore-venditrice-alimentari-coop-genossenschaft-frutigen-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Frutigen, Bern",
@@ -933,10 +943,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-frutigen-bern-r8h422",
-        "en": "verkaufer-in-food-coop-frutigen-bern-r8h422",
+        "it": "venditore-venditrice-alimentari-coop-genossenschaft-frutigen-bern",
+        "en": "food-sales-associate-coop-genossenschaft-frutigen-bern",
         "de": "verkaufer-in-food-coop-frutigen-bern-r8h422",
-        "fr": "verkaufer-in-food-coop-frutigen-bern-r8h422"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-frutigen-bern"
       },
       "addressLocality": "Frutigen",
       "sourceLang": "de",
@@ -953,11 +963,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-frutigen-bern"
+        "verkaufer-in-food-coop-frutigen-bern",
+        "verkaufer-in-food-coop-frutigen-bern-r8h422"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-frutigen-bern"
+          "verkaufer-in-food-coop-frutigen-bern",
+          "verkaufer-in-food-coop-frutigen-bern-r8h422"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-frutigen-bern-r8h422"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-frutigen-bern-r8h422"
         ]
       },
       "salaryMin": 68500,
@@ -1042,7 +1060,7 @@
     },
     {
       "id": "company-9ctlx5",
-      "slug": "verkaufer-in-food-coop-frutigen-bern-9ctlx5",
+      "slug": "addetto-a-vendita-food-coop-genossenschaft-frutigen-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Frutigen, Bern",
@@ -1088,10 +1106,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-frutigen-bern-9ctlx5",
-        "en": "verkaufer-in-food-coop-frutigen-bern-9ctlx5",
+        "it": "addetto-a-vendita-food-coop-genossenschaft-frutigen-bern",
+        "en": "food-sales-associate-coop-genossenschaft-frutigen-bern-9cdc74",
         "de": "verkaufer-in-food-coop-frutigen-bern-9ctlx5",
-        "fr": "verkaufer-in-food-coop-frutigen-bern-9ctlx5"
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-frutigen-bern-9cdc74"
       },
       "addressLocality": "Frutigen",
       "sourceLang": "de",
@@ -1108,11 +1126,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-frutigen-bern-2"
+        "verkaufer-in-food-coop-frutigen-bern-2",
+        "verkaufer-in-food-coop-frutigen-bern-9ctlx5"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-frutigen-bern-2"
+          "verkaufer-in-food-coop-frutigen-bern-2",
+          "verkaufer-in-food-coop-frutigen-bern-9ctlx5"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-frutigen-bern-9ctlx5"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-frutigen-bern-9ctlx5"
         ]
       },
       "salaryMin": 68500,
@@ -2038,7 +2064,7 @@
     },
     {
       "id": "company-kefzcm",
-      "slug": "verkaufer-in-frischprodukte-coop-zurich-kefzcm",
+      "slug": "venditore-venditrice-prodotti-freschi-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Zürich",
@@ -2084,10 +2110,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-zurich-kefzcm",
-        "en": "verkaufer-in-frischprodukte-coop-zurich-kefzcm",
+        "it": "venditore-venditrice-prodotti-freschi-coop-genossenschaft-zurich",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-zurich-cd11ef",
         "de": "verkaufer-in-frischprodukte-coop-zurich-kefzcm",
-        "fr": "verkaufer-in-frischprodukte-coop-zurich-kefzcm"
+        "fr": "vendeur-vendeuse-produits-frais-coop-genossenschaft-zurich-cd11ef"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -2107,16 +2133,19 @@
         "it": [
           "vendita-prodotti-freschi-coop-genossenschaft-zurich-2fc902",
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-2",
-          "verkaufer-in-frischprodukte-coop-zurich"
+          "verkaufer-in-frischprodukte-coop-zurich",
+          "verkaufer-in-frischprodukte-coop-zurich-kefzcm"
         ],
         "en": [
-          "seller-fresh-products-coop-genossenschaft-zurich-2fc902"
+          "seller-fresh-products-coop-genossenschaft-zurich-2fc902",
+          "verkaufer-in-frischprodukte-coop-zurich-kefzcm"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-uzmn1b"
         ],
         "fr": [
-          "vendeur-produits-frais-coop-genossenschaft-zurich-2fc902"
+          "vendeur-produits-frais-coop-genossenschaft-zurich-2fc902",
+          "verkaufer-in-frischprodukte-coop-zurich-kefzcm"
         ]
       },
       "previousSlugs": [
@@ -2125,14 +2154,15 @@
         "seller-fresh-products-coop-genossenschaft-zurich-2fc902",
         "verkaufer-in-frischprodukte-coop-genossenschaft-zurich-uzmn1b",
         "vendeur-produits-frais-coop-genossenschaft-zurich-2fc902",
-        "verkaufer-in-frischprodukte-coop-zurich"
+        "verkaufer-in-frischprodukte-coop-zurich",
+        "verkaufer-in-frischprodukte-coop-zurich-kefzcm"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
     },
     {
       "id": "company-jhbiq3",
-      "slug": "verkaufer-in-food-coop-zurich-jhbiq3",
+      "slug": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich-d356d9",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -2178,10 +2208,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zurich-jhbiq3",
-        "en": "verkaufer-in-food-coop-zurich-jhbiq3",
+        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich-d356d9",
+        "en": "food-sales-assistant-coop-genossenschaft-zurich",
         "de": "verkaufer-in-food-coop-zurich-jhbiq3",
-        "fr": "verkaufer-in-food-coop-zurich-jhbiq3"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-zurich-d356d9"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -2198,11 +2228,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zurich-2"
+        "verkaufer-in-food-coop-zurich-2",
+        "verkaufer-in-food-coop-zurich-jhbiq3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zurich-2"
+          "verkaufer-in-food-coop-zurich-2",
+          "verkaufer-in-food-coop-zurich-jhbiq3"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-zurich-jhbiq3"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-zurich-jhbiq3"
         ]
       },
       "salaryMin": 73500,
@@ -2563,7 +2601,7 @@
     },
     {
       "id": "company-dlupm7",
-      "slug": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
+      "slug": "venditore-trice-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte Produktion",
       "location": "Zürich",
@@ -2609,10 +2647,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
-        "en": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
+        "it": "venditore-trice-produzione-di-prodotti-freschi-coop-genossenschaft-zurich",
+        "en": "salesperson-supplier-of-fresh-products-production-coop-genossenschaft-zurich",
         "de": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
-        "fr": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
+        "fr": "vendeur-fournisseur-de-produits-frais-production-coop-genossenschaft-zurich"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -2629,11 +2667,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-produktion-coop-zurich"
+        "verkaufer-in-frischprodukte-produktion-coop-zurich",
+        "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-produktion-coop-zurich"
+          "verkaufer-in-frischprodukte-produktion-coop-zurich",
+          "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7"
         ]
       },
       "salaryMin": 73500,
@@ -2806,7 +2852,7 @@
     },
     {
       "id": "company-c6e7dj",
-      "slug": "verkaufer-in-food-coop-zurich-c6e7dj",
+      "slug": "commesso-a-alimenti-coop-genossenschaft-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Zürich",
@@ -2852,10 +2898,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zurich-c6e7dj",
-        "en": "verkaufer-in-food-coop-zurich-c6e7dj",
+        "it": "commesso-a-alimenti-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-3eba89",
         "de": "verkaufer-in-food-coop-zurich-c6e7dj",
-        "fr": "verkaufer-in-food-coop-zurich-c6e7dj"
+        "fr": "vendeur-euse-alimentation-coop-genossenschaft-zurich-3eba89"
       },
       "addressLocality": "Zürich",
       "sourceLang": "de",
@@ -2872,11 +2918,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zurich-3"
+        "verkaufer-in-food-coop-zurich-3",
+        "verkaufer-in-food-coop-zurich-c6e7dj"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-zurich-3"
+          "verkaufer-in-food-coop-zurich-3",
+          "verkaufer-in-food-coop-zurich-c6e7dj"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-zurich-c6e7dj"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-zurich-c6e7dj"
         ]
       },
       "salaryMin": 73500,
@@ -3245,7 +3299,7 @@
     },
     {
       "id": "company-f5ciq7",
-      "slug": "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7",
+      "slug": "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-sins-aargau",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Sins, Aargau",
@@ -3291,10 +3345,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7",
-        "en": "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7",
+        "it": "addetto-a-alle-vendite-prodotti-freschi-coop-genossenschaft-sins-aargau",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-sins-aargau",
         "de": "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7",
-        "fr": "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7"
+        "fr": "assistant-e-aux-ventes-produits-frais-coop-genossenschaft-sins-aargau"
       },
       "addressLocality": "Sins",
       "sourceLang": "de",
@@ -3311,11 +3365,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-sins-aargau"
+        "verkaufer-in-frischprodukte-coop-sins-aargau",
+        "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-frischprodukte-coop-sins-aargau"
+          "verkaufer-in-frischprodukte-coop-sins-aargau",
+          "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7"
+        ],
+        "en": [
+          "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7"
+        ],
+        "fr": [
+          "verkaufer-in-frischprodukte-coop-sins-aargau-f5ciq7"
         ]
       },
       "salaryMin": 62000,
@@ -3409,7 +3471,7 @@
     },
     {
       "id": "company-jcttki",
-      "slug": "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki",
+      "slug": "addetto-a-vendite-food-coop-genossenschaft-uitikon-waldegg-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Uitikon Waldegg, Zürich",
@@ -3455,10 +3517,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki",
-        "en": "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki",
+        "it": "addetto-a-vendite-food-coop-genossenschaft-uitikon-waldegg-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-uitikon-waldegg-zurich",
         "de": "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki",
-        "fr": "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki"
+        "fr": "vendeur-se-alimentaire-coop-genossenschaft-uitikon-waldegg-zurich"
       },
       "addressLocality": "Uitikon Waldegg",
       "sourceLang": "de",
@@ -3475,11 +3537,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-uitikon-waldegg-zurich"
+        "verkaufer-in-food-coop-uitikon-waldegg-zurich",
+        "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-uitikon-waldegg-zurich"
+          "verkaufer-in-food-coop-uitikon-waldegg-zurich",
+          "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-uitikon-waldegg-zurich-jcttki"
         ]
       },
       "salaryMin": 73500,
@@ -3815,7 +3885,7 @@
     },
     {
       "id": "company-a3j973",
-      "slug": "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973",
+      "slug": "addetto-a-vendite-cassa-servizi-coop-genossenschaft-lachen-schwyz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Lachen, Schwyz",
@@ -3863,10 +3933,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973",
-        "en": "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973",
+        "it": "addetto-a-vendite-cassa-servizi-coop-genossenschaft-lachen-schwyz",
+        "en": "sales-assistant-checkout-services-coop-genossenschaft-lachen-schwyz",
         "de": "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973",
-        "fr": "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
+        "fr": "vendeur-euse-caisse-services-coop-genossenschaft-lachen-schwyz"
       },
       "addressLocality": "Lachen",
       "sourceLang": "de",
@@ -3885,12 +3955,20 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-kassen-services-coop-genossenschaft-lachen",
-          "verkaufer-in-kassen-services-coop-lachen-schwyz"
+          "verkaufer-in-kassen-services-coop-lachen-schwyz",
+          "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-lachen",
-        "verkaufer-in-kassen-services-coop-lachen-schwyz"
+        "verkaufer-in-kassen-services-coop-lachen-schwyz",
+        "verkaufer-in-kassen-services-coop-lachen-schwyz-a3j973"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000
@@ -4093,7 +4171,7 @@
     },
     {
       "id": "company-40wa9v",
-      "slug": "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v",
+      "slug": "commesso-a-prodotti-freschi-coop-genossenschaft-schubelbach-schwyz",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Schübelbach, Schwyz",
@@ -4139,10 +4217,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v",
-        "en": "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v",
+        "it": "commesso-a-prodotti-freschi-coop-genossenschaft-schubelbach-schwyz",
+        "en": "fresh-products-sales-associate-coop-genossenschaft-schubelbach-schwyz",
         "de": "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v",
-        "fr": "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v"
+        "fr": "vendeur-euse-produits-frais-coop-genossenschaft-schubelbach-schwyz"
       },
       "addressLocality": "Schübelbach",
       "sourceLang": "de",
@@ -4174,7 +4252,8 @@
         "vendeur-de-produits-frais-coop-genossenschaft-schubelbach-qoijlf",
         "vendeur-euse-produits-frais-coop-genossenschaft-schubelbach",
         "vendeur-euse-produits-frais-coop-genossenschaft-schubelbach-qoijlf",
-        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schubelbach"
+        "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schubelbach",
+        "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4193,16 +4272,19 @@
           "vendeur-de-produits-frais-coop-genossenschaft-schubelbach-qoijlf",
           "vendeur-euse-produits-frais-coop-genossenschaft-schubelbach",
           "vendeur-euse-produits-frais-coop-genossenschaft-schubelbach-qoijlf",
-          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schubelbach"
+          "vendeur-vendeuse-de-produits-frais-coop-genossenschaft-schubelbach",
+          "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v"
         ],
         "en": [
-          "seller-fresh-products-coop-genossenschaft-schubelbach"
+          "seller-fresh-products-coop-genossenschaft-schubelbach",
+          "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v"
         ],
         "de": [
           "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-6ya5rt"
         ],
         "fr": [
-          "vendeur-produits-frais-coop-genossenschaft-schubelbach"
+          "vendeur-produits-frais-coop-genossenschaft-schubelbach",
+          "verkaufer-in-frischprodukte-coop-schubelbach-schwyz-40wa9v"
         ]
       },
       "salaryMin": 69500,
@@ -4664,7 +4746,7 @@
     },
     {
       "id": "company-yzuotm",
-      "slug": "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm",
+      "slug": "addetto-a-alle-vendite-alimentari-coop-genossenschaft-gossau-zh-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Gossau ZH, Zürich",
@@ -4710,10 +4792,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm",
-        "en": "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm",
+        "it": "addetto-a-alle-vendite-alimentari-coop-genossenschaft-gossau-zh-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-gossau-zh-zurich",
         "de": "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm",
-        "fr": "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm"
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-gossau-zh-zurich"
       },
       "addressLocality": "Gossau ZH",
       "sourceLang": "de",
@@ -4732,12 +4814,20 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-genossenschaft-gossau-zh",
-          "verkaufer-in-food-coop-gossau-zh-zurich"
+          "verkaufer-in-food-coop-gossau-zh-zurich",
+          "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm"
+        ],
+        "en": [
+          "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm"
+        ],
+        "fr": [
+          "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-genossenschaft-gossau-zh",
-        "verkaufer-in-food-coop-gossau-zh-zurich"
+        "verkaufer-in-food-coop-gossau-zh-zurich",
+        "verkaufer-in-food-coop-gossau-zh-zurich-yzuotm"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500
