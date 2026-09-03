@@ -5326,6 +5326,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.riserve-naturali-siccita-estate-2024.title': 'Naturschutzgebiete, die durch Trockenheit auf eine harte Probe gestellt wurden',
     'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'Die Sommertrockenheit hat die Schweizer Sümpfe hart getroffen, wobei der Wasserstand in vielen Gebieten auf ein kritisches Niveau gesunken ist.',
     'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Schweizer Feuchtgebiete während einer schweren Dürre im Sommer, mit spärlicher Vegetation und ausgetrockneten Gewässern.',
+    'blog.article.guida-apprendistato-lucerna.title': 'Lehre in Luzern: Vertrag, Vergütung und Maturität',
+    'blog.article.guida-apprendistato-lucerna.excerpt': 'Wie man eine Lehrstelle im Kanton Luzern findet, was der Lehrvertrag enthalten muss und wie man die Berufsmaturität erlangt: Praktischer Leitfaden.',
+    'blog.article.guida-apprendistato-lucerna.imageAlt': 'Schweizer Lehrling in Werkstatt während praktischer Ausbildung mit erfahrenem Mentor',
 };
 
 export default blogMetaChDe;

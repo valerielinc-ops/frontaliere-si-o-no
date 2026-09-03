@@ -5326,6 +5326,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.riserve-naturali-siccita-estate-2024.title': 'Réserves naturelles mises à rude épreuve par la sécheresse',
     'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'La sécheresse estivale a durement frappé les marais suisses, avec des niveaux d\'eau descendus à des niveaux critiques dans de nombreuses régions.',
     'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Zones humides suisses pendant une sévère sécheresse estivale, avec une végétation clairsemée et des cours d\'eau asséchés.',
+    'blog.article.guida-apprendistato-lucerna.title': 'Apprentissage à Lucerne : contrat, rémunération et maturité',
+    'blog.article.guida-apprendistato-lucerna.excerpt': 'Comment trouver une place d\'apprentissage dans le canton de Lucerne, ce que doit contenir le contrat d\'apprentissage et comment obtenir la maturité professionnelle : guide pratique.',
+    'blog.article.guida-apprendistato-lucerna.imageAlt': 'Apprenti suisse dans atelier technique apprenant compétences pratiques avec mentor expérimenté',
 };
 
 export default blogMetaChFr;

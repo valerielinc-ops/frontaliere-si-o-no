@@ -15976,6 +15976,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-apprendistato-lucerna',
+    category: 'pratico',
+    date: '2026-09-03T16:52:22.402Z',
+    image: '/images/blog/guida-apprendistato-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

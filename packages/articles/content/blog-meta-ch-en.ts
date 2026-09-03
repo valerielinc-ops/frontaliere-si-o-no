@@ -5326,6 +5326,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.riserve-naturali-siccita-estate-2024.title': 'Natural reserves put to the test by drought',
     'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'The summer drought hit the swamps hard, with water levels falling to critical levels in many areas.',
     'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Swiss wetlands during a severe summer drought, with sparse vegetation and dried-up water bodies.',
+    'blog.article.guida-apprendistato-lucerna.title': 'Apprenticeship in Lucerne: contract, salary and maturity',
+    'blog.article.guida-apprendistato-lucerna.excerpt': 'How to find an apprenticeship position in the Canton of Lucerne, what the apprenticeship contract must contain and how to obtain professional maturity: practical guide.',
+    'blog.article.guida-apprendistato-lucerna.imageAlt': 'Swiss apprentice in technical workshop learning practical skills with experienced mentor',
 };
 
 export default blogMetaChEn;
