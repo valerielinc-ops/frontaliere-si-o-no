@@ -5323,6 +5323,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-lucerna.title': 'Apprendistato e formazione professionale: guida Lucerna',
     'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'Come trovare un tirocinio nel Canton Lucerna, sottoscrivere un contratto di apprendistato, comprendere la retribuzione e conseguire la maturità professionale.',
     'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Aula di formazione professionale in una scuola svizzera con apprendisti che lavorano su attrezzature tecniche',
+    'blog.article.riserve-naturali-siccita-estate-2024.title': 'Riserve naturali messe a dura prova da siccità',
+    'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'La siccità estiva ha colpito duramente le paludi svizzere, con livelli d\'acqua scesi a livelli critici in molte zone.',
+    'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Paludi svizzere durante la siccità estiva, con vegetazione rada e corsi d\'acqua prosciugati.',
 };
 
 export default blogMetaChIt;

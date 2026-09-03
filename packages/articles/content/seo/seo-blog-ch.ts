@@ -69089,6 +69089,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riserve-naturali-siccita-estate-2024': {
+    title: 'Riserve naturali messe a dura prova da siccità',
+    description: 'La siccità estiva ha colpito duramente le paludi svizzere, con livelli d\'acqua scesi a livelli critici in molte zone. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, riserve, naturali, messe, dura',
+    ogTitle: 'Riserve naturali messe a dura prova da siccità',
+    ogDescription: 'La siccità estiva ha colpito duramente le paludi svizzere, con livelli d\'acqua scesi a livelli critici in molte zone. Scopri le misure adottate e gli effetti sulla flora e fauna.',
+    canonicalPath: '/articoli-svizzera/riserve-naturali-siccita-estate-2024/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riserve naturali messe a dura prova da siccità",
+      "description": "La siccità estiva ha colpito duramente le paludi svizzere, con livelli d'acqua scesi a livelli critici in molte zone. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/riserve-naturali-siccita-estate-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paludi svizzere durante la siccità estiva, con vegetazione rada e corsi d'acqua prosciugati."
+      },
+      "datePublished": "2026-09-03T16:11:14+00:00",
+      "dateModified": "2026-09-03T16:11:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/riserve-naturali-siccita-estate-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

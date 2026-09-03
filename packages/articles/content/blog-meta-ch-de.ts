@@ -5323,6 +5323,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-lucerna.title': 'Lehre und Berufsausbildung: Führer Luzern',
     'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'So finden Sie ein Praktikum im Kanton Luzern, unterschreiben einen Lehrvertrag, verstehen die Vergütung und erreichen die Berufsmaturität.',
     'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Berufsbildungsklasse in einer Schweizer Schule mit Lehrlingen, die an technischen Geräten arbeiten',
+    'blog.article.riserve-naturali-siccita-estate-2024.title': 'Naturschutzgebiete, die durch Trockenheit auf eine harte Probe gestellt wurden',
+    'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'Die Sommertrockenheit hat die Schweizer Sümpfe hart getroffen, wobei der Wasserstand in vielen Gebieten auf ein kritisches Niveau gesunken ist.',
+    'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Schweizer Feuchtgebiete während einer schweren Dürre im Sommer, mit spärlicher Vegetation und ausgetrockneten Gewässern.',
 };
 
 export default blogMetaChDe;

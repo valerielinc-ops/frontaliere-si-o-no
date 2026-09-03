@@ -5323,6 +5323,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-canton-lucerna.title': 'Apprenticeship and vocational training: Lucerne guide',
     'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'How to find an internship in the Canton of Lucerne, sign an apprenticeship contract, understand the salary and achieve professional maturity.',
     'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Vocational training classroom in a Swiss school with apprentices working on technical equipment',
+    'blog.article.riserve-naturali-siccita-estate-2024.title': 'Natural reserves put to the test by drought',
+    'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'The summer drought hit the swamps hard, with water levels falling to critical levels in many areas.',
+    'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Swiss wetlands during a severe summer drought, with sparse vegetation and dried-up water bodies.',
 };
 
 export default blogMetaChEn;
