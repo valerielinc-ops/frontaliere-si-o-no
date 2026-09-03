@@ -11230,6 +11230,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Offres d\'emploi et de stage dans la province de Varèse - 2 SEPTEMBRE 2026',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Découvrez les nouvelles opportunités d\'emploi et de stage proposées par les Centres pour l’Emploi de la Province de Varèse.',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Suisse',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Troisième pilier frontalier : déductibilité et rendements',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Avantages fiscaux et stratégies de sécurité sociale : comment le troisième pilier 3a fonctionne pour ceux qui travaillent en Suisse en tant que résidents italiens.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Vue panoramique du lac de Lugano au coucher de soleil depuis la rive suisse, avec reflets sur l\'eau et Alpes lointaines.',
 };
 
 export default blogMetaFr;

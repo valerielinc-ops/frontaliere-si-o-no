@@ -11229,6 +11229,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Offerte di Lavoro e Tirocinio nella Provincia di Varese - 2 SETTEMBRE 2026',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Scopri le nuove opportunità di lavoro e tirocinio proposte dai Centri per l’Impiego della Provincia di Varese.',
     'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Svizzera',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Terzo pilastro frontalieri: deducibilità e rendimenti',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Vantaggi fiscali e strategie previdenziali: come il terzo pilastro 3a funziona per chi lavora in Svizzera da residente italiano.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Vista panoramica del lago di Lugano al tramonto da sponda svizzera, con riflessi sull\'acqua e Alpi in lontananza.',
 };
 
 export default blogMetaIt;

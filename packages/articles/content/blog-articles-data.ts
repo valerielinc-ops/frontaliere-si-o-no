@@ -33546,6 +33546,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'terzo-pilastro-frontaliere-deducibilita',
+ category: 'pensione',
+ date: '2026-09-03T13:16:05.814Z',
+ image: '/images/blog/terzo-pilastro-frontaliere-deducibilita.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
