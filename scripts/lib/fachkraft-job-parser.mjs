@@ -14,7 +14,7 @@ import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { lookup as dnsLookup } from 'node:dns/promises';
-import { gateLookup } from './dns-lookup-gate.mjs';
+import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './dns-lookup-gate.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
@@ -34,7 +34,6 @@ export const FACHKRAFT_COMPANY_NAME = 'fachkraft.ch GmbH';
 export const FACHKRAFT_COMPANY_DOMAIN = 'fachkraft.ch';
 
 const CAREER_URL = 'https://www.fachkraft.ch/stellen/';
-const MAX_CONCURRENT_LOOKUPS = 16;
 
 export const FACHKRAFT_DESCRIPTION_MIN_WORDS = 50;
 export const FACHKRAFT_FETCH_BUDGET = Object.freeze({

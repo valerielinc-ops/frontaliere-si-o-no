@@ -13,6 +13,9 @@
  * growing with the size of the work queue.
  */
 
+/** Shared ceiling for real in-flight DNS lookups across every call site, so the budget can't drift between them. */
+export const MAX_CONCURRENT_LOOKUPS = 16;
+
 function createLookupGate(maxConcurrent) {
   let active = 0;
   const queue = [];

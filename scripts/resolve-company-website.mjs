@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { Agent, fetch as undiciFetch } from 'undici';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { gateLookup } from './lib/dns-lookup-gate.mjs';
+import { gateLookup, MAX_CONCURRENT_LOOKUPS } from './lib/dns-lookup-gate.mjs';
 import {
   createPublicConnectionLookup,
   isPrivateOrLocalAddress,
@@ -15,12 +15,6 @@ const DEFAULT_TIMEOUT_MS = 6_000;
 const MAX_REDIRECTS = 5;
 const MAX_DOMAIN_CONCURRENCY = 4;
 const DEFAULT_DOMAIN_CONCURRENCY = 2;
-// node:dns/promises' `lookup` has no cancellation hook, so a lookup that
-// outlives its race against `timeoutMs` keeps running in the background
-// (#7149 item 3). This gate bounds how many real lookups (including those
-// abandoned stragglers) can be in flight at once, so the count stays
-// constant instead of growing with the size of the company queue.
-const MAX_CONCURRENT_LOOKUPS = 16;
 const REDIRECT_STATUSES = new Set([300, 301, 302, 303, 307, 308]);
 const HEAD_FALLBACK_STATUSES = new Set([403, 405, 501]);
 const BLOCKED_HOSTNAMES = new Set(['localhost', 'metadata.google.internal']);
