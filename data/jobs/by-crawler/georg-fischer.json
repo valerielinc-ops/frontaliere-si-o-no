@@ -1,6 +1,6 @@
 {
   "crawlerKey": "georg-fischer",
-  "assembledAt": "2026-09-03T13:49:27.567Z",
+  "assembledAt": "2026-09-03T23:39:54.559Z",
   "jobs": [
     {
       "id": "georg-fischer-1b433d82587d",
@@ -33,7 +33,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Tool-Maintenance-Technician_JR08893",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:24.161Z",
+      "crawledAt": "2026-09-03T23:39:51.494Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Innovation-Engineer---Data-Center-Cooling--m-f-d-_JR10330",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:49:23.553Z",
+      "crawledAt": "2026-09-03T23:39:50.785Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Quality-Engineer-Production--m-f-d-_JR10665",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:22.935Z",
+      "crawledAt": "2026-09-03T23:39:50.065Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -241,7 +241,7 @@
       "slugByLocale": {
         "it": "filetto-di-forma-m-f-d-georg-fischer-schaffhausen",
         "en": "form-fitter-m-f-d-georg-fischer-schaffhausen",
-        "de": "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
+        "de": "formenmonteurin-m-w-d-georg-fischer-ch",
         "fr": "adaptateur-de-formulaire-m-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -266,7 +266,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/FormenmonteurIn--m-w-d-_JR10784",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:22.327Z",
+      "crawledAt": "2026-09-03T23:39:49.384Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -289,16 +289,16 @@
         "filetto-di-forma-m-f-d-georg-fischer-schaffhausen"
       ],
       "previousSlugsByLocale": {
+        "de": [
+          "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
+          "formenmonteurin-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "formenmonteurin-m-w-d-georg-fischer-ch",
           "formenmonteurin-m-w-d-georg-fischer-schaffhausen",
           "filetto-di-forma-m-f-d-georg-fischer-schaffhausen"
         ],
         "en": [
-          "formenmonteurin-m-w-d-georg-fischer-schaffhausen"
-        ],
-        "de": [
-          "formenmonteurin-m-w-d-georg-fischer-ch",
           "formenmonteurin-m-w-d-georg-fischer-schaffhausen"
         ],
         "fr": [
@@ -326,7 +326,7 @@
       "slugByLocale": {
         "it": "stage-qm-georg-fischer-sissach",
         "en": "internship-qm-georg-fischer-sissach",
-        "de": "praktikant-in-qm-georg-fischer-sissach",
+        "de": "praktikant-in-qm-georg-fischer-ch",
         "fr": "stage-qm-georg-fischer-sissach"
       },
       "company": "Georg Fischer",
@@ -352,7 +352,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/Praktikant-in-QM_JR10915",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:21.714Z",
+      "crawledAt": "2026-09-03T23:39:48.723Z",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -369,12 +369,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10915",
-      "previousSlugs": [
-        "praktikant-in-qm-georg-fischer-ch",
-        "stage-qm-georg-fischer-sissach",
-        "praktikant-in-qm-georg-fischer-sissach"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "praktikant-in-qm-georg-fischer-sissach",
+          "praktikant-in-qm-georg-fischer-ch"
+        ],
         "it": [
           "praktikant-in-qm-georg-fischer-ch",
           "stage-qm-georg-fischer-sissach"
@@ -382,14 +381,15 @@
         "en": [
           "praktikant-in-qm-georg-fischer-ch"
         ],
-        "de": [
-          "praktikant-in-qm-georg-fischer-ch",
-          "praktikant-in-qm-georg-fischer-sissach"
-        ],
         "fr": [
           "praktikant-in-qm-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "praktikant-in-qm-georg-fischer-ch",
+        "praktikant-in-qm-georg-fischer-sissach",
+        "stage-qm-georg-fischer-sissach"
+      ],
       "firstSeenAt": "2026-08-12T21:48:19.212Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -436,7 +436,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Automation-Engineer-SPS--m-w-d-_JR10894",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:21.099Z",
+      "crawledAt": "2026-09-03T23:39:48.028Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -513,7 +513,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Praktikant-im-Prozessingenieurwesen_JR10533",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:20.478Z",
+      "crawledAt": "2026-09-03T23:39:47.349Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -567,7 +567,7 @@
       "slugByLocale": {
         "it": "inverter-m-f-d-georg-fischer-subingen",
         "en": "inverters-m-f-d-georg-fischer-subingen",
-        "de": "einrichter-m-w-d-georg-fischer-subingen",
+        "de": "einrichter-m-w-d-georg-fischer-ch",
         "fr": "onduleurs-h-f-d-georg-fischer-subingen"
       },
       "company": "Georg Fischer",
@@ -592,7 +592,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Subingen-Solothurn/Einrichter--m-w-d-_JR10356",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:19.852Z",
+      "crawledAt": "2026-09-03T23:39:46.671Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -611,9 +611,14 @@
       "jobReqId": "JR10356",
       "previousSlugs": [
         "einrichter-m-w-d-georg-fischer-ch",
+        "einrichter-m-w-d-georg-fischer-subingen",
         "inverter-m-f-d-georg-fischer-subingen"
       ],
       "previousSlugsByLocale": {
+        "de": [
+          "einrichter-m-w-d-georg-fischer-subingen",
+          "einrichter-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "einrichter-m-w-d-georg-fischer-ch",
           "inverter-m-f-d-georg-fischer-subingen"
@@ -622,9 +627,6 @@
           "einrichter-m-w-d-georg-fischer-ch"
         ],
         "fr": [
-          "einrichter-m-w-d-georg-fischer-ch"
-        ],
-        "de": [
           "einrichter-m-w-d-georg-fischer-ch"
         ]
       },
@@ -649,7 +651,7 @@
       "slugByLocale": {
         "it": "potenza-di-pulizia-m-f-d-georg-fischer-graubunden",
         "en": "cleaning-power-m-f-d-georg-fischer-graubunden",
-        "de": "reinigungskraft-m-w-d-30-georg-fischer-graubunden",
+        "de": "reinigungskraft-m-w-d-30-georg-fischer-ch",
         "fr": "puissance-de-nettoyage-h-f-d-georg-fischer-graubunden"
       },
       "company": "Georg Fischer",
@@ -675,7 +677,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Reinigungskraft--m-w-d-_JR10731",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:19.235Z",
+      "crawledAt": "2026-09-03T23:39:46.005Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -692,13 +694,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10731",
-      "previousSlugs": [
-        "reinigungskraft-m-w-d-georg-fischer-ch",
-        "reinigungskraft-m-w-d-georg-fischer-graubunden",
-        "reinigungskraft-m-w-d-30-georg-fischer-ch",
-        "potenza-di-pulizia-m-f-d-georg-fischer-graubunden"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "reinigungskraft-m-w-d-georg-fischer-ch",
+          "reinigungskraft-m-w-d-30-georg-fischer-graubunden"
+        ],
         "it": [
           "reinigungskraft-m-w-d-georg-fischer-ch",
           "reinigungskraft-m-w-d-georg-fischer-graubunden",
@@ -710,11 +710,15 @@
         ],
         "fr": [
           "reinigungskraft-m-w-d-georg-fischer-graubunden"
-        ],
-        "de": [
-          "reinigungskraft-m-w-d-georg-fischer-ch"
         ]
       },
+      "previousSlugs": [
+        "reinigungskraft-m-w-d-georg-fischer-ch",
+        "reinigungskraft-m-w-d-georg-fischer-graubunden",
+        "reinigungskraft-m-w-d-30-georg-fischer-ch",
+        "reinigungskraft-m-w-d-30-georg-fischer-graubunden",
+        "potenza-di-pulizia-m-f-d-georg-fischer-graubunden"
+      ],
       "firstSeenAt": "2026-08-20T09:47:00.384Z",
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -762,7 +766,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Team-Assistant--m-f-d--60-_JR10653-1",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:49:18.567Z",
+      "crawledAt": "2026-09-03T23:39:45.291Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -843,7 +847,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Seewis-Graubunden/Anlagenfhrer-im-4-Schichtbetrieb-100---m-w-d-_JR11096",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:17.927Z",
+      "crawledAt": "2026-09-03T23:39:44.531Z",
       "addressLocality": "Graubunden",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -907,7 +911,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/Creative-Strategist--m-f-d-_JR10590",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:49:17.283Z",
+      "crawledAt": "2026-09-03T23:39:43.820Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -945,7 +949,7 @@
       "slugByLocale": {
         "it": "tecnologia-plastica-m-f-d-georg-fischer-schaffhausen",
         "en": "plastic-technology-m-f-d-georg-fischer-schaffhausen",
-        "de": "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
+        "de": "kunststofftechnologin-m-w-d-georg-fischer-ch",
         "fr": "technologie-plastique-m-f-d-georg-fischer-schaffhausen"
       },
       "company": "Georg Fischer",
@@ -971,7 +975,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/KunststofftechnologIn--m-w-d-_JR10783",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:16.656Z",
+      "crawledAt": "2026-09-03T23:39:43.123Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -988,12 +992,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR10783",
-      "previousSlugs": [
-        "kunststofftechnologin-m-w-d-georg-fischer-ch",
-        "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
-        "tecnologia-plastica-m-f-d-georg-fischer-schaffhausen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
+          "kunststofftechnologin-m-w-d-georg-fischer-ch"
+        ],
         "it": [
           "kunststofftechnologin-m-w-d-georg-fischer-ch",
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
@@ -1002,14 +1005,15 @@
         "en": [
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
         ],
-        "de": [
-          "kunststofftechnologin-m-w-d-georg-fischer-ch",
-          "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
-        ],
         "fr": [
           "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen"
         ]
       },
+      "previousSlugs": [
+        "kunststofftechnologin-m-w-d-georg-fischer-ch",
+        "kunststofftechnologin-m-w-d-georg-fischer-schaffhausen",
+        "tecnologia-plastica-m-f-d-georg-fischer-schaffhausen"
+      ],
       "firstSeenAt": "2026-08-07T21:51:42.479Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -1029,9 +1033,9 @@
       "id": "georg-fischer-f10edf13f16f",
       "slug": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch",
       "slugByLocale": {
-        "de": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch",
         "it": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch",
         "en": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch",
+        "de": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch",
         "fr": "fachspezialistin-betriebliches-gesundheitsmanagement-60-m-w-d-georg-fischer-ch"
       },
       "company": "Georg Fischer",
@@ -1039,16 +1043,16 @@
       "companyDomain": "georgfischer.com",
       "title": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)",
       "titleByLocale": {
-        "de": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)",
         "it": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)",
         "en": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)",
+        "de": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)",
         "fr": "FachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)"
       },
       "description": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
       "descriptionByLocale": {
-        "de": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "it": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "en": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
+        "de": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only.",
         "fr": "GF Health fördert als Kompetenzzentrum für Gesundheit bei GF das Wohlbefinden und die Gesundheit unserer Mitarbeitenden. In der Rolle als FachspezialistIn BGM entwickeln Sie innovative Konzepte, treiben Projekte eigenverantwortlich voran und kommunizieren deren Mehrwert zielgruppengerecht innerhalb der Organisation.\n\nFachspezialistIn Betriebliches Gesundheitsmanagement 60% (m/w/d)\n\nIhre Aufgaben:\n\n• Kontinuierliche Weiterentwicklung des betrieblichen Gesundheitsmanagements inklusive Analyse von Kennzahlen, Controlling und Evaluation\n\n• Planung und Umsetzung von Massnahmen zur Gesundheitsförderung und Prävention, inklusive Events und Workshops\n\n• Einbezug aktueller wissenschaftlicher Erkenntnisse in innovative BGM-Massnahmen\n\n• Erstellung von Präsentationen sowie Unterstützung bei Workshops und Veranstaltungen\n\n• Jährliche Überprüfung und Anpassung der strategischen und operativen BGM-Ziele\n\n• Aktualisierung und Strukturierung von Dokumenten, Leitfäden und Unterlagen\n\n• Weiterführung der Friendly Work Space Zertifizierung\n\n• Verantwortung für interne und externe Kommunikation von GF Health sowie Pflege der Inhalte unserer Intranetseite We@GF und Viva Engage\n\n• Sicherstellung der Aktualität und Einhaltung des BGM-Budgets\n\nIhr Profil:\n\n• Abgeschlossenes Studium in Gesundheitswissenschaften: Schwerpunkt betriebliches Gesundheitsmanagement, Gesundheitsförderung und Prävention oder einen gleichwertigen Studiengang oder Weiterbildung\n\n• Mehrjährige Berufserfahrung im betrieblichen Gesundheitsmanagement sind Voraussetzung\n\n• Erfahrung in der Begleitung oder Durchführung von Friendly Work Space Zertifizierungen ist erforderlich\n\n• Selbstständige, eigenverantwortliche und lösungsorientierte Arbeitsweise mit sehr guten konzeptionellen Fähigkeiten\n\n• Offenheit für digitale Tools, Social Media und KI\n\n• Hohe Proaktivität und Kommunikationsstärke\n\n• Gute Deutschkenntnisse und Englischkenntnisse sind erforderlich\n\nIhr Kontakt:\nRené Paparusso\nTeam Lead Talent Acquisition Management Switzerland\n+41 52 547 10 79\n\nBewerbungen von Personalvermittlungen werden nicht berücksichtigt.\n\n#LI-DNI\n\nContact person:\n\nRené Paparusso\nTalent Acquisition Specialist\nrene.paparusso@georgfischer.com\nPlease submit your application via the ‘Apply’ button. The recruiter’s email is for enquiries only."
       },
       "needsRetranslation": true,
@@ -1057,7 +1061,7 @@
       "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/FachspezialistIn-Betriebliches-Gesundheitsmanagement-60---m-w-d-_JR11083",
       "source": "Georg Fischer Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:49:16.037Z",
+      "crawledAt": "2026-09-03T23:39:42.429Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1072,10 +1076,9 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Schaffhausen/FachspezialistIn-Betriebliches-Gesundheitsmanagement-60---m-w-d-_JR11083",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "jobReqId": "JR11083",
+      "firstSeenAt": "2026-09-03T13:49:16.037Z",
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
@@ -1088,8 +1091,7 @@
           "maxValue": 52200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:49:16.037Z"
+      }
     }
   ]
 }
