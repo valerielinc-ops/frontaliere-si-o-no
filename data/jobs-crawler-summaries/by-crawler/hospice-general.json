@@ -1,20 +1,21 @@
 {
   "key": "hospice-general",
   "label": "Hospice général",
-  "generatedAt": "2026-09-03T13:52:03.573Z",
-  "total": 7,
+  "generatedAt": "2026-09-03T23:35:36.727Z",
+  "total": 6,
   "discovered": null,
-  "written": 7,
-  "newCount": 2,
-  "updatedCount": 4,
+  "written": 6,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3614,
-  "avgDurationMs": 3614,
+  "unchangedCount": 0,
+  "durationMs": 4801,
+  "avgDurationMs": 4801,
   "durationHistory": [
-    3614
+    4801
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hospice-general-888d4392c8ae",
       "slug": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice",
@@ -27,7 +28,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147230555-responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.578Z",
+      "crawledAt": "2026-09-03T23:35:33.679Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -44,11 +45,13 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147230555-responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants?oga=true",
       "jobReqId": "744000147230555",
-      "_qualityScore": 62,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-03T13:52:01.578Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -64,7 +67,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147177439-conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle-direction-insertion-et-soutien-operationnel?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.611Z",
+      "crawledAt": "2026-09-03T23:35:33.723Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -81,16 +84,16 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147177439-conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle-direction-insertion-et-soutien-operationnel?oga=true",
       "jobReqId": "744000147177439",
-      "_qualityScore": 62,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-03T13:52:01.611Z",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hospice-general-131476839382",
       "slug": "un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle",
@@ -103,7 +106,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000113099616-un-civiliste-aide-animateur-100-min-6-mois-maison-de-vacances-pour-seniors-la-nouvelle-roseraie-saint-legier-vd?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.609Z",
+      "crawledAt": "2026-09-03T23:35:33.719Z",
       "addressLocality": "Saint Légier",
       "addressRegion": "GE",
       "streetAddress": "Saint Légier",
@@ -141,7 +144,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000113099246-un-civiliste-aide-animateur-100-min-4-mois-au-cad-centre-d-animation-pour-les-seniors-a-lancy?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.611Z",
+      "crawledAt": "2026-09-03T23:35:33.727Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "streetAddress": "Lancy",
@@ -179,7 +182,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112674907-des-civilistes-aide-socio-administratif-100-min-6-mois-differents-lieux?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.613Z",
+      "crawledAt": "2026-09-03T23:35:33.689Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -217,7 +220,7 @@
       "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000112673546-civiliste-aide-manutentionnaire-100-min-6-mois-aide-aux-migrants?oga=true",
       "source": "Hospice général Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:52:01.614Z",
+      "crawledAt": "2026-09-03T23:35:33.728Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Genève",
@@ -245,49 +248,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "hospice-general-b5e62aadb7e2",
-      "slug": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle",
-      "company": "Hospice général",
-      "companyKey": "hospice-general",
-      "companyDomain": "hospicegeneral.ch",
-      "title": "Conseiller en insertion professionnelle H/F, 80%, CDI - Service d'insertion professionnelle - Direction insertion et soutien opérationnel",
-      "location": "Genève, GE, Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147014728-conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle-direction-insertion-et-soutien-operationnel?oga=true",
-      "source": "Hospice général Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:23:53.710Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "streetAddress": "Genève",
-      "postalCode": "1204",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Servizi sociali / Pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-02",
-      "applyUrl": "https://jobs.smartrecruiters.com/Hospicegeneral/744000147014728-conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle-direction-insertion-et-soutien-operationnel?oga=true",
-      "jobReqId": "744000147014728",
-      "needsRetranslation": true,
-      "salaryMin": 48400,
-      "salaryMax": 73200,
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-02T23:23:53.710Z",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
