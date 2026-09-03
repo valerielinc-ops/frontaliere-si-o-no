@@ -69128,6 +69128,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-apprendistato-lucerna': {
+    title: 'Apprendistato in Lucerna: contratto, retribuzione e maturità',
+    description: 'Apprendistato nel Canton Lucerna: come trovare un tirocinio, cosa include il contratto, retribuzione e maturità professionale. Guida completa e pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, lucerna, contratto, retribuzione',
+    ogTitle: 'Apprendistato in Lucerna: contratto, retribuzione e maturità',
+    ogDescription: 'Cerchi un posto di tirocinio nel Canton Lucerna? Scopri come funziona l\'apprendistato svizzero, cosa deve contenere il contratto, la retribuzione mensile per anno di tirocinio e come raggiungere la maturità professionale nel sistema formativo duale.',
+    canonicalPath: '/articoli-svizzera/guida-apprendistato-lucerna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato in Lucerna: contratto, retribuzione e maturità",
+      "description": "Apprendistato nel Canton Lucerna: come trovare un tirocinio, cosa include il contratto, retribuzione e maturità professionale. Guida completa e pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-apprendistato-lucerna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista in officina tecnica svizzera durante la formazione pratica con un mentore esperto"
+      },
+      "datePublished": "2026-09-03T16:52:22+00:00",
+      "dateModified": "2026-09-03T16:52:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-apprendistato-lucerna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

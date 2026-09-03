@@ -5326,6 +5326,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.riserve-naturali-siccita-estate-2024.title': 'Riserve naturali messe a dura prova da siccità',
     'blog.article.riserve-naturali-siccita-estate-2024.excerpt': 'La siccità estiva ha colpito duramente le paludi svizzere, con livelli d\'acqua scesi a livelli critici in molte zone.',
     'blog.article.riserve-naturali-siccita-estate-2024.imageAlt': 'Paludi svizzere durante la siccità estiva, con vegetazione rada e corsi d\'acqua prosciugati.',
+    'blog.article.guida-apprendistato-lucerna.title': 'Apprendistato in Lucerna: contratto, retribuzione e maturità',
+    'blog.article.guida-apprendistato-lucerna.excerpt': 'Come trovare un posto di tirocinio nel Canton Lucerna, cosa deve contenere il contratto di apprendistato e come ottenere la maturità professionale: guida pratica.',
+    'blog.article.guida-apprendistato-lucerna.imageAlt': 'Apprendista in officina tecnica svizzera durante la formazione pratica con un mentore esperto',
 };
 
 export default blogMetaChIt;

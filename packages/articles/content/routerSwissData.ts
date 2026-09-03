@@ -1801,6 +1801,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'inflazione-svizzera-bns-tassi': { it: 'inflazione-svizzera-bns-tassi', en: 'switzerland-inflation-bns-rates', de: 'schweiz-inflation-snb-zinsen', fr: 'suisse-inflation-bns-taux' },
  'apprendistato-formazione-canton-lucerna': { it: 'apprendistato-formazione-canton-lucerna', en: 'apprenticeship-vocational-training-lucerne-canton', de: 'lehrlingswesen-berufsbildung-kanton-luzern', fr: 'apprentissage-formation-professionnelle-canton-lucerne' },
  'riserve-naturali-siccita-estate-2024': { it: 'riserve-naturali-siccita-estate-2024', en: 'natural-reserves-drought-summer-2024', de: 'naturschutzgebiete-trockenheit-sommer-2024', fr: 'reserves-naturelles-secheresse-ete-2024' },
+ 'guida-apprendistato-lucerna': { it: 'guida-apprendistato-lucerna', en: 'apprenticeship-lucerne-contract-salary', de: 'lehrausbildung-luzern-vertrag-entlohnung', fr: 'apprentissage-lucerne-contrat-salaire' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
