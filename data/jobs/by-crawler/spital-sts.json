@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-sts",
-  "assembledAt": "2026-09-02T23:08:55.782Z",
+  "assembledAt": "2026-09-03T13:38:09.086Z",
   "jobs": [
     {
       "id": "spital-sts-c3a6c4f02ee3",
@@ -34,7 +34,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/03724723-1150-4ddd-80c4-0d433565a74e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:52.901Z",
+      "crawledAt": "2026-09-03T13:38:05.931Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/261c3e48-e9f4-4b94-98f4-9320db88f13a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:52.426Z",
+      "crawledAt": "2026-09-03T13:38:05.364Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -223,7 +223,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/5d0b469e-cf82-4f48-817f-f5bcb8fa9150/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:52.029Z",
+      "crawledAt": "2026-09-03T13:38:04.817Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -303,7 +303,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ff4bf947-1859-4029-88b8-e7c49381df7a/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:51.551Z",
+      "crawledAt": "2026-09-03T13:38:04.246Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -383,7 +383,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/a13b3bf2-9d0d-4b14-b33b-e0b0cc20c57d/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:51.074Z",
+      "crawledAt": "2026-09-03T13:38:03.487Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -447,7 +447,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd98eeeb-12e0-4b44-9f9e-4ace58014df9/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:50.607Z",
+      "crawledAt": "2026-09-03T13:38:03.052Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -511,7 +511,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/af91efba-2736-4d8d-b7ac-59fa72006411/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:49.924Z",
+      "crawledAt": "2026-09-03T13:38:02.625Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -575,7 +575,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/dd880936-cecc-4a3a-b88c-27be9d0f071e/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:49.460Z",
+      "crawledAt": "2026-09-03T13:38:02.061Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -655,7 +655,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/7b8100c4-fe74-471a-a9b1-6a5e650f3f9b/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:49.015Z",
+      "crawledAt": "2026-09-03T13:38:01.478Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -719,7 +719,7 @@
       "url": "https://ohws.prospective.ch/public/v1/redirect/ef097c63-0366-45fd-829c-ad48b2eac151/ats/",
       "source": "Spital STS Dedicated Parser (SSR + job-direct)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:08:48.600Z",
+      "crawledAt": "2026-09-03T13:38:01.017Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -750,85 +750,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "spital-sts-9027335d8af9",
-      "slug": "dipl-pflegefachfrau-mann-medizin-per-fruh-e-spatdienst-nachtdienst-optional-spital-sts-thun",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-medizin-per-fruh-e-spatdienst-nachtdienst-optional-spital-sts-thun",
-        "en": "dipl-nursing-specialist-medicine-for-early-and-late-service-night-service-optional-spital-sts-thun",
-        "de": "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts",
-        "fr": "dipl-medecine-specialisee-en-soins-infirmiers-pour-les-services-precoces-et-tardifs-service-de-nuit-facultatif-spital"
-      },
-      "company": "Spital STS",
-      "companyKey": "spital-sts",
-      "companyDomain": "spitalstsag.ch",
-      "title": "Dipl. Pflegefachfrau/-mann Medizin für Früh- und Spätdienst, Nachtdienst optional",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann Medizin per Früh- e Spätdienst, Nachtdienst optional",
-        "en": "Dipl. Nursing specialist medicine for early and late service, night service optional",
-        "de": "Dipl. Pflegefachfrau/-mann Medizin für Früh- und Spätdienst, Nachtdienst optional",
-        "fr": "Dipl. Médecine spécialisée en soins infirmiers pour les services précoces et tardifs, service de nuit facultatif"
-      },
-      "description": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Station bietet ein zeitgemässes Arbeitsumfeld mit einer angenehmen Atmosphäre und professionellen Strukturen. Hier betreuen wir privat- und halbprivatversicherte Patient:innen mit unterschiedlichen Krankheitsbildern und individuellen Bedürfnissen.\n\nIm Früh- und Spätdienst arbeitest du in der Patienteneinheit im Tandem mit Fachpersonen Gesundheit sowie Lernenden und Studierenden. Gemeinsam gestaltet ihr eine professionelle, qualitativ hochwertige und patientenzentrierte Pflege. Dabei stehen die individuellen Bedürfnisse, Ressourcen und Werte unserer Patient:innen im Mittelpunkt.\n\nDein Arbeitsalltag ist vielfältig: Einen grossen Teil deiner Tätigkeit bildet die Betreuung und Pflege von Patient:innen aus der Inneren Medizin. Du versorgst Menschen mit unterschiedlichen Krankheitsbildern und pflegerischen Bedürfnissen und kannst dabei deine Fachkompetenz in einem abwechslungsreichen Umfeld einsetzen.\n\nEin weiterer Schwerpunkt unserer Station ist die akutgeriatrische Rehabilitation. Du begleitest ältere Menschen nach einer akuten Erkrankung oder gesundheitlichen Krise auf ihrem Weg zurück zu mehr Selbstständigkeit und Lebensqualität. Gemeinsam mit den Patient:innen und dem interdisziplinären Team arbeitest du daran, vorhandene Ressourcen zu fördern, Fortschritte sichtbar zu machen und die Rückkehr in den Alltag bestmöglich zu unterstützen.\n\nDigitale Hilfsmittel unterstützen dich in deinem Arbeitsalltag: Die elektronische Pflegedokumentation Phönix, das elektronische Medikamentendistributionssystem Phyxis und das Identifikationssystem Idef-IS helfen dir dabei, deine Aufgaben sicher und effizient zu gestalten.\n\nDu wirst Teil eines engagierten interdisziplinären Teams, in dem verschiedene Berufsgruppen eng zusammenarbeiten. Unterstützt wirst du zusätzlich durch unsere Coaches und den Room-Service.\n\nEintritt per 1. November 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit in einem überschaubaren und familiären Umfeld\n\n• Eine moderne Station\n\n• Ein vielseitiges Patientenspektrum\n\n• Interne und externe Entwicklungsmöglichkeiten\n\n• Wählbares Ferien- und Pensionskassenmodell\n\n• Spannende pflegerische Herausforderungen in der Inneren Medizin und der akutgeriatrischen Rehabilitation\n\n• Ein Team, in dem du deine Erfahrungen, Ideen und Stärken einbringen kannst. Bei uns steht der Mensch im Mittelpunkt – sowohl unsere Patient:innen als auch du als Teil unseres Teams.\n\nSo wirst du Teil unseres Teams\n\n• Dipl. Pflegefachfrau / -mann HF oder FH\n\n• Idealerweise mit Erfahrung in der Akutpflege\n\n• Flexibel, teamfähig und hilfsbereit\n\n• Selbständig, verantwortungsbewusst, qualitätsbewusst\n\n• Service- und kundenorientiertes Denken und Handeln\n\n• Sehr gute Deutschkenntnisse\n\n• Rasches Auffassungsvermögen",
-      "descriptionByLocale": {
-        "it": "Un lavoro con prospettive: Oltre all'infrastruttura all'avanguardia e ad un'attività versatile nell'ambiente familiare, il Thun Hospital offre anche l'opportunità di svago flessibile nella regione naturale e lacustre circostante. Stai cercando qualcosa di significativo, ma anche giusto? Allora sei qui.\n\nLa nostra moderna stazione offre un ambiente di lavoro contemporaneo con un'atmosfera piacevole e strutture professionali. Qui ci occupiamo di pazienti assicurati privati e semiprivati: donne con diverse immagini cliniche e bisogni individuali.\n\nIn servizio anticipato e tardivo, si lavora nell'unità paziente in tandem con i professionisti della salute, così come gli studenti e gli studenti. Insieme progetta una cura professionale, di alta qualità e concentrata sul paziente. L'attenzione è rivolta alle esigenze individuali, alle risorse e ai valori dei nostri pazienti.\n\nIl vostro lavoro quotidiano è diverso: una gran parte del vostro lavoro è la cura e la cura dei pazienti dalla medicina interna. Fornire assistenza per le persone con diverse condizioni mediche e le esigenze di cura e può utilizzare la vostra esperienza in un ambiente vario.\n\nUn altro focus della nostra stazione è la riabilitazione geriatrica acuta. Accompagnate le persone anziane dopo una malattia acuta o una crisi di salute tornando ad una maggiore indipendenza e qualità della vita. Insieme ai pazienti e al team interdisciplinare, si lavora per promuovere le risorse esistenti, rendere visibili i progressi e sostenere il ritorno alla vita quotidiana nel modo migliore possibile.\n\nGli strumenti digitali ti supportano nel tuo lavoro quotidiano: La documentazione di assistenza elettronica Phoenix, il sistema elettronico di distribuzione della droga Phyxis e il sistema di identificazione Idef-IS vi aiutano a progettare i vostri compiti in modo sicuro ed efficiente.\n\nDiventerai parte di un team interdisciplinare dedicato in cui diversi gruppi professionali lavorano a stretto contatto. Sarete anche sostenuti dai nostri allenatori e dal servizio in camera.\n\nEntrata di 1. Novembre 2026 o accordo\n\nTi sta aspettando.\n\n• Cooperazione interdisciplinare in un ambiente gestibile e familiare\n\n• Una stazione moderna\n\n• Uno spettro diverso di pazienti\n\n• Opportunità di sviluppo interne ed esterne\n\n• Modello selezionato per le vacanze e i fondi pensione\n\n• Eccitanti sfide infermieristica in medicina interna e riabilitazione geriatrica acuta\n\n• Un team in cui puoi contribuire alle tue esperienze, idee e punti di forza. Ci concentriamo sulle persone – sia i nostri pazienti che voi come parte del nostro team.\n\nDiventa parte del nostro team\n\n• Dipl. Infermieristica professionale HF o FH\n\n• Idealmente con esperienza nella cura acuta\n\n• Flessibile, pronto per il team e disponibile\n\n• Lavoro autonomo, responsabile, consapevole della qualità\n\n• Il pensiero e la recitazione orientati al cliente\n\n• Molto buona conoscenza del tedesco\n\n• Percezione rapida",
-        "en": "A job with prospects: In addition to the state-of-the-art infrastructure and a versatile activity in the family environment, the Thun Hospital also offers you the opportunity for flexible leisure in the surrounding natural and lake region. Are you looking for meaningful, but also fair? Then you're right here.\n\nOur modern station offers a contemporary working environment with a pleasant atmosphere and professional structures. Here we look after privately and semi-privately insured patients: women with different clinical pictures and individual needs.\n\nIn early and late service, you work in the patient unit in tandem with health professionals as well as learners and students. Together you design a professional, high-quality and patient-centered care. The focus is on the individual needs, resources and values of our patients.\n\nYour day-to-day work is diverse: A large part of your work is the care and care of patients from internal medicine. You provide care for people with different medical conditions and nursing needs and can use your expertise in a varied environment.\n\nAnother focus of our station is acute geriatric rehabilitation. You accompany older people after an acute illness or health crisis on their way back to more independence and quality of life. Together with the patients and the interdisciplinary team, you work to promote existing resources, make progress visible and support the return to everyday life in the best possible way.\n\nDigital tools support you in your day-to-day work: The electronic care documentation Phoenix, the electronic drug distribution system Phyxis and the identification system Idef-IS help you to design your tasks safely and efficiently.\n\nYou will become part of a dedicated interdisciplinary team in which different professional groups work closely together. You will also be supported by our coaches and the room service.\n\nEntrance by 1. November 2026 or by arrangement\n\nThis is waiting for you\n\n• Interdisciplinary cooperation in a manageable and family environment\n\n• A modern station\n\n• A diverse spectrum of patients\n\n• Internal and external development opportunities\n\n• Selectable holiday and pension fund model\n\n• Exciting Nursing Challenges in Internal Medicine and Acute Geriatric Rehabilitation\n\n• A team where you can contribute your experiences, ideas and strengths. We focus on people – both our patients and you as part of our team.\n\nBecome part of our team\n\n• Dipl. Nursing professional HF or FH\n\n• Ideally with experience in acute care\n\n• Flexible, team-ready and helpful\n\n• Self-employed, responsible, quality-conscious\n\n• Service- and customer-oriented thinking and acting\n\n• Very good knowledge of German\n\n• Rapid perception",
-        "de": "Ein Job mit Aussichten: Im Spital Thun erwarten dich nebst der topmodernen Infrastruktur und einer vielseitigen Tätigkeit im familiären Umfeld auch die Möglichkeit zur flexiblen Freizeitgestaltung in der umliegenden Natur- und Seeregion. Du suchst sinnvoll, aber auch fair? Dann bist du hier richtig.\n\nUnsere moderne Station bietet ein zeitgemässes Arbeitsumfeld mit einer angenehmen Atmosphäre und professionellen Strukturen. Hier betreuen wir privat- und halbprivatversicherte Patient:innen mit unterschiedlichen Krankheitsbildern und individuellen Bedürfnissen.\n\nIm Früh- und Spätdienst arbeitest du in der Patienteneinheit im Tandem mit Fachpersonen Gesundheit sowie Lernenden und Studierenden. Gemeinsam gestaltet ihr eine professionelle, qualitativ hochwertige und patientenzentrierte Pflege. Dabei stehen die individuellen Bedürfnisse, Ressourcen und Werte unserer Patient:innen im Mittelpunkt.\n\nDein Arbeitsalltag ist vielfältig: Einen grossen Teil deiner Tätigkeit bildet die Betreuung und Pflege von Patient:innen aus der Inneren Medizin. Du versorgst Menschen mit unterschiedlichen Krankheitsbildern und pflegerischen Bedürfnissen und kannst dabei deine Fachkompetenz in einem abwechslungsreichen Umfeld einsetzen.\n\nEin weiterer Schwerpunkt unserer Station ist die akutgeriatrische Rehabilitation. Du begleitest ältere Menschen nach einer akuten Erkrankung oder gesundheitlichen Krise auf ihrem Weg zurück zu mehr Selbstständigkeit und Lebensqualität. Gemeinsam mit den Patient:innen und dem interdisziplinären Team arbeitest du daran, vorhandene Ressourcen zu fördern, Fortschritte sichtbar zu machen und die Rückkehr in den Alltag bestmöglich zu unterstützen.\n\nDigitale Hilfsmittel unterstützen dich in deinem Arbeitsalltag: Die elektronische Pflegedokumentation Phönix, das elektronische Medikamentendistributionssystem Phyxis und das Identifikationssystem Idef-IS helfen dir dabei, deine Aufgaben sicher und effizient zu gestalten.\n\nDu wirst Teil eines engagierten interdisziplinären Teams, in dem verschiedene Berufsgruppen eng zusammenarbeiten. Unterstützt wirst du zusätzlich durch unsere Coaches und den Room-Service.\n\nEintritt per 1. November 2026 oder nach Vereinbarung\n\nDas wartet auf dich\n\n• Interdisziplinäre Zusammenarbeit in einem überschaubaren und familiären Umfeld\n\n• Eine moderne Station\n\n• Ein vielseitiges Patientenspektrum\n\n• Interne und externe Entwicklungsmöglichkeiten\n\n• Wählbares Ferien- und Pensionskassenmodell\n\n• Spannende pflegerische Herausforderungen in der Inneren Medizin und der akutgeriatrischen Rehabilitation\n\n• Ein Team, in dem du deine Erfahrungen, Ideen und Stärken einbringen kannst. Bei uns steht der Mensch im Mittelpunkt – sowohl unsere Patient:innen als auch du als Teil unseres Teams.\n\nSo wirst du Teil unseres Teams\n\n• Dipl. Pflegefachfrau / -mann HF oder FH\n\n• Idealerweise mit Erfahrung in der Akutpflege\n\n• Flexibel, teamfähig und hilfsbereit\n\n• Selbständig, verantwortungsbewusst, qualitätsbewusst\n\n• Service- und kundenorientiertes Denken und Handeln\n\n• Sehr gute Deutschkenntnisse\n\n• Rasches Auffassungsvermögen",
-        "fr": "Un travail avec des perspectives: En plus de l'infrastructure de pointe et d'une activité polyvalente dans l'environnement familial, l'hôpital de Thun vous offre également la possibilité de loisirs flexibles dans la région naturelle et lacustre environnante. Êtes-vous à la recherche de sens, mais aussi juste? Alors vous êtes là.\n\nNotre station moderne offre un environnement de travail contemporain avec une atmosphère agréable et des structures professionnelles. Ici, nous prenons soin des patients privés et semi-privés assurés: les femmes avec des images cliniques différentes et des besoins individuels.\n\nEn début de service et en fin de service, vous travaillez dans l'unité patiente en collaboration avec les professionnels de la santé ainsi que les apprenants et les étudiants. Ensemble, vous concevez un soin professionnel, de haute qualité et centré sur le patient. L'accent est mis sur les besoins individuels, les ressources et les valeurs de nos patients.\n\nVotre travail quotidien est diversifié : une grande partie de votre travail est le soin et le soin des patients de la médecine interne. Vous fournissez des soins aux personnes ayant des conditions médicales et des besoins en soins infirmiers différents et pouvez utiliser votre expertise dans un environnement varié.\n\nUn autre objectif de notre station est la réadaptation gériatrique aiguë. Vous accompagnez les personnes âgées après une maladie aiguë ou une crise de santé sur le chemin de leur retour à plus d'indépendance et de qualité de vie. Avec les patients et l'équipe interdisciplinaire, vous travaillez à promouvoir les ressources existantes, à rendre les progrès visibles et à soutenir le retour à la vie quotidienne de la meilleure façon possible.\n\nLes outils numériques vous accompagnent dans votre travail quotidien : La documentation de soins électroniques Phoenix, le système électronique de distribution de médicaments Phyxis et le système d'identification Idef-IS vous aident à concevoir vos tâches de façon sûre et efficace.\n\nVous ferez partie d'une équipe interdisciplinaire dédiée dans laquelle différents groupes professionnels travaillent en étroite collaboration. Vous serez également soutenu par nos entraîneurs et le service d'étage.\n\nEntrée par 1. Novembre 2026 ou par arrangement\n\nÇa vous attend.\n\n• Coopération interdisciplinaire dans un environnement gérable et familial\n\n• Une station moderne\n\n• Un éventail varié de patients\n\n• Possibilités de développement internes et externes\n\n• Modèle de caisse de vacances et de retraite sélectionnable\n\n• Défis passionnants en soins infirmiers en médecine interne et en réadaptation gériatrique aiguë\n\n• Une équipe où vous pouvez apporter vos expériences, idées et forces. Nous nous concentrons sur les gens – nos patients et vous dans notre équipe.\n\nDevenez membre de notre équipe\n\n• Dipl. Soins infirmiers professionnels HF ou FH\n\n• Idéalement avec l'expérience des soins actifs\n\n• Flexible, prêt pour l'équipe et utile\n\n• Travailleurs indépendants, responsables, soucieux de la qualité\n\n• Pensée et action axée sur le service et le client\n\n• Très bonne connaissance de l'allemand\n\n• Perception rapide"
-      },
-      "needsRetranslation": true,
-      "location": "Thun",
-      "canton": "BE",
-      "url": "https://ohws.prospective.ch/public/v1/redirect/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb/ats/",
-      "source": "Spital STS Dedicated Parser (SSR + job-direct)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-01T23:13:51.940Z",
-      "addressLocality": "Thun",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3600",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://jobs.spitalstsag.ch/apply/ats/3c7ddde3-c80d-4d93-92d5-26cc5f644fcb",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts"
-        ],
-        "en": [
-          "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts"
-        ],
-        "fr": [
-          "dipl-pflegefachfrau-mann-medizin-fur-fruh-und-spatdienst-nachtdienst-optional-spital-sts"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T10:39:55.262Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
