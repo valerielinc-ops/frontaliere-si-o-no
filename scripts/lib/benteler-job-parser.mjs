@@ -37,7 +37,11 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  hasSuccessFactorsMoreLocations,
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -188,6 +192,7 @@ export function parseSearchPage(html = '') {
     const hrefM = block.match(/href="([^"]+)"\s*class="jobTitle-link"/);
     const locM = block.match(/<span class="jobLocation">\s*([^<]*?)\s*</);
     const facM = block.match(/class="jobFacility">([^<]*)</);
+    const locCellM = block.match(/<td[^>]*class="[^"]*colLocation[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
     if (!titleM || !hrefM) continue;
     const rowTitle = normalizeSpace(titleM[1]);
     // A row whose anchor text is j2w page chrome (cookie-consent widget,
@@ -199,7 +204,10 @@ export function parseSearchPage(html = '') {
       href: hrefM[1],
       locationText: locM ? normalizeSpace(locM[1]) : '',
       facility: facM ? normalizeSpace(facM[1]) : '',
-      hasMoreLocations: /\+\s*\d+\s*more/i.test(block.replace(/&hellip;/g, '…')),
+      // Scope the marker probe to the location cell when the row has one: the
+      // shared matcher spans de/en/fr/it, so probing the WHOLE row would let a
+      // "+2 altri"-shaped title or href flip the flag and keep a non-Swiss row.
+      hasMoreLocations: hasSuccessFactorsMoreLocations(locCellM ? locCellM[1] : block),
     });
   }
   const totalM = html.match(/Results\s+\d+\s+to\s+\d+\s+of\s+(\d+)/i);

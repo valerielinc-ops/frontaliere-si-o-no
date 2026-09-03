@@ -128,6 +128,32 @@ describe('Endress+Hauser crawler parser', () => {
       expect(jobs[0].jobId).toBe('1381379833');
     });
 
+    it('keeps the visible office of a multi-location row (dedicated cell)', () => {
+      const html = rowHtml(
+        '/Switzerland/job/Reinach-Test-Position-4153/1234567890/',
+        'Test Position',
+        'Reinach, CH, 4153 <small class="nobr">+2 more&hellip;</small>',
+      );
+      const jobs = parseCsbSearchResults(html);
+      expect(jobs[0].location).toBe('Reinach, CH, 4153');
+    });
+
+    it('keeps the visible office on the heuristic cell scan too (no colLocation cell)', () => {
+      // CSB skins without `colLocation hidden-phone`/`headers="hdrLocation"`
+      // fall back to electing the cell that looks like "City, CC" — a gate the
+      // contaminated text "Lugano, CH +1 more…" fails, so the marker has to be
+      // stripped at extraction or the row comes out with NO location at all.
+      const html = `
+        <tr>
+          <td><a href="/job/Lugano-Test-Position-6900/1234567891/" class="jobTitle-link">Test Position</a></td>
+          <td><span class="jobLocation">Lugano, CH <small class="nobr">+1 more&hellip;</small></span></td>
+          <td>Jun 17, 2026</td>
+        </tr>`;
+      const jobs = parseCsbSearchResults(html);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].location).toBe('Lugano, CH');
+    });
+
     it('still parses flat (non-prefixed) job links for existing tenants', () => {
       const html = rowHtml(
         '/job/Test-Position-4153/1234567890/',

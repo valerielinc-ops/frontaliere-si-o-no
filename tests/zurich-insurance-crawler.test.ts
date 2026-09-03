@@ -93,6 +93,23 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(all.every((row) => row.url.startsWith('https://www.careers.zurich.com/job/'))).toBe(true);
   });
 
+  it('keeps the visible office of a multi-location row instead of failing closed on it', () => {
+    // Live regression (run 33694169583, group 17): a posting open in more than
+    // one office renders the extras as a nested `<small>` inside the same
+    // jobLocation span, so the cell text read "Zürich, CH +1 more&hellip;" —
+    // no Swiss city resolves from that, and the crawler aborted the whole run.
+    const multiLocationPage = pageOne.replace(
+      '<span class="jobLocation">Zürich, CH</span>',
+      '<span class="jobLocation">Zürich, CH <small class="nobr">+1 more&hellip;</small></span>',
+    );
+    const parsed = parseZurichInsuranceListingPage(multiLocationPage);
+
+    expect(parsed.rejected).toEqual([]);
+    expect(parsed.rows).toHaveLength(25);
+    expect(parsed.rows[0].location).toBe('Zürich, CH');
+    expect(parsed.rows.every((row) => row.location.endsWith(', CH'))).toBe(true);
+  });
+
   it('paginates to the authoritative total and returns exactly 45 unique Swiss jobs', async () => {
     const calls: string[] = [];
     const listings = await fetchZurichInsuranceListings({

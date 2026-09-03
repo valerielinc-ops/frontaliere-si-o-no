@@ -135,3 +135,100 @@ export function sanitizeSuccessFactorsField(value) {
   if (typeof value !== 'string') return '';
   return isSuccessFactorsWidgetText(value) ? '' : value;
 }
+
+/**
+ * The j2w multi-location marker: a results row whose posting is open in more
+ * than one office renders the extra offices as a `<small class="nobr">+N
+ * more&hellip;</small>` suffix INSIDE the `<span class="jobLocation">` cell.
+ *
+ * WHY THIS BELONGS HERE, next to the widget guard: it is the same defect
+ * family — tenant page chrome bleeding into a scraped field — and the same
+ * duplication history. `benteler-job-parser.mjs` grew a private
+ * `/\+\s*\d+\s*more/i` (after an ad-hoc `&hellip;` unescape) to flag those
+ * rows, `constellium-job-parser.mjs` dodges the suffix by stopping its
+ * location match at the first `<` instead of at `</span>`, and the seven
+ * parsers that DO read the whole cell — `zurich-insurance-job-parser.mjs`,
+ * `clariant-job-parser.mjs`, `damiani-job-parser.mjs`,
+ * `skyguide-job-parser.mjs`, `patek-philippe-job-parser.mjs`,
+ * `prada-job-parser.mjs` and the shared
+ * `successfactors-shared-job-parser-common.mjs` (CSB tenants) — carried no
+ * guard at all, so their location field read literally "Zürich, CH +1
+ * more&hellip;".
+ * That is not cosmetic: Zurich Insurance fails closed on an unresolvable
+ * Swiss location, so ONE multi-location row aborted the whole crawler run
+ * ("Zurich listing has an unresolved Swiss location", run 33694169583).
+ *
+ * The marker is anchored on `+<digits>` followed by the locale word j2w uses
+ * for "more" (the tenants crawled here serve de/en/fr/it). Anchoring on the
+ * word, not on the bare `+N`, keeps a genuine location containing a digit
+ * from being truncated.
+ */
+export const SF_J2W_MORE_LOCATIONS_RE =
+  /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b[\s\S]*$/i;
+
+/**
+ * The marker WITHOUT the "everything after it" tail, used as a fallback when
+ * cutting the tail would eat the location itself (see below).
+ */
+const SF_J2W_MORE_LOCATIONS_TOKEN_RE =
+  /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b\s*(?:…|\.{3})?/gi;
+
+/**
+ * Normalize the two characters the marker is anchored on, so callers may pass
+ * raw HTML as well as decoded text: the ellipsis (`&hellip;`) and the `+`
+ * itself (`&#43;`/`&plus;`, plus the fullwidth `＋` some tenant CMSes emit).
+ * Without this a caller handing over undecoded markup would see `&#43;2 more…`
+ * survive into the `location` field.
+ */
+function normalizeMarkerChars(value) {
+  return String(value)
+    .replace(/&hellip;|&#8230;|&#x2026;/gi, '…')
+    .replace(/&plus;|&#43;|&#x2b;/gi, '+')
+    .replace(/＋/g, '+');
+}
+
+/**
+ * True when `value` carries the j2w "+N more…" multi-location marker.
+ *
+ * Accepts either the extracted cell text or the raw row HTML — callers that
+ * only need to KNOW a row hides extra locations (to keep it for a detail-page
+ * country check) use this; callers that need the visible location use
+ * `stripSuccessFactorsMoreLocations()`.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function hasSuccessFactorsMoreLocations(value) {
+  if (typeof value !== 'string') return false;
+  return SF_J2W_MORE_LOCATIONS_RE.test(normalizeMarkerChars(value));
+}
+
+/**
+ * Return the visible (primary) location of a j2w `jobLocation` cell, i.e.
+ * `value` without the "+N more…" suffix.
+ *
+ * Cutting to end-of-string is right for the skins observed (the `<small>` is
+ * the LAST node of the cell), but it must never be the reason a location
+ * disappears: if the tail cut leaves nothing — a skin that renders the marker
+ * BEFORE the office, or one that appends a country segment after it — fall
+ * back to removing the marker token alone and keeping the rest. Losing the
+ * location is the very failure this helper exists to prevent (Zurich
+ * Insurance fails closed on an unresolvable Swiss location).
+ *
+ * Non-string input yields `''` — an absent cell and a contaminated one are
+ * different problems, and callers already treat `''` as "no location".
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function stripSuccessFactorsMoreLocations(value) {
+  if (typeof value !== 'string') return '';
+  const normalized = normalizeMarkerChars(value);
+  const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
+  if (withoutTail || !normalized.trim()) return withoutTail;
+  return normalized
+    .replace(SF_J2W_MORE_LOCATIONS_TOKEN_RE, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/^[\s,;]+|[\s,;]+$/g, '')
+    .trim();
+}

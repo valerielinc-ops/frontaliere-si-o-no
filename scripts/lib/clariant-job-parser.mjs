@@ -69,7 +69,11 @@ import { createHash } from 'node:crypto';
 import { fetchHtml, slugify, normalizeSpace, stripHtml } from './crawler-template.mjs';
 import { detectLang, guessCategory, normalizeContract, decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -244,7 +248,8 @@ export function parseClariantListing(html = '') {
     out.push({
       href,
       title,
-      location: locMatch ? cleanText(locMatch[1]) : '',
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
+      location: locMatch ? stripSuccessFactorsMoreLocations(cleanText(locMatch[1])) : '',
       department: deptMatch ? cleanText(deptMatch[1]) : '',
     });
   }

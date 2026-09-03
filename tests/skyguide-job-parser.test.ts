@@ -30,6 +30,22 @@ describe('skyguide-job-parser', () => {
     expect(ignoredNonJobRows).toBe(0);
   });
 
+  it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
+    const html = `
+      <table id="searchresults">
+        <tr class="data-row">
+          <td class="colTitle"><a href="/job/Locarno-Formazione-controllorea-del-traffico-aereo-Locarno/1140799801/" class="jobTitle-link">Formazione controllore/a del traffico aereo - Locarno</a></td>
+          <td class="colLocation"><span class="jobLocation">Locarno, CH <small class="nobr">+2 more&hellip;</small></span></td>
+          <td class="colDepartment"><span class="jobDepartment">Operations</span></td>
+        </tr>
+      </table>
+    `;
+    const { rows } = parseSkyguideListings(html);
+    expect(rows).toHaveLength(1);
+    expect(rows[0].location).toBe('Locarno, CH');
+    expect(isSkyguideTargetLocation(rows[0].location)).toBe(true);
+  });
+
   it('reports malformed rows without counting known page chrome as drift', () => {
     const html = `
       <table id="searchresults">

@@ -2,7 +2,11 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { JSDOM } from 'jsdom';
 import {  isTargetSwissLocation, inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 const HQ = getCompanyDefaults('damiani');
 
@@ -88,7 +92,10 @@ export function parseDamianiSearchPage(html = '') {
     const link = row.querySelector('a.jobTitle-link');
     const title = normalizeSpace(link?.textContent || '');
     const href = link?.getAttribute('href') || '';
-    const location = normalizeSpace(row.querySelector('td.colLocation .jobLocation')?.textContent || '');
+    // keep the visible office — see stripSuccessFactorsMoreLocations()
+    const location = stripSuccessFactorsMoreLocations(
+      normalizeSpace(row.querySelector('td.colLocation .jobLocation')?.textContent || ''),
+    );
     const postedDate = normalizeSpace(row.querySelector('td.colDate .jobDate')?.textContent || '');
     // A row whose anchor text is j2w page chrome (cookie-consent widget,
     // search/alert box) isn't a job at all. Keep this separate from malformed

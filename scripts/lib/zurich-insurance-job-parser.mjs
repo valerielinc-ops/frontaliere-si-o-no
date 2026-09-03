@@ -22,6 +22,7 @@ import {
   isKnownSwissCity,
 } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
+import { stripSuccessFactorsMoreLocations } from './successfactors-jobs2web-widget-guard.mjs';
 
 export const ZURICH_INSURANCE_KEY = 'zurich-insurance-sede-ticino';
 export const ZURICH_INSURANCE_COMPANY_NAME = 'Zurich Insurance (sede Ticino)';
@@ -213,7 +214,11 @@ export function parseZurichInsuranceListingPage(html = '', pageUrl = searchUrlFo
     rawRowCount += 1;
     const rowHtml = rowMatch[1];
     const anchor = extractJobAnchor(rowHtml);
-    const location = extractClassContent(rowHtml, 'jobLocation');
+    // A posting open in several offices renders the extras as a nested
+    // `<small>+N more&hellip;</small>` inside the same span; keep the visible
+    // (primary) office, or the row's location never resolves to a Swiss city
+    // and the whole run fails closed.
+    const location = stripSuccessFactorsMoreLocations(extractClassContent(rowHtml, 'jobLocation'));
     const rawDate = extractClassContent(rowHtml, 'jobDate');
     if (!anchor?.href || !anchor.title) {
       rejected.push({ reason: 'missing_job_anchor_or_title', href: anchor?.href || '' });
