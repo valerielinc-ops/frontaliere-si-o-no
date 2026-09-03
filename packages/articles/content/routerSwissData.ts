@@ -1814,6 +1814,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'assicurazioni-tagli-occupazione-2028': { it: 'assicurazioni-tagli-occupazione-2028', en: 'insurance-job-cuts-occupational-2028', de: 'versicherungen-personalabbau-2028', fr: 'assurances-reductions-emplois-2028' },
  'uri-stipendi-settori-qualifica': { it: 'uri-stipendi-settori-qualifica', en: 'uri-salaries-sectors-qualifications', de: 'uri-loehne-sektoren-qualifikation', fr: 'uri-salaires-secteurs-qualification' },
  'settori-salari-uri-lavoro': { it: 'settori-salari-uri-lavoro', en: 'uri-salary-sectors-labor-market', de: 'uri-loehne-arbeitsmarkt-sektoren', fr: 'uri-salaires-secteurs-marche-travail' },
+ 'imposte-cantonali-svizzera-aliquote-deduzioni': { it: 'imposte-cantonali-svizzera-aliquote-deduzioni', en: 'swiss-cantonal-taxes-rates-deductions', de: 'schweizer-kantonsteuern-satze-abzuge', fr: 'impots-cantonaux-suisse-taux-deductions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

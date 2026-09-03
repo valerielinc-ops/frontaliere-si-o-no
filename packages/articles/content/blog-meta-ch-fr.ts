@@ -5365,6 +5365,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.settori-salari-uri-lavoro.title': 'Salaires en URI : niveaux par secteur et formation',
     'blog.article.settori-salari-uri-lavoro.excerpt': 'Comment sont déterminés les salaires dans le canton d\'Uri par niveau de formation et par secteur. Guide pratique des conventions collectives, des cotisations de sécurité sociale et des ressources officielles pour vérifier les salaires.',
     'blog.article.settori-salari-uri-lavoro.imageAlt': 'Bureau moderne dans la vallée alpine d\'Uri avec informations sur le marché du travail et l\'emploi suisse.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Impôts cantonaux : taux, déductions et déclaration',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'La fiscalité suisse fonctionne sur 3 niveaux. Découvrez comment les taux cantonaux varient, quelles déductions admettre et comment déposer la déclaration dans les délais impartis.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Vue panoramique d\'une ville suisse avec bâtiments administratifs représentant le système fiscal cantonal',
 };
 
 export default blogMetaChFr;

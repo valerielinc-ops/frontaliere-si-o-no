@@ -5365,6 +5365,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.settori-salari-uri-lavoro.title': 'Salari in Uri: livelli per settore e formazione',
     'blog.article.settori-salari-uri-lavoro.excerpt': 'Come si determinano i salari nel Cantone Uri per grado di formazione e settore. Guida pratica a contratti collettivi, contributi previdenziali e risorse ufficiali per verificare stipendi.',
     'blog.article.settori-salari-uri-lavoro.imageAlt': 'Ufficio moderno in Valle Leventina, Cantone Uri, con materiali informativi sul mercato del lavoro e stipendi svizzeri.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Imposte cantonali: aliquote, deduzioni e dichiarazione',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'La fiscalità svizzera funziona su 3 livelli. Scopri come variano le aliquote cantonali, quali deduzioni ammettere e come presentare la dichiarazione entro i termini previsti.',
+    'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Veduta panoramica di una città svizzera con edifici amministrativi che rappresentano il sistema fiscale cantonale',
 };
 
 export default blogMetaChIt;
