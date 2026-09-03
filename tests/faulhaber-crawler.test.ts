@@ -183,6 +183,22 @@ describe('Faulhaber crawler parser', () => {
       })).rejects.toThrow(/escaped the requested vacancy/);
     });
 
+    it('routes a WAF challenge served as HTTP 200 to Jina even with validateRedirectUrl set', async () => {
+      const fetchHtmlImpl = vi.fn(async (url: string, options: { validateRedirectUrl?: (url: string) => void }) => {
+        options.validateRedirectUrl?.(url);
+        if (url === LISTING_DATA_URL) return '<html><body>Just a moment...</body></html>';
+        if (url === DETAIL_URL) return DETAIL_HTML;
+        throw new Error(`Unexpected URL ${url}`);
+      });
+      const fetchJinaImpl = vi.fn(async (url: string) => url === LISTING_DATA_URL ? JINA_LISTING_BODY : DETAIL_HTML);
+
+      const jobs = await fetchAllFaulhaberJobs({ fetchHtmlImpl, fetchJinaImpl });
+
+      expect(fetchJinaImpl).toHaveBeenCalledWith(LISTING_DATA_URL, { timeoutMs: 20000 });
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0].url).toBe(DETAIL_URL);
+    });
+
     it('fails closed instead of publishing a synthetic thin description', async () => {
       const fetchHtmlImpl = vi.fn(async (url: string) => {
         if (url === LISTING_DATA_URL) throw httpError(500);
