@@ -5278,6 +5278,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.calo-natalita-finanze-pubbliche.title': 'AFF: declining birth rate weighs on Swiss finances',
     'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'The AFF analyses the impact of the historical low of births on the stability of social security systems and on public funds in the long term.',
     'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Swiss Federal Finance Administration building in Bern.',
+    'blog.article.petizione-delocalizzazioni-svizzera.title': 'Petition against the relocation of Swisscom and Swiss Post',
+    'blog.article.petizione-delocalizzazioni-svizzera.excerpt': 'Transfair launches a petition to stop the relocation of jobs and know-how abroad by Posta and Swisscom.',
+    'blog.article.petizione-delocalizzazioni-svizzera.imageAlt': 'Aerial view of Bellinzona, Switzerland, with historic castles and modern infrastructure.',
 };
 
 export default blogMetaChEn;

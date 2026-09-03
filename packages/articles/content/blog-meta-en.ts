@@ -11211,6 +11211,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-tassazione-crediti-detrazioni.title': 'Tax deductions for border workers 2026',
     'blog.article.frontaliere-tassazione-crediti-detrazioni.excerpt': 'Deductions and tax credits for those who work in Switzerland and reside in Italy: deductibles €7,500-€10,000, EC framework, tax return.',
     'blog.article.frontaliere-tassazione-crediti-detrazioni.imageAlt': 'Aerial view of Mendrisio and Swiss-Italian customs border crossing in daylight',
+    'blog.article.bollettino-frontaliere-2026-09-03.title': 'Cross-border daily brief – September 3, 2026: 719 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-03.excerpt': 'Today\'s numbers, September 3, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-03.imageAlt': 'The day\'s numbers for cross-border commuters – September 3, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-03.seoDescription': 'Cross-border brief, September 3, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-03.ogDescription': 'The numbers for September 3, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

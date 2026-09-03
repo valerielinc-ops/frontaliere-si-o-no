@@ -68504,6 +68504,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-petizione-delocalizzazioni-svizzera': {
+    title: 'Petizione contro delocalizzazione di Posta e Swisscom',
+    description: 'Transfair lancia una petizione per fermare la delocalizzazione di posti di lavoro e know-how all\'estero da parte di Posta e Swisscom. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, petizione, contro, delocalizzazione, posta',
+    ogTitle: 'Petizione contro la delocalizzazione di impieghi all\'estero da parte di Posta e Swisscom',
+    ogDescription: 'Transfair lancia una petizione per fermare la delocalizzazione di posti di lavoro e know-how all\'estero da parte di Posta e Swisscom, aziende in maggioranza di proprietà della Confederazione.',
+    canonicalPath: '/articoli-svizzera/petizione-delocalizzazioni-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petizione contro delocalizzazione di Posta e Swisscom",
+      "description": "Transfair lancia una petizione per fermare la delocalizzazione di posti di lavoro e know-how all'estero da parte di Posta e Swisscom. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/petizione-delocalizzazioni-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Bellinzona, Svizzera, con i castelli storici e l'infrastruttura moderna."
+      },
+      "datePublished": "2026-09-03T09:30:21+00:00",
+      "dateModified": "2026-09-03T09:30:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/petizione-delocalizzazioni-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

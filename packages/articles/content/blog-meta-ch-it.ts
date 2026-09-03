@@ -5278,6 +5278,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.calo-natalita-finanze-pubbliche.title': 'AFF: il calo della natalità pesa sulle finanze svizzere',
     'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'L\'AFF analizza l\'impatto del minimo storico delle nascite sulla stabilità dei sistemi previdenziali e sulle casse pubbliche nel lungo periodo.',
     'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Sede dell\'Amministrazione federale delle finanze a Berna.',
+    'blog.article.petizione-delocalizzazioni-svizzera.title': 'Petizione contro delocalizzazione di Posta e Swisscom',
+    'blog.article.petizione-delocalizzazioni-svizzera.excerpt': 'Transfair lancia una petizione per fermare la delocalizzazione di posti di lavoro e know-how all\'estero da parte di Posta e Swisscom.',
+    'blog.article.petizione-delocalizzazioni-svizzera.imageAlt': 'Vista aerea di Bellinzona, Svizzera, con i castelli storici e l\'infrastruttura moderna.',
 };
 
 export default blogMetaChIt;
