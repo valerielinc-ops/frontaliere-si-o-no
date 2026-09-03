@@ -70,6 +70,20 @@ describe('translation derived patch v2', () => {
     });
   });
 
+  it('locks the creation-path id-reuse invariant: same id, different url, own url each', () => {
+    const jobA = { ...JOB, id: 'shared-id', url: 'https://jobs.example.test/positions/AAA/' };
+    const jobB = { ...JOB, id: 'shared-id', url: 'https://jobs.example.test/positions/BBB/' };
+
+    const patchA = patchFor(jobA);
+    const patchB = patchFor(jobB);
+
+    expect(patchA.target.jobKey).toBe('shared-id');
+    expect(patchB.target.jobKey).toBe('shared-id');
+    expect(patchA.target.url).toBe(jobA.url);
+    expect(patchB.target.url).toBe(jobB.url);
+    expect(patchA.target.url).not.toBe(patchB.target.url);
+  });
+
   it('is canonical, deterministic and deeply immutable', () => {
     const first = patchFor({ ...JOB, company: '  Example\tAG ', location: ' Zürich\r\n ' });
     const second = patchFor({ ...JOB, company: 'Example AG', location: 'Zürich' });
