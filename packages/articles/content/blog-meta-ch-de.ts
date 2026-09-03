@@ -5347,6 +5347,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Flughafen Genf ist ein Motor für die Region, im Wert von 3,3 Milliarden',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Infras-Studie beziffert 3,3 Milliarden CHF Wertschöpfung, 22\'000 Arbeitsplätze und Auswirkungen auf die gesamte Schweizer Wirtschaft. Im Jahr 2025 wurden 17,8 Millionen Passagiere abgefertigt.',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Abflughalle des Flughafens Genf mit Anzeigetafeln und sichtbaren Flugzeugen.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Appenzell Innerrhoden Erbschaftssteuer',
+    'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Erbschafts- und Schenkungssteuer im Kanton Appenzell Innerrhoden: Steuersätze nach Verwandtschaftsgrad, Befreiungen für Ehepartner und Nachkommen, Erklärungsverfahren und kantonale Fristen.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Finanzamt des Kantons Appenzell Innerrhoden mit Erbschaftsdokumenten und Nachfolgeerklärungsformularen',
 };
 
 export default blogMetaChDe;

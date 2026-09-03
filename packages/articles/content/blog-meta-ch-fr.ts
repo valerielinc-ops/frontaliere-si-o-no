@@ -5347,6 +5347,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'L\'aéroport de Genève est un moteur pour la région, il vaut 3,3 milliards',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Étude Infras quantifie 3,3 milliards CHF de valeur ajoutée, 22\'000 emplois et impact sur l\'ensemble de l\'économie suisse. En 2025, 17,8 millions de passagers ont été pris en charge.',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Hall de départ de l\'aéroport de Genève avec panneaux d\'information sur les vols et avions visibles.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Impôt de succession d\'Appenzell en Inhérnodes',
+    'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Imposition des successions et des donations dans le canton d\'Appenzell en Inerrhoden : taux selon le degré de parenté, exemptions pour les époux et descendants, procédures de déclaration et délais cantonaux.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Bureau amministrativo del canton d\'Appenzell Rhodes-Intérieures per dichiarazione d\'ereditages e imposizioni successorali',
 };
 
 export default blogMetaChFr;

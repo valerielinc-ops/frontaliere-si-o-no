@@ -5347,6 +5347,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Aeroporto Ginevra è un motore per la regione, vale 3,3 miliardi',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Studio Infras quantifica 3,3 miliardi CHF di valore aggiunto, 22\'000 posti di lavoro e impatto su intera economia svizzera. Nel 2025 gestiti 17,8 milioni di passeggeri.',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Sala partenze dell\'aeroporto di Ginevra con schermi di volo e aerei visibili dal terminal.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Imposta di successione Appenzello interno',
+    'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Tassazione di successioni e donazioni nel cantone Appenzello Interno: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure di dichiarazione e termini cantonali.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Ufficio amministrativo fiscale del cantone Appenzello Interno con documenti di eredità e moduli dichiarazione successione',
 };
 
 export default blogMetaChIt;

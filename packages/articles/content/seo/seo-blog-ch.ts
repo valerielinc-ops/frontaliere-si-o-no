@@ -69401,6 +69401,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-donazione-appenzello-interno': {
+    title: 'Imposta di successione Appenzello interno | Frontaliere Ticino',
+    description: 'Tassazione di successioni e donazioni nel cantone Appenzello Interno: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, appenzello, interno',
+    ogTitle: 'Imposta di successione Appenzello Interno',
+    ogDescription: 'Scopri come funziona l\'imposta di successione e donazione nel cantone Appenzello Interno: aliquote differenziate per grado di parentela, esenzioni per coniuge e discendenti, e il processo di dichiarazione con i termini da rispettare.',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione Appenzello interno",
+      "description": "Tassazione di successioni e donazioni nel cantone Appenzello Interno: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo fiscale del cantone Appenzello Interno con documenti di eredità e moduli dichiarazione successione"
+      },
+      "datePublished": "2026-09-03T20:00:36+00:00",
+      "dateModified": "2026-09-03T20:00:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

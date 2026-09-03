@@ -5347,6 +5347,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Geneva Airport is an engine for the region, worth 3.3 billion',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Study Infras quantifies CHF 3.3 billion in added value, 22,000 jobs and impact on the entire Swiss economy. 17.8 million passengers were handled in 2025.',
     'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Departure hall at Geneva airport with flight information displays and aircraft visible from the terminal.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Appenzell Innerrhoden inheritance tax',
+    'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Inheritance and gift taxation in the canton of Appenzell Innerrhoden: rates by degree of kinship, exemptions for spouses and descendants, declaration procedures and cantonal deadlines.',
+    'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Tax administration office of Appenzello Interno canton with inheritance documents and succession declaration forms',
 };
 
 export default blogMetaChEn;
