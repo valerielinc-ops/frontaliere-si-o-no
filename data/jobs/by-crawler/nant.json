@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nant",
-  "assembledAt": "2026-09-03T13:32:03.451Z",
+  "assembledAt": "2026-09-03T23:16:57.628Z",
   "jobs": [
     {
       "id": "nant-eda937afa152",
@@ -33,7 +33,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.660Z",
+      "crawledAt": "2026-09-03T23:16:53.421Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.653Z",
+      "crawledAt": "2026-09-03T23:16:53.420Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.652Z",
+      "crawledAt": "2026-09-03T23:16:53.419Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -311,7 +311,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.651Z",
+      "crawledAt": "2026-09-03T23:16:53.403Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -423,7 +423,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "nant-952603fb9197",
@@ -457,7 +458,7 @@
       "url": "https://app.beehire.com/invite/4RPhgQTMf",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.622Z",
+      "crawledAt": "2026-09-03T23:16:53.397Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -522,7 +523,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.621Z",
+      "crawledAt": "2026-09-03T23:16:53.394Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -587,7 +588,7 @@
       "url": "https://app.beehire.com/invite/7MtT679t5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.606Z",
+      "crawledAt": "2026-09-03T23:16:53.391Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -652,7 +653,7 @@
       "url": "https://app.beehire.com/invite/yKOL6UF3X",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:31:58.594Z",
+      "crawledAt": "2026-09-03T23:16:53.385Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
