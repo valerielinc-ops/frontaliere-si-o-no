@@ -1253,7 +1253,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-790b7d0fee47",
@@ -2125,7 +2126,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-1d16ed8babd2",
@@ -2221,7 +2223,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a94952318321",
@@ -2475,7 +2478,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-80b42f8bd990",
@@ -2573,7 +2577,8 @@
       },
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-20feb2c97427",
@@ -2883,7 +2888,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-d2904208229d",
@@ -2973,7 +2979,8 @@
         }
       },
       "addressRegion": "VS",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-417cffcec717",
@@ -3822,7 +3829,8 @@
         }
       },
       "addressRegion": "BE",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-9b5ff90b38c1",
@@ -4138,7 +4146,8 @@
         }
       },
       "addressRegion": "TG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-39b1a11e9670",
@@ -4687,7 +4696,8 @@
         }
       },
       "addressRegion": "SO",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-59b2f7527f2d",
@@ -4786,7 +4796,8 @@
         }
       },
       "addressRegion": "SZ",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "sbb-a372b1346856",
@@ -6371,7 +6382,7 @@
       "title": "Product Manager Application Platform (m/w/d)",
       "titleByLocale": {
         "it": "Piattaforma Applicazioni Product Manager (m/f/d)",
-        "en": "Product Manager Application Platform (m/w/d)",
+        "en": "Product Manager Application Platform (m/f/d)",
         "de": "Product Manager Application Platform (m/w/d)",
         "fr": "Plateforme d'application de gestionnaire de produit (h/f/d)"
       },
@@ -8666,11 +8677,28 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-02T13:47:53.496Z",
       "previousSlugs": [
-        "betriebskoordinator-in-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
+        "betriebskoordinator-in-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
+        "gestore-dei-rischi-naturali-ffs-officine-ferrovie-federali-stansstad",
+        "natural-hazard-manager-ffs-officine-ferrovie-federali-stansstad",
+        "naturgefahrenmanager-in-ffs-officine-ferrovie-federali-stansstad",
+        "gestionnaire-des-risques-naturels-ffs-officine-ferrovie-federali-stansstad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebskoordinator-in-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad"
+          "betriebskoordinator-in-80-100-in-stansstad-ffs-officine-ferrovie-federali-stansstad",
+          "gestore-dei-rischi-naturali-ffs-officine-ferrovie-federali-stansstad",
+          "natural-hazard-manager-ffs-officine-ferrovie-federali-stansstad",
+          "naturgefahrenmanager-in-ffs-officine-ferrovie-federali-stansstad",
+          "gestionnaire-des-risques-naturels-ffs-officine-ferrovie-federali-stansstad"
+        ],
+        "en": [
+          "natural-hazard-manager-ffs-officine-ferrovie-federali-stansstad"
+        ],
+        "de": [
+          "naturgefahrenmanager-in-ffs-officine-ferrovie-federali-stansstad"
+        ],
+        "fr": [
+          "gestionnaire-des-risques-naturels-ffs-officine-ferrovie-federali-stansstad"
         ]
       },
       "firstSeenAt": "2026-08-14T10:27:12.013Z",
