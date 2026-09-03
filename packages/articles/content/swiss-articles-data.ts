@@ -15715,6 +15715,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-turgovia-mutuo',
+    category: 'pratico',
+    date: '2026-09-03T02:50:15.636Z',
+    image: '/images/blog/comprare-casa-turgovia-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
