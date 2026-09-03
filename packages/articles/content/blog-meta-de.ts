@@ -11224,6 +11224,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.passante-milano-treno-evacuati.title': 'Zug Varese im Mailänder Passant steckengeblieben: S5 gestört',
     'blog.article.passante-milano-treno-evacuati.excerpt': 'Rund 400 Passagiere wurden am 3. September von dem Passanten aus Mailand evakuiert. Die S5, eine wichtige Linie für Tessiner Pendler nach Mailand und ins Hinterland, wird auf eine alternative Route umgeleitet.',
     'blog.article.passante-milano-treno-evacuati.imageAlt': 'Zug im Mailänder Durchfahrtsbahnhof nach Stromausfall stillgestanden, Fahrgastevakuierung am 3. September 2026.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Stellen- und Praktikumsangebote in der Provinz Varese - 2. SEPTEMBER 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Entdecken Sie die neuen Arbeits- und Praktikumsmöglichkeiten, die von den Beschäftigungszentren der Provinz Varese angeboten werden.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz',
 };
 
 export default blogMetaDe;

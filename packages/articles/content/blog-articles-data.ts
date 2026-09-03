@@ -33537,6 +33537,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'offerte-lavoro-tirocinio-varese-2026',
+ category: 'novita',
+ date: '2026-09-03T12:54:25.962Z',
+ image: '/images/blog/offerte-lavoro-tirocinio-varese-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

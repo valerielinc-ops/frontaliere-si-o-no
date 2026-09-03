@@ -11226,6 +11226,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.passante-milano-treno-evacuati.title': 'Treno Varese bloccato nel passante di Milano: disagi alla S5',
     'blog.article.passante-milano-treno-evacuati.excerpt': 'Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. La S5, linea cruciale per pendolari ticinesi verso Milano e l\'hinterland, deviata su percorso alternativo.',
     'blog.article.passante-milano-treno-evacuati.imageAlt': 'Treno fermo nel passante di Milano durante evacuazione di passeggeri a causa di guasto elettrico il 3 settembre.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Offerte di Lavoro e Tirocinio nella Provincia di Varese - 2 SETTEMBRE 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Scopri le nuove opportunità di lavoro e tirocinio proposte dai Centri per l’Impiego della Provincia di Varese.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Vista aerea di Castelgrande a Bellinzona, Svizzera',
 };
 
 export default blogMetaIt;
