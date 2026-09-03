@@ -5332,6 +5332,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprenticeship in Lucerne: a practical guide',
     'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Search for internship, salary, social contributions and professional maturity: here\'s how to orient yourself in Swiss dual training in Lucerne.',
     'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano and Lake Verbano: symbol of vocational training in Switzerland',
+    'blog.article.tariffario-ambulatoriale-cure-base.title': 'Family doctors criticize Tardoc tariff',
+    'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc does not re-evaluate family medicine and increases outpatient costs. The MFE association asks the Federal Council to avoid a linear devaluation.',
+    'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Swiss primary care clinic with general practitioner consulting elderly patient in modern ambulatory setting',
 };
 
 export default blogMetaChEn;

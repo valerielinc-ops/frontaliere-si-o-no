@@ -1803,6 +1803,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'riserve-naturali-siccita-estate-2024': { it: 'riserve-naturali-siccita-estate-2024', en: 'natural-reserves-drought-summer-2024', de: 'naturschutzgebiete-trockenheit-sommer-2024', fr: 'reserves-naturelles-secheresse-ete-2024' },
  'guida-apprendistato-lucerna': { it: 'guida-apprendistato-lucerna', en: 'apprenticeship-lucerne-contract-salary', de: 'lehrausbildung-luzern-vertrag-entlohnung', fr: 'apprentissage-lucerne-contrat-salaire' },
  'ricerca-tirocinio-canton-lucerna': { it: 'ricerca-tirocinio-canton-lucerna', en: 'finding-apprenticeship-lucerne-canton', de: 'lehrstellensuche-kanton-luzern', fr: 'recherche-apprentissage-canton-lucerne' },
+ 'tariffario-ambulatoriale-cure-base': { it: 'tariffario-ambulatoriale-cure-base', en: 'tariff-ambulatory-care-base', de: 'tarif-ambulante-grundversorgung', fr: 'tarif-ambulatoire-soins-base' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
