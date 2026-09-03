@@ -5290,6 +5290,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tardoc-medici-famiglia-svizzera.title': 'Médecins de famille, le système tarifaire TARDOC ne convainc pas',
     'blog.article.tardoc-medici-famiglia-svizzera.excerpt': 'Quelques mois après son entrée en vigueur, le nouveau système tarifaire TARDOC pour les prestations médicales ambulatoires ne convainc pas les médecins de famille et les pédiatres.',
     'blog.article.tardoc-medici-famiglia-svizzera.imageAlt': 'Vue aérienne de Lugano avec le lac et les montagnes en arrière-plan',
+    'blog.article.economia-svizzera-crescita-q2-2026.title': 'L\'économie suisse s\'accélère, PIB +1,5% en 2026',
+    'blog.article.economia-svizzera-crescita-q2-2026.excerpt': 'SECO confirme une forte croissance au Q2 2026 avec un PIB de +1,5%. Industrie manufacturière et chimico-pharmaceutique entraînent la reprise économique suisse.',
+    'blog.article.economia-svizzera-crescita-q2-2026.imageAlt': 'Quartier d\'affaires suisse moderne reflétant l\'activité économique et la croissance du pays.',
 };
 
 export default blogMetaChFr;

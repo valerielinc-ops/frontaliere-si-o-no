@@ -1789,6 +1789,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-svizzera-2026-inflazione': { it: 'salari-svizzera-2026-inflazione', en: 'swiss-salaries-2026-inflation', de: 'schweizer-loehne-2026-inflation', fr: 'salaires-suisses-2026-inflation' },
  'benzina-diesel-massimi-anno-2026': { it: 'benzina-diesel-massimi-anno-2026', en: 'fuel-prices-reach-year-high-2026', de: 'benzin-diesel-jahreshoch-2026', fr: 'essence-diesel-maxima-annuels-2026' },
  'tardoc-medici-famiglia-svizzera': { it: 'tardoc-medici-famiglia-svizzera', en: 'tardoc-general-practitioners-switzerland', de: 'tardoc-hausaerzte-schweiz', fr: 'tardoc-medecins-generalistes-suisse' },
+ 'economia-svizzera-crescita-q2-2026': { it: 'economia-svizzera-crescita-q2-2026', en: 'swiss-economy-growth-q2-2026', de: 'schweizer-wirtschaft-wachstum-q2-2026', fr: 'economie-suisse-croissance-q2-2026' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
