@@ -11178,6 +11178,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-saint-marcel-vallese-frontaliere.title': 'Living in Saint-Marcel, working in Valais as a border worker',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.excerpt': 'Permit G, tax at source 4-10%, New Agreement 2024 with deductible €10,000, AVS/LPP and refunds',
     'blog.article.vivere-saint-marcel-vallese-frontaliere.imageAlt': 'Panoramic view of the Swiss Valais region with snowy mountains',
+    'blog.article.cambio-euro-franco-conviene.title': 'Euro franc exchange rate: is it really worth it?',
+    'blog.article.cambio-euro-franco-conviene.excerpt': 'Swiss source tax and Italian personal income tax weigh on the net. Find out how the CHF-EUR change impacts border pay and what strategies to adopt.',
+    'blog.article.cambio-euro-franco-conviene.imageAlt': 'Financial advisor explains EUR-CHF exchange strategies to cross-border workers in modern Mendrisio office',
 };
 
 export default blogMetaEn;
