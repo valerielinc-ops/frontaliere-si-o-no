@@ -32,6 +32,22 @@ function retryAfterMilliseconds(response, attempt) {
   return Math.min(MAX_GITHUB_ACTIONS_BACKOFF_MS, attempt * 1_000);
 }
 
+/**
+ * The artifact `/zip` endpoint answers 302 towards blob storage, so exactly one
+ * hop is followed. It must stay HTTPS and it must not carry the bearer token:
+ * the storage host is outside GitHub and never sees our credentials.
+ */
+function redirectTarget(response) {
+  const location = response.headers.get('location');
+  if (typeof location !== 'string' || location.length === 0) return null;
+  try {
+    const url = new URL(location);
+    return url.protocol === 'https:' ? url.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
 function transientResponse(response) {
   return response.status === 429
     || (response.status >= 500 && response.status <= 599)
@@ -96,9 +112,9 @@ export function createGitHubActionsReadClient({
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const response = await fetchImpl(`${root}${pathname}`, {
+        let response = await fetchImpl(`${root}${pathname}`, {
           method: 'GET',
-          redirect: 'error',
+          redirect: 'manual',
           signal: controller.signal,
           headers: {
             accept: 'application/vnd.github+json',
@@ -106,6 +122,21 @@ export function createGitHubActionsReadClient({
             'x-github-api-version': apiVersion,
           },
         });
+        if (response.status >= 300 && response.status < 400) {
+          const target = redirectTarget(response);
+          try { await response.body?.cancel(); } catch { /* best effort before the hop */ }
+          if (target === null) {
+            throw new GitHubActionsReadError(
+              'github_redirect_invalid', `HTTP ${response.status}`, response.status,
+            );
+          }
+          response = await fetchImpl(target, {
+            method: 'GET',
+            redirect: 'error',
+            signal: controller.signal,
+            headers: { accept: '*/*' },
+          });
+        }
         if (response.ok) return await readBoundedResponse(response, maxBytes);
         if (!transientResponse(response) || attempt === GITHUB_ACTIONS_READ_ATTEMPTS) {
           throw new GitHubActionsReadError('github_api_failed', `HTTP ${response.status}`, response.status);

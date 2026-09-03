@@ -53,6 +53,33 @@ describe('GitHub Actions read-only client', () => {
     expect(oversized).toHaveBeenCalledTimes(1);
   });
 
+  it('follows exactly one HTTPS artifact redirect and never forwards the bearer token', async () => {
+    const redirected = vi.fn()
+      .mockResolvedValueOnce(new Response(null, {
+        status: 302,
+        headers: { location: 'https://storage.test/artifact.zip?sig=1' },
+      }))
+      .mockResolvedValueOnce(new Response('PK', { status: 200 }));
+    const body = await client(redirected).bytes('/repos/o/r/actions/artifacts/1/zip');
+    expect(new TextDecoder().decode(body)).toBe('PK');
+    expect(redirected).toHaveBeenCalledTimes(2);
+    const [firstUrl, firstInit] = redirected.mock.calls[0];
+    const [hopUrl, hopInit] = redirected.mock.calls[1];
+    expect(firstUrl).toBe('https://api.github.test/repos/o/r/actions/artifacts/1/zip');
+    expect(firstInit?.redirect).toBe('manual');
+    expect(hopUrl).toBe('https://storage.test/artifact.zip?sig=1');
+    expect(hopInit?.redirect).toBe('error');
+    expect(hopInit?.headers).not.toHaveProperty('authorization');
+
+    const insecure = vi.fn().mockResolvedValue(new Response(null, {
+      status: 302,
+      headers: { location: 'http://storage.test/artifact.zip' },
+    }));
+    await expect(client(insecure).bytes('/repos/o/r/actions/artifacts/1/zip'))
+      .rejects.toThrow(/github_redirect_invalid/);
+    expect(insecure).toHaveBeenCalledTimes(1);
+  });
+
   it('preserves an authoritative 404 status for bounded domain classification', async () => {
     const missing = vi.fn().mockResolvedValue(new Response('{}', { status: 404 }));
     const error = await client(missing).json('/repos/o/r/actions/runs/1').catch((reason) => reason);
