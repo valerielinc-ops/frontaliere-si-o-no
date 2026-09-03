@@ -1,87 +1,7 @@
 {
   "crawlerKey": "gesundheitszentrum-fricktal",
-  "assembledAt": "2026-09-03T13:33:33.809Z",
+  "assembledAt": "2026-09-03T23:12:38.189Z",
   "jobs": [
-    {
-      "id": "gesundheitszentrum-fricktal-ab5b0957ab60",
-      "slug": "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-      "slugByLocale": {
-        "it": "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "dipl-expert-in-anesthesia-care-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "dipl-expert-soins-anesthesiques-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
-      },
-      "company": "Gesundheitszentrum Fricktal",
-      "companyKey": "gesundheitszentrum-fricktal",
-      "companyDomain": "gzf.ch",
-      "title": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Esperto: in anestesia cura (m/f/d)",
-        "en": "Dipl. Expert: in anesthesia care (m/f/d)",
-        "de": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
-        "fr": "Dipl. Expert: soins anesthésiques (h/f/d)"
-      },
-      "description": "Unser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite.\n\n• Bereich: RF Anästhesie\n• Art: Teilzeit\n• Befristung: Unbefristet",
-      "descriptionByLocale": {
-        "it": "Il nostro team di assistenza cordiale di circa 28 membri fa del suo meglio ogni giorno per una cura ottimale perioperativa – e forse presto con voi al nostro fianco.\n\n• Area: anestesia RF\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
-        "en": "Our heartfelt care team of around 28 members does its best every day for optimal perioperative care – and perhaps soon with you at our side.\n\n• Area: RF anesthesia\n• Type: part-time\n• Temporary term: perpetual",
-        "de": "Unser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite.\n\n• Bereich: RF Anästhesie\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "Notre équipe de soins sincères d'environ 28 membres fait de son mieux chaque jour pour des soins périopératoires optimaux – et peut-être bientôt avec vous à nos côtés.\n\n• Zone: Anesthésie RF\n• Type: temps partiel\n• Terme temporaire : perpétuel"
-      },
-      "needsRetranslation": true,
-      "location": "Rheinfelden",
-      "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
-      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:31.409Z",
-      "addressLocality": "Rheinfelden",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4310",
-      "category": "Sanità / Ospedali",
-      "contract": "temporary",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-13",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Application/CheckLogin/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
-      },
-      "firstSeenAt": "2026-08-13T21:51:56.068Z",
-      "salaryMin": 88000,
-      "salaryMax": 123000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 88000,
-          "maxValue": 123000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "gesundheitszentrum-fricktal-8e2ea4a8daf1",
       "slug": "assistente-in-salute-social-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
@@ -114,7 +34,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2369/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:29.405Z",
+      "crawledAt": "2026-09-03T23:12:35.861Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -194,7 +114,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2290/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:27.413Z",
+      "crawledAt": "2026-09-03T23:12:33.858Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -274,7 +194,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2376/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:25.427Z",
+      "crawledAt": "2026-09-03T23:12:31.858Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -354,7 +274,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2345/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:23.407Z",
+      "crawledAt": "2026-09-03T23:12:29.872Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -434,7 +354,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2383/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:21.401Z",
+      "crawledAt": "2026-09-03T23:12:27.872Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -498,7 +418,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2378/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:19.405Z",
+      "crawledAt": "2026-09-03T23:12:25.855Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -562,7 +482,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2354/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:17.410Z",
+      "crawledAt": "2026-09-03T23:12:23.777Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -626,7 +546,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2391/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:15.518Z",
+      "crawledAt": "2026-09-03T23:12:21.861Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -698,7 +618,7 @@
       "url": "https://recruitingapp-2924.umantis.com/Vacancies/2405/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:33:13.405Z",
+      "crawledAt": "2026-09-03T23:12:19.791Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -749,88 +669,159 @@
       }
     },
     {
-      "id": "gesundheitszentrum-fricktal-71e6317a7a06",
-      "slug": "personale-nell-amministrazione-del-paziente-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "id": "gesundheitszentrum-fricktal-3c84488378bc",
+      "slug": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
       "slugByLocale": {
-        "it": "personale-nell-amministrazione-del-paziente-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "en": "personnel-in-patient-administration-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
-        "de": "sachbearbeiter-in-patientenadministration-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "personnel-dans-l-administration-du-patient-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+        "en": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+        "fr": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
       "companyDomain": "gzf.ch",
-      "title": "Sachbearbeiter:in Patientenadministration (m/w/d)",
+      "title": "Dipl. Pflegefachperson HF (m/w/d)",
       "titleByLocale": {
-        "it": "Personale: nell'amministrazione del paziente (m/f/d)",
-        "en": "Personnel:in patient administration (m/f/d)",
-        "de": "Sachbearbeiter:in Patientenadministration (m/w/d)",
-        "fr": "Personnel:dans l'administration du patient (h/f/d)"
+        "de": "Dipl. Pflegefachperson HF (m/w/d)",
+        "it": "Dipl. Pflegefachperson HF (m/w/d)",
+        "en": "Dipl. Pflegefachperson HF (m/w/d)",
+        "fr": "Dipl. Pflegefachperson HF (m/w/d)"
       },
-      "description": "--> Das GZF stellt mit seinen beiden Spitälern Rheinfelden und Laufenburg für rund 83’000 Menschen im Fricktal die stationäre medizinische Grundversorgung sicher. Ergänzt wird dieses Angebot durch je eine interdisziplinäre Notfallstation, den Rettungsdienst für das gesamte Fricktal, das Fachärztehaus Frick, die Pflegeheime in Rheinfelden und Laufenburg, unsere hausärztlichen Praxen, die Klinik Aesthea, verschiedene Therapien und Beratungen sowie zahlreiche ambulante Spezialsprechstunden aus vielfältigen Fachgebieten. Stellst du lieber Rechnungen als sie zu bezahlen? Dann bist du bei uns genau richtig – wir fakturieren sämtliche erbrachten Behandlungen unserer Spitäler und Pflegeheime in Rheinfelden und Laufenburg, der Villa Robersten in Rheinfelden, unseres Fachärztehauses in Frick sowie unseres Rettungsdienstes. Unser rund 7-köpfiges Team freut sich auf deine Verstärkung. Du fakturierst ambulante und stationäre Spitalbehandlungen\n\nDu bist zuständig für administrative Aufgaben im Bereich der Patientenadministration\n\nDu erteilst Auskünfte an Patienten, Angehörige und Kostenträger\n\nDu erledigst Abklärungen mit internen Leistungserbringern und externen Kostenträgern\n\nDu besitzt eine Kaufmännische Grundausbildung und konntest idealerweise bereits erste Arbeitserfahrung sammeln\n\nDu zeichnest dich durch eine exakte, zuverlässige und selbständige Arbeitsweise aus\n\nDu bist eine dienstleistungsorientierte, flexible und offene Persönlichkeit\n\nAbwechslungsreiche und verantwortungsvolle Tätigkeit in einem lebhaften Umfeld\n\n• Bereich: RF Patientenadministration\n• Art: Teilzeit\n• Befristung: Unbefristet",
+      "description": "Pflege von älteren Menschen mit viel Herzblut in einem interdisziplinären Team.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
       "descriptionByLocale": {
-        "it": "- > Il GZF, con i suoi due ospedali Rheinfelden e Laufenburg, fornisce assistenza medica di base per circa 83.000 persone nel Fricktal. Questa offerta è completata da un reparto di emergenza interdisciplinare, il servizio di ambulanza per l'intero Fricktal, l'ospedale specializzato Frick, le case di cura a Rheinfelden e Laufenburg, le nostre pratiche familiari, la clinica Aesthea, varie terapie e consultazioni, nonché numerose ore di consultazione speciali ambulatoriale da una vasta gamma di aree specializzate. Preferisci pagare le bollette che pagarle? Allora siete esattamente con noi – fatturamo tutti i trattamenti forniti dai nostri ospedali e case di cura a Rheinfelden e Laufenburg, Villa Robersten a Rheinfelden, il nostro ospedale specializzato a Frick e il nostro servizio di ambulanza. Il nostro team di circa 7 persone non vede l'ora di rafforzare. Fatturazione di trattamenti ospedalieri ambulatoriali e ospedalieri\n\nLei è responsabile dei compiti amministrativi nel settore dell'amministrazione paziente\n\nFornisci informazioni a pazienti, parenti e paganti\n\nGestisci chiarimenti con fornitori di servizi interni e vettori esterni\n\nAvete una formazione commerciale di base e idealmente potrebbe già ottenere l'esperienza di lavoro iniziale\n\nSi distingue per un metodo di lavoro preciso, affidabile e indipendente\n\nSei una personalità orientata al servizio, flessibile e aperta\n\nLavoro vario e responsabile in un ambiente vivace\n\n• Area: Amministrazione Paziente RF\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
-        "en": "--> The GZF, with its two hospitals Rheinfelden and Laufenburg, provides basic inpatient medical care for around 83,000 people in the Fricktal. This offer is complemented by an interdisciplinary emergency department, the ambulance service for the entire Fricktal, the specialist hospital Frick, the nursing homes in Rheinfelden and Laufenburg, our family practices, the clinic Aesthea, various therapies and consultations as well as numerous outpatient special consultation hours from a wide range of specialist areas. Do you prefer to pay bills than pay them? Then you are exactly right with us – we invoice all the treatments provided by our hospitals and nursing homes in Rheinfelden and Laufenburg, Villa Robersten in Rheinfelden, our specialist hospital in Frick and our ambulance service. Our team of around 7 people is looking forward to your reinforcement. You invoice ambulatory and inpatient hospital treatments\n\nYou are responsible for administrative tasks in the area of patient administration\n\nYou provide information to patients, relatives and payers\n\nYou handle clarifications with internal service providers and external cost carriers\n\nYou have a basic commercial education and ideally could already gain initial work experience\n\nYou distinguish yourself by an exact, reliable and independent working method\n\nYou are a service-oriented, flexible and open personality\n\nVaried and responsible work in a lively environment\n\n• Area: RF Patient Administration\n• Type: part-time\n• Temporary term: perpetual",
-        "de": "--> Das GZF stellt mit seinen beiden Spitälern Rheinfelden und Laufenburg für rund 83’000 Menschen im Fricktal die stationäre medizinische Grundversorgung sicher. Ergänzt wird dieses Angebot durch je eine interdisziplinäre Notfallstation, den Rettungsdienst für das gesamte Fricktal, das Fachärztehaus Frick, die Pflegeheime in Rheinfelden und Laufenburg, unsere hausärztlichen Praxen, die Klinik Aesthea, verschiedene Therapien und Beratungen sowie zahlreiche ambulante Spezialsprechstunden aus vielfältigen Fachgebieten. Stellst du lieber Rechnungen als sie zu bezahlen? Dann bist du bei uns genau richtig – wir fakturieren sämtliche erbrachten Behandlungen unserer Spitäler und Pflegeheime in Rheinfelden und Laufenburg, der Villa Robersten in Rheinfelden, unseres Fachärztehauses in Frick sowie unseres Rettungsdienstes. Unser rund 7-köpfiges Team freut sich auf deine Verstärkung. Du fakturierst ambulante und stationäre Spitalbehandlungen\n\nDu bist zuständig für administrative Aufgaben im Bereich der Patientenadministration\n\nDu erteilst Auskünfte an Patienten, Angehörige und Kostenträger\n\nDu erledigst Abklärungen mit internen Leistungserbringern und externen Kostenträgern\n\nDu besitzt eine Kaufmännische Grundausbildung und konntest idealerweise bereits erste Arbeitserfahrung sammeln\n\nDu zeichnest dich durch eine exakte, zuverlässige und selbständige Arbeitsweise aus\n\nDu bist eine dienstleistungsorientierte, flexible und offene Persönlichkeit\n\nAbwechslungsreiche und verantwortungsvolle Tätigkeit in einem lebhaften Umfeld\n\n• Bereich: RF Patientenadministration\n• Art: Teilzeit\n• Befristung: Unbefristet",
-        "fr": "--> Le GZF, avec ses deux hôpitaux Rheinfelden et Laufenburg, fournit des soins médicaux de base à environ 83 000 personnes dans le Fricktal. Cette offre est complétée par un service d'urgence interdisciplinaire, le service d'ambulance pour l'ensemble du Fricktal, l'hôpital spécialisé Frick, les maisons de soins infirmiers de Rheinfelden et Laufenburg, nos pratiques familiales, la clinique Aesthea, diverses thérapies et consultations ainsi que de nombreuses heures de consultation externe dans un large éventail de domaines spécialisés. Vous préférez payer les factures ? Ensuite, vous êtes exactement avec nous – nous facturons tous les traitements fournis par nos hôpitaux et maisons de soins infirmiers à Rheinfelden et Laufenburg, Villa Robersten à Rheinfelden, notre hôpital spécialisé à Frick et notre service d'ambulance. Notre équipe d'environ 7 personnes attend avec impatience votre renfort. Vous facturez des traitements ambulatoires et hospitaliers\n\nVous êtes responsable des tâches administratives dans le domaine de l'administration des patients\n\nVous fournissez des informations aux patients, aux parents et aux payeurs\n\nVous traitez les clarifications avec les fournisseurs de services internes et les fournisseurs de coûts externes\n\nVous avez une éducation commerciale de base et idéalement pourrait déjà acquérir une expérience de travail initiale\n\nVous vous distinguez par une méthode de travail exacte, fiable et indépendante\n\nVous êtes une personnalité orientée vers le service, flexible et ouverte\n\nTravail varié et responsable dans un environnement animé\n\n• Domaine : RF Patient Administration\n• Type: temps partiel\n• Terme temporaire : perpétuel"
+        "de": "Pflege von älteren Menschen mit viel Herzblut in einem interdisziplinären Team.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "it": "Pflege von älteren Menschen mit viel Herzblut in einem interdisziplinären Team.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "en": "Pflege von älteren Menschen mit viel Herzblut in einem interdisziplinären Team.\n\n• Art: Vollzeit\n• Befristung: Unbefristet",
+        "fr": "Pflege von älteren Menschen mit viel Herzblut in einem interdisziplinären Team.\n\n• Art: Vollzeit\n• Befristung: Unbefristet"
       },
       "needsRetranslation": true,
       "location": "Rheinfelden",
       "canton": "AG",
-      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2361/Description/1",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2392/Description/1",
       "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T13:36:40.423Z",
+      "crawledAt": "2026-09-03T23:12:17.881Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "4310",
-      "category": "Amministrazione",
+      "category": "Sanità / Ospedali",
       "contract": "temporary",
-      "employmentType": "PART_TIME",
+      "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-21",
-      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2361/Application/CheckLogin/1",
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2392/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeiter-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-        "sachbearbeiter-in-patientenadministration-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiter-w-m-d-gesundheitszentrum-fricktal-rheinfelden",
-          "sachbearbeiter-in-patientenadministration-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "en": [
-          "sachbearbeiter-in-patientenadministration-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "de": [
-          "sachbearbeiter-w-m-d-gesundheitszentrum-fricktal-rheinfelden"
-        ],
-        "fr": [
-          "sachbearbeiter-in-patientenadministration-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
-        ]
+      "requirementsByLocale": {
+        "de": []
       },
-      "firstSeenAt": "2026-08-21T10:08:39.323Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 88000,
+      "salaryMax": 123000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 88000,
+          "maxValue": 123000,
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-03T23:12:17.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
+    },
+    {
+      "id": "gesundheitszentrum-fricktal-ab5b0957ab60",
+      "slug": "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slugByLocale": {
+        "it": "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "en": "dipl-expert-in-anesthesia-care-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
+        "de": "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "fr": "dipl-expert-soins-anesthesiques-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
+      },
+      "company": "Gesundheitszentrum Fricktal",
+      "companyKey": "gesundheitszentrum-fricktal",
+      "companyDomain": "gzf.ch",
+      "title": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
+      "titleByLocale": {
+        "it": "Dipl. Esperto: in anestesia cura (m/f/d)",
+        "en": "Dipl. Expert: in anesthesia care (m/f/d)",
+        "de": "Dipl. Expert:in Anästhesiepflege (m/w/d)",
+        "fr": "Dipl. Expert: soins anesthésiques (h/f/d)"
+      },
+      "description": "Unser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite.\n\n• Bereich: RF Anästhesie\n• Art: Teilzeit\n• Befristung: Unbefristet",
+      "descriptionByLocale": {
+        "it": "Il nostro team di assistenza cordiale di circa 28 membri fa del suo meglio ogni giorno per una cura ottimale perioperativa – e forse presto con voi al nostro fianco.\n\n• Area: anestesia RF\n• Tipo: part-time\n• Termine temporaneo: perpetuo",
+        "en": "Our heartfelt care team of around 28 members does its best every day for optimal perioperative care – and perhaps soon with you at our side.\n\n• Area: RF anesthesia\n• Type: part-time\n• Temporary term: perpetual",
+        "de": "Unser herzliches, rund 28‑köpfiges Pflegeteam gibt jeden Tag sein Bestes für eine optimale perioperative Versorgung – und vielleicht bald mit dir an unserer Seite.\n\n• Bereich: RF Anästhesie\n• Art: Teilzeit\n• Befristung: Unbefristet",
+        "fr": "Notre équipe de soins sincères d'environ 28 membres fait de son mieux chaque jour pour des soins périopératoires optimaux – et peut-être bientôt avec vous à nos côtés.\n\n• Zone: Anesthésie RF\n• Type: temps partiel\n• Terme temporaire : perpétuel"
+      },
+      "needsRetranslation": true,
+      "location": "Rheinfelden",
+      "canton": "AG",
+      "url": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Description/1",
+      "source": "Gesundheitszentrum Fricktal Dedicated Parser (Umantis listing tenant 2924)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T13:33:31.409Z",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4310",
+      "category": "Sanità / Ospedali",
+      "contract": "temporary",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-13",
+      "applyUrl": "https://recruitingapp-2924.umantis.com/Vacancies/2278/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "en": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "firstSeenAt": "2026-08-13T21:51:56.068Z",
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1
     }
   ]
 }
