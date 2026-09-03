@@ -11156,6 +11156,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-vivere-mese-grigioni.title': 'Wohnen in Monat und Arbeiten in Graubünden: Steuerleitfaden',
     'blog.article.guida-vivere-mese-grigioni.excerpt': 'G-Bewilligung, Quellensteuer und Grenzeinkommensfreibetrag: Leitfaden für Personen, die in Monat leben und in Graubünden arbeiten. Normen 2024, KVG, Verfahren.',
     'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panoramablick auf die Grenze Schweiz-Italien am Luganer See bei Sonnenuntergang',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Wohnen in Albosaggia und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Albosaggia nach Graubünden.',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
 };
 
 export default blogMetaDe;

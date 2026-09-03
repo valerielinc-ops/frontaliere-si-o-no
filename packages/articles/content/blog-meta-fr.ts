@@ -11159,6 +11159,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-vivere-mese-grigioni.title': 'Vivre au mois et travailler dans les Grisons : guide fiscal',
     'blog.article.guida-vivere-mese-grigioni.excerpt': 'Permis G, impôt à la source et franchise du revenu frontalier : guide pour ceux qui vivent au mois et travaillent dans les Grisons suisses. Normes 2024, LAMal, procédure.',
     'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Vue panoramique de la frontière Suisse-Italie sur le lac de Lugano au coucher du soleil',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Vivre à Albosaggia et travailler dans les Grisons en tant que frontalier',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert d\'Albosaggia aux Grisons.',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes environnantes',
 };
 
 export default blogMetaFr;
