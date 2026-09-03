@@ -5308,6 +5308,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.seco-ampia-base-crescita.title': 'SEC : croissance Q2, pas de boom mais réel',
     'blog.article.seco-ampia-base-crescita.excerpt': 'PIB Suisse +1,5% au Q2 2026. SECO freine sur boom, mais croissance élargie et reprise de la demande intérieure. Prévisions annuelles en révision dans deux semaines.',
     'blog.article.seco-ampia-base-crescita.imageAlt': 'Vue du lac de Lugano avec centre financier urbain de la Suisse',
+    'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilatérales III : les gouvernements cantonaux disent oui',
+    'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'La Conférence des gouvernements de Suisse occidentale réunie à Fribourg soutient le paquet d\'accords avec l\'UE, soulignant l\'importance d\'un accès stable au marché continental',
+    'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Palais fédéral suisse à Berne avec drapeaux suisse et européen, siège du Parlement fédéral',
 };
 
 export default blogMetaChFr;

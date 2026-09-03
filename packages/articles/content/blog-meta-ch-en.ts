@@ -5308,6 +5308,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.seco-ampia-base-crescita.title': 'DRY: Q2 growth, it\'s not boom but real',
     'blog.article.seco-ampia-base-crescita.excerpt': 'Swiss GDP +1.5% in Q2 2026. SECO slows down on boom, but enlarged growth and domestic demand recovers. Annual forecasts under review in two weeks.',
     'blog.article.seco-ampia-base-crescita.imageAlt': 'Panoramic view of Lake Lugano with financial district skyline of Switzerland',
+    'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilateral III: Cantonal governments say yes',
+    'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'The Conference of Governments of Western Switzerland meeting in Fribourg supports the package of agreements with the EU, underlining the importance for stable access to the continental market',
+    'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Swiss Federal Palace in Bern with Swiss and European flags, seat of the Federal Parliament',
 };
 
 export default blogMetaChEn;
