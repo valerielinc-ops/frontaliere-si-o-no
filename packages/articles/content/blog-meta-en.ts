@@ -11199,6 +11199,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-svizzera-agosto-2026.title': 'Inflation accelerates in Switzerland, rises to 0.8% in August',
     'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'Inflation in Switzerland rose to 0.8% in August, with significant increases in rents and fuel.',
     'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Aerial view of Lugano city center with Lake Lugano in the background',
+    'blog.article.sciopero-treni-settembre-2026.title': 'Train strike 7-8 September: 24-hour stoppage',
+    'blog.article.sciopero-treni-settembre-2026.excerpt': 'The national protest proclaimed by Cub Trasporti and SGB will involve the personnel of the FS Group, Trenitalia and Trenord. Warranty bands and replacement buses are provided for the connection with Malpensa.',
+    'blog.article.sciopero-treni-settembre-2026.imageAlt': 'Aerial view of a train station in Ticino during a strike, with buses replacing train services.',
 };
 
 export default blogMetaEn;
