@@ -1766,6 +1766,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'mercato-lavoro-appenzello-esterno': { it: 'mercato-lavoro-appenzello-esterno', en: 'labour-market-appenzell-ausserrhoden', de: 'arbeitsmarkt-appenzell-ausserrhoden', fr: 'marche-du-travail-appenzell-rhodes-exterieures' },
  'permesso-dimora-b-appenzello-interno-requisiti-rinnovo': { it: 'permesso-dimora-b-appenzello-interno-requisiti-rinnovo', en: 'residence-permit-b-appenzello-interno-requirements-renewal', de: 'aufenthaltsbewilligung-b-appenzello-interno-anforderungen-verlangerung', fr: 'permis-de-sejour-b-appenzello-interno-conditions-renouvellement' },
  'premi-cassa-malati-appenzello-interno-riduzione': { it: 'premi-cassa-malati-appenzello-interno-riduzione', en: 'health-insurance-premiums-appenzello-interno-reduction', de: 'krankenversicherungspramien-appenzello-interno-reduktion', fr: 'primes-d-assurance-maladie-appenzello-interno-reduction' },
+ 'domicilio-c-appenzello-interno-domanda': { it: 'domicilio-c-appenzello-interno-domanda', en: 'residence-permit-c-appenzell-innerrhoden-application', de: 'aufenthaltsbewilligung-c-appenzell-innerrhoden-antrag', fr: 'permis-domicile-c-appenzell-rhodes-intrieures-demande' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
