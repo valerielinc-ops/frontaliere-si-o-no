@@ -11172,6 +11172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Living in Vilminore di Scalve and working in Graubünden as a border worker',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of transferring from Vilminore di Scalve to Grisons.',
     'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background',
+    'blog.article.avise-vallese-trasferimento-frontaliere.title': 'Living in Avise and working in Valais: a practical guide',
+    'blog.article.avise-vallese-trasferimento-frontaliere.excerpt': 'Moving to Avise to work in Valais: Swiss tax, permits, AVS, LAMal and everything you need to know as an Italy-Switzerland border worker.',
+    'blog.article.avise-vallese-trasferimento-frontaliere.imageAlt': 'Alpine landscape between Italy and Switzerland with valley and mountains, typical of the Vallese-Valle d\'Aosta border area',
 };
 
 export default blogMetaEn;
