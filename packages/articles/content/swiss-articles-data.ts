@@ -16012,6 +16012,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'acquisto-immobiliare-lucerna-mutuo',
+    category: 'pratico',
+    date: '2026-09-03T18:39:50.372Z',
+    image: '/images/blog/acquisto-immobiliare-lucerna-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
