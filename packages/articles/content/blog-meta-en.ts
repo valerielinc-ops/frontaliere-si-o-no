@@ -11261,6 +11261,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-cantone-tasse-frontaliere.title': 'Changing working canton: tax guide',
     'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'The transfer from one Swiss canton to another affects permission, taxation and contributions. Learn how the New 2024 Agreement changes the rules.',
     'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Lugano cityscape from Monte San Salvatore, capital of Canton Ticino',
+    'blog.article.lainf-denuncia-infortunio-confine.title': 'Accident in progress: LAINF complaint for border workers',
+    'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'LAINF covers injuries on the commute to the border. Here\'s what\'s different about a trip and how to file a report.',
+    'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Frontalier\'s vehicle approaching the Swiss border checkpoint at Brogeda during morning commute on the Ticino-Italy border',
 };
 
 export default blogMetaEn;

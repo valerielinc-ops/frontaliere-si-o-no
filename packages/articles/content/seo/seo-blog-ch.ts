@@ -69440,6 +69440,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uri-rendita-avs-lacune-contributive': {
+    title: 'AVS Uri: calcolo della rendita e lacune contributive',
+    description: 'Primo pilastro Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per lacune contributive e minimo vitale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, rendita, lacune, contributive',
+    ogTitle: 'AVS Uri: calcolo della rendita e lacune contributive',
+    ogDescription: 'Scopri come funziona l\'AVS nel Canton Uri: il ruolo della cassa di compensazione cantonale, il calcolo della rendita mensile, come colmare le lacune contributive con versamenti volontari, e come accedere alle prestazioni complementari se hai reddito',
+    canonicalPath: '/articoli-svizzera/uri-rendita-avs-lacune-contributive/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS Uri: calcolo della rendita e lacune contributive",
+      "description": "Primo pilastro Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per lacune contributive e minimo vitale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uri-rendita-avs-lacune-contributive.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo della cassa di compensazione cantonale svizzera che gestisce i contributi AVS e le rendite di vecchiaia."
+      },
+      "datePublished": "2026-09-03T20:45:23+00:00",
+      "dateModified": "2026-09-03T20:45:23+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-rendita-avs-lacune-contributive/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

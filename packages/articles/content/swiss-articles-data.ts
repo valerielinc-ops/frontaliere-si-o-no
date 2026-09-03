@@ -16048,6 +16048,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'uri-rendita-avs-lacune-contributive',
+    category: 'pensione',
+    date: '2026-09-03T20:45:23.165Z',
+    image: '/images/blog/uri-rendita-avs-lacune-contributive.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
