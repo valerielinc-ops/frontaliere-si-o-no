@@ -337,6 +337,35 @@ NODE
   printf '%s\n' "${_PRIMARY_SLICE_ROSTER_PATHS[$roster_file]}" | grep -Fxq -- "$slice_path"
 }
 
+# Crawler-group workflows checkout with `fetch-depth: 50` (e.g.
+# .github/workflows/crawler-group-01-logic.yml:72), so `git log` only sees
+# the last 50 reachable commits. Beyond that boundary git truncates silently
+# — exit 0, empty output — indistinguishable from a path that never existed.
+# The retirement-vs-first-run disambiguation below depends on `git log`
+# telling the truth, so unshallow once (cached per process, mirroring the
+# roster cache above) before trusting an empty result. If the unshallow
+# itself fails, callers must fail closed instead of guessing: an empty `git
+# log` at that point could mean "never existed" (safe to create) or "retired
+# 51+ commits ago" (must stay dropped), and picking wrong either resurrects
+# retired data or permanently blocks a genuinely new slice.
+_SHALLOW_CHECKOUT_STATUS=""
+
+ensure_full_history() {
+  if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
+    if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
+      if git fetch --unshallow origin main >/dev/null 2>&1 \
+        && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
+        _SHALLOW_CHECKOUT_STATUS="unshallowed"
+      else
+        _SHALLOW_CHECKOUT_STATUS="shallow"
+      fi
+    else
+      _SHALLOW_CHECKOUT_STATUS="complete"
+    fi
+  fi
+  [ "$_SHALLOW_CHECKOUT_STATUS" != "shallow" ]
+}
+
 append_resolved_file() {
   local file_path="$1"
   [ -n "$file_path" ] || return 0
@@ -1504,8 +1533,32 @@ commit_isolated_from_worktree() {
                 if [ "$registry_status" -ne 1 ]; then
                   return 1
                 fi
-                echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
-                continue
+                # `base_blob` only reflects the CURRENT tree at this writer's
+                # checkout, which every CI job starts fresh from origin/main —
+                # so it is empty just as often for a path that was already
+                # retired before checkout as for one that has genuinely never
+                # existed. Distinguish the two with reachable history instead:
+                # a path that was ever committed still shows up in `git log`
+                # even after being removed from the tree, while a brand-new
+                # slice (issue #7151 item 1: pre-registration ordering between
+                # the roster-regeneration step and a crawler's first data
+                # commit isn't asserted anywhere else) has no history at all.
+                # `git log` only tells the truth about that if the checkout
+                # isn't shallow (issue #7221 review follow-up): crawler-group
+                # workflows pin fetch-depth 50, so a retirement more than 50
+                # commits before this checkout would otherwise be misread as
+                # first-run create and silently resurrected.
+                if ! ensure_full_history; then
+                  echo "❌ grouped-isolated: cannot verify retirement history for $f — checkout remains shallow after an unshallow attempt, refusing to guess between first-run create and resurrection"
+                  return 1
+                fi
+                history_blob="$(git log -1 --format=%H -- "$f" 2>/dev/null || true)"
+                if [ -z "$history_blob" ]; then
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry and has no prior history — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
+                else
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
+                  continue
+                fi
               fi
               ;;
             data/jobs/expired/by-crawler/*.json)
