@@ -79,6 +79,21 @@ function concurrencyConfig(workflowPath: string): Record<string, unknown> {
   return concurrency as Record<string, unknown>;
 }
 
+/**
+ * Textual mention, unlike strict `group === JOBS_DATA_PIPELINE_GROUP`: catches a
+ * `group` built from a GH expression (`${{ ... }}`) that resolves to the same
+ * queue at runtime but is a different literal string at YAML-parse time, which
+ * the strict-equality inventory below would silently miss.
+ */
+function concurrencyMentionsJobsDataPipeline(workflowPath: string): boolean {
+  const concurrency = workflowConfig(workflowPath).concurrency;
+  if (concurrency === null || typeof concurrency !== 'object' || Array.isArray(concurrency)) {
+    return false;
+  }
+
+  return JSON.stringify(concurrency).includes(JOBS_DATA_PIPELINE_GROUP);
+}
+
 describe('measureTranslationQueue', () => {
   it('keeps every jobs-data-pipeline workflow queued without cancellation', () => {
     const matchingWorkflows = readdirSync(WORKFLOWS_DIR)
@@ -99,6 +114,19 @@ describe('measureTranslationQueue', () => {
       '.github/workflows/sync-gsc-orphans.yml',
       '.github/workflows/translate-pending.yml',
     ]);
+
+    // Fail closed: any workflow whose concurrency block mentions the group
+    // string at all — literal or inside a `${{ }}` expression — must be one
+    // of the ones already covered by strict equality above. A workflow that
+    // shows up here but not in `matchingWorkflows` would resolve to the same
+    // queue at runtime while evading the strict-equality inventory.
+    const mentioningWorkflows = readdirSync(WORKFLOWS_DIR)
+      .filter((name) => /\.ya?ml$/.test(name))
+      .sort()
+      .map((name) => join(WORKFLOWS_DIR, name))
+      .filter(concurrencyMentionsJobsDataPipeline);
+
+    expect(mentioningWorkflows.sort()).toEqual(matchingWorkflows.sort());
 
     for (const workflowPath of [...matchingWorkflows, PORTABLE_TRANSLATE_WORKFLOW]) {
       const concurrency = concurrencyConfig(workflowPath);
