@@ -68699,6 +68699,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lista-nera-asili-nidi-svizzera': {
+    title: 'Asili nidi: Parlamento chiede lista nera per il personale',
+    description: 'Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, nidi, parlamento, chiede',
+    ogTitle: 'Asili nidi: Parlamento chiede lista nera per il personale',
+    ogDescription: 'Mozione trasversale al Consiglio federale per istituire una lista nera nazionale degli educatori di asili nido implicati in abusi sessuali. Il governo rinvia: rapporto atteso entro fine 2027.',
+    canonicalPath: '/articoli-svizzera/lista-nera-asili-nidi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili nidi: Parlamento chiede lista nera per il personale",
+      "description": "Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lista-nera-asili-nidi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere moderno in Svizzera con strutture di accoglienza per bambini, simbolo della sicurezza negli asili nidi"
+      },
+      "datePublished": "2026-09-03T13:01:47+00:00",
+      "dateModified": "2026-09-03T13:01:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lista-nera-asili-nidi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

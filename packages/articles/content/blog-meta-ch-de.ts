@@ -5293,6 +5293,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.economia-svizzera-crescita-q2-2026.title': 'Schweizer Wirtschaft beschleunigt sich, BIP +1,5% im Jahr 2026',
     'blog.article.economia-svizzera-crescita-q2-2026.excerpt': 'SECO bestätigt starkes Wachstum im Q2 2026 mit BIP +1,5%. Die verarbeitende Industrie und die chemisch-pharmazeutische Industrie treiben die wirtschaftliche Erholung in der Schweiz voran.',
     'blog.article.economia-svizzera-crescita-q2-2026.imageAlt': 'Schweizer Geschäftsviertel mit modernen Gebäuden, die wirtschaftliche Aktivität und Wachstum widerspiegeln.',
+    'blog.article.lista-nera-asili-nidi-svizzera.title': 'Kindergärten: Parlament fordert schwarze Liste für Personal',
+    'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Querschnittsantrag an den Bundesrat zur Verhinderung von Missbräuchen in Kindertagesstätten. Die Regierung verzögert und verspricht einen Bericht bis Ende 2027.',
+    'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Modernes Schweizer Wohnquartier mit Kinderbetreuungseinrichtungen, Symbol der Sicherheit in Kitas',
 };
 
 export default blogMetaChDe;

@@ -5293,6 +5293,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-crescita-q2-2026.title': 'Swiss economy accelerates, GDP +1.5% in 2026',
     'blog.article.economia-svizzera-crescita-q2-2026.excerpt': 'SECO confirms strong growth in Q2 2026 with GDP +1.5%. Manufacturing and chemical-pharmaceutical industries are driving the Swiss economic recovery.',
     'blog.article.economia-svizzera-crescita-q2-2026.imageAlt': 'Modern Swiss business district showcasing economic activity and growth in the national economy.',
+    'blog.article.lista-nera-asili-nidi-svizzera.title': 'Nurseries: Parliament requests blacklist for staff',
+    'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Cross-cutting motion to the Federal Council to prevent childcare abuse. The government stalls and promises a report by the end of 2027.',
+    'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Modern Swiss neighborhood with childcare facilities representing child safety in daycare centers',
 };
 
 export default blogMetaChEn;

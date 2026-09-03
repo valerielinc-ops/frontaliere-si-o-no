@@ -1790,6 +1790,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'benzina-diesel-massimi-anno-2026': { it: 'benzina-diesel-massimi-anno-2026', en: 'fuel-prices-reach-year-high-2026', de: 'benzin-diesel-jahreshoch-2026', fr: 'essence-diesel-maxima-annuels-2026' },
  'tardoc-medici-famiglia-svizzera': { it: 'tardoc-medici-famiglia-svizzera', en: 'tardoc-general-practitioners-switzerland', de: 'tardoc-hausaerzte-schweiz', fr: 'tardoc-medecins-generalistes-suisse' },
  'economia-svizzera-crescita-q2-2026': { it: 'economia-svizzera-crescita-q2-2026', en: 'swiss-economy-growth-q2-2026', de: 'schweizer-wirtschaft-wachstum-q2-2026', fr: 'economie-suisse-croissance-q2-2026' },
+ 'lista-nera-asili-nidi-svizzera': { it: 'lista-nera-asili-nidi-svizzera', en: 'blacklist-childcare-staff-switzerland', de: 'schwarze-liste-kitas-schweiz', fr: 'liste-noire-structures-accueil-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

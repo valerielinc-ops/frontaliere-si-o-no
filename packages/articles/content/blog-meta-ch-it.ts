@@ -5293,6 +5293,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.economia-svizzera-crescita-q2-2026.title': 'Economia svizzera accelera, PIL +1,5% nel 2026',
     'blog.article.economia-svizzera-crescita-q2-2026.excerpt': 'SECO conferma forte crescita nel Q2 2026 con PIL +1,5%. Industria manifatturiera e chimico-farmaceutica trascinano la ripresa economica svizzera.',
     'blog.article.economia-svizzera-crescita-q2-2026.imageAlt': 'Veduta di un centro economico svizzero con edifici moderni che riflettono il dinamismo della crescita economica nazionale.',
+    'blog.article.lista-nera-asili-nidi-svizzera.title': 'Asili nidi: Parlamento chiede lista nera per il personale',
+    'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027.',
+    'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Quartiere moderno in Svizzera con strutture di accoglienza per bambini, simbolo della sicurezza negli asili nidi',
 };
 
 export default blogMetaChIt;
