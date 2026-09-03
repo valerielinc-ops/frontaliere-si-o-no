@@ -5359,6 +5359,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assicurazioni-tagli-occupazione-2028.title': 'Swiss Life prévoit de supprimer 600 postes d\'ici 2028',
     'blog.article.assicurazioni-tagli-occupazione-2028.excerpt': 'La société zurichoise annonce 600 suppressions d\'emplois d\'ici 2028, malgré une croissance des revenus de 2 à 10 % au premier semestre 2026.',
     'blog.article.assicurazioni-tagli-occupazione-2028.imageAlt': 'Bureau moderne de Swiss Life à Zurich, architecture contemporaine, environnement professionnel lumineux.',
+    'blog.article.uri-stipendi-settori-qualifica.title': 'Salaires canton d\'Uri : niveaux par qualification',
+    'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Heures maximales, vacances minimales, cotisations salariales et impôts : les règles nationales suisses régissant le marché du travail dans le canton d\'Uri.',
+    'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Environnement de travail professionnel en région alpestre avec équipe de collaborateurs suisses',
 };
 
 export default blogMetaChFr;

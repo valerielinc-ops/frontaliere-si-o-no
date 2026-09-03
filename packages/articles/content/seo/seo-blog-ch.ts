@@ -69557,6 +69557,44 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-uri-stipendi-settori-qualifica': {
+    title: 'Salari Canton Uri: livelli per qualifica | Frontaliere Ticino',
+    description: 'Orari massimi, vacanze minime, contributi salariali e imposte nel mercato del lavoro del Canton Uri secondo la normativa svizzera federale. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, canton, livelli, qualifica',
+    ogTitle: 'Salari Canton Uri: livelli per qualifica',
+    ogDescription: 'Guida completa ai salari, orari, vacanze e contributi obbligatori per chi lavora nel Canton Uri. Norme federali, moltiplicatori fiscali comunali e contratti collettivi.',
+    canonicalPath: '/articoli-svizzera/uri-stipendi-settori-qualifica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari Canton Uri: livelli per qualifica",
+      "description": "Orari massimi, vacanze minime, contributi salariali e imposte nel mercato del lavoro del Canton Uri secondo la normativa svizzera federale. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/uri-stipendi-settori-qualifica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ambiente di lavoro professionale in vallata alpina con colleghi in riunione di equipe durante orario di ufficio"
+      },
+      "datePublished": "2026-09-03T22:08:18+00:00",
+      "dateModified": "2026-09-03T22:08:18+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/uri-stipendi-settori-qualifica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;
