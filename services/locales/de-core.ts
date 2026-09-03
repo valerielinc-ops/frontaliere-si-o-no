@@ -2770,6 +2770,11 @@ Regeln:
  'consultingCta.article.button': 'Beratung buchen',
 
  // v3.71.0 — Rechner-Upgrade
+ 'whatsNew.v3961.title': 'Aktualisierungen für eine bessere Benutzererfahrung',
+ 'whatsNew.v3961.seo.title': 'Autorname des Artikels korrigiert',
+ 'whatsNew.v3961.seo.desc': 'Sie sehen nun den korrekten Namen des Autors des Artikels, nicht mehr \'Redazione\'. Dies verbessert Klarheit und Transparenz.',
+ 'whatsNew.v3961.blog.title': 'Von Menschen geschriebene Artikel nicht mehr als AI gekennzeichnet',
+ 'whatsNew.v3961.blog.desc': 'Von Menschen geschriebene Artikel werden nicht mehr als \'AI-drafted\' gekennzeichnet. Dies vermeidet Verwirrung und stellt sicher, dass Sie wissen, wer den Artikel geschrieben hat.',
  'whatsNew.v3951.title': 'Interne Verbesserungen und Stabilität',
  'whatsNew.v3951.email.title': 'Zuverlässigere E-Mail-Zustellung',
  'whatsNew.v3951.email.desc': 'Wir haben die Kontrollen der E-Mail-Anbieterquoten verstärkt, damit auch bei gleichzeitig startenden Benachrichtigungen kein Limit überschritten wird.',

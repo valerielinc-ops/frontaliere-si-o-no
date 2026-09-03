@@ -2857,6 +2857,11 @@ Regole:
  'consultingCta.article.button': 'Prenota una consulenza',
 
  // v3.71.0 — potenziamento calcolatore
+ 'whatsNew.v3961.title': 'Aggiornamenti per una migliore esperienza utente',
+ 'whatsNew.v3961.seo.title': 'Corretto nome autore articolo',
+ 'whatsNew.v3961.seo.desc': 'Ora vedrai il nome corretto dell\'autore dell\'articolo, non più \'Redazione\'. Questo migliora la chiarezza e la trasparenza.',
+ 'whatsNew.v3961.blog.title': 'Articoli scritti da umani non etichettati come AI',
+ 'whatsNew.v3961.blog.desc': 'Gli articoli scritti da umani non saranno più etichettati come \'AI-drafted\'. Questo evita confusione e garantisce che tu sappia chi ha scritto l\'articolo.',
  'whatsNew.v3951.title': 'Miglioramenti interni e stabilità',
  'whatsNew.v3951.email.title': 'Invio email più affidabile',
  'whatsNew.v3951.email.desc': 'Abbiamo rafforzato i controlli sulle quote del provider email, evitando invii oltre i limiti anche quando più notifiche partono insieme.',
