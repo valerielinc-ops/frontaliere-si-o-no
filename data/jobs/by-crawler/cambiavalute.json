@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cambiavalute",
-  "assembledAt": "2026-09-03T13:52:24.876Z",
+  "assembledAt": "2026-09-03T23:39:26.207Z",
   "jobs": [
     {
       "id": "company-viaqie",
@@ -103,7 +103,8 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-a24znt",
@@ -195,7 +196,8 @@
           "sales-marketing-customer-support-assistant-mercato-francese-cambiavalute-ch-lugano"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-fooban",
@@ -222,7 +224,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-03T13:52:24.125Z",
+      "crawledAt": "2026-09-03T23:39:25.354Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "slugByLocale": {
         "it": "sales-marketing-customer-support-assistant-mercato-tedesco-cambiavalute-ch-chiasso-svizzera-posizione-esclusivamente-in-presenza-no-remote-w-fooban",
