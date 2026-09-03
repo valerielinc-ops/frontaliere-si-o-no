@@ -5287,6 +5287,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.benzina-diesel-massimi-anno-2026.title': 'Benzina e diesel ai massimi dell\'anno',
     'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d\'acqua Reno causano rincari: +20-26% da febbraio.',
     'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Pompa di carburante svizzera con display dei prezzi di benzina e diesel, illustrazione del tema dell\'articolo',
+    'blog.article.tardoc-medici-famiglia-svizzera.title': 'Medici di famiglia, il sistema tariffario TARDOC non convince',
+    'blog.article.tardoc-medici-famiglia-svizzera.excerpt': 'Dopo pochi mesi dall\'entrata in vigore, il nuovo sistema tariffario TARDOC per le prestazioni mediche ambulatoriali non convince medici di famiglia e pediatri.',
+    'blog.article.tardoc-medici-famiglia-svizzera.imageAlt': 'Vista aerea di Lugano con il lago e le montagne sullo sfondo',
 };
 
 export default blogMetaChIt;

@@ -15859,6 +15859,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tardoc-medici-famiglia-svizzera',
+    category: 'fiscale',
+    date: '2026-09-03T12:29:03.845Z',
+    image: '/images/blog/tardoc-medici-famiglia-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
