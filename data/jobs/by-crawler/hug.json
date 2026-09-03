@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hug",
-  "assembledAt": "2026-09-03T13:34:38.950Z",
+  "assembledAt": "2026-09-03T23:22:03.685Z",
   "jobs": [
     {
       "id": "hug-37020167bee2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000103028645-chef-ou-cheffe-de-clinique-en-radiologie-avec-titre-de-specialite-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.568Z",
+      "crawledAt": "2026-09-03T23:22:00.071Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000116950648-chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-urgences-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.567Z",
+      "crawledAt": "2026-09-03T23:22:00.068Z",
       "addressLocality": "Geneve",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000103028970-medecin-interne-en-radiologie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.567Z",
+      "crawledAt": "2026-09-03T23:22:00.070Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -285,7 +285,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000103227285-medecin-adjoint-ou-adjointe-avec-titre-de-specialite-en-radiologie-pediatrique-ou-chef-ou-cheffe-de-clinique-pour-une-formation-approfondie-en-radiologie-pediatrique-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.566Z",
+      "crawledAt": "2026-09-03T23:22:00.069Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -384,7 +384,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000127814549-medecin-interne-en-pediatrie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.565Z",
+      "crawledAt": "2026-09-03T23:22:00.066Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -465,7 +465,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000123894409-medecin-interne-au-service-de-medecine-de-premier-recours-50-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.565Z",
+      "crawledAt": "2026-09-03T23:22:00.067Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -544,7 +544,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000132120490-chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-neuro-monitorage-aux-soins-intensifs-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.564Z",
+      "crawledAt": "2026-09-03T23:22:00.063Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -629,7 +629,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000132123040-chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-de-neurologie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.563Z",
+      "crawledAt": "2026-09-03T23:22:00.064Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -708,7 +708,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000139543477-psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.562Z",
+      "crawledAt": "2026-09-03T23:22:00.062Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -835,7 +835,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-2f42cc8fd502",
@@ -945,7 +946,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-deff39cee74b",
@@ -978,7 +980,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000143054339-stage-administratif-transition-ecologique-dans-les-soins-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.551Z",
+      "crawledAt": "2026-09-03T23:22:00.050Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1057,7 +1059,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000142874780-secretaire-medical-ou-medicale-au-centre-des-affections-hepatobiliaires-et-pancreatiques-50-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.550Z",
+      "crawledAt": "2026-09-03T23:22:00.051Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1136,7 +1138,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000142593799-medecin-interne-en-dermatologie-et-venereologie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.550Z",
+      "crawledAt": "2026-09-03T23:22:00.051Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1215,7 +1217,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000143244874-chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-medecine-physique-et-readaptation-orthopedique-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.549Z",
+      "crawledAt": "2026-09-03T23:22:00.048Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1294,7 +1296,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000143244969-chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.549Z",
+      "crawledAt": "2026-09-03T23:22:00.049Z",
       "addressLocality": "Bernex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1394,7 +1396,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000143270079-chef-ou-cheffe-de-clinique-en-psychiatrie-avec-ou-sans-titre-de-specialite-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.547Z",
+      "crawledAt": "2026-09-03T23:22:00.047Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1473,7 +1475,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000143995165-psychologue-a-l-unite-d-hospitalisation-du-service-de-psychiatrie-de-l-enfant-et-de-l-adolescent-60-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.546Z",
+      "crawledAt": "2026-09-03T23:22:00.046Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1556,7 +1558,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000144025559-medecin-adjointe-ou-adjoint-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie-gynecologique-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.545Z",
+      "crawledAt": "2026-09-03T23:22:00.043Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1625,7 +1627,7 @@
         "de": "Logopedist im Dienste von ORL und CCF - 100%",
         "fr": "Logopédiste au service d'ORL et CCF - 100%"
       },
-      "description": "Vous fournissez des prestations d’évaluation et rééducation aux personnes adultes, soit hospitalisés, soit en ambulatoire, souffrant d'une atteinte du système nerveux central ou périphérique dans les domaines de la voix, de la parole et de la déglutition.\n \n• Votre mission consiste à amener les patients et les patientes à l'indépendance et à l'intégration sociale et professionnelle la mieux adaptée.\n Vous assurez la transmission de conseils personnalisés aux patients, patientes et à leurs proches.\n Vous participez activement aux échanges interdisciplinaires avec les autres thérapeutes, les équipes soignantes et le personnel médical.",
+      "description": "Vous fournissez des prestations d’évaluation et rééducation aux personnes adultes, soit hospitalisés, soit en ambulatoire, souffrant d'une atteinte du système nerveux central ou périphérique dans les domaines de la voix, de la parole et de la déglutition.\n\n• Votre mission consiste à amener les patients et les patientes à l'indépendance et à l'intégration sociale et professionnelle la mieux adaptée.\n Vous assurez la transmission de conseils personnalisés aux patients, patientes et à leurs proches.\n Vous participez activement aux échanges interdisciplinaires avec les autres thérapeutes, les équipes soignantes et le personnel médical.",
       "descriptionByLocale": {
         "it": "Fornisci servizi di valutazione e riabilitazione agli adulti, sia in ospedale che in ambienti ambulatoriali, con un sistema nervoso centrale o periferico nelle aree di voce, discorso e deglutizione.\n\n• La vostra missione è di portare i pazienti alla più appropriata indipendenza e integrazione sociale e professionale.\nFornisci consigli personalizzati ai pazienti, ai pazienti e ai loro cari.\nSei attivamente coinvolto in scambi interdisciplinari con altri terapisti, team sanitari e personale medico.",
         "en": "You provide assessment and rehabilitation services to adults, either in hospital or in outpatient settings, with a central or peripheral nervous system in the areas of voice, speech and swallowing.\n\n• Your mission is to bring patients to the most appropriate independence and social and professional integration.\nYou provide personalized advice to patients, patients and their loved ones.\nYou are actively involved in interdisciplinary exchanges with other therapists, healthcare teams and medical staff.",
@@ -1680,7 +1682,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-f514c6aec33b",
@@ -1756,7 +1759,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "hug-68939d303f3a",
@@ -1789,7 +1793,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000144697469-physiotherapeute-au-departement-de-medecine-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.543Z",
+      "crawledAt": "2026-09-03T23:22:00.041Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1868,7 +1872,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000144697969-cheffe-ou-chef-de-projet-strategique-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.542Z",
+      "crawledAt": "2026-09-03T23:22:00.038Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1976,7 +1980,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000144697749-chefs-ou-cheffes-de-projet-en-ingenierie-pedagogique-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.542Z",
+      "crawledAt": "2026-09-03T23:22:00.040Z",
       "addressLocality": "Chêne-Bourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2055,7 +2059,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145294919-gestionnaire-rh-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.540Z",
+      "crawledAt": "2026-09-03T23:22:00.037Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2134,7 +2138,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145687362-collaborateur-ou-collaboratrice-scientifique-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.539Z",
+      "crawledAt": "2026-09-03T23:22:00.035Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2234,7 +2238,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145503830-stage-pre-hes-ingenierie-des-sciences-du-vivant-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.539Z",
+      "crawledAt": "2026-09-03T23:22:00.036Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2314,7 +2318,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145699904-chef-ou-cheffe-de-clinique-en-readaptation-et-geriatrie-50-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.538Z",
+      "crawledAt": "2026-09-03T23:22:00.031Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2378,7 +2382,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145686305-dieteticien-ou-dieteticienne-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.537Z",
+      "crawledAt": "2026-09-03T23:22:00.033Z",
       "addressLocality": "Chêne-Bourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2442,7 +2446,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145910000-analyste-en-informatique-90-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.536Z",
+      "crawledAt": "2026-09-03T23:22:00.030Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2506,7 +2510,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146164609-secretaire-de-medecin-chef-ou-cheffe-de-service-de-pediatrie-generale-90-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.535Z",
+      "crawledAt": "2026-09-03T23:22:00.028Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2570,7 +2574,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000145910669-secretaire-medical-ou-medicale-au-service-de-chirurgie-cardiovasculaire-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.534Z",
+      "crawledAt": "2026-09-03T23:22:00.027Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2634,7 +2638,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146475432-gestionnaire-en-logistique-au-departement-de-medecine-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.533Z",
+      "crawledAt": "2026-09-03T23:22:00.024Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2698,7 +2702,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146164669-secretaire-mobile-et-polyvalente-ou-polyvalent-pour-l-hopital-des-enfants-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.532Z",
+      "crawledAt": "2026-09-03T23:22:00.025Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2762,7 +2766,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146473802-aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.531Z",
+      "crawledAt": "2026-09-03T23:22:00.023Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2826,7 +2830,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146476589-assistante-ou-assistant-de-la-responsable-des-soins-de-la-division-privee-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.528Z",
+      "crawledAt": "2026-09-03T23:22:00.021Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2890,7 +2894,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146796609-assistante-ou-assistant-social-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.526Z",
+      "crawledAt": "2026-09-03T23:22:00.019Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -2977,7 +2981,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146796689-responsable-du-service-d-information-decisionnelle-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.522Z",
+      "crawledAt": "2026-09-03T23:22:00.013Z",
       "addressLocality": "Chêne-Bourg",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3041,7 +3045,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146712300-chef-ou-cheffe-de-clinique-avec-titre-de-specialite-en-pneumologie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.520Z",
+      "crawledAt": "2026-09-03T23:22:00.018Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3105,7 +3109,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146796839-technologue-en-dispositifs-medicaux-ou-technicienne-ou-technicien-en-sterilisation-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.518Z",
+      "crawledAt": "2026-09-03T23:22:00.010Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3169,7 +3173,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146797139-responsable-d-equipe-de-soins-uua-90-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.517Z",
+      "crawledAt": "2026-09-03T23:22:00.003Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3233,7 +3237,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146797239-infirmier-ou-infirmiere-service-de-medecine-tropicale-et-humanitaire-smth-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.515Z",
+      "crawledAt": "2026-09-03T23:22:00.001Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3297,7 +3301,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146797029-responsable-d-equipe-de-soins-uetp-udmpr-smth-80-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.514Z",
+      "crawledAt": "2026-09-03T23:22:00.007Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3361,7 +3365,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000146896810-dieteticien-ou-dieteticienne-responsable-de-secteur-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.511Z",
+      "crawledAt": "2026-09-03T23:21:59.979Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3460,7 +3464,7 @@
       "url": "https://jobs.smartrecruiters.com/HUG/744000147009829-medecin-adjoint-ou-medecin-adjointe-au-service-de-gastroenterologie-et-d-hepatologie-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:34:35.503Z",
+      "crawledAt": "2026-09-03T23:21:59.997Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3502,37 +3506,103 @@
       }
     },
     {
-      "id": "hug-296f4e133b95",
-      "slug": "infermiera-palliative-care-80-al-100-hug-geneve",
+      "id": "hug-9827910ebb22",
+      "slug": "stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-hug-geneve",
       "slugByLocale": {
-        "it": "infermiera-palliative-care-80-al-100-hug-geneve",
-        "en": "palliative-care-nurse-80-to-100-hug-geneve",
-        "de": "palliative-care-nurse-80-bis-100-hug-geneve",
-        "fr": "infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-hug-geneve"
+        "fr": "stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-hug-geneve",
+        "it": "stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-hug-geneve",
+        "en": "stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-hug-geneve",
+        "de": "stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
       "companyDomain": "hug.ch",
-      "title": "Infirmier ou Infirmière en soins palliatifs - 80% à 100%",
+      "title": "Stage en psychologie de la santé au sein du programme DynamO - 50 % à 100 %",
       "titleByLocale": {
-        "it": "Infermiera Palliative Care - 80% al 100%",
-        "en": "Palliative Care Nurse - 80% to 100%",
-        "de": "Palliative Care Nurse - 80% bis 100%",
-        "fr": "Infirmier ou Infirmière en soins palliatifs - 80% à 100%"
+        "fr": "Stage en psychologie de la santé au sein du programme DynamO - 50 % à 100 %",
+        "it": "Stage en psychologie de la santé au sein du programme DynamO - 50 % à 100 %",
+        "en": "Stage en psychologie de la santé au sein du programme DynamO - 50 % à 100 %",
+        "de": "Stage en psychologie de la santé au sein du programme DynamO - 50 % à 100 %"
       },
-      "description": "En qualité d’infirmier ou d’infirmière en unité de soins palliatifs à la Clinique de Joli-Mont, vous assurez de manière autonome, ainsi qu’en interdisciplinarité, la prise en charge globale et personnalisée des patientes et patients nécessitant des soins techniques et complexes.\n Dans ce cadre, vous identifiez la complexité et adaptez les soins en fonction des besoins psychiques, physiques et spirituels des patients et patientes en tenant compte de leurs proches. Vous utilisez les outils adaptés à leur prise en charge et effectuez des transmissions orales et écrites succinctes et personnalisées pour le suivi, notamment sur DPI.\n Vous exercez également une fonction d’encadrement et d’enseignement auprès des personnes en formation et des nouveaux collaborateurs et collaboratrices.\n Le poste s’inscrit dans une dynamique de collaboration interservices et comprend un tournus au sein d’un autre service de soins palliatifs (COSPA), favorisant le partage de pratiques et le développement des compétences.\n Enfin, vous contribuez au développement de la qualité des soins et menez une réflexion professionnelle basée sur l’analyse des pratiques de soins infirmiers.",
+      "description": "En tant que stagiaire, vous accompagnez l’équipe du programme dans l’amélioration de l’utilisation des théories et outils de la science de l’implémentation et de l’accompagnement au changement dans les pratiques quotidiennes.\n Vous effectuez une recherche bibliographique structurée et synthétique en lien avec la science de l’implémentation et l’accompagnement au changement\n Vous conduisez des entretiens et organisez des focus groups pour analyser les difficultés et freins à l’implémentation des bonnes pratiques. Vous construisez des stratégies d’implémentation avec accompagnement au changement.\n Vous développez une méthodologie généralisée basée sur l’expérience effectuée pour une diffusion plus large de la pratique\n Vous participez à la rédaction d’un article sur le travail effectué en vue d’une publication",
       "descriptionByLocale": {
-        "it": "En qualité d’infirmier ou d’infirmière en unité de soins palliatifs à la Clinique de Joli-Mont, vous assurez de manière autonome, ainsi qu’en interdisciplinarité, la prise en charge globale et personnalisée des patientes et patients nécessitant des soins techniques et complexes.\nDans ce cadre, vous identifiez la complexité et adaptez les soins en fonction des besoins psychiques, physiques et spirituels des patients et patientes en tenant compte de leurs proches. Vous utilisez les outils adaptés à leur prise en charge et effectuez des transmissions orales et écrites succinctes et personnalisées pour le suivi, notamment sur DPI.\nVous exercez également une fonction d’encadrement et d’enseignement auprès des personnes en formation et des nouveaux collaborateurs et collaboratrices.\nLe poste s’inscrit dans une dynamique de collaboration interservices et comprend un tournus au sein d’un autre service de soins palliatifs (COSPA), favorisant le partage de pratiques et le développement des compétences.\nEnfin, vous contribuez au développement de la qualité des soins et menez une réflexion professionnelle basée sur l’analyse des pratiques de soins infirmiers.",
-        "en": "En qualité d’infirmier ou d’infirmière en unité de soins palliatifs à la Clinique de Joli-Mont, vous assurez de manière autonome, ainsi qu’en interdisciplinarité, la prise en charge globale et personnalisée des patientes et patients nécessitant des soins techniques et complexes.\nDans ce cadre, vous identifiez la complexité et adaptez les soins en fonction des besoins psychiques, physiques et spirituels des patients et patientes en tenant compte de leurs proches. Vous utilisez les outils adaptés à leur prise en charge et effectuez des transmissions orales et écrites succinctes et personnalisées pour le suivi, notamment sur DPI.\nVous exercez également une fonction d’encadrement et d’enseignement auprès des personnes en formation et des nouveaux collaborateurs et collaboratrices.\nLe poste s’inscrit dans une dynamique de collaboration interservices et comprend un tournus au sein d’un autre service de soins palliatifs (COSPA), favorisant le partage de pratiques et le développement des compétences.\nEnfin, vous contribuez au développement de la qualité des soins et menez une réflexion professionnelle basée sur l’analyse des pratiques de soins infirmiers.",
-        "de": "En qualité d’infirmier ou d’infirmière en unité de soins palliatifs à la Clinique de Joli-Mont, vous assurez de manière autonome, ainsi qu’en interdisciplinarité, la prise en charge globale et personnalisée des patientes et patients nécessitant des soins techniques et complexes.\nDans ce cadre, vous identifiez la complexité et adaptez les soins en fonction des besoins psychiques, physiques et spirituels des patients et patientes en tenant compte de leurs proches. Vous utilisez les outils adaptés à leur prise en charge et effectuez des transmissions orales et écrites succinctes et personnalisées pour le suivi, notamment sur DPI.\nVous exercez également une fonction d’encadrement et d’enseignement auprès des personnes en formation et des nouveaux collaborateurs et collaboratrices.\nLe poste s’inscrit dans une dynamique de collaboration interservices et comprend un tournus au sein d’un autre service de soins palliatifs (COSPA), favorisant le partage de pratiques et le développement des compétences.\nEnfin, vous contribuez au développement de la qualité des soins et menez une réflexion professionnelle basée sur l’analyse des pratiques de soins infirmiers.",
-        "fr": "En qualité d’infirmier ou d’infirmière en unité de soins palliatifs à la Clinique de Joli-Mont, vous assurez de manière autonome, ainsi qu’en interdisciplinarité, la prise en charge globale et personnalisée des patientes et patients nécessitant des soins techniques et complexes.\nDans ce cadre, vous identifiez la complexité et adaptez les soins en fonction des besoins psychiques, physiques et spirituels des patients et patientes en tenant compte de leurs proches. Vous utilisez les outils adaptés à leur prise en charge et effectuez des transmissions orales et écrites succinctes et personnalisées pour le suivi, notamment sur DPI.\nVous exercez également une fonction d’encadrement et d’enseignement auprès des personnes en formation et des nouveaux collaborateurs et collaboratrices.\nLe poste s’inscrit dans une dynamique de collaboration interservices et comprend un tournus au sein d’un autre service de soins palliatifs (COSPA), favorisant le partage de pratiques et le développement des compétences.\nEnfin, vous contribuez au développement de la qualité des soins et menez une réflexion professionnelle basée sur l’analyse des pratiques de soins infirmiers."
+        "fr": "En tant que stagiaire, vous accompagnez l’équipe du programme dans l’amélioration de l’utilisation des théories et outils de la science de l’implémentation et de l’accompagnement au changement dans les pratiques quotidiennes.\n Vous effectuez une recherche bibliographique structurée et synthétique en lien avec la science de l’implémentation et l’accompagnement au changement\n Vous conduisez des entretiens et organisez des focus groups pour analyser les difficultés et freins à l’implémentation des bonnes pratiques. Vous construisez des stratégies d’implémentation avec accompagnement au changement.\n Vous développez une méthodologie généralisée basée sur l’expérience effectuée pour une diffusion plus large de la pratique\n Vous participez à la rédaction d’un article sur le travail effectué en vue d’une publication",
+        "it": "En tant que stagiaire, vous accompagnez l’équipe du programme dans l’amélioration de l’utilisation des théories et outils de la science de l’implémentation et de l’accompagnement au changement dans les pratiques quotidiennes.\n Vous effectuez une recherche bibliographique structurée et synthétique en lien avec la science de l’implémentation et l’accompagnement au changement\n Vous conduisez des entretiens et organisez des focus groups pour analyser les difficultés et freins à l’implémentation des bonnes pratiques. Vous construisez des stratégies d’implémentation avec accompagnement au changement.\n Vous développez une méthodologie généralisée basée sur l’expérience effectuée pour une diffusion plus large de la pratique\n Vous participez à la rédaction d’un article sur le travail effectué en vue d’une publication",
+        "en": "En tant que stagiaire, vous accompagnez l’équipe du programme dans l’amélioration de l’utilisation des théories et outils de la science de l’implémentation et de l’accompagnement au changement dans les pratiques quotidiennes.\n Vous effectuez une recherche bibliographique structurée et synthétique en lien avec la science de l’implémentation et l’accompagnement au changement\n Vous conduisez des entretiens et organisez des focus groups pour analyser les difficultés et freins à l’implémentation des bonnes pratiques. Vous construisez des stratégies d’implémentation avec accompagnement au changement.\n Vous développez une méthodologie généralisée basée sur l’expérience effectuée pour une diffusion plus large de la pratique\n Vous participez à la rédaction d’un article sur le travail effectué en vue d’une publication",
+        "de": "En tant que stagiaire, vous accompagnez l’équipe du programme dans l’amélioration de l’utilisation des théories et outils de la science de l’implémentation et de l’accompagnement au changement dans les pratiques quotidiennes.\n Vous effectuez une recherche bibliographique structurée et synthétique en lien avec la science de l’implémentation et l’accompagnement au changement\n Vous conduisez des entretiens et organisez des focus groups pour analyser les difficultés et freins à l’implémentation des bonnes pratiques. Vous construisez des stratégies d’implémentation avec accompagnement au changement.\n Vous développez une méthodologie généralisée basée sur l’expérience effectuée pour une diffusion plus large de la pratique\n Vous participez à la rédaction d’un article sur le travail effectué en vue d’une publication"
       },
       "location": "Genève",
       "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/HUG/744000144240249-infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-?oga=true",
+      "url": "https://jobs.smartrecruiters.com/HUG/744000147313374-stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-?oga=true",
       "source": "HUG Dedicated Parser (SmartRecruiters API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:39:08.193Z",
+      "crawledAt": "2026-09-03T23:21:59.999Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://jobs.smartrecruiters.com/HUG/744000147313374-stage-en-psychologie-de-la-sante-au-sein-du-programme-dynamo-50-a-100-?oga=true",
+      "jobReqId": "744000147313374",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57000,
+      "salaryMax": 97000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57000,
+          "maxValue": 97000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:21:59.999Z"
+    },
+    {
+      "id": "hug-b3d417f7d8dc",
+      "slug": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-hug",
+      "slugByLocale": {
+        "fr": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-hug",
+        "it": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-hug",
+        "en": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-hug",
+        "de": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-hug"
+      },
+      "company": "HUG",
+      "companyKey": "hug",
+      "companyDomain": "hug.ch",
+      "title": "Chef ou Cheffe de clinique avec titre de spécialité pour une spécialisation rachis - 100%",
+      "titleByLocale": {
+        "fr": "Chef ou Cheffe de clinique avec titre de spécialité pour une spécialisation rachis - 100%",
+        "it": "Chef ou Cheffe de clinique avec titre de spécialité pour une spécialisation rachis - 100%",
+        "en": "Chef ou Cheffe de clinique avec titre de spécialité pour une spécialisation rachis - 100%",
+        "de": "Chef ou Cheffe de clinique avec titre de spécialité pour une spécialisation rachis - 100%"
+      },
+      "description": "En tant que cheffe ou chef de clinique titulaire du titre de spécialiste en chirurgie orthopédique, vous rejoignez l’unité de chirurgie du rachis dans le cadre d’une spécialisation. Cette unité réalise environ 350 interventions de chirurgie de la colonne vertébrale par an, en collaboration avec l’unité d’orthopédie et traumatologie pédiatriques. Elle bénéficie d’une reconnaissance internationale, particulièrement dans les domaines de l’endoscopie rachidienne, de la chirurgie des déformations complexes et de la traumatologie du rachis.\n Dans cette fonction, vous assurez une activité clinique complète, incluant les interventions chirurgicales et la prise en charge des patientes et patients intrahospitaliers. Vous contribuez également activement aux projets de l’unité.\n Vous faites preuve de rigueur, de sens clinique et d’une grande capacité d’analyse dans la prise en charge de situations parfois complexes, y compris dans la gestion des complications à court terme. Grâce à votre sens de l’organisation et à votre capacité à prioriser, vous assurez efficacement vos activités cliniques tout en répondant aux sollicitations multiples (patients et patientes, téléphones, correspondances, réunions).\n Vous évoluez dans un environnement exigeant, à l’interface des soins, de l’enseignement et de la recherche. À ce titre, vous collaborez étroitement avec l’ensemble de l’équipe médico-soignante et veillez à une communication claire, fluide et respectueuse, tant avec vos collègues qu’avec les patientes et patients, en adaptant votre discours à leur compréhension.\n En vous appuyant sur votre esprit d’équipe, vous faites preuve de solidarité face aux imprévus et aux charges de travail élevées. En tant que cheffe ou chef de clinique, vous participez activement à la supervision et à la formation des médecins internes, en adoptant une posture de mentorat et en partageant votre expertise.\n Vous prenez part aux gardes de l’unité de chirurgie du rachis, dans un dispositif coordonné avec le Service de neurochirurgie, notamment dans le cadre de la garde commune pour les urgences rachidiennes.\n L’activité clinique s’inscrit dans un parcours de formation postgraduée structuré et exigeant, visant la spécialisation en chirurgie de la colonne vertébrale. Cet environnement offre des opportunités de développement reconnues, incluant des formations pratiques et théoriques de haut niveau, notamment à travers des collaborations avec la SFITS (Swiss Foundation for Innovation and Training in Surgery).",
+      "descriptionByLocale": {
+        "fr": "En tant que cheffe ou chef de clinique titulaire du titre de spécialiste en chirurgie orthopédique, vous rejoignez l’unité de chirurgie du rachis dans le cadre d’une spécialisation. Cette unité réalise environ 350 interventions de chirurgie de la colonne vertébrale par an, en collaboration avec l’unité d’orthopédie et traumatologie pédiatriques. Elle bénéficie d’une reconnaissance internationale, particulièrement dans les domaines de l’endoscopie rachidienne, de la chirurgie des déformations complexes et de la traumatologie du rachis.\n Dans cette fonction, vous assurez une activité clinique complète, incluant les interventions chirurgicales et la prise en charge des patientes et patients intrahospitaliers. Vous contribuez également activement aux projets de l’unité.\n Vous faites preuve de rigueur, de sens clinique et d’une grande capacité d’analyse dans la prise en charge de situations parfois complexes, y compris dans la gestion des complications à court terme. Grâce à votre sens de l’organisation et à votre capacité à prioriser, vous assurez efficacement vos activités cliniques tout en répondant aux sollicitations multiples (patients et patientes, téléphones, correspondances, réunions).\n Vous évoluez dans un environnement exigeant, à l’interface des soins, de l’enseignement et de la recherche. À ce titre, vous collaborez étroitement avec l’ensemble de l’équipe médico-soignante et veillez à une communication claire, fluide et respectueuse, tant avec vos collègues qu’avec les patientes et patients, en adaptant votre discours à leur compréhension.\n En vous appuyant sur votre esprit d’équipe, vous faites preuve de solidarité face aux imprévus et aux charges de travail élevées. En tant que cheffe ou chef de clinique, vous participez activement à la supervision et à la formation des médecins internes, en adoptant une posture de mentorat et en partageant votre expertise.\n Vous prenez part aux gardes de l’unité de chirurgie du rachis, dans un dispositif coordonné avec le Service de neurochirurgie, notamment dans le cadre de la garde commune pour les urgences rachidiennes.\n L’activité clinique s’inscrit dans un parcours de formation postgraduée structuré et exigeant, visant la spécialisation en chirurgie de la colonne vertébrale. Cet environnement offre des opportunités de développement reconnues, incluant des formations pratiques et théoriques de haut niveau, notamment à travers des collaborations avec la SFITS (Swiss Foundation for Innovation and Training in Surgery).",
+        "it": "En tant que cheffe ou chef de clinique titulaire du titre de spécialiste en chirurgie orthopédique, vous rejoignez l’unité de chirurgie du rachis dans le cadre d’une spécialisation. Cette unité réalise environ 350 interventions de chirurgie de la colonne vertébrale par an, en collaboration avec l’unité d’orthopédie et traumatologie pédiatriques. Elle bénéficie d’une reconnaissance internationale, particulièrement dans les domaines de l’endoscopie rachidienne, de la chirurgie des déformations complexes et de la traumatologie du rachis.\n Dans cette fonction, vous assurez une activité clinique complète, incluant les interventions chirurgicales et la prise en charge des patientes et patients intrahospitaliers. Vous contribuez également activement aux projets de l’unité.\n Vous faites preuve de rigueur, de sens clinique et d’une grande capacité d’analyse dans la prise en charge de situations parfois complexes, y compris dans la gestion des complications à court terme. Grâce à votre sens de l’organisation et à votre capacité à prioriser, vous assurez efficacement vos activités cliniques tout en répondant aux sollicitations multiples (patients et patientes, téléphones, correspondances, réunions).\n Vous évoluez dans un environnement exigeant, à l’interface des soins, de l’enseignement et de la recherche. À ce titre, vous collaborez étroitement avec l’ensemble de l’équipe médico-soignante et veillez à une communication claire, fluide et respectueuse, tant avec vos collègues qu’avec les patientes et patients, en adaptant votre discours à leur compréhension.\n En vous appuyant sur votre esprit d’équipe, vous faites preuve de solidarité face aux imprévus et aux charges de travail élevées. En tant que cheffe ou chef de clinique, vous participez activement à la supervision et à la formation des médecins internes, en adoptant une posture de mentorat et en partageant votre expertise.\n Vous prenez part aux gardes de l’unité de chirurgie du rachis, dans un dispositif coordonné avec le Service de neurochirurgie, notamment dans le cadre de la garde commune pour les urgences rachidiennes.\n L’activité clinique s’inscrit dans un parcours de formation postgraduée structuré et exigeant, visant la spécialisation en chirurgie de la colonne vertébrale. Cet environnement offre des opportunités de développement reconnues, incluant des formations pratiques et théoriques de haut niveau, notamment à travers des collaborations avec la SFITS (Swiss Foundation for Innovation and Training in Surgery).",
+        "en": "En tant que cheffe ou chef de clinique titulaire du titre de spécialiste en chirurgie orthopédique, vous rejoignez l’unité de chirurgie du rachis dans le cadre d’une spécialisation. Cette unité réalise environ 350 interventions de chirurgie de la colonne vertébrale par an, en collaboration avec l’unité d’orthopédie et traumatologie pédiatriques. Elle bénéficie d’une reconnaissance internationale, particulièrement dans les domaines de l’endoscopie rachidienne, de la chirurgie des déformations complexes et de la traumatologie du rachis.\n Dans cette fonction, vous assurez une activité clinique complète, incluant les interventions chirurgicales et la prise en charge des patientes et patients intrahospitaliers. Vous contribuez également activement aux projets de l’unité.\n Vous faites preuve de rigueur, de sens clinique et d’une grande capacité d’analyse dans la prise en charge de situations parfois complexes, y compris dans la gestion des complications à court terme. Grâce à votre sens de l’organisation et à votre capacité à prioriser, vous assurez efficacement vos activités cliniques tout en répondant aux sollicitations multiples (patients et patientes, téléphones, correspondances, réunions).\n Vous évoluez dans un environnement exigeant, à l’interface des soins, de l’enseignement et de la recherche. À ce titre, vous collaborez étroitement avec l’ensemble de l’équipe médico-soignante et veillez à une communication claire, fluide et respectueuse, tant avec vos collègues qu’avec les patientes et patients, en adaptant votre discours à leur compréhension.\n En vous appuyant sur votre esprit d’équipe, vous faites preuve de solidarité face aux imprévus et aux charges de travail élevées. En tant que cheffe ou chef de clinique, vous participez activement à la supervision et à la formation des médecins internes, en adoptant une posture de mentorat et en partageant votre expertise.\n Vous prenez part aux gardes de l’unité de chirurgie du rachis, dans un dispositif coordonné avec le Service de neurochirurgie, notamment dans le cadre de la garde commune pour les urgences rachidiennes.\n L’activité clinique s’inscrit dans un parcours de formation postgraduée structuré et exigeant, visant la spécialisation en chirurgie de la colonne vertébrale. Cet environnement offre des opportunités de développement reconnues, incluant des formations pratiques et théoriques de haut niveau, notamment à travers des collaborations avec la SFITS (Swiss Foundation for Innovation and Training in Surgery).",
+        "de": "En tant que cheffe ou chef de clinique titulaire du titre de spécialiste en chirurgie orthopédique, vous rejoignez l’unité de chirurgie du rachis dans le cadre d’une spécialisation. Cette unité réalise environ 350 interventions de chirurgie de la colonne vertébrale par an, en collaboration avec l’unité d’orthopédie et traumatologie pédiatriques. Elle bénéficie d’une reconnaissance internationale, particulièrement dans les domaines de l’endoscopie rachidienne, de la chirurgie des déformations complexes et de la traumatologie du rachis.\n Dans cette fonction, vous assurez une activité clinique complète, incluant les interventions chirurgicales et la prise en charge des patientes et patients intrahospitaliers. Vous contribuez également activement aux projets de l’unité.\n Vous faites preuve de rigueur, de sens clinique et d’une grande capacité d’analyse dans la prise en charge de situations parfois complexes, y compris dans la gestion des complications à court terme. Grâce à votre sens de l’organisation et à votre capacité à prioriser, vous assurez efficacement vos activités cliniques tout en répondant aux sollicitations multiples (patients et patientes, téléphones, correspondances, réunions).\n Vous évoluez dans un environnement exigeant, à l’interface des soins, de l’enseignement et de la recherche. À ce titre, vous collaborez étroitement avec l’ensemble de l’équipe médico-soignante et veillez à une communication claire, fluide et respectueuse, tant avec vos collègues qu’avec les patientes et patients, en adaptant votre discours à leur compréhension.\n En vous appuyant sur votre esprit d’équipe, vous faites preuve de solidarité face aux imprévus et aux charges de travail élevées. En tant que cheffe ou chef de clinique, vous participez activement à la supervision et à la formation des médecins internes, en adoptant une posture de mentorat et en partageant votre expertise.\n Vous prenez part aux gardes de l’unité de chirurgie du rachis, dans un dispositif coordonné avec le Service de neurochirurgie, notamment dans le cadre de la garde commune pour les urgences rachidiennes.\n L’activité clinique s’inscrit dans un parcours de formation postgraduée structuré et exigeant, visant la spécialisation en chirurgie de la colonne vertébrale. Cet environnement offre des opportunités de développement reconnues, incluant des formations pratiques et théoriques de haut niveau, notamment à travers des collaborations avec la SFITS (Swiss Foundation for Innovation and Training in Surgery)."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/HUG/744000147305249-chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-?oga=true",
+      "source": "HUG Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:21:59.994Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -3540,33 +3610,18 @@
       "category": "Sanità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
+      "experienceLevel": "senior",
       "sector": "Sanità",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-19",
-      "applyUrl": "https://jobs.smartrecruiters.com/HUG/744000144240249-infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-?oga=true",
-      "jobReqId": "744000144240249",
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://jobs.smartrecruiters.com/HUG/744000147305249-chef-ou-cheffe-de-clinique-avec-titre-de-specialite-pour-une-specialisation-rachis-100-?oga=true",
+      "jobReqId": "744000147305249",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-hug-geneve",
-        "infermiera-palliative-care-80-al-100-hug-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-hug-geneve",
-          "infermiera-palliative-care-80-al-100-hug-geneve"
-        ],
-        "en": [
-          "infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-hug-geneve"
-        ],
-        "de": [
-          "infirmier-ou-infirmiere-en-soins-palliatifs-80-a-100-hug-geneve"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-19T09:48:53.676Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3580,7 +3635,73 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-09-03T23:21:59.994Z"
+    },
+    {
+      "id": "hug-5448cc048994",
+      "slug": "cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-hug-geneve",
+      "slugByLocale": {
+        "fr": "cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-hug-geneve",
+        "it": "cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-hug-geneve",
+        "en": "cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-hug-geneve",
+        "de": "cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-hug-geneve"
+      },
+      "company": "HUG",
+      "companyKey": "hug",
+      "companyDomain": "hug.ch",
+      "title": "Cheffe ou Chef de groupe maintenance biomédicale - 100%",
+      "titleByLocale": {
+        "fr": "Cheffe ou Chef de groupe maintenance biomédicale - 100%",
+        "it": "Cheffe ou Chef de groupe maintenance biomédicale - 100%",
+        "en": "Cheffe ou Chef de groupe maintenance biomédicale - 100%",
+        "de": "Cheffe ou Chef de groupe maintenance biomédicale - 100%"
+      },
+      "description": "Sous la responsabilité du chef du secteur maintenance biomédicale, vous faites partie d'une équipe de 4 chefs de groupe se répartissant le management des différentes équipes de référents, référentes et de techniciens et techniciennes de maintenance.\n Vous managez et encadrez des équipes techniques, et vous vous assurez de leur formation technique.\n Vous organisez, planifiez et priorisez la maintenance préventive et corrective des équipements confiés.\n Vous conseillez et assistez les référents, référentes, techniciens, techniciennes et les utilisateurs et utilisatrices.\n Vous contribuez à la mise en place d'une organisation tendant à améliorer la satisfaction de la clientèle et les performances du secteur.\n Vous mettez en place des plans de charge de travail et veillez à leur réalisation à l'aide d'indicateurs et tableaux de bords.\n Vous participez à la gestion rigoureuse des ressources et à la définition des solutions techniques et organisationnelles répondant au besoin et assurant le meilleur rapport qualité/coût.\n Vous collaborez avec les 3 autres chefs de groupe en charge des autres domaines de maintenance du secteur.\n Vous collaborez et échangez régulièrement avec les différents secteurs (support, ingénierie et qualité).\n Vous réalisez des études et des rapports techniques demandés par la hiérarchie.\n \n• Vos compétences de leadership (respect, écoute, esprit d'équipe, équité, reconnaissance, agilité), votre rigueur et authenticité vous confèrent une crédibilité qui vous permettra d'accompagner vos collaborateurs et collaboratrices en développant leur esprit d'équipe. Vous veillez à leur fournir des feedbacks réguliers pour développer leurs compétences.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être du personnel.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du secteur et l’ensemble des bonnes pratiques professionnelles.\n De nature positive, authentique et optimiste, orientée \"service clients\", vous savez motiver votre équipe et entretenir un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs professionnels.\n Vous actualisez les connaissances de votre équipe et les vôtres, relatives à votre domaine, par le biais de formations.",
+      "descriptionByLocale": {
+        "fr": "Sous la responsabilité du chef du secteur maintenance biomédicale, vous faites partie d'une équipe de 4 chefs de groupe se répartissant le management des différentes équipes de référents, référentes et de techniciens et techniciennes de maintenance.\n Vous managez et encadrez des équipes techniques, et vous vous assurez de leur formation technique.\n Vous organisez, planifiez et priorisez la maintenance préventive et corrective des équipements confiés.\n Vous conseillez et assistez les référents, référentes, techniciens, techniciennes et les utilisateurs et utilisatrices.\n Vous contribuez à la mise en place d'une organisation tendant à améliorer la satisfaction de la clientèle et les performances du secteur.\n Vous mettez en place des plans de charge de travail et veillez à leur réalisation à l'aide d'indicateurs et tableaux de bords.\n Vous participez à la gestion rigoureuse des ressources et à la définition des solutions techniques et organisationnelles répondant au besoin et assurant le meilleur rapport qualité/coût.\n Vous collaborez avec les 3 autres chefs de groupe en charge des autres domaines de maintenance du secteur.\n Vous collaborez et échangez régulièrement avec les différents secteurs (support, ingénierie et qualité).\n Vous réalisez des études et des rapports techniques demandés par la hiérarchie.\n \n• Vos compétences de leadership (respect, écoute, esprit d'équipe, équité, reconnaissance, agilité), votre rigueur et authenticité vous confèrent une crédibilité qui vous permettra d'accompagner vos collaborateurs et collaboratrices en développant leur esprit d'équipe. Vous veillez à leur fournir des feedbacks réguliers pour développer leurs compétences.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être du personnel.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du secteur et l’ensemble des bonnes pratiques professionnelles.\n De nature positive, authentique et optimiste, orientée \"service clients\", vous savez motiver votre équipe et entretenir un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs professionnels.\n Vous actualisez les connaissances de votre équipe et les vôtres, relatives à votre domaine, par le biais de formations.",
+        "it": "Sous la responsabilité du chef du secteur maintenance biomédicale, vous faites partie d'une équipe de 4 chefs de groupe se répartissant le management des différentes équipes de référents, référentes et de techniciens et techniciennes de maintenance.\n Vous managez et encadrez des équipes techniques, et vous vous assurez de leur formation technique.\n Vous organisez, planifiez et priorisez la maintenance préventive et corrective des équipements confiés.\n Vous conseillez et assistez les référents, référentes, techniciens, techniciennes et les utilisateurs et utilisatrices.\n Vous contribuez à la mise en place d'une organisation tendant à améliorer la satisfaction de la clientèle et les performances du secteur.\n Vous mettez en place des plans de charge de travail et veillez à leur réalisation à l'aide d'indicateurs et tableaux de bords.\n Vous participez à la gestion rigoureuse des ressources et à la définition des solutions techniques et organisationnelles répondant au besoin et assurant le meilleur rapport qualité/coût.\n Vous collaborez avec les 3 autres chefs de groupe en charge des autres domaines de maintenance du secteur.\n Vous collaborez et échangez régulièrement avec les différents secteurs (support, ingénierie et qualité).\n Vous réalisez des études et des rapports techniques demandés par la hiérarchie.\n \n• Vos compétences de leadership (respect, écoute, esprit d'équipe, équité, reconnaissance, agilité), votre rigueur et authenticité vous confèrent une crédibilité qui vous permettra d'accompagner vos collaborateurs et collaboratrices en développant leur esprit d'équipe. Vous veillez à leur fournir des feedbacks réguliers pour développer leurs compétences.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être du personnel.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du secteur et l’ensemble des bonnes pratiques professionnelles.\n De nature positive, authentique et optimiste, orientée \"service clients\", vous savez motiver votre équipe et entretenir un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs professionnels.\n Vous actualisez les connaissances de votre équipe et les vôtres, relatives à votre domaine, par le biais de formations.",
+        "en": "Sous la responsabilité du chef du secteur maintenance biomédicale, vous faites partie d'une équipe de 4 chefs de groupe se répartissant le management des différentes équipes de référents, référentes et de techniciens et techniciennes de maintenance.\n Vous managez et encadrez des équipes techniques, et vous vous assurez de leur formation technique.\n Vous organisez, planifiez et priorisez la maintenance préventive et corrective des équipements confiés.\n Vous conseillez et assistez les référents, référentes, techniciens, techniciennes et les utilisateurs et utilisatrices.\n Vous contribuez à la mise en place d'une organisation tendant à améliorer la satisfaction de la clientèle et les performances du secteur.\n Vous mettez en place des plans de charge de travail et veillez à leur réalisation à l'aide d'indicateurs et tableaux de bords.\n Vous participez à la gestion rigoureuse des ressources et à la définition des solutions techniques et organisationnelles répondant au besoin et assurant le meilleur rapport qualité/coût.\n Vous collaborez avec les 3 autres chefs de groupe en charge des autres domaines de maintenance du secteur.\n Vous collaborez et échangez régulièrement avec les différents secteurs (support, ingénierie et qualité).\n Vous réalisez des études et des rapports techniques demandés par la hiérarchie.\n \n• Vos compétences de leadership (respect, écoute, esprit d'équipe, équité, reconnaissance, agilité), votre rigueur et authenticité vous confèrent une crédibilité qui vous permettra d'accompagner vos collaborateurs et collaboratrices en développant leur esprit d'équipe. Vous veillez à leur fournir des feedbacks réguliers pour développer leurs compétences.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être du personnel.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du secteur et l’ensemble des bonnes pratiques professionnelles.\n De nature positive, authentique et optimiste, orientée \"service clients\", vous savez motiver votre équipe et entretenir un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs professionnels.\n Vous actualisez les connaissances de votre équipe et les vôtres, relatives à votre domaine, par le biais de formations.",
+        "de": "Sous la responsabilité du chef du secteur maintenance biomédicale, vous faites partie d'une équipe de 4 chefs de groupe se répartissant le management des différentes équipes de référents, référentes et de techniciens et techniciennes de maintenance.\n Vous managez et encadrez des équipes techniques, et vous vous assurez de leur formation technique.\n Vous organisez, planifiez et priorisez la maintenance préventive et corrective des équipements confiés.\n Vous conseillez et assistez les référents, référentes, techniciens, techniciennes et les utilisateurs et utilisatrices.\n Vous contribuez à la mise en place d'une organisation tendant à améliorer la satisfaction de la clientèle et les performances du secteur.\n Vous mettez en place des plans de charge de travail et veillez à leur réalisation à l'aide d'indicateurs et tableaux de bords.\n Vous participez à la gestion rigoureuse des ressources et à la définition des solutions techniques et organisationnelles répondant au besoin et assurant le meilleur rapport qualité/coût.\n Vous collaborez avec les 3 autres chefs de groupe en charge des autres domaines de maintenance du secteur.\n Vous collaborez et échangez régulièrement avec les différents secteurs (support, ingénierie et qualité).\n Vous réalisez des études et des rapports techniques demandés par la hiérarchie.\n \n• Vos compétences de leadership (respect, écoute, esprit d'équipe, équité, reconnaissance, agilité), votre rigueur et authenticité vous confèrent une crédibilité qui vous permettra d'accompagner vos collaborateurs et collaboratrices en développant leur esprit d'équipe. Vous veillez à leur fournir des feedbacks réguliers pour développer leurs compétences.\n Votre sens de l'organisation et de la planification vous garantit la prise en charge des dispositifs médicaux selon les ressources et les besoins des différents secteurs tout en veillant à l'équilibre entre les besoins de production et le bien-être du personnel.\n Sensible à la présence de la patientèle et aux contraintes hospitalières, vous supervisez et faites respecter l’application des procédures et protocoles définis dans le système assurance qualité du secteur et l’ensemble des bonnes pratiques professionnelles.\n De nature positive, authentique et optimiste, orientée \"service clients\", vous savez motiver votre équipe et entretenir un climat de partenariat afin de gérer de manière proactive des situations complexes impliquant plusieurs acteurs professionnels.\n Vous actualisez les connaissances de votre équipe et les vôtres, relatives à votre domaine, par le biais de formations."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/HUG/744000147301840-cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-?oga=true",
+      "source": "HUG Dedicated Parser (SmartRecruiters API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:21:59.990Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://jobs.smartrecruiters.com/HUG/744000147301840-cheffe-ou-chef-de-groupe-maintenance-biomedicale-100-?oga=true",
+      "jobReqId": "744000147301840",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:21:59.990Z"
     }
   ]
 }
