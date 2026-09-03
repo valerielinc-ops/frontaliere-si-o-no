@@ -11258,6 +11258,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Living in Gravedona and the United States, working in Ticino as a border worker',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Border crossing from Gravedona and the United States to Ticino: taxation, permits, New Agreement, contributions and what to evaluate before moving.',
     'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'View of Ticino from Gravedona: Ceresio waterfront with mountains, Ticino jurisdiction visible across border',
+    'blog.article.cambio-cantone-tasse-frontaliere.title': 'Changing working canton: tax guide',
+    'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'The transfer from one Swiss canton to another affects permission, taxation and contributions. Learn how the New 2024 Agreement changes the rules.',
+    'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Lugano cityscape from Monte San Salvatore, capital of Canton Ticino',
 };
 
 export default blogMetaEn;
