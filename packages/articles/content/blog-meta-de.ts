@@ -11207,6 +11207,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-dichiarazione-730-2026.title': 'Frontend: Erklärung 730 und Steuergutschrift',
     'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Ein praktischer Leitfaden zur Abgabe der Steuererklärung 730 für Grenzgänger im Jahr 2026: Wie man die Steuergutschrift erhält, Doppelbesteuerung vermeidet und welche neuen Ausnahmen es im Rahmen des neuen Abkommens gibt.',
     'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Italienisches Steuerformular 730 mit Dokumenten, Taschenrechner und Schweizer Banknoten auf Schreibtisch',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.title': 'Steuerabzüge für Grenzgänger 2026',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.excerpt': 'Steuerabzüge und -gutschriften für diejenigen, die in der Schweiz arbeiten und in Italien wohnen: Selbstbehalte€ 7.500- € 10.000, CE-Rahmen, Steuererklärung.',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.imageAlt': 'Luftaufnahme von Mendrisio und der Schweizer-italienischen Zollgrenze',
 };
 
 export default blogMetaDe;

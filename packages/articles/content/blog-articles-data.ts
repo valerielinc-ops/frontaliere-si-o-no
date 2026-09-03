@@ -33492,6 +33492,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-tassazione-crediti-detrazioni',
+ category: 'fiscale',
+ date: '2026-09-03T09:20:21.947Z',
+ image: '/images/blog/frontaliere-tassazione-crediti-detrazioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

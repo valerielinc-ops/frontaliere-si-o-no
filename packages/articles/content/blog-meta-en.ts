@@ -11208,6 +11208,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-dichiarazione-730-2026.title': 'Cross-border workers: 730 tax return and tax credit',
     'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Practical guide to the 730 declaration for border workers 2026: how to obtain the tax credit, avoid double taxation, new deductibles from the New Agreement.',
     'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Italian tax form 730 with fiscal documents, calculator and Swiss banknotes on wooden desk',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.title': 'Tax deductions for border workers 2026',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.excerpt': 'Deductions and tax credits for those who work in Switzerland and reside in Italy: deductibles €7,500-€10,000, EC framework, tax return.',
+    'blog.article.frontaliere-tassazione-crediti-detrazioni.imageAlt': 'Aerial view of Mendrisio and Swiss-Italian customs border crossing in daylight',
 };
 
 export default blogMetaEn;
