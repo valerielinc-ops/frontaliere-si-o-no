@@ -11223,6 +11223,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mutuo-frontaliere-procedura-completa.title': 'Mutuo casa per frontalieri: requisiti e procedura in Svizzera',
     'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
     'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Ufficio bancario moderno in Ticino con documenti mutuo, vista su Lugano sullo sfondo',
+    'blog.article.passante-milano-treno-evacuati.title': 'Treno Varese bloccato nel passante di Milano: disagi alla S5',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. La S5, linea cruciale per pendolari ticinesi verso Milano e l\'hinterland, deviata su percorso alternativo.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Treno fermo nel passante di Milano durante evacuazione di passeggeri a causa di guasto elettrico il 3 settembre.',
 };
 
 export default blogMetaIt;

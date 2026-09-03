@@ -11222,6 +11222,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mutuo-frontaliere-procedura-completa.title': 'Mortgage for cross-border commuters: requirements and procedure in Switzerland',
     'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Practical guide for frontier workers: how to obtain a mortgage loan in Switzerland, necessary documentation, tax at source and step-by-step procedures.',
     'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modern bank office in Ticino with mortgage documents, view of Lake Lugano in the background',
+    'blog.article.passante-milano-treno-evacuati.title': 'Varese train blocked in Milan bypass: inconveniences at S5',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Approximately 400 passengers evacuated on 3 September from the Milan passerby. The S5, a crucial line for Ticino commuters to Milan and the hinterland, diverted to an alternative route.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Train halted in Milan interchange after electrical fault, evacuation of passengers on September 3, 2026.',
 };
 
 export default blogMetaEn;

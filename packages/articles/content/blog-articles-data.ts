@@ -33528,6 +33528,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'passante-milano-treno-evacuati',
+ category: 'novita',
+ date: '2026-09-03T12:36:52.309Z',
+ image: '/images/blog/passante-milano-treno-evacuati.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -83960,6 +83960,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-passante-milano-treno-evacuati': {
+    title: 'Treno Varese bloccato nel passante di Milano: disagi alla S5',
+    description: 'Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. S5 deviata. Disagi per pendolari ticinesi verso Milano e Varese. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, varese, bloccato, passante',
+    ogTitle: 'Treno Varese bloccato: 400 evacuati nel passante di Milano',
+    ogDescription: 'Disservizio critico il 3 settembre: treno bloccato a Milano Lancetti per guasto elettrico durante lavori in galleria. La S5, linea fondamentale per frontalieri ticinesi, deviata. Trenord ha riprogrammato il servizio con cancellazioni e percorsi',
+    canonicalPath: '/articoli-frontaliere/passante-milano-treno-evacuati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno Varese bloccato nel passante di Milano: disagi alla S5",
+      "description": "Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. S5 deviata. Disagi per pendolari ticinesi verso Milano e Varese. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/passante-milano-treno-evacuati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno fermo nel passante di Milano durante evacuazione di passeggeri a causa di guasto elettrico il 3 settembre."
+      },
+      "datePublished": "2026-09-03T12:36:52+00:00",
+      "dateModified": "2026-09-03T12:36:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passante-milano-treno-evacuati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
