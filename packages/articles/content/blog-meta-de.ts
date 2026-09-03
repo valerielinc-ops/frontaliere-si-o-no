@@ -11168,6 +11168,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-vione-lavorare-grigioni.title': 'Leben in Vione und Arbeiten in Graubünden: Grenzgängerführer',
     'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Grenzgänger Vione-Graubünden: Steuern, Bewilligung G, Quellensteuer, KVG und Versicherungen. Vor- und Nachteile sowie praktische Checklisten für den Transfer.',
     'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Alpines Vallecamonica-Tal mit Blick auf Graubünden: Steinhäuser, Berge, Herbstlandschaft, Grenzregion.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Leben in Vilminore di Scalve und Arbeiten in Graubünden als Grenzgänger',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Vilminore di Scalve nach Graubünden.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

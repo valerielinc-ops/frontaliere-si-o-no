@@ -11169,6 +11169,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-vione-lavorare-grigioni.title': 'Living in Vione and working in Graubünden: a guide to the frontier',
     'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Frontier Vione-Grisioni: taxation, G permit, source tax, LAMal and insurance. Advantages, disadvantages and practical checklist for the transfer.',
     'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Alpine Vallecamonica landscape with view towards Graubünden: traditional stone houses, misty mountains, autumn setting.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Living in Vilminore di Scalve and working in Graubünden as a border worker',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of transferring from Vilminore di Scalve to Grisons.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background',
 };
 
 export default blogMetaEn;

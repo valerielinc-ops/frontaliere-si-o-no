@@ -11170,6 +11170,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-vione-lavorare-grigioni.title': 'Vivere a Vione e lavorare in Grigioni: guida del frontaliere',
     'blog.article.vivere-vione-lavorare-grigioni.excerpt': 'Frontaliere Vione-Grigioni: fiscalità, permesso G, imposta alla fonte, LAMal e assicurazioni. Vantaggi, svantaggi e checklist pratica per il trasferimento.',
     'blog.article.vivere-vione-lavorare-grigioni.imageAlt': 'Paesaggio alpino della Vallecamonica con vista verso i Grigioni: case tradizionali in pietra, monti nebbiosi, autunno.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.title': 'Vivere a Vilminore di Scalve e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Vilminore di Scalve ai Grigioni.',
+    'blog.article.vivere-vilminore-scalve-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
