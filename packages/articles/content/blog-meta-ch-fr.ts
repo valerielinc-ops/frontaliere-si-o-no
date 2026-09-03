@@ -5341,6 +5341,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.acquisto-immobiliare-lucerna-mutuo.title': 'Acheter une maison dans le canton de Lucerne : guide hypothécaire et taxes',
     'blog.article.acquisto-immobiliare-lucerna-mutuo.excerpt': 'Comment fonctionne l\'achat immobilier dans le canton de Lucerne : procédure, fiscalité, viabilité du prêt et coûts notariaux selon la législation suisse.',
     'blog.article.acquisto-immobiliare-lucerna-mutuo.imageAlt': 'Une maison résidentielle dans le canton de Lucerne avec vue alpestre',
+    'blog.article.patente-estera-lucerna-procedura.title': 'Permis de conduire Lucerne : conversion et examens',
+    'blog.article.patente-estera-lucerna-procedura.excerpt': 'Procédure de conversion du permis étranger dans le canton de Lucerne : examen théorique et pratique, cours obligatoires, bureau de la circulation.',
+    'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Route suisse dans le canton de Lucerne avec signalisation et paysage alpin',
 };
 
 export default blogMetaChFr;
