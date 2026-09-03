@@ -11238,6 +11238,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Partita IVA frontaliere: aprire autonomo in Svizzera',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Guida pratica per frontalieri che vogliono avviare un\'attività autonoma in Svizzera. Requisiti permesso G, fiscalità, franchigie e previdenza dal 2024.',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Vista panoramica di Lugano, Canton Ticino, con il lago e le Alpi sullo sfondo',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Cambio lavoro da frontaliere over 55: tutele e pensione',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'Quando cambi posizione dopo i 55 anni come frontaliere, il trattamento fiscale, la previdenza occupazionale e l\'impatto su LPP si riassestano. Ecco le tutele previste dal Nuovo Accordo 2024.',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Un professionista maturo cammina attraverso un moderno ufficio con vista sul lago di Lugano',
+    'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontaliere over 55: cambio lavoro e impatto AVS-LPP',
+    'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Guida pratica per frontalieri over 55 che cambiano datore di lavoro. Scopri come gestire Permesso G, AVS-LPP, imposta alla fonte e ristorni con il nuovo accordo 2024.',
+    'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Piazza centrale di Mendrisio con pendolari frontalieri durante l\'ora di punta mattutina',
 };
 
 export default blogMetaIt;

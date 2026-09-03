@@ -11236,6 +11236,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Partita IVA frontaliere: aprire autonomo in Svizzera',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Praktischer Leitfaden für Grenzgänger, die sich in der Schweiz selbständig machen wollen. Zulassungsvoraussetzungen G, Steuern, Franchisen und Vorsorge ab 2024.',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Panoramablick auf Lugano, Kanton Tessin, mit See und Alpen im Hintergrund',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Jobwechsel als Grenzgänger über 55: Schutz und Rente',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'Wenn Sie nach 55 Jahren als Grenzgänger die Position wechseln, werden die steuerliche Behandlung, die berufliche Vorsorge und die Auswirkungen auf das BVG neu geregelt. Hier sind die Schutzmaßnahmen, die im Neuen Abkommen 2024 vorgesehen sind.',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Reifer Fachmann in modernem Büro mit Blick auf den Lugano-See',
+    'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontend über 55: Jobwechsel und Aufprall AHV-LPP',
+    'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Praktischer Leitfaden für Grenzgänger über 55, die den Arbeitgeber wechseln. Erfahren Sie, wie Sie mit der neuen Vereinbarung 2024 G-Bewilligung, AHV-LPP, Quellensteuer und Rückerstattungen verwalten.',
+    'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Hauptplatz von Mendrisio mit Grenzgaengern waehrend der Morgenspitze',
 };
 
 export default blogMetaDe;

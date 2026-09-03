@@ -84155,6 +84155,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cambio-lavoro-frontaliere-tutele-pensione': {
+    title: 'Cambio lavoro da frontaliere over 55: tutele e pensione',
+    description: 'Cambio lavoro da frontaliere dopo i 55 anni: fiscalità, previdenza occupazionale, LPP, doppia imposizione e credito d\'imposta Italia-Svizzera. Guida pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, cambio, lavoro, over, tutele',
+    ogTitle: 'Cambio lavoro over 55: tutele e pensione per frontalieri',
+    ogDescription: 'Cambio lavoro da frontaliere dopo i 55 anni: scopri come cambiano fiscalità, previdenza e LPP. Procedure, ristorni, AVS e credito d\'imposta Italia-Svizzera spiegati.',
+    canonicalPath: '/articoli-frontaliere/cambio-lavoro-frontaliere-tutele-pensione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambio lavoro da frontaliere over 55: tutele e pensione",
+      "description": "Cambio lavoro da frontaliere dopo i 55 anni: fiscalità, previdenza occupazionale, LPP, doppia imposizione e credito d'imposta Italia-Svizzera. Guida pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cambio-lavoro-frontaliere-tutele-pensione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un professionista maturo cammina attraverso un moderno ufficio con vista sul lago di Lugano"
+      },
+      "datePublished": "2026-09-03T17:05:35+00:00",
+      "dateModified": "2026-09-03T17:05:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cambio-lavoro-frontaliere-tutele-pensione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-frontaliere-55-nuovo-datore-avs': {
+    title: 'Frontaliere over 55: cambio lavoro e impatto AVS-LPP',
+    description: 'Guida pratica: frontaliere over 55 che cambia datore. Gestione Permesso G, continuita AVS-LPP, imposta fonte, ristorni accordo 2024. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, over, cambio, lavoro, impatto',
+    ogTitle: 'Frontaliere over 55: cambio lavoro e impatto AVS-LPP',
+    ogDescription: 'Cambio datore di lavoro da frontaliere over 55: guida completa su Permesso G, continuita AVS-LPP, calcolo imposte alla fonte, ristorni fiscali e procedura SEM. Nuovo accordo 2024.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-55-nuovo-datore-avs',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere over 55: cambio lavoro e impatto AVS-LPP",
+      "description": "Guida pratica: frontaliere over 55 che cambia datore. Gestione Permesso G, continuita AVS-LPP, imposta fonte, ristorni accordo 2024. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontaliere-55-nuovo-datore-avs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Piazza centrale di Mendrisio con pendolari frontalieri durante l'ora di punta mattutina"
+      },
+      "datePublished": "2026-09-03T17:27:44+00:00",
+      "dateModified": "2026-09-03T17:27:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-55-nuovo-datore-avs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

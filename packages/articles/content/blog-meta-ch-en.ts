@@ -5329,6 +5329,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-apprendistato-lucerna.title': 'Apprenticeship in Lucerne: contract, salary and maturity',
     'blog.article.guida-apprendistato-lucerna.excerpt': 'How to find an apprenticeship position in the Canton of Lucerne, what the apprenticeship contract must contain and how to obtain professional maturity: practical guide.',
     'blog.article.guida-apprendistato-lucerna.imageAlt': 'Swiss apprentice in technical workshop learning practical skills with experienced mentor',
+    'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprenticeship in Lucerne: a practical guide',
+    'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Search for internship, salary, social contributions and professional maturity: here\'s how to orient yourself in Swiss dual training in Lucerne.',
+    'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano and Lake Verbano: symbol of vocational training in Switzerland',
 };
 
 export default blogMetaChEn;

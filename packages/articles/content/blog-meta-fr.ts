@@ -11239,6 +11239,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Numéro de TVA frontalier : ouvrir un compte indépendant en Suisse',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Guide pratique pour les frontaliers qui veulent démarrer une activité indépendante en Suisse. Permis G, fiscalité, franchises et prévoyance à partir de 2024.',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Vue panoramique de Lugano, canton du Tessin, avec lac et Alpes en arrière-plan',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Changement de travail de frontalier de plus de 55 ans : protections et retraite',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'Lorsque vous changez de poste après 55 ans en tant que frontalier, le traitement fiscal, la prévoyance emploi et l\'impact sur LPP se repositionnent. Voici les protections prévues par le Nouvel Accord 2024.',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Professionnel expérimenté dans un bureau moderne avec vue sur le lac de Lugano',
+    'blog.article.frontaliere-55-nuovo-datore-avs.title': 'Frontière de plus de 55 ans : changement de travail et impact AVS-LPP',
+    'blog.article.frontaliere-55-nuovo-datore-avs.excerpt': 'Guide pratique pour les frontaliers de plus de 55 ans qui changent d\'employeur. Découvrez comment gérer le permis G, AVS-LPP, la taxe à la source et les restaurations avec le nouvel accord 2024.',
+    'blog.article.frontaliere-55-nuovo-datore-avs.imageAlt': 'Place centrale de Mendrisio avec les navetteurs frontaliers pendant les heures de pointe du matin',
 };
 
 export default blogMetaFr;

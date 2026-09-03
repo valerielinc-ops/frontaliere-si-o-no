@@ -5329,6 +5329,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-apprendistato-lucerna.title': 'Apprentissage à Lucerne : contrat, rémunération et maturité',
     'blog.article.guida-apprendistato-lucerna.excerpt': 'Comment trouver une place d\'apprentissage dans le canton de Lucerne, ce que doit contenir le contrat d\'apprentissage et comment obtenir la maturité professionnelle : guide pratique.',
     'blog.article.guida-apprendistato-lucerna.imageAlt': 'Apprenti suisse dans atelier technique apprenant compétences pratiques avec mentor expérimenté',
+    'blog.article.ricerca-tirocinio-canton-lucerna.title': 'Apprentissage à Lucerne : guide pratique',
+    'blog.article.ricerca-tirocinio-canton-lucerna.excerpt': 'Recherche de stage, rémunération, cotisations sociales et maturité professionnelle : voici comment s\'orienter dans la formation duale suisse à Lucerne.',
+    'blog.article.ricerca-tirocinio-canton-lucerna.imageAlt': 'Lugano et le Verbano: symbole de la formation professionale en Suisse',
 };
 
 export default blogMetaChFr;
