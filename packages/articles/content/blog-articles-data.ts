@@ -33357,6 +33357,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-berbenno-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-09-03T01:25:59.849Z',
+ image: '/images/blog/trasferirsi-berbenno-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

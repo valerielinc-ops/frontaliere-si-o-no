@@ -11162,6 +11162,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Leben in Edolo und Arbeiten in Graubünden: Verbindungen und Kosten',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Entdecke die Vor- und Nachteile, in Edolo zu leben und in Graubünden zu arbeiten, inklusive Reisezeit und Lebenshaltungskosten.',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf Edolo mit den Schweizer Bergen im Hintergrund',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Umzug nach Berbenno: Grenzführer Graubünden',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Grenzgänger Berbenno-Graubünden? Leitfaden zu Steuern, AHV-Beiträgen, KVG und Wirtschaftlichkeit des Arbeitens in der Schweiz und Wohnens in Italien.',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Luftaufnahme eines Alpentals mit Grenzübergang Italien-Schweiz und Straßeninfrastruktur zur Verbindung von Tessin und Lombardei',
 };
 
 export default blogMetaDe;

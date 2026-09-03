@@ -11164,6 +11164,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Vivere a Edolo e lavorare in Grigioni: collegamenti e costi',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Scopri i vantaggi e gli svantaggi di vivere a Edolo e lavorare in Grigioni, inclusi i tempi di percorrenza e il costo della vita.',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica di Edolo con le montagne svizzere sullo sfondo',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Trasferirsi a Berbenno: la guida del frontaliere Grigioni',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Frontaliere Berbenno-Grigioni? Guida a imposte, contributi AVS, LAMal e convenienza economica di lavorare in Svizzera e abitare in Italia.',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Veduta aerea della valle alpina con punto di valico italo-svizzero e infrastrutture stradali che collegano il Ticino alla Lombardia',
 };
 
 export default blogMetaIt;

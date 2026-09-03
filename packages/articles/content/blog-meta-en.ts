@@ -11163,6 +11163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Living in Edolo and working in Grisons: connections and costs',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Discover the advantages and disadvantages of living in Edolo and working in Grisons, including journey times and the cost of living.',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Panoramic view of Edolo with Swiss mountains in the background',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Moving to Berbenno: the guide of the Grisons border crossing',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Berbenno-Grisioni Frontier? Guide to taxes, AVS contributions, LAMal and economic convenience of working in Switzerland and living in Italy.',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Aerial view of Alpine valley with Italy-Switzerland border crossing and highway infrastructure connecting Ticino and Lombardy regions',
 };
 
 export default blogMetaEn;

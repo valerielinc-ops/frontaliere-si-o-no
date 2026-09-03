@@ -11165,6 +11165,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Vivre à Edolo et travailler dans les Grisons : liens et coûts',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Edolo et de travailler dans les Grisons, y compris les temps de trajet et le coût de la vie.',
     'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Vue panoramique d\'Edolo avec les montagnes suisses en arrière-plan',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.title': 'Déménagement à Berbenno : le guide du frontalier des Grisons',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.excerpt': 'Frontalier Berbenno-Grisons ? Guide des impôts, des cotisations AVS, LAMal et de la commodité économique de travailler en Suisse et d\'habiter en Italie.',
+    'blog.article.trasferirsi-berbenno-grigioni-frontaliere.imageAlt': 'Vue aérienne de la vallée alpine avec passage frontalier Italie-Suisse et infrastructures routières reliant le Tessin et la Lombardie',
 };
 
 export default blogMetaFr;
