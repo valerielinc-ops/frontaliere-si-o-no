@@ -416,12 +416,12 @@
     },
     {
       "id": "nord-anglia-1f5c78691369",
-      "slug": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
+      "slug": "insegnante-primario-sostituzione-maternita-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
-        "it": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
+        "it": "insegnante-primario-sostituzione-maternita-la-cote-international-school-nord-anglia-education-aubonne",
         "en": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "de": "primary-teacher-maternity-replacement-nord-anglia-aubonne",
-        "fr": "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        "de": "grundlehrerin-mutterschaftsersatz-la-cote-international-school-nord-anglia-education-aubonne",
+        "fr": "enseignant-principal-remplacement-de-la-maternite-la-cote-international-school-nord-anglia-education-aubonne"
       },
       "company": "La Côte International School (Nord Anglia Education)",
       "companyKey": "nord-anglia",
@@ -477,7 +477,21 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ],
+        "de": [
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ],
+        "fr": [
+          "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "primary-teacher-maternity-replacement-nord-anglia-aubonne"
+      ]
     }
   ]
 }

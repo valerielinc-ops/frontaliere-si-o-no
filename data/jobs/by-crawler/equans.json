@@ -1484,7 +1484,7 @@
         "it": "disponent-in-equans-switzerland-st-gallen",
         "en": "disponent-in-equans-st-gallen",
         "de": "disponent-in-equans-st-gallen",
-        "fr": "disponent-in-equans-st-gallen"
+        "fr": "detecteur-160-dans-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -1564,8 +1564,8 @@
           "sanitarinstallateur-in-equans-st-gallen"
         ],
         "fr": [
-          "detecteur-160-dans-equans-switzerland-st-gallen",
-          "installateur-sanitaire-in-equans-switzerland-st-gallen-109505"
+          "installateur-sanitaire-in-equans-switzerland-st-gallen-109505",
+          "disponent-in-equans-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.283Z",
@@ -2927,12 +2927,12 @@
     },
     {
       "id": "equans-1c2f1f0a9e5d",
-      "slug": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
+      "slug": "personale-di-sicurezza-ok-nel-salario-orario-zh-equans-switzerland-schlieren",
       "slugByLocale": {
-        "it": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
-        "en": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
+        "it": "personale-di-sicurezza-ok-nel-salario-orario-zh-equans-switzerland-schlieren",
+        "en": "security-staff-okay-in-the-hourly-wage-zh-equans-switzerland-schlieren",
         "de": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren",
-        "fr": "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        "fr": "personnel-de-securite-ok-dans-le-salaire-horaire-zh-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -2987,7 +2987,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ],
+        "en": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ],
+        "fr": [
+          "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsmitarbeiter-in-ordnung-im-stundenlohn-zh-equans-schlieren"
+      ]
     },
     {
       "id": "equans-5581ca0d63ff",
@@ -8792,12 +8806,12 @@
     },
     {
       "id": "equans-a9573cc3ca3a",
-      "slug": "servicetechniker-in-heizung-equans-switzerland-luzern",
+      "slug": "tecnico-di-servizio-in-riscaldamento-equans-switzerland-luzern",
       "slugByLocale": {
-        "it": "servicetechniker-in-heizung-equans-switzerland-luzern",
-        "en": "servicetechniker-in-heizung-equans-luzern",
+        "it": "tecnico-di-servizio-in-riscaldamento-equans-switzerland-luzern",
+        "en": "service-technician-in-heating-equans-switzerland-luzern",
         "de": "servicetechniker-in-heizung-equans-luzern",
-        "fr": "servicetechniker-in-heizung-equans-luzern"
+        "fr": "technicien-de-service-en-chauffage-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8841,10 +8855,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-heizung-equans-luzern"
+        "servicetechniker-in-heizung-equans-luzern",
+        "servicetechniker-in-heizung-equans-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-heizung-equans-luzern",
+          "servicetechniker-in-heizung-equans-switzerland-luzern"
+        ],
+        "en": [
+          "servicetechniker-in-heizung-equans-luzern"
+        ],
+        "fr": [
           "servicetechniker-in-heizung-equans-luzern"
         ]
       },

@@ -458,11 +458,11 @@
     },
     {
       "id": "gmo-f1bf9caf6800",
-      "slug": "conducteur-rice-de-travaux-junior-gmo-ch",
+      "slug": "junior-lavoratore-gmo-lugano",
       "slugByLocale": {
-        "it": "conducteur-rice-de-travaux-junior-gmo-ch",
-        "en": "conducteur-rice-de-travaux-junior-gmo-ch",
-        "de": "conducteur-rice-de-travaux-junior-gmo-ch",
+        "it": "junior-lavoratore-gmo-lugano",
+        "en": "junior-worker-gmo-lugano",
+        "de": "juniorarbeiter-gmo-lugano",
         "fr": "conducteur-rice-de-travaux-junior-gmo-ch"
       },
       "company": "gmo",
@@ -516,7 +516,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "conducteur-rice-de-travaux-junior-gmo-ch"
+        ],
+        "en": [
+          "conducteur-rice-de-travaux-junior-gmo-ch"
+        ],
+        "de": [
+          "conducteur-rice-de-travaux-junior-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conducteur-rice-de-travaux-junior-gmo-ch"
+      ]
     },
     {
       "id": "gmo-2d73a3ff1c4a",
