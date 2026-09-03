@@ -5230,6 +5230,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-proroga-appenzello-interno.title': 'Permesso L: durata e proroga in Svizzera',
     'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Il permesso L di breve durata consente di lavorare fino a 1 anno in Svizzera. Scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio al permesso B.',
     'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Ufficio amministrativo svizzero con cartelle di permessi di lavoro e documenti ufficiali sulla scrivania',
+    'blog.article.salari-lavoro-argovia-guida.title': 'Salari e mercato del lavoro in Argovia: guida',
+    'blog.article.salari-lavoro-argovia-guida.excerpt': 'Come funziona il mercato del lavoro nel cantone Argovia? Salari, settori, tassazione e contributi secondo le normative federali e cantonali svizzere.',
+    'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Ufficio moderno svizzero con dipendenti al lavoro, che rappresenta il mercato del lavoro elvetico.',
 };
 
 export default blogMetaChIt;
