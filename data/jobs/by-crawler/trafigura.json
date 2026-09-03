@@ -1,6 +1,6 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-09-03T13:33:05.702Z",
+  "assembledAt": "2026-09-03T23:12:10.122Z",
   "jobs": [
     {
       "id": "trafigura-674732b4e044",
@@ -34,7 +34,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Analyst--Americas-Oil-2_R-017068",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:57.255Z",
+      "crawledAt": "2026-09-03T23:12:02.906Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,24 +51,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017068",
-      "previousSlugsByLocale": {
-        "en": [
-          "lpg-analyst-trafigura-geneva",
-          "lpg-analyst-trafigura-ch"
-        ],
-        "it": [
-          "lpg-analyst-trafigura-ch",
-          "lpg-analista-trafigura-geneva"
-        ],
-        "fr": [
-          "lpg-analyst-trafigura-ch"
-        ]
-      },
       "previousSlugs": [
         "lpg-analyst-trafigura-ch",
         "lpg-analyst-trafigura-geneva",
         "lpg-analista-trafigura-geneva"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lpg-analyst-trafigura-ch",
+          "lpg-analista-trafigura-geneva"
+        ],
+        "en": [
+          "lpg-analyst-trafigura-geneva",
+          "lpg-analyst-trafigura-ch"
+        ],
+        "fr": [
+          "lpg-analyst-trafigura-ch"
+        ]
+      },
       "firstSeenAt": "2026-07-03T23:41:01.667Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -116,7 +116,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:56.401Z",
+      "crawledAt": "2026-09-03T23:12:01.784Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:55.322Z",
+      "crawledAt": "2026-09-03T23:12:00.983Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Risk-Quant-Analyst_R-017471",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:54.487Z",
+      "crawledAt": "2026-09-03T23:12:00.171Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -293,22 +293,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "R-017471",
-      "previousSlugsByLocale": {
-        "en": [
-          "risk-quant-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-geneva",
-          "quantitative-analyst-trafigura-ch"
-        ],
-        "it": [
-          "risk-quant-analyst-trafigura-ch",
-          "quantitative-analyst-trafigura-ch",
-          "risk-quant-analista-trafigura-geneva",
-          "quantitative-analista-trafigura-geneva"
-        ],
-        "fr": [
-          "risk-quant-analyst-trafigura-ch"
-        ]
-      },
       "previousSlugs": [
         "risk-quant-analyst-trafigura-ch",
         "quantitative-analyst-trafigura-ch",
@@ -316,6 +300,22 @@
         "quantitative-analyst-trafigura-geneva",
         "quantitative-analista-trafigura-geneva"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-quant-analyst-trafigura-ch",
+          "quantitative-analyst-trafigura-ch",
+          "risk-quant-analista-trafigura-geneva",
+          "quantitative-analista-trafigura-geneva"
+        ],
+        "en": [
+          "risk-quant-analyst-trafigura-ch",
+          "quantitative-analyst-trafigura-geneva",
+          "quantitative-analyst-trafigura-ch"
+        ],
+        "fr": [
+          "risk-quant-analyst-trafigura-ch"
+        ]
+      },
       "firstSeenAt": "2026-07-03T23:41:00.808Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -363,7 +363,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/London-United-Kingdom/Oil-Programme-QA-Lead_R-018547",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:53.764Z",
+      "crawledAt": "2026-09-03T23:11:59.373Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -454,7 +454,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Oil-Programme-QA-Lead_R-018546",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:53.072Z",
+      "crawledAt": "2026-09-03T23:11:58.571Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -538,7 +538,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Compliance-Manager_R-018600",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:52.219Z",
+      "crawledAt": "2026-09-03T23:11:56.296Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -602,7 +602,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Manager--Credit-Portfolio-Management_R-018655",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:32:51.292Z",
+      "crawledAt": "2026-09-03T23:11:55.506Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
