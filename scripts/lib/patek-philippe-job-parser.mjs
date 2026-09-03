@@ -251,8 +251,7 @@ function parseListingPage(html, pageUrl) {
       title,
       url,
       jobReqId,
-      // `</span>`-bounded match also swallows the nested `<small>+N
-      // more&hellip;</small>` of multi-location rows — keep the visible office.
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
       location: locationM ? stripSuccessFactorsMoreLocations(textOf(locationM[1])) : '',
       department: department ? textOf(department) : '',
       contract: facility ? textOf(facility) : '',

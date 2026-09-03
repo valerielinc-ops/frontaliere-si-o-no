@@ -153,6 +153,23 @@ describe('SuccessFactors jobs2web widget guard', () => {
       ).toBe(true);
     });
 
+    it('never trades the marker for the location itself (marker rendered first)', () => {
+      // Cutting to end-of-string assumes the `<small>` is the LAST node of the
+      // cell. A skin that renders it first, or appends a segment after it, must
+      // still yield the office — an empty location is the failure this helper
+      // exists to prevent.
+      expect(stripSuccessFactorsMoreLocations('+2 more… Lugano, CH')).toBe('Lugano, CH');
+      expect(stripSuccessFactorsMoreLocations('+1 weitere…')).toBe('');
+    });
+
+    it('normalizes an entity-encoded or fullwidth "+" before matching', () => {
+      // Call sites that hand over raw markup (benteler) or `stripHtml` output
+      // without entity decoding would otherwise keep "&#43;3 more…".
+      expect(stripSuccessFactorsMoreLocations('Mendrisio &#43;3 more&hellip;')).toBe('Mendrisio');
+      expect(stripSuccessFactorsMoreLocations('Bern, CH ＋2 weitere…')).toBe('Bern, CH');
+      expect(hasSuccessFactorsMoreLocations('Bern, CH &plus;2 mehr…')).toBe(true);
+    });
+
     it('treats non-string input as marker-free and yields an empty string', () => {
       for (const value of [undefined, null, 0, {}, []]) {
         expect(hasSuccessFactorsMoreLocations(value as unknown as string)).toBe(false);

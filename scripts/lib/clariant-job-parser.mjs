@@ -248,8 +248,7 @@ export function parseClariantListing(html = '') {
     out.push({
       href,
       title,
-      // `</span>`-bounded match also swallows the nested `<small>+N
-      // more&hellip;</small>` of multi-location rows — keep the visible office.
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
       location: locMatch ? stripSuccessFactorsMoreLocations(cleanText(locMatch[1])) : '',
       department: deptMatch ? cleanText(deptMatch[1]) : '',
     });

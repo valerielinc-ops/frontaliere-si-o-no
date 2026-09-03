@@ -171,8 +171,7 @@ export function parsePradaListingHtml(html) {
     // Extract location from the next colLocation cell
     const afterMatch = html.slice(match.index, match.index + 1000);
     const locMatch = afterMatch.match(/class="[^"]*colLocation[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
-    // The whole-`<td>` capture also swallows the nested `<small>+N
-    // more&hellip;</small>` of multi-location rows — keep the visible office.
+    // keep the visible office — see stripSuccessFactorsMoreLocations()
     const location = locMatch
       ? stripSuccessFactorsMoreLocations(normalizeSpace(stripHtml(locMatch[1])))
       : '';

@@ -152,15 +152,25 @@ export function parseCsbSearchResults(html) {
     const colLocationMatch = rowHtml.match(
       /<td[^>]*class="[^"]*colLocation[^"]*hidden-phone[^"]*"[^>]*>([\s\S]*?)<\/td>/i,
     ) || rowHtml.match(/<td[^>]*headers="hdrLocation"[^>]*>([\s\S]*?)<\/td>/i);
+    // A posting open in several offices appends a nested `<small>+N
+    // more&hellip;</small>` INSIDE the location cell. Strip it here, at
+    // extraction: the heuristic gate below elects the location cell with
+    // `/,\s*[A-Z]{2}(?:,|$)/`, which "Lugano, CH +1 more…" fails (the `, CH`
+    // is followed by a space) — stripping downstream would leave those CSB
+    // tenants with an empty location instead of the visible office.
     if (colLocationMatch) {
-      location = decodeEntities(normalizeSpace(stripHtml(colLocationMatch[1])));
+      location = stripSuccessFactorsMoreLocations(
+        decodeEntities(normalizeSpace(stripHtml(colLocationMatch[1]))),
+      );
     }
 
     const cells = [];
     const cellRe = /<td[^>]*>([\s\S]*?)<\/td>/gi;
     let cellMatch;
     while ((cellMatch = cellRe.exec(rowHtml)) !== null) {
-      cells.push(decodeEntities(normalizeSpace(stripHtml(cellMatch[1]))));
+      cells.push(
+        stripSuccessFactorsMoreLocations(decodeEntities(normalizeSpace(stripHtml(cellMatch[1])))),
+      );
     }
 
     // Fallback: heuristic — find the cell that looks like a location ("City,
@@ -176,11 +186,6 @@ export function parseCsbSearchResults(html) {
       const dm = cell.match(/(\d{4}-\d{2}-\d{2})/) || cell.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
       if (!postedDate && dm) postedDate = parseLooseDate(dm[1]);
     }
-
-    // A posting open in several offices appends a nested `<small>+N
-    // more&hellip;</small>` to the location cell; both the dedicated-cell read
-    // and the heuristic cell scan capture it. Keep the visible office.
-    location = stripSuccessFactorsMoreLocations(location);
 
     out.push({ relUrl, jobId, title, location, postedDate });
   }

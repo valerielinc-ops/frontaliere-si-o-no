@@ -166,9 +166,25 @@ export function sanitizeSuccessFactorsField(value) {
 export const SF_J2W_MORE_LOCATIONS_RE =
   /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b[\s\S]*$/i;
 
-/** Text form of `&hellip;` so callers need not unescape it themselves. */
-function unescapeHellip(value) {
-  return String(value).replace(/&hellip;|&#8230;|&#x2026;/gi, '…');
+/**
+ * The marker WITHOUT the "everything after it" tail, used as a fallback when
+ * cutting the tail would eat the location itself (see below).
+ */
+const SF_J2W_MORE_LOCATIONS_TOKEN_RE =
+  /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b\s*(?:…|\.{3})?/gi;
+
+/**
+ * Normalize the two characters the marker is anchored on, so callers may pass
+ * raw HTML as well as decoded text: the ellipsis (`&hellip;`) and the `+`
+ * itself (`&#43;`/`&plus;`, plus the fullwidth `＋` some tenant CMSes emit).
+ * Without this a caller handing over undecoded markup would see `&#43;2 more…`
+ * survive into the `location` field.
+ */
+function normalizeMarkerChars(value) {
+  return String(value)
+    .replace(/&hellip;|&#8230;|&#x2026;/gi, '…')
+    .replace(/&plus;|&#43;|&#x2b;/gi, '+')
+    .replace(/＋/g, '+');
 }
 
 /**
@@ -184,12 +200,20 @@ function unescapeHellip(value) {
  */
 export function hasSuccessFactorsMoreLocations(value) {
   if (typeof value !== 'string') return false;
-  return SF_J2W_MORE_LOCATIONS_RE.test(unescapeHellip(value));
+  return SF_J2W_MORE_LOCATIONS_RE.test(normalizeMarkerChars(value));
 }
 
 /**
  * Return the visible (primary) location of a j2w `jobLocation` cell, i.e.
  * `value` without the "+N more…" suffix.
+ *
+ * Cutting to end-of-string is right for the skins observed (the `<small>` is
+ * the LAST node of the cell), but it must never be the reason a location
+ * disappears: if the tail cut leaves nothing — a skin that renders the marker
+ * BEFORE the office, or one that appends a country segment after it — fall
+ * back to removing the marker token alone and keeping the rest. Losing the
+ * location is the very failure this helper exists to prevent (Zurich
+ * Insurance fails closed on an unresolvable Swiss location).
  *
  * Non-string input yields `''` — an absent cell and a contaminated one are
  * different problems, and callers already treat `''` as "no location".
@@ -199,5 +223,12 @@ export function hasSuccessFactorsMoreLocations(value) {
  */
 export function stripSuccessFactorsMoreLocations(value) {
   if (typeof value !== 'string') return '';
-  return unescapeHellip(value).replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
+  const normalized = normalizeMarkerChars(value);
+  const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
+  if (withoutTail || !normalized.trim()) return withoutTail;
+  return normalized
+    .replace(SF_J2W_MORE_LOCATIONS_TOKEN_RE, ' ')
+    .replace(/\s+/g, ' ')
+    .replace(/^[\s,;]+|[\s,;]+$/g, '')
+    .trim();
 }

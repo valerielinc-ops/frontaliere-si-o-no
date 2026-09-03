@@ -92,8 +92,7 @@ export function parseDamianiSearchPage(html = '') {
     const link = row.querySelector('a.jobTitle-link');
     const title = normalizeSpace(link?.textContent || '');
     const href = link?.getAttribute('href') || '';
-    // `textContent` also returns the nested `<small>+N more…</small>` marker
-    // of multi-location rows — keep the visible office.
+    // keep the visible office — see stripSuccessFactorsMoreLocations()
     const location = stripSuccessFactorsMoreLocations(
       normalizeSpace(row.querySelector('td.colLocation .jobLocation')?.textContent || ''),
     );

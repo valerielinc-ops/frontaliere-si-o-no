@@ -73,8 +73,7 @@ export function parseSkyguideListings(html = '') {
     const parsed = {
       href: String(link?.getAttribute('href') || '').trim(),
       title: normalizeSpace(link?.textContent || ''),
-      // `textContent` also returns the nested `<small>+N more…</small>` marker
-      // of multi-location rows — keep the visible office.
+      // keep the visible office — see stripSuccessFactorsMoreLocations()
       location: stripSuccessFactorsMoreLocations(
         normalizeSpace(row.querySelector('.colLocation .jobLocation, .jobdetail-phone .jobLocation')?.textContent || ''),
       ),
