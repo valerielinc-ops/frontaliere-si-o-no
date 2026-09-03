@@ -323,9 +323,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-03T23:20:16.094Z",
-      "slug": "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur",
+      "slug": "medicina-sanitaria-specialistica-del-sonno-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur"
+        "de": "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur",
+        "it": "medicina-sanitaria-specialistica-del-sonno-kantonsspital-graubunden-chur",
+        "en": "specialist-health-sleep-medicine-kantonsspital-graubunden-chur",
+        "fr": "specialiste-en-medecine-du-sommeil-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Schlafmedizin",
@@ -355,7 +358,15 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-08-25T10:00:15.266Z"
+      "firstSeenAt": "2026-08-25T10:00:15.266Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-schlafmedizin-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10158066",
@@ -3528,8 +3539,7 @@
         "apprentissage-professionnel-de-specialiste-en-hotellerie-menager-kantonsspital-graubunden-chur",
         "specialiste-de-l-apprentissage-professionnel-specialiste-de-l-hotellerie-et-du-menage-kantonsspital-graubunden-chur",
         "apprentissage-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur",
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
+        "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3580,8 +3590,7 @@
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
         ]
       },
       "needsRetranslation": false,
@@ -3649,15 +3658,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",
@@ -3982,7 +3983,7 @@
         "de": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur",
         "it": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-per-padiatrie-kantonsspital-graubunden-chur",
         "en": "postgraduate-degree-dipl-expert-expert-emergency-care-hf-for-pediatrics-kantonsspital-graubunden-chur",
-        "fr": "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
+        "fr": "diplome-superieur-dipl-expert-expert-soins-d-urgence-hf-pour-la-pediatrie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Nach dem Tod Dipl. Expertin / Experte Notfallpflege HF für Pädiatrie",
@@ -4019,6 +4020,9 @@
           "nach-dem-tod-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ],
         "en": [
+          "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
           "nachdiplomstudium-dipl-expertin-experte-notfallpflege-hf-fur-padiatrie-kantonsspital-graubunden-chur"
         ]
       },

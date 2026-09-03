@@ -136,9 +136,9 @@
     },
     {
       "id": "klinik-susenberg-a4c20d36a963",
-      "slug": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+      "slug": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+        "it": "dipl-specialista-infermieristica-hf-fh-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
         "en": "dipl-nursing-specialist-hf-fh-with-additional-function-as-vocational-trainer-klinik-susenberg-zurich",
         "de": "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
         "fr": "c-est-quoi-specialiste-des-soins-infirmiers-hf-fh-avec-fonction-supplementaire-de-formateur-professionnel-klinik"
@@ -186,11 +186,13 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+        "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
+        "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
+          "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
+          "dipl-pflegefachperson-hf-fh-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg"
@@ -216,9 +218,9 @@
     },
     {
       "id": "klinik-susenberg-775970114f1b",
-      "slug": "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+      "slug": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
       "slugByLocale": {
-        "it": "fachmann-fachfrau-gesundheit-cfc-con-zusatzfunktion-come-berufsbildner-in-klinik-susenberg-zurich",
+        "it": "professional-expert-health-efz-con-funzione-aggiuntiva-come-formatore-professionale-klinik-susenberg-zurich",
         "en": "professional-expert-health-efz-with-additional-function-as-a-vocational-trainer-klinik-susenberg-zurich",
         "de": "fachmann-fachfrau-gesundheit-efz-mit-zusatzfunktion-als-berufsbildner-in-klinik-susenberg",
         "fr": "professional-expert-health-efz-avec-une-fonction-supplementaire-de-formateur-professionnel-klinik-susenberg-zurich"

@@ -124,13 +124,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-        "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+        "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch",
-          "apprendistato-come-interactive-media-designer-cfc-m-w-d-ab-august-2027-straumann-basel"
+          "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
         ],
         "fr": [
           "lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027-straumann-ch"
@@ -154,12 +152,12 @@
     },
     {
       "id": "straumann-14050b270e0d",
-      "slug": "clinical-workflow-product-manager-straumann-ch",
+      "slug": "responsabile-del-prodotto-del-flusso-di-lavoro-clinico-straumann-basel",
       "slugByLocale": {
-        "it": "clinical-workflow-product-manager-straumann-ch",
+        "it": "responsabile-del-prodotto-del-flusso-di-lavoro-clinico-straumann-basel",
         "en": "clinical-workflow-product-manager-straumann-ch",
-        "de": "clinical-workflow-product-manager-straumann-ch",
-        "fr": "clinical-workflow-product-manager-straumann-ch"
+        "de": "klinischer-workflow-produktmanager-straumann-basel",
+        "fr": "gestionnaire-de-produits-de-flux-de-travail-clinique-straumann-basel"
       },
       "company": "Straumann",
       "companyKey": "straumann",
@@ -214,7 +212,21 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-workflow-product-manager-straumann-ch"
+        ],
+        "de": [
+          "clinical-workflow-product-manager-straumann-ch"
+        ],
+        "fr": [
+          "clinical-workflow-product-manager-straumann-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-workflow-product-manager-straumann-ch"
+      ]
     },
     {
       "id": "straumann-d543cce3850c",
@@ -265,13 +277,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-launch-education-manager-straumann-ch",
-        "responsabile-globale-dell-istruzione-di-lancio-straumann-basel"
+        "global-launch-education-manager-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-launch-education-manager-straumann-ch",
-          "responsabile-globale-dell-istruzione-di-lancio-straumann-basel"
+          "global-launch-education-manager-straumann-ch"
         ],
         "de": [
           "global-launch-education-manager-straumann-ch"
@@ -407,13 +417,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-        "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+        "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch",
-          "apprendistato-meccanico-di-produzione-e-polimeccanico-afc-straumann-villeret"
+          "apprentissage-mecanicien-de-production-et-polymecanicien-cfc-straumann-ch"
         ]
       },
       "needsRetranslation": true,

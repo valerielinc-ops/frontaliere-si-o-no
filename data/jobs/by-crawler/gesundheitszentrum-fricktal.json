@@ -133,13 +133,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-notfallstation-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "assistente-medico-assistente-medico-reparto-di-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "assistenzarztin-assistenzarzt-notfallstation-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-notfallstation-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "assistente-medico-assistente-medico-reparto-di-emergenza-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "assistenzarztin-assistenzarzt-notfallstation-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-notfallstation-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -170,7 +168,7 @@
         "it": "collaboratore-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "associate-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "collaborateur-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "employes-en-cuisine-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -214,18 +212,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "collaboratore-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "collaborateur-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "collaboratore-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "fr": [
-          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "mitarbeiter-in-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "collaborateur-trice-kuche-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:40.406Z",
@@ -293,13 +291,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "assistenza-perioperativa-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "assistenza-perioperativa-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "perioperative-assistenz-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -325,12 +321,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-05b855dd55b7",
-      "slug": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+      "slug": "responsabile-servizi-hr-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
       "slugByLocale": {
-        "it": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "it": "responsabile-servizi-hr-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "en": "head-of-hr-services-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "de": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "fr": "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "fr": "chef-des-services-rh-h-f-d-gesundheitszentrum-fricktal-rheinfelden"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -384,7 +380,18 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ],
+        "fr": [
+          "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-hr-services-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+      ]
     },
     {
       "id": "gesundheitszentrum-fricktal-7fc551bef5e2",
@@ -636,14 +643,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-radiologiefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-radiologiefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
@@ -791,13 +796,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "dipl-esperto-in-anestesia-cura-m-f-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
           "dipl-expert-in-anasthesiepflege-m-w-d-gesundheitszentrum-fricktal-rheinfelden"

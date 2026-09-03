@@ -7,9 +7,9 @@
       "slug": "candidatura-spontanea-croglio-faulhaber",
       "slugByLocale": {
         "it": "candidatura-spontanea-croglio-faulhaber",
-        "en": "candidatura-spontanea-croglio-faulhaber",
-        "de": "candidatura-spontanea-faulhaber-croglio",
-        "fr": "candidatura-spontanea-faulhaber-croglio"
+        "en": "spontaneous-application-faulhaber-croglio",
+        "de": "spontananwendung-faulhaber-croglio",
+        "fr": "demande-spontanee-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -48,20 +48,15 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-03T23:11:17.593Z",
       "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-faulhaber-croglio"
-        ],
         "de": [
-          "spontananwendung-faulhaber-croglio"
+          "candidatura-spontanea-faulhaber-croglio"
         ],
         "fr": [
-          "demande-spontanee-faulhaber-croglio"
+          "candidatura-spontanea-faulhaber-croglio"
         ]
       },
       "previousSlugs": [
-        "spontaneous-application-faulhaber-croglio",
-        "spontananwendung-faulhaber-croglio",
-        "demande-spontanee-faulhaber-croglio"
+        "candidatura-spontanea-faulhaber-croglio"
       ],
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "salaryMin": 49500,
@@ -154,9 +149,9 @@
     },
     {
       "id": "faulhaber-7c490c9a513f",
-      "slug": "junior-logistics-specialist-croglio-faulhaber",
+      "slug": "junior-logistica-specialista-faulhaber-croglio",
       "slugByLocale": {
-        "it": "junior-logistics-specialist-croglio-faulhaber",
+        "it": "junior-logistica-specialista-faulhaber-croglio",
         "en": "junior-logistics-specialist-croglio-faulhaber",
         "de": "junior-logistik-spezialist-faulhaber-croglio",
         "fr": "junior-logistique-specialiste-faulhaber-croglio"
@@ -197,13 +192,8 @@
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-03T23:10:53.209Z",
-      "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
-        "junior-logistics-specialist-croglio-faulhaber"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-logistica-specialista-faulhaber-croglio",
           "junior-logistics-specialist-croglio-faulhaber"
         ],
         "de": [
@@ -213,6 +203,9 @@
           "junior-logistics-specialist-croglio-faulhaber"
         ]
       },
+      "previousSlugs": [
+        "junior-logistics-specialist-croglio-faulhaber"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "salaryMin": 41600,
@@ -237,7 +230,7 @@
         "it": "tecnico-di-misura-croglio-faulhaber",
         "en": "technician-di-misura-faulhaber-croglio",
         "de": "techniker-di-misura-faulhaber-croglio",
-        "fr": "tecnico-di-misura-croglio-faulhaber"
+        "fr": "technicien-di-misura-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -275,14 +268,6 @@
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
       "crawledAt": "2026-09-03T23:10:39.766Z",
-      "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "technicien-di-misura-faulhaber-croglio"
-        ]
-      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "salaryMin": 58000,
