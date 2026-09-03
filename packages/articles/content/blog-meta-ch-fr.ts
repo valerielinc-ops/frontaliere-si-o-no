@@ -5368,6 +5368,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Impôts cantonaux : taux, déductions et déclaration',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'La fiscalité suisse fonctionne sur 3 niveaux. Découvrez comment les taux cantonaux varient, quelles déductions admettre et comment déposer la déclaration dans les délais impartis.',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Vue panoramique d\'une ville suisse avec bâtiments administratifs représentant le système fiscal cantonal',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Permis de séjour B Saint-Gall : exigences et renouvellement',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Guide pratique du permis de séjour B dans le canton de Saint-Gall : exigences, documents, durée et procédure de renouvellement auprès de l\'office cantonal des migrations.',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Vue de la ville de Saint-Gall avec bâtiments administratifs et architecture suisse alpine',
 };
 
 export default blogMetaChFr;

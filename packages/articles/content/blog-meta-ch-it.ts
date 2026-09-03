@@ -5368,6 +5368,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Imposte cantonali: aliquote, deduzioni e dichiarazione',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'La fiscalità svizzera funziona su 3 livelli. Scopri come variano le aliquote cantonali, quali deduzioni ammettere e come presentare la dichiarazione entro i termini previsti.',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Veduta panoramica di una città svizzera con edifici amministrativi che rappresentano il sistema fiscale cantonale',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Permesso di dimora B San Gallo: requisiti e rinnovo',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Guida pratica al permesso di dimora B nel Cantone di San Gallo: requisiti, documenti, durata e procedura di rinnovo presso l\'ufficio della migrazione cantonale.',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Veduta della città di San Gallo con edifici amministrativi e architettura svizzera alpina sullo sfondo',
 };
 
 export default blogMetaChIt;

@@ -5368,6 +5368,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.title': 'Kantonale Steuern: Steuersätze, Abzüge und Erklärung',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.excerpt': 'Die Schweizer Besteuerung funktioniert auf 3 Ebenen. Erfahren Sie, wie sich die kantonalen Steuersätze unterscheiden, welche Abzüge zulässig sind und wie Sie die Erklärung fristgerecht einreichen können.',
     'blog.article.imposte-cantonali-svizzera-aliquote-deduzioni.imageAlt': 'Panoramablick auf eine Schweizer Stadt mit Verwaltungsgebäuden, die das kantonale Steuersystem darstellt',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B St. Gallen: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton St. Gallen: Voraussetzungen, Dokumente, Dauer und Erneuerungsverfahren beim kantonalen Migrationsamt.',
+    'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Blick auf die Stadt Sankt Gallen mit Verwaltungsgebäuden und Schweizer Alpenarchitektur',
 };
 
 export default blogMetaChDe;
