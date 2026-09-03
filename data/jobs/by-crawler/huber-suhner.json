@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huber-suhner",
-  "assembledAt": "2026-09-03T13:47:40.788Z",
+  "assembledAt": "2026-09-03T23:26:16.458Z",
   "jobs": [
     {
       "id": "huber-suhner-2e6501d93668",
@@ -95,7 +95,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "huber-suhner-e638fa39b621",
@@ -128,7 +129,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7883/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:36.514Z",
+      "crawledAt": "2026-09-03T23:26:13.368Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -238,7 +239,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8077/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:35.476Z",
+      "crawledAt": "2026-09-03T23:26:12.263Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -353,7 +354,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8053/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:34.427Z",
+      "crawledAt": "2026-09-03T23:26:11.151Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -461,7 +462,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7456/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:33.328Z",
+      "crawledAt": "2026-09-03T23:26:10.069Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -565,7 +566,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7912/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:32.413Z",
+      "crawledAt": "2026-09-03T23:26:08.934Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -664,7 +665,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8117/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:31.527Z",
+      "crawledAt": "2026-09-03T23:26:07.754Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -715,12 +716,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "design-engineer-manufacturing-equipment-huber-suhner-pfaffikon",
-        "ingegnere-di-progettazione-attrezzature-di-produzione-huber-suhner-ag-pfaffikon"
+        "ingegnere-di-progettazione-attrezzature-di-produzione-huber-suhner-ag-pfaffikon",
+        "design-ingegnere-manufacturing-equipment-huber-suhner-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "design-engineer-manufacturing-equipment-huber-suhner-pfaffikon",
-          "ingegnere-di-progettazione-attrezzature-di-produzione-huber-suhner-ag-pfaffikon"
+          "ingegnere-di-progettazione-attrezzature-di-produzione-huber-suhner-ag-pfaffikon",
+          "design-ingegnere-manufacturing-equipment-huber-suhner-ag-pfaffikon"
         ],
         "fr": [
           "design-engineer-manufacturing-equipment-huber-suhner-pfaffikon"
@@ -772,7 +775,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8061/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:30.926Z",
+      "crawledAt": "2026-09-03T23:26:06.617Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -856,7 +859,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7806/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:30.002Z",
+      "crawledAt": "2026-09-03T23:26:05.538Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -980,7 +983,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/6339/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:29.417Z",
+      "crawledAt": "2026-09-03T23:26:04.474Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1062,7 +1065,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8138/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:28.835Z",
+      "crawledAt": "2026-09-03T23:26:03.341Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1177,7 +1180,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:28.267Z",
+      "crawledAt": "2026-09-03T23:26:02.230Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1264,7 +1267,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8179/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:27.693Z",
+      "crawledAt": "2026-09-03T23:26:01.071Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1369,7 +1372,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8192/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:47:26.950Z",
+      "crawledAt": "2026-09-03T23:26:00.248Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",

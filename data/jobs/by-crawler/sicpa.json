@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sicpa",
-  "assembledAt": "2026-09-03T13:47:13.412Z",
+  "assembledAt": "2026-09-03T23:25:48.989Z",
   "jobs": [
     {
       "id": "sicpa-0d0ce067f4eb",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Image-Processing-Engineer/1433113933/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:09.819Z",
+      "crawledAt": "2026-09-03T23:25:42.233Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -53,7 +53,8 @@
       "firstSeenAt": "2026-09-02T23:23:53.899Z",
       "previousSlugsByLocale": {
         "it": [
-          "image-processing-engineer-sicpa-prilly"
+          "image-processing-engineer-sicpa-prilly",
+          "image-processing-ingegnere-sicpa-sa-prilly"
         ],
         "de": [
           "image-processing-engineer-sicpa-prilly"
@@ -63,7 +64,8 @@
         ]
       },
       "previousSlugs": [
-        "image-processing-engineer-sicpa-prilly"
+        "image-processing-engineer-sicpa-prilly",
+        "image-processing-ingegnere-sicpa-sa-prilly"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -110,7 +112,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:09.233Z",
+      "crawledAt": "2026-09-03T23:25:41.591Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -160,29 +162,29 @@
     },
     {
       "id": "sicpa-a2dcc505f2a7",
-      "slug": "embedded-software-engineer-sicpa-prilly",
+      "slug": "embedded-software-ingegnere-sicpa-sa-prilly",
       "slugByLocale": {
+        "it": "embedded-software-ingegnere-sicpa-sa-prilly",
         "en": "embedded-software-engineer-sicpa-prilly",
-        "it": "embedded-software-engineer-sicpa-prilly",
-        "de": "embedded-software-engineer-sicpa-prilly",
-        "fr": "embedded-software-engineer-sicpa-prilly"
+        "de": "embedded-software-ingenieur-sicpa-sa-prilly",
+        "fr": "embedded-software-ingenieur-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
       "companyDomain": "sicpa.com",
       "title": "Embedded Software Engineer",
       "titleByLocale": {
-        "en": "Embedded Software Engineer",
         "it": "Embedded Software Ingegnere",
+        "en": "Embedded Software Engineer",
         "de": "Embedded Software Ingenieur",
         "fr": "Embedded Software Ingénieur"
       },
       "description": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
       "descriptionByLocale": {
-        "en": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-        "it": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-        "de": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-        "fr": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including  real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French  (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate."
+        "it": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
+        "en": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
+        "de": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
+        "fr": "The Embedded Software Engineer is a technical contributor within the Machine-Readable Features Laboratory , supporting the development, integration, validation, and maintenance of embedded software solutions used in advanced machine-readable authentication and traceability systems.\n\nThe role covers a broad range of technologies including real-time operating systems (RTOS), embedded Linux platforms, high-speed sensor systems, signal processing, System-on-Chip (SoC) architectures, and industrial software development frameworks . The position combines software architecture and development , system integration, testing, troubleshooting, and deployment activities within a multidisciplinary environment involving electronics, optics, chemistry, data science, and software engineering.\n\nThis position is well suited for an engineer seeking to build strong expertise in embedded systems, industrial sensing technologies, and software lifecycle management, with opportunities to contribute from concept to deployment in cutting-edge security solutions.\n\nROLE\n\n• Develop, maintain, and optimize embedded software applications in C/C++ for real-time and Linux-based platforms.\n\n• Design, develop, and maintain software running on RTOS, embedded Linux, microcontrollers, microprocessors, DSPs, and System-on-Chip (SoC) platforms .\n\n• Support the integration of embedded software with electronics, optics, and sensor subsystems.\n\n• Design and execute software testing, validation, and troubleshooting activities to ensure performance, reliability, and maintainability.\n\n• Investigate and resolve software defects, field issues, and system integration challenges.\n\n• Contribute to software documentation, including requirements, design specifications, test reports, user documentation, and maintenance procedures.\n\n• Participate in technical reviews, design discussions, and continuous improvement initiatives.\n\n• Collaborate actively within multidisciplinary project teams including electronics engineers, software engineers, physicists, chemists, and scientists.\n\nPROFILE\n\nEducation & Experience\n\n• Bachelor's or Master's degree in Software Engineering, Computer Engineering, Embedded Systems , or equivalent.\n\nTechnical Skills\n\n• Strong proficiency in C/C++ programming for embedded applications.\n\n• Experience with Real-Time Operating Systems (RTOS) and embedded Linux environments.\n\n• Knowledge of software testing methodologies , debugging techniques, and version control systems.\n\n• Familiarity with System-on-Chip (SoC) architectures , including microprocessors, microcontrollers, and DSPs.\n\n• Knowledge of communication interfaces and industrial embedded systems integration.\n\n• Comfortable using standard engineering tools for software development, versioning, issue tracking, and technical documentation.\n\nPersonal Skills\n\n• Curious, motivated, and eager to develop deep technical expertise .\n\n• Strong analytical and problem‑solving mindset.\n\n• Increasingly autonomous, with the ability to manage laboratory tasks with limited supervision.\n\n• Reliable, structured, and quality‑oriented.\n\n• Team player in a multicultural and interdisciplinary environment .\n\nLanguages\n\n• Good working knowledge of English and French (spoken and written).\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate."
       },
       "needsRetranslation": true,
       "location": "Prilly",
@@ -190,7 +192,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Embedded-Software-Engineer/1433097433/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:08.614Z",
+      "crawledAt": "2026-09-03T23:25:40.956Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -206,9 +208,22 @@
       "postedDate": "2026-09-02",
       "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1433097433/?locale=en_GB",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-03T13:47:08.614Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "embedded-software-engineer-sicpa-prilly"
+        ],
+        "de": [
+          "embedded-software-engineer-sicpa-prilly"
+        ],
+        "fr": [
+          "embedded-software-engineer-sicpa-prilly"
+        ]
       },
+      "previousSlugs": [
+        "embedded-software-engineer-sicpa-prilly"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -221,8 +236,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:47:08.614Z"
+      }
     },
     {
       "id": "sicpa-3fdbfe3608f5",
@@ -255,7 +269,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:08.063Z",
+      "crawledAt": "2026-09-03T23:25:40.293Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -334,7 +348,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Operator%2C-Gardening-&-Road/1431520733/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:07.493Z",
+      "crawledAt": "2026-09-03T23:25:39.623Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -413,116 +427,6 @@
       }
     },
     {
-      "id": "sicpa-46e1d521cbf8",
-      "slug": "consegna-di-piombo-sicpa-sa-prilly",
-      "slugByLocale": {
-        "it": "consegna-di-piombo-sicpa-sa-prilly",
-        "en": "delivery-lead-sicpa-prilly",
-        "de": "lieferhinweis-sicpa-sa-prilly",
-        "fr": "lieu-de-livraison-sicpa-sa-prilly"
-      },
-      "company": "SICPA SA",
-      "companyKey": "sicpa",
-      "companyDomain": "sicpa.com",
-      "title": "Delivery Lead",
-      "titleByLocale": {
-        "it": "Consegna di piombo",
-        "en": "Delivery Lead",
-        "de": "Lieferhinweis",
-        "fr": "Lieu de livraison"
-      },
-      "description": "As a Delivery Lead, you will be responsible for the successful delivery of innovative digital solutions for government and institutional customers. Acting as the bridge between customers, business stakeholders, and technical teams, you will ensure solutions are delivered on time, within scope and budget, while maintaining the highest standards of quality and customer satisfaction. You will coordinate multidisciplinary teams to transform complex requirements and data into operational capabilities and actionable insights.\n\nROLE\n\n• Lead the delivery of bespoke digital solutions for governments and institutional clients, with a focus on AI sovereignty and technology neutrality.\n\n• Coordinate cross-functional teams across Software Development (Back-end, Front-end, DevOps, UX/UI), Business Intelligence, and Data Science to transform complex data into actionable insights.\n\n• Orchestrate Sovereign Data, Intelligence Analysis, and OSINT activities to collect, enrich, and analyze information, enabling informed decision-making.\n\n• Capture and channel demand for new projects and product developments.\n\n• Identify opportunities for commercial expansion and additional value creation within existing customer engagements, collaborating with commercial teams to support cross-selling and upselling initiatives.\n\n• Propose solutions with associated effort and cost estimates, ensuring alignment with solution roadmaps and existing platforms.\n\n• Conduct meetings with customers, partners, and key stakeholders.\n\n• Maintain and regularly communicate delivery plans to internal stakeholders.\n\n• Organize work packages and define key milestones to ensure effective coordination across delivery teams.\n\n• Ensure successful delivery of solutions according to project requirements, timelines, budget, and quality expectations.\n\n• Align delivery plans with project timelines and priorities through the project core team.\n\n• Maintain project management tools and documentation up to date.\n\nPROFILE\n\n• Master's degree in Engineering, Information Systems, Business Information Technology, or equivalent.\n\n• Proven experience in the delivery of software and digital solutions is required.\n\n• Experience working with government and institutional clients.\n\n• Exposure to Data Science, Business Intelligence, Analytics, or Statistics.\n\n• Strong business acumen with the ability to understand customer needs, identify growth opportunities, and translate them into value-added solution proposals.\n\n• Strong project management skills; PMP or HERMES certification is considered an asset.\n\n• Scrum Master and/or Product Owner certification is an advantage.\n\n• Excellent communication and stakeholder management skills.\n\n• International exposure and willingness to travel.\n\n• Good understanding of Agile ways of working and ability to balance Agile delivery with contractual commitments.\n\n• Strong analytical skills, with an autonomous, curious, trustworthy, and results-oriented mindset.\n\n• Team player able to thrive in a multicultural environment while working independently when needed.\n\n• Fluent in English and French.\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-      "descriptionByLocale": {
-        "it": "Ruolo\n\n- Guidare la consegna di soluzioni digitali su misura per governi e clienti istituzionali, con un focus sulla sovranità dell'IA e sulla neutralità tecnologica.\n- Coordinare team trasversali tra Sviluppo Software (Back-end, Front-end, DevOps, UX/UI), Business Intelligence e Data Science per trasformare dati complessi in informazioni actionable.\n- Orchestrare le attività di Sovereign Data, Intelligence Analysis e OSINT per raccogliere, arricchire e analizzare informazioni, consentendo un processo decisionale informato.\n- Cogliere e indirizzare la domanda per nuovi progetti e sviluppi di prodotto.\n- Identificare opportunità di espansione commerciale e di creazione di valore aggiuntivo all'interno delle relazioni con i clienti esistenti, collaborando con i team commerciali per supportare iniziative di cross-selling e up-selling.\n- Proporre soluzioni con relative stime di impegno e costo, garantendo l'allineamento con le roadmap delle soluzioni e le piattaforme esistenti.\n- Condurre riunioni con clienti, partner e stakeholder chiave.\n- Mantenere e comunicare regolarmente i piani di consegna agli stakeholder interni.\n- Organizzare i pacchetti di lavoro e definire le milestone chiave per garantire un coordinamento efficace tra i team di delivery.\n- Garantire la consegna efficace delle soluzioni in base ai requisiti, alle tempistiche, al budget e alle aspettative di qualità del progetto.\n- Allineare i piani di consegna con le tempistiche e le priorità del progetto attraverso il core team di progetto.\n- Mantenere aggiornati gli strumenti e la documentazione di project management.\n\nProfilo\n\n- Laurea magistrale in Ingegneria, Sistemi Informativi, Business Information Technology o equivalente.\n- È richiesta esperienza comprovata nella consegna di soluzioni software e digitali.\n- Esperienza di lavoro con clienti governativi e istituzionali.\n- Esperienza in Data Science, Business Intelligence, Analytics o Statistica.\n- Forte acume commerciale con capacità di comprendere le esigenze dei clienti, identificare opportunità di crescita e tradurle in proposte di soluzioni a valore aggiunto.\n- Forti capacità di project management; la certificazione PMP o HERMES è considerata un plus.\n- La certificazione Scrum Master e/o Product Owner è un vantaggio.\n- Eccellenti capacità di comunicazione e gestione degli stakeholder.\n- Esperienza internazionale e disponibilità a viaggiare.\n- Buona comprensione delle modalità di lavoro Agile e capacità di bilanciare la delivery Agile con gli impegni contrattuali.\n- Forti capacità analitiche, con mentalità autonoma, curiosa, affidabile e orientata ai risultati.\n- Team player in grado di eccellere in un ambiente multiculturale lavorando in modo indipendente quando necessario.\n- Fluente in inglese e francese.\n\nPerché unirsi a noi?\n\n- Unisciti a un leader globale nelle tecnologie di fiducia con una missione che conta.\n- Sii nel cuore strategico di un'azienda finanziariamente solida e orientata all'innovazione.\n- Collabora con esperti di alto livello e lavora su progetti internazionali di grande impatto.\n- Opera in un ambiente multiculturale e ad alta integrità dove autonomia e responsabilità sono incoraggiate.\n- Monitorare i dati effettivi del progetto rispetto ai budget pianificati e segnalare i rischi quando appropriato.\n\nDescrizione\n\nCome Delivery Lead, sarai responsabile della consegna efficace di soluzioni digitali innovative per clienti governativi e istituzionali. Fungendo da ponte tra clienti, stakeholder di business e team tecnici, garantirai che le soluzioni vengano consegnate nei tempi, nel rispetto dello scope e del budget, mantenendo i più alti standard di qualità e soddisfazione del cliente. Coordinerai team multidisciplinari per trasformare requisiti e dati complessi in capacità operative e informazioni actionable.",
-        "en": "As a Delivery Lead, you will be responsible for the successful delivery of innovative digital solutions for government and institutional customers. Acting as the bridge between customers, business stakeholders, and technical teams, you will ensure solutions are delivered on time, within scope and budget, while maintaining the highest standards of quality and customer satisfaction. You will coordinate multidisciplinary teams to transform complex requirements and data into operational capabilities and actionable insights.\n\nROLE\n\n• Lead the delivery of bespoke digital solutions for governments and institutional clients, with a focus on AI sovereignty and technology neutrality.\n\n• Coordinate cross-functional teams across Software Development (Back-end, Front-end, DevOps, UX/UI), Business Intelligence, and Data Science to transform complex data into actionable insights.\n\n• Orchestrate Sovereign Data, Intelligence Analysis, and OSINT activities to collect, enrich, and analyze information, enabling informed decision-making.\n\n• Capture and channel demand for new projects and product developments.\n\n• Identify opportunities for commercial expansion and additional value creation within existing customer engagements, collaborating with commercial teams to support cross-selling and upselling initiatives.\n\n• Propose solutions with associated effort and cost estimates, ensuring alignment with solution roadmaps and existing platforms.\n\n• Conduct meetings with customers, partners, and key stakeholders.\n\n• Maintain and regularly communicate delivery plans to internal stakeholders.\n\n• Organize work packages and define key milestones to ensure effective coordination across delivery teams.\n\n• Ensure successful delivery of solutions according to project requirements, timelines, budget, and quality expectations.\n\n• Align delivery plans with project timelines and priorities through the project core team.\n\n• Maintain project management tools and documentation up to date.\n\nPROFILE\n\n• Master's degree in Engineering, Information Systems, Business Information Technology, or equivalent.\n\n• Proven experience in the delivery of software and digital solutions is required.\n\n• Experience working with government and institutional clients.\n\n• Exposure to Data Science, Business Intelligence, Analytics, or Statistics.\n\n• Strong business acumen with the ability to understand customer needs, identify growth opportunities, and translate them into value-added solution proposals.\n\n• Strong project management skills; PMP or HERMES certification is considered an asset.\n\n• Scrum Master and/or Product Owner certification is an advantage.\n\n• Excellent communication and stakeholder management skills.\n\n• International exposure and willingness to travel.\n\n• Good understanding of Agile ways of working and ability to balance Agile delivery with contractual commitments.\n\n• Strong analytical skills, with an autonomous, curious, trustworthy, and results-oriented mindset.\n\n• Team player able to thrive in a multicultural environment while working independently when needed.\n\n• Fluent in English and French.\n\nWHY JOIN US?\n\n• Join a global leader in trust technologies with a mission that matters.\n\n• Be at the strategic heart of a financially sound and innovation-driven company.\n\n• Collaborate with high-level experts and work on impactful international projects.\n\n• Operate in a multi-cultural, high-integrity environment where autonomy and ownership are encouraged.\n\n• Monitor project actuals against planned budgets and escalate risks where appropriate.",
-        "de": "Rolle\n\n- Leitung der Bereitstellung massgeschneiderter digitaler Lösungen für Regierungen und institutionelle Kunden mit Schwerpunkt auf KI-Souveränität und Technologieneutralität.\n- Koordination funktionsübergreifender Teams in den Bereichen Softwareentwicklung (Back-end, Front-end, DevOps, UX/UI), Business Intelligence und Data Science, um komplexe Daten in verwertbare Erkenntnisse umzuwandeln.\n- Orchestrierung der Aktivitäten in den Bereichen Sovereign Data, Intelligence Analysis und OSINT zur Erfassung, Anreicherung und Analyse von Informationen, um fundierte Entscheidungen zu ermöglichen.\n- Erfassung und Kanalisierung der Nachfrage nach neuen Projekten und Produktentwicklungen.\n- Identifizierung von Möglichkeiten zur kommerziellen Expansion und zur Schaffung zusätzlichen Nutzens innerhalb bestehender Kundenbeziehungen in Zusammenarbeit mit den Vertriebsteams zur Unterstützung von Cross-Selling- und Up-Selling-Initiativen.\n- Vorschlag von Lösungen mit zugehörigen Aufwands- und Kostenschätzungen unter Gewährleistung der Abstimmung mit Lösungs-Roadmaps und bestehenden Plattformen.\n- Durchführung von Meetings mit Kunden, Partnern und wichtigen Stakeholdern.\n- Pflege und regelmässige Kommunikation der Delivery-Pläne an interne Stakeholder.\n- Organisation von Arbeitspaketen und Definition wichtiger Meilensteine zur Sicherstellung einer effektiven Koordination zwischen den Delivery-Teams.\n- Sicherstellung der erfolgreichen Bereitstellung von Lösungen gemäss Projektanforderungen, Zeitplänen, Budget und Qualitätserwartungen.\n- Abstimmung der Delivery-Pläne mit den Projektzeitplänen und Prioritäten über das Projektkernteam.\n- Aktualisierung von Projektmanagement-Tools und Dokumentationen.\n\nProfil\n\n- Master-Abschluss in Ingenieurwesen, Informationssystemen, Wirtschaftsinformatik oder gleichwertig.\n- Nachgewiesene Erfahrung in der Bereitstellung von Software- und digitalen Lösungen ist erforderlich.\n- Erfahrung in der Zusammenarbeit mit Regierungs- und institutionellen Kunden.\n- Erfahrung in Data Science, Business Intelligence, Analytics oder Statistik.\n- Starkes Geschäftsverständnis mit der Fähigkeit, Kundenbedürfnisse zu verstehen, Wachstumschancen zu identifizieren und diese in wertschöpfende Lösungsvorschläge umzuwandeln.\n- Starke Projektmanagement-Fähigkeiten; PMP- oder HERMES-Zertifizierung ist von Vorteil.\n- Scrum Master- und/oder Product Owner-Zertifizierung ist ein Plus.\n- Ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten.\n- Internationale Erfahrung und Bereitschaft zu reisen.\n- Gutes Verständnis agiler Arbeitsweisen und Fähigkeit, agile Delivery mit vertraglichen Verpflichtungen in Einklang zu bringen.\n- Starke analytische Fähigkeiten mit einer autonomen, neugierigen, vertrauenswürdigen und ergebnisorientierten Denkweise.\n- Teamplayer, der in einem multikulturellen Umfeld erfolgreich ist und bei Bedarf auch eigenständig arbeiten kann.\n- Fließend in Englisch und Französisch.\n\nWarum sollten Sie Teil unseres Teams werden?\n\n- Werden Sie Teil eines globalen Marktführers für Vertrauens-Technologien mit einer Mission, die zählt.\n- Befinden Sie sich im strategischen Herzen eines finanziell soliden und innovationsgetriebenen Unternehmens.\n- Arbeiten Sie mit hochrangigen Experten zusammen und arbeiten Sie an wirkungsvollen internationalen Projekten.\n- Agieren Sie in einem multikulturellen Umfeld mit hoher Integrität, in dem Autonomie und Eigenverantwortung gefördert werden.\n- Überwachung der tatsächlichen Projektzahlen im Vergleich zu den geplanten Budgets und Eskalation von Risiken bei Bedarf.\n\nBeschreibung\n\nAls Delivery Lead sind Sie für die erfolgreiche Bereitstellung innovativer digitaler Lösungen für Regierungs- und institutionelle Kunden verantwortlich. Als Brücke zwischen Kunden, Geschäfts-Stakeholdern und technischen Teams stellen Sie sicher, dass Lösungen termingerecht, im Rahmen des Umfangs und des Budgets geliefert werden, wobei Sie höchste Qualitäts- und Kundenzufriedenheitsstandards einhalten. Sie koordinieren multidisziplinäre Teams, um komplexe Anforderungen und Daten in operative Fähigkeiten und verwertbare Erkenntnisse umzuwandeln.",
-        "fr": "Rôle\n\n- Diriger la livraison de solutions digitales sur mesure pour les gouvernements et les clients institutionnels, avec un accent sur la souveraineté de l'IA et la neutralité technologique.\n- Coordonner des équipes transversales à travers le Développement Logiciel (Back-end, Front-end, DevOps, UX/UI), la Business Intelligence et la Data Science pour transformer des données complexes en informations exploitables.\n- Orchestrer les activités de Sovereign Data, Intelligence Analysis et OSINT pour collecter, enrichir et analyser les informations, permettant une prise de décision éclairée.\n- Capter et canaliser la demande pour de nouveaux projets et développements de produits.\n- Identifier les opportunités d'expansion commerciale et de création de valeur supplémentaire au sein des relations clients existantes, en collaborant avec les équipes commerciales pour soutenir les initiatives de cross-selling et d'up-selling.\n- Proposer des solutions avec les estimations d'effort et de coût associées, en assurant l'alignement avec les roadmaps des solutions et les plateformes existantes.\n- Conduire des réunions avec les clients, partenaires et parties prenantes clés.\n- Maintenir et communiquer régulièrement les plans de livraison aux parties prenantes internes.\n- Organiser les lots de travaux et définir les jalons clés pour garantir une coordination efficace entre les équipes de delivery.\n- Garantir la livraison réussie des solutions conformément aux exigences du projet, aux délais, au budget et aux attentes de qualité.\n- Aligner les plans de livraison avec les délais et priorités du projet à travers le core team projet.\n- Maintenir à jour les outils et la documentation de gestion de projet.\n\nProfil\n\n- Master en Ingénierie, Systèmes d'Information, Business Information Technology ou équivalent.\n- Expérience avérée dans la livraison de solutions logicielles et digitales requise.\n- Expérience de travail avec des clients gouvernementaux et institutionnels.\n- Exposition à la Data Science, Business Intelligence, Analytics ou Statistique.\n- Forte acuité commerciale avec la capacité de comprendre les besoins des clients, d'identifier les opportunités de croissance et de les traduire en propositions de solutions à valeur ajoutée.\n- Solides compétences en gestion de projet ; les certifications PMP ou HERMES sont considérées comme un atout.\n- Les certifications Scrum Master et/ou Product Owner sont un avantage.\n- Excellentes compétences en communication et en gestion des parties prenantes.\n- Expérience internationale et willingness to travel.\n- Bonne compréhension des modes de travail Agile et capacité à équilibrer la delivery Agile avec les engagements contractuels.\n- Solides compétences analytiques, avec un état d'esprit autonome, curieux, fiable et orienté résultats.\n- Esprit d'équipe capable de s'épanouir dans un environnement multiculturel tout en travaillant de manière indépendante lorsque nécessaire.\n- Maîtrise de l'anglais et du français.\n\nPourquoi nous rejoindre ?\n\n- Rejoignez un leader mondial des technologies de confiance avec une mission qui compte.\n- Soyez au cœur stratégique d'une entreprise financièrement solide et portée par l'innovation.\n- Collaborez avec des experts de haut niveau et travaillez sur des projets internationaux à fort impact.\n- Évoluez dans un environnement multiculturel et de haute intégrité où l'autonomie et la responsabilité sont encouragées.\n- Monitor project actuals against planned budgets and escalate risks where appropriate.\n\nDescription\n\nEn tant que Delivery Lead, vous serez responsable de la livraison réussie de solutions digitales innovantes pour des clients gouvernementaux et institutionnels. Agissant comme un pont entre les clients, les parties prenantes métier et les équipes techniques, vous veillerez à ce que les solutions soient livrées dans les délais, le périmètre et le budget, tout en maintenant les plus hauts standards de qualité et de satisfaction client. Vous coordonnerez des équipes pluridisciplinaires pour transformer des exigences et des données complexes en capacités opérationnelles et en informations exploitables."
-      },
-      "location": "Prilly",
-      "canton": "VD",
-      "url": "https://jobs.sicpa.com/job/Prilly-Delivery-Lead/1430826733/",
-      "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:06.910Z",
-      "addressLocality": "Prilly",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1008",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Industria di sicurezza / Tecnologie anti-contraffazione (manifatturiero)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://jobs.sicpa.com/talentcommunity/apply/1430826733/?locale=en_GB",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Laurea magistrale in Ingegneria, Sistemi Informativi, Business Information Technology o equivalente",
-          "Esperienza comprovata nella consegna di soluzioni software e digitali",
-          "Esperienza di lavoro con clienti governativi e istituzionali",
-          "Esperienza in Data Science, Business Intelligence, Analytics o Statistica",
-          "Forte acume commerciale e capacità di identificare opportunità di crescita",
-          "Forti capacità di project management; PMP o HERMES sono un plus",
-          "Eccellenti capacità di comunicazione e gestione degli stakeholder",
-          "Fluente in inglese e francese, con disponibilità a viaggiare"
-        ],
-        "de": [
-          "Master-Abschluss in Ingenieurwesen, Informationssystemen, Wirtschaftsinformatik oder gleichwertig",
-          "Nachgewiesene Erfahrung in der Bereitstellung von Software- und digitalen Lösungen",
-          "Erfahrung in der Zusammenarbeit mit Regierungs- und institutionellen Kunden",
-          "Erfahrung in Data Science, Business Intelligence, Analytics oder Statistik",
-          "Starkes Geschäftsverständnis und Fähigkeit zur Identifizierung von Wachstumschancen",
-          "Starke Projektmanagement-Fähigkeiten; PMP oder HERMES sind von Vorteil",
-          "Ausgezeichnete Kommunikations- und Stakeholder-Management-Fähigkeiten",
-          "Fließend in Englisch und Französisch, mit Reisebereitschaft"
-        ],
-        "fr": [
-          "Master en Ingénierie, Systèmes d'Information, Business Information Technology ou équivalent",
-          "Expérience avérée dans la livraison de solutions logicielles et digitales",
-          "Expérience de travail avec des clients gouvernementaux et institutionnels",
-          "Exposition à la Data Science, Business Intelligence, Analytics ou Statistique",
-          "Forte acuité commerciale et capacité à identifier les opportunités de croissance",
-          "Solides compétences en gestion de projet ; PMP ou HERMES sont un atout",
-          "Excellentes compétences en communication et en gestion des parties prenantes",
-          "Maîtrise de l'anglais et du français, avec willingness to travel"
-        ]
-      },
-      "previousSlugs": [
-        "delivery-lead-sicpa-prilly",
-        "consegna-di-piombo-sicpa-sa-prilly"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "delivery-lead-sicpa-prilly",
-          "consegna-di-piombo-sicpa-sa-prilly"
-        ],
-        "de": [
-          "delivery-lead-sicpa-prilly"
-        ],
-        "fr": [
-          "delivery-lead-sicpa-prilly"
-        ]
-      },
-      "firstSeenAt": "2026-08-28T05:31:43.480Z",
-      "salaryMin": 120000,
-      "salaryMax": 162000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 120000,
-          "maxValue": 162000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "sicpa-a604826ccff7",
       "slug": "laboratory-technician-specialista-sicpa-sa-prilly",
       "slugByLocale": {
@@ -553,7 +457,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Laboratory-Technician-Specialist/1431815433/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:06.351Z",
+      "crawledAt": "2026-09-03T23:25:38.984Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -735,7 +639,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "sicpa-ee4544be3e45",
@@ -769,7 +674,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:05.215Z",
+      "crawledAt": "2026-09-03T23:25:38.324Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -849,7 +754,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Administrative-Assistant/1291495901/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:04.597Z",
+      "crawledAt": "2026-09-03T23:25:37.702Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -913,7 +818,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technicien-de-Maintenance/1374083033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:03.962Z",
+      "crawledAt": "2026-09-03T23:25:42.881Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -998,7 +903,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Advisor/1418635833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:03.348Z",
+      "crawledAt": "2026-09-03T23:25:37.031Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1077,7 +982,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Laboratory-Technical-Specialist/1418754533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:02.771Z",
+      "crawledAt": "2026-09-03T23:25:36.349Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1187,7 +1092,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T13:47:02.194Z",
+      "crawledAt": "2026-09-03T23:25:35.707Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1266,7 +1171,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Cloud-Platform-Engineer/1429917033/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:47:01.573Z",
+      "crawledAt": "2026-09-03T23:25:35.033Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
