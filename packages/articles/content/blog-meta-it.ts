@@ -11158,6 +11158,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-vivere-mese-grigioni.title': 'Vivere a Mese e lavorare nei Grigioni: guida fiscale',
     'blog.article.guida-vivere-mese-grigioni.excerpt': 'Permesso G, imposta alla fonte e franchigia del reddito frontaliere: guida per chi vive a Mese e lavora nei Grigioni svizzeri. Norme 2024, LAMal, procedura.',
     'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panorama del confine Svizzera-Italia sul Lago di Lugano al tramonto',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Vivere a Albosaggia e lavorare in Grigioni da frontaliere',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento da Albosaggia ai Grigioni.',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne circostanti',
 };
 
 export default blogMetaIt;

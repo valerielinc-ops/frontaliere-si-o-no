@@ -11157,6 +11157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-vivere-mese-grigioni.title': 'Living by Month and Working in Graubünden: A Tax Guide',
     'blog.article.guida-vivere-mese-grigioni.excerpt': 'Permit G, tax at source and deductible of border income: a guide for those who live in Mese and work in Swiss Graubünden. Standards 2024, LAMal, procedure.',
     'blog.article.guida-vivere-mese-grigioni.imageAlt': 'Panoramic view of the Switzerland-Italy border on Lake Lugano at sunset',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Living in Albosaggia and working in Graubünden as a border worker',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and benefits of transferring from Albosaggia to Grisons.',
+    'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
 };
 
 export default blogMetaEn;

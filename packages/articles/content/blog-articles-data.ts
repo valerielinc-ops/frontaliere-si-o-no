@@ -33339,6 +33339,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'vivere-albosaggia-lavorare-grigioni-frontaliere',
+ category: 'pratico',
+ date: '2026-09-03T00:15:06.032Z',
+ image: '/images/blog/vivere-albosaggia-lavorare-grigioni-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
