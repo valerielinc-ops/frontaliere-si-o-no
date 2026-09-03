@@ -1523,15 +1523,22 @@ commit_isolated_from_worktree() {
             data/jobs/by-crawler/*.json)
               if is_registered_primary_slice "$f"; then
                 if [ -n "$base_blob" ]; then
-                  echo "❌ grouped-isolated: $f disappeared upstream but remains in crawler-generation-roster.json — refusing to infer retirement"
-                  return 1
+                  echo "⚠️ grouped-isolated: $f disappeared upstream but remains in crawler-generation-roster.json — refusing to infer retirement, skipping this slice only (rest of batch continues)"
+                  continue
                 fi
                 # A registered path absent from both base and remote is a
                 # genuine first-run create, not a resurrection.
               else
                 registry_status=$?
                 if [ "$registry_status" -ne 1 ]; then
-                  return 1
+                  # Roster validation error (exit 2, e.g. corrupt/unreadable
+                  # roster): fail closed on THIS slice only. A `return 1` here
+                  # would propagate out of commit_isolated_from_worktree and
+                  # abort every other file already queued in this invocation
+                  # (issue #7222) — a transient roster read failure has no
+                  # bearing on files that don't need registry lookups.
+                  echo "⚠️ grouped-isolated: cannot validate primary slice registry for $f — skipping this slice only (rest of batch continues)"
+                  continue
                 fi
                 # `base_blob` only reflects the CURRENT tree at this writer's
                 # checkout, which every CI job starts fresh from origin/main —

@@ -480,10 +480,19 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
-  it('fails closed when a still-registered primary slice disappears upstream', () => {
+  it('skips only the affected slice on a roster validation error or a genuine retirement mismatch, letting the rest of the sequential batch commit (issue #7222)', () => {
+    // Regression for issue #7222: before this fix, a roster validation
+    // failure (exit 2, e.g. corrupt/unreadable roster) or a registered slice
+    // disappearing upstream both hit `return 1` inside the per-file loop,
+    // which propagates out of commit_isolated_from_worktree and aborts the
+    // ENTIRE commit for the run — every other pending file, not just the one
+    // slice that triggered the roster check. The fix scopes the fail-closed
+    // behavior to that single slice (`continue`), so an unrelated pending
+    // file in the same sequential batch still commits.
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
     const concurrentDir = mkdtempSync(join(tmpdir(), 'git-commit-data-concurrent-'));
+    const COMPANION_PATH = 'data/translation-cache/companion.json';
 
     try {
       execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
@@ -498,7 +507,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       writeFileSync(join(repoDir, REGISTERED_SLICE_PATH), '[]\n');
       writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
       writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
-      writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      writeFileSync(join(repoDir, COMPANION_PATH), '{}\n');
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
@@ -510,56 +519,28 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['commit', '-q', '-m', 'accidental remote deletion'], { cwd: concurrentDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: concurrentDir });
 
+      // Two pending files in the same sequential batch: the registered slice
+      // (whose registry lookup will fail/mismatch below) and an unrelated
+      // companion file that doesn't go through the registry check at all.
       writeFileSync(
         join(repoDir, REGISTERED_SLICE_PATH),
         `[{"id":"${REGISTERED_SLICE_FILE}-updated"}]\n`,
       );
+      writeFileSync(join(repoDir, COMPANION_PATH), '{"updated":true}\n');
 
       const malformedRosterPath = join(repoDir, 'malformed-crawler-roster.json');
       writeFileSync(malformedRosterPath, JSON.stringify({ primarySlices: {} }));
       for (const invalidRosterPath of [join(repoDir, 'missing-crawler-roster.json'), malformedRosterPath]) {
-        let invalidRosterOutput = '';
-        expect(() => {
-          try {
-            execFileSync(
-              BASH_BIN,
-              [SCRIPT_PATH, '--slice-only', 'invalid roster writer'],
-              {
-                cwd: repoDir,
-                env: {
-                  ...process.env,
-                  CRAWLER_GENERATION_ROSTER_FILE: invalidRosterPath,
-                  JOBS_SLICE_FILE: '',
-                  SKIP_AI_TRANSLATION: '1',
-                  SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
-                  GH_TOKEN: '',
-                  GITHUB_TOKEN: '',
-                  GITHUB_RUN_ID: '',
-                  GITHUB_REPOSITORY: '',
-                  GITHUB_OUTPUT: '',
-                },
-                stdio: 'pipe',
-              },
-            );
-          } catch (error) {
-            const failure = error as { stdout?: Buffer; stderr?: Buffer };
-            invalidRosterOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
-            throw error;
-          }
-        }).toThrow();
-        expect(invalidRosterOutput).toContain('cannot validate primary slice registry');
-      }
-
-      let failureOutput = '';
-      expect(() => {
+        let output = '';
         try {
           execFileSync(
             BASH_BIN,
-            [SCRIPT_PATH, '--slice-only', 'registered slice writer'],
+            [SCRIPT_PATH, '--slice-only', 'invalid roster writer'],
             {
               cwd: repoDir,
               env: {
                 ...process.env,
+                CRAWLER_GENERATION_ROSTER_FILE: invalidRosterPath,
                 JOBS_SLICE_FILE: '',
                 SKIP_AI_TRANSLATION: '1',
                 SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
@@ -574,14 +555,58 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
           );
         } catch (error) {
           const failure = error as { stdout?: Buffer; stderr?: Buffer };
-          failureOutput = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
-          throw error;
+          output = `${failure.stdout?.toString() ?? ''}${failure.stderr?.toString() ?? ''}`;
+          throw new Error(`expected no throw with an invalid roster, got: ${output}`);
         }
-      }).toThrow();
-      expect(failureOutput).toContain(
-        `${REGISTERED_SLICE_PATH} disappeared upstream but remains in crawler-generation-roster.json`,
+
+        // The affected slice is skipped (roster couldn't be validated), but
+        // the rest of the batch — the companion file — still commits.
+        expect(execFileSync(
+          'git',
+          ['show', `origin/main:${COMPANION_PATH}`],
+          { cwd: repoDir, encoding: 'utf8' },
+        )).toContain('updated');
+        expect(() => execFileSync(
+          'git',
+          ['cat-file', '-e', `origin/main:${REGISTERED_SLICE_PATH}`],
+          { cwd: repoDir, stdio: 'pipe' },
+        )).toThrow();
+        // Local working copy of the skipped slice is left untouched for a
+        // later run to retry, not silently discarded.
+        expect(readFileSync(join(repoDir, REGISTERED_SLICE_PATH), 'utf8')).toContain('updated');
+
+        // Reset the companion file back to a pending local change for the
+        // next iteration/scenario below.
+        writeFileSync(join(repoDir, COMPANION_PATH), '{"updated":true}\n');
+      }
+
+      // Valid roster this time: the registered slice genuinely disappeared
+      // upstream (concurrent deletion above) while still listed in the
+      // roster — a real retirement mismatch, not a validation error.
+      execFileSync(
+        BASH_BIN,
+        [SCRIPT_PATH, '--slice-only', 'registered slice writer'],
+        {
+          cwd: repoDir,
+          env: {
+            ...process.env,
+            JOBS_SLICE_FILE: '',
+            SKIP_AI_TRANSLATION: '1',
+            SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: '',
+            GITHUB_TOKEN: '',
+            GITHUB_RUN_ID: '',
+            GITHUB_REPOSITORY: '',
+            GITHUB_OUTPUT: '',
+          },
+        },
       );
 
+      expect(execFileSync(
+        'git',
+        ['show', `origin/main:${COMPANION_PATH}`],
+        { cwd: repoDir, encoding: 'utf8' },
+      )).toContain('updated');
       expect(() => execFileSync(
         'git',
         ['cat-file', '-e', `origin/main:${REGISTERED_SLICE_PATH}`],
