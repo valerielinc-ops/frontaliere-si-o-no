@@ -1799,6 +1799,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ricercatore-psi-spintronica-quantistica': { it: 'ricercatore-psi-spintronica-quantistica', en: 'psi-researcher-spintronics-quantum-grant', de: 'psi-forscher-spintronik-quantengeometrie', fr: 'chercheur-psi-spintronique-quantique' },
  'seco-carriera-amministrazione': { it: 'seco-carriera-amministrazione', en: 'seco-career-administration', de: 'seco-karriere-verwaltung', fr: 'seco-carriere-administration' },
  'inflazione-svizzera-bns-tassi': { it: 'inflazione-svizzera-bns-tassi', en: 'switzerland-inflation-bns-rates', de: 'schweiz-inflation-snb-zinsen', fr: 'suisse-inflation-bns-taux' },
+ 'apprendistato-formazione-canton-lucerna': { it: 'apprendistato-formazione-canton-lucerna', en: 'apprenticeship-vocational-training-lucerne-canton', de: 'lehrlingswesen-berufsbildung-kanton-luzern', fr: 'apprentissage-formation-professionnelle-canton-lucerne' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
