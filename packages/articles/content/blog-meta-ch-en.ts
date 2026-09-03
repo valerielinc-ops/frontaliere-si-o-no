@@ -5359,6 +5359,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assicurazioni-tagli-occupazione-2028.title': 'Swiss Life plans to cut 600 seats by 2028',
     'blog.article.assicurazioni-tagli-occupazione-2028.excerpt': 'The Zurich-based company announces 600 job cuts by 2028, despite revenue growth of 2-10% in the first half of 2026.',
     'blog.article.assicurazioni-tagli-occupazione-2028.imageAlt': 'Modern Swiss Life office in Zurich with contemporary architecture and professional workspace, bright natural light.',
+    'blog.article.uri-stipendi-settori-qualifica.title': 'Canton Uri salaries: levels by qualification',
+    'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Maximum hours, minimum holidays, wage contributions and taxes: the Swiss national rules governing the labour market in the Canton of Uri.',
+    'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Professional alpine office environment with Swiss colleagues collaborating in mountain valley workspace',
 };
 
 export default blogMetaChEn;

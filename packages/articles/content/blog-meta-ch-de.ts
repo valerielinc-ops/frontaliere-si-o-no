@@ -5359,6 +5359,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assicurazioni-tagli-occupazione-2028.title': 'Swiss Life plant, bis 2028 600 Stellen abzubauen',
     'blog.article.assicurazioni-tagli-occupazione-2028.excerpt': 'Das Zürcher Unternehmen kündigt bis 2028 600 Stellenabbau an, trotz eines Umsatzwachstums von 2-10% im ersten Halbjahr 2026.',
     'blog.article.assicurazioni-tagli-occupazione-2028.imageAlt': 'Modernes Büro von Swiss Life in Zürich, zeitgenössische Architektur, professioneller Arbeitsplatz mit großen Fenstern.',
+    'blog.article.uri-stipendi-settori-qualifica.title': 'Löhne Kanton Uri: Stufen nach Qualifikation',
+    'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Maximale Arbeitszeiten, Mindestferien, Lohnbeiträge und Steuern: Die schweizerischen nationalen Regeln für den Arbeitsmarkt im Kanton Uri.',
+    'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Moderner Arbeitsplatz in Schweizer Bergregion mit professionellen Mitarbeitern bei gemeinsamer Arbeit',
 };
 
 export default blogMetaChDe;
