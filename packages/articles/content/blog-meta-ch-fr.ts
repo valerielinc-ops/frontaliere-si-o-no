@@ -5275,6 +5275,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.pil-q2-2026-industria-forte.title': 'PIB Q2 2026 : +1,5% trimestriel, croissance de l\'industrie',
     'blog.article.pil-q2-2026-industria-forte.excerpt': 'Au Q2 2026, le PIB suisse croît de 1,5% hors événements sportifs, au plus fort depuis 2021. Poussée par l\'industrie chimique et pharmaceutique (+10,5 %) et rebond de la demande intérieure.',
     'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Gratte-ciel du quartier financier suisse avec graphiques de croissance économique sur écran numérique',
+    'blog.article.calo-natalita-finanze-pubbliche.title': 'Aff : la baisse de la natalité pèse sur les finances suisses',
+    'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'L\'AFF analyse l\'impact du plus bas historique des naissances sur la stabilité des systèmes de sécurité sociale et sur les caisses publiques à long terme.',
+    'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Bâtiment de l\'Administration fédérale des finances à Berne.',
 };
 
 export default blogMetaChFr;

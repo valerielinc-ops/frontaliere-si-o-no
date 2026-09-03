@@ -5275,6 +5275,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pil-q2-2026-industria-forte.title': 'PIL Q2 2026: +1,5% trimestrale, crescita industria',
     'blog.article.pil-q2-2026-industria-forte.excerpt': 'Nel Q2 2026 il PIL svizzero cresce dell\'1,5% al netto degli eventi sportivi, più forte dal 2021. Spinta dall\'industria chimico-farmaceutica (+10,5%) e rimbalzo della domanda interna.',
     'blog.article.pil-q2-2026-industria-forte.imageAlt': 'Grattacieli del distretto finanziario svizzero con grafici di crescita economica su schermo digitale',
+    'blog.article.calo-natalita-finanze-pubbliche.title': 'AFF: il calo della natalità pesa sulle finanze svizzere',
+    'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'L\'AFF analizza l\'impatto del minimo storico delle nascite sulla stabilità dei sistemi previdenziali e sulle casse pubbliche nel lungo periodo.',
+    'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Sede dell\'Amministrazione federale delle finanze a Berna.',
 };
 
 export default blogMetaChIt;
