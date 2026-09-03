@@ -1,6 +1,6 @@
 {
   "crawlerKey": "puk-zuerich",
-  "assembledAt": "2026-09-03T13:32:46.483Z",
+  "assembledAt": "2026-09-03T23:17:40.449Z",
   "jobs": [
     {
       "id": "puk-zuerich-fadca51159cb",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/163206/2117/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:35.656Z",
+      "crawledAt": "2026-09-03T23:17:31.317Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -252,7 +252,7 @@
       "url": "https://apply.refline.ch/163206/1987/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:35.225Z",
+      "crawledAt": "2026-09-03T23:17:30.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       "url": "https://apply.refline.ch/163206/2676/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:34.795Z",
+      "crawledAt": "2026-09-03T23:17:30.429Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -401,7 +401,7 @@
       "slugByLocale": {
         "it": "stv-chefarztin-stv-chefarzt-zentrum-per-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau",
         "en": "stv-chief-physician-stv-chief-physician-psychiatrische-universitatsklinik-zurich-rheinau",
-        "de": "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich",
+        "de": "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau",
         "fr": "stv-medecin-en-chef-stv-medecin-en-chef-psychiatrische-universitatsklinik-zurich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -427,7 +427,7 @@
       "url": "https://apply.refline.ch/163206/2752/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:34.363Z",
+      "crawledAt": "2026-09-03T23:17:29.973Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -448,12 +448,14 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich",
+        "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau",
+        "stv-medico-principale-stv-medico-capo-psychiatrische-universitatsklinik-zurich-rheinau",
+        "stv-chefarztin-stv-chefarzt-zentrum-per-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau",
+        "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau",
-          "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau",
-          "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich"
-        ],
         "it": [
           "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich",
           "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau",
@@ -463,17 +465,15 @@
         "en": [
           "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau"
         ],
+        "de": [
+          "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau",
+          "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich",
+          "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
         "fr": [
           "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau"
         ]
       },
-      "previousSlugs": [
-        "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-puk-zuerich",
-        "stv-chefarztin-stv-chefarzt-puk-zuerich-rheinau",
-        "stv-medico-principale-stv-medico-capo-psychiatrische-universitatsklinik-zurich-rheinau",
-        "stv-chefarztin-stv-chefarzt-zentrum-fur-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau",
-        "stv-chefarztin-stv-chefarzt-zentrum-per-stationare-forensische-therapie-psychiatrische-universitatsklinik-zurich-rheinau"
-      ],
       "firstSeenAt": "2026-08-17T09:54:08.272Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -520,7 +520,7 @@
       "url": "https://apply.refline.ch/163206/2750/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:33.910Z",
+      "crawledAt": "2026-09-03T23:17:28.875Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -603,7 +603,7 @@
       "url": "https://apply.refline.ch/163206/2718/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:33.477Z",
+      "crawledAt": "2026-09-03T23:17:28.430Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -697,7 +697,7 @@
       "url": "https://apply.refline.ch/163206/2060/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:33.018Z",
+      "crawledAt": "2026-09-03T23:17:27.982Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -763,7 +763,7 @@
       "slugByLocale": {
         "it": "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich",
         "en": "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
+        "de": "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -788,7 +788,7 @@
       "url": "https://apply.refline.ch/163206/2756/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:32.585Z",
+      "crawledAt": "2026-09-03T23:17:27.538Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -810,19 +810,19 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugsByLocale": {
-        "de": [
-          "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich",
-          "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich"
-        ],
         "it": [
           "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
           "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "de": [
+          "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
+          "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "praktikumsplatze-fur-angehende-psychologinnen-psychologen-puk-zuerich-zurich",
-        "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich",
-        "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich"
+        "praktikumsplatze-per-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich",
+        "praktikumsplatze-fur-angehende-psychologinnen-psychologen-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-25T09:45:51.918Z",
       "salaryMin": 91500,
@@ -871,7 +871,7 @@
       "url": "https://apply.refline.ch/163206/2560/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:32.154Z",
+      "crawledAt": "2026-09-03T23:17:27.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -979,7 +979,7 @@
       "url": "https://apply.refline.ch/163206/2460/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:31.717Z",
+      "crawledAt": "2026-09-03T23:17:26.652Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1063,7 +1063,7 @@
       "url": "https://apply.refline.ch/163206/2738/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:31.284Z",
+      "crawledAt": "2026-09-03T23:17:26.208Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1144,7 +1144,7 @@
       "url": "https://apply.refline.ch/163206/2704/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:30.848Z",
+      "crawledAt": "2026-09-03T23:17:25.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1234,7 +1234,7 @@
       "url": "https://apply.refline.ch/163206/2741/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:30.415Z",
+      "crawledAt": "2026-09-03T23:17:25.320Z",
       "addressLocality": "Uster",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1318,7 +1318,7 @@
       "url": "https://apply.refline.ch/163206/2720/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:29.976Z",
+      "crawledAt": "2026-09-03T23:17:24.877Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1405,7 +1405,7 @@
       "url": "https://apply.refline.ch/163206/2706/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:28.766Z",
+      "crawledAt": "2026-09-03T23:17:24.424Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1489,7 +1489,7 @@
       "url": "https://apply.refline.ch/163206/2658/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:27.463Z",
+      "crawledAt": "2026-09-03T23:17:23.080Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1556,7 +1556,7 @@
       "url": "https://apply.refline.ch/163206/2712/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:26.161Z",
+      "crawledAt": "2026-09-03T23:17:21.752Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1641,7 +1641,7 @@
       "url": "https://apply.refline.ch/163206/2516/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:25.725Z",
+      "crawledAt": "2026-09-03T23:17:21.306Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1721,7 +1721,7 @@
       "url": "https://apply.refline.ch/163206/2724/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:25.288Z",
+      "crawledAt": "2026-09-03T23:17:20.863Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1805,7 +1805,7 @@
       "url": "https://apply.refline.ch/163206/2664/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:24.845Z",
+      "crawledAt": "2026-09-03T23:17:20.416Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1892,7 +1892,7 @@
       "url": "https://apply.refline.ch/163206/2681/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:24.410Z",
+      "crawledAt": "2026-09-03T23:17:18.871Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1972,7 +1972,7 @@
       "url": "https://apply.refline.ch/163206/2705/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:23.973Z",
+      "crawledAt": "2026-09-03T23:17:18.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2077,7 +2077,7 @@
       "url": "https://apply.refline.ch/163206/2682/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:23.537Z",
+      "crawledAt": "2026-09-03T23:17:17.981Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2127,7 +2127,7 @@
       "slugByLocale": {
         "it": "responsabile-responsabile-dei-servizi-aziendali-ict-psychiatrische-universitatsklinik-zurich-zurich",
         "en": "head-head-of-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
+        "de": "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "chef-chef-des-services-aux-entreprises-tic-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -2153,7 +2153,7 @@
       "url": "https://apply.refline.ch/163206/2753/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:23.107Z",
+      "crawledAt": "2026-09-03T23:17:17.539Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2174,11 +2174,13 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
+        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich",
+        "responsabile-responsabile-dei-servizi-aziendali-ict-psychiatrische-universitatsklinik-zurich-zurich",
+        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich",
-          "leiterin-leiter-ict-business-services-puk-zuerich-zurich"
-        ],
         "it": [
           "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
           "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich",
@@ -2187,16 +2189,14 @@
         "en": [
           "leiterin-leiter-ict-business-services-puk-zuerich-zurich"
         ],
+        "de": [
+          "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
+          "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
         "fr": [
           "leiterin-leiter-ict-business-services-puk-zuerich-zurich"
         ]
       },
-      "previousSlugs": [
-        "leiterin-leiter-ict-business-services-puk-zuerich-zurich",
-        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich",
-        "leiterin-leiter-ict-business-services-psychiatrische-universitatsklinik-zurich-zurich",
-        "responsabile-responsabile-dei-servizi-aziendali-ict-psychiatrische-universitatsklinik-zurich-zurich"
-      ],
       "firstSeenAt": "2026-08-19T21:34:41.685Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
@@ -2243,7 +2243,7 @@
       "url": "https://apply.refline.ch/163206/2743/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:22.605Z",
+      "crawledAt": "2026-09-03T23:17:17.096Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2326,7 +2326,7 @@
       "url": "https://apply.refline.ch/163206/2742/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:22.174Z",
+      "crawledAt": "2026-09-03T23:17:16.654Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2410,7 +2410,7 @@
       "url": "https://apply.refline.ch/163206/2745/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:21.741Z",
+      "crawledAt": "2026-09-03T23:17:16.209Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2493,7 +2493,7 @@
       "url": "https://apply.refline.ch/163206/2695/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:21.308Z",
+      "crawledAt": "2026-09-03T23:17:15.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2577,7 +2577,7 @@
       "url": "https://apply.refline.ch/163206/2694/pub/2/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:20.874Z",
+      "crawledAt": "2026-09-03T23:17:15.323Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2674,7 +2674,7 @@
       "url": "https://apply.refline.ch/163206/2744/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:20.415Z",
+      "crawledAt": "2026-09-03T23:17:14.880Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2758,7 +2758,7 @@
       "url": "https://apply.refline.ch/163206/2731/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:19.973Z",
+      "crawledAt": "2026-09-03T23:17:14.437Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2839,7 +2839,7 @@
       "url": "https://apply.refline.ch/163206/2519/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:18.772Z",
+      "crawledAt": "2026-09-03T23:17:13.993Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2925,7 +2925,7 @@
       "url": "https://apply.refline.ch/163206/2725/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:18.331Z",
+      "crawledAt": "2026-09-03T23:17:13.546Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3012,7 +3012,7 @@
       "url": "https://apply.refline.ch/163206/2746/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:17.818Z",
+      "crawledAt": "2026-09-03T23:17:13.102Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3095,7 +3095,7 @@
       "url": "https://apply.refline.ch/163206/2703/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:17.385Z",
+      "crawledAt": "2026-09-03T23:17:12.658Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3153,7 +3153,7 @@
       "slugByLocale": {
         "it": "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
         "en": "pharmaceutical-specialist-pharmaceutical-assistant-pharmaceutical-assistant-psychiatrische-universitatsklinik-zurich",
-        "de": "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
+        "de": "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
         "fr": "specialiste-pharmaceutique-assistant-pharmaceutique-assistant-pharmaceutique-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -3179,7 +3179,7 @@
       "url": "https://apply.refline.ch/163206/2754/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:16.953Z",
+      "crawledAt": "2026-09-03T23:17:12.215Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3200,11 +3200,12 @@
       "pensumMin": 30,
       "pensumMax": 30,
       "pensum": "30%",
+      "previousSlugs": [
+        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
+        "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
+        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
-          "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich"
-        ],
         "it": [
           "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
           "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
@@ -3212,15 +3213,14 @@
         "en": [
           "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich"
         ],
+        "de": [
+          "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
+          "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
+        ],
         "fr": [
           "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-puk-zuerich",
-        "fachfrau-apotheke-fachmann-apotheke-oder-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich",
-        "fachfrau-apotheke-fachmann-apotheke-o-pharma-assistentin-pharma-assistenten-psychiatrische-universitatsklinik-zurich"
-      ],
       "firstSeenAt": "2026-08-20T21:32:14.903Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3242,7 +3242,7 @@
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
         "en": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+        "de": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -3268,7 +3268,7 @@
       "url": "https://apply.refline.ch/163206/2728/pub/4/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:16.522Z",
+      "crawledAt": "2026-09-03T23:17:11.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3289,21 +3289,21 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+        "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
-        ],
         "it": [
           "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
           "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-        "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
-      ],
       "firstSeenAt": "2026-08-27T00:34:58.580Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3325,7 +3325,7 @@
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-home-treatment-puk-zuerich-zurich",
         "en": "fachfrau-fachmann-gesundheit-home-treatment-puk-zuerich-zurich",
-        "de": "fachfrau-fachmann-gesundheit-home-treatment-puk-zuerich-zurich",
+        "de": "fachfrau-fachmann-gesundheit-home-treatment-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "fachfrau-fachmann-gesundheit-home-treatment-puk-zuerich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -3351,7 +3351,7 @@
       "url": "https://apply.refline.ch/163206/2717/pub/5/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:16.091Z",
+      "crawledAt": "2026-09-03T23:17:11.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3372,14 +3372,6 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-home-treatment-psychiatrische-universitatsklinik-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-home-treatment-psychiatrische-universitatsklinik-zurich-zurich"
-      ],
       "firstSeenAt": "2026-09-01T15:45:38.685Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3393,7 +3385,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "fachfrau-fachmann-gesundheit-home-treatment-psychiatrische-universitatsklinik-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-home-treatment-psychiatrische-universitatsklinik-zurich-zurich"
+      ]
     },
     {
       "id": "puk-zuerich-37c36af981e0",
@@ -3401,7 +3401,7 @@
       "slugByLocale": {
         "it": "fachfrau-fachmann-gesundheit-puk-zuerich-rheinau",
         "en": "fachfrau-fachmann-gesundheit-puk-zuerich-rheinau",
-        "de": "fachfrau-fachmann-gesundheit-puk-zuerich-rheinau",
+        "de": "fachfrau-fachmann-gesundheit-psychiatrische-universitatsklinik-zurich-rheinau",
         "fr": "fachfrau-fachmann-gesundheit-puk-zuerich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -3427,7 +3427,7 @@
       "url": "https://apply.refline.ch/163206/2758/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:15.657Z",
+      "crawledAt": "2026-09-03T23:17:10.875Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3448,14 +3448,6 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-psychiatrische-universitatsklinik-zurich-rheinau"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-psychiatrische-universitatsklinik-zurich-rheinau"
-      ],
       "firstSeenAt": "2026-09-01T14:10:11.836Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3469,7 +3461,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "fachfrau-fachmann-gesundheit-psychiatrische-universitatsklinik-zurich-rheinau"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-psychiatrische-universitatsklinik-zurich-rheinau"
+      ]
     },
     {
       "id": "puk-zuerich-293ad95a439e",
@@ -3503,7 +3503,7 @@
       "url": "https://apply.refline.ch/163206/2627/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:15.219Z",
+      "crawledAt": "2026-09-03T23:17:10.424Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3595,7 +3595,7 @@
       "url": "https://apply.refline.ch/163206/2581/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:14.786Z",
+      "crawledAt": "2026-09-03T23:17:09.979Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3684,7 +3684,7 @@
       "url": "https://apply.refline.ch/163206/2715/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:14.354Z",
+      "crawledAt": "2026-09-03T23:17:09.033Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3765,7 +3765,7 @@
       "url": "https://apply.refline.ch/163206/2710/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:13.921Z",
+      "crawledAt": "2026-09-03T23:17:08.580Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3821,7 +3821,7 @@
       "slugByLocale": {
         "it": "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich",
         "en": "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich",
-        "de": "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
+        "de": "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich",
         "fr": "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -3847,7 +3847,7 @@
       "url": "https://apply.refline.ch/163206/2760/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:13.488Z",
+      "crawledAt": "2026-09-03T23:17:08.137Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3868,6 +3868,10 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
+        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
@@ -3878,10 +3882,6 @@
           "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-puk-zuerich-zurich",
-        "ergotherapeutin-ergotherapeuten-fh-im-fachbereich-arbeitsrehabilitation-psychiatrische-universitatsklinik-zurich-zurich"
-      ],
       "firstSeenAt": "2026-09-02T13:34:02.499Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -3929,7 +3929,7 @@
       "url": "https://apply.refline.ch/163206/2759/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:13.059Z",
+      "crawledAt": "2026-09-03T23:17:07.695Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4059,7 +4059,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "puk-zuerich-7b6c5b8697d3",
@@ -4093,7 +4094,7 @@
       "url": "https://apply.refline.ch/163206/1832/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:12.149Z",
+      "crawledAt": "2026-09-03T23:17:07.253Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4158,9 +4159,9 @@
       "id": "puk-zuerich-bb883273f6ee",
       "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
         "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
         "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
+        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
         "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -4168,16 +4169,16 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum per Depressionen, Angsterkrankungen e Psychotherapie",
         "en": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie",
         "fr": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "it": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "en": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "fr": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Depressionen, Angsterkrankungen und Psychotherapie am Standort Rheinau suchen wir per 1. November 2026 oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Depressionen, Angsterkrankungen und Psychotherapie\n\n80-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Durchführung von Pflegeinterventionen im Rahmen der Dialektisch Behavioralen Therapie\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Aus-/Weiterbildung DBT von Vorteil\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub"
       },
       "needsRetranslation": true,
@@ -4186,7 +4187,7 @@
       "url": "https://apply.refline.ch/163206/2762/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:11.714Z",
+      "crawledAt": "2026-09-03T23:17:06.806Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4202,21 +4203,20 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://apply.refline.ch/163206/2762/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2762",
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
-      ],
+      "firstSeenAt": "2026-09-03T13:32:11.714Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4229,8 +4229,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:32:11.714Z"
+      }
     },
     {
       "id": "puk-zuerich-c6886cb5919e",
@@ -4238,7 +4237,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
         "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
         "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -4264,7 +4263,7 @@
       "url": "https://apply.refline.ch/163206/2279/pub/6/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:11.283Z",
+      "crawledAt": "2026-09-03T23:17:06.355Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4285,23 +4284,23 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
-        ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
           "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
           "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
-      ],
       "firstSeenAt": "2026-08-27T00:34:54.772Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4321,9 +4320,9 @@
       "id": "puk-zuerich-d4233c2e23ce",
       "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
         "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
         "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
+        "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
         "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -4331,16 +4330,16 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum per Abhängigkeitserkrankungen",
         "en": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen",
         "fr": "Dipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "it": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "en": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub",
         "fr": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unser Zentrum für Abhängigkeitserkrankungen in Rheinau suchen wir per sofort oder nach Vereinbarung, eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann, Zentrum für Abhängigkeitserkrankungen\n\n60-100%\n\nIhre Aufgaben\n\n• Aufrechterhaltung des gesamten Stations- und Schichtbetriebes\n• Leitung von Stationsversammlungen und der pflegetherapeutischen Angebote\n• Umsetzung von Massnahmen innerhalb der Pflegeprozesses\n• Medikamentenmanagement\n• Abwicklung und Überwachung von Ein- und Austritten im pflegerischen Kontext\n• Anerkannte Berufsausbildung im Fachbereich Pflege HF/FH\n• Berufserfahrung in der Psychiatrie\n• Bereitschaft, sich in einem dynamischen Arbeitsumfeld zu engagieren\n• Sehr gute soziale Kompetenzen und kommunikative Fähigkeiten\n• Flexibilität, Belastbarkeit, Dienstleistungsorientierung\n• Entwicklung mit Perspektive: Vielfältige Karrierewege in einer der grössten psychiatrischen Kliniken der Schweiz\n• Wissen, das weiterbringt: Umfangreiche Aus-, Weiter- und Fortbildungsangebote\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Flexibel arbeiten: Arbeitszeitmodelle, die zu Ihrem Leben passen\n• Mehr Zeit für Erholung: Mindestens 25 Ferientage und Möglichkeit zum unbezahlten Urlaub"
       },
       "needsRetranslation": true,
@@ -4349,7 +4348,7 @@
       "url": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:10.850Z",
+      "crawledAt": "2026-09-03T23:17:05.911Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4365,21 +4364,25 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://apply.refline.ch/163206/2763/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2763",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+      ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "de": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich"
-      ],
+      "firstSeenAt": "2026-09-03T13:32:10.850Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4392,8 +4395,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:32:10.850Z"
+      }
     },
     {
       "id": "puk-zuerich-d5dc77f08d06",
@@ -4427,7 +4429,7 @@
       "url": "https://apply.refline.ch/163206/2729/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:10.418Z",
+      "crawledAt": "2026-09-03T23:17:05.463Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4541,7 +4543,7 @@
       "url": "https://apply.refline.ch/163206/2751/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:08.799Z",
+      "crawledAt": "2026-09-03T23:17:05.020Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4621,7 +4623,7 @@
       "url": "https://apply.refline.ch/163206/2714/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:08.368Z",
+      "crawledAt": "2026-09-03T23:17:04.577Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4703,7 +4705,7 @@
       "url": "https://apply.refline.ch/163206/2139/pub/12/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:07.938Z",
+      "crawledAt": "2026-09-03T23:17:04.134Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4842,9 +4844,9 @@
       "id": "puk-zuerich-2167d1781cd8",
       "slug": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
         "it": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
         "en": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
+        "de": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
         "fr": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -4852,16 +4854,16 @@
       "companyDomain": "pukzh.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder",
       "titleByLocale": {
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder",
         "it": "Dipl. Pflegefachfrau / Pflegefachmann o Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik per Kinder",
         "en": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder",
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder",
         "fr": "Dipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder"
       },
       "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
       "descriptionByLocale": {
-        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
         "it": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
         "en": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement",
         "fr": "•\n\nDie Psychiatrische Universitätsklinik Zürich (PUK) gehört zu den führenden psychiatrischen Kliniken der Schweiz. Mit über 2'500 Mitarbeitenden engagieren wir uns täglich für die ganzheitliche Behandlung und Betreuung von Menschen mit psychischen Erkrankungen. Als universitäre Klinik verbinden wir klinische Expertise mit Forschung und Lehre – in einem Arbeitsumfeld, das von interdisziplinärer Zusammenarbeit, Vertrauen und Eigenverantwortung geprägt ist.\n\nFür unsere Tagesklinik für Kinder und Jugendliche in Winterthur suchen wir für eine Mutterschaftsvertretung per 1. Dezember 2026 befristet bis 31. Dezember 2026 eine/n\n\nDipl. Pflegefachfrau / Pflegefachmann oder Dipl. Sozialpädagogin / Sozialpädagoge, Tagesklinik für Kinder\n\n60%\n\nIhre Aufgaben\n\n• Gewährleistung der pflegerischen und pädagogischen Versorgung im Bereich der Kinder- und Jugendpsychiatrie nach milieutherapeutischen Prinzipien (Gruppen- und Einzelsetting)\n• Umsetzung des Pflegeprozesses im Bezugspersonensystem\n• Tagesstruktur und Freizeitaktivitäten der Kinder gestalten und umsetzen\n• Unterstützung der Kinder in Krisensituationen\n• Dokumentation des Pflegeprozesses sowie Sicherstellung eines professionellen Rapportwesens\n• Abgeschlossene, anerkannte Berufsausbildung im Fachbereich HF/FH, (Anerkennungsnachweis bei ausländischen Diplomen)\n• Berufserfahrung im psychiatrischen Bereich, vorzugsweise in der Kinder- und Jugendpsychiatrie\n• Hohe Sozialkompetenz und patientenorientierte Arbeitsweise\n• Bereitschaft zur aktiven Mitwirkung an Entwicklungsprozessen\n• Selbstständige und lösungsorientierte Arbeitsweise sowie hohe Belastbarkeit\n• Gemeinsam für Menschen: Interdisziplinäre Zusammenarbeit für eine ganzheitliche psychiatrische Versorgung\n• Raum für Ideen: Hohe Eigenverantwortung und Gestaltungsmöglichkeiten\n• Stark im Team: Wertschätzende Zusammenarbeit und gegenseitige Unterstützung\n• Zukunftsvorsorge mit Mehrwert: 60% Arbeitgeberbeitrag an die Pensionskasse\n• Nachhaltig unterwegs: Beteiligung am ZVV-BonusPass oder Generalabonnement"
       },
       "needsRetranslation": true,
@@ -4870,7 +4872,7 @@
       "url": "https://apply.refline.ch/163206/2764/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:07.508Z",
+      "crawledAt": "2026-09-03T23:17:03.685Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4886,21 +4888,20 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://apply.refline.ch/163206/2764/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "externalId": "2764",
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
-      ],
+      "firstSeenAt": "2026-09-03T13:32:07.508Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4913,8 +4914,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:32:07.508Z"
+      }
     },
     {
       "id": "puk-zuerich-edaac66b0a44",
@@ -4948,7 +4948,7 @@
       "url": "https://apply.refline.ch/163206/2175/pub/13/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:07.076Z",
+      "crawledAt": "2026-09-03T23:17:03.154Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5015,7 +5015,7 @@
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf",
         "en": "dipl-nursing-specialist-nursing-specialist-in-late-or-after-service-children-s-ward-psychiatrische-universitatsklinik",
-        "de": "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
+        "de": "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich",
         "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-en-fin-de-service-ou-apres-service-service-pour"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -5040,7 +5040,7 @@
       "url": "https://apply.refline.ch/163206/2755/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:06.643Z",
+      "crawledAt": "2026-09-03T23:17:02.710Z",
       "addressLocality": "Männedorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5062,10 +5062,6 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich",
-          "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich"
-        ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
           "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf"
@@ -5073,14 +5069,18 @@
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich"
         ],
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
+          "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich"
+        ],
         "fr": [
           "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-puk-zuerich",
-        "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich",
-        "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf"
+        "dipl-pflegefachfrau-pflegefachmann-im-spat-o-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich-mannedorf",
+        "dipl-pflegefachfrau-pflegefachmann-im-spat-oder-nachdienst-kinderstation-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-08-20T21:32:06.292Z",
       "salaryMin": 91500,
@@ -5128,7 +5128,7 @@
       "url": "https://apply.refline.ch/163206/2735/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:06.210Z",
+      "crawledAt": "2026-09-03T23:17:02.263Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5214,7 +5214,7 @@
       "url": "https://apply.refline.ch/163206/2713/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:05.780Z",
+      "crawledAt": "2026-09-03T23:17:01.820Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5306,7 +5306,7 @@
       "url": "https://apply.refline.ch/163206/0081/pub/8/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:05.348Z",
+      "crawledAt": "2026-09-03T23:17:01.379Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5364,7 +5364,7 @@
       "slugByLocale": {
         "it": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
         "en": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
-        "de": "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
+        "de": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
         "fr": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
@@ -5390,7 +5390,7 @@
       "url": "https://apply.refline.ch/163206/2757/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:04.915Z",
+      "crawledAt": "2026-09-03T23:17:00.936Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5411,6 +5411,10 @@
       "pensumMin": 80,
       "pensumMax": 80,
       "pensum": "80%",
+      "previousSlugs": [
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
@@ -5421,10 +5425,6 @@
           "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
         ]
       },
-      "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
-        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
-      ],
       "firstSeenAt": "2026-08-27T00:34:48.746Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -5471,7 +5471,7 @@
       "url": "https://apply.refline.ch/163206/2654/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:04.457Z",
+      "crawledAt": "2026-09-03T23:17:00.475Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5551,7 +5551,7 @@
       "url": "https://apply.refline.ch/163206/2548/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:04.024Z",
+      "crawledAt": "2026-09-03T23:16:58.819Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5632,7 +5632,7 @@
       "url": "https://apply.refline.ch/163206/2657/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:03.582Z",
+      "crawledAt": "2026-09-03T23:16:58.375Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5713,7 +5713,7 @@
       "url": "https://apply.refline.ch/163206/2719/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:02.712Z",
+      "crawledAt": "2026-09-03T23:16:57.477Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5798,7 +5798,7 @@
       "url": "https://apply.refline.ch/163206/2579/pub/1/index.html",
       "source": "PUK Zürich Dedicated Parser (Refline 163206)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:32:02.278Z",
+      "crawledAt": "2026-09-03T23:16:57.022Z",
       "addressLocality": "Rheinau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5936,7 +5936,179 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
+    },
+    {
+      "id": "puk-zuerich-fadca51159cb",
+      "slug": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+      "slugByLocale": {
+        "de": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+        "en": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "fr": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "it": "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
+      },
+      "company": "Psychiatrische Universitätsklinik Zürich",
+      "companyKey": "puk-zuerich",
+      "companyDomain": "pukzh.ch",
+      "title": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
+      "titleByLocale": {
+        "de": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
+        "en": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst",
+        "it": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- e Liaisondienst",
+        "fr": "Advanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst"
+      },
+      "description": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nDas Zentrum für dementielle Entwicklung und Altersgesundheit behandelt Menschen ab 65 Jahren im ambulanten Setting. Der Konsiliar- und Liaisondienst Alterspsychiatrie und Psychotherapie bietet aufsuchende alterspsychiatrische Versorgung für ältere Menschen mit psychischen und hirnorgani-schen Erkrankungen im häuslichen Umfeld sowie in Alters- und Pflegeinstitutionen.\n\nZur Weiterentwicklung unserer pflegerischen Expertise suchen wir eine engagierte Persönlichkeit als\n\nAdvanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst\n\n60% - 80%\n\nIhre Aufgaben\n\n• Durchführung pflegerischer Assessments bei älteren Menschen mit komplexen psychiatrischen oder hirnorganischen Erkrankungen im häuslichen Umfeld oder in Institutionen\n• Beratung und Unterstützung von Pflege- und Betreuungsteams im Umgang mit herausfordernden Situationen im Pflegealltag\n• Durchführung von pflegerischen Konsilien, Pflegevisiten und Fallbesprechungen\n• Beratung von Patientinnen und Patienten sowie Angehörigen im Umgang mit psychischen Erkrankungen im Alter\n• Planung und Durchführung von Schulungen für Pflege- und Betreuungsteams\n• Förderung der interprofessionellen Zusammenarbeit zwischen Institutionen, ambulanten Diensten und psychiatrischen Fachpersonen\n• Mitwirkung bei der Weiterentwicklung von pflegerischen Konzepten und Angeboten im Konsiliar- und Liaisondienst\n• Beteiligung an der strategischen und fachlichen Weiterentwicklung des Dienstes im Rahmen der dualen Führung\n• Master of Science in Nursing (MScN)\n• Berufserfahrung in der psychiatrischen Pflege, idealerweise im Bereich Alterspsychiatrie\n• Ausgeprägte klinische Expertise sowie Freude an Beratung, Coaching und Wissensvermittlung\n• Interesse an evidenzbasierter Pflegepraxis und Qualitätsentwicklung\n• Kommunikationsstärke, interprofessionelles Denken und integrative Persönlichkeit\n• Selbstständige, strukturierte und reflektierte Arbeitsweise\n• Spannende und vielseitige Tätigkeit im aufsuchenden alterspsychiatrischen Setting\n• Interprofessionelle Zusammenarbeit in einem engagierten Team\n• Möglichkeiten zur fachlichen Weiterentwicklung und Mitgestaltung innovativer Versorgungsmodelle\n• Umfangreiches Fort- und Weiterbildungsangebot mit individueller Laufbahnplanung\n• Regelmässige Arbeitszeiten (Mo–Fr)\n• Attraktive Sozialleistungen und zentral gelegener Arbeitsplatz\n• Beteiligung am ZVV-BonusPass oder Beitrag an ein Generalabonnement",
+      "descriptionByLocale": {
+        "de": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nDas Zentrum für dementielle Entwicklung und Altersgesundheit behandelt Menschen ab 65 Jahren im ambulanten Setting. Der Konsiliar- und Liaisondienst Alterspsychiatrie und Psychotherapie bietet aufsuchende alterspsychiatrische Versorgung für ältere Menschen mit psychischen und hirnorgani-schen Erkrankungen im häuslichen Umfeld sowie in Alters- und Pflegeinstitutionen.\n\nZur Weiterentwicklung unserer pflegerischen Expertise suchen wir eine engagierte Persönlichkeit als\n\nAdvanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst\n\n60% - 80%\n\nIhre Aufgaben\n\n• Durchführung pflegerischer Assessments bei älteren Menschen mit komplexen psychiatrischen oder hirnorganischen Erkrankungen im häuslichen Umfeld oder in Institutionen\n• Beratung und Unterstützung von Pflege- und Betreuungsteams im Umgang mit herausfordernden Situationen im Pflegealltag\n• Durchführung von pflegerischen Konsilien, Pflegevisiten und Fallbesprechungen\n• Beratung von Patientinnen und Patienten sowie Angehörigen im Umgang mit psychischen Erkrankungen im Alter\n• Planung und Durchführung von Schulungen für Pflege- und Betreuungsteams\n• Förderung der interprofessionellen Zusammenarbeit zwischen Institutionen, ambulanten Diensten und psychiatrischen Fachpersonen\n• Mitwirkung bei der Weiterentwicklung von pflegerischen Konzepten und Angeboten im Konsiliar- und Liaisondienst\n• Beteiligung an der strategischen und fachlichen Weiterentwicklung des Dienstes im Rahmen der dualen Führung\n• Master of Science in Nursing (MScN)\n• Berufserfahrung in der psychiatrischen Pflege, idealerweise im Bereich Alterspsychiatrie\n• Ausgeprägte klinische Expertise sowie Freude an Beratung, Coaching und Wissensvermittlung\n• Interesse an evidenzbasierter Pflegepraxis und Qualitätsentwicklung\n• Kommunikationsstärke, interprofessionelles Denken und integrative Persönlichkeit\n• Selbstständige, strukturierte und reflektierte Arbeitsweise\n• Spannende und vielseitige Tätigkeit im aufsuchenden alterspsychiatrischen Setting\n• Interprofessionelle Zusammenarbeit in einem engagierten Team\n• Möglichkeiten zur fachlichen Weiterentwicklung und Mitgestaltung innovativer Versorgungsmodelle\n• Umfangreiches Fort- und Weiterbildungsangebot mit individueller Laufbahnplanung\n• Regelmässige Arbeitszeiten (Mo–Fr)\n• Attraktive Sozialleistungen und zentral gelegener Arbeitsplatz\n• Beteiligung am ZVV-BonusPass oder Beitrag an ein Generalabonnement",
+        "it": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nDas Zentrum für dementielle Entwicklung und Altersgesundheit behandelt Menschen ab 65 Jahren im ambulanten Setting. Der Konsiliar- und Liaisondienst Alterspsychiatrie und Psychotherapie bietet aufsuchende alterspsychiatrische Versorgung für ältere Menschen mit psychischen und hirnorgani-schen Erkrankungen im häuslichen Umfeld sowie in Alters- und Pflegeinstitutionen.\n\nZur Weiterentwicklung unserer pflegerischen Expertise suchen wir eine engagierte Persönlichkeit als\n\nAdvanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst\n\n60% - 80%\n\nIhre Aufgaben\n\n• Durchführung pflegerischer Assessments bei älteren Menschen mit komplexen psychiatrischen oder hirnorganischen Erkrankungen im häuslichen Umfeld oder in Institutionen\n• Beratung und Unterstützung von Pflege- und Betreuungsteams im Umgang mit herausfordernden Situationen im Pflegealltag\n• Durchführung von pflegerischen Konsilien, Pflegevisiten und Fallbesprechungen\n• Beratung von Patientinnen und Patienten sowie Angehörigen im Umgang mit psychischen Erkrankungen im Alter\n• Planung und Durchführung von Schulungen für Pflege- und Betreuungsteams\n• Förderung der interprofessionellen Zusammenarbeit zwischen Institutionen, ambulanten Diensten und psychiatrischen Fachpersonen\n• Mitwirkung bei der Weiterentwicklung von pflegerischen Konzepten und Angeboten im Konsiliar- und Liaisondienst\n• Beteiligung an der strategischen und fachlichen Weiterentwicklung des Dienstes im Rahmen der dualen Führung\n• Master of Science in Nursing (MScN)\n• Berufserfahrung in der psychiatrischen Pflege, idealerweise im Bereich Alterspsychiatrie\n• Ausgeprägte klinische Expertise sowie Freude an Beratung, Coaching und Wissensvermittlung\n• Interesse an evidenzbasierter Pflegepraxis und Qualitätsentwicklung\n• Kommunikationsstärke, interprofessionelles Denken und integrative Persönlichkeit\n• Selbstständige, strukturierte und reflektierte Arbeitsweise\n• Spannende und vielseitige Tätigkeit im aufsuchenden alterspsychiatrischen Setting\n• Interprofessionelle Zusammenarbeit in einem engagierten Team\n• Möglichkeiten zur fachlichen Weiterentwicklung und Mitgestaltung innovativer Versorgungsmodelle\n• Umfangreiches Fort- und Weiterbildungsangebot mit individueller Laufbahnplanung\n• Regelmässige Arbeitszeiten (Mo–Fr)\n• Attraktive Sozialleistungen und zentral gelegener Arbeitsplatz\n• Beteiligung am ZVV-BonusPass oder Beitrag an ein Generalabonnement",
+        "en": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nDas Zentrum für dementielle Entwicklung und Altersgesundheit behandelt Menschen ab 65 Jahren im ambulanten Setting. Der Konsiliar- und Liaisondienst Alterspsychiatrie und Psychotherapie bietet aufsuchende alterspsychiatrische Versorgung für ältere Menschen mit psychischen und hirnorgani-schen Erkrankungen im häuslichen Umfeld sowie in Alters- und Pflegeinstitutionen.\n\nZur Weiterentwicklung unserer pflegerischen Expertise suchen wir eine engagierte Persönlichkeit als\n\nAdvanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst\n\n60% - 80%\n\nIhre Aufgaben\n\n• Durchführung pflegerischer Assessments bei älteren Menschen mit komplexen psychiatrischen oder hirnorganischen Erkrankungen im häuslichen Umfeld oder in Institutionen\n• Beratung und Unterstützung von Pflege- und Betreuungsteams im Umgang mit herausfordernden Situationen im Pflegealltag\n• Durchführung von pflegerischen Konsilien, Pflegevisiten und Fallbesprechungen\n• Beratung von Patientinnen und Patienten sowie Angehörigen im Umgang mit psychischen Erkrankungen im Alter\n• Planung und Durchführung von Schulungen für Pflege- und Betreuungsteams\n• Förderung der interprofessionellen Zusammenarbeit zwischen Institutionen, ambulanten Diensten und psychiatrischen Fachpersonen\n• Mitwirkung bei der Weiterentwicklung von pflegerischen Konzepten und Angeboten im Konsiliar- und Liaisondienst\n• Beteiligung an der strategischen und fachlichen Weiterentwicklung des Dienstes im Rahmen der dualen Führung\n• Master of Science in Nursing (MScN)\n• Berufserfahrung in der psychiatrischen Pflege, idealerweise im Bereich Alterspsychiatrie\n• Ausgeprägte klinische Expertise sowie Freude an Beratung, Coaching und Wissensvermittlung\n• Interesse an evidenzbasierter Pflegepraxis und Qualitätsentwicklung\n• Kommunikationsstärke, interprofessionelles Denken und integrative Persönlichkeit\n• Selbstständige, strukturierte und reflektierte Arbeitsweise\n• Spannende und vielseitige Tätigkeit im aufsuchenden alterspsychiatrischen Setting\n• Interprofessionelle Zusammenarbeit in einem engagierten Team\n• Möglichkeiten zur fachlichen Weiterentwicklung und Mitgestaltung innovativer Versorgungsmodelle\n• Umfangreiches Fort- und Weiterbildungsangebot mit individueller Laufbahnplanung\n• Regelmässige Arbeitszeiten (Mo–Fr)\n• Attraktive Sozialleistungen und zentral gelegener Arbeitsplatz\n• Beteiligung am ZVV-BonusPass oder Beitrag an ein Generalabonnement",
+        "fr": "•\n\nDie Psychiatrische Universitätsklinik Zürich behandelt und betreut psychisch kranke Menschen jeden Alters. Die über 2500 Mitarbeitenden der 55 verschiedenen Berufsbilder leisten in interdisziplinären Teams ihren Beitrag zur ganzheitlichen Versorgung der Patientinnen und Patienten, von der Abklärung über die Therapie bis zur Nachsorge. Unsere Arbeit basiert auf gegenseitigem Vertrauen und Eigenverantwortung und wir fördern gemeinsam eine innovative Unternehmenskultur. Als universitäre Klinik engagieren wir uns erfolgreich an nationalen und internationalen Forschungsprojekten.\n\nDas Zentrum für dementielle Entwicklung und Altersgesundheit behandelt Menschen ab 65 Jahren im ambulanten Setting. Der Konsiliar- und Liaisondienst Alterspsychiatrie und Psychotherapie bietet aufsuchende alterspsychiatrische Versorgung für ältere Menschen mit psychischen und hirnorgani-schen Erkrankungen im häuslichen Umfeld sowie in Alters- und Pflegeinstitutionen.\n\nZur Weiterentwicklung unserer pflegerischen Expertise suchen wir eine engagierte Persönlichkeit als\n\nAdvanced Practice Nurse (APN) Alterspsychiatrie – Konsiliar- und Liaisondienst\n\n60% - 80%\n\nIhre Aufgaben\n\n• Durchführung pflegerischer Assessments bei älteren Menschen mit komplexen psychiatrischen oder hirnorganischen Erkrankungen im häuslichen Umfeld oder in Institutionen\n• Beratung und Unterstützung von Pflege- und Betreuungsteams im Umgang mit herausfordernden Situationen im Pflegealltag\n• Durchführung von pflegerischen Konsilien, Pflegevisiten und Fallbesprechungen\n• Beratung von Patientinnen und Patienten sowie Angehörigen im Umgang mit psychischen Erkrankungen im Alter\n• Planung und Durchführung von Schulungen für Pflege- und Betreuungsteams\n• Förderung der interprofessionellen Zusammenarbeit zwischen Institutionen, ambulanten Diensten und psychiatrischen Fachpersonen\n• Mitwirkung bei der Weiterentwicklung von pflegerischen Konzepten und Angeboten im Konsiliar- und Liaisondienst\n• Beteiligung an der strategischen und fachlichen Weiterentwicklung des Dienstes im Rahmen der dualen Führung\n• Master of Science in Nursing (MScN)\n• Berufserfahrung in der psychiatrischen Pflege, idealerweise im Bereich Alterspsychiatrie\n• Ausgeprägte klinische Expertise sowie Freude an Beratung, Coaching und Wissensvermittlung\n• Interesse an evidenzbasierter Pflegepraxis und Qualitätsentwicklung\n• Kommunikationsstärke, interprofessionelles Denken und integrative Persönlichkeit\n• Selbstständige, strukturierte und reflektierte Arbeitsweise\n• Spannende und vielseitige Tätigkeit im aufsuchenden alterspsychiatrischen Setting\n• Interprofessionelle Zusammenarbeit in einem engagierten Team\n• Möglichkeiten zur fachlichen Weiterentwicklung und Mitgestaltung innovativer Versorgungsmodelle\n• Umfangreiches Fort- und Weiterbildungsangebot mit individueller Laufbahnplanung\n• Regelmässige Arbeitszeiten (Mo–Fr)\n• Attraktive Sozialleistungen und zentral gelegener Arbeitsplatz\n• Beteiligung am ZVV-BonusPass oder Beitrag an ein Generalabonnement"
+      },
+      "needsRetranslation": true,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.refline.ch/163206/2644/pub/1/index.html",
+      "source": "PUK Zürich Dedicated Parser (Refline 163206)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:16:54.299Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8032",
+      "category": "Sanità / Ospedali",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://apply.refline.ch/163206/2644/pub/1/index.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "2644",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "pensum": "60%",
+      "previousSlugsByLocale": {
+        "it": [
+          "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
+          "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
+          "sub-assistants-psychiatrische-universitatsklinik-zurich",
+          "sous-assistants-psychiatrische-universitatsklinik-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
+          "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
+          "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+          "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich",
+          "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich"
+        ],
+        "de": [
+          "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
+          "unterassistentinnen-unterassistenten-puk-zuerich-zurich"
+        ],
+        "fr": [
+          "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+          "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-puk-zuerich",
+        "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-hf-fh-b1-psychiatrische",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-puk-zuerich-zurich",
+        "dipl-nursing-professional-dipl-nursing-professional-hf-fh-b1-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-hf-fh-b1-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-c1-puk-zuerich-zurich",
+        "dipl-professionnels-des-soins-infirmiers-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-c1-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-puk-zuerich-zurich",
+        "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-psychiatrische-universitatsklinik",
+        "gestionnaire-de-portefeuille-immobilier-gestionnaire-de-portefeuille-immobilier-centre-sur-le-developpement-du-site",
+        "portfolio-manager-real-estate-portfolio-manager-real-estate-focus-on-site-development-psychiatrische-universitatsklinik",
+        "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-adolescent-de-la-station-a0-psychiatrische",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitat-dtq80w",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-ing-pflegefachfrau-dipl-pflegefachmann-im-nachtdienst-kinderstation-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-psychiatric-nursing-acute-station-youth-a0-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-akutstation-jugendliche-a0-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zu-dtq80w",
+        "dipl-nursing-specialist-nursing-specialist-acute-station-adolescent-a0-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplome-e-en-soins-infirmiers-de-nuit-service-de-pediatrie-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplomata-infermiera-o-specializzata-o-di-notte-reparto-pediatrico-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplome-e-en-soins-infirmiers-c1-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-nursing-c1-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplome-e-en-soins-infirmiers-en-psychiatrie-unite-aigue-jeunesse-a0-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-infermiere-a-specializzato-a-in-psichiatria-stazione-acuta-giovani-a0-psychiatrische-universitatsklinik-zurich",
+        "diplome-e-en-soins-infirmiers-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-nursing-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-specialista-infermieristico-specialista-in-allattamento-acute-station-adolescente-a0-psychiatrische",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplome-e-en-soins-infirmiers-diplome-e-en-soins-infirmiers-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-nursing-diploma-in-nursing-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "diplome-e-en-soins-infirmiers-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "diploma-in-nursing-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-psychiatrische-universitatsklinik-zurich-zurich",
+        "infermiere-specializzata-apn-in-psichiatria-geriatrica-servizio-di-consulenza-e-liaison-psychiatrische",
+        "infirmiere-en-pratique-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+        "infirmiere-praticienne-avancee-apn-psychiatrie-de-la-retraite-service-de-liaison-et-de-liaison-psychiatrische",
+        "portfoliomanagerin-immobilien-portfoliomanager-immobilien-schwerpunkt-arealentwickung-puk",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-puk-zuerich-zurich",
+        "fortgeschrittene-praxispflegekraft-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik",
+        "sub-assistants-psychiatrische-universitatsklinik-zurich",
+        "sous-assistants-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-puk-zuerich-zurich",
+        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich-zurich",
+        "infirmier-specialise-apn-en-psychiatrie-geriatrique-service-de-consultation-et-de-liaison-psychiatrische",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-dipl-pflegefachmann-70-100-zsft-puk-zuerich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-puk-zuerich-zurich",
+        "pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-e2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-b2-psychiatrische-universitatsklinik-zurich-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-ht-puk-zuerich-zurich",
+        "dipl-ing-pflegefachfrau-pflegefachmann-hf-fh-ht-psychiatrische-universitatsklinik-zurich-zurich",
+        "unterassistentinnen-unterassistenten-puk-zuerich-zurich",
+        "unterassistentinnen-unterassistenten-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-zentrale-triage-psychiatrische-universitatsklinik-zurich-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-e-liaisondienst-psychiatrische-universitatsklinik-zurich",
+        "advanced-practice-nurse-apn-alterspsychiatrie-konsiliar-und-liaisondienst-psychiatrische-universitatsklinik-zurich"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:16:54.299Z"
     }
   ]
 }
