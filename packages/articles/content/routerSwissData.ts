@@ -1797,6 +1797,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'seco-ampia-base-crescita': { it: 'seco-ampia-base-crescita', en: 'seco-broad-based-growth', de: 'seco-breite-basis-wachstum', fr: 'seco-croissance-bien-fondee' },
  'bilaterali-iii-governi-cantonali': { it: 'bilaterali-iii-governi-cantonali', en: 'bilateral-iii-cantonal-governments', de: 'bilaterale-iii-kantonale-regierungen', fr: 'accords-bilateraux-iii-gouvernements-cantonaux' },
  'ricercatore-psi-spintronica-quantistica': { it: 'ricercatore-psi-spintronica-quantistica', en: 'psi-researcher-spintronics-quantum-grant', de: 'psi-forscher-spintronik-quantengeometrie', fr: 'chercheur-psi-spintronique-quantique' },
+ 'seco-carriera-amministrazione': { it: 'seco-carriera-amministrazione', en: 'seco-career-administration', de: 'seco-karriere-verwaltung', fr: 'seco-carriere-administration' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

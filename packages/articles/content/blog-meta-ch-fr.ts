@@ -5314,6 +5314,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ricercatore-psi-spintronica-quantistica.title': 'Le chercheur PSI reçoit 2,2 millions pour la recherche quantique',
     'blog.article.ricercatore-psi-spintronica-quantistica.excerpt': 'Le physicien Giacomo Sala remporte un financement européen de 2,3 millions d\'euros pour le projet Q-GEOMSPIN qui combine la spintronique et la géométrie quantique. Une recherche qui pourrait révolutionner le stockage de données suisse.',
     'blog.article.ricercatore-psi-spintronica-quantistica.imageAlt': 'Laboratoire de recherche quantique moderne avec équipements scientifiques au Paul Scherrer Institute',
+    'blog.article.seco-carriera-amministrazione.title': 'Travailler au SECO : opportunités et carrières fédérales',
+    'blog.article.seco-carriera-amministrazione.excerpt': 'Le Secrétariat d\'Etat à l\'économie emploie plus de 900 personnes sur trois sites. Découvrez les apprentissages, les stages universitaires et les opportunités dans l\'administration fédérale suisse.',
+    'blog.article.seco-carriera-amministrazione.imageAlt': 'Espace de travail moderne dans administration fédérale suisse avec documentation économique',
 };
 
 export default blogMetaChFr;
