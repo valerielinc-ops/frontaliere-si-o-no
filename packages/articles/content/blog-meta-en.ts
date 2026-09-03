@@ -11270,6 +11270,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Living in Grandate and working in Ticino as a border worker',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, the journey times, the cost of living and the advantages of living in Grandate and working in Ticino.',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with surrounding mountains',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.title': 'Living in Montano Lucino and working in Ticino as a border worker',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Montano Lucino and working in Ticino.',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Swiss mountains in the background',
 };
 
 export default blogMetaEn;
