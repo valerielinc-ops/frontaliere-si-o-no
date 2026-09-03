@@ -15679,6 +15679,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'permesso-l-proroga-appenzello-interno',
+    category: 'pratico',
+    date: '2026-09-03T00:40:57.084Z',
+    image: '/images/blog/permesso-l-proroga-appenzello-interno.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

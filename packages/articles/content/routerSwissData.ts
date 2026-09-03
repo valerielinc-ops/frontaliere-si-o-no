@@ -1768,6 +1768,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'premi-cassa-malati-appenzello-interno-riduzione': { it: 'premi-cassa-malati-appenzello-interno-riduzione', en: 'health-insurance-premiums-appenzello-interno-reduction', de: 'krankenversicherungspramien-appenzello-interno-reduktion', fr: 'primes-d-assurance-maladie-appenzello-interno-reduction' },
  'domicilio-c-appenzello-interno-domanda': { it: 'domicilio-c-appenzello-interno-domanda', en: 'residence-permit-c-appenzell-innerrhoden-application', de: 'aufenthaltsbewilligung-c-appenzell-innerrhoden-antrag', fr: 'permis-domicile-c-appenzell-rhodes-intrieures-demande' },
  'avs-calcolo-rendita-zurigo': { it: 'avs-calcolo-rendita-zurigo', en: 'avs-pension-calculation-zurich', de: 'ahv-rentenberechnung-zurich', fr: 'calcul-rente-avs-zurich' },
+ 'permesso-l-proroga-appenzello-interno': { it: 'permesso-l-proroga-appenzello-interno', en: 'l-permit-renewal-appenzell-innerrhoden', de: 'l-permit-erneuerung-appenzell-innerrhoden', fr: 'permis-l-renouvellement-appenzell-rhodes' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

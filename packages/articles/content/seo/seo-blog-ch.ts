@@ -67841,6 +67841,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-proroga-appenzello-interno': {
+    title: 'Permesso L: durata e proroga in Svizzera | Frontaliere Ticino',
+    description: 'Il permesso L di breve durata consente di lavorare fino a 1 anno in Svizzera. Scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, durata, proroga, breve',
+    ogTitle: 'Permesso L: durata e proroga in Svizzera',
+    ogDescription: 'Il permesso L di breve durata consente di lavorare fino a 1 anno in Svizzera. Scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio al permesso B.',
+    canonicalPath: '/articoli-svizzera/permesso-l-proroga-appenzello-interno/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L: durata e proroga in Svizzera",
+      "description": "Il permesso L di breve durata consente di lavorare fino a 1 anno in Svizzera. Scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-proroga-appenzello-interno.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio amministrativo svizzero con cartelle di permessi di lavoro e documenti ufficiali sulla scrivania"
+      },
+      "datePublished": "2026-09-03T00:40:57+00:00",
+      "dateModified": "2026-09-03T00:40:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-proroga-appenzello-interno/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

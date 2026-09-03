@@ -5227,6 +5227,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-calcolo-rendita-zurigo.title': 'Berechnung der AHV-Rente und Ergänzungsleistungen im Kanton Zürich',
     'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'Die kantonale Ausgleichskasse Zürich führt die Berechnung der AHV-Rente und der Ergänzungsleistungen durch, um eine angemessene Rente zu gewährleisten.',
     'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'Ein Schweizer Rentner berechnet seine AHV-Rente in Zürich',
+    'blog.article.permesso-l-proroga-appenzello-interno.title': 'Bewilligung L: Dauer und Verlängerung in der Schweiz',
+    'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Mit der Kurzzeitbewilligung L können Sie bis zu 1 Jahr in der Schweiz arbeiten. Erfahren Sie, wie die Verlängerung, die Einschränkungen des Arbeitgebers und der Übergang zur B-Bewilligung funktionieren.',
+    'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Schweizer Einwanderungsbüro mit Arbeitserlaubnisunterlagen und offiziellen Dokumenten',
 };
 
 export default blogMetaChDe;
