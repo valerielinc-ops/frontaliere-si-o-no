@@ -1807,6 +1807,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-lucerna-ipoteca-pratica': { it: 'comprare-casa-lucerna-ipoteca-pratica', en: 'buy-home-lucerne-mortgage-guide', de: 'haus-kaufen-luzern-hypothek-anleitung', fr: 'acheter-maison-lucerne-hypotheque-guide' },
  'acquisto-immobiliare-lucerna-mutuo': { it: 'acquisto-immobiliare-lucerna-mutuo', en: 'buying-real-estate-lucerne-mortgage', de: 'immobilienerwerb-luzern-hypothek', fr: 'achat-immobilier-lucerne-hypotheque' },
  'patente-estera-lucerna-procedura': { it: 'patente-estera-lucerna-procedura', en: 'driving-licence-lucerne-conversion-procedure', de: 'fahrerausweis-luzern-umschreibung-verfahren', fr: 'permis-lucerne-conversion-procedure' },
+ 'aeroporto-ginevra-motore-3-3-miliardi': { it: 'aeroporto-ginevra-motore-3-3-miliardi', en: 'geneva-airport-engine-3-3-billion', de: 'flughafen-genf-treiber-3-3-milliarden', fr: 'aeroport-geneve-moteur-3-3-milliards' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

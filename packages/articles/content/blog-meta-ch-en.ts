@@ -5344,6 +5344,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-estera-lucerna-procedura.title': 'Lucerne driving licence: conversion and exams',
     'blog.article.patente-estera-lucerna-procedura.excerpt': 'Procedure for converting the foreign licence in the Canton of Lucerne: theoretical and practical examination, compulsory courses, traffic office.',
     'blog.article.patente-estera-lucerna-procedura.imageAlt': 'Swiss road in Lucerne canton with road signs and Alpine landscape',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.title': 'Geneva Airport is an engine for the region, worth 3.3 billion',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.excerpt': 'Study Infras quantifies CHF 3.3 billion in added value, 22,000 jobs and impact on the entire Swiss economy. 17.8 million passengers were handled in 2025.',
+    'blog.article.aeroporto-ginevra-motore-3-3-miliardi.imageAlt': 'Departure hall at Geneva airport with flight information displays and aircraft visible from the terminal.',
 };
 
 export default blogMetaChEn;
