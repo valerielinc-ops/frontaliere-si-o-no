@@ -5284,6 +5284,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-svizzera-2026-inflazione.title': 'Löhne in der Schweiz: 0,4% mehr im Jahr 2026, aber Inflation höher',
     'blog.article.salari-svizzera-2026-inflazione.excerpt': 'Die Nominallöhne in der Schweiz werden 2026 um 0,4% steigen, aber die prognostizierte Inflation könnte diesen Vorteil zunichte machen.',
     'blog.article.salari-svizzera-2026-inflazione.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund.',
+    'blog.article.benzina-diesel-massimi-anno-2026.title': 'Benzin und Diesel auf Jahreshoch',
+    'blog.article.benzina-diesel-massimi-anno-2026.excerpt': 'Benzin 95 zu 2,10 CHF, Diesel zu 2,26 CHF gemäss TCS. Nahostkonflikt und Rheinwasserknappheit sorgen für Preissteigerungen: +20-26% seit Februar.',
+    'blog.article.benzina-diesel-massimi-anno-2026.imageAlt': 'Schweizer Tankstelle mit Benzin- und Dieselpreisen auf der Anzeige, Illustration zum Thema des Artikels',
 };
 
 export default blogMetaChDe;
