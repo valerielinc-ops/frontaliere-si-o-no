@@ -1781,6 +1781,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-prestazioni-complementari-lacune-contributive': { it: 'avs-prestazioni-complementari-lacune-contributive', en: 'avs-supplementary-benefits-contribution-gaps', de: 'ahv-ergaenzungsleistungen-versicherungsluecken', fr: 'ava-prestations-complementaires-lacunes-cotisations' },
  'assegni-familiari-lucerna-guida': { it: 'assegni-familiari-lucerna-guida', en: 'family-allowances-lucerne-guide', de: 'familienzulagen-luzern-leitfaden', fr: 'allocations-familiales-lucerne-guide' },
  'prezzi-consumo-aumentati-agosto-2026': { it: 'prezzi-consumo-aumentati-agosto-2026', en: 'consumer-prices-increased-august-2026', de: 'verbraucherpreise-steigen-im-august-2026', fr: 'hausse-des-prix-a-la-consommation-en-aout-2026' },
+ 'emissioni-co2-vcp-2025': { it: 'emissioni-co2-vcp-2025', en: 'emissions-co2-hdt-2025', de: 'co2-emissionen-sfw-2025', fr: 'emissions-co2-pvc-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

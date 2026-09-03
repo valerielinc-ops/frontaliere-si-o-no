@@ -5266,6 +5266,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'In agosto i prezzi al consumo sono aumentati dello 0,4%',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'L\'indice dei prezzi al consumo (IPC) è aumentato dello 0,4% ad agosto 2026 rispetto al mese precedente, raggiungendo 101,5 punti (dicembre 2025 = 100).',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo, che mostra l\'attività economica e la vita quotidiana.',
+    'blog.article.emissioni-co2-vcp-2025.title': 'Emissioni CO2 VCP: risultati 2025 e obiettivi raggiungibili',
+    'blog.article.emissioni-co2-vcp-2025.excerpt': 'Nel 2025 entrano in vigore le prescrizioni CO2 sui veicoli commerciali pesanti in Svizzera: importatori raggiungono i target con 20,8% di flotta completamente elettrica.',
+    'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Camion completamente elettrico su strada svizzera con catena montuosa sullo sfondo',
 };
 
 export default blogMetaChIt;

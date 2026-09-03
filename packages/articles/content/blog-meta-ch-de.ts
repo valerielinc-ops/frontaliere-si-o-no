@@ -5266,6 +5266,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzi-consumo-aumentati-agosto-2026.title': 'Im August stiegen die Verbraucherpreise um 0,4%',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.excerpt': 'Der Verbraucherpreisindex (VPI) stieg im August 2026 gegenüber dem Vormonat um 0,4% auf 101,5 Punkte (Dezember 2025 = 100).',
     'blog.article.prezzi-consumo-aumentati-agosto-2026.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund, die wirtschaftliche Aktivität und das tägliche Leben zeigt.',
+    'blog.article.emissioni-co2-vcp-2025.title': 'CO2-Emissionen VCP: Ergebnisse 2025 und erreichbare Ziele',
+    'blog.article.emissioni-co2-vcp-2025.excerpt': 'Im Jahr 2025 treten die CO2-Vorschriften für schwere Nutzfahrzeuge in der Schweiz in Kraft: Importeure erreichen die Zielvorgaben mit 20,8% vollelektrischer Flotte.',
+    'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Vollelektrischer Lastkraftwagen auf Schweizer Straße mit Alpenkette im Hintergrund',
 };
 
 export default blogMetaChDe;

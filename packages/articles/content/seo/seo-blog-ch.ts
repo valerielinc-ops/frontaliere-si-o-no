@@ -68348,6 +68348,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-emissioni-co2-vcp-2025': {
+    title: 'Emissioni CO2 VCP: risultati 2025 e obiettivi raggiungibili',
+    description: 'Nel 2025 le prescrizioni sulle emissioni di CO2 si applicano ai veicoli commerciali pesanti in Svizzera. Importatori raggiungono i target, sanzioni contenute',
+    keywords: 'frontalieri, ticino, svizzera, italia, emissioni, risultati, obiettivi, raggiungibili',
+    ogTitle: 'Prescrizioni CO2 VCP 2025: flotta 20,8% elettrica, obiettivi raggiunti',
+    ogDescription: 'Primo bilancio 2025 delle prescrizioni CO2 sui veicoli commerciali pesanti in Svizzera. Importatori raggiungono i target ambientali, sanzioni contenute a 303.000 CHF, quota VCP completamente elettrici al 20,8% sopra media europea.',
+    canonicalPath: '/articoli-svizzera/emissioni-co2-vcp-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Emissioni CO2 VCP: risultati 2025 e obiettivi raggiungibili",
+      "description": "Nel 2025 le prescrizioni sulle emissioni di CO2 si applicano ai veicoli commerciali pesanti in Svizzera. Importatori raggiungono i target, sanzioni contenute",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/emissioni-co2-vcp-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion completamente elettrico su strada svizzera con catena montuosa sullo sfondo"
+      },
+      "datePublished": "2026-09-03T08:20:50+00:00",
+      "dateModified": "2026-09-03T08:20:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/emissioni-co2-vcp-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
