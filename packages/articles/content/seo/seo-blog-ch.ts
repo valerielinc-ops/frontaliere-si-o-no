@@ -68933,6 +68933,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricercatore-psi-spintronica-quantistica': {
+    title: 'Ricercatore PSI riceve 2,2 mln per ricerca quantistica',
+    description: 'Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricercatore, riceve, ricerca, quantistica',
+    ogTitle: 'Ricercatore PSI riceve 2,2 mln per ricerca quantistica',
+    ogDescription: 'Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica. Una ricerca che potrebbe rivoluzionare lo storage dati svizzero.',
+    canonicalPath: '/articoli-svizzera/ricercatore-psi-spintronica-quantistica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricercatore PSI riceve 2,2 mln per ricerca quantistica",
+      "description": "Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricercatore-psi-spintronica-quantistica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca quantistica con equipaggiamento scientifico avanzato presso l'Istituto Paul Scherrer PSI"
+      },
+      "datePublished": "2026-09-03T14:56:47+00:00",
+      "dateModified": "2026-09-03T14:56:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricercatore-psi-spintronica-quantistica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

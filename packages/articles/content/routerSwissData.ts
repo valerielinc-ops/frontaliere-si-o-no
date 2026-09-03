@@ -1796,6 +1796,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ubs-pil-crescita-2026-rialzo': { it: 'ubs-pil-crescita-2026-rialzo', en: 'ubs-gdp-growth-2026-upward-revision', de: 'ubs-bip-wachstum-2026-erhoehung', fr: 'ubs-pib-croissance-2026-hausse' },
  'seco-ampia-base-crescita': { it: 'seco-ampia-base-crescita', en: 'seco-broad-based-growth', de: 'seco-breite-basis-wachstum', fr: 'seco-croissance-bien-fondee' },
  'bilaterali-iii-governi-cantonali': { it: 'bilaterali-iii-governi-cantonali', en: 'bilateral-iii-cantonal-governments', de: 'bilaterale-iii-kantonale-regierungen', fr: 'accords-bilateraux-iii-gouvernements-cantonaux' },
+ 'ricercatore-psi-spintronica-quantistica': { it: 'ricercatore-psi-spintronica-quantistica', en: 'psi-researcher-spintronics-quantum-grant', de: 'psi-forscher-spintronik-quantengeometrie', fr: 'chercheur-psi-spintronique-quantique' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

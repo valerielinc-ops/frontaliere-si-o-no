@@ -5311,6 +5311,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilateral III: Kantonsregierungen sagen Ja',
     'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'Die Westschweizer Regierungskonferenz in Freiburg unterstützt das Abkommen mit der EU und unterstreicht die Bedeutung eines stabilen Zugangs zum kontinentalen Markt',
     'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Schweizer Bundeshaus in Bern mit Schweizer und europäischen Flaggen, Sitz des Bundesparlamentes',
+    'blog.article.ricercatore-psi-spintronica-quantistica.title': 'PSI-FORSCHER erhält 2,2 Mio. für Quantenforschung',
+    'blog.article.ricercatore-psi-spintronica-quantistica.excerpt': 'Der Physiker Giacomo Sala gewinnt eine europäische Finanzierung von 2,3 Millionen Euro für das Projekt Q-GEOMSPIN, das Spintronik und Quantengeometrie kombiniert. Eine Suche, die den Schweizer Datenspeicher revolutionieren könnte.',
+    'blog.article.ricercatore-psi-spintronica-quantistica.imageAlt': 'Modernes Quantenforschungslabor mit wissenschaftlichen Geräten am Paul Scherrer Institut',
 };
 
 export default blogMetaChDe;

@@ -5311,6 +5311,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilateral III: Cantonal governments say yes',
     'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'The Conference of Governments of Western Switzerland meeting in Fribourg supports the package of agreements with the EU, underlining the importance for stable access to the continental market',
     'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Swiss Federal Palace in Bern with Swiss and European flags, seat of the Federal Parliament',
+    'blog.article.ricercatore-psi-spintronica-quantistica.title': 'PSI researcher receives 2.2 million for quantum research',
+    'blog.article.ricercatore-psi-spintronica-quantistica.excerpt': 'Physicist Giacomo Sala wins a European funding of 2.3 million euros for the Q-GEOMSPIN project that combines spintronics and quantum geometry. Research that could revolutionise Swiss data storage.',
+    'blog.article.ricercatore-psi-spintronica-quantistica.imageAlt': 'Advanced quantum research laboratory with precision scientific equipment at the Paul Scherrer Institute',
 };
 
 export default blogMetaChEn;
