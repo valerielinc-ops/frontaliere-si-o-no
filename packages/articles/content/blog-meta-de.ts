@@ -11251,6 +11251,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Grenzgänger wechselt Kanton: die steuerlichen Auswirkungen',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Kantonswechsel = neue Veranlagung, veränderte G-Bewilligung und abweichende Pendlerkosten. Praktischer Leitfaden für Grenzgänger im Übergang zwischen Tessin und Graubünden.',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Grenzgänger wechselt nach Graubünden: Genehmigung und Steuern',
+    'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: Über 20.000 ohne Arzt, Herausforderung für Grenzgänger',
+    'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Mehr als 20.000 Einwohner ohne Arzt in Varese. In zwei Jahren waren 92 Ärzte im Ruhestand. Eine Krise, die die in der Provinz ansässigen Grenzgänger des Tessins betrifft.',
+    'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panoramablick auf die Provinz Varese mit Tessiner Bergen im Hintergrund, Heimat vieler Schweizer-italienischer Grenzgänger',
 };
 
 export default blogMetaDe;

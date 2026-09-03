@@ -11253,6 +11253,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontaliere cambia cantone: le implicazioni fiscali',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Cambio cantone = nuova tassazione, permesso G modificato e costi pendolari differenti. Guida pratica per frontalieri in transizione tra Ticino e Grigioni.',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Cambio cantone per frontaliere: permesso e tassazione verso i Grigioni',
+    'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: oltre 20mila senza medico, sfida per i frontalieri',
+    'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Oltre 20mila residenti senza medico nel Varesotto. In due anni 92 medici in pensione. Una crisi che colpisce i frontalieri Ticino residenti in provincia.',
+    'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panorama della provincia di Varese con le montagne ticinesi sullo sfondo: zona di residenza di molti frontalieri Ticino-Italia',
 };
 
 export default blogMetaIt;

@@ -11252,6 +11252,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontier changes canton: the tax implications',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Canton change = new taxation, modified G permit and different commuter costs. Practical guide for border workers in transition between Ticino and Grisons.',
     'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Frontalier transitioning to Grisons: permit and tax adjustments',
+    'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: over 20,000 without a doctor, a challenge for border workers',
+    'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Over 20,000 residents without a doctor in Varese. In two years 92 retired doctors. A crisis that affects Ticino border workers residing in the province.',
+    'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panoramic view of Varese province with Ticino mountains in the background, home to many Swiss-Italian frontier workers',
 };
 
 export default blogMetaEn;
