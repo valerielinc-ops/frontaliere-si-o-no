@@ -11219,6 +11219,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Home loan in Switzerland for frontier workers',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Buying a house in Switzerland from a border agent is possible. Here are requirements, banks and procedures to obtain a mortgage loan in Ticino and border regions.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'A modern house overlooking Lake Lugano and Ticino mountains at sunrise',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Mortgage for cross-border commuters: requirements and procedure in Switzerland',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Practical guide for frontier workers: how to obtain a mortgage loan in Switzerland, necessary documentation, tax at source and step-by-step procedures.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modern bank office in Ticino with mortgage documents, view of Lake Lugano in the background',
+    'blog.article.passante-milano-treno-evacuati.title': 'Varese train blocked in Milan bypass: inconveniences at S5',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Approximately 400 passengers evacuated on 3 September from the Milan passerby. The S5, a crucial line for Ticino commuters to Milan and the hinterland, diverted to an alternative route.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Train halted in Milan interchange after electrical fault, evacuation of passengers on September 3, 2026.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Job and Internship Offers in the Province of Varese - 2 SEPTEMBER 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Discover the new job and internship opportunities offered by the Employment Centres of the Province of Varese.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Third border pillar: deductibility and returns',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Tax advantages and social security strategies: how the third pillar 3a works for those who work in Switzerland as an Italian resident.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Panoramic view of Lake Lugano at sunset from Swiss shore, with water reflections and distant Alps.',
 };
 
 export default blogMetaEn;

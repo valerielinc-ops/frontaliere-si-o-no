@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-09-02T23:23:32.064Z",
+  "assembledAt": "2026-09-03T14:07:37.280Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:28.607Z",
+      "crawledAt": "2026-09-03T13:49:20.128Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -82,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:34.057Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -128,7 +129,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:27.853Z",
+      "crawledAt": "2026-09-03T13:49:19.359Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -190,6 +191,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:18.081Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -236,7 +238,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:27.201Z",
+      "crawledAt": "2026-09-03T13:49:18.588Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -287,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:31.549Z",
+      "needsRetranslation": true,
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
@@ -333,7 +336,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:26.543Z",
+      "crawledAt": "2026-09-03T13:49:17.922Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -425,7 +428,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-80-90-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:25.910Z",
+      "crawledAt": "2026-09-03T13:49:17.274Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -472,6 +475,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:29.583Z",
+      "needsRetranslation": true,
       "salaryMin": 73400,
       "salaryMax": 102600,
       "salarySource": "estimated",
@@ -515,7 +519,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:25.262Z",
+      "crawledAt": "2026-09-03T13:49:16.627Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -563,207 +567,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "spital-thusis-3229720ec397",
-      "slug": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
-      "slugByLocale": {
-        "it": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
-        "en": "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
-        "de": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "fr": "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
-      },
-      "company": "Spital Thusis",
-      "companyKey": "spital-thusis",
-      "companyDomain": "spitalthusis.ch",
-      "title": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
-      "titleByLocale": {
-        "it": "Apprendistato Fachperson Gesundheit CFC – Spital Thusis",
-        "en": "Apprenticeship Professional Health EFZ – Spital Thusis",
-        "de": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
-        "fr": "Apprentissage Santé Professionnelle EFZ – Spital Thisis"
-      },
-      "description": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
-      "descriptionByLocale": {
-        "it": "Requisiti\n• Hai una laurea secondaria o secondaria.\n\n• Trattare con le persone e lavorare in cura, cura, pulizia e amministrazione ti rendono felice.\n\n• Hai una buona conoscenza orale e scritta della lingua tedesca.\n\n• Sei disposto a lavorare in modo irregolare.\n\n• Un modo esatto e affidabile di lavorare e un grande senso di responsabilità sono i vostri punti di forza.\n\n• Sei socievole e divertiti a lavorare in una squadra.\n\nVi offriamo...\n\n• una formazione emozionante e variegata nella rete di formazione dell'ospedale Sois e Spitex Viamala.\n\n• lavoro indipendente e auto-responsabile.\n\n• supporto professionale e supporto dal nostro team di formazione esperto.\n\n• un lavoro interessante, dove i pazienti sono accompagnati durante il soggiorno ospedaliero o clienti a casa.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.\n\nTi senti impegnato e vuoi far parte della nostra squadra?\nAllora applicaci!\n\nAltri | Offriamo: voi...\n\nAltri",
-        "en": "Requirements\n• You have a secondary or secondary school degree.\n\n• Dealing with people as well as working in care, care, housekeeping and administration make you happy.\n\n• You have good oral and written knowledge of the German language.\n\n• You are willing to work irregularly.\n\n• An exact and reliable way of working and a great sense of responsibility are your strengths.\n\n• You are sociable and enjoy working in a team.\n\nWe offer you...\n\n• an exciting and varied education in the training network of the hospital Thusis and the Spitex Viamala.\n\n• independent and self-responsible work.\n\n• professional support and support from our experienced training team.\n\n• an interesting work, where patients are accompanied during the hospital stay or clients at home.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.\n\nDo you feel engaged and want to be part of our team?\nThen apply to us!\n\nOther | We offer: you...\n\nOther",
-        "de": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
-        "fr": "Exigences\n• Vous avez un diplôme d'études secondaires ou secondaires.\n\n• Faire affaire avec les gens et travailler dans les soins, les soins, le ménage et l'administration vous rendent heureux.\n\n• Vous avez une bonne connaissance orale et écrite de la langue allemande.\n\n• Vous êtes prêt à travailler irrégulièrement.\n\n• Une façon exacte et fiable de travailler et un grand sens des responsabilités sont vos forces.\n\n• Vous êtes sociable et aimez travailler en équipe.\n\nNous vous offrons...\n\n• une formation passionnante et variée dans le réseau de formation de l'hôpital Thisis et le Spitex Viamala.\n\n• travail indépendant et responsable.\n\n• soutien et soutien professionnels de notre équipe de formation expérimentée.\n\n• un travail intéressant, où les patients sont accompagnés pendant le séjour à l'hôpital ou les clients à la maison.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM.\n\nTu te sens fiancé et tu veux faire partie de notre équipe ?\nAlors appliquez-nous !\n\nAutres Nous offrons: vous...\n\nAutres"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
-      "source": "Spital Thusis Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:24.600Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "streetAddress": "Alte Strasse 31",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
-      "requirements": [
-        "Du verfügst über einen Sekundar- oder Realschulabschluss.",
-        "Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.",
-        "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
-        "Du bist bereit, unregelmässig zu arbeiten.",
-        "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
-        "Du bist kontaktfreudig und arbeitest gerne im Team.",
-        "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
-        "selbständiges und eigenverantwortliches Arbeiten.",
-        "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.",
-        "eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.",
-        "ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes."
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Du verfügst über einen Sekundar- oder Realschulabschluss.",
-          "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
-          "Du bist bereit, unregelmässig zu arbeiten.",
-          "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
-          "Du bist kontaktfreudig und arbeitest gerne im Team.",
-          "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
-          "selbständiges und eigenverantwortliches Arbeiten.",
-          "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam."
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-          "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
-        ],
-        "en": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
-        ],
-        "fr": [
-          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:24:26.401Z",
-      "salaryMin": 41600,
-      "salaryMax": 76000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "spital-thusis-fbc24a2d5c9f",
-      "slug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
-      "slugByLocale": {
-        "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
-        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thusis-thusis",
-        "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thusis-thusis"
-      },
-      "company": "Spital Thusis",
-      "companyKey": "spital-thusis",
-      "companyDomain": "spitalthusis.ch",
-      "title": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come Fachperson Hotellerie-Hauswirtschaft CFC",
-        "en": "Apprenticeship as a specialist hotel industry-household industry EFZ",
-        "de": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
-        "fr": "Apprentissage en tant qu'industrie hôtelière spécialisée-industrie domestique EFZ"
-      },
-      "description": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
-      "descriptionByLocale": {
-        "it": "Requisiti: •\nIstruzione secondaria o secondaria\n\n• Gioia nel trattare con altri esseri umani e una buona idea di servizio\n\n• alta motivazione, divertimento nel lavoro fisico, volontà di imparare e perseveranza\n\n• Un buon spirito di squadra\n\n• Divertimento delle attività domestiche\n\n• Livello di lingua Tedesco almeno B2\n\nTi senti indirizzato e vuoi diventare parte della nostra fondazione?\nVieni a farti ispirare!\n\nAltri | Offriamo:\n\n• Un'educazione emozionante e varia.\n\n• lavoro indipendente e responsabile nella vostra area di competenza.\n\n• supporto professionale e supporto del dipartimento e di altri dipartimenti.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.",
-        "en": "Requirements: •\nSecondary or secondary education\n\n• Joy in dealing with fellow human beings and a good service idea\n\n• high motivation, fun in physical work, willingness to learn and perseverance\n\n• A good team spirit\n\n• Enjoyment of domestic activities\n\n• Language level German at least B2\n\nDo you feel addressed and want to become part of our foundation?\nCome and let yourself be inspired!\n\nOther | We offer: you:\n\n• An exciting and varied education.\n\n• independent and responsible work in your area of competence.\n\n• professional support and support from the department and other departments.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.",
-        "de": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
-        "fr": "Exigences: •\nEnseignement secondaire ou secondaire\n\n• La joie de traiter avec ses semblables et une bonne idée de service\n\n• haute motivation, plaisir dans le travail physique, volonté d'apprendre et persévérance\n\n• Un bon esprit d'équipe\n\n• Profitez des activités domestiques\n\n• Niveau de langue Allemand au moins B2\n\nVous sentez-vous adressé et voulez devenir une partie de notre fondation?\nVenez et laissez-vous inspirer!\n\nAutres Nous vous proposons:\n\n• Une éducation passionnante et variée.\n\n• travail indépendant et responsable dans votre domaine de compétence.\n\n• soutien et soutien professionnels du ministère et d'autres ministères.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM."
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
-      "source": "Spital Thusis Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:23.948Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "streetAddress": "Alte Strasse 31",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-08",
-      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
-      "requirements": [
-        "Sekundar- oder Realschulabschluss",
-        "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
-        "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
-        "einen guten Teamgeist",
-        "Freude an hauswirtschaftlichen Tätigkeiten",
-        "Sprachniveau Deutsch mindestens B2"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Sekundar- oder Realschulabschluss",
-          "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
-          "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
-          "einen guten Teamgeist",
-          "Freude an hauswirtschaftlichen Tätigkeiten",
-          "Sprachniveau Deutsch mindestens B2"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
-          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
-        ],
-        "en": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
-        ],
-        "fr": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-08T22:24:28.312Z",
-      "salaryMin": 41600,
-      "salaryMax": 76000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "spital-thusis-0caaf4f51e91",
       "slug": "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis",
       "slugByLocale": {
@@ -794,7 +597,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:23.312Z",
+      "crawledAt": "2026-09-03T13:49:15.977Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -868,6 +671,207 @@
       "addressRegion": "GR"
     },
     {
+      "id": "spital-thusis-fbc24a2d5c9f",
+      "slug": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
+      "slugByLocale": {
+        "it": "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis",
+        "en": "apprenticeship-as-a-specialist-hotel-industry-household-industry-efz-spital-thusis-thusis",
+        "de": "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+        "fr": "apprentissage-en-tant-qu-industrie-hoteliere-specialisee-industrie-domestique-efz-spital-thusis-thusis"
+      },
+      "company": "Spital Thusis",
+      "companyKey": "spital-thusis",
+      "companyDomain": "spitalthusis.ch",
+      "title": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
+      "titleByLocale": {
+        "it": "Apprendistato come Fachperson Hotellerie-Hauswirtschaft CFC",
+        "en": "Apprenticeship as a specialist hotel industry-household industry EFZ",
+        "de": "Lehrstelle als Fachperson Hotellerie-Hauswirtschaft EFZ",
+        "fr": "Apprentissage en tant qu'industrie hôtelière spécialisée-industrie domestique EFZ"
+      },
+      "description": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
+      "descriptionByLocale": {
+        "it": "Requisiti: •\nIstruzione secondaria o secondaria\n\n• Gioia nel trattare con altri esseri umani e una buona idea di servizio\n\n• alta motivazione, divertimento nel lavoro fisico, volontà di imparare e perseveranza\n\n• Un buon spirito di squadra\n\n• Divertimento delle attività domestiche\n\n• Livello di lingua Tedesco almeno B2\n\nTi senti indirizzato e vuoi diventare parte della nostra fondazione?\nVieni a farti ispirare!\n\nAltri | Offriamo:\n\n• Un'educazione emozionante e varia.\n\n• lavoro indipendente e responsabile nella vostra area di competenza.\n\n• supporto professionale e supporto del dipartimento e di altri dipartimenti.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.",
+        "en": "Requirements: •\nSecondary or secondary education\n\n• Joy in dealing with fellow human beings and a good service idea\n\n• high motivation, fun in physical work, willingness to learn and perseverance\n\n• A good team spirit\n\n• Enjoyment of domestic activities\n\n• Language level German at least B2\n\nDo you feel addressed and want to become part of our foundation?\nCome and let yourself be inspired!\n\nOther | We offer: you:\n\n• An exciting and varied education.\n\n• independent and responsible work in your area of competence.\n\n• professional support and support from the department and other departments.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.",
+        "de": "Anforderungen: •\nSekundar- oder Realschulabschluss\n\n• Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken\n\n• hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen\n\n• einen guten Teamgeist\n\n• Freude an hauswirtschaftlichen Tätigkeiten\n\n• Sprachniveau Deutsch mindestens B2\n\nFühlst du dich angesprochen und möchtest Teil unserer Stiftung werden?\nKomm vorbei und lass dich inspirieren!\n\nWeitere | Wir bieten: dir:\n\n• eine spannende und abwechslungsreiche Ausbildung.\n\n• selbständiges und eigenverantwortliches Arbeiten in deinem Kompetenzbereich.\n\n• eine fachgerechte Begleitung und Unterstützung durch den Fachbereich und darüber hinaus weiteren Abteilungen.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programms .",
+        "fr": "Exigences: •\nEnseignement secondaire ou secondaire\n\n• La joie de traiter avec ses semblables et une bonne idée de service\n\n• haute motivation, plaisir dans le travail physique, volonté d'apprendre et persévérance\n\n• Un bon esprit d'équipe\n\n• Profitez des activités domestiques\n\n• Niveau de langue Allemand au moins B2\n\nVous sentez-vous adressé et voulez devenir une partie de notre fondation?\nVenez et laissez-vous inspirer!\n\nAutres Nous vous proposons:\n\n• Une éducation passionnante et variée.\n\n• travail indépendant et responsable dans votre domaine de compétence.\n\n• soutien et soutien professionnels du ministère et d'autres ministères.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM."
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
+      "source": "Spital Thusis Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T13:49:15.325Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "streetAddress": "Alte Strasse 31",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
+      "requirements": [
+        "Sekundar- oder Realschulabschluss",
+        "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
+        "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
+        "einen guten Teamgeist",
+        "Freude an hauswirtschaftlichen Tätigkeiten",
+        "Sprachniveau Deutsch mindestens B2"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Sekundar- oder Realschulabschluss",
+          "Freude am Umgang mit Mitmenschen und einen guten Dienstleistungsgedanken",
+          "hohe Motivation, Spass an körperlicher Arbeit, Lernbereitschaft und Durchhaltevermögen",
+          "einen guten Teamgeist",
+          "Freude an hauswirtschaftlichen Tätigkeiten",
+          "Sprachniveau Deutsch mindestens B2"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
+        ],
+        "en": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:28.312Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 76000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "spital-thusis-3229720ec397",
+      "slug": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
+      "slugByLocale": {
+        "it": "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
+        "en": "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
+        "de": "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
+        "fr": "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
+      },
+      "company": "Spital Thusis",
+      "companyKey": "spital-thusis",
+      "companyDomain": "spitalthusis.ch",
+      "title": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
+      "titleByLocale": {
+        "it": "Apprendistato Fachperson Gesundheit CFC – Spital Thusis",
+        "en": "Apprenticeship Professional Health EFZ – Spital Thusis",
+        "de": "Lehrstelle Fachperson Gesundheit EFZ – Spital Thusis",
+        "fr": "Apprentissage Santé Professionnelle EFZ – Spital Thisis"
+      },
+      "description": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
+      "descriptionByLocale": {
+        "it": "Requisiti\n• Hai una laurea secondaria o secondaria.\n\n• Trattare con le persone e lavorare in cura, cura, pulizia e amministrazione ti rendono felice.\n\n• Hai una buona conoscenza orale e scritta della lingua tedesca.\n\n• Sei disposto a lavorare in modo irregolare.\n\n• Un modo esatto e affidabile di lavorare e un grande senso di responsabilità sono i vostri punti di forza.\n\n• Sei socievole e divertiti a lavorare in una squadra.\n\nVi offriamo...\n\n• una formazione emozionante e variegata nella rete di formazione dell'ospedale Sois e Spitex Viamala.\n\n• lavoro indipendente e auto-responsabile.\n\n• supporto professionale e supporto dal nostro team di formazione esperto.\n\n• un lavoro interessante, dove i pazienti sono accompagnati durante il soggiorno ospedaliero o clienti a casa.\n\n• un ambiente di lavoro familiare e una variegata offerta di sport e eventi come parte del nostro programma attivo SGM.\n\nTi senti impegnato e vuoi far parte della nostra squadra?\nAllora applicaci!\n\nAltri | Offriamo: voi...\n\nAltri",
+        "en": "Requirements\n• You have a secondary or secondary school degree.\n\n• Dealing with people as well as working in care, care, housekeeping and administration make you happy.\n\n• You have good oral and written knowledge of the German language.\n\n• You are willing to work irregularly.\n\n• An exact and reliable way of working and a great sense of responsibility are your strengths.\n\n• You are sociable and enjoy working in a team.\n\nWe offer you...\n\n• an exciting and varied education in the training network of the hospital Thusis and the Spitex Viamala.\n\n• independent and self-responsible work.\n\n• professional support and support from our experienced training team.\n\n• an interesting work, where patients are accompanied during the hospital stay or clients at home.\n\n• a family working atmosphere as well as a varied sports and event offer as part of our SGM active program.\n\nDo you feel engaged and want to be part of our team?\nThen apply to us!\n\nOther | We offer: you...\n\nOther",
+        "de": "Anforderungen:\n• Du verfügst über einen Sekundar- oder Realschulabschluss.\n\n• Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.\n\n• Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.\n\n• Du bist bereit, unregelmässig zu arbeiten.\n\n• Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.\n\n• Du bist kontaktfreudig und arbeitest gerne im Team.\n\nWir bieten dir...\n\n• eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.\n\n• selbständiges und eigenverantwortliches Arbeiten.\n\n• eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.\n\n• eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.\n\n• ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes.\n\nFühlst du dich angesprochen, und möchtest Teil unseres Teams werden?\nDann bewirb dich bei uns!\n\nWeitere | Wir bieten: dir...\n\nWeitere",
+        "fr": "Exigences\n• Vous avez un diplôme d'études secondaires ou secondaires.\n\n• Faire affaire avec les gens et travailler dans les soins, les soins, le ménage et l'administration vous rendent heureux.\n\n• Vous avez une bonne connaissance orale et écrite de la langue allemande.\n\n• Vous êtes prêt à travailler irrégulièrement.\n\n• Une façon exacte et fiable de travailler et un grand sens des responsabilités sont vos forces.\n\n• Vous êtes sociable et aimez travailler en équipe.\n\nNous vous offrons...\n\n• une formation passionnante et variée dans le réseau de formation de l'hôpital Thisis et le Spitex Viamala.\n\n• travail indépendant et responsable.\n\n• soutien et soutien professionnels de notre équipe de formation expérimentée.\n\n• un travail intéressant, où les patients sont accompagnés pendant le séjour à l'hôpital ou les clients à la maison.\n\n• une ambiance de travail familiale ainsi qu'une offre variée de sports et d'événements dans le cadre de notre programme actif SGM.\n\nTu te sens fiancé et tu veux faire partie de notre équipe ?\nAlors appliquez-nous !\n\nAutres Nous offrons: vous...\n\nAutres"
+      },
+      "location": "Thusis",
+      "canton": "GR",
+      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
+      "source": "Spital Thusis Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T13:49:14.680Z",
+      "addressLocality": "Thusis",
+      "postalCode": "7430",
+      "streetAddress": "Alte Strasse 31",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Formazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-08",
+      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spital-Thusis/",
+      "requirements": [
+        "Du verfügst über einen Sekundar- oder Realschulabschluss.",
+        "Der Umgang mit Menschen sowie die Arbeit in der Pflege, der Betreuung, der Hauswirtschaft und in der Administration machen dir Freude.",
+        "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
+        "Du bist bereit, unregelmässig zu arbeiten.",
+        "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
+        "Du bist kontaktfreudig und arbeitest gerne im Team.",
+        "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
+        "selbständiges und eigenverantwortliches Arbeiten.",
+        "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam.",
+        "eine interessante Arbeit, wo Patienten während des Spitalaufenthaltes oder Klienten zu Hause begleitet werden.",
+        "ein familiäres Betriebsklima sowie ein abwechslungsreiches Sport- und Eventangebot im Rahmen unseres SGM-Aktiv-Programmes."
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Du verfügst über einen Sekundar- oder Realschulabschluss.",
+          "Du verfügst über gute mündliche und schriftliche Kenntnisse in der deutschen Sprache.",
+          "Du bist bereit, unregelmässig zu arbeiten.",
+          "Eine exakte und zuverlässige Arbeitsweise sowie ein grosses Verantwortungsbewusstsein sind deine Stärken.",
+          "Du bist kontaktfreudig und arbeitest gerne im Team.",
+          "eine spannende und abwechslungsreiche Ausbildung im Ausbildungsverbund des Spitals Thusis sowie der Spitex Viamala.",
+          "selbständiges und eigenverantwortliches Arbeiten.",
+          "eine fachgerechte Begleitung und Unterstützung durch unser erfahrenes Ausbildungsteam."
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
+        "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
+          "apprendistato-fachperson-gesundheit-cfc-spital-thusis"
+        ],
+        "en": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
+        ],
+        "fr": [
+          "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:26.401Z",
+      "salaryMin": 41600,
+      "salaryMax": 76000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 41600,
+          "maxValue": 76000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
       "id": "spital-thusis-220f35e42c3c",
       "slug": "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
       "slugByLocale": {
@@ -898,7 +902,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:22.662Z",
+      "crawledAt": "2026-09-03T13:49:14.043Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -966,7 +970,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:22.024Z",
+      "crawledAt": "2026-09-03T13:49:13.285Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1043,7 +1047,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:21.356Z",
+      "crawledAt": "2026-09-03T13:49:12.615Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1090,6 +1094,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.012Z",
+      "needsRetranslation": true,
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
@@ -1136,7 +1141,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:20.719Z",
+      "crawledAt": "2026-09-03T13:49:11.963Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1221,7 +1226,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-SPITEX-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:19.970Z",
+      "crawledAt": "2026-09-03T13:49:11.205Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1294,7 +1299,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Biomedizinische-n-Analytiker-in-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:19.304Z",
+      "crawledAt": "2026-09-03T13:49:10.536Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1339,6 +1344,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:46:09.962Z",
+      "needsRetranslation": true,
       "salaryMin": 16300,
       "salaryMax": 22800,
       "salarySource": "estimated",
@@ -1385,7 +1391,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitender-Arzt-Oberarzt-m-w-Innere-Medizin-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:18.673Z",
+      "crawledAt": "2026-09-03T13:49:09.858Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1438,89 +1444,6 @@
       "addressRegion": "GR"
     },
     {
-      "id": "spital-thusis-998a0efda1b8",
-      "slug": "collaboratore-trice-patientenadministration-40-60-spital-thusis",
-      "slugByLocale": {
-        "it": "collaboratore-trice-patientenadministration-40-60-spital-thusis",
-        "en": "employee-patient-administration-40-60-spital-thusis-thusis",
-        "de": "mitarbeiter-in-patientenadministration-40-60-spital-thusis-ch",
-        "fr": "administration-salariee-patiente-40-60-spital-thusis-thusis"
-      },
-      "company": "Spital Thusis",
-      "companyKey": "spital-thusis",
-      "companyDomain": "spitalthusis.ch",
-      "title": "Mitarbeiter/in Patientenadministration 40-60%",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Patientenadministration 40-60%",
-        "en": "Employee/patient administration 40-60 %",
-        "de": "Mitarbeiter/in Patientenadministration 40-60%",
-        "fr": "Administration salariée/patiente 40-60 %"
-      },
-      "description": "Aufgaben:\n• Überprüfung erfasster Leistungen auf Vollständigkeit und Richtigkeit\n\n• lückenlose Fakturierung nach den geltenden Tarifen\n\n• Dienstleistung und Beratung in Tarif- und Abrechnungsfragen\n\n• telefonischer und schriftlicher Kontakt mit Patienten/-innen, Versicherungen, etc.\n\n• Erstellung von Auswertungen / Statistiken\n\nDas bringst du mit:\n\n• abgeschlossene Ausbildung als Medizinische Praxisassistent/in (MPA) oder kaufmännische Grundausbildung\n\n• Erfahrung im Gesundheitswesen oder in einer Versicherung (Krankheit / Unfall) sowie Kenntnisse in der Abrechnung mit Tarmed /Tardoc sind von Vorteil\n\n• hohe Eigenverantwortung und eine selbstständige, strukturierte Arbeitsweise\n\n• Zuverlässigkeit, Verantwortungsbewusstsein sowie ein hohes Mass an Sozialkompetenz\n\n• spezifische PC-Kenntnisse (WiCare Now, Polypoint KIS, Nexus (PatNG)) sind von Vorteil, aber nicht zwingend\n\nDas bieten wir dir:\n\n• ein vielseitiges Aufgabengebiet im familiären Verwaltungsbereich unseres Regionalspitals\n\n• eine verantwortungsvolle Tätigkeit mit abteilungsübergreifendem Austausch\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mind. 25 Tage Ferien\n\n• eine moderne Infrastruktur, interessante Fort- und Weiterbildungsmöglichkeiten sowie zahlreiche Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung zu jeder Jahreszeit\n\nSpricht dich diese offene Stelle in unserem Team an?\nDann bewirb dich bei uns, wir freuen uns!\n\nWeitere",
-      "descriptionByLocale": {
-        "it": "Compiti:\n• Revisione dei servizi coperti per completezza e precisione\n\n• Fatturazione completa secondo le tariffe applicabili\n\n• Servizi tariffari e di regolamento e servizi di consulenza\n\n• telefono e contatto scritto con pazienti, assicurazione, ecc.\n\n• Preparazione delle valutazioni / statistiche\n\nQuesto è ciò che portate con voi:\n\n• formazione completa come assistente di pratica medica (MPA) o formazione commerciale di base\n\n• L'esperienza nell'assistenza sanitaria o nell'assicurazione (illness / incidente) e la conoscenza della fatturazione con Tarmed /Tardoc sono utili\n\n• alta responsabilità personale e un metodo di lavoro indipendente e strutturato\n\n• Affidabilità, senso di responsabilità e alto grado di competenza sociale\n\n• specifiche abilità PC (WiCare Now, Polypoint KIS, Nexus (PatNG)) sono utili, ma non obbligatori\n\nQuesto è ciò che vi offriamo:\n\n• un'area versatile di responsabilità nell'area di amministrazione familiare del nostro ospedale regionale\n\n• Attività responsabile con scambio interdipartimentale\n\n• occupazione contemporanea e condizioni di lavoro così come minimo 25 giorni di vacanza\n\n• una moderna infrastruttura, interessanti opportunità di formazione e numerose offerte e sconti nel settore del tempo libero\n\n• un alto valore di svago nell'ambiente turistico molto attraente in qualsiasi momento dell'anno\n\nQuesta posizione aperta sul nostro team ti fa appello?\nAllora applicaci, siamo felici!\n\nAltri",
-        "en": "Tasks:\n• Review of covered services for completeness and accuracy\n\n• Complete invoicing according to the applicable tariffs\n\n• Tariff and settlement services and consultancy services\n\n• telephone and written contact with patients, insurance, etc.\n\n• Preparation of evaluations / statistics\n\nThis is what you bring with you:\n\n• completed training as medical practice assistant (MPA) or basic commercial training\n\n• Experience in health care or insurance (illness / accident) as well as knowledge of billing with Tarmed /Tardoc are beneficial\n\n• high personal responsibility and an independent, structured working method\n\n• Reliability, sense of responsibility and a high degree of social competence\n\n• specific PC skills (WiCare Now, Polypoint KIS, Nexus (PatNG)) are beneficial, but not mandatory\n\nThis is what we offer you:\n\n• a versatile area of responsibility in the family administration area of our regional hospital\n\n• Responsible activity with cross-departmental exchange\n\n• contemporary employment and working conditions as well as min. 25 days holiday\n\n• a modern infrastructure, interesting training opportunities and numerous offers and discounts in the leisure sector\n\n• a high leisure value in the touristic very attractive environment at any time of the year\n\nDoes this open position on our team appeal to you?\nThen apply to us, we are happy!\n\nOther",
-        "de": "Aufgaben:\n• Überprüfung erfasster Leistungen auf Vollständigkeit und Richtigkeit\n\n• lückenlose Fakturierung nach den geltenden Tarifen\n\n• Dienstleistung und Beratung in Tarif- und Abrechnungsfragen\n\n• telefonischer und schriftlicher Kontakt mit Patienten/-innen, Versicherungen, etc.\n\n• Erstellung von Auswertungen / Statistiken\n\nDas bringst du mit:\n\n• abgeschlossene Ausbildung als Medizinische Praxisassistent/in (MPA) oder kaufmännische Grundausbildung\n\n• Erfahrung im Gesundheitswesen oder in einer Versicherung (Krankheit / Unfall) sowie Kenntnisse in der Abrechnung mit Tarmed /Tardoc sind von Vorteil\n\n• hohe Eigenverantwortung und eine selbstständige, strukturierte Arbeitsweise\n\n• Zuverlässigkeit, Verantwortungsbewusstsein sowie ein hohes Mass an Sozialkompetenz\n\n• spezifische PC-Kenntnisse (WiCare Now, Polypoint KIS, Nexus (PatNG)) sind von Vorteil, aber nicht zwingend\n\nDas bieten wir dir:\n\n• ein vielseitiges Aufgabengebiet im familiären Verwaltungsbereich unseres Regionalspitals\n\n• eine verantwortungsvolle Tätigkeit mit abteilungsübergreifendem Austausch\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mind. 25 Tage Ferien\n\n• eine moderne Infrastruktur, interessante Fort- und Weiterbildungsmöglichkeiten sowie zahlreiche Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung zu jeder Jahreszeit\n\nSpricht dich diese offene Stelle in unserem Team an?\nDann bewirb dich bei uns, wir freuen uns!\n\nWeitere",
-        "fr": "Tâches :\n• Examen des services couverts pour en vérifier l'exhaustivité et l'exactitude\n\n• Facturation complète selon les tarifs applicables\n\n• Services de tarification et de règlement et services de conseil\n\n• contact téléphonique et écrit avec les patients, assurance, etc.\n\n• Préparation des évaluations / statistiques\n\nC'est ce que vous apportez avec vous :\n\n• une formation complète en tant qu'assistant de médecine ou formation commerciale de base;\n\n• L'expérience en soins de santé ou en assurance (maladie / accident) ainsi que la connaissance de la facturation avec Tarmed /Tardoc sont bénéfiques\n\n• haute responsabilité personnelle et méthode de travail indépendante et structurée\n\n• Fiabilité, sens des responsabilités et grande compétence sociale\n\n• des compétences PC spécifiques (WiCare Now, Polypoint KIS, Nexus (PatNG)) sont bénéfiques, mais non obligatoires\n\nVoici ce que nous vous proposons :\n\n• une zone de responsabilité polyvalente dans la zone d'administration familiale de notre hôpital régional\n\n• Activité responsable avec échange interdépartements\n\n• l'emploi et les conditions de travail contemporains ainsi que les vacances de 25 jours\n\n• une infrastructure moderne, des possibilités de formation intéressantes et de nombreuses offres et réductions dans le secteur des loisirs\n\n• une valeur de loisirs élevée dans l'environnement touristique très attrayant à tout moment de l'année\n\nCette position ouverte sur notre équipe vous plaît-elle ?\nAlors appliquez-nous, nous sommes heureux!\n\nAutres"
-      },
-      "location": "Thusis",
-      "canton": "GR",
-      "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Mitarbeiter-in-Patientenadministration-40-60-/",
-      "source": "Spital Thusis Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:17.923Z",
-      "addressLocality": "Thusis",
-      "postalCode": "7430",
-      "streetAddress": "Alte Strasse 31",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-07",
-      "applyUrl": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Mitarbeiter-in-Patientenadministration-40-60-/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "pensumMin": 40,
-      "pensumMax": 60,
-      "pensum": "40 - 60%",
-      "previousSlugs": [
-        "mitarbeiter-in-patientenadministration-40-60-spital-thusis-ch",
-        "collaboratore-trice-patientenadministration-40-60-spital-thusis"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-patientenadministration-40-60-spital-thusis-ch",
-          "collaboratore-trice-patientenadministration-40-60-spital-thusis"
-        ],
-        "en": [
-          "mitarbeiter-in-patientenadministration-40-60-spital-thusis-ch"
-        ],
-        "fr": [
-          "mitarbeiter-in-patientenadministration-40-60-spital-thusis-ch"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T10:31:17.909Z",
-      "salaryMin": 48900,
-      "salaryMax": 68400,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48900,
-          "maxValue": 68400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "spital-thusis-2add6482e8a8",
       "slug": "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis",
       "slugByLocale": {
@@ -1551,7 +1474,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Notfallstation-und-Tagesklinik-90-100-mit-NDS-HF-Notfallpflege/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:17.294Z",
+      "crawledAt": "2026-09-03T13:49:09.206Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1633,7 +1556,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Hauswirtschaft-mit-Nebenfunktion-Stellvertretende-Leitung-Hospitality-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:16.528Z",
+      "crawledAt": "2026-09-03T13:49:08.437Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1718,7 +1641,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachverantwortung-Finanz-und-Betriebsbuchhaltung-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:23:15.760Z",
+      "crawledAt": "2026-09-03T13:49:07.723Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",

@@ -11221,6 +11221,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Prêt maison en Suisse pour frontaliers',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Acheter une maison en Suisse auprès d\'un frontalier est possible. Voici les exigences, les banques et les procédures pour obtenir un prêt hypothécaire au Tessin et dans les régions frontalières.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Une maison moderne surplombant le lac Lugano et les montagnes tessinoises',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Prêt maison pour frontaliers : exigences et procédure en Suisse',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Guide pratique pour les frontaliers : comment obtenir un prêt hypothécaire en Suisse, documentation nécessaire, impôt à la source et procédures étape par étape.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Bureau bancaire moderne au Tessin avec documents hypothecaires, vue sur le lac de Lugano',
+    'blog.article.passante-milano-treno-evacuati.title': 'Train Varese bloqué dans le passage de Milan : désagréments au S5',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Environ 400 passagers évacués le 3 septembre par le passant de Milan. La S5, ligne cruciale pour les navetteurs tessinois vers Milan et l\'arrière-pays, est déviée sur un itinéraire alternatif.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Train immobilisé au passante de Milan suite à panne électrique, évacuation des passagers le 3 septembre 2026.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Offres d\'emploi et de stage dans la province de Varèse - 2 SEPTEMBRE 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Découvrez les nouvelles opportunités d\'emploi et de stage proposées par les Centres pour l’Emploi de la Province de Varèse.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Vue aérienne de Castelgrande à Bellinzona, Suisse',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Troisième pilier frontalier : déductibilité et rendements',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Avantages fiscaux et stratégies de sécurité sociale : comment le troisième pilier 3a fonctionne pour ceux qui travaillent en Suisse en tant que résidents italiens.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Vue panoramique du lac de Lugano au coucher de soleil depuis la rive suisse, avec reflets sur l\'eau et Alpes lointaines.',
 };
 
 export default blogMetaFr;

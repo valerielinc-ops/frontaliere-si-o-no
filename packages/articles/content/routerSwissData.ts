@@ -1786,6 +1786,19 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pil-q2-2026-industria-forte': { it: 'pil-q2-2026-industria-forte', en: 'gdp-q2-2026-strong-industry-growth', de: 'bip-q2-2026-industrie-starkes-wachstum', fr: 'pib-q2-2026-industrie-croissance-forte' },
  'calo-natalita-finanze-pubbliche': { it: 'calo-natalita-finanze-pubbliche', en: 'birth-rate-decline-public-finances', de: 'geburtenraten-finanzpolitik-schweiz', fr: 'baisse-natalite-finances-publiques' },
  'petizione-delocalizzazioni-svizzera': { it: 'petizione-delocalizzazioni-svizzera', en: 'petition-against-outsourcing-switzerland', de: 'petition-gegen-outsourcing-schweiz', fr: 'petition-contre-la-delocalisation-suisse' },
+ 'salari-svizzera-2026-inflazione': { it: 'salari-svizzera-2026-inflazione', en: 'swiss-salaries-2026-inflation', de: 'schweizer-loehne-2026-inflation', fr: 'salaires-suisses-2026-inflation' },
+ 'benzina-diesel-massimi-anno-2026': { it: 'benzina-diesel-massimi-anno-2026', en: 'fuel-prices-reach-year-high-2026', de: 'benzin-diesel-jahreshoch-2026', fr: 'essence-diesel-maxima-annuels-2026' },
+ 'tardoc-medici-famiglia-svizzera': { it: 'tardoc-medici-famiglia-svizzera', en: 'tardoc-general-practitioners-switzerland', de: 'tardoc-hausaerzte-schweiz', fr: 'tardoc-medecins-generalistes-suisse' },
+ 'economia-svizzera-crescita-q2-2026': { it: 'economia-svizzera-crescita-q2-2026', en: 'swiss-economy-growth-q2-2026', de: 'schweizer-wirtschaft-wachstum-q2-2026', fr: 'economie-suisse-croissance-q2-2026' },
+ 'lista-nera-asili-nidi-svizzera': { it: 'lista-nera-asili-nidi-svizzera', en: 'blacklist-childcare-staff-switzerland', de: 'schwarze-liste-kitas-schweiz', fr: 'liste-noire-structures-accueil-suisse' },
+ 'tardoc-rivalutazione-famiglia': { it: 'tardoc-rivalutazione-famiglia', en: 'tardoc-devaluation-family-medicine', de: 'tardoc-aufwertung-hausarzt', fr: 'tardoc-revalorisation-medecins-famille' },
+ 'comitato-consultivo-svizzera-digitale': { it: 'comitato-consultivo-svizzera-digitale', en: 'digital-switzerland-advisory-committee', de: 'beirat-digitale-schweiz', fr: 'comite-consultatif-suisse-numerique' },
+ 'ubs-pil-crescita-2026-rialzo': { it: 'ubs-pil-crescita-2026-rialzo', en: 'ubs-gdp-growth-2026-upward-revision', de: 'ubs-bip-wachstum-2026-erhoehung', fr: 'ubs-pib-croissance-2026-hausse' },
+ 'seco-ampia-base-crescita': { it: 'seco-ampia-base-crescita', en: 'seco-broad-based-growth', de: 'seco-breite-basis-wachstum', fr: 'seco-croissance-bien-fondee' },
+ 'bilaterali-iii-governi-cantonali': { it: 'bilaterali-iii-governi-cantonali', en: 'bilateral-iii-cantonal-governments', de: 'bilaterale-iii-kantonale-regierungen', fr: 'accords-bilateraux-iii-gouvernements-cantonaux' },
+ 'ricercatore-psi-spintronica-quantistica': { it: 'ricercatore-psi-spintronica-quantistica', en: 'psi-researcher-spintronics-quantum-grant', de: 'psi-forscher-spintronik-quantengeometrie', fr: 'chercheur-psi-spintronique-quantique' },
+ 'seco-carriera-amministrazione': { it: 'seco-carriera-amministrazione', en: 'seco-career-administration', de: 'seco-karriere-verwaltung', fr: 'seco-carriere-administration' },
+ 'inflazione-svizzera-bns-tassi': { it: 'inflazione-svizzera-bns-tassi', en: 'switzerland-inflation-bns-rates', de: 'schweiz-inflation-snb-zinsen', fr: 'suisse-inflation-bns-taux' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

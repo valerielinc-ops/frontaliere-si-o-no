@@ -68543,6 +68543,513 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-salari-svizzera-2026-inflazione': {
+    title: 'Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l\'inflazione sarà più alta',
+    description: 'I salari nominali in Svizzera aumenteranno dello 0,4% nel 2026, ma l\'inflazione prevista potrebbe annullare questo beneficio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, salari, aumento, dello, inflazione',
+    ogTitle: 'Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l\'inflazione sarà più alta',
+    ogDescription: 'Scopri come l\'aumento dei salari nominali dello 0,4% in Svizzera nel 2026 potrebbe essere annullato dall\'inflazione prevista, che si attesterà tra lo 0,4% e lo 0,8%.',
+    canonicalPath: '/articoli-svizzera/salari-svizzera-2026-inflazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salari in Svizzera: Aumento dello 0,4% nel 2026, ma l'inflazione sarà più alta",
+      "description": "I salari nominali in Svizzera aumenteranno dello 0,4% nel 2026, ma l'inflazione prevista potrebbe annullare questo beneficio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/salari-svizzera-2026-inflazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo."
+      },
+      "datePublished": "2026-09-03T11:50:43+00:00",
+      "dateModified": "2026-09-03T11:50:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/salari-svizzera-2026-inflazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-benzina-diesel-massimi-anno-2026': {
+    title: 'Benzina e diesel ai massimi dell\'anno | Frontaliere Ticino',
+    description: 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d\'acqua Reno causano rincari +20-26% da febbraio 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, diesel, massimi, dell',
+    ogTitle: 'Benzina e diesel ai massimi dell\'anno',
+    ogDescription: 'Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo il TCS. Conflitto Medio Oriente e difficoltà logistiche Reno causano rincari +20-26% da febbraio. Ancora lontani dai massimi storici del 2022 (2,30 CHF).',
+    canonicalPath: '/articoli-svizzera/benzina-diesel-massimi-anno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina e diesel ai massimi dell'anno",
+      "description": "Benzina 95 a 2,10 CHF, diesel a 2,26 CHF secondo TCS. Conflitto Medio Oriente e scarsità d'acqua Reno causano rincari +20-26% da febbraio 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/benzina-diesel-massimi-anno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di carburante svizzera con display dei prezzi di benzina e diesel, illustrazione del tema dell'articolo"
+      },
+      "datePublished": "2026-09-03T12:07:42+00:00",
+      "dateModified": "2026-09-03T12:07:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/benzina-diesel-massimi-anno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tardoc-medici-famiglia-svizzera': {
+    title: 'Medici di famiglia, il sistema tariffario TARDOC non convince',
+    description: 'Dopo pochi mesi dall\'entrata in vigore, il nuovo sistema tariffario TARDOC per le prestazioni mediche ambulatoriali non convince medici di famiglia e pediatri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, medici, famiglia, sistema, tariffario',
+    ogTitle: 'Medici di famiglia, il sistema tariffario TARDOC non convince',
+    ogDescription: 'Dopo pochi mesi dall\'entrata in vigore, il nuovo sistema tariffario TARDOC per le prestazioni mediche ambulatoriali non convince medici di famiglia e pediatri. L\'aumento dei costi fissi e il blocco dei guadagni stanno portando a una diminuzione',
+    canonicalPath: '/articoli-svizzera/tardoc-medici-famiglia-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Medici di famiglia, il sistema tariffario TARDOC non convince",
+      "description": "Dopo pochi mesi dall'entrata in vigore, il nuovo sistema tariffario TARDOC per le prestazioni mediche ambulatoriali non convince medici di famiglia e pediatri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tardoc-medici-famiglia-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il lago e le montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-03T12:29:03+00:00",
+      "dateModified": "2026-09-03T12:29:03+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tardoc-medici-famiglia-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-economia-svizzera-crescita-q2-2026': {
+    title: 'Economia svizzera accelera, PIL +1,5% nel 2026',
+    description: 'La Segreteria di Stato dell\'economia conferma forte crescita nel Q2 2026 con PIL +1,5%. Industria e export trascinano la ripresa svizzera verso il 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, economia, accelera, seco, conferma',
+    ogTitle: 'Economia svizzera accelera, PIL +1,5% nel 2026',
+    ogDescription: 'La Segreteria di Stato dell\'economia conferma la stima trimestrale: PIL in forte crescita (+1,5% nel Q2). Industria manifatturiera e chimico-farmaceutica trascinano l\'economia svizzera verso una ripresa solida. Cosa cambia per lavoro e occupazione.',
+    canonicalPath: '/articoli-svizzera/economia-svizzera-crescita-q2-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Economia svizzera accelera, PIL +1,5% nel 2026",
+      "description": "La Segreteria di Stato dell'economia conferma forte crescita nel Q2 2026 con PIL +1,5%. Industria e export trascinano la ripresa svizzera verso il 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/economia-svizzera-crescita-q2-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un centro economico svizzero con edifici moderni che riflettono il dinamismo della crescita economica nazionale."
+      },
+      "datePublished": "2026-09-03T12:45:38+00:00",
+      "dateModified": "2026-09-03T12:45:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/economia-svizzera-crescita-q2-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lista-nera-asili-nidi-svizzera': {
+    title: 'Asili nidi: Parlamento chiede lista nera per il personale',
+    description: 'Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, asili, nidi, parlamento, chiede',
+    ogTitle: 'Asili nidi: Parlamento chiede lista nera per il personale',
+    ogDescription: 'Mozione trasversale al Consiglio federale per istituire una lista nera nazionale degli educatori di asili nido implicati in abusi sessuali. Il governo rinvia: rapporto atteso entro fine 2027.',
+    canonicalPath: '/articoli-svizzera/lista-nera-asili-nidi-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Asili nidi: Parlamento chiede lista nera per il personale",
+      "description": "Mozione trasversale al Consiglio federale per prevenire abusi negli asili nidi. Il governo temporeggia e promette un rapporto entro fine 2027. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lista-nera-asili-nidi-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Quartiere moderno in Svizzera con strutture di accoglienza per bambini, simbolo della sicurezza negli asili nidi"
+      },
+      "datePublished": "2026-09-03T13:01:47+00:00",
+      "dateModified": "2026-09-03T13:01:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lista-nera-asili-nidi-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tardoc-rivalutazione-famiglia': {
+    title: 'TARDOC sotto il tiro di medici di famiglia | Frontaliere Ticino',
+    description: 'mfe critica il TARDOC per non aver rivalutato la medicina di famiglia svizzera. Costi ambulatoriali in aumento, rischio di carenza medici. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tardoc, sotto, tiro, medici',
+    ogTitle: 'TARDOC sotto il tiro di medici di famiglia',
+    ogDescription: 'L\'Associazione Medici di famiglia e dell\'infanzia Svizzera critica il TARDOC: costi ambulatoriali in aumento, medicina di famiglia non rivalutata, rischio di aggravamento della carenza di medici. Quali sono le implicazioni per il sistema sanitario',
+    canonicalPath: '/articoli-svizzera/tardoc-rivalutazione-famiglia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TARDOC sotto il tiro di medici di famiglia",
+      "description": "mfe critica il TARDOC per non aver rivalutato la medicina di famiglia svizzera. Costi ambulatoriali in aumento, rischio di carenza medici. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tardoc-rivalutazione-famiglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico di famiglia in consulto con paziente in ambulatorio svizzero, tema TARDOC e critiche sulla rivalutazione delle cure primarie"
+      },
+      "datePublished": "2026-09-03T13:26:50+00:00",
+      "dateModified": "2026-09-03T13:26:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tardoc-rivalutazione-famiglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comitato-consultivo-svizzera-digitale': {
+    title: 'Comitato Svizzera digitale: priorità a sicurezza e e-ID',
+    description: 'Il 3 settembre 2026 il Comitato consultivo Svizzera digitale ha fatto il punto su e-ID e sovranità digitale. Massima priorità alla sicurezza degli utenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comitato, digitale, priorità, sicurezza',
+    ogTitle: 'Comitato Svizzera digitale: priorità a sicurezza e e-ID',
+    ogDescription: 'Riunione del Comitato consultivo Svizzera digitale a Berna: il punto sulla strategia nazionale, la sovranità digitale e il rinvio cautelativo dell\'e-ID.',
+    canonicalPath: '/articoli-svizzera/comitato-consultivo-svizzera-digitale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comitato Svizzera digitale: priorità a sicurezza e e-ID",
+      "description": "Il 3 settembre 2026 il Comitato consultivo Svizzera digitale ha fatto il punto su e-ID e sovranità digitale. Massima priorità alla sicurezza degli utenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comitato-consultivo-svizzera-digitale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Riunione del Comitato consultivo Svizzera digitale a Berna."
+      },
+      "datePublished": "2026-09-03T14:15:06+00:00",
+      "dateModified": "2026-09-03T14:15:06+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comitato-consultivo-svizzera-digitale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-pil-crescita-2026-rialzo': {
+    title: 'UBS corregge al rialzo la crescita 2026: +1,8%',
+    description: 'UBS rivede il PIL svizzero 2026 da +0,7% a +1,8%. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Cosa cambia per salari e costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, corregge, rialzo, crescita, rivede',
+    ogTitle: 'UBS corregge al rialzo: PIL Svizzera +1,8% nel 2026',
+    ogDescription: 'UBS rivede al rialzo la crescita economica svizzera: PIL 2026 da +0,7% a +1,8% (al netto sport), +2,2% con sport. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Implicazioni per salari, costo della vita, mercato del lavoro.',
+    canonicalPath: '/articoli-svizzera/ubs-pil-crescita-2026-rialzo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS corregge al rialzo la crescita 2026: +1,8%",
+      "description": "UBS rivede il PIL svizzero 2026 da +0,7% a +1,8%. Inflazione agosto 0,8%, stime 2026-2027 stabili al 0,6%. Cosa cambia per salari e costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-pil-crescita-2026-rialzo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro economico di Bellinzona con edifici moderni che rappresentano la crescita economica della Svizzera."
+      },
+      "datePublished": "2026-09-03T14:31:01+00:00",
+      "dateModified": "2026-09-03T14:31:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-pil-crescita-2026-rialzo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-seco-ampia-base-crescita': {
+    title: 'SECO: crescita Q2, non è boom ma reale | Frontaliere Ticino',
+    description: 'PIL Svizzera +1,5% nel Q2 2026, SECO cautela su boom. Chimico-farmaceutico traino, domanda interna cresce. Previsioni revisionate a breve. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, crescita, boom, reale',
+    ogTitle: 'SECO: crescita Q2 Svizzera, non è boom ma base è ampia',
+    ogDescription: 'PIL Svizzera +1,5% nel Q2 2026. SECO cauta su boom, ma allargamento settoriale positivo. Implicazioni su occupazione, stipendi, tasse e costo della vita nazionale.',
+    canonicalPath: '/articoli-svizzera/seco-ampia-base-crescita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO: crescita Q2, non è boom ma reale",
+      "description": "PIL Svizzera +1,5% nel Q2 2026, SECO cautela su boom. Chimico-farmaceutico traino, domanda interna cresce. Previsioni revisionate a breve. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-ampia-base-crescita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con grattacieli e centro urbano economico della Svizzera"
+      },
+      "datePublished": "2026-09-03T14:40:29+00:00",
+      "dateModified": "2026-09-03T14:40:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-ampia-base-crescita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-bilaterali-iii-governi-cantonali': {
+    title: 'Bilaterali III: governi cantonali dicono sì | Frontaliere Ticino',
+    description: 'Governi della Svizzera occidentale riuniti a Friborgo sostengono il pacchetto Bilaterali III con l\'UE. Pacchetto al vaglio del Parlamento per accesso stabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, governi, cantonali, dicono',
+    ogTitle: 'Bilaterali III: governi cantonali dicono sì',
+    ogDescription: 'La Conferenza dei governi della Svizzera occidentale sostiene il pacchetto Bilaterali III con l\'UE. Endorsement importante per gli accordi in discussione al Parlamento federale che garantiranno accesso stabile al mercato europeo per le imprese',
+    canonicalPath: '/articoli-svizzera/bilaterali-iii-governi-cantonali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: governi cantonali dicono sì",
+      "description": "Governi della Svizzera occidentale riuniti a Friborgo sostengono il pacchetto Bilaterali III con l'UE. Pacchetto al vaglio del Parlamento per accesso stabile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-governi-cantonali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale di Berna con bandiere svizzere ed europee, sede del Parlamento federale"
+      },
+      "datePublished": "2026-09-03T14:48:13+00:00",
+      "dateModified": "2026-09-03T14:48:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilaterali-iii-governi-cantonali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ricercatore-psi-spintronica-quantistica': {
+    title: 'Ricercatore PSI riceve 2,2 mln per ricerca quantistica',
+    description: 'Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricercatore, riceve, ricerca, quantistica',
+    ogTitle: 'Ricercatore PSI riceve 2,2 mln per ricerca quantistica',
+    ogDescription: 'Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica. Una ricerca che potrebbe rivoluzionare lo storage dati svizzero.',
+    canonicalPath: '/articoli-svizzera/ricercatore-psi-spintronica-quantistica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricercatore PSI riceve 2,2 mln per ricerca quantistica",
+      "description": "Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricercatore-psi-spintronica-quantistica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca quantistica con equipaggiamento scientifico avanzato presso l'Istituto Paul Scherrer PSI"
+      },
+      "datePublished": "2026-09-03T14:56:47+00:00",
+      "dateModified": "2026-09-03T14:56:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricercatore-psi-spintronica-quantistica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-seco-carriera-amministrazione': {
+    title: 'Lavorare alla SECO: opportunità e carriera federale',
+    description: 'La SECO impiega oltre 900 persone in tre sedi svizzere. Scopri apprendistati, stage e carriere nella pubblica amministrazione federale economica svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavorare, alla, seco, opportunità',
+    ogTitle: 'Lavorare alla SECO: opportunità di carriera federale svizzera',
+    ogDescription: 'La Segreteria di Stato dell\'Economia (SECO) conta 900+ dipendenti in 3 sedi. Offre apprendistati AFC, stage universitari e tirocini. Scopri come candidarsi alla pubblica amministrazione federale svizzera.',
+    canonicalPath: '/articoli-svizzera/seco-carriera-amministrazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavorare alla SECO: opportunità e carriera federale",
+      "description": "La SECO impiega oltre 900 persone in tre sedi svizzere. Scopri apprendistati, stage e carriere nella pubblica amministrazione federale economica svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/seco-carriera-amministrazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Spazio di lavoro moderno presso amministrazione federale svizzera con documentazione su politica economica"
+      },
+      "datePublished": "2026-09-03T15:05:49+00:00",
+      "dateModified": "2026-09-03T15:05:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/seco-carriera-amministrazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-inflazione-svizzera-bns-tassi': {
+    title: 'Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?',
+    description: 'L\'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, aumenta, potrebbe, rivedere',
+    ogTitle: 'Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?',
+    ogDescription: 'L\'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS. Scopri di più su Frontaliere Ticino.',
+    canonicalPath: '/articoli-svizzera/inflazione-svizzera-bns-tassi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione aumenta in Svizzera: la BNS potrebbe rivedere i tassi?",
+      "description": "L'inflazione in Svizzera è aumentata allo 0,8% in agosto, portando a speculazioni su un possibile cambiamento nella politica monetaria della BNS.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/inflazione-svizzera-bns-tassi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano, Svizzera, con focus sul distretto finanziario."
+      },
+      "datePublished": "2026-09-03T15:18:35+00:00",
+      "dateModified": "2026-09-03T15:18:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/inflazione-svizzera-bns-tassi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-09-02T23:09:18.997Z",
+  "assembledAt": "2026-09-03T13:32:28.195Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:16.330Z",
+      "crawledAt": "2026-09-03T13:32:24.516Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:16.028Z",
+      "crawledAt": "2026-09-03T13:32:24.215Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -156,7 +156,8 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-cd3c5c2dce34",
@@ -189,7 +190,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/482/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:15.728Z",
+      "crawledAt": "2026-09-03T13:32:23.913Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -270,7 +271,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/455/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:15.427Z",
+      "crawledAt": "2026-09-03T13:32:23.611Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -303,6 +304,7 @@
         ]
       },
       "firstSeenAt": "2026-08-23T09:42:50.759Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -348,7 +350,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/498/Description/1",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:15.126Z",
+      "crawledAt": "2026-09-03T13:32:23.311Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -429,7 +431,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:14.824Z",
+      "crawledAt": "2026-09-03T13:32:23.009Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,7 +511,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/506/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:14.519Z",
+      "crawledAt": "2026-09-03T13:32:22.705Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -588,7 +590,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/508/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:14.214Z",
+      "crawledAt": "2026-09-03T13:32:22.401Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -674,7 +676,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/495/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:09:13.911Z",
+      "crawledAt": "2026-09-03T13:32:22.099Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -786,7 +788,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

@@ -1,20 +1,56 @@
 {
   "key": "novelis",
   "label": "Novelis",
-  "generatedAt": "2026-09-02T23:16:27.781Z",
-  "total": 4,
+  "generatedAt": "2026-09-03T13:39:57.510Z",
+  "total": 5,
   "discovered": null,
-  "written": 4,
-  "newCount": 0,
+  "written": 5,
+  "newCount": 1,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7853,
-  "avgDurationMs": 7853,
+  "durationMs": 9203,
+  "avgDurationMs": 9203,
   "durationHistory": [
-    7853
+    9203
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "novelis-a8a79b6b1256",
+      "slug": "senior-predictive-maintenance-engineer-m-f-d-novelis-ch",
+      "company": "Novelis",
+      "companyKey": "novelis",
+      "companyDomain": "novelis.com",
+      "title": "Senior Predictive Maintenance Engineer (m/f/d)",
+      "location": "Küsnacht | DE-RP-Koblenz | DE-NW-Plettenberg | DE-NW-Voerde | DE-BW-Stuttgart | DE-Göttingen | DE-ST-Nachterstedt | DE-ST-Stadt Seeland (Nachterstedt)",
+      "canton": "ZH",
+      "addressLocality": "Küsnacht | DE-RP-Koblenz | DE-NW-Plettenberg | DE-NW-Voerde | DE-BW-Stuttgart | DE-Göttingen | DE-ST-Nachterstedt | DE-ST-Stadt Seeland (Nachterstedt)",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Metallurgia / Alluminio",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "url": "https://ch-external-novelis.icims.com/jobs/53029/senior-predictive-maintenance-engineer-%28m-f-d%29/job?hub=13&in_iframe=1",
+      "applyUrl": "https://ch-external-novelis.icims.com/jobs/53029/senior-predictive-maintenance-engineer-%28m-f-d%29/job?hub=13&in_iframe=1",
+      "source": "Novelis Dedicated Parser (iCIMS)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T13:39:49.702Z",
+      "_qualityScore": 63,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "novelis-02a750729dec",
@@ -42,7 +78,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52860/internship-%28m-f-d%29-internal-communications-%2840%25-60%25%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:16:21.364Z",
+      "crawledAt": "2026-09-03T13:39:50.380Z",
       "firstSeenAt": "2026-08-03T12:38:44.264Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -78,7 +114,7 @@
       "applyUrl": "https://de-careers-novelis.icims.com/jobs/52802/it-solutions-lead-%28m-w-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:16:22.461Z",
+      "crawledAt": "2026-09-03T13:39:51.306Z",
       "firstSeenAt": "2026-07-23T11:46:56.934Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -114,7 +150,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52764/m%c3%a9canicien-de-maintenance/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:16:23.108Z",
+      "crawledAt": "2026-09-03T13:39:52.016Z",
       "firstSeenAt": "2026-07-15T22:17:22.223Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -150,7 +186,7 @@
       "applyUrl": "https://ch-external-novelis.icims.com/jobs/52599/plant-hr-manager-%28f-m-d%29/job?hub=13&in_iframe=1",
       "source": "Novelis Dedicated Parser (iCIMS)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:16:23.947Z",
+      "crawledAt": "2026-09-03T13:39:52.689Z",
       "firstSeenAt": "2026-07-08T11:23:11.600Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {

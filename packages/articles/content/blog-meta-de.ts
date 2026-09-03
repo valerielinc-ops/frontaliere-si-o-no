@@ -11218,6 +11218,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Wohnungsbaudarlehen in der Schweiz für Grenzgänger',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Ein Haus in der Schweiz als Grenzgänger zu kaufen ist möglich. Hier sind die Voraussetzungen, Banken und Verfahren, um ein Hypothekendarlehen im Tessin und in den Grenzregionen zu erhalten.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Ein modernes Haus mit Blick auf den Luganer See und die Tessiner Berge',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Wohnungsbaudarlehen für Grenzgänger: Anforderungen und Verfahren in der Schweiz',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Praktischer Leitfaden für Grenzgänger: So erhalten Sie ein Hypothekendarlehen in der Schweiz, notwendige Unterlagen, Quellensteuer und Schritt-für-Schritt-Verfahren.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modernes Bankburo im Tessin mit Hypothekenunterlagen, Blick auf den Luganersee',
+    'blog.article.passante-milano-treno-evacuati.title': 'Zug Varese im Mailänder Passant steckengeblieben: S5 gestört',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Rund 400 Passagiere wurden am 3. September von dem Passanten aus Mailand evakuiert. Die S5, eine wichtige Linie für Tessiner Pendler nach Mailand und ins Hinterland, wird auf eine alternative Route umgeleitet.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Zug im Mailänder Durchfahrtsbahnhof nach Stromausfall stillgestanden, Fahrgastevakuierung am 3. September 2026.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Stellen- und Praktikumsangebote in der Provinz Varese - 2. SEPTEMBER 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Entdecken Sie die neuen Arbeits- und Praktikumsmöglichkeiten, die von den Beschäftigungszentren der Provinz Varese angeboten werden.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Luftaufnahme von Castelgrande in Bellinzona, Schweiz',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.title': 'Dritte Säule Grenzgänger: Abzugsfähigkeit und Renditen',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.excerpt': 'Steuervorteile und Vorsorgestrategien: So funktioniert die dritte Säule 3a für Italiener, die in der Schweiz arbeiten.',
+    'blog.article.terzo-pilastro-frontaliere-deducibilita.imageAlt': 'Panoramablick auf den Luganersee vom Schweizer Ufer bei Sonnenuntergang mit Wasserreflexionen und Alpen in der Ferne.',
 };
 
 export default blogMetaDe;

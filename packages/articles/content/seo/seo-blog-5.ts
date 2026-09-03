@@ -45299,7 +45299,7 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
         "caption": "Eventi del weekend in Ticino"
       },
       "datePublished": "2026-06-29T23:19:06+02:00",
-      "dateModified": "2026-08-27T00:00:00+02:00",
+      "dateModified": "2026-09-03T00:00:00+02:00",
       "inLanguage": "it",
       "author": {
         "@type": "Person",
@@ -83920,6 +83920,163 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-mutuo-frontaliere-procedura-completa': {
+    title: 'Mutuo casa per frontalieri: requisiti e procedura in Svizzera',
+    description: 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mutuo, casa, requisiti, procedura',
+    ogTitle: 'Mutuo casa per frontalieri: requisiti e procedura',
+    ogDescription: 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
+    canonicalPath: '/articoli-frontaliere/mutuo-frontaliere-procedura-completa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mutuo casa per frontalieri: requisiti e procedura in Svizzera",
+      "description": "Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mutuo-frontaliere-procedura-completa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio bancario moderno in Ticino con documenti mutuo, vista su Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-03T12:00:45+00:00",
+      "dateModified": "2026-09-03T12:00:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-frontaliere-procedura-completa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-passante-milano-treno-evacuati': {
+    title: 'Treno Varese bloccato nel passante di Milano: disagi alla S5',
+    description: 'Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. S5 deviata. Disagi per pendolari ticinesi verso Milano e Varese. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, treno, varese, bloccato, passante',
+    ogTitle: 'Treno Varese bloccato: 400 evacuati nel passante di Milano',
+    ogDescription: 'Disservizio critico il 3 settembre: treno bloccato a Milano Lancetti per guasto elettrico durante lavori in galleria. La S5, linea fondamentale per frontalieri ticinesi, deviata. Trenord ha riprogrammato il servizio con cancellazioni e percorsi',
+    canonicalPath: '/articoli-frontaliere/passante-milano-treno-evacuati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Treno Varese bloccato nel passante di Milano: disagi alla S5",
+      "description": "Circa 400 passeggeri evacuati il 3 settembre dal passante di Milano. S5 deviata. Disagi per pendolari ticinesi verso Milano e Varese. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/passante-milano-treno-evacuati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno fermo nel passante di Milano durante evacuazione di passeggeri a causa di guasto elettrico il 3 settembre."
+      },
+      "datePublished": "2026-09-03T12:36:52+00:00",
+      "dateModified": "2026-09-03T12:36:52+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/passante-milano-treno-evacuati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-offerte-lavoro-tirocinio-varese-2026': {
+    title: 'Offerte di Lavoro e Tirocinio nella Provincia di Varese - 2 SETTEMBRE 2026',
+    description: 'Scopri le nuove opportunità di lavoro e tirocinio proposte dai Centri per l’Impiego della Provincia di Varese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, offerte, lavoro, tirocinio, nella',
+    ogTitle: 'Offerte di Lavoro e Tirocinio nella Provincia di Varese - 2 SETTEMBRE 2026',
+    ogDescription: 'Scopri le nuove opportunità di lavoro e tirocinio proposte dai Centri per l’Impiego della Provincia di Varese. Le offerte includono posizioni come APPRENDISTA PARRUCCHIERE/A, ADDETTO/A PREPARAZIONE CIBI, EDUCATORI/TRICI SCOLASTICI/CHE, DISEGNATORE',
+    canonicalPath: '/articoli-frontaliere/offerte-lavoro-tirocinio-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Offerte di Lavoro e Tirocinio nella Provincia di Varese - 2 SETTEMBRE 2026",
+      "description": "Scopri le nuove opportunità di lavoro e tirocinio proposte dai Centri per l’Impiego della Provincia di Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/offerte-lavoro-tirocinio-varese-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Castelgrande a Bellinzona, Svizzera"
+      },
+      "datePublished": "2026-09-03T12:54:26+00:00",
+      "dateModified": "2026-09-03T12:54:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/offerte-lavoro-tirocinio-varese-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-terzo-pilastro-frontaliere-deducibilita': {
+    title: 'Terzo pilastro frontalieri: deducibilità e rendimenti',
+    description: 'Scopri come il terzo pilastro 3a garantisce deducibilità fiscale, rendimenti esenti e vantaggi per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, deducibilità, rendimenti',
+    ogTitle: 'Terzo pilastro frontalieri: deducibilità e rendimenti',
+    ogDescription: 'Il terzo pilastro 3a è lo strumento previdenziale ideale per frontalieri che lavorano in Svizzera. Scopri deducibilità fiscale, rendimenti esenti, benefici del Nuovo Accordo 2024 e come iniziare oggi con procedura passo per passo.',
+    canonicalPath: '/articoli-frontaliere/terzo-pilastro-frontaliere-deducibilita',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Terzo pilastro frontalieri: deducibilità e rendimenti",
+      "description": "Scopri come il terzo pilastro 3a garantisce deducibilità fiscale, rendimenti esenti e vantaggi per i frontalieri che lavorano in Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/terzo-pilastro-frontaliere-deducibilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del lago di Lugano al tramonto da sponda svizzera, con riflessi sull'acqua e Alpi in lontananza."
+      },
+      "datePublished": "2026-09-03T13:16:05+00:00",
+      "dateModified": "2026-09-03T13:16:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/terzo-pilastro-frontaliere-deducibilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
