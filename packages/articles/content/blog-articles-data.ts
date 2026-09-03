@@ -33447,6 +33447,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'nuovo-accordo-frontalieri-2024',
+ category: 'fiscale',
+ date: '2026-09-03T07:10:18.713Z',
+ image: '/images/blog/nuovo-accordo-frontalieri-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
