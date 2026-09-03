@@ -1770,6 +1770,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-calcolo-rendita-zurigo': { it: 'avs-calcolo-rendita-zurigo', en: 'avs-pension-calculation-zurich', de: 'ahv-rentenberechnung-zurich', fr: 'calcul-rente-avs-zurich' },
  'permesso-l-proroga-appenzello-interno': { it: 'permesso-l-proroga-appenzello-interno', en: 'l-permit-renewal-appenzell-innerrhoden', de: 'l-permit-erneuerung-appenzell-innerrhoden', fr: 'permis-l-renouvellement-appenzell-rhodes' },
  'salari-lavoro-argovia-guida': { it: 'salari-lavoro-argovia-guida', en: 'salaries-labor-market-aargau-guide', de: 'loehne-arbeitsmarkt-aargau-leitfaden', fr: 'salaires-marche-travail-argovie-guide' },
+ 'lavoro-argovia-salari-diritti': { it: 'lavoro-argovia-salari-diritti', en: 'aargau-labor-market-salaries-rights', de: 'aargau-arbeitsmarkt-lohne-rechte', fr: 'marche-travail-argovia-salaires-droits' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

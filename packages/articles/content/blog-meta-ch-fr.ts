@@ -5233,6 +5233,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.salari-lavoro-argovia-guida.title': 'Salaires et marché du travail en Argovie : guide',
     'blog.article.salari-lavoro-argovia-guida.excerpt': 'Comment fonctionne le marché du travail dans le canton d\'Argovie ? Salaires, secteurs, fiscalité et cotisations selon les réglementations fédérales et cantonales suisses.',
     'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Bureau suisse moderne avec des employés au travail, représentant le marché du travail suisse.',
+    'blog.article.lavoro-argovia-salari-diritti.title': 'Salaires et marché du travail canton d\'Argovie',
+    'blog.article.lavoro-argovia-salari-diritti.excerpt': 'Comment fonctionne le marché du travail en Argovie : salaires, droits, conventions collectives et cotisations de sécurité sociale selon la loi fédérale suisse.',
+    'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'District commercial suisse avec bureaux modernes et travailleurs : symbole du marché du travail',
 };
 
 export default blogMetaChFr;

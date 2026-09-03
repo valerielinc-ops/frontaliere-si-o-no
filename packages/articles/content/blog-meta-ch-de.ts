@@ -5233,6 +5233,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-lavoro-argovia-guida.title': 'Löhne und Arbeitsmarkt im Aargau: Leitfaden',
     'blog.article.salari-lavoro-argovia-guida.excerpt': 'Wie funktioniert der Arbeitsmarkt im Kanton Aargau? Löhne, Branchen, Steuern und Beiträge gemäss den schweizerischen eidgenössischen und kantonalen Vorschriften.',
     'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Modernes Schweizer Büro mit Arbeitnehmer*innen bei der Arbeit, die den Schweizer Arbeitsmarkt repräsentieren.',
+    'blog.article.lavoro-argovia-salari-diritti.title': 'Löhne und Arbeitsmarkt Kanton Aargau',
+    'blog.article.lavoro-argovia-salari-diritti.excerpt': 'Wie der Arbeitsmarkt im Aargau funktioniert: Löhne, Ansprüche, Kollektivverträge und Sozialversicherungsbeiträge gemäss Schweizer Bundesgesetz.',
+    'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'Schweizer Geschäftsviertel mit modernen Büros und Arbeitnehmern: Symbol des Arbeitsmarktes',
 };
 
 export default blogMetaChDe;

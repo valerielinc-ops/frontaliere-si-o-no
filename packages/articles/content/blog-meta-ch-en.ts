@@ -5233,6 +5233,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.salari-lavoro-argovia-guida.title': 'Wages and the labour market in Aargau: a guide',
     'blog.article.salari-lavoro-argovia-guida.excerpt': 'How does the labour market in the canton of Aargau work? Wages, sectors, taxation and contributions according to Swiss federal and cantonal regulations.',
     'blog.article.salari-lavoro-argovia-guida.imageAlt': 'Modern Swiss office with employees at work, representing the Swiss labor market.',
+    'blog.article.lavoro-argovia-salari-diritti.title': 'Wages and labour market canton Aargau',
+    'blog.article.lavoro-argovia-salari-diritti.excerpt': 'How the labour market works in Aargau: wages, entitlements, collective agreements and social security contributions according to Swiss federal law.',
+    'blog.article.lavoro-argovia-salari-diritti.imageAlt': 'Swiss business district with modern offices and workers representing labor market and employment',
 };
 
 export default blogMetaChEn;
