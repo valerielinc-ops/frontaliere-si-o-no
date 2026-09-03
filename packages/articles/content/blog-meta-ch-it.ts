@@ -5239,6 +5239,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Premi cassa malati Canton Turgovia: riduzione',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'Come ottenere la riduzione sui premi della LAMal nel Canton Turgovia: franchigie disponibili, requisiti per il sussidio e procedure per richiedere il beneficio cantonale.',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Ufficio amministrativo cantonale svizzero con documenti di assicurazione malattia su scrivania',
+    'blog.article.comprare-casa-turgovia-mutuo.title': 'Comprare casa in Turgovia: tasse e mutuo ipotecario',
+    'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Acquistare immobile in Turgovia: costi fiscali, fondi propri richiesti, sostenibilità mutuo ipotecario, procedure notarili e tempistiche in Svizzera.',
+    'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Veduta aerea di una proprietà residenziale svizzera nel paesaggio alpino del Turgovia, campi verdi e cielo sereno, fotografia immobiliare professionale.',
 };
 
 export default blogMetaChIt;

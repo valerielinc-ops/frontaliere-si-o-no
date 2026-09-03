@@ -5239,6 +5239,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Health insurance premiums Canton Thurgau: reduction',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'How to get the LAMal premium reduction in the canton of Thurgau: available deductibles, subsidy requirements and procedures to apply for the cantonal benefit.',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Swiss cantonal health administration office with insurance documents on desk',
+    'blog.article.comprare-casa-turgovia-mutuo.title': 'Buying a house in Thurgau: taxes and mortgage',
+    'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Buying property in Thurgau: tax costs, own funds required, mortgage mortgage sustainability, notary procedures and timing in Switzerland.',
+    'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Aerial view of a modern Swiss residential property with alpine landscape, green fields, professional real estate photography in Thurgau.',
 };
 
 export default blogMetaChEn;

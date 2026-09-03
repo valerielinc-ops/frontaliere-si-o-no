@@ -5239,6 +5239,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Primes caisse-maladie Canton Thurgovie : réduction',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'Comment obtenir la réduction sur les primes de LAMal dans le canton de Thurgovie : franchises disponibles, conditions de subvention et procédures pour demander l\'avantage cantonal.',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Bureau administratif cantonal suisse avec documents d\'assurance-maladie sur le bureau',
+    'blog.article.comprare-casa-turgovia-mutuo.title': 'Acheter une maison en Thurgovie : taxes et hypothèque',
+    'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Acheter un bien immobilier en Thurgovie : coûts fiscaux, fonds propres requis, viabilité hypothécaire, procédures notariales et délais en Suisse.',
+    'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Vue aérienne d\'une propriété résidentielle suisse moderne dans le paysage alpin de Thurgovie avec champs verts, photographie immobilière professionnelle.',
 };
 
 export default blogMetaChFr;

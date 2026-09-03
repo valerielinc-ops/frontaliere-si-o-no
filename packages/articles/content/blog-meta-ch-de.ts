@@ -5239,6 +5239,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.title': 'Krankenkassenprämien Kanton Thurgau: Reduktion',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.excerpt': 'So erhalten Sie die KVG-Prämienreduktion im Kanton Thurgau: Verfügbare Franchisen, Beitragsvoraussetzungen und Verfahren zur Beantragung der kantonalen Leistung.',
     'blog.article.premi-cassa-malati-canton-turgovia-riduzione.imageAlt': 'Schweizer Verwaltungsbüro mit Krankenversicherungsdokumenten auf dem Schreibtisch',
+    'blog.article.comprare-casa-turgovia-mutuo.title': 'Haus kaufen im Thurgau: Steuern und Hypothekendarlehen',
+    'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Immobilienkauf im Thurgau: Steuerkosten, Eigenkapitalbedarf, Tragbarkeit Hypothekendarlehen, Notarverfahren und Fristen in der Schweiz.',
+    'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Luftaufnahme eines modernen Schweizer Wohnhauses in alpiner Landschaft des Thurgaus mit grünen Feldern, professionelle Immobilienfotografie.',
 };
 
 export default blogMetaChDe;
