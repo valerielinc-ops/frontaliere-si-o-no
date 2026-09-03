@@ -13,10 +13,14 @@
  *            the generated `content/seo/seo-blog*.ts` blobs, falling back to
  *            `/chi-siamo/` when that node is not a `Person` with a `url`.
  *
- * They agree today. Nothing keeps them agreeing: reassigning `authorSlug` without
- * regenerating the SEO blob (or vice versa) re-creates #7227 one level up, with the
- * page byline right and the metadata wrong — the exact shape a reader reported.
- * This suite is that missing gate.
+ * Measured when this gate was first run: they did NOT agree — 1712 of ~1800 articles
+ * carried a real `authorSlug` while their blob still held the legacy
+ * `{"@id": …#organization}` node, so the SPA overwrote the correct static tag with
+ * `/chi-siamo/`. The fix collapses the two sources into one: `seoService.ts` now
+ * derives from the registry through `services/seo/articleAuthorUrl.ts` and keeps the
+ * blob as a fallback only. This suite is the gate that keeps them collapsed — it
+ * exercises the real derivation both surfaces implement, so a future change that
+ * lets the blob win again (or that moves one surface's URL shape) fails here.
  *
  * Reads the blobs as TEXT via `extractSeoAuthorRefs`: importing the eight shards
  * would pull ~11 MB of generated TypeScript into the runner for two fields per entry.
@@ -25,7 +29,8 @@ import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { ARTICLES } from '@/data/blog-articles-data';
-import { getAuthorBySlug } from '@/data/authors';
+import { AUTHORS, getAuthorBySlug } from '@/data/authors';
+import { resolveArticleAuthorUrl, ORG_AUTHOR_URL, authorPageUrl } from '@/services/seo/articleAuthorUrl';
 import {
   BLOG_SEO_SHARD_IDS,
   blogSeoShardSourcePath,
@@ -34,9 +39,6 @@ import {
 } from '../build-plugins/shared/blogSeoShards';
 
 const ROOT = path.resolve(__dirname, '..');
-const BASE_URL = 'https://frontaliereticino.ch';
-/** Shared by both fallbacks: the team page the Organization branch points at. */
-const ORG_AUTHOR_URL = `${BASE_URL}/chi-siamo/`;
 
 /**
  * Later shards win, mirroring the spread merge `loadBlogSeoEntry()` replays —
@@ -55,15 +57,20 @@ const authorRefsByKey = ((): Map<string, SeoShardAuthorRef> => {
   return merged;
 })();
 
-/** What `ogPagesPlugin.ts` puts in `article:author` (its `authorObj.url`). */
+/**
+ * What `ogPagesPlugin.ts` puts in `article:author` (its `authorObj.url`), spelled
+ * out here rather than imported: the engine package resolves `getAuthorBySlug`
+ * through the shell bootstrap and cannot be called from a test without a build.
+ * If that branch changes, this literal must change with it — which is the point.
+ */
 function ssgAuthorUrl(authorSlug?: string): string {
   const resolved = authorSlug ? getAuthorBySlug(authorSlug) : undefined;
-  return resolved ? `${BASE_URL}/autori/${resolved.slug}/` : ORG_AUTHOR_URL;
+  return resolved ? authorPageUrl(resolved.slug) : ORG_AUTHOR_URL;
 }
 
 /** What `seoService.ts` puts in `article:author` for the same article. */
-function spaAuthorUrl(ref: SeoShardAuthorRef | undefined): string {
-  return ref?.type === 'Person' && ref.url ? ref.url : ORG_AUTHOR_URL;
+function spaAuthorUrl(article: { authorSlug?: string }, ref: SeoShardAuthorRef | undefined): string {
+  return resolveArticleAuthorUrl(article, { '@type': ref?.type, url: ref?.url });
 }
 
 const summarize = (offenders: readonly string[]): string =>
@@ -82,7 +89,7 @@ describe('article:author — dual source-of-truth parity', () => {
       const ref = authorRefsByKey.get(`blog-${article.id}`);
       if (!ref) continue; // no SEO blob entry → the SPA never reads one for this id
       const ssg = ssgAuthorUrl(article.authorSlug);
-      const spa = spaAuthorUrl(ref);
+      const spa = spaAuthorUrl(article, ref);
       if (ssg !== spa) {
         offenders.push(
           `  - ${article.id}: SSG "${ssg}" (authorSlug=${JSON.stringify(article.authorSlug)}) ` +
@@ -93,8 +100,8 @@ describe('article:author — dual source-of-truth parity', () => {
     expect(
       offenders.length,
       `${offenders.length} article(s) would emit a different article:author on the static page than ` +
-        `on the SPA/RSS side. Regenerate the SEO blob for these ids (or fix authorSlug) so both ` +
-        `sources name the same author:${summarize(offenders)}`,
+        `on the SPA side. Both must derive from authorSlug + data/authors.ts — check whether one ` +
+        `surface went back to reading content/seo/**:${summarize(offenders)}`,
     ).toBe(0);
   });
 
@@ -102,10 +109,11 @@ describe('article:author — dual source-of-truth parity', () => {
     // The other direction of the same drift: a blob naming an author page that the
     // registry no longer serves emits `article:author` pointing at a 404.
     const knownAuthorUrls = new Set(
+      AUTHORS.map((a) => authorPageUrl(a.slug)).concat(
       ARTICLES.flatMap((a) => {
         const author = a.authorSlug ? getAuthorBySlug(a.authorSlug) : undefined;
-        return author ? [`${BASE_URL}/autori/${author.slug}/`] : [];
-      }),
+        return author ? [authorPageUrl(author.slug)] : [];
+      })),
     );
     const offenders: string[] = [];
     for (const [key, ref] of authorRefsByKey) {
@@ -115,8 +123,8 @@ describe('article:author — dual source-of-truth parity', () => {
     }
     expect(
       offenders.length,
-      `${offenders.length} SEO blob entr(y/ies) name an author page no article's authorSlug ` +
-        `resolves to:${summarize(offenders)}`,
+      `${offenders.length} SEO blob entr(y/ies) name an author page the registry does not serve ` +
+        `— the fallback branch would emit a 404 URL:${summarize(offenders)}`,
     ).toBe(0);
   });
 });
