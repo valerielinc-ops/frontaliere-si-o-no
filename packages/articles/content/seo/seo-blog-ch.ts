@@ -68894,6 +68894,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bilaterali-iii-governi-cantonali': {
+    title: 'Bilaterali III: governi cantonali dicono sì | Frontaliere Ticino',
+    description: 'Governi della Svizzera occidentale riuniti a Friborgo sostengono il pacchetto Bilaterali III con l\'UE. Pacchetto al vaglio del Parlamento per accesso stabile',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, governi, cantonali, dicono',
+    ogTitle: 'Bilaterali III: governi cantonali dicono sì',
+    ogDescription: 'La Conferenza dei governi della Svizzera occidentale sostiene il pacchetto Bilaterali III con l\'UE. Endorsement importante per gli accordi in discussione al Parlamento federale che garantiranno accesso stabile al mercato europeo per le imprese',
+    canonicalPath: '/articoli-svizzera/bilaterali-iii-governi-cantonali/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: governi cantonali dicono sì",
+      "description": "Governi della Svizzera occidentale riuniti a Friborgo sostengono il pacchetto Bilaterali III con l'UE. Pacchetto al vaglio del Parlamento per accesso stabile",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-governi-cantonali.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale di Berna con bandiere svizzere ed europee, sede del Parlamento federale"
+      },
+      "datePublished": "2026-09-03T14:48:13+00:00",
+      "dateModified": "2026-09-03T14:48:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bilaterali-iii-governi-cantonali/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

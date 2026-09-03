@@ -5308,6 +5308,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.seco-ampia-base-crescita.title': 'SECO: crescita Q2, non è boom ma reale',
     'blog.article.seco-ampia-base-crescita.excerpt': 'PIL Svizzera +1,5% nel Q2 2026. SECO frena su boom, ma crescita allargata e domanda interna recupera. Previsioni annuali in revisione fra due settimane.',
     'blog.article.seco-ampia-base-crescita.imageAlt': 'Vista del lago di Lugano con grattacieli e centro urbano economico della Svizzera',
+    'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilaterali III: governi cantonali dicono sì',
+    'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'La Conferenza dei governi della Svizzera occidentale riunita a Friborgo sostiene il pacchetto di accordi con l\'UE, sottolineando l\'importanza per accesso stabile al mercato continentale',
+    'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Palazzo federale di Berna con bandiere svizzere ed europee, sede del Parlamento federale',
 };
 
 export default blogMetaChIt;

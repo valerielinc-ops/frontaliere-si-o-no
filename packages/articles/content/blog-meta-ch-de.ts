@@ -5308,6 +5308,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.seco-ampia-base-crescita.title': 'Trocken: Q2-Wachstum, kein Boom, sondern real',
     'blog.article.seco-ampia-base-crescita.excerpt': 'BIP Schweiz +1,5% im Q2 2026. TROCKEN bremst den Boom, aber das Wachstum nimmt zu und die Binnennachfrage erholt sich. Jährliche Prognosen werden in zwei Wochen überprüft.',
     'blog.article.seco-ampia-base-crescita.imageAlt': 'Blick auf den Luganersee mit Skyline des Schweizer Wirtschaftszentrums',
+    'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilateral III: Kantonsregierungen sagen Ja',
+    'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'Die Westschweizer Regierungskonferenz in Freiburg unterstützt das Abkommen mit der EU und unterstreicht die Bedeutung eines stabilen Zugangs zum kontinentalen Markt',
+    'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Schweizer Bundeshaus in Bern mit Schweizer und europäischen Flaggen, Sitz des Bundesparlamentes',
 };
 
 export default blogMetaChDe;

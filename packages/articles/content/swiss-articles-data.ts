@@ -15922,6 +15922,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bilaterali-iii-governi-cantonali',
+    category: 'novita',
+    date: '2026-09-03T14:48:13.884Z',
+    image: '/images/blog/bilaterali-iii-governi-cantonali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
