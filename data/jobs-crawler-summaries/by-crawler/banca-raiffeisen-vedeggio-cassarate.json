@@ -1,58 +1,18 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-09-03T13:32:45.478Z",
-  "total": 1,
+  "generatedAt": "2026-09-03T23:09:50.618Z",
+  "total": 0,
+  "discovered": null,
+  "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 82933,
-  "avgDurationMs": 82933,
-  "durationHistory": [
-    82933
-  ],
+  "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-8jc1jx",
-      "slug": "collaboratore-trice-hr-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-8jc1jx",
-      "company": "Banca Raiffeisen Vedeggio Cassarate",
-      "title": "Collaboratore/trice HR",
-      "location": "Gravesano, Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-05",
-      "url": "https://jobs.raiffeisen.ch/posti-vacanti/collaboratore-trice-hr/51703adc-2637-4d39-81ac-58d1a57ceb81",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Gravesano",
-        "canton": "TI"
-      },
-      "companyKey": "banca-raiffeisen-vedeggio-cassarate",
-      "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-09-02T23:05:40.412Z",
-      "firstSeenAt": "2026-08-12T10:16:12.004Z",
-      "sourceLang": "it",
-      "addressLocality": "Gravesano, Ticino",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "salarySource": "estimated",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
