@@ -976,6 +976,35 @@ export function isPermanentTracker(iss) {
 }
 
 /**
+ * Padre di una decomposizione (`decomposed:1`, #6504).
+ *
+ * Stessa classe di `isPermanentTracker`: una issue che NON è riparabile
+ * direttamente. Il suo lavoro vive nelle sub-issue figlie, e la chiude il
+ * PARENT-CLOSE quando sono tutte chiuse — mandarci il fixer brucia un run su
+ * qualcosa che per costruzione non ha un fix proprio, e per giunta duplica o
+ * confligge col lavoro già instradato nelle figlie (stesso file, stesso
+ * simbolo).
+ *
+ * `isAgeOutCandidate`, `isReparkableCandidate` e il pool del VERDICT-EXIT
+ * escludevano già `decomposed:1`; i due percorsi che PROMUOVONO — il rescue
+ * degli orfani e il DRAIN — no. Il buco era un loop chiuso: il padre resta
+ * `agent:fix` senza PR, il rescue lo vede orfano e lo ri-accoda, il DRAIN lo
+ * ripromuove, il fixer riscopre l'overlap e chiude `overlap-skip` — che è
+ * deliberatamente FUORI da `NON_RETRYABLE` perché per una PR bloccante è un
+ * verdetto transitorio, mentre per un padre decomposto non lo è mai. Misurato
+ * su #6504: due run Claude complete il 2026-09-03 (17:09 e 18:19) più due
+ * `max-turns` precedenti, tutte con esito «skip senza PR».
+ *
+ * La discriminante è la LABEL, non il marker `DECOMPOSED_INTO` nei commenti:
+ * la label è già la single source of truth dell'anti-ricorsione dello stadio
+ * decompose e non costa una lettura commenti per candidato.
+ * @param {{labels?: Array<{name:string}>}} iss
+ */
+export function isDecomposedParent(iss) {
+  return (iss?.labels || []).map((l) => l.name).includes(LBL_DECOMPOSED);
+}
+
+/**
  * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
  * Puro (niente gh) → testabile. Estratto da `isAgeOutEligible` perche' il
  * chiamante deve poter decidere se vale la pena SPENDERE una lettura commenti
@@ -2285,14 +2314,18 @@ export function runDrain() {
   // 'queue': ogni categoria tranne crawler, dal 2026-07-05) per non toccare i
   // crawler agent:fix (production-critical, route diretto, gestione separata).
   const allFix = listIssues(LBL_FIX);
+  // `isDecomposedParent` (#6504): un padre decomposto non è orfano né
+  // ri-tentabile — il suo lavoro è nelle figlie e lo chiude il PARENT-CLOSE.
+  // Ri-accodarlo qui era la prima metà del loop che bruciava un run per tick.
   const stuckFix = allFix.filter(
-    (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
+    (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !isDecomposedParent(i)
   );
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
   const crawlerFix = allFix.filter(
     (i) => !isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
+      && !isDecomposedParent(i)
   );
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
@@ -2367,6 +2400,23 @@ export function runDrain() {
         }
       } catch { /* peer illeggibile → non trattenere (bias a promuovere) */ }
     }
+  }
+
+  // --- CLEANUP PADRI DECOMPOSTI (#6504) ---------------------------------------
+  // I filtri qui sopra tolgono i padri decomposti dai pool di promozione, ma un
+  // padre che porta ANCORA `agent:fix`/`agent:fix-queued` da prima di questo fix
+  // resterebbe etichettato "in lavorazione" per sempre: nessun passo lo guarda
+  // più, e le label mentono sullo stato reale (il lavoro è nelle figlie).
+  // Toglierle è idempotente e naturalmente one-shot — al tick successivo il
+  // padre non compare più in questi listing. Zero Claude, zero commenti: il
+  // PARENT-CLOSE resta l'unico a doverlo chiudere, e legge `decomposed:1`, che
+  // NON tocchiamo.
+  for (const iss of [...allFix, ...listIssues(LBL_QUEUED)]) {
+    if (!isDecomposedParent(iss)) continue;
+    if (!has(iss, LBL_FIX) && !has(iss, LBL_QUEUED)) continue;
+    console.log(`CLEANUP #${iss.number}: padre decomposto — rimuovo ${LBL_FIX}/${LBL_QUEUED}, lo chiuderà il PARENT-CLOSE a figlie chiuse.`);
+    if (DRY) continue;
+    edit(iss.number, { remove: [LBL_FIX, LBL_QUEUED] });
   }
 
   for (const iss of stuckFix) {
@@ -2627,6 +2677,10 @@ export function runDrain() {
 
   const queued = listIssues(LBL_QUEUED)
     .filter((i) => !has(i, LBL_PARKED))
+    // Seconda metà del guard #6504: un padre decomposto finito in coda (per una
+    // ri-accodatura precedente a questo fix, o per una label rimessa a mano) non
+    // va promosso — il fixer non può che riscoprire l'overlap con le figlie.
+    .filter((i) => !isDecomposedParent(i))
     .sort((a, b) => prioRank(a) - prioRank(b) || Date.parse(a.createdAt) - Date.parse(b.createdAt));
   if (!queued.length) { console.log('coda vuota → niente da promuovere.'); return; }
 
