@@ -1,0 +1,85 @@
+name: jobs-pipeline-queue-monitor
+
+# Observability for the `jobs-data-pipeline` concurrency group's `queue: max`
+# behaviour (PR #7035). Nothing else watches whether:
+#   (a) a run superseded on that group is actually QUEUED (up to GitHub's
+#       documented 100-run cap) instead of silently cancelled — the signature
+#       of the plan/context not fully honouring `queue: max`;
+#   (b) the queue is approaching that cap, where runs beyond it are dropped
+#       with no signal at all.
+# See scripts/monitor-jobs-pipeline-queue.mjs for the full rationale and
+# issue #7165 / follow-up #7063 (items 3+4) for the origin.
+
+on:
+  schedule:
+    - cron: '25 * * * *' # hourly; offset from job-timeout-monitor's :10 to spread API load
+  workflow_dispatch:
+
+concurrency:
+  group: jobs-pipeline-queue-monitor
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  actions: read
+  issues: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          # No `npm ci` — script only uses Node stdlib + local modules.
+
+      - name: Scan jobs-data-pipeline queue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/monitor-jobs-pipeline-queue.mjs
+
+      - name: Report unexpected scan failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## jobs-pipeline-queue-monitor crashato
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 3 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
