@@ -11269,6 +11269,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Leben in Grandate und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Grandate zu leben und im Tessin zu arbeiten.',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.title': 'Leben in Montano Lucino und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Montano Lucino zu leben und im Tessin zu arbeiten.',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

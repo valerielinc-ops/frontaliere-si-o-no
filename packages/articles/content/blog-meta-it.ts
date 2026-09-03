@@ -11271,6 +11271,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.title': 'Vivere a Grandate e lavorare in Ticino da frontaliere',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Grandate e lavorare in Ticino.',
     'blog.article.vivere-grandate-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del lago di Lugano con le montagne circostanti',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.title': 'Vivere a Montano Lucino e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Montano Lucino e lavorare in Ticino.',
+    'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
