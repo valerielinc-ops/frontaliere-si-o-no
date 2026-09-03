@@ -11236,6 +11236,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung : procédure et coûts pour les frontaliers',
     'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permis G : 65 CHF de coût, 5 ans de validité. Guide complet de la demande auprès du Migrationsamt pour les frontaliers Tessin-Italie.',
     'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Passage frontalier de Chiasso pendant les heures de pointe matinales avec circulation des frontaliers vers la Suisse, drapeaux suisse et italien.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Numéro de TVA frontalier : ouvrir un compte indépendant en Suisse',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Guide pratique pour les frontaliers qui veulent démarrer une activité indépendante en Suisse. Permis G, fiscalité, franchises et prévoyance à partir de 2024.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Vue panoramique de Lugano, canton du Tessin, avec lac et Alpes en arrière-plan',
 };
 
 export default blogMetaFr;

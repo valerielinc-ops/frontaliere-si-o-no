@@ -11233,6 +11233,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: Verfahren und Kosten für Grenzgänger',
     'blog.article.g-bewilligung-guida-5-anni.excerpt': 'G-Genehmigung: 65 CHF Kosten, 5 Jahre Gültigkeit. Vollständiger Leitfaden zur Bewerbung beim Migrationsamt für Grenzgänger Tessin-Italien.',
     'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Grenzübergang Chiasso während der morgendlichen Rushhour mit Pendlerverkehr in die Schweiz, Schweizer und italienische Flaggen.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Partita IVA frontaliere: aprire autonomo in Svizzera',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Praktischer Leitfaden für Grenzgänger, die sich in der Schweiz selbständig machen wollen. Zulassungsvoraussetzungen G, Steuern, Franchisen und Vorsorge ab 2024.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Panoramablick auf Lugano, Kanton Tessin, mit See und Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

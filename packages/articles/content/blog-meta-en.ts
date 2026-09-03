@@ -11234,6 +11234,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.g-bewilligung-guida-5-anni.title': 'G-bewilligung: procedure and costs for border workers',
     'blog.article.g-bewilligung-guida-5-anni.excerpt': 'Permit G: CHF 65 cost, 5 years validity. Complete application guide at the Migrationsamt for border workers Ticino-Italy.',
     'blog.article.g-bewilligung-guida-5-anni.imageAlt': 'Chiasso border crossing during morning rush hour with commuter traffic entering Switzerland, Swiss and Italian flags visible.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Border VAT number: self-employed in Switzerland',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Practical guide for border workers who want to start a self-employed business in Switzerland. G permit requirements, taxation, deductibles and social security from 2024.',
+    'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Panoramic view of Lugano, Ticino, with lake and Alps in the background',
 };
 
 export default blogMetaEn;
