@@ -164,7 +164,8 @@ async function followRedirects(startUrl, method, { fetchImpl, lookupImpl, deadli
     if (REDIRECT_STATUSES.has(response?.status)) {
       const location = response?.headers?.get?.('location');
       await cancelBody(response);
-      if (!location || redirectCount === MAX_REDIRECTS) return null;
+      if (!location) return null;
+      if (redirectCount === MAX_REDIRECTS) return { result: null, status: null, redirectBudgetExhausted: true };
       try {
         current = new URL(location, effectiveUrl).toString();
       } catch {
@@ -185,7 +186,10 @@ async function request(url, options) {
   for (const method of ['HEAD', 'GET']) {
     const response = await followRedirects(url, method, options);
     if (response?.result) return response.result;
-    if (method === 'HEAD' && HEAD_FALLBACK_STATUSES.has(response?.status)) continue;
+    // A HEAD that runs out the redirect-hop budget on a chain GET might
+    // resolve in fewer/different hops isn't a terminal failure: retry with
+    // GET instead of failing closed on a false negative (#7149 item 2).
+    if (method === 'HEAD' && (HEAD_FALLBACK_STATUSES.has(response?.status) || response?.redirectBudgetExhausted)) continue;
     return null;
   }
   return null;

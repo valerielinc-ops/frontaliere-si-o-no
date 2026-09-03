@@ -155,12 +155,23 @@ describe('company website resolver', () => {
     expect(fetchImpl).toHaveBeenCalledTimes(2);
   });
 
-  it('stops redirect loops after the fixed hop budget', async () => {
+  it('stops redirect loops after the fixed hop budget, retrying GET once HEAD exhausts it', async () => {
     const fetchImpl = vi.fn(async (_input: string, _init: ResolverRequestInit): Promise<ResolverResponse> => (
       response(301, 'https://redirect.example.net/')
     ));
     await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves.toBeNull();
-    expect(fetchImpl).toHaveBeenCalledTimes(12);
+    // 2 host variants × (6 HEAD hops + 6 GET-fallback hops).
+    expect(fetchImpl).toHaveBeenCalledTimes(24);
+  });
+
+  it('falls back to GET when HEAD exhausts the redirect-hop budget on a shorter GET chain', async () => {
+    const fetchImpl = vi.fn(async (input: string, init: ResolverRequestInit): Promise<ResolverResponse> => {
+      if (init?.method === 'HEAD') return response(301, 'https://redirect.example.net/');
+      return new URL(input).hostname.startsWith('www.') ? response(404) : response(200);
+    });
+    await expect(resolveCompanyWebsite('example.ch', { fetchImpl, lookupImpl: PUBLIC_DNS })).resolves
+      .toBe('https://example.ch/');
+    expect(fetchImpl.mock.calls.some(([, init]) => init?.method === 'GET')).toBe(true);
   });
 
   it('bounds the whole redirect chain to the single declared timeout budget', async () => {
