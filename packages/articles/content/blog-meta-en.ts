@@ -11196,6 +11196,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-2024.title': 'Border deductions 2026: tax credit and deductibles',
     'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Swiss source tax, Italian tax credit, new agreement with deductibles: complete guide for border workers Ticino-Italy 2024-2033.',
     'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Cross-border worker tax documents, euros and Swiss francs, calculator and Ticino-Italy border view',
+    'blog.article.inflazione-svizzera-agosto-2026.title': 'Inflation accelerates in Switzerland, rises to 0.8% in August',
+    'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'Inflation in Switzerland rose to 0.8% in August, with significant increases in rents and fuel.',
+    'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Aerial view of Lugano city center with Lake Lugano in the background',
 };
 
 export default blogMetaEn;

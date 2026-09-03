@@ -11195,6 +11195,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-2024.title': 'Grenzabzüge 2026: Steuergutschrift und Selbstbehalte',
     'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Schweizer Quellensteuer, italienische Steuergutschrift, neue Vereinbarung mit Franchisen: Kompletter Leitfaden für Grenzgänger Tessin-Italien 2024-2033.',
     'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Steuerdokumente für Grenzgänger, Euro und Schweizer Franken, Rechner und Grenze Tessin-Italien',
+    'blog.article.inflazione-svizzera-agosto-2026.title': 'Inflation beschleunigt sich in der Schweiz, steigt im August auf 0,8%',
+    'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'Die Inflation in der Schweiz stieg im August auf 0,8%, wobei die Mieten und der Treibstoff deutlich anstiegen.',
+    'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaDe;

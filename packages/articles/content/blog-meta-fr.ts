@@ -11198,6 +11198,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nuovo-accordo-frontalieri-2024.title': 'Déductions frontalières 2026 : crédit d\'impôt et franchises',
     'blog.article.nuovo-accordo-frontalieri-2024.excerpt': 'Impôt à la source suisse, crédit d\'impôt italien, nouvel accord avec franchises : guide complet pour les frontaliers Tessin-Italie 2024-2033.',
     'blog.article.nuovo-accordo-frontalieri-2024.imageAlt': 'Documents fiscaux pour frontaliers, euros et francs suisses, calculatrice et frontière Tessin-Italie',
+    'blog.article.inflazione-svizzera-agosto-2026.title': 'L\'inflation s\'accélère en Suisse, grimpe à 0,8% en août',
+    'blog.article.inflazione-svizzera-agosto-2026.excerpt': 'L\'inflation en Suisse a grimpé à 0,8% en août, avec des hausses significatives des loyers et du carburant.',
+    'blog.article.inflazione-svizzera-agosto-2026.imageAlt': 'Vue aérienne du centre-ville de Lugano avec le lac de Lugano en arrière-plan',
 };
 
 export default blogMetaFr;
