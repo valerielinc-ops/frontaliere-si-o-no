@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-09-02T23:23:57.421Z",
+  "assembledAt": "2026-09-03T13:45:45.698Z",
   "jobs": [
     {
       "id": "alpiq-183e0087fef4",
@@ -38,7 +38,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:54.064Z",
+      "crawledAt": "2026-09-03T13:45:43.052Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -50,6 +50,58 @@
           "@type": "QuantitativeValue",
           "minValue": 68000,
           "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-32ea120ec164",
+      "slug": "senior-asset-trader-alpiq-lausanne",
+      "slugByLocale": {
+        "it": "senior-asset-trader-alpiq-lausanne"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Senior Asset Trader",
+      "titleByLocale": {
+        "it": "Commerciante di asset senior"
+      },
+      "description": "Senior Asset Trader\n\nIn this role, you help bring our value &ldquo;We learn and grow together&rdquo; into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and&hellip;\n\nLausanne - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Senior Asset Trader\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and…\n\nLausanne - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Lausanne",
+      "canton": "",
+      "postalCode": "1003",
+      "streetAddress": "",
+      "addressLocality": "Lausanne",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/8855",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T13:45:43.050Z",
+      "firstSeenAt": "2026-08-25T10:28:09.340Z",
+      "salaryMin": 96000,
+      "salaryMax": 146500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146500,
           "unitText": "YEAR"
         }
       }
@@ -96,7 +148,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:54.063Z",
+      "crawledAt": "2026-09-03T13:45:43.053Z",
       "firstSeenAt": "2026-08-25T22:03:37.699Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -121,58 +173,6 @@
         "gas-operator-alpiq-olten",
         "operatore-di-gas-alpiq-olten"
       ]
-    },
-    {
-      "id": "alpiq-32ea120ec164",
-      "slug": "senior-asset-trader-alpiq-lausanne",
-      "slugByLocale": {
-        "it": "senior-asset-trader-alpiq-lausanne"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Senior Asset Trader",
-      "titleByLocale": {
-        "it": "Commerciante di asset senior"
-      },
-      "description": "Senior Asset Trader\n\nIn this role, you help bring our value &ldquo;We learn and grow together&rdquo; into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and&hellip;\n\nLausanne - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Senior Asset Trader\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and…\n\nLausanne - 100%\nPermanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Lausanne",
-      "canton": "",
-      "postalCode": "1003",
-      "streetAddress": "",
-      "addressLocality": "Lausanne",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/8855",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:54.064Z",
-      "firstSeenAt": "2026-08-25T10:28:09.340Z",
-      "salaryMin": 96000,
-      "salaryMax": 146500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146500,
-          "unitText": "YEAR"
-        }
-      }
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -219,7 +219,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-02T23:23:54.064Z",
+      "crawledAt": "2026-09-03T13:45:43.053Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
