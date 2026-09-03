@@ -1791,6 +1791,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tardoc-medici-famiglia-svizzera': { it: 'tardoc-medici-famiglia-svizzera', en: 'tardoc-general-practitioners-switzerland', de: 'tardoc-hausaerzte-schweiz', fr: 'tardoc-medecins-generalistes-suisse' },
  'economia-svizzera-crescita-q2-2026': { it: 'economia-svizzera-crescita-q2-2026', en: 'swiss-economy-growth-q2-2026', de: 'schweizer-wirtschaft-wachstum-q2-2026', fr: 'economie-suisse-croissance-q2-2026' },
  'lista-nera-asili-nidi-svizzera': { it: 'lista-nera-asili-nidi-svizzera', en: 'blacklist-childcare-staff-switzerland', de: 'schwarze-liste-kitas-schweiz', fr: 'liste-noire-structures-accueil-suisse' },
+ 'tardoc-rivalutazione-famiglia': { it: 'tardoc-rivalutazione-famiglia', en: 'tardoc-devaluation-family-medicine', de: 'tardoc-aufwertung-hausarzt', fr: 'tardoc-revalorisation-medecins-famille' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

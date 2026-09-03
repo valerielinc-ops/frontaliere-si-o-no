@@ -5296,6 +5296,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lista-nera-asili-nidi-svizzera.title': 'Crèches : le Parlement demande une liste noire pour le personnel',
     'blog.article.lista-nera-asili-nidi-svizzera.excerpt': 'Motion transversale au Conseil fédéral pour prévenir les abus dans les crèches. Le gouvernement temporise et promet un rapport d\'ici fin 2027.',
     'blog.article.lista-nera-asili-nidi-svizzera.imageAlt': 'Quartier résidentiel moderne en Suisse avec structures d\'accueil pour enfants symbolisant la sécurité',
+    'blog.article.tardoc-rivalutazione-famiglia.title': 'TARDOC sous le feu des médecins de famille',
+    'blog.article.tardoc-rivalutazione-famiglia.excerpt': 'mfe critique le nouveau tarif : coûts ambulatoires en hausse, médecine de famille sans réévaluation. Le risque pour l\'accès aux soins de base.',
+    'blog.article.tardoc-rivalutazione-famiglia.imageAlt': 'Médecin généraliste en consultation avec patient, réformes tarifaires TARDOC et critiques de la revalorisation des médecins généralistes',
 };
 
 export default blogMetaChFr;

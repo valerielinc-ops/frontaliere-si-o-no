@@ -68738,6 +68738,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tardoc-rivalutazione-famiglia': {
+    title: 'TARDOC sotto il tiro di medici di famiglia | Frontaliere Ticino',
+    description: 'mfe critica il TARDOC per non aver rivalutato la medicina di famiglia svizzera. Costi ambulatoriali in aumento, rischio di carenza medici. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tardoc, sotto, tiro, medici',
+    ogTitle: 'TARDOC sotto il tiro di medici di famiglia',
+    ogDescription: 'L\'Associazione Medici di famiglia e dell\'infanzia Svizzera critica il TARDOC: costi ambulatoriali in aumento, medicina di famiglia non rivalutata, rischio di aggravamento della carenza di medici. Quali sono le implicazioni per il sistema sanitario',
+    canonicalPath: '/articoli-svizzera/tardoc-rivalutazione-famiglia/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "TARDOC sotto il tiro di medici di famiglia",
+      "description": "mfe critica il TARDOC per non aver rivalutato la medicina di famiglia svizzera. Costi ambulatoriali in aumento, rischio di carenza medici. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tardoc-rivalutazione-famiglia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medico di famiglia in consulto con paziente in ambulatorio svizzero, tema TARDOC e critiche sulla rivalutazione delle cure primarie"
+      },
+      "datePublished": "2026-09-03T13:26:50+00:00",
+      "dateModified": "2026-09-03T13:26:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tardoc-rivalutazione-famiglia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
