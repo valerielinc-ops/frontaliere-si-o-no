@@ -1,6 +1,6 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-09-02T23:23:56.578Z",
+  "assembledAt": "2026-09-03T13:52:14.189Z",
   "jobs": [
     {
       "title": "Concorso Psicologo/a assistente (100%)",
@@ -60,7 +60,8 @@
       },
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-31T17:28:48.788Z"
+      "firstSeenAt": "2026-08-31T17:28:48.788Z",
+      "needsRetranslation": true
     },
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
@@ -196,7 +197,8 @@
           "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-taverne"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     }
   ]
 }
