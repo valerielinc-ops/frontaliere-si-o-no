@@ -136,6 +136,14 @@ elif [[ "$url" == */compare/* ]]; then
   compare_count="$(cat "${directory}/compare-count")"
   printf '%s' "$url" > "${directory}/compare-url-\${compare_count}"
   status="\${CURL_COMPARE_STATUS:-200}"
+  if [ "\${CURL_COMPARE_TRANSPORT_ERRORS:-0}" -ge "$compare_count" ]; then exit 28; fi
+  if [ -n "\${CURL_COMPARE_STATUS_SEQUENCE:-}" ]; then
+    IFS=',' read -r -a compare_statuses <<< "$CURL_COMPARE_STATUS_SEQUENCE"
+    compare_sequence_index="$((compare_count - 1))"
+    if [ "$compare_sequence_index" -lt "\${#compare_statuses[@]}" ]; then
+      status="\${compare_statuses[$compare_sequence_index]}"
+    fi
+  fi
   body="\${CURL_COMPARE_BODY:-}"
   if [ "$compare_count" -gt 1 ] && [ -n "\${CURL_COMPARE_POST_BODY:-}" ]; then
     body="$CURL_COMPARE_POST_BODY"
@@ -536,6 +544,64 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.compareCount).toBe(2);
     expect(result.postCount).toBe(1);
     expect(result.getCount).toBe(1);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('retries a transient 5xx on the post-dispatch ancestry re-check for a real descendant run', () => {
+    const expectedSha = 'a'.repeat(40);
+    const descendantSha = 'b'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_POST_VERIFY_SECONDS: '0',
+        // Short-circuit the pre-dispatch ancestry check (fast path in
+        // commit_is_expected_or_descendant, no network call) so the only
+        // compare call is the post-dispatch one.
+        CURL_REF_BODY: JSON.stringify({ sha: expectedSha }),
+        CURL_COMPARE_STATUS_SEQUENCE: '502,200',
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, descendantSha),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: descendantSha }),
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.compareCount).toBe(2);
+    expect(result.postCount).toBe(1);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
+  });
+
+  it('fails closed after bounded retries when the post-dispatch ancestry re-check stays unreadable', () => {
+    const expectedSha = 'a'.repeat(40);
+    const descendantSha = 'b'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_POST_VERIFY_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: expectedSha }),
+        CURL_COMPARE_STATUS: '502',
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: descendantSha }),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.compareCount).toBe(3);
+    expect(result.postCount).toBe(1);
+    expect(result.dispatchSent).toContain('dispatch_sent=false');
+  });
+
+  it('does not retry a definitive semantic mismatch on the post-dispatch ancestry re-check', () => {
+    const expectedSha = 'a'.repeat(40);
+    const divergentRunSha = 'd'.repeat(40);
+    const result = dispatch({
+      env: {
+        TRIGGER_EXPECTED_SHA: expectedSha,
+        TRIGGER_POST_VERIFY_SECONDS: '0',
+        CURL_REF_BODY: JSON.stringify({ sha: expectedSha }),
+        CURL_COMPARE_BODY: comparisonBody(expectedSha, divergentRunSha, 'diverged'),
+        CURL_GET_BODY: JSON.stringify({ ...JSON.parse(validRunBody), head_sha: divergentRunSha }),
+      },
+    });
+    expect(result.status).toBe(1);
+    expect(result.compareCount).toBe(1);
+    expect(result.postCount).toBe(1);
     expect(result.dispatchSent).toContain('dispatch_sent=false');
   });
 
