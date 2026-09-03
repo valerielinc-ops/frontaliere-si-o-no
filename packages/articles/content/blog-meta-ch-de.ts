@@ -5242,6 +5242,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-turgovia-mutuo.title': 'Haus kaufen im Thurgau: Steuern und Hypothekendarlehen',
     'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Immobilienkauf im Thurgau: Steuerkosten, Eigenkapitalbedarf, Tragbarkeit Hypothekendarlehen, Notarverfahren und Fristen in der Schweiz.',
     'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Luftaufnahme eines modernen Schweizer Wohnhauses in alpiner Landschaft des Thurgaus mit grünen Feldern, professionelle Immobilienfotografie.',
+    'blog.article.apprendistato-formazione-interno-ch.title': 'Lehre und Ausbildung Appenzell Innerrhoden: Der Leitfaden',
+    'blog.article.apprendistato-formazione-interno-ch.excerpt': 'So finden Sie ein Praktikum im Kanton Appenzell Innerrhoden, unterschreiben den Lehrlingsvertrag, kennen den Mindestlohn, die Sozialbeiträge und erhalten Zugang zur Berufsmaturität.',
+    'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Berufslehre-Werkstatt in der Schweiz: Lehrling bei praktischer Ausbildung mit modernen Werkzeugen und Maschinen',
 };
 
 export default blogMetaChDe;
