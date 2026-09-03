@@ -11188,6 +11188,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: furto di cavi, sospesa Como-Milano',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Il furto di cavi di rame sulla tratta Como-Milano ha sospeso la circolazione tra Fino Mornasco e Milano Cadorna. Impatto sui pendolari e servizi alternativi attivi.',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Treno Trenord sulla linea Como-Milano con vista del lago sullo sfondo.',
+    'blog.article.cambio-chf-eur-quando-conviene.title': 'Cambio CHF/EUR frontalieri: quando conviene',
+    'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Strategie di cambio CHF/EUR per frontalieri Ticino. Conti multi-valuta, piattaforme, impatto stipendio netto e tassazione italiana. Scopri quando cambiare euro.',
+    'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Contatore di cambio valuta in una banca svizzera con banconote CHF e EUR',
 };
 
 export default blogMetaIt;

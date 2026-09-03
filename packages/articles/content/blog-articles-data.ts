@@ -33429,6 +33429,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cambio-chf-eur-quando-conviene',
+ category: 'pratico',
+ date: '2026-09-03T05:43:56.774Z',
+ image: '/images/blog/cambio-chf-eur-quando-conviene.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

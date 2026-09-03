@@ -11186,6 +11186,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.title': 'Trenord: Kabeldiebstahl, suspendiert Como-Mailand',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.excerpt': 'Der Diebstahl von Kupferkabeln auf der Strecke Como-Mailand hat den Verkehr zwischen Fino Mornasco und Milano Cadorna eingestellt. Auswirkungen auf Pendler und aktive alternative Dienste.',
     'blog.article.trenord-furto-di-cavi-sospesa-como-milano.imageAlt': 'Trenord-Zug auf der Como-Mailand-Strecke mit Seeblick im Hintergrund.',
+    'blog.article.cambio-chf-eur-quando-conviene.title': 'Wechselkurs CHF/EUR Grenzgänger: Wann lohnt es sich',
+    'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Wechselkursstrategien CHF/EUR für Grenzgänger Tessin. Multiwährungskonten, Plattformen, Auswirkungen auf das Nettogehalt und die italienische Besteuerung. Finden Sie heraus, wann Sie Euro wechseln müssen.',
+    'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Wechselschalter in einer Schweizer Bank mit CHF- und EUR-Banknoten',
 };
 
 export default blogMetaDe;
