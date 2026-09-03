@@ -11248,6 +11248,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Schweizer Strassenbusse: Bezahlung durch italienischen Residenten',
     'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Wie funktioniert die Zustellung und Zahlung eines schweizerischen Bußgeldes für einen italienischen Einwohner? Verfahren, Fristen, Rechtsbehelfe und Implikationen für die Genehmigung G.',
     'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'Stadt Bellinzona im Hintergrund, Symbol der Verwaltung des Kantons Tessin für Verkehrsstrafen',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Grenzgänger wechselt Kanton: die steuerlichen Auswirkungen',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Kantonswechsel = neue Veranlagung, veränderte G-Bewilligung und abweichende Pendlerkosten. Praktischer Leitfaden für Grenzgänger im Übergang zwischen Tessin und Graubünden.',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Grenzgänger wechselt nach Graubünden: Genehmigung und Steuern',
 };
 
 export default blogMetaDe;

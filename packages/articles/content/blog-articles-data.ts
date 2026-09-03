@@ -33609,6 +33609,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'frontaliere-nuovo-cantone-impatti-fiscali',
+ category: 'pratico',
+ date: '2026-09-03T18:53:42.161Z',
+ image: '/images/blog/frontaliere-nuovo-cantone-impatti-fiscali.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

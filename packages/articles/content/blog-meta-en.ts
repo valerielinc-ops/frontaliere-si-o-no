@@ -11249,6 +11249,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Swiss road fines: payment from an Italian resident',
     'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'How does the notification and payment of a Swiss traffic fine for an Italian resident work? Procedures, terms, appeals and implications for Permit G.',
     'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'Bellinzona city in the background, symbolizing Ticino cantonal administration responsible for traffic penalties',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontier changes canton: the tax implications',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Canton change = new taxation, modified G permit and different commuter costs. Practical guide for border workers in transition between Ticino and Grisons.',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Frontalier transitioning to Grisons: permit and tax adjustments',
 };
 
 export default blogMetaEn;
