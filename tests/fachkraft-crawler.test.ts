@@ -493,6 +493,52 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
     });
 
+    it('treats a formatting drift in the source location as the same place instead of forcing a refetch (#7250)', async () => {
+      const title = 'Elektroinstallateur/in';
+      const description = words(60, 'stable');
+      // Same URL/title as the previous run, but the source page now renders
+      // the region with a trailing canton suffix — no real relocation.
+      const cards = listingHtml(listingCard({
+        title,
+        path: 'elektroinstallateur-in-format-drift-654',
+        location: 'Luzern, LU',
+        canton: 'LU',
+      }));
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') return new Response(cards, { status: 200 });
+        throw new Error(`unexpected detail fetch for a listing that should be reused from cache: ${target}`);
+      };
+
+      const existingJobs = [{
+        title,
+        titleByLocale: { de: title },
+        description,
+        descriptionByLocale: { de: description },
+        sourceLang: 'de',
+        location: 'Luzern',
+        addressLocality: 'Luzern',
+        addressRegion: 'LU',
+        canton: 'LU',
+        addressCountry: 'CH',
+        country: 'CH',
+        url: 'https://www.fachkraft.ch/stellen/elektroinstallateur-in-format-drift-654/',
+      }];
+
+      const jobs = await fetchAllFachkraftJobs({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs,
+      });
+
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]?.location).toBe('Luzern');
+      expect(jobs[0]?.canton).toBe('LU');
+      expect(jobs[0]?.addressRegion).toBe('LU');
+      expect(jobs[0]?.addressLocality).toBe('Luzern');
+      expect(validateFachkraftAuthoritativeSnapshot(jobs)).toBe(true);
+    });
+
     it('is idempotent across two runs and preserves every prior route token on merge', async () => {
       const title = 'Polymechaniker/in';
       const cards = listingHtml(listingCard({ title, path: 'polymechaniker-in-luzern-123' }));

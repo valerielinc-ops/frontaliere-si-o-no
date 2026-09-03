@@ -62,6 +62,30 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+const LOCATION_TOKEN_MIN_LENGTH = 3;
+
+// Significant words of a location string: strips canton codes (2 letters),
+// postal codes (pure digits) and other short noise so `locationsMatch()`
+// below compares the actual place name rather than a raw substring. Formats
+// like "Zürich" / "Zürich, ZH" / "8000 Zürich" all reduce to ["zurich"].
+function locationTokens(value) {
+  return normalize(value)
+    .split(/[^\p{L}\p{N}]+/u)
+    .filter((token) => token.length >= LOCATION_TOKEN_MIN_LENGTH && !/^\d+$/.test(token));
+}
+
+// Two location strings are the same place when the shorter one's significant
+// tokens are all present in the other's — robust to formatting drift between
+// runs (canton suffix, postal code, punctuation added/removed) that broke the
+// previous `existingLocation.includes(rowLocation)` substring check (#7250).
+function locationsMatch(a, b) {
+  const tokensA = locationTokens(a);
+  const tokensB = locationTokens(b);
+  if (tokensA.length === 0 || tokensB.length === 0) return false;
+  const [shorter, longer] = tokensA.length <= tokensB.length ? [tokensA, tokensB] : [tokensB, tokensA];
+  return shorter.every((token) => longer.includes(token));
+}
+
 function wordCount(value = '') {
   return normalizeSpace(value).split(/\s+/u).filter(Boolean).length;
 }
@@ -228,7 +252,7 @@ function reusableExistingListing(row, existing) {
   const existingLocation = normalizeSpace(existing.location || existing.addressLocality || '');
   const rowLocation = normalizeSpace(row.location || '');
   const locationMatches = Boolean(
-    existingLocation && (!rowLocation || normalize(existingLocation).includes(normalize(rowLocation))),
+    existingLocation && (!rowLocation || locationsMatch(existingLocation, rowLocation)),
   );
   const location = locationMatches ? existingLocation : rowLocation || existingLocation;
   const preGeography = {
