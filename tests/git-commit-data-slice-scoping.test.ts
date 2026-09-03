@@ -391,6 +391,95 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
+  it('preserves a retirement older than the checkout\'s shallow depth instead of resurrecting it', () => {
+    // Regression for the #7221 review follow-up: crawler-group workflows
+    // checkout with `fetch-depth: 50`, so `git log` on that checkout only
+    // sees the last 50 reachable commits and silently returns empty beyond
+    // that boundary — indistinguishable from a path that never existed. A
+    // shallow clone here reproduces that truncation with a depth of 1
+    // instead of 50 so the test doesn't need 50+ filler commits.
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    const shallowDir = mkdtempSync(join(tmpdir(), 'git-commit-data-shallow-'));
+    const UNREGISTERED_RETIRED_PATH = 'data/jobs/by-crawler/shallow-retired.json';
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
+      writeFileSync(join(repoDir, UNREGISTERED_RETIRED_PATH), '[{"id":"shallow-retired-1"}]\n');
+      // Kept alongside the retired slice so `data/jobs/by-crawler/` still
+      // exists in the shallow checkout after retirement — git doesn't track
+      // empty directories, and this test needs the dir present to write the
+      // (would-be) resurrection attempt into it below.
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/keep.json'), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
+      writeFileSync(join(repoDir, 'data/translation-cache/.gitkeep'), '');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed with unregistered slice'], { cwd: repoDir });
+
+      execFileSync('git', ['rm', '-q', UNREGISTERED_RETIRED_PATH], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'retire unregistered slice'], { cwd: repoDir });
+
+      // Filler commits push the retirement commit outside a --depth 1 clone.
+      writeFileSync(join(repoDir, 'data/translation-cache/filler.json'), '{}\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'filler after retirement'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      execFileSync('git', ['clone', '-q', '--depth', '1', `file://${originDir}`, shallowDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: shallowDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: shallowDir });
+      expect(execFileSync('git', ['rev-parse', '--is-shallow-repository'], { cwd: shallowDir, encoding: 'utf8' }).trim())
+        .toBe('true');
+      expect(execFileSync(
+        'git',
+        ['log', '-1', '--format=%H', '--', UNREGISTERED_RETIRED_PATH],
+        { cwd: shallowDir, encoding: 'utf8' },
+      ).trim()).toBe('');
+
+      writeFileSync(
+        join(shallowDir, UNREGISTERED_RETIRED_PATH),
+        '[{"id":"shallow-post-retirement-resurrection"}]\n',
+      );
+      execFileSync(
+        BASH_BIN,
+        [SCRIPT_PATH, '--slice-only', 'shallow-checkout writer'],
+        {
+          cwd: shallowDir,
+          env: {
+            ...process.env,
+            JOBS_SLICE_FILE: '',
+            SKIP_AI_TRANSLATION: '1',
+            SLUG_HISTORY_SUMMARY_FILE: join(shallowDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: '',
+            GITHUB_TOKEN: '',
+            GITHUB_RUN_ID: '',
+            GITHUB_REPOSITORY: '',
+            GITHUB_OUTPUT: '',
+          },
+        },
+      );
+
+      expect(() => execFileSync(
+        'git',
+        ['cat-file', '-e', `origin/main:${UNREGISTERED_RETIRED_PATH}`],
+        { cwd: shallowDir, stdio: 'pipe' },
+      )).toThrow();
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+      rmSync(shallowDir, { recursive: true, force: true });
+    }
+  });
+
   it('fails closed when a still-registered primary slice disappears upstream', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
