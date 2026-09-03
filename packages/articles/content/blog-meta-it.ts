@@ -11256,6 +11256,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-medici-carenza-frontalieri-2026.title': 'Varese: oltre 20mila senza medico, sfida per i frontalieri',
     'blog.article.varese-medici-carenza-frontalieri-2026.excerpt': 'Oltre 20mila residenti senza medico nel Varesotto. In due anni 92 medici in pensione. Una crisi che colpisce i frontalieri Ticino residenti in provincia.',
     'blog.article.varese-medici-carenza-frontalieri-2026.imageAlt': 'Panorama della provincia di Varese con le montagne ticinesi sullo sfondo: zona di residenza di molti frontalieri Ticino-Italia',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.title': 'Vivere Gravedona ed Uniti, lavorare Ticino da frontaliere',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.excerpt': 'Frontaliere da Gravedona ed Uniti verso il Ticino: fiscalità, permessi, Nuovo Accordo, contributi e cosa valutare prima di trasferirsi.',
+    'blog.article.vivere-gravedona-uniti-lavorare-ticino.imageAlt': 'Vista del Ticino da Gravedona: sponda ticinese del Ceresio con monti sullo sfondo',
 };
 
 export default blogMetaIt;
