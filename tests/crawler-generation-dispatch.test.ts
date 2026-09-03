@@ -1780,4 +1780,58 @@ describe('generation checkpoint and preflight', () => {
     })).rejects.toThrow('crawler_generation_ref_pin_failed');
     expect(request).toHaveBeenCalledTimes(DISPATCH_REF_CONFLICT_BACKOFF_MS.length + 1);
   });
+
+  it('sets process.exitCode without throwing when per-group failures exceed failureTolerance (#7150 item 2)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-under-dispatch-'));
+    tempRoots.push(root);
+    const checkpointPath = path.join(root, 'crawler-generation-dispatch', 'checkpoint.json');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: any, init: any) => {
+      const url = String(input);
+      if (url.includes('/git/matching-refs/heads/')) {
+        return new Response(JSON.stringify([]), { status: 200 });
+      }
+      if (init?.method === 'GET' && url.includes('/git/ref/heads/')) {
+        return new Response(JSON.stringify({
+          ref: `refs/heads/${dispatchRef}`,
+          object: { type: 'commit', sha: corpusCodeCommit },
+        }), { status: 200 });
+      }
+      if (init?.method === 'POST' && url.includes('/dispatches')) {
+        return new Response(null, { status: 404 });
+      }
+      throw new Error(`unexpected request ${init?.method} ${url}`);
+    });
+    vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+    vi.spyOn(process.stderr, 'write').mockImplementation(() => true);
+
+    vi.useFakeTimers();
+    try {
+      const pending = runCrawlerGenerationDispatchCli([
+        'dispatch-groups',
+        '--generation-token', generationToken,
+        '--site-code-commit', siteCodeCommit,
+        '--corpus-code-commit', corpusCodeCommit,
+        '--shadow-ready', 'true',
+        '--delay-seconds', '10',
+        '--failure-tolerance', '2',
+        '--dry-run', 'false',
+        '--repository', process.cwd(),
+        '--runner-temp', root,
+        '--checkpoint', checkpointPath,
+      ], {
+        GITHUB_API_URL: 'https://api.github.test',
+        GITHUB_PAT_NANAKO: 'test-token',
+      });
+      await vi.advanceTimersByTimeAsync(GROUP_IDS.length * 10_000);
+      const result = await pending;
+      expect(Object.values(result.dispatchDiagnostics).every(
+        (entry: any) => entry.status === 'rejected',
+      )).toBe(true);
+    } finally {
+      vi.useRealTimers();
+    }
+    // Under-dispatch resolves the promise normally (no throw) — the reporter's
+    // `if: failure()` step relies on this exit code, not a rejected promise, to fire.
+    expect(process.exitCode).toBe(1);
+  });
 });
