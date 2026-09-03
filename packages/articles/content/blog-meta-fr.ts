@@ -11224,6 +11224,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mutuo-frontaliere-procedura-completa.title': 'Prêt maison pour frontaliers : exigences et procédure en Suisse',
     'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Guide pratique pour les frontaliers : comment obtenir un prêt hypothécaire en Suisse, documentation nécessaire, impôt à la source et procédures étape par étape.',
     'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Bureau bancaire moderne au Tessin avec documents hypothecaires, vue sur le lac de Lugano',
+    'blog.article.passante-milano-treno-evacuati.title': 'Train Varese bloqué dans le passage de Milan : désagréments au S5',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Environ 400 passagers évacués le 3 septembre par le passant de Milan. La S5, ligne cruciale pour les navetteurs tessinois vers Milan et l\'arrière-pays, est déviée sur un itinéraire alternatif.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Train immobilisé au passante de Milan suite à panne électrique, évacuation des passagers le 3 septembre 2026.',
 };
 
 export default blogMetaFr;

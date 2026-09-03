@@ -11221,6 +11221,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mutuo-frontaliere-procedura-completa.title': 'Wohnungsbaudarlehen für Grenzgänger: Anforderungen und Verfahren in der Schweiz',
     'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Praktischer Leitfaden für Grenzgänger: So erhalten Sie ein Hypothekendarlehen in der Schweiz, notwendige Unterlagen, Quellensteuer und Schritt-für-Schritt-Verfahren.',
     'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modernes Bankburo im Tessin mit Hypothekenunterlagen, Blick auf den Luganersee',
+    'blog.article.passante-milano-treno-evacuati.title': 'Zug Varese im Mailänder Passant steckengeblieben: S5 gestört',
+    'blog.article.passante-milano-treno-evacuati.excerpt': 'Rund 400 Passagiere wurden am 3. September von dem Passanten aus Mailand evakuiert. Die S5, eine wichtige Linie für Tessiner Pendler nach Mailand und ins Hinterland, wird auf eine alternative Route umgeleitet.',
+    'blog.article.passante-milano-treno-evacuati.imageAlt': 'Zug im Mailänder Durchfahrtsbahnhof nach Stromausfall stillgestanden, Fahrgastevakuierung am 3. September 2026.',
 };
 
 export default blogMetaDe;
