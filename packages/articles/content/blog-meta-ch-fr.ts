@@ -5320,6 +5320,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation en hausse en Suisse : la BNS pourrait-elle réviser ses taux ?',
     'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'L\'inflation en Suisse a grimpé à 0,8% en août, conduisant à des spéculations sur un possible changement de politique monétaire de la BNS.',
     'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Vue aérienne de Lugano, Suisse, avec un focus sur le quartier financier.',
+    'blog.article.apprendistato-formazione-canton-lucerna.title': 'Apprentissage et formation professionnelle : guide Lucerne',
+    'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'Comment trouver un stage dans le canton de Lucerne, souscrire un contrat d\'apprentissage, comprendre la rémunération et atteindre la maturité professionnelle.',
+    'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Classe de formation professionnelle dans une école suisse avec des apprentis travaillant sur des équipements techniques',
 };
 
 export default blogMetaChFr;

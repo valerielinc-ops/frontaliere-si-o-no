@@ -5320,6 +5320,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation rises in Switzerland: could the SNB revise rates?',
     'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'Inflation in Switzerland rose to 0.8% in August, leading to speculation about a possible change in the SNB\'s monetary policy.',
     'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Aerial view of Lugano, Switzerland, focusing on the financial district.',
+    'blog.article.apprendistato-formazione-canton-lucerna.title': 'Apprenticeship and vocational training: Lucerne guide',
+    'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'How to find an internship in the Canton of Lucerne, sign an apprenticeship contract, understand the salary and achieve professional maturity.',
+    'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Vocational training classroom in a Swiss school with apprentices working on technical equipment',
 };
 
 export default blogMetaChEn;

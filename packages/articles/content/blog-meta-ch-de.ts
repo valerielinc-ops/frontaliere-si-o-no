@@ -5320,6 +5320,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inflazione-svizzera-bns-tassi.title': 'Inflation in der Schweiz steigt: Könnte die SNB die Zinsen revidieren?',
     'blog.article.inflazione-svizzera-bns-tassi.excerpt': 'Die Inflation in der Schweiz stieg im August auf 0,8%, was zu Spekulationen über eine mögliche Änderung der Geldpolitik der SNB führte.',
     'blog.article.inflazione-svizzera-bns-tassi.imageAlt': 'Luftaufnahme von Lugano, Schweiz, mit Fokus auf den Finanzbezirk.',
+    'blog.article.apprendistato-formazione-canton-lucerna.title': 'Lehre und Berufsausbildung: Führer Luzern',
+    'blog.article.apprendistato-formazione-canton-lucerna.excerpt': 'So finden Sie ein Praktikum im Kanton Luzern, unterschreiben einen Lehrvertrag, verstehen die Vergütung und erreichen die Berufsmaturität.',
+    'blog.article.apprendistato-formazione-canton-lucerna.imageAlt': 'Berufsbildungsklasse in einer Schweizer Schule mit Lehrlingen, die an technischen Geräten arbeiten',
 };
 
 export default blogMetaChDe;
