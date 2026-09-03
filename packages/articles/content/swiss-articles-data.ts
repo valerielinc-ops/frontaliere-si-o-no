@@ -16066,6 +16066,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assicurazioni-tagli-occupazione-2028',
+    category: 'novita',
+    date: '2026-09-03T21:39:03.451Z',
+    image: '/images/blog/assicurazioni-tagli-occupazione-2028.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5356,6 +5356,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.salari-mercato-lavoro-uri-settori.title': 'Löhne und Arbeitsmarkt im Kanton Uri',
     'blog.article.salari-mercato-lavoro-uri-settori.excerpt': 'Analyse des Lohnniveaus nach Ausbildung, Berufsfeldern, Tarifverträgen und Mindestlohn auf dem Arbeitsmarkt des Kantons Uri.',
     'blog.article.salari-mercato-lavoro-uri-settori.imageAlt': 'Berglandschaft des Kantons Uri mit Alpenblick und modernem Arbeitsumfeld',
+    'blog.article.assicurazioni-tagli-occupazione-2028.title': 'Swiss Life plant, bis 2028 600 Stellen abzubauen',
+    'blog.article.assicurazioni-tagli-occupazione-2028.excerpt': 'Das Zürcher Unternehmen kündigt bis 2028 600 Stellenabbau an, trotz eines Umsatzwachstums von 2-10% im ersten Halbjahr 2026.',
+    'blog.article.assicurazioni-tagli-occupazione-2028.imageAlt': 'Modernes Büro von Swiss Life in Zürich, zeitgenössische Architektur, professioneller Arbeitsplatz mit großen Fenstern.',
 };
 
 export default blogMetaChDe;
