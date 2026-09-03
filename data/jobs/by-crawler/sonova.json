@@ -265,7 +265,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:19:22.435Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -471,7 +470,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:18:52.625Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -580,7 +578,7 @@
         "it": "Practical Apprendista - Power Management (m/f/d)",
         "en": "Practical Trainee - Power Management (m/f/d)",
         "de": "Practical Auszubildender - Power Management (m/f/d)",
-        "fr": "Practical Trainee - Power Management (m/f/d)"
+        "fr": "Stage pratique - Power Management (h/f/d)"
       },
       "description": "Location: Stäfa, Switzerland\n\nFulltime, 6 Months\n\nAt Sonova, we create sense by bringing sound to life. Our innovative hearing care solutions help millions of people reconnect with the sounds that matter most. As a Power Management Trainee, you will support the development and verification of the technologies that power our hearing instruments and chargers, helping us deliver reliable, high-quality solutions that make a real difference in people's everyday lives.\n\nWhat you'll do\n\n• Perform experiments to evaluate battery runtime, power consumption, and charging performance in real-world usage scenarios\n\n• Build, calibrate, maintain, and improve test setups and measurement systems for battery and power-management verification\n\n• Develop and execute automated test scripts and verification frameworks\n\n• Verify the performance of battery and power management systems in hearing devices and chargers\n\n• Analyze measurement data, create visualizations, and prepare technical reports\n\n• Troubleshoot test equipment and continuously improve testing processes\n\n• Collaborate with multidisciplinary engineering teams on power electronics, charger integration, and system-level investigations\n\nWhat you bring\n\n• Currently enrolled in or graduated with a Master's degree in Electrical Engineering, Electronics, Mechatronics, or a related field.\n\n• Basic programming skills in Python. MATLAB or C are a plus\n\n• Interest in automation, testing, verification, and engineering problem-solving.\n\n• Analytical mindset with strong attention to detail\n\n• Ability to work with technical data and measurements\n\n• Experience with battery management systems, power electronics, embedded systems, laboratory equipment, or Li-ion batteries is a plus\n\n• Fluency in English\n\nWhat we offer\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we’re committed to building an inclusive culture. We want to create an environment where you can balance a successful career with your commitments and interests outside of work, through our flexible hybrid working model.\n\nWe can offer you a new challenge, with interesting tasks and much more – including an open corporate culture, flat hierarchies, support for further training and development, opportunities to take on responsibility, and an excellent range of foods, sports and cultural facilities.\n\n• Insights into how hearing instruments and chargers manage power and energy efficiency\n\n• Practical data analysis skills and the opportunity to contribute to engineering decisions through testing results #LI-NB1\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
@@ -635,7 +633,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:05:37.985Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -894,8 +891,8 @@
       "companyDomain": "sonova.com",
       "title": "Lehrstelle Informatiker/in EFZ Applikationsentwicklung (m/f/d)",
       "titleByLocale": {
-        "it": "Apprendistato Informatiker/in CFC Applikationsentwicklung (m/f/d)",
-        "en": "Computer Scientist/in EFZ Application Development (m/f/d)",
+        "it": "Apprendistato Computer Scientist/EFZ Applicazione Sviluppo (m/f/d)",
+        "en": "Apprenticeship Computer Scientist/EFZ Application Development (m/f/d)",
         "de": "Lehrstelle Informatiker/in EFZ Applikationsentwicklung (m/f/d)",
         "fr": "Spécialiste de l ' informatique/développement des applications dans le cadre de la ZEF (m/f/d)"
       },
@@ -942,7 +939,6 @@
           "lehrstelle-informatiker-in-efz-applikationsentwicklung-m-f-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:06:52.220Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1021,7 +1017,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1050,8 +1045,8 @@
       "companyDomain": "sonova.com",
       "title": "Lehrstelle Konstrukteur/in EFZ (m/w/d)",
       "titleByLocale": {
-        "it": "Apprendistato Konstrukteur/in CFC (m/w/d)",
-        "en": "Apprenticeship constructor/in EFZ (m/f/d)",
+        "it": "Costruttore di apprendistato/EFZ (m/f/d)",
+        "en": "Apprenticeship Constructor/EFZ (m/f/d)",
         "de": "Lehrstelle Konstrukteur/in EFZ (m/w/d)",
         "fr": "Constructeur d'apprentissage/dans EFZ (m/f/d)"
       },
@@ -1098,7 +1093,6 @@
           "lehrstelle-konstrukteur-in-efz-m-w-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:06:52.240Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1128,7 +1122,7 @@
       "companyDomain": "sonova.com",
       "title": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
       "titleByLocale": {
-        "it": "Apprendistato Fachmann/-frau Betriebsunterhalt CFC (m/f/d)",
+        "it": "Manutenzione professionale/operante di apprendistato EFZ (m/f/d)",
         "en": "Apprenticeship Professional/Female Maintenance EFZ (m/f/d)",
         "de": "Lehrstelle Fachmann/-frau Betriebsunterhalt EFZ (m/f/d)",
         "fr": "Apprentissage Professional/Female Maintenance EFZ (m/f/d)"
@@ -1176,7 +1170,6 @@
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-m-f-d-sonova-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-31T22:06:52.177Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
