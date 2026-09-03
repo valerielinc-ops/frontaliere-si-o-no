@@ -1,20 +1,21 @@
 {
   "key": "arosa-lenzerheide",
   "label": "Arosa Lenzerheide",
-  "generatedAt": "2026-09-03T13:31:30.299Z",
+  "generatedAt": "2026-09-03T23:15:45.842Z",
   "total": 3,
   "discovered": null,
   "written": 3,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5457,
-  "avgDurationMs": 5457,
+  "durationMs": 5633,
+  "avgDurationMs": 5633,
   "durationHistory": [
-    5457
+    5633
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "arosa-lenzerheide-cca09befafd3",
       "slug": "betriebselektriker-in-arosa-lenzerheide-lenzerheide",
@@ -28,7 +29,7 @@
       "url": "https://app.reflinejobs.io/3316/0012/pub/31/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:26.507Z",
+      "crawledAt": "2026-09-03T23:15:41.467Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -44,16 +45,15 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://app.reflinejobs.io/3316/0012/pub/31/index.html",
       "externalId": "0012",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-03T13:31:26.507Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "arosa-lenzerheide-011d6c33fa9a",
       "slug": "mitarbeiter-in-seilbahnen-und-liftanlagen-arosa-lenzerheide-lenzerheide",
@@ -67,7 +67,7 @@
       "url": "https://app.reflinejobs.io/3316/0045/pub/29/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:27.735Z",
+      "crawledAt": "2026-09-03T23:15:42.680Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://app.reflinejobs.io/3316/0021/pub/16/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:27.097Z",
+      "crawledAt": "2026-09-03T23:15:42.065Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
