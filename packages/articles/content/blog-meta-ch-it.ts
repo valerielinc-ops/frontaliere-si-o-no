@@ -5350,6 +5350,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Imposta di successione Appenzello interno',
     'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Tassazione di successioni e donazioni nel cantone Appenzello Interno: aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedure di dichiarazione e termini cantonali.',
     'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Ufficio amministrativo fiscale del cantone Appenzello Interno con documenti di eredità e moduli dichiarazione successione',
+    'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS Uri: calcolo della rendita e lacune contributive',
+    'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Primo pilastro Uri: cassa di compensazione, calcolo della rendita AVS e prestazioni complementari per lacune contributive e minimo vitale.',
+    'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Ufficio amministrativo della cassa di compensazione cantonale svizzera che gestisce i contributi AVS e le rendite di vecchiaia.',
 };
 
 export default blogMetaChIt;

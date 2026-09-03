@@ -5350,6 +5350,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Appenzell Innerrhoden Erbschaftssteuer',
     'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Erbschafts- und Schenkungssteuer im Kanton Appenzell Innerrhoden: Steuersätze nach Verwandtschaftsgrad, Befreiungen für Ehepartner und Nachkommen, Erklärungsverfahren und kantonale Fristen.',
     'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Finanzamt des Kantons Appenzell Innerrhoden mit Erbschaftsdokumenten und Nachfolgeerklärungsformularen',
+    'blog.article.uri-rendita-avs-lacune-contributive.title': 'AHV Uri: Rentenberechnung und Beitragslücken',
+    'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Erste Säule Uri: Ausgleichskasse, AHV-Rentenberechnung und Ergänzungsleistungen für Beitragslücken und Lebensminimum.',
+    'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Kantonal Verwaltungsbüro für AHV-Beitragsverwaltung und Altersversicherungsrenten in der Schweiz.',
 };
 
 export default blogMetaChDe;

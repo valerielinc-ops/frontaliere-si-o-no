@@ -5350,6 +5350,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-appenzello-interno.title': 'Impôt de succession d\'Appenzell en Inhérnodes',
     'blog.article.imposta-successione-donazione-appenzello-interno.excerpt': 'Imposition des successions et des donations dans le canton d\'Appenzell en Inerrhoden : taux selon le degré de parenté, exemptions pour les époux et descendants, procédures de déclaration et délais cantonaux.',
     'blog.article.imposta-successione-donazione-appenzello-interno.imageAlt': 'Bureau amministrativo del canton d\'Appenzell Rhodes-Intérieures per dichiarazione d\'ereditages e imposizioni successorali',
+    'blog.article.uri-rendita-avs-lacune-contributive.title': 'AVS URI : calcul de la rente et lacunes contributives',
+    'blog.article.uri-rendita-avs-lacune-contributive.excerpt': 'Premier pilier URI : caisse de compensation, calcul de la rente AVS et prestations complémentaires pour lacunes contributives et minimum vital.',
+    'blog.article.uri-rendita-avs-lacune-contributive.imageAlt': 'Bureau administratif cantonal suisse gérant les cotisations AVS et les prestations de retraite pour la sécurité sociale.',
 };
 
 export default blogMetaChFr;
