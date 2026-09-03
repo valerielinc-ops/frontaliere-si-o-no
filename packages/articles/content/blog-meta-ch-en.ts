@@ -5245,6 +5245,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-formazione-interno-ch.title': 'Apprenticeship and training Appenzello Interno: the guide',
     'blog.article.apprendistato-formazione-interno-ch.excerpt': 'How to find an internship in the Inner Appenzell Canton, sign the apprenticeship contract, know the minimum salary, social contributions and access professional maturity.',
     'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Professional apprenticeship workshop in Switzerland: apprentice working with modern tools and machinery in vocational training facility',
+    'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Buying a house in Appenzello Interno: mortgage and taxes',
+    'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guide to buying a property in Appenzello Interno. Analysis of costs, transfer taxes, notary fees, mortgage and financial sustainability.',
+    'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Swiss residential property with mortgage documents and house keys, symbolizing home purchase and financing.',
 };
 
 export default blogMetaChEn;

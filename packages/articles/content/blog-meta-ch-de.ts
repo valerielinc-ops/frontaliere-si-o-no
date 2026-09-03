@@ -5245,6 +5245,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-interno-ch.title': 'Lehre und Ausbildung Appenzell Innerrhoden: Der Leitfaden',
     'blog.article.apprendistato-formazione-interno-ch.excerpt': 'So finden Sie ein Praktikum im Kanton Appenzell Innerrhoden, unterschreiben den Lehrlingsvertrag, kennen den Mindestlohn, die Sozialbeiträge und erhalten Zugang zur Berufsmaturität.',
     'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Berufslehre-Werkstatt in der Schweiz: Lehrling bei praktischer Ausbildung mit modernen Werkzeugen und Maschinen',
+    'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Haus kaufen in Appenzell Innerrhoden: Darlehen und Steuern',
+    'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Leitfaden zum Kauf einer Immobilie in Appenzell Innerrhoden. Kostenanalyse, Übertrittssteuern, Notarkosten, Hypothekendarlehen und finanzielle Tragbarkeit.',
+    'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Schweizer Einfamilienhaus mit Hypothekendokumenten und Schlüsseln, Symbol für Immobilienerwerb und Finanzierung.',
 };
 
 export default blogMetaChDe;
