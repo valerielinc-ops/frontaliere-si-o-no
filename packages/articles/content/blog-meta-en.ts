@@ -11246,6 +11246,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.notifica-pagamento-multa-frontaliere.title': 'Swiss traffic fine: payment and appeals',
     'blog.article.notifica-pagamento-multa-frontaliere.excerpt': 'Notification, payment, appeals: here\'s how to deal with a traffic fine received in Switzerland from an Italian border resident, and the consequences of inertia.',
     'blog.article.notifica-pagamento-multa-frontaliere.imageAlt': 'Swiss road with traffic signs and speed limit markers, relevant to Italian cross-border commuters',
+    'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Swiss road fines: payment from an Italian resident',
+    'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'How does the notification and payment of a Swiss traffic fine for an Italian resident work? Procedures, terms, appeals and implications for Permit G.',
+    'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'Bellinzona city in the background, symbolizing Ticino cantonal administration responsible for traffic penalties',
 };
 
 export default blogMetaEn;

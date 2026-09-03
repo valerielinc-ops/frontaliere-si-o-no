@@ -84272,6 +84272,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-multe-stradali-svizzere-residente-italiano': {
+    title: 'Multa stradali svizzere: pagamento da residente italiano',
+    description: 'Come funziona la notifica e il pagamento di una multa stradali svizzera per un residente italiano. Procedure, termini, ricorsi e implicazioni per il Permesso G.',
+    keywords: 'frontalieri, ticino, svizzera, italia, multa, stradali, svizzere, pagamento',
+    ogTitle: 'Multa stradali svizzere: pagamento da residente italiano',
+    ogDescription: 'Come funziona la notifica e il pagamento di una multa stradali svizzera per un residente italiano. Procedure, termini, ricorsi e implicazioni per il Permesso G.',
+    canonicalPath: '/articoli-frontaliere/multe-stradali-svizzere-residente-italiano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Multa stradali svizzere: pagamento da residente italiano",
+      "description": "Come funziona la notifica e il pagamento di una multa stradali svizzera per un residente italiano. Procedure, termini, ricorsi e implicazioni per il Permesso G.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/multe-stradali-svizzere-residente-italiano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La città di Bellinzona sullo sfondo, simbolo dell'amministrazione cantonale ticinese competente per le sanzioni stradali"
+      },
+      "datePublished": "2026-09-03T18:29:48+00:00",
+      "dateModified": "2026-09-03T18:29:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/multe-stradali-svizzere-residente-italiano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
