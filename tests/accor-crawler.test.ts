@@ -6,6 +6,7 @@ import {
   accorPageCount,
   accorPageUrl,
   collectAccorPageUrls,
+  createAccorSnapshotFetch,
   extractAccorDetailFields,
   isAccorJob,
   isTrustedDomain,
@@ -164,6 +165,73 @@ describe('Ibis Budget crawler parser', () => {
           : pagination(3), 20)).rejects.toThrow('HTTP 503');
       await expect(collectAccorPageUrls('https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
         async () => pagination(21), 20)).rejects.toThrow(/safe limit 20/);
+    });
+
+    it('keys the snapshot by the fetch-reported URL, even when the source normalizes it away from the requested one', async () => {
+      const pageSnapshots = new Map();
+      const html = pagination(1, 5);
+      const urls = await collectAccorPageUrls(
+        'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1',
+        async (url) => ({
+          // Simulates a source-side redirect/normalization hop that resolves
+          // the requested URL to a differently-encoded one before responding.
+          url: `${url}&normalized=1`,
+          status: 200,
+          body: html,
+        }),
+        20,
+        pageSnapshots,
+      );
+
+      expect(urls).toEqual([
+        'https://careers.accor.com/fr/fr/jobs?ln=Switzerland&li=CH&page=1&normalized=1',
+      ]);
+      expect([...pageSnapshots.keys()]).toEqual(urls);
+    });
+  });
+
+  describe('snapshot replay', () => {
+    it('replays a captured page when the request URL exactly matches the captured (post-normalization) key', async () => {
+      const pageSnapshots = new Map([
+        ['https://careers.accor.com/fr/fr/jobs?page=1&normalized=1', {
+          body: '<html>captured</html>',
+          status: 200,
+          contentType: 'text/html; charset=utf-8',
+        }],
+      ]);
+      let fallbackCalled = false;
+      const snapshotFetch = createAccorSnapshotFetch(pageSnapshots, async () => {
+        fallbackCalled = true;
+        return new Response('network');
+      });
+
+      const res = await snapshotFetch('https://careers.accor.com/fr/fr/jobs?page=1&normalized=1');
+
+      expect(await res.text()).toBe('<html>captured</html>');
+      expect(fallbackCalled).toBe(false);
+    });
+
+    it('falls back to live network on any non-identical URL instead of silently matching', async () => {
+      const pageSnapshots = new Map([
+        ['https://careers.accor.com/fr/fr/jobs?page=1&normalized=1', {
+          body: '<html>captured</html>',
+          status: 200,
+          contentType: 'text/html; charset=utf-8',
+        }],
+      ]);
+      let fallbackCalled = false;
+      const snapshotFetch = createAccorSnapshotFetch(pageSnapshots, async () => {
+        fallbackCalled = true;
+        return new Response('network');
+      });
+
+      // Trailing slash difference alone must not match — this is the reviewer
+      // concern from #7126: a match here would silently defeat the "single
+      // snapshot" guarantee instead of falling back visibly.
+      const res = await snapshotFetch('https://careers.accor.com/fr/fr/jobs?page=1&normalized=1/');
+
+      expect(await res.text()).toBe('network');
+      expect(fallbackCalled).toBe(true);
     });
   });
 

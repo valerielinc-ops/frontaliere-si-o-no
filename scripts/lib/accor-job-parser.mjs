@@ -141,7 +141,17 @@ export async function collectAccorPageUrls(
   return pages;
 }
 
-function createAccorSnapshotFetch(pageSnapshots, fallbackFetch) {
+/**
+ * Replays a captured listing page by exact URL-string match against
+ * `pageSnapshots`. This only stays correct because the key and the replay
+ * lookup are the *same* JS string threaded end-to-end (`collectAccorPageUrls`
+ * stores the fetch-reported `effectiveUrl`, and that exact string later
+ * becomes `spec.seedUrls` → the request URL `runSpecInProduction` passes back
+ * into this function) — nothing ever reconstructs the URL from a `URL` object
+ * in between, so no encoding/trailing-slash normalization can happen on the
+ * way. See tests/accor-crawler.test.ts for the invariant this relies on.
+ */
+export function createAccorSnapshotFetch(pageSnapshots, fallbackFetch) {
   return async (input, init) => {
     const url = typeof input === 'string'
       ? input
