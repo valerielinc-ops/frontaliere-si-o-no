@@ -305,6 +305,30 @@ export const SEO_CTR_FAMILIES = [
     measuredOn: '2026-09-03',
   },
   {
+    // Same shared canton job-board template as `cerca-lavoro-ticino` /
+    // `cerca-lavoro-svizzera` / `cerca-lavoro-grigioni` / `cerca-lavoro-zurigo`
+    // above (`getJobBoardSlugForCanton` in services/router.ts, canton VS in
+    // data/canton-url-slugs.json), but unregistered — the FR slug alone had
+    // already crossed MIN_IMPRESSIONS_TO_MONITOR and was flagged by
+    // discoverUnregisteredFamilies (issue #7173, thread #6704/#7170).
+    // Measured live via GSC 2026-06-03 → 2026-09-01 (90d): 142.773 imp,
+    // 6.906 click, CTR 4,84%, pos media ponderata 8,51.
+    id: 'cerca-lavoro-vallese',
+    label: 'Cerca lavoro Vallese',
+    pathContains: '/cerca-lavoro-vallese/',
+    pathAliases: ['/find-jobs-valais/', '/jobs-im-wallis/', '/trouver-emploi-valais/'],
+    kind: 'template',
+    monitored: true,
+    // Same "own position↔CTR curve" methodology as the sibling cantons
+    // above: at position 8,51 the generic benchmark expects ~2,8%, so this
+    // family already beats its position by 1,73×; target = 80% of that ratio.
+    targetCtrCurveMultiple: 1.4,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 4,84%.
+    targetCtr: 0.039,
+    impressions90d: 142773,
+    measuredOn: '2026-09-03',
+  },
+  {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',
