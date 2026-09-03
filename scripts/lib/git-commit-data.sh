@@ -284,30 +284,57 @@ declare -A _BATCH_SNAPSHOT_BLOB=()
 # Remote absence is not proof that a primary slice was retired. The generated
 # roster is the positive registry: only paths absent from primarySlices may use
 # the established delete-wins behavior below.
+#
+# Cached per roster_file for the lifetime of this script process (issue #7151
+# item 3): the sequential path calls this once per data/jobs/by-crawler/*.json
+# file whose remote_blob came back empty, and every one of those calls was
+# re-spawning a fresh `node` process to re-read and re-validate (schema +
+# digest rebuild) the SAME roster file — unchanged across the whole run, since
+# nothing in this script writes to it. Parse+validate once per roster_file,
+# then answer membership from the cached path list with a plain `grep`
+# (sub-millisecond, no process spawn). A validation failure is cached too, so
+# a corrupt/unreadable roster still fails closed on every call (exit 2)
+# without re-attempting the parse.
+declare -A _PRIMARY_SLICE_ROSTER_STATUS=()
+declare -A _PRIMARY_SLICE_ROSTER_PATHS=()
+
 is_registered_primary_slice() {
   local slice_path="$1"
-  local roster_file contract_file
+  local roster_file contract_file roster_paths
   roster_file="${CRAWLER_GENERATION_ROSTER_FILE:-$(dirname "$0")/../ci/crawler-generation-roster.json}"
   contract_file="$(dirname "$0")/crawler-generation-contract.mjs"
 
-  node --input-type=module - "$roster_file" "$slice_path" "$contract_file" <<'NODE'
+  if [ -z "${_PRIMARY_SLICE_ROSTER_STATUS[$roster_file]:-}" ]; then
+    if roster_paths="$(node --input-type=module - "$roster_file" "$contract_file" <<'NODE'
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const [rosterFile, slicePath, contractFile] = process.argv.slice(2);
+const [rosterFile, contractFile] = process.argv.slice(2);
 try {
   const roster = JSON.parse(fs.readFileSync(rosterFile, 'utf8'));
   const { validateCrawlerGenerationRoster } = await import(pathToFileURL(path.resolve(contractFile)).href);
   const validation = validateCrawlerGenerationRoster(roster);
   if (!validation.valid) throw new Error(validation.errors.join(', '));
-  const registered = Object.values(roster.primarySlices).some((value) => value === slicePath);
-  process.exit(registered ? 0 : 1);
+  process.stdout.write(Object.values(roster.primarySlices).join('\n'));
 } catch (error) {
   console.error(`❌ grouped-isolated: cannot validate primary slice registry ${rosterFile}: ${error.message}`);
   process.exit(2);
 }
 NODE
+    )"; then
+      _PRIMARY_SLICE_ROSTER_STATUS[$roster_file]="ok"
+      _PRIMARY_SLICE_ROSTER_PATHS[$roster_file]="$roster_paths"
+    else
+      _PRIMARY_SLICE_ROSTER_STATUS[$roster_file]="error"
+    fi
+  fi
+
+  if [ "${_PRIMARY_SLICE_ROSTER_STATUS[$roster_file]}" = "error" ]; then
+    return 2
+  fi
+
+  printf '%s\n' "${_PRIMARY_SLICE_ROSTER_PATHS[$roster_file]}" | grep -Fxq -- "$slice_path"
 }
 
 append_resolved_file() {
