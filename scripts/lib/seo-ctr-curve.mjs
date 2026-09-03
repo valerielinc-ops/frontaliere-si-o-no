@@ -280,6 +280,31 @@ export const SEO_CTR_FAMILIES = [
     measuredOn: '2026-08-25',
   },
   {
+    // Same shared canton job-board template as `cerca-lavoro-ticino` /
+    // `cerca-lavoro-svizzera` / `cerca-lavoro-grigioni` above
+    // (`getJobBoardSlugForCanton` in services/router.ts, canton ZH in
+    // data/canton-url-slugs.json), but the `/cerca-lavoro-zurigo/` (IT),
+    // `/find-jobs-zurich/` (EN) and `/jobs-in-zurich/` (DE) slugs weren't
+    // registered here — discoverUnregisteredFamilies flagged them as 3
+    // separate unregistered families instead of 1 (issue #7172, thread
+    // #6704). Measured live via GSC 2026-06-05 → 2026-09-03 (90d): 138.210
+    // imp, 6.915 click, CTR 5,00%, pos media ponderata 10,64.
+    id: 'cerca-lavoro-zurigo',
+    label: 'Cerca lavoro Zurigo',
+    pathContains: '/cerca-lavoro-zurigo/',
+    pathAliases: ['/find-jobs-zurich/', '/jobs-in-zurich/', '/trouver-emploi-zurich/'],
+    kind: 'template',
+    monitored: true,
+    // Same "own position↔CTR curve" methodology as the sibling cantons
+    // above: at position 10,64 the generic benchmark expects ~2,2%, so this
+    // family already beats its position by 2,27×; target = 80% of that ratio.
+    targetCtrCurveMultiple: 1.8,
+    // Fallback floor when GSC gives no usable position: 80% of the measured 5,00%.
+    targetCtr: 0.04,
+    impressions90d: 138210,
+    measuredOn: '2026-09-03',
+  },
+  {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',
