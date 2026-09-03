@@ -11183,6 +11183,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-euro-franco-conviene.title': 'Change euro franc : est-ce vraiment utile ?',
     'blog.article.cambio-euro-franco-conviene.excerpt': 'L\'impôt à la source suisse et l\'IRPEF italien pèsent sur le net. Découvrez comment le change CHF-EUR impacte le salaire frontalier et quelles stratégies adopter.',
     'blog.article.cambio-euro-franco-conviene.imageAlt': 'Conseiller financier explique les stratégies de change EUR-CHF aux frontaliers dans un bureau moderne à Mendrisio',
+    'blog.article.quando-cambiare-franco-euro.title': 'Quand il convient de changer le franc en euros',
+    'blog.article.quando-cambiare-franco-euro.excerpt': 'Le taux de change CHF-EUR a un impact direct sur le salaire des travailleurs transfrontaliers. Stratégies, plateformes, comptes multidevises : comment maximiser la valeur de votre salaire suisse.',
+    'blog.article.quando-cambiare-franco-euro.imageAlt': 'Vue de Lugano et du lac, paysage emblématique de la région frontalière suisse-italienne',
 };
 
 export default blogMetaFr;

@@ -33411,6 +33411,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'quando-cambiare-franco-euro',
+ category: 'pratico',
+ date: '2026-09-03T05:01:56.111Z',
+ image: '/images/blog/quando-cambiare-franco-euro.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
