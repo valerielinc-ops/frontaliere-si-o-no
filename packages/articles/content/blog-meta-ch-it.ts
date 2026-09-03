@@ -5362,6 +5362,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.uri-stipendi-settori-qualifica.title': 'Salari Canton Uri: livelli per qualifica',
     'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Orari massimi, vacanze minime, contributi salariali e imposte: le regole nazionali svizzere che disciplinano il mercato del lavoro nel Cantone di Uri.',
     'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Ambiente di lavoro professionale in vallata alpina con colleghi in riunione di equipe durante orario di ufficio',
+    'blog.article.settori-salari-uri-lavoro.title': 'Salari in Uri: livelli per settore e formazione',
+    'blog.article.settori-salari-uri-lavoro.excerpt': 'Come si determinano i salari nel Cantone Uri per grado di formazione e settore. Guida pratica a contratti collettivi, contributi previdenziali e risorse ufficiali per verificare stipendi.',
+    'blog.article.settori-salari-uri-lavoro.imageAlt': 'Ufficio moderno in Valle Leventina, Cantone Uri, con materiali informativi sul mercato del lavoro e stipendi svizzeri.',
 };
 
 export default blogMetaChIt;

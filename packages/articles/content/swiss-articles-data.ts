@@ -16084,6 +16084,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'settori-salari-uri-lavoro',
+    category: 'pratico',
+    date: '2026-09-03T22:31:28.607Z',
+    image: '/images/blog/settori-salari-uri-lavoro.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -1813,6 +1813,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'salari-mercato-lavoro-uri-settori': { it: 'salari-mercato-lavoro-uri-settori', en: 'wages-labor-market-uri-canton-sectors', de: 'loehne-arbeitsmarkt-uri-kanton-sektoren', fr: 'salaires-marche-travail-canton-uri-secteurs' },
  'assicurazioni-tagli-occupazione-2028': { it: 'assicurazioni-tagli-occupazione-2028', en: 'insurance-job-cuts-occupational-2028', de: 'versicherungen-personalabbau-2028', fr: 'assurances-reductions-emplois-2028' },
  'uri-stipendi-settori-qualifica': { it: 'uri-stipendi-settori-qualifica', en: 'uri-salaries-sectors-qualifications', de: 'uri-loehne-sektoren-qualifikation', fr: 'uri-salaires-secteurs-qualification' },
+ 'settori-salari-uri-lavoro': { it: 'settori-salari-uri-lavoro', en: 'uri-salary-sectors-labor-market', de: 'uri-loehne-arbeitsmarkt-sektoren', fr: 'uri-salaires-secteurs-marche-travail' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

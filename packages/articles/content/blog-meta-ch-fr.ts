@@ -5362,6 +5362,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.uri-stipendi-settori-qualifica.title': 'Salaires canton d\'Uri : niveaux par qualification',
     'blog.article.uri-stipendi-settori-qualifica.excerpt': 'Heures maximales, vacances minimales, cotisations salariales et impôts : les règles nationales suisses régissant le marché du travail dans le canton d\'Uri.',
     'blog.article.uri-stipendi-settori-qualifica.imageAlt': 'Environnement de travail professionnel en région alpestre avec équipe de collaborateurs suisses',
+    'blog.article.settori-salari-uri-lavoro.title': 'Salaires en URI : niveaux par secteur et formation',
+    'blog.article.settori-salari-uri-lavoro.excerpt': 'Comment sont déterminés les salaires dans le canton d\'Uri par niveau de formation et par secteur. Guide pratique des conventions collectives, des cotisations de sécurité sociale et des ressources officielles pour vérifier les salaires.',
+    'blog.article.settori-salari-uri-lavoro.imageAlt': 'Bureau moderne dans la vallée alpine d\'Uri avec informations sur le marché du travail et l\'emploi suisse.',
 };
 
 export default blogMetaChFr;
