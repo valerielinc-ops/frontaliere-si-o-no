@@ -11237,6 +11237,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Border VAT number: self-employed in Switzerland',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Practical guide for border workers who want to start a self-employed business in Switzerland. G permit requirements, taxation, deductibles and social security from 2024.',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Panoramic view of Lugano, Ticino, with lake and Alps in the background',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Change of job for border workers over 55: protections and pension',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'When you change position after the age of 55 as a border worker, the tax treatment, occupational pension and the impact on LPP reset. Here are the protections provided by the New 2024 Agreement.',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Mature professional walking through a modern office with Lake Lugano visible through windows',
 };
 
 export default blogMetaEn;

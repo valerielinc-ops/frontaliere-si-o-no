@@ -11239,6 +11239,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.title': 'Numéro de TVA frontalier : ouvrir un compte indépendant en Suisse',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.excerpt': 'Guide pratique pour les frontaliers qui veulent démarrer une activité indépendante en Suisse. Permis G, fiscalité, franchises et prévoyance à partir de 2024.',
     'blog.article.autonomi-frontalieri-svizzera-come-aprire.imageAlt': 'Vue panoramique de Lugano, canton du Tessin, avec lac et Alpes en arrière-plan',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.title': 'Changement de travail de frontalier de plus de 55 ans : protections et retraite',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.excerpt': 'Lorsque vous changez de poste après 55 ans en tant que frontalier, le traitement fiscal, la prévoyance emploi et l\'impact sur LPP se repositionnent. Voici les protections prévues par le Nouvel Accord 2024.',
+    'blog.article.cambio-lavoro-frontaliere-tutele-pensione.imageAlt': 'Professionnel expérimenté dans un bureau moderne avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;
