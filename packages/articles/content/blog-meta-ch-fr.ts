@@ -5311,6 +5311,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilatérales III : les gouvernements cantonaux disent oui',
     'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'La Conférence des gouvernements de Suisse occidentale réunie à Fribourg soutient le paquet d\'accords avec l\'UE, soulignant l\'importance d\'un accès stable au marché continental',
     'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Palais fédéral suisse à Berne avec drapeaux suisse et européen, siège du Parlement fédéral',
+    'blog.article.ricercatore-psi-spintronica-quantistica.title': 'Le chercheur PSI reçoit 2,2 millions pour la recherche quantique',
+    'blog.article.ricercatore-psi-spintronica-quantistica.excerpt': 'Le physicien Giacomo Sala remporte un financement européen de 2,3 millions d\'euros pour le projet Q-GEOMSPIN qui combine la spintronique et la géométrie quantique. Une recherche qui pourrait révolutionner le stockage de données suisse.',
+    'blog.article.ricercatore-psi-spintronica-quantistica.imageAlt': 'Laboratoire de recherche quantique moderne avec équipements scientifiques au Paul Scherrer Institute',
 };
 
 export default blogMetaChFr;

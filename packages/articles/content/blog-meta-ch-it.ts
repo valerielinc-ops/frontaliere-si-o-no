@@ -5311,6 +5311,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilaterali-iii-governi-cantonali.title': 'Bilaterali III: governi cantonali dicono sì',
     'blog.article.bilaterali-iii-governi-cantonali.excerpt': 'La Conferenza dei governi della Svizzera occidentale riunita a Friborgo sostiene il pacchetto di accordi con l\'UE, sottolineando l\'importanza per accesso stabile al mercato continentale',
     'blog.article.bilaterali-iii-governi-cantonali.imageAlt': 'Palazzo federale di Berna con bandiere svizzere ed europee, sede del Parlamento federale',
+    'blog.article.ricercatore-psi-spintronica-quantistica.title': 'Ricercatore PSI riceve 2,2 mln per ricerca quantistica',
+    'blog.article.ricercatore-psi-spintronica-quantistica.excerpt': 'Il fisico Giacomo Sala vince un finanziamento europeo di 2,3 milioni di euro per il progetto Q-GEOMSPIN che combina spintronica e geometria quantistica. Una ricerca che potrebbe rivoluzionare lo storage dati svizzero.',
+    'blog.article.ricercatore-psi-spintronica-quantistica.imageAlt': 'Laboratorio di ricerca quantistica con equipaggiamento scientifico avanzato presso l\'Istituto Paul Scherrer PSI',
 };
 
 export default blogMetaChIt;
