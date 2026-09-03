@@ -11192,6 +11192,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-chf-eur-quando-conviene.title': 'Change CHF/EUR frontaliers : le cas échéant',
     'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Stratégies de change CHF/EUR pour les frontaliers Tessin. Comptes multi-devises, plateformes, impact salaire net et fiscalité italienne. Découvrez quand changer des euros.',
     'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Comptoir de change dans une banque suisse avec billets CHF et EUR',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontalier : fiscalité et hypothèque à domicile en Italie',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Découvrez comment le nouvel accord frontalier 2024 affecte la demande de prêt en Italie. Impôt à la source, franchise 10 000 € et crédit d\'impôt expliqué pour les frontaliers.',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Vue de Lugano: ville suisse frontière pour les travailleurs frontaliers demandant des prêts auprès de banques italiennes',
 };
 
 export default blogMetaFr;

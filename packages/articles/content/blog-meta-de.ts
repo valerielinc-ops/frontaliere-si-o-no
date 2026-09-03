@@ -11189,6 +11189,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-chf-eur-quando-conviene.title': 'Wechselkurs CHF/EUR Grenzgänger: Wann lohnt es sich',
     'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Wechselkursstrategien CHF/EUR für Grenzgänger Tessin. Multiwährungskonten, Plattformen, Auswirkungen auf das Nettogehalt und die italienische Besteuerung. Finden Sie heraus, wann Sie Euro wechseln müssen.',
     'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Wechselschalter in einer Schweizer Bank mit CHF- und EUR-Banknoten',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontier: Steuern und Hypothek für zu Hause in Italien',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Erfahren Sie, wie sich die neue Grenzabfertigungsvereinbarung 2024 auf den Hypothekenantrag in Italien auswirkt. Quellensteuer, Selbstbehalt von 10.000 € und Steuergutschrift für Grenzgänger erklärt.',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Blick auf Lugano: Schweizer Grenzstadt für Grenzgänger bei Hypothekenanträgen in Italien',
 };
 
 export default blogMetaDe;

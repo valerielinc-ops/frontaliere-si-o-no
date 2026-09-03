@@ -11191,6 +11191,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.cambio-chf-eur-quando-conviene.title': 'Cambio CHF/EUR frontalieri: quando conviene',
     'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'Strategie di cambio CHF/EUR per frontalieri Ticino. Conti multi-valuta, piattaforme, impatto stipendio netto e tassazione italiana. Scopri quando cambiare euro.',
     'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Contatore di cambio valuta in una banca svizzera con banconote CHF e EUR',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontaliere: fiscalità e mutuo per casa in Italia',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Scopri come il nuovo accordo frontalieri 2024 influisce sulla richiesta di mutuo in Italia. Imposta alla fonte, franchigia €10.000 e credito d\'imposta spiegati per frontalieri.',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'Veduta di Lugano: città svizzera di riferimento per i frontalieri italiani che richiedono mutui transfrontalieri',
 };
 
 export default blogMetaIt;
