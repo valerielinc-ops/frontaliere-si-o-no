@@ -1,4 +1,10 @@
 {
   "version": 1,
-  "snoozes": {}
+  "snoozes": {
+    "B.6.embedding-store-outdated": {
+      "consecutiveDays": 1,
+      "lastSeen": "2026-09-03",
+      "snoozedUntil": null
+    }
+  }
 }
