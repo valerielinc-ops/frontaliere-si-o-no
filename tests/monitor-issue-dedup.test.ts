@@ -61,6 +61,20 @@ const RAW_CREATE_ALLOWED: Record<string, string> = {
   // title carries no date/timestamp/counter.
   'publisher-jobs-sync.yml':
     'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
+  // Fourth instance of the same shape, verified against the CODE of the
+  // `Report push-retry exhaustion` step, not against its intent:
+  //  • it lists `discover-404s-cf-push-exhausted` first and, when an issue is
+  //    open, comments + `exit 0`; then lists `…-pending` and, when one is
+  //    open, promotes + `exit 0`. Both early-returns precede the only
+  //    `gh issue create`, so a second run cannot mint a duplicate;
+  //  • promotion REWRITES the title in place (`[pending] … — 1st occurrence`
+  //    → `… on consecutive runs`), which routing through the helper would
+  //    break: it dedups on the first 60 chars, so the rename would orphan the
+  //    issue and the next run would open a fresh one;
+  //  • the created title carries no date, timestamp or counter, so it stays
+  //    stable across runs inside the dedup window.
+  'discover-404s-via-cloudflare.yml':
+    'label-state machine (pending→confirmed→auto-close) that rewrites the title on promotion; deduped by label, with an early exit before create',
 };
 
 function workflowFiles(): string[] {
