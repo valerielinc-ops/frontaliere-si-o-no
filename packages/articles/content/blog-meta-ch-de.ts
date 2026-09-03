@@ -5224,6 +5224,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno-domanda.title': 'C-Genehmigung Appenzell Innerrhoden: Voraussetzungen und Antrag',
     'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Ständiger Wohnsitz in der Schweiz: 10 Jahre Wohnsitz (5 EU/EFTA), Integration, deutsche Sprache. SEM-Verfahren, kantonale Kriterien und Einbürgerung.',
     'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Schweizer Wohnstrasse mit traditionellen Häusern und Kirchturm, Symbol für lokale Integration und Stabilität.',
+    'blog.article.avs-calcolo-rendita-zurigo.title': 'Berechnung der AHV-Rente und Ergänzungsleistungen im Kanton Zürich',
+    'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'Die kantonale Ausgleichskasse Zürich führt die Berechnung der AHV-Rente und der Ergänzungsleistungen durch, um eine angemessene Rente zu gewährleisten.',
+    'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'Ein Schweizer Rentner berechnet seine AHV-Rente in Zürich',
 };
 
 export default blogMetaChDe;
