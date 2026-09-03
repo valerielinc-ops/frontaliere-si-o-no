@@ -1,43 +1,41 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-03T13:47:21.142Z",
-  "total": 55,
+  "generatedAt": "2026-09-03T23:25:53.660Z",
+  "total": 52,
   "discovered": null,
-  "written": 55,
+  "written": 52,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 31313,
-  "avgDurationMs": 31313,
+  "unchangedCount": 0,
+  "durationMs": 31481,
+  "avgDurationMs": 31481,
   "durationHistory": [
-    31313
+    31481
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5777",
-      "slug": "secretaire-d-entite-repondante-rh-finanza-etat-de-vaud-administration-cantonale-vaudoise-chavannes-renens",
+      "id": "etat-de-vaud-5713",
+      "slug": "taxist-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Secrétaire d'entité répondante RH & FINANCE",
-      "location": "Chavannes-Renens",
+      "title": "Fiscaliste",
+      "location": "Lausanne",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5777",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-02T13:48:13.162Z",
-      "addressLocality": "Chavannes-Renens",
+      "crawledAt": "2026-09-03T13:47:12.820Z",
+      "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1014",
+      "postalCode": "1000",
       "streetAddress": "Place du Château 1",
-      "category": "Risorse Umane",
+      "category": "Altro",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
@@ -45,12 +43,12 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5777",
-      "firstSeenAt": "2026-07-05T11:43:25.866Z",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5713",
+      "firstSeenAt": "2026-07-05T11:43:24.618Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,5 +57,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

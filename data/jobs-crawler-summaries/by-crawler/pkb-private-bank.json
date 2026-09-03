@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-09-03T13:47:11.908Z",
+  "generatedAt": "2026-09-03T23:25:47.340Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4512,
-  "avgDurationMs": 4512,
+  "durationMs": 6280,
+  "avgDurationMs": 6280,
   "durationHistory": [
-    4512
+    6280
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T13:47:08.961Z",
+      "crawledAt": "2026-09-03T23:25:44.350Z",
       "id": "pkb-private-bank-0b868337e255",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
@@ -77,12 +77,12 @@
       "salarySource": "estimated",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 95,
+      "crawlerMissStreak": 2,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     }
