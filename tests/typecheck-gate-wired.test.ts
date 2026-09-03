@@ -28,6 +28,13 @@ const BASELINE_PATH = path.join(ROOT, 'data', 'typecheck-baseline.json');
 const VITEST_JOB_NAME = 'vitest (unit + integration)';
 const TYPECHECK_JOB_NAME = 'typecheck (tsc --noEmit)';
 
+// Il gate gira sotto il sampler di memoria (follow-up #6573,
+// `scripts/ci/sample-mem-during.sh -- npm run typecheck:gate`): il prefisso
+// e' opzionale nella regex cosi' il contratto resta vero sia con sia senza il
+// wrapper, ma continua a pretendere che `npm run typecheck:gate` sia
+// realmente invocato.
+const GATE_RUN_RE = /run:\s+(?:bash scripts\/ci\/sample-mem-during\.sh -- )?npm run typecheck:gate/;
+
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')) as {
   scripts: Record<string, string>;
 };
@@ -63,7 +70,7 @@ describe('typecheck gate wiring (#5540)', () => {
     // guardato è che il gate sia INVOCATO — che è anche l'unica cosa che il
     // vecchio `toContain(name:)` provava davvero.
     expect(workflow).not.toContain(`name: ${TYPECHECK_JOB_NAME}`);
-    expect(workflow).toMatch(/run:\s+npm run typecheck:gate/);
+    expect(workflow).toMatch(GATE_RUN_RE);
   });
 
   // Contratto ROVESCIATO con la fusione dei quattro job di tests.yml.
@@ -99,7 +106,7 @@ describe('typecheck gate wiring (#5540)', () => {
     const jobsBody = workflow.slice(workflow.indexOf('\njobs:'));
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
     expect(
-      /run:\s+npm run typecheck:gate/.test(vitestBody),
+      GATE_RUN_RE.test(vitestBody),
       'il gate `npm run typecheck:gate` non è più dentro il job `vitest` → un ' +
         'errore di tipo non fa più rosso il check che governa l’auto-merge.',
     ).toBe(true);
@@ -133,7 +140,7 @@ describe('typecheck gate wiring (#5540)', () => {
     const vitestBody = jobsBody.slice(jobsBody.indexOf('  vitest:'));
     const checkoutAt = vitestBody.indexOf('uses: actions/checkout@v5');
     const setupAt = vitestBody.indexOf('uses: ./.github/actions/ci-npm-setup');
-    const gateAt = vitestBody.search(/run:\s+npm run typecheck:gate/);
+    const gateAt = vitestBody.search(GATE_RUN_RE);
     expect(checkoutAt, 'nessun checkout nel job fuso').toBeGreaterThan(-1);
     expect(setupAt, 'nessun ci-npm-setup nel job fuso').toBeGreaterThan(-1);
     expect(checkoutAt).toBeLessThan(setupAt);
