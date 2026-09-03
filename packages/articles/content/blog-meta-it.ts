@@ -11250,6 +11250,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Multa stradali svizzere: pagamento da residente italiano',
     'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Come funziona la notifica e il pagamento di una multa stradali svizzera per un residente italiano. Procedure, termini, ricorsi e implicazioni per il Permesso G.',
     'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'La città di Bellinzona sullo sfondo, simbolo dell\'amministrazione cantonale ticinese competente per le sanzioni stradali',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontaliere cambia cantone: le implicazioni fiscali',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Cambio cantone = nuova tassazione, permesso G modificato e costi pendolari differenti. Guida pratica per frontalieri in transizione tra Ticino e Grigioni.',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Cambio cantone per frontaliere: permesso e tassazione verso i Grigioni',
 };
 
 export default blogMetaIt;

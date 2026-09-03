@@ -11251,6 +11251,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.multe-stradali-svizzere-residente-italiano.title': 'Amende routière suisse : paiement par un résident italien',
     'blog.article.multe-stradali-svizzere-residente-italiano.excerpt': 'Comment fonctionne la notification et le paiement d\'une amende routière suisse pour un résident italien. Procédures, délais, recours et implications pour le permis G.',
     'blog.article.multe-stradali-svizzere-residente-italiano.imageAlt': 'La ville de Bellinzona en arrière-plan, symbolisant l\'administration cantonale du Tessin responsable des amendes routières',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.title': 'Frontalier change de canton : les implications fiscales',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.excerpt': 'Changement de canton = nouvelle taxation, permis G modifié et frais de déplacement différents. Guide pratique pour les frontaliers en transition entre le Tessin et les Grisons.',
+    'blog.article.frontaliere-nuovo-cantone-impatti-fiscali.imageAlt': 'Frontalier changeant vers les Grisons: permis et impôts',
 };
 
 export default blogMetaFr;
