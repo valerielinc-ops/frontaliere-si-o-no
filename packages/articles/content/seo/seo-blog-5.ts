@@ -84467,6 +84467,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lainf-denuncia-infortunio-confine': {
+    title: 'Infortunio in itinere: denuncia LAINF per frontalieri',
+    description: 'Infortunio in itinere al confine per frontalieri: copertura LAINF, differenze tra tragitto casa-lavoro e trasferta, procedura denuncia SUVA e INPS.',
+    keywords: 'frontalieri, ticino, svizzera, italia, infortunio, itinere, denuncia, lainf',
+    ogTitle: 'Infortunio in itiniere: denuncia LAINF per frontalieri',
+    ogDescription: 'Frontaliere svizzero che si infortuna durante il tragitto verso l\'Italia? La LAINF copre questi casi fino al confine. Scopri le differenze con le trasferte e la procedura di denuncia a SUVA vs INPS.',
+    canonicalPath: '/articoli-frontaliere/lainf-denuncia-infortunio-confine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Infortunio in itinere: denuncia LAINF per frontalieri",
+      "description": "Infortunio in itinere al confine per frontalieri: copertura LAINF, differenze tra tragitto casa-lavoro e trasferta, procedura denuncia SUVA e INPS.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lainf-denuncia-infortunio-confine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto di frontaliere al valico svizzero di Brogeda durante il tragitto casa-lavoro mattutino al confine Ticino-Italia"
+      },
+      "datePublished": "2026-09-03T20:59:40+00:00",
+      "dateModified": "2026-09-03T20:59:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lainf-denuncia-infortunio-confine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

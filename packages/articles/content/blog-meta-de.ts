@@ -11260,6 +11260,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cambio-cantone-tasse-frontaliere.title': 'Wechsel des Arbeitskantons: steuerlicher Leitfaden',
     'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Der Wechsel von einem Schweizer Kanton in einen anderen wirkt sich auf Bewilligung, Besteuerung und Beiträge aus. Erfahren Sie, wie das Neue Abkommen 2024 die Regeln ändert.',
     'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Blick auf Lugano vom Monte San Salvatore, Hauptstadt des Kantons Tessin',
+    'blog.article.lainf-denuncia-infortunio-confine.title': 'Reiseunfall: UVG-Anzeige für Grenzgänger',
+    'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'Das UVG deckt Unfälle während des Arbeitsweges an der Grenze. Hier erfahren Sie, was sich im Vergleich zu einer Dienstreise ändert und wie Sie sich beschweren können.',
+    'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Auto eines Grenzgängers am Schweizer Grenzübergang Brogeda an der Grenze Tessin-Italien während der Pendelfahrt',
 };
 
 export default blogMetaDe;

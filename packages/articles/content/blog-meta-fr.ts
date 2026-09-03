@@ -11263,6 +11263,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cambio-cantone-tasse-frontaliere.title': 'Changement de canton de travail : guide fiscal',
     'blog.article.cambio-cantone-tasse-frontaliere.excerpt': 'Le passage d\'un canton suisse à l\'autre influe sur le permis, la fiscalité et les cotisations. Découvrez comment le Nouvel Accord 2024 modifie les règles.',
     'blog.article.cambio-cantone-tasse-frontaliere.imageAlt': 'Vue de Lugano depuis le Monte San Salvatore, chef-lieu du canton du Tessin',
+    'blog.article.lainf-denuncia-infortunio-confine.title': 'Accident de trajet : plainte LAA pour frontaliers',
+    'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'La LAA couvre les accidents pendant le trajet domicile-travail à la frontière. Voici ce qui change par rapport à un déplacement et comment déposer une plainte.',
+    'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Voiture d\'un frontalier approchant le poste de contrôle douanier suisse à Brogeda lors du trajet domicile-travail à la frontière Tessin-Italie',
 };
 
 export default blogMetaFr;
