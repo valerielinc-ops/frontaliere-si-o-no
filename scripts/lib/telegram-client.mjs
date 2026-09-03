@@ -134,3 +134,48 @@ export async function getChatMemberCount({ token, chatId, fetchImpl = globalThis
     return fail(err?.message || String(err));
   }
 }
+
+/**
+ * Long-poll the Bot API for incoming updates (`getUpdates`).
+ *
+ * This is the READ half the client never had: `sendMessage` broadcasts to a
+ * channel, which needs no inbound traffic, but a per-reader notification
+ * channel does — the reader has to be able to say "yes, send me these" from
+ * inside Telegram, and `/start <token>` is how the Bot API delivers that.
+ *
+ * `offset` is the acknowledgement cursor: passing `lastUpdateId + 1` tells
+ * Telegram every earlier update was processed and may be dropped server-side.
+ * Callers MUST persist it, or a run that crashes mid-batch re-processes the
+ * same updates (harmless here — linking is idempotent — but unbounded).
+ *
+ * `timeout` is the API's long-poll seconds; 0 keeps the call short, which is
+ * what a cron runner wants (a 30s hold would just burn CI minutes waiting).
+ *
+ * Same defensive contract as the rest of this module: never throws, returns
+ * `{ok:false, error}` on any failure.
+ *
+ * @param {{ token: string, offset?: number|null, timeout?: number, limit?: number, fetchImpl?: typeof fetch }} [opts]
+ * @returns {Promise<{ok:boolean, updates:object[], error:string|null}>}
+ */
+export async function getUpdates({ token, offset = null, timeout = 0, limit = 100, fetchImpl = globalThis.fetch } = {}) {
+  const fail = (error) => ({ ok: false, updates: [], error });
+
+  if (typeof fetchImpl !== 'function') return fail('no fetch impl available');
+  if (!token) return fail('missing bot token');
+
+  const params = new URLSearchParams({ timeout: String(timeout), limit: String(limit) });
+  if (Number.isFinite(offset) && offset !== null) params.set('offset', String(offset));
+  const endpoint = `${TELEGRAM_API_BASE}/bot${token}/getUpdates?${params}`;
+
+  try {
+    const res = await fetchImpl(endpoint);
+    const data = await res.json().catch(() => null);
+    if (data?.ok && Array.isArray(data.result)) {
+      return { ok: true, updates: data.result, error: null };
+    }
+    const desc = data?.description || `HTTP ${res?.status ?? '?'}`;
+    return fail(`telegram error: ${desc}`);
+  } catch (err) {
+    return fail(err?.message || String(err));
+  }
+}

@@ -143,6 +143,7 @@ export const COMPANY_ALERT_STRINGS = {
     closer: 'Ricevi questa email perché segui questa azienda su Frontaliere Ticino.',
     closerSign: 'Alla prossima. \u2615',
     manage: 'Gestisci le aziende seguite',
+    telegramCta: 'Ricevi questi avvisi anche su Telegram',
     unsubThis: (company) => `Smetti di seguire ${company}`,
     unsubAll: 'Disattiva tutti gli avvisi',
     intendedFor: (email) => `Email inviata a ${email}.`,
@@ -170,6 +171,7 @@ export const COMPANY_ALERT_STRINGS = {
     closer: 'You get this email because you follow this company on Frontaliere Ticino.',
     closerSign: 'See you next time. \u2615',
     manage: 'Manage followed companies',
+    telegramCta: 'Get these alerts on Telegram too',
     unsubThis: (company) => `Stop following ${company}`,
     unsubAll: 'Turn off all alerts',
     intendedFor: (email) => `Sent to ${email}.`,
@@ -197,6 +199,7 @@ export const COMPANY_ALERT_STRINGS = {
     closer: 'Du erhältst diese E-Mail, weil du diesem Unternehmen auf Frontaliere Ticino folgst.',
     closerSign: 'Bis zum n\u00e4chsten Mal. \u2615',
     manage: 'Gefolgte Unternehmen verwalten',
+    telegramCta: 'Diese Benachrichtigungen auch auf Telegram erhalten',
     unsubThis: (company) => `${company} nicht mehr folgen`,
     unsubAll: 'Alle Benachrichtigungen deaktivieren',
     intendedFor: (email) => `Gesendet an ${email}.`,
@@ -224,6 +227,7 @@ export const COMPANY_ALERT_STRINGS = {
     closer: 'Vous recevez cet e-mail car vous suivez cette entreprise sur Frontaliere Ticino.',
     closerSign: '\u00c0 bient\u00f4t. \u2615',
     manage: 'Gérer les entreprises suivies',
+    telegramCta: 'Recevez aussi ces alertes sur Telegram',
     unsubThis: (company) => `Ne plus suivre ${company}`,
     unsubAll: 'Désactiver toutes les alertes',
     intendedFor: (email) => `Envoyé à ${email}.`,
@@ -410,6 +414,12 @@ function jobCardHtml(job, hubUrl, wrapJobUrl, { locale, s, now, companyName, com
  *   and therefore does need the credential. Defaults to `wrapUrl` so an older
  *   caller behaves exactly as before; scripts/send-company-alerts.mjs passes the
  *   two separately.
+ * @param {string} [opts.telegramLinkUrl] One-shot `https://t.me/<bot>?start=...`
+ *   deep link that binds this reader's Telegram chat to this address (issue
+ *   #6594). Rendered as a footer CTA and omitted entirely when absent, so a
+ *   caller that does not mint tokens produces the byte-identical email it did
+ *   before. Never rendered for a reader already linked - they would be opting
+ *   in to something they already have.
  * @param {string} [opts.baseUrl]
  * @param {number} [opts.now] Epoch ms for the NEW-chip 48h window. Caller-
  *   supplied so the builder stays deterministic in tests; defaults to Date.now().
@@ -429,6 +439,7 @@ export function buildCompanyAlertEmail({
   manageUrl,
   unsubscribeUrl,
   unsubscribeAllUrl,
+  telegramLinkUrl = '',
   wrapUrl = (u) => u,
   wrapJobUrl = wrapUrl,
   baseUrl = 'https://frontaliereticino.ch',
@@ -535,6 +546,14 @@ export function buildCompanyAlertEmail({
             <a target="_blank" rel="noopener noreferrer" href="${escHtml(headline.unsubscribeUrl || '')}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escHtml(s.unsubThis(headline.company))}</a>
           </div>`;
 
+  // Telegram opt-in CTA (#6594). Empty string when the caller minted no token
+  // — either the bot username is not configured or this reader is already
+  // linked — so the footer of an unlinked-channel email is unchanged.
+  const telegramCtaHtml = telegramLinkUrl ? `
+          <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
+            <a target="_blank" rel="noopener noreferrer" href="${escHtml(telegramLinkUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;">${escHtml(s.telegramCta)}</a>
+          </div>` : '';
+
   const html = `<!DOCTYPE html>
 <html lang="${loc}">
 <head>
@@ -597,6 +616,7 @@ ${body}${monoCta}
           <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${escHtml(manageUrl)}" style="color:${BRAND_ORANGE};text-decoration:underline;font-weight:600;">${escHtml(s.manage)}</a>
           </div>
+          ${telegramCtaHtml}
           ${footerUnsubThis}
           <div style="font-size:12px;color:${MUTED_ON_DARK};margin:4px 0;">
             <a target="_blank" rel="noopener noreferrer" href="${escHtml(unsubscribeAllUrl)}" style="color:${MUTED_ON_DARK};text-decoration:underline;">${escHtml(s.unsubAll)}</a>
@@ -632,6 +652,7 @@ ${body}${monoCta}
     ...textSections,
     closer,
     `${s.manage}: ${manageUrl}`,
+    ...(telegramLinkUrl ? [`${s.telegramCta}: ${telegramLinkUrl}`] : []),
     ...(multi ? [] : [`${s.unsubThis(headline.company)}: ${headline.unsubscribeUrl || ''}`]),
     `${s.unsubAll}: ${unsubscribeAllUrl}`,
     s.intendedFor(email),

@@ -96,6 +96,14 @@ import { normalizeSentMap, filterUnsentJobs, mergeSentJobs, DEDUP_WINDOW_MS } fr
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl, BASE_URL } from './lib/job-alert-unsub-urls.mjs';
 import { commitInChunks, FIRESTORE_BATCH_SIZE } from './lib/firestore-batch.mjs';
 import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-alert-routing.mjs';
+import { hasTelegramCredentials, resolveTelegramCredentials, sendMessage as sendTelegramMessage } from './lib/telegram-client.mjs';
+import {
+  buildTelegramLinkUrl,
+  loadTelegramChatIds,
+  mintLinkToken,
+  renderCompanyAlertTelegram,
+  resolveAlertBotUsername,
+} from './lib/telegram-alert-channel.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -368,16 +376,28 @@ export function pickOneClickUnsubscribeUrl(renderedSections, unsubscribeAllUrl) 
  *
  * @param {object[]} emails      What was handed to the cascade (`to` per item).
  * @param {object[]} failedItems `result.failed` from sendEmailCascade.
+ * @param {Set<string>|null} [telegramDelivered] Lowercase addresses whose
+ *   Telegram copy was delivered — see below for why that unblocks a bounce.
  * @returns {object[]} the subset whose `sentJobIds` may be persisted.
  */
-export function selectPersistableSends(emails, failedItems) {
+export function selectPersistableSends(emails, failedItems, telegramDelivered = null) {
   const blocked = new Set(
     (failedItems || [])
       .filter((f) => !f?.ambiguousDelivery)
       .map((f) => String(f?.recipient?.email || f?.to || '').toLowerCase().trim())
       .filter(Boolean),
   );
-  return (emails || []).filter((e) => e && !blocked.has(String(e.to || '').toLowerCase().trim()));
+  // A recipient whose email bounced but whose Telegram copy went out HAS been
+  // notified (#6594). Leaving those jobs unmarked would re-send them on the
+  // next run — a duplicate on the channel that worked, to compensate for the
+  // one that did not. The dedup record tracks "the reader heard about this
+  // job", not "an email was accepted".
+  const notified = telegramDelivered instanceof Set ? telegramDelivered : new Set();
+  return (emails || []).filter((e) => {
+    if (!e) return false;
+    const to = String(e.to || '').toLowerCase().trim();
+    return !blocked.has(to) || notified.has(to);
+  });
 }
 
 function loadNewJobs(nowMs) {
@@ -443,6 +463,40 @@ async function sendBatch(emails) {
   const result = await sendEmailCascade(cascadeEmails, { concurrency: 3 });
   logProviderSummary();
   return result;
+}
+
+/**
+ * Deliver the Telegram copy of each email whose recipient bound a chat (#6594).
+ *
+ * Sequential and un-retried on purpose: the Bot API allows ~30 messages/second
+ * and this loop is bounded by PER_RUN_CAP, so throughput is a non-issue, while
+ * a retry on a channel the reader may have left is how a bot gets rate-limited
+ * out of the ones who stayed. Every failure is logged and swallowed — the
+ * email is the channel of record and must not be affected by any of this.
+ *
+ * @param {object[]} emails Queued sends, each optionally carrying telegramChatId.
+ * @param {{ token: string, sendImpl?: typeof sendTelegramMessage }} opts
+ * @returns {Promise<Set<string>>} lowercase addresses whose Telegram copy was delivered.
+ */
+export async function deliverTelegramCopies(emails, { token, sendImpl = sendTelegramMessage }) {
+  const delivered = new Set();
+  for (const e of emails || []) {
+    if (!e?.telegramChatId) continue;
+    const text = renderCompanyAlertTelegram({
+      sections: (e.telegramSections || []).map((section) => ({
+        companyName: section.company,
+        jobs: section.jobs,
+        hubUrl: section.hubUrl,
+      })),
+      locale: e.telegramLocale,
+      manageUrl: e.telegramManageUrl,
+    });
+    if (!text) continue;
+    const res = await sendImpl({ token, chatId: e.telegramChatId, text });
+    if (res?.ok) delivered.add(String(e.to || '').toLowerCase().trim());
+    else console.warn(`   \u26a0\ufe0f  Telegram send failed for ${e.to}: ${res?.error}`);
+  }
+  return delivered;
 }
 
 /**
@@ -568,6 +622,20 @@ async function main() {
   const recipients = [...alertsByRecipient.keys()].sort();
   console.log(`   Recipients in scope: ${recipients.length} (from ${alerts.length} alert(s))`);
 
+  // ── TELEGRAM, THE SECOND CHANNEL (#6594) ─────────────────────────────────
+  // Free, no new vendor, and the credential already exists — see
+  // scripts/lib/telegram-alert-channel.mjs for the provider decision and the
+  // consent model. Readers who bound a chat get the same alert there as well;
+  // readers who did not get a one-shot opt-in link in the email footer. Both
+  // halves are additive: with no bot username configured the run behaves
+  // exactly as it did before.
+  const telegramBot = resolveAlertBotUsername();
+  const telegramEnabled = telegramBot && hasTelegramCredentials();
+  const telegramChats = telegramEnabled ? await loadTelegramChatIds(db, recipients) : new Map();
+  if (telegramEnabled) {
+    console.log(`   \u2708\ufe0f  Telegram channel: ${telegramChats.size}/${recipients.length} recipient(s) linked`);
+  }
+
   const emailsToSend = [];
   for (let i = 0; i < recipients.length; i += 1) {
     if (emailsToSend.length >= PER_RUN_CAP) {
@@ -636,6 +704,22 @@ async function main() {
     // rendered, already trimmed to the card budget. Reading the dedup set off
     // the return value rather than off this input is the whole guarantee that a
     // job cannot be marked sent without having been rendered.
+    // One-shot opt-in link, minted only for readers who have NOT linked yet:
+    // offering the channel to someone already on it is noise, and the token is
+    // a capability — no reason to mint one nobody needs. Skipped in DRY_RUN so
+    // a preview never writes to Firestore.
+    const telegramChatId = telegramChats.get(recipient) || null;
+    let telegramLinkUrl = '';
+    if (telegramEnabled && !telegramChatId && !DRY_RUN) {
+      try {
+        telegramLinkUrl = buildTelegramLinkUrl(telegramBot, await mintLinkToken(db, recipient, { now }));
+      } catch (err) {
+        // The CTA is a nice-to-have; the email is not. Never let a failed
+        // token write cost the reader their alert.
+        console.warn(`   \u26a0\ufe0f  Telegram link mint failed for ${recipient}: ${err?.message || err}`);
+      }
+    }
+
     const built = buildCompanyAlertEmail({
       sections: sections.map((section) => ({
         alertId: section.alert.id,
@@ -649,6 +733,7 @@ async function main() {
       locale,
       manageUrl,
       unsubscribeAllUrl,
+      telegramLinkUrl,
       wrapUrl,
       wrapJobUrl,
       baseUrl: BASE_URL,
@@ -667,6 +752,12 @@ async function main() {
     emailsToSend.push({
       to: recipient,
       alertId: headline.alert.id,
+      telegramChatId,
+      // The RENDERED sections, so the Telegram copy carries exactly what the
+      // email carried — never the wider candidate list.
+      telegramSections: rendered,
+      telegramManageUrl: manageUrl,
+      telegramLocale: locale,
       sectionCount: rendered.length,
       subject: built.subject,
       html: built.html,
@@ -706,13 +797,23 @@ async function main() {
   const result = await sendBatch(emailsToSend);
   console.log(`   ✅ Sent ${result.sent.length} · ❌ failed ${result.failed.length}`);
 
+  // Second channel, after the first: a Telegram failure must never delay or
+  // alter the email, and a delivered Telegram copy is what lets a bounced
+  // email still count as "the reader was told" (see selectPersistableSends).
+  let telegramDelivered = new Set();
+  if (telegramEnabled) {
+    const { token: telegramToken } = resolveTelegramCredentials();
+    telegramDelivered = await deliverTelegramCopies(emailsToSend, { token: telegramToken });
+    console.log(`   \ud83d\udcac Telegram copies delivered: ${telegramDelivered.size}`);
+  }
+
   // Persist the dedup map + counters, per alert, for the sends that went out —
   // see selectPersistableSends for the failure semantics (and why an ambiguous
   // delivery counts as sent). Grouping does NOT move the dedup record: it stays
   // on each alert, because "already sent" belongs to the subscription, not to
   // whichever email happened to carry it.
   const { FieldValue } = await import('firebase-admin/firestore');
-  const toUpdate = selectPersistableSends(emailsToSend, result.failed)
+  const toUpdate = selectPersistableSends(emailsToSend, result.failed, telegramDelivered)
     .filter((e) => e.dedupWrites.length > 0);
   // One item = one recipient = one email, and its whole writeback lands in a
   // single batch (DEDUP_CHUNK_SIZE keeps ops under the 400 cap). All-or-nothing

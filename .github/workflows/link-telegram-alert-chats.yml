@@ -1,0 +1,117 @@
+name: Telegram Alert Chat Linking
+
+# Inbound half of the per-reader Telegram notification channel (issue #6594,
+# "Fase 3 canali notifica" of #5314).
+#
+# scripts/send-company-alerts.mjs mints a one-shot token and renders
+# https://t.me/<bot>?start=<token> in the alert email; this run polls the Bot
+# API for the /start the reader's tap produces and binds their chat id to the
+# address the token was minted for. /stop withdraws it. Full rationale — and
+# why possession of the token is the consent proof — in
+# scripts/lib/telegram-alert-channel.mjs.
+#
+# A cron and not a webhook: a webhook needs a public HTTPS receiver this repo
+# does not have for a feature whose traffic is a handful of taps a day.
+# getUpdates with a persisted offset delivers the same updates, and a missed
+# cycle just links a few minutes later. Every 15 minutes because the wait is
+# felt by a person who just tapped a button.
+#
+# Fail-soft: no TELEGRAM_BOT_TOKEN in Remote Config = clean skip, exit 0.
+
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Read updates but neither bind nor advance the cursor'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  # Two concurrent polls would read the same updates against the same cursor
+  # and double-reply to every reader who just tapped.
+  group: link-telegram-alert-chats
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Redeem Telegram link tokens
+        run: |
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            node scripts/link-telegram-alert-chats.mjs --dry-run
+          else
+            node scripts/link-telegram-alert-chats.mjs
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
