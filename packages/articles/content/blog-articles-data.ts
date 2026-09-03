@@ -33519,6 +33519,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mutuo-frontaliere-procedura-completa',
+ category: 'pratico',
+ date: '2026-09-03T12:00:45.057Z',
+ image: '/images/blog/mutuo-frontaliere-procedura-completa.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -83920,6 +83920,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-mutuo-frontaliere-procedura-completa': {
+    title: 'Mutuo casa per frontalieri: requisiti e procedura in Svizzera',
+    description: 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mutuo, casa, requisiti, procedura',
+    ogTitle: 'Mutuo casa per frontalieri: requisiti e procedura',
+    ogDescription: 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
+    canonicalPath: '/articoli-frontaliere/mutuo-frontaliere-procedura-completa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mutuo casa per frontalieri: requisiti e procedura in Svizzera",
+      "description": "Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mutuo-frontaliere-procedura-completa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio bancario moderno in Ticino con documenti mutuo, vista su Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-03T12:00:45+00:00",
+      "dateModified": "2026-09-03T12:00:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mutuo-frontaliere-procedura-completa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
