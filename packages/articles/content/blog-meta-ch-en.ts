@@ -5242,6 +5242,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-turgovia-mutuo.title': 'Buying a house in Thurgau: taxes and mortgage',
     'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Buying property in Thurgau: tax costs, own funds required, mortgage mortgage sustainability, notary procedures and timing in Switzerland.',
     'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Aerial view of a modern Swiss residential property with alpine landscape, green fields, professional real estate photography in Thurgau.',
+    'blog.article.apprendistato-formazione-interno-ch.title': 'Apprenticeship and training Appenzello Interno: the guide',
+    'blog.article.apprendistato-formazione-interno-ch.excerpt': 'How to find an internship in the Inner Appenzell Canton, sign the apprenticeship contract, know the minimum salary, social contributions and access professional maturity.',
+    'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Professional apprenticeship workshop in Switzerland: apprentice working with modern tools and machinery in vocational training facility',
 };
 
 export default blogMetaChEn;

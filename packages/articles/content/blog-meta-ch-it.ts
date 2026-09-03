@@ -5242,6 +5242,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-turgovia-mutuo.title': 'Comprare casa in Turgovia: tasse e mutuo ipotecario',
     'blog.article.comprare-casa-turgovia-mutuo.excerpt': 'Acquistare immobile in Turgovia: costi fiscali, fondi propri richiesti, sostenibilità mutuo ipotecario, procedure notarili e tempistiche in Svizzera.',
     'blog.article.comprare-casa-turgovia-mutuo.imageAlt': 'Veduta aerea di una proprietà residenziale svizzera nel paesaggio alpino del Turgovia, campi verdi e cielo sereno, fotografia immobiliare professionale.',
+    'blog.article.apprendistato-formazione-interno-ch.title': 'Apprendistato e formazione Appenzello Interno: la guida',
+    'blog.article.apprendistato-formazione-interno-ch.excerpt': 'Come trovare un tirocinio nel Cantone Appenzello Interno, sottoscrivere il contratto di apprendista, conoscere la retribuzione minima, i contributi sociali e accedere alla maturità professionale.',
+    'blog.article.apprendistato-formazione-interno-ch.imageAlt': 'Laboratorio di tirocinio professionale in Svizzera: apprendista al lavoro con attrezzi e macchinari moderni in aula di formazione',
 };
 
 export default blogMetaChIt;

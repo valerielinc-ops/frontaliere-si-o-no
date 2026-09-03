@@ -68036,6 +68036,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-formazione-interno-ch': {
+    title: 'Apprendistato e formazione Appenzello Interno: la guida',
+    description: 'Apprendistato nel Cantone Appenzello Interno: come trovare un tirocinio, sottoscrivere il contratto, retribuzione minima, contributi sociali, maturità',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, appenzello, interno',
+    ogTitle: 'Apprendistato Appenzello Interno: guida tirocini e contratti',
+    ogDescription: 'Guida completa all\'apprendistato nel Cantone Appenzello Interno: come trovare un tirocinio, sottoscrivere il contratto, conoscere retribuzione minima, contributi sociali e accedere alla maturità professionale.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-interno-ch/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione Appenzello Interno: la guida",
+      "description": "Apprendistato nel Cantone Appenzello Interno: come trovare un tirocinio, sottoscrivere il contratto, retribuzione minima, contributi sociali, maturità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-interno-ch.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di tirocinio professionale in Svizzera: apprendista al lavoro con attrezzi e macchinari moderni in aula di formazione"
+      },
+      "datePublished": "2026-09-03T03:39:20+00:00",
+      "dateModified": "2026-09-03T03:39:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-interno-ch/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
