@@ -67,7 +67,7 @@
  *       GITHUB_PAT (routing), GH_REPO/GITHUB_REPOSITORY.
  */
 import { execFileSync } from 'node:child_process';
-import { classifyIssue } from '../lib/classify-issue.mjs';
+import { classifyIssue, isDecomposedParent } from '../lib/classify-issue.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
@@ -271,7 +271,14 @@ function main() {
       '--label', 'agent:triaged', '--limit', '300', '--json', 'number,title,labels']);
   } catch (e) { console.error(`gh issue list (triaged-no-route): ${String(e).slice(0, 160)}`); }
 
-  const unrouted = allTriaged.filter((i) => !ROUTING_LABELS.some((r) => has(i, r)));
+  // `isDecomposedParent` (#6504): un padre decomposto è triaged e — dopo che il
+  // drainer gli ha tolto le label di routing stantie — SENZA routing, quindi
+  // cadrebbe dritto in questo pass che glielo rimetterebbe, riaprendo il loop che
+  // il guard del drainer ha appena chiuso. Non è "non instradato": è instradato
+  // nelle figlie. Lo chiude il PARENT-CLOSE, non il fixer.
+  const unrouted = allTriaged.filter(
+    (i) => !ROUTING_LABELS.some((r) => has(i, r)) && !isDecomposedParent(i)
+  );
   if (!unrouted.length) {
     console.log('Nessuna issue triaged-but-not-routed. ✅');
   } else {

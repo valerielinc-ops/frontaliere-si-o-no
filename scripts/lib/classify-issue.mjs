@@ -80,6 +80,25 @@ export function classifyIssue(title = '', labels = []) {
   return { category, autofix, route, fuPrio };
 }
 
+/** Label che marca il padre di una decomposizione (vedi `issue-decompose.yml`). */
+export const LBL_DECOMPOSED = 'decomposed:1';
+
+/**
+ * Il padre di una decomposizione NON è instradabile al fixer (#6504).
+ *
+ * Vive qui, accanto a `classifyIssue`, perché è una decisione di ROUTING e i due
+ * consumatori — `followup-drainer.mjs` (rescue + DRAIN) e `triage-sweep.mjs`
+ * (triaged-but-not-routed) — devono applicare la stessa regola: duplicarla a mano
+ * è esattamente il drift che la single-source-of-truth del routing esiste per
+ * impedire. Il lavoro del padre sta nelle sub-issue figlie e lo chiude il
+ * PARENT-CLOSE del drainer quando sono tutte chiuse; promuoverlo brucia un run
+ * Claude che non può che riscoprire l'overlap con le figlie.
+ * @param {{labels?: Array<{name:string}>}} iss
+ */
+export function isDecomposedParent(iss) {
+  return (iss?.labels || []).map((l) => l?.name).includes(LBL_DECOMPOSED);
+}
+
 // CLI mode
 if (process.argv[1] && process.argv[1].endsWith('classify-issue.mjs')) {
   const title = process.argv[2] || '';

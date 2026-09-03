@@ -39,7 +39,7 @@
  * queue-managed: vedi `crawlerFixDecision`.
  */
 import { execFileSync } from 'node:child_process';
-import { classifyIssue } from '../lib/classify-issue.mjs';
+import { classifyIssue, isDecomposedParent, LBL_DECOMPOSED } from '../lib/classify-issue.mjs';
 import {
   CODE_PATH_RE,
   detectWorkflowScoped,
@@ -147,7 +147,6 @@ const LBL_NO_AGE_OUT = 'agent:no-age-out';
 // `DECOMPOSE_ENABLED=false` spegne routing e promozione (kill-switch, default on).
 const LBL_DECOMP_QUEUED = 'agent:decompose-queued';
 const LBL_DECOMP = 'agent:decompose';
-const LBL_DECOMPOSED = 'decomposed:1';
 const LBL_FROM_DECOMP = 'from-decompose';
 const LBL_DECOMP_RETRIED = 'decompose-retried';
 const LBL_MAYBE_RESOLVED = 'maybe-resolved';
@@ -975,34 +974,6 @@ export function isPermanentTracker(iss) {
   return (iss?.labels || []).map((l) => l.name).includes(LBL_NO_AGE_OUT);
 }
 
-/**
- * Padre di una decomposizione (`decomposed:1`, #6504).
- *
- * Stessa classe di `isPermanentTracker`: una issue che NON è riparabile
- * direttamente. Il suo lavoro vive nelle sub-issue figlie, e la chiude il
- * PARENT-CLOSE quando sono tutte chiuse — mandarci il fixer brucia un run su
- * qualcosa che per costruzione non ha un fix proprio, e per giunta duplica o
- * confligge col lavoro già instradato nelle figlie (stesso file, stesso
- * simbolo).
- *
- * `isAgeOutCandidate`, `isReparkableCandidate` e il pool del VERDICT-EXIT
- * escludevano già `decomposed:1`; i due percorsi che PROMUOVONO — il rescue
- * degli orfani e il DRAIN — no. Il buco era un loop chiuso: il padre resta
- * `agent:fix` senza PR, il rescue lo vede orfano e lo ri-accoda, il DRAIN lo
- * ripromuove, il fixer riscopre l'overlap e chiude `overlap-skip` — che è
- * deliberatamente FUORI da `NON_RETRYABLE` perché per una PR bloccante è un
- * verdetto transitorio, mentre per un padre decomposto non lo è mai. Misurato
- * su #6504: due run Claude complete il 2026-09-03 (17:09 e 18:19) più due
- * `max-turns` precedenti, tutte con esito «skip senza PR».
- *
- * La discriminante è la LABEL, non il marker `DECOMPOSED_INTO` nei commenti:
- * la label è già la single source of truth dell'anti-ricorsione dello stadio
- * decompose e non costa una lettura commenti per candidato.
- * @param {{labels?: Array<{name:string}>}} iss
- */
-export function isDecomposedParent(iss) {
-  return (iss?.labels || []).map((l) => l.name).includes(LBL_DECOMPOSED);
-}
 
 /**
  * Tutto cio' che rende una issue eleggibile all'age-out TRANNE l'inattivita'.
