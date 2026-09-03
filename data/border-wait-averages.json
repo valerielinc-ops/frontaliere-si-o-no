@@ -6,6 +6,12 @@
     "morning": "1-2 min",
     "evening": "0-2 min"
   },
+  "busingen-am-hochrhein-schaffhausen-rheinhaldenstrasse": {
+    "evening": "0-2 min"
+  },
+  "busingen-am-hochrhein-schaffhausen-vogelingasschen": {
+    "evening": "0-2 min"
+  },
   "chiasso-brogeda": {
     "morning": "0-8 min"
   },
@@ -17,12 +23,11 @@
     "evening": "1-2 min"
   },
   "gaggiolo": {
-    "morning": "0-5 min",
     "evening": "0-4 min"
   },
   "grenzach-wyhlen-riehen": {
     "morning": "1-3 min",
-    "evening": "0-3 min"
+    "evening": "1-3 min"
   },
   "konstanz-kreuzlingen": {
     "morning": "1-2 min",
@@ -38,13 +43,16 @@
     "morning": "2-3 min",
     "evening": "1-3 min"
   },
+  "perly": {
+    "morning": "0-2 min"
+  },
   "ponte-tresa": {
-    "morning": "1-2 min",
+    "morning": "1-3 min",
     "evening": "0-2 min"
   },
   "porto-ceresio-brusino": {
     "morning": "2-6 min",
-    "evening": "0-3 min"
+    "evening": "1-3 min"
   },
   "rheinfelden-rheinfelden-ag-autostrada-a861-a3": {
     "morning": "2 min",
@@ -54,12 +62,15 @@
     "evening": "0-4 min"
   },
   "st-margrethen-hochst": {
-    "morning": "1-4 min",
+    "morning": "2-4 min",
     "evening": "0-2 min"
   },
   "thonex-vallard": {
     "morning": "2-3 min",
-    "evening": "1-2 min"
+    "evening": "0-2 min"
+  },
+  "traforo-del-gran-san-bernardo": {
+    "morning": "0-2 min"
   },
   "waldshut-tiengen-koblenz-ag": {
     "morning": "1-2 min"
