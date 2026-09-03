@@ -1889,7 +1889,17 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (sd.datePublished) updateOrCreateMetaTag('property', 'article:published_time', sd.datePublished);
  if (sd.dateModified) updateOrCreateMetaTag('property', 'article:modified_time', sd.dateModified);
  if (sd.articleSection) updateOrCreateMetaTag('property', 'article:section', sd.articleSection);
- updateOrCreateMetaTag('property', 'article:author', `${BASE_URL}/chi-siamo/`);
+ // Same Person the byline and the JSON-LD declare — see the twin tag in
+ // packages/articles/engine/ogPagesPlugin.ts. Hardcoding /chi-siamo/ here
+ // made every OG consumer attribute guest-authored articles to the
+ // Redazione even though `sd.author` already carried the real author.
+ // Falls back to the team page only when the article has no Person author,
+ // which is the same URL the Organization JSON-LD branch emits.
+ const sdAuthor = sd.author as { '@type'?: string; url?: string } | undefined;
+ const articleAuthorUrl = sdAuthor?.['@type'] === 'Person' && typeof sdAuthor.url === 'string' && sdAuthor.url
+ ? sdAuthor.url
+ : `${BASE_URL}/chi-siamo/`;
+ updateOrCreateMetaTag('property', 'article:author', articleAuthorUrl);
  } else {
  // Remove article OG tags for non-article pages
  ['article:published_time', 'article:modified_time', 'article:section', 'article:author'].forEach(prop => {

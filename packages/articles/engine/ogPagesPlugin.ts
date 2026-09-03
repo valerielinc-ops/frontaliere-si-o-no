@@ -1201,6 +1201,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
  const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ // The one author surface #author-eeat left behind: `article:author` below
+ // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
+ // moved to the per-article Person. Every OG consumer (Facebook, LinkedIn,
+ // aggregators) therefore read *every* article — guest-authored ones
+ // included — as attributed to the Redazione. Reported 2026-09-03 by the
+ // guest author of the 2026-09-02 article, whose byline was correct on the
+ // page and wrong in the metadata. Organization fallback keeps /chi-siamo/,
+ // which is exactly `authorObj.url` in that branch, so the tag and the
+ // JSON-LD author can never disagree again.
  const authorObj: Record<string, unknown> = resolvedAuthor
  ? {
  '@type': 'Person' as const,
@@ -1518,7 +1527,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
  <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
  <meta property="article:section" content="Frontalieri Ticino">
- <meta property="article:author" content="${BASE_URL}/chi-siamo/">
+ <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
  <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
  <script type="application/ld+json">${ldJsonStr}</script>
