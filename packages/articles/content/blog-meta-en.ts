@@ -11225,6 +11225,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.passante-milano-treno-evacuati.title': 'Varese train blocked in Milan bypass: inconveniences at S5',
     'blog.article.passante-milano-treno-evacuati.excerpt': 'Approximately 400 passengers evacuated on 3 September from the Milan passerby. The S5, a crucial line for Ticino commuters to Milan and the hinterland, diverted to an alternative route.',
     'blog.article.passante-milano-treno-evacuati.imageAlt': 'Train halted in Milan interchange after electrical fault, evacuation of passengers on September 3, 2026.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.title': 'Job and Internship Offers in the Province of Varese - 2 SEPTEMBER 2026',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.excerpt': 'Discover the new job and internship opportunities offered by the Employment Centres of the Province of Varese.',
+    'blog.article.offerte-lavoro-tirocinio-varese-2026.imageAlt': 'Aerial view of Castelgrande in Bellinzona, Switzerland',
 };
 
 export default blogMetaEn;
