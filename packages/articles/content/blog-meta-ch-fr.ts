@@ -5221,6 +5221,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Récompenses de la caisse-maladie dans le canton d\'Appenzell Interne et réduction des primes',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Découvrez les fourchettes de primes, franchises et modèles alternatifs pour l\'assurance maladie obligatoire dans le canton d\'Appenzell Intérieur.',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Vue aérienne du canton d\'Appenzello Interno avec montagnes et lacs, Suisse',
+    'blog.article.domicilio-c-appenzello-interno-domanda.title': 'Permis C Appenzell Interne : exigences et demande',
+    'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Domicile permanent en Suisse : 10 ans de résidence (5 UE/AELE), intégration, langue allemande. Procédure SEM, critères cantonaux et naturalisation.',
+    'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Rue résidentielle suisse avec maisons traditionnelles et clocher, symbole d\'intégration locale et de stabilité.',
 };
 
 export default blogMetaChFr;

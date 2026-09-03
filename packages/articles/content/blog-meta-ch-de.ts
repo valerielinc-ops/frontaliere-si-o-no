@@ -5221,6 +5221,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Krankenkassenprämien im Kanton Appenzell Innerrhoden und Prämienverbilligung',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Entdecken Sie die Prämiensparten, Franchisen und alternativen Modelle für die obligatorische Krankenversicherung im Kanton Appenzell Innerrhoden.',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Luftaufnahme des Kantons Appenzello Interno mit Bergen und Seen, Schweiz',
+    'blog.article.domicilio-c-appenzello-interno-domanda.title': 'C-Genehmigung Appenzell Innerrhoden: Voraussetzungen und Antrag',
+    'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Ständiger Wohnsitz in der Schweiz: 10 Jahre Wohnsitz (5 EU/EFTA), Integration, deutsche Sprache. SEM-Verfahren, kantonale Kriterien und Einbürgerung.',
+    'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Schweizer Wohnstrasse mit traditionellen Häusern und Kirchturm, Symbol für lokale Integration und Stabilität.',
 };
 
 export default blogMetaChDe;

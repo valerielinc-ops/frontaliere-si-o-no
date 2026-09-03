@@ -5221,6 +5221,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.title': 'Sick pay premiums in the Inner Appenzell Canton and premium reductions',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.excerpt': 'Discover the premium ranges, deductibles and alternative models for compulsory health insurance in the Canton of Appenzello Interno.',
     'blog.article.premi-cassa-malati-appenzello-interno-riduzione.imageAlt': 'Aerial view of Appenzello Interno canton with mountains and lakes, Switzerland',
+    'blog.article.domicilio-c-appenzello-interno-domanda.title': 'Permit C Internal Appenzell: requirements and application',
+    'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Permanent residence in Switzerland: 10 years residence (5 EU/EFTA), integration, German language. SEM procedure, cantonal criteria and naturalisation.',
+    'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Swiss residential street with traditional houses and church spire, symbolizing local integration and community life.',
 };
 
 export default blogMetaChEn;

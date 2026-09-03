@@ -67763,6 +67763,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domicilio-c-appenzello-interno-domanda': {
+    title: 'Permesso C Appenzello Interno: requisiti e domanda',
+    description: 'Permesso C Appenzello Interno: 10 anni residenza (5 UE/AELS), criteri integrazione, conoscenze linguistiche tedesco. Procedura SEM federale e naturalizzazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, appenzello, interno, requisiti',
+    ogTitle: 'Permesso C Appenzello Interno: come ottenerlo',
+    ogDescription: 'Scopri i requisiti per il permesso C (domicilio permanente) ad Appenzello Interno: 10 anni residenza, integrazione linguistica, criteri cantonali. Guida pratica per domanda SEM e naturalizzazione ordinaria svizzera.',
+    canonicalPath: '/articoli-svizzera/domicilio-c-appenzello-interno-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Appenzello Interno: requisiti e domanda",
+      "description": "Permesso C Appenzello Interno: 10 anni residenza (5 UE/AELS), criteri integrazione, conoscenze linguistiche tedesco. Procedura SEM federale e naturalizzazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/domicilio-c-appenzello-interno-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada residenziale svizzera con case tradizionali e campanile di chiesa, emblema di stabilità e integrazione locale."
+      },
+      "datePublished": "2026-09-02T23:56:51+00:00",
+      "dateModified": "2026-09-02T23:56:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/domicilio-c-appenzello-interno-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
