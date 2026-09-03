@@ -418,6 +418,12 @@ export async function fetchFachkraftSnapshot(options = {}) {
 
 export function validateFachkraftAuthoritativeSnapshot(jobs) {
   const audit = jobs?.fachkraftSnapshot;
+  if (audit?.droppedMissingGeography > 0) {
+    throw new Error(
+      `fachkraft snapshot dropped ${audit.droppedMissingGeography} listing(s) for missing location/canton `
+      + 'after upstream geography validation — the accepted-geography guarantee that fetchAllFachkraftJobs relies on is broken',
+    );
+  }
   if (!audit?.complete
     || audit.discovered <= 0
     || audit.fetchFailures !== 0
@@ -537,6 +543,7 @@ export async function fetchAllFachkraftJobs(options = {}) {
   console.log(`  📋 Listings found: ${listings.length}`);
 
   const jobs = [];
+  let droppedMissingGeography = 0;
   for (const listing of listings) {
     // TODO: Extract fields from each listing.
     // Adapt these field names to match the actual API response.
@@ -553,7 +560,14 @@ export async function fetchAllFachkraftJobs(options = {}) {
     // validateFachkraftAuthoritativeSnapshot enforces (#7134).
     const location = normalizeSpace(listing.location || '');
     const canton = normalizeSpace(listing.canton || '');
-    if (!location || !canton) continue;
+    if (!location || !canton) {
+      // Unreachable today: both producers above guarantee validated geography.
+      // Counted (not just `continue`d) so a future regression that breaks
+      // that guarantee is diagnosed by name instead of surfacing only as the
+      // generic published!==jobs.length mismatch (#7225).
+      droppedMissingGeography++;
+      continue;
+    }
     const descriptionText = normalizeSpace(stripHtml(listing.description || ''));
     if (!isPublishableFachkraftDescription(descriptionText)) continue;
     const publicUrl = listing.url || CAREER_URL;
@@ -605,9 +619,14 @@ export async function fetchAllFachkraftJobs(options = {}) {
   }
 
   console.log(`\n📋 Total fachkraft.ch GmbH jobs discovered: ${jobs.length}`);
+  if (droppedMissingGeography > 0) {
+    console.warn(`⚠️ ${droppedMissingGeography} listing(s) dropped for missing location/canton despite upstream geography validation`);
+  }
   jobs.discoveredCount = listings.fachkraftSnapshot?.discovered ?? listings.length;
   Object.defineProperty(jobs, 'fachkraftSnapshot', {
-    value: listings.fachkraftSnapshot,
+    value: listings.fachkraftSnapshot
+      ? Object.freeze({ ...listings.fachkraftSnapshot, droppedMissingGeography })
+      : listings.fachkraftSnapshot,
     enumerable: false,
   });
   return jobs;
