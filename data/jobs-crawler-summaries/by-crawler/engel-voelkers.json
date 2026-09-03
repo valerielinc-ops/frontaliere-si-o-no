@@ -1,49 +1,18 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-09-03T13:44:23.391Z",
+  "generatedAt": "2026-09-03T23:25:04.477Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 9,
-  "removedCount": 1,
+  "newCount": 0,
+  "updatedCount": 10,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23457,
-  "avgDurationMs": 23457,
+  "durationMs": 24274,
+  "avgDurationMs": 24274,
   "durationHistory": [
-    23457
+    24274
   ],
-  "newJobs": [
-    {
-      "title": "Senior Immobilienmakler/in 100%",
-      "slug": "senior-immobilienmakler-in-100-engel-voelkers-frauenfeld",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
-      "company": "buutiq Immobilien AG",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Rental Assistant (M/F/D) for Winter Season (Dec-Apr)",
@@ -377,46 +346,45 @@
         "translation": 23,
         "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [
+    },
     {
-      "title": "Immobilienberater:In (m/w/d) 100% - Basel",
-      "slug": "consulente-immobiliare-m-w-d-100-basilea-ev-basel-city-immobilien-ag-basel",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/50469df3-c386-4dbd-ad30-ccecf3e83480",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/50469df3-c386-4dbd-ad30-ccecf3e83480",
-      "company": "EV Basel-City Immobilien AG",
+      "title": "Senior Immobilienmakler/in 100%",
+      "slug": "senior-immobilienmakler-in-100-engel-voelkers-frauenfeld",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/6ba042d5-48e7-4b1e-8ffb-8f8af89a0981",
+      "company": "buutiq Immobilien AG",
       "companyKey": "engel-voelkers",
       "companyDomain": "engelvoelkers.com",
-      "location": "Basel",
-      "addressLocality": "Basel",
-      "addressRegion": "BS",
+      "location": "Frauenfeld",
+      "addressLocality": "Frauenfeld",
+      "addressRegion": "TG",
       "addressCountry": "CH",
-      "canton": "BS",
+      "canton": "TG",
       "country": "CH",
       "category": "sales",
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-06-16",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "id": "engel-voelkers-d3357059a074",
-      "salaryMin": 59000,
-      "salaryMax": 90500,
+      "id": "engel-voelkers-6bae9762160e",
+      "needsRetranslation": true,
+      "salaryMin": 96000,
+      "salaryMax": 147500,
       "currency": "CHF",
-      "postalCode": "4001",
-      "firstSeenAt": "2026-06-08T12:49:56.721Z",
-      "salarySource": "reported",
-      "_qualityScore": 90,
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-03T13:44:23.388Z",
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
+        "translation": 16,
+        "completeness": 19
       }
     }
   ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
