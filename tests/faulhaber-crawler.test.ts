@@ -22,7 +22,9 @@ const LISTING_JSON = JSON.stringify({
     JobofferUrl: '/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura',
   }],
 });
-const JINA_LISTING_BODY = `<html><body><pre>${LISTING_JSON}</pre></body></html>`;
+// Real shape observed from r.jina.ai for this JSON endpoint (verified 2026-09-03,
+// see issue #7143): head/meta wrapper + style attribute on <pre>, not a bare <pre>.
+const JINA_LISTING_BODY = `<html><head><meta name="color-scheme" content="light dark"></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">${LISTING_JSON}</pre></body></html>`;
 const DETAIL_HTML = `
   <div class="annonce">
     <h1>Tecnico di misura</h1>
