@@ -5224,6 +5224,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno-domanda.title': 'Permit C Internal Appenzell: requirements and application',
     'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Permanent residence in Switzerland: 10 years residence (5 EU/EFTA), integration, German language. SEM procedure, cantonal criteria and naturalisation.',
     'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Swiss residential street with traditional houses and church spire, symbolizing local integration and community life.',
+    'blog.article.avs-calcolo-rendita-zurigo.title': 'AVS pension & supplementary benefits in Zurich',
+    'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'The cantonal compensation fund in Zurich handles the calculation of the AVS pension and supplementary benefits to ensure an adequate pension.',
+    'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'A Swiss pensioner calculating their AVS pension in Zurich',
 };
 
 export default blogMetaChEn;

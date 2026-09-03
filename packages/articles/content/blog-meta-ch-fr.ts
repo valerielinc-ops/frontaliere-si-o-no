@@ -5224,6 +5224,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.domicilio-c-appenzello-interno-domanda.title': 'Permis C Appenzell Interne : exigences et demande',
     'blog.article.domicilio-c-appenzello-interno-domanda.excerpt': 'Domicile permanent en Suisse : 10 ans de résidence (5 UE/AELE), intégration, langue allemande. Procédure SEM, critères cantonaux et naturalisation.',
     'blog.article.domicilio-c-appenzello-interno-domanda.imageAlt': 'Rue résidentielle suisse avec maisons traditionnelles et clocher, symbole d\'intégration locale et de stabilité.',
+    'blog.article.avs-calcolo-rendita-zurigo.title': 'Calcul de la rente AVS et prestations complémentaires dans le canton de Zurich',
+    'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'La caisse de compensation cantonale de Zurich gère le calcul de la rente AVS et des prestations complémentaires pour assurer une pension adéquate.',
+    'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'Un retraité suisse calcule sa rente AVS à Zurich',
 };
 
 export default blogMetaChFr;

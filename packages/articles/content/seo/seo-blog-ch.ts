@@ -67802,6 +67802,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-calcolo-rendita-zurigo': {
+    title: 'Calcolo della rendita AVS e prestazioni complementari nel cantone di Zurigo',
+    description: 'Scopri come la cassa di compensazione cantonale di Zurigo gestisce il calcolo della rendita AVS e delle prestazioni complementari per garantire una pensione',
+    keywords: 'frontalieri, ticino, svizzera, italia, calcolo, rendita, prestazioni, complementari',
+    ogTitle: 'Calcolo della Rendita AVS e Prestazioni Complementari nel Cantone di Zurigo',
+    ogDescription: 'La cassa di compensazione cantonale di Zurigo gestisce il calcolo della rendita AVS e delle prestazioni complementari per garantire una pensione adeguata. Scopri di più sulle implicazioni per lavoratori e pensionati.',
+    canonicalPath: '/articoli-svizzera/avs-calcolo-rendita-zurigo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Calcolo della rendita AVS e prestazioni complementari nel cantone di Zurigo",
+      "description": "Scopri come la cassa di compensazione cantonale di Zurigo gestisce il calcolo della rendita AVS e delle prestazioni complementari per garantire una pensione",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-calcolo-rendita-zurigo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un pensionato svizzero calcola la sua rendita AVS a Zurigo"
+      },
+      "datePublished": "2026-09-03T00:24:33+00:00",
+      "dateModified": "2026-09-03T00:24:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-calcolo-rendita-zurigo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
