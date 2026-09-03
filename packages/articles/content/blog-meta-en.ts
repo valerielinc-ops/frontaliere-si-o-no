@@ -11190,6 +11190,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cambio-chf-eur-quando-conviene.title': 'Border CHF/EUR exchange rate: when appropriate',
     'blog.article.cambio-chf-eur-quando-conviene.excerpt': 'CHF/EUR exchange strategies for border crossers Ticino. Multi-currency accounts, platforms, net salary impact and Italian taxation. Find out when to change euros.',
     'blog.article.cambio-chf-eur-quando-conviene.imageAlt': 'Currency exchange counter in a Swiss bank with CHF and EUR banknotes',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.title': 'Frontier: taxation and home loans in Italy',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.excerpt': 'Find out how the new 2024 border agreement affects mortgage applications in Italy. Tax at source, €10,000 deductible and tax credit explained for border workers.',
+    'blog.article.frontaliere-mutuo-casa-fiscalita-2024.imageAlt': 'View of Lugano: Swiss border city for cross-border workers applying for mortgages with Italian banks',
 };
 
 export default blogMetaEn;
