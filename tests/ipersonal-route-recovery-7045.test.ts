@@ -117,25 +117,37 @@ describe('iPersonal route recovery for issue 7045', () => {
     // snapshotJobSlugs() to build before/after maps, then computeCrawlDiff() to
     // classify vacancies as removed — proving the live pipeline feeds the
     // archive the same set/shape this suite assumes, not just the reimplementation.
-    const recovered = incidentRemovedJobs();
-    const alreadyAccounted = Array.from({ length: 3 }, (_, index) => syntheticJob('removed', index));
-    const vanishedUpstream = [...recovered, ...alreadyAccounted];
+    const recovered = incidentRemovedJobs(); // 12 jobs — vanish upstream THIS run
+    // 3 jobs archived by an EARLIER run: already gone from the active slice
+    // before this run starts, so (unlike `recovered`) they must not appear in
+    // this run's before-snapshot — only in the archive file from that prior run.
+    const priorRunArchived = Array.from({ length: 3 }, (_, index) => ({
+      id: `prior-run-archived-${index}`,
+      url: `https://jobs.example.invalid/prior-run-archived-${index}/`,
+      slug: `prior-run-archived-${index}`,
+    }));
     const retainedFresh = Array.from({ length: 15 }, (_, index) => syntheticJob('fresh', index));
-
-    const beforeSnapshot = snapshotJobSlugs([...retainedFresh, ...vanishedUpstream]);
-    const afterSnapshot = snapshotJobSlugs(retainedFresh);
-    const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
-
-    expect(new Set(diff.removedJobs.map((job) => job.id))).toEqual(
-      new Set(vanishedUpstream.map((job) => job.id)),
-    );
 
     const archiveDir = mkdtempSync(join(tmpdir(), 'ipersonal-7045-wiring-'));
     const archiveFile = join(archiveDir, 'ipersonal.json');
     try {
-      expect(archiveRemovedJobsToSlice(diff.removedJobs, 'ipersonal', { dir: archiveDir })).toBe(15);
+      expect(archiveRemovedJobsToSlice(priorRunArchived, 'ipersonal', { dir: archiveDir })).toBe(3);
+
+      // THIS run's active slice (before-snapshot) still holds `recovered` (about
+      // to vanish) plus the retained jobs — priorRunArchived is already gone,
+      // exactly as production leaves it after the earlier run dropped it.
+      const beforeSnapshot = snapshotJobSlugs([...retainedFresh, ...recovered]);
+      const afterSnapshot = snapshotJobSlugs(retainedFresh);
+      const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+
+      expect(new Set(diff.removedJobs.map((job) => job.id))).toEqual(
+        new Set(recovered.map((job) => job.id)),
+      );
+
+      expect(archiveRemovedJobsToSlice(diff.removedJobs, 'ipersonal', { dir: archiveDir })).toBe(12);
       const archived = JSON.parse(readFileSync(archiveFile, 'utf8')) as Job[];
-      expect(assertRetirementAccounting(diff.removedJobs, retainedFresh, archived)).toEqual({
+      const removedAcrossRuns = [...recovered, ...priorRunArchived];
+      expect(assertRetirementAccounting(removedAcrossRuns, retainedFresh, archived)).toEqual({
         removed: 15,
         archived: 15,
         routesLost: 0,
