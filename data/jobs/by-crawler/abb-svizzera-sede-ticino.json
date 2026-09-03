@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-09-03T12:51:11.915Z",
+  "assembledAt": "2026-09-03T23:20:27.100Z",
   "jobs": [
     {
       "id": "company-mgkfyv",
@@ -28,7 +28,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-03T13:40:46.744Z",
       "titleByLocale": {
         "en": "(80 – 100%) IS Functional Analyst",
@@ -68,8 +68,6 @@
       "previousSlugs": [
         "80-100-is-functional-analyst-abb-svizzera-sede-ticino-baden-daettwil-aargau"
       ],
-      "salaryMin": 64500,
-      "salaryMax": 110000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -83,7 +81,9 @@
       },
       "addressLocality": "Baden-Daettwil, Aargau",
       "addressRegion": "AG",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "salaryMin": 64500,
+      "salaryMax": 110000
     },
     {
       "id": "company-lcskz6",
@@ -110,7 +110,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-02T13:39:27.600Z",
       "slugByLocale": {
         "it": "fpga-software-ingegnere-r-d-power-electronics-traction-applications-abb-svizzera-sede-ticino-untersiggenthal-aargau-lcskz6",
@@ -192,7 +192,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-02T13:39:27.600Z",
       "titleByLocale": {
         "it": "Senior Mechanical Ingegnere (80 - 100%)",
@@ -278,7 +278,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-02T23:14:28.562Z",
       "slugByLocale": {
         "it": "project-ingegnere-80-100-abb-svizzera-sede-ticino-baden-aargau-xg8a9t",
@@ -349,7 +349,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-01T07:27:14.540Z",
       "slugByLocale": {
         "it": "trade-compliance-manager-process-industries-switzerland-80-100-abb-svizzera-sede-ticino-baden-aargau-ystl28",
@@ -413,7 +413,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-01T10:47:55.907Z",
       "titleByLocale": {
         "it": "Production Engineering Specialista (80-100%) f/m/d",
@@ -487,7 +487,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-01T23:12:36.916Z",
       "titleByLocale": {
         "it": "Global R&D Lead, Energy Storage Systems, Traction",
@@ -559,7 +559,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-31T17:11:22.840Z",
       "titleByLocale": {
         "it": "Workshop & Repairs Technician (f/m/d) 80-100%",
@@ -631,7 +631,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-31T17:11:22.840Z",
       "slugByLocale": {
         "it": "sales-ingegnere-french-fluency-required-80-100-abb-svizzera-sede-ticino-morges-vaud-k6p09l",
@@ -706,7 +706,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-31T17:11:22.840Z",
       "titleByLocale": {
         "it": "Responsabile Portfolio Management",
@@ -762,7 +762,7 @@
       "slug": "responsabile-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Head of Innovation",
-      "location": "Untersiggenthal, Aargau",
+      "location": "Argovia",
       "canton": "AG",
       "category": "tech",
       "contract": "full-time",
@@ -782,7 +782,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-31T17:11:22.840Z",
       "titleByLocale": {
         "en": "Head of Innovation",
@@ -815,11 +815,13 @@
       "sourceLang": "en",
       "previousSlugsByLocale": {
         "it": [
-          "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+          "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+          "head-of-innovation-abb-svizzera-sede-ticino"
         ]
       },
       "previousSlugs": [
-        "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau"
+        "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau",
+        "head-of-innovation-abb-svizzera-sede-ticino"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -863,7 +865,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T19:57:59.529Z",
       "titleByLocale": {
         "en": "Real Estate Portfolio Strategy Specialist (80%-100%)",
@@ -942,7 +944,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T19:57:59.529Z",
       "titleByLocale": {
         "it": "Sales Support Specialista w/m/d (80-100%)",
@@ -1014,7 +1016,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T19:57:59.529Z",
       "titleByLocale": {
         "it": "Service Capo squadra (f/m/d) 80-100%",
@@ -1093,7 +1095,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T19:57:59.529Z",
       "slugByLocale": {
         "it": "senior-scienziato-80-100-m-f-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
@@ -1187,7 +1189,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T00:44:38.372Z",
       "slugByLocale": {
         "it": "project-manager-sistemi-elettrici-progetti-clienti-svizzera-80-100-abb-svizzera-sede-ticino-baden-aargau",
@@ -1265,7 +1267,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-27T00:44:38.372Z",
       "titleByLocale": {
         "it": "Responsabile della tecnologia digitale",
@@ -1345,7 +1347,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-25T21:42:09.066Z",
       "titleByLocale": {
         "it": "Translatable Text Senior Accounting & Reporting Analista General Accounting (f/m/d) 80-100%",
@@ -1417,7 +1419,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-24T10:08:47.163Z",
       "slugByLocale": {
         "it": "sales-specialista-panel-builder-80-100-abb-svizzera-sede-ticino-baden-aargau-l0yzk3",
@@ -1480,7 +1482,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-24T10:08:47.163Z",
       "titleByLocale": {
         "it": "Service Sales Specialista (80-100%)",
@@ -1553,7 +1555,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-20T21:45:11.915Z",
       "titleByLocale": {
         "it": "Risorse Umane Operations Specialista (80-100%), limited until May 2027",
@@ -1627,7 +1629,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-19T21:44:00.488Z",
       "titleByLocale": {
         "de": "Direct Current Datacenter System Architect",
@@ -1716,7 +1718,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-19T21:44:00.488Z",
       "titleByLocale": {
         "it": "Product Quality Ingegnere (100%)",
@@ -1791,7 +1793,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-18T09:55:29.845Z",
       "titleByLocale": {
         "it": "R&D Senior Motor Designer (m/f/d)",
@@ -1864,7 +1866,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-18T21:40:39.160Z",
       "slugByLocale": {
         "it": "direttore-vendite-produttori-di-pannelli-80-100-abb-svizzera-sede-ticino-baden-aargau",
@@ -1927,7 +1929,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-17T21:37:18.953Z",
       "titleByLocale": {
         "it": "(Senior) Ricerca Scientist in Software Systems Engineering (80-100%) f/m/d",
@@ -1976,70 +1978,6 @@
       "salaryMax": 169500
     },
     {
-      "id": "company-47x000",
-      "slug": "medico-applicato-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Applied Physicist (80 - 100%) f/m/d",
-      "location": "Baden-Daettwil, Aargau",
-      "canton": "AG",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Research Team Manager - Power Device Physics<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><br /><b>Your role and responsibilities </b><br /><br />In this role, you will have the opportunity to contribute to ABB’s success with technology, software, product, and system development. Each day, you will identify and implement innovative solutions to relevant problems. You will also showcase your expertise by providing ideas and by being able to work both independently and as a part of a Research & Development (R&D) team.<br /><br />The work model for the role is hybrid.<br /><br />You will be mainly accountable for:</p><div><div><ul><li><p><span><span>Conduct</span><span>ing</span><span><span> </span>applied research<span> </span></span><span>in the area of</span><span><span> </span></span></span><span><span>power device</span></span><span><span><span> </span>physics</span><span><span> </span>with focus on</span><span><span> </span>dielectric insulation</span><span>,</span><span><span> </span>breakdown phenomena, and other multi</span><span>-</span><span>physics topics</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Contributing<span> </span></span><span>to and leading research projects towards</span><span><span> </span>sustainable solutions for<span> </span></span><span>the<span> </span></span><span>upcoming<span> </span></span><span>energy<span> </span></span><span>transformation</span><span>,</span><span><span> </span>integration of renewable energies</span><span><span> </span>and</span><span><span> </span>energy storage</span><span><span> </span>systems</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Appl</span><span>y</span><span>ing</span><span><span> </span></span><span>commercial and<span> </span></span><span>in-house developed</span><span><span> </span></span><span>advanced simulation tools</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>P</span><span>lanning, set</span><span>ting up</span><span>, and executi</span><span>ng</span><span><span> </span></span><span>scientific<span> </span></span><span>experiments </span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Driv</span><span>ing</span><span><span> </span>research activities, generat</span><span>ing</span><span><span> </span>intellectual property</span><span>,</span><span><span> </span>and</span><span><span> </span>writ</span><span>ing<span> </span></span><span>scientific publications</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Closely cooperat</span><span>ing</span><span><span> </span>with scientists and engineers<span> </span></span><span>within the team, driv</span><span>ing<span> </span></span><span>collaborations within<span> </span></span><span>the<span> </span></span><span>research center, with<span> </span></span><span>universities</span><span>,</span><span><span> </span>and<span> </span></span><span>global<span> </span></span><span>ABB<span> </span></span><span>divisions</span></span><span> </span></p></li></ul></div></div><div><div><p></p><p><span><span>In this role,<span> </span></span><span>as a member of</span><span><span> </span>the<span> </span></span><span>P</span><span>ower<span> </span></span><span>De</span><span>vice<span> </span></span><span>P</span><span>hysics team</span><span>, within<span> </span></span><span>Energy</span><span><span> </span>Technologies department</span><span>, you</span><span><span> </span></span><span>work<span> </span></span><span>on the</span><span><span> </span></span><span>broad portfolio of</span><span><span> </span>ABB</span><span><span> </span>devices and systems</span><span><span> </span>from<span> </span></span><span>longer-term<span> </span></span><span>fundamental research up to<span> </span></span><span>time-cri</span><span>tical ques</span><span>tions<span> </span></span><span>in products</span><span>.<span> </span></span><span>You<span> </span></span><span>provide novel<span> </span></span><span>and innovative</span><span><span> </span>solutions</span><span><span> </span>in the field of dielectric insulation in gases and solids with overlap to other multi</span><span>-</span><span>physical</span><span><span> </span></span><span>topics</span><span>.<span> </span></span><span>Translating your<span> </span></span><span>findings</span><span><span> </span></span><span>from</span><span><span> </span></span><span>basic<span> </span></span><span>research</span><span><span> </span>on physical phenom</span><span>ena to<span> </span></span><span>prototypes<span> </span></span><span>demonstrating</span><span><span> </span>the technologies, you contribute</span><span><span> </span>to</span><span><span> </span>evolving applications<span> </span></span><span>i</span><span>n</span><span><span> </span></span><span>such fields as<span> </span></span><span>protection systems<span> </span></span><span>for</span><span><span> </span></span><span>sustainable energy generation and distribution.</span></span><span><span><span> </span></span><span>To achieve this, you</span><span><span> </span></span><span>utiliz</span><span>e</span><span><span> </span></span><span>state-of-the-art</span><span><span> </span>simulations</span><span>, perform</span><span><span> </span>scientific</span><span><span> </span>experiments, and apply the<span> </span></span><span>results<span> </span></span><span>to technology development and expert support of<span> </span></span><span>ABBs</span><span><span> </span>business divisions</span><span>.</span></span><span> </span></p></div><div><p><span><span> </span></span><br /><span><span>Reporting to the<span> </span></span><span>research team manager</span><span>, you will<span> </span></span><span>engage with cross-functional teams inside and outside the company</span><span>,<span> </span></span><span>contribute to the definition of the team research roadmap</span><span>,</span><span><span> </span>and to the management of the research projects.</span></span><span> </span></p></div></div><p><br /><b>\n• Qualifications for the role</b></p><div><div><ul><li><p><span><span>PhD in</span><span><span> </span></span><span>physics or electrical engineering</span><span>,<span> </span></span><span>background in dielectric is a plus (please submit a list of publications if available).</span></span></p></li></ul></div><div><ul><li><p><span><span>Hands-on e</span><span>xperience</span><span><span> </span></span><span>in<span> </span></span><span>a<span> </span></span><span>scientific or industrial<span> </span></span><span>laboratory</span><span>,</span><span><span> </span></span><span>a willingness to work independently and take initiatives in designing, building, and testing prototypes</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>E</span><span>xperience<span> </span></span><span>in</span><span><span> </span>simulations</span><span>,<span> </span></span><span>e.g.,</span><span><span> </span></span><span>COMSOL</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>A<span> </span></span><span>collaborative, solution</span><span>-focused<span> </span></span><span>approach</span><span><span> </span>with good ability to build and<span> </span></span><span>maintain</span><span><span> </span>work relationships</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Strong communication</span><span><span> </span>and presentation</span><span><span> </span>skills in English (both written and spoken)</span></span><br /> </p></li></ul><p>​<b>More about us </b></p></div></div><div><div><p><span><span>The<span> </span></span><span>Power Device Physics<span> </span></span><span>Team</span><span><span> </span>at the ABB research center</span><span><span> </span>in Switzerland</span><span><span> </span></span><span>conducts interdisciplinary research focusing on multi</span><span>-</span><span>physical phenomena related to<span> </span></span><span>the<span> </span></span><span>broad portfolio of ABB's<span> </span></span><span>devices</span><span><span> </span>and systems</span><span>,<span> </span></span><span>including</span><span><span> </span>switchgear</span><span><span> </span>and</span><span><span> </span>power electronics.</span><span><span> </span>The team<span> </span></span><span>consists</span><span><span> </span>of enthusiastic scientists and engineers whose activities</span><span><span> </span>span from</span><span><span> </span></span><span>deepening the knowledge o</span><span>f</span><span><span> </span></span><span>physical<span> </span></span><span>phenomena such as<span> </span></span><span>dielectric<span> </span></span><span>breakdown</span><span>s</span><span><span> </span>in gases</span><span>/</span><span>solids</span><span>/vacuum,</span><span><span> </span></span><span>or</span><span><span> </span>thermal<span> </span></span><span>management</span><span><span> </span></span><span>with</span><span><span> </span>novel cooling concepts, to solving<span> </span></span><span>questions<span> </span></span><span>directly</span><span><span> </span>related</span><span><span> </span>to ABB's product portfolio</span><span>.<span> </span></span><span>Our<span> </span></span><span>expertise</span><span><span> </span>and<span> </span></span><span>solutions are</span><span><span> </span>used to<span> </span></span><span>enable</span><span><span> </span></span><span>and support<span> </span></span><span>the development of<span> </span></span><span>next</span><span>-</span><span>generation products.</span><span><span> </span>This unique opportunity<span> </span></span><span>allows you</span><span><span> </span>to carry out research in an evolving field</span><span><span> </span>and<span> </span></span><span>to contribute with your<span> </span></span><span>expertise</span><span><span> </span>to ABB’s success by reinforcing<span> </span></span><span>our team</span><span>. If you are passionate about science and technology and want to work in an inspiring environment where your skills<span> </span></span><span>and ideas become part of</span><span><span> </span>solutions<span> </span></span><span>for</span><span><span> </span></span><span>a<span> </span></span><span>sustainable</span><span><span> </span>future</span><span>, then apply now.</span></span><span> </span></p></div></div><div><p><br />This recruitment process is managed by Pedro Labian, Talent Acquisition Partner at ABB Switzerland.</p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00038648EXTERNALENGLOBAL/Applied-Physicist--80--100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Baden-Daettwil, Aargau, Switzerland",
-        "canton": "AG"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
-      "firstSeenAt": "2026-08-17T21:37:18.953Z",
-      "slugByLocale": {
-        "it": "medico-applicato-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "en": "applied-physicist-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-47x000",
-        "de": "angewandter-physiker-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "fr": "medecin-applique-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau"
-      },
-      "titleByLocale": {
-        "it": "Applied Physicist (80 - 100%) f/m/d",
-        "en": "Applied Physicist (80 - 100%) f/m/d",
-        "de": "Angewandter Physiker (80 - 100%) m/w/d",
-        "fr": "Physicien appliqué (80 - 100%) h/f/d"
-      },
-      "descriptionByLocale": {
-        "it": "<p>At <b>ABB </b>, aiutiamo le industrie a funzionare più snella e più pulita—e ogni persona qui lo fa accadere. Sarete autorizzati a guidare, sostenuto per crescere, e orgoglioso dell'impatto che creiamo insieme. Unisciti a noi e aiuta a gestire ciò che dirige il mondo. Questa posizione riporta a: </b> </p>Research Team Manager - Power Device Physics <p style=\"text-align:inherit!important\"> Il tuo ruolo e le tue responsabilità </b> In questo ruolo, avrete l'opportunità di contribuire al successo di ABB con tecnologia, software, prodotto e sviluppo di sistema. Ogni giorno, si identifica e implementa soluzioni innovative per problemi rilevanti. Potrai anche mostrare la tua esperienza fornendo idee e potendo lavorare sia in modo indipendente che come parte di un team di Ricerca & Sviluppo (R&D). Il modello di lavoro per il ruolo è ibrido. > < > > > > > > > > > > > > < > > > > > < > > > > > > < > > > > > > > > > > > > > > < > > > < > > > < > > > > > > > > > > > > > > > > < > > > < > > > > > > > > > > > > < > > > > > > > > > < > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > </span> > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > < > > > < > > > > > > > > > < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > < > > < > > > > > > > < > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > < > > > < > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > In questo ruolo, <span> </span> > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > < > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > </span> </span> > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > < > > > < > > < > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > </span> > > > > > > > > > > > > > > > > > < > > > > > > < > > > > > > > > > > > > > > < > > > < > > < > > > > > > > > > > > > > > > > > < > > > > > > < > > > > > > > > > > > > > > > > > > > < > > < < > > > > > > > > > < > > > > > > > > > > > > < < > > > > >\n• > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > < > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > </span>power electronics. Il team < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > Questa opportunitÃ unica Ã ̈ </span> </span> </span> Se sei appassionato di scienza e tecnologia e vuoi lavorare in un ambiente stimolante in cui le tue abilità </span> <span> <span> e le idee diventano parte di </span> Questo processo di reclutamento è gestito da Pedro Labian, Talent Acquisition Partner di ABB Svizzera. Costruire un futuro più pulito e intelligente prende tutti i tipi di menti: i curiosi, i coraggiosi e i creativi. Questo è il motivo per cui accogliamo le persone da tutti i background e le esperienze.",
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Research Team Manager - Power Device Physics<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><br /><b>Your role and responsibilities </b><br /><br />In this role, you will have the opportunity to contribute to ABB’s success with technology, software, product, and system development. Each day, you will identify and implement innovative solutions to relevant problems. You will also showcase your expertise by providing ideas and by being able to work both independently and as a part of a Research & Development (R&D) team.<br /><br />The work model for the role is hybrid.<br /><br />You will be mainly accountable for:</p><div><div><ul><li><p><span><span>Conduct</span><span>ing</span><span><span> </span>applied research<span> </span></span><span>in the area of</span><span><span> </span></span></span><span><span>power device</span></span><span><span><span> </span>physics</span><span><span> </span>with focus on</span><span><span> </span>dielectric insulation</span><span>,</span><span><span> </span>breakdown phenomena, and other multi</span><span>-</span><span>physics topics</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Contributing<span> </span></span><span>to and leading research projects towards</span><span><span> </span>sustainable solutions for<span> </span></span><span>the<span> </span></span><span>upcoming<span> </span></span><span>energy<span> </span></span><span>transformation</span><span>,</span><span><span> </span>integration of renewable energies</span><span><span> </span>and</span><span><span> </span>energy storage</span><span><span> </span>systems</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Appl</span><span>y</span><span>ing</span><span><span> </span></span><span>commercial and<span> </span></span><span>in-house developed</span><span><span> </span></span><span>advanced simulation tools</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>P</span><span>lanning, set</span><span>ting up</span><span>, and executi</span><span>ng</span><span><span> </span></span><span>scientific<span> </span></span><span>experiments </span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Driv</span><span>ing</span><span><span> </span>research activities, generat</span><span>ing</span><span><span> </span>intellectual property</span><span>,</span><span><span> </span>and</span><span><span> </span>writ</span><span>ing<span> </span></span><span>scientific publications</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Closely cooperat</span><span>ing</span><span><span> </span>with scientists and engineers<span> </span></span><span>within the team, driv</span><span>ing<span> </span></span><span>collaborations within<span> </span></span><span>the<span> </span></span><span>research center, with<span> </span></span><span>universities</span><span>,</span><span><span> </span>and<span> </span></span><span>global<span> </span></span><span>ABB<span> </span></span><span>divisions</span></span><span> </span></p></li></ul></div></div><div><div><p></p><p><span><span>In this role,<span> </span></span><span>as a member of</span><span><span> </span>the<span> </span></span><span>P</span><span>ower<span> </span></span><span>De</span><span>vice<span> </span></span><span>P</span><span>hysics team</span><span>, within<span> </span></span><span>Energy</span><span><span> </span>Technologies department</span><span>, you</span><span><span> </span></span><span>work<span> </span></span><span>on the</span><span><span> </span></span><span>broad portfolio of</span><span><span> </span>ABB</span><span><span> </span>devices and systems</span><span><span> </span>from<span> </span></span><span>longer-term<span> </span></span><span>fundamental research up to<span> </span></span><span>time-cri</span><span>tical ques</span><span>tions<span> </span></span><span>in products</span><span>.<span> </span></span><span>You<span> </span></span><span>provide novel<span> </span></span><span>and innovative</span><span><span> </span>solutions</span><span><span> </span>in the field of dielectric insulation in gases and solids with overlap to other multi</span><span>-</span><span>physical</span><span><span> </span></span><span>topics</span><span>.<span> </span></span><span>Translating your<span> </span></span><span>findings</span><span><span> </span></span><span>from</span><span><span> </span></span><span>basic<span> </span></span><span>research</span><span><span> </span>on physical phenom</span><span>ena to<span> </span></span><span>prototypes<span> </span></span><span>demonstrating</span><span><span> </span>the technologies, you contribute</span><span><span> </span>to</span><span><span> </span>evolving applications<span> </span></span><span>i</span><span>n</span><span><span> </span></span><span>such fields as<span> </span></span><span>protection systems<span> </span></span><span>for</span><span><span> </span></span><span>sustainable energy generation and distribution.</span></span><span><span><span> </span></span><span>To achieve this, you</span><span><span> </span></span><span>utiliz</span><span>e</span><span><span> </span></span><span>state-of-the-art</span><span><span> </span>simulations</span><span>, perform</span><span><span> </span>scientific</span><span><span> </span>experiments, and apply the<span> </span></span><span>results<span> </span></span><span>to technology development and expert support of<span> </span></span><span>ABBs</span><span><span> </span>business divisions</span><span>.</span></span><span> </span></p></div><div><p><span><span> </span></span><br /><span><span>Reporting to the<span> </span></span><span>research team manager</span><span>, you will<span> </span></span><span>engage with cross-functional teams inside and outside the company</span><span>,<span> </span></span><span>contribute to the definition of the team research roadmap</span><span>,</span><span><span> </span>and to the management of the research projects.</span></span><span> </span></p></div></div><p><br /><b>\n• Qualifications for the role</b></p><div><div><ul><li><p><span><span>PhD in</span><span><span> </span></span><span>physics or electrical engineering</span><span>,<span> </span></span><span>background in dielectric is a plus (please submit a list of publications if available).</span></span></p></li></ul></div><div><ul><li><p><span><span>Hands-on e</span><span>xperience</span><span><span> </span></span><span>in<span> </span></span><span>a<span> </span></span><span>scientific or industrial<span> </span></span><span>laboratory</span><span>,</span><span><span> </span></span><span>a willingness to work independently and take initiatives in designing, building, and testing prototypes</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>E</span><span>xperience<span> </span></span><span>in</span><span><span> </span>simulations</span><span>,<span> </span></span><span>e.g.,</span><span><span> </span></span><span>COMSOL</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>A<span> </span></span><span>collaborative, solution</span><span>-focused<span> </span></span><span>approach</span><span><span> </span>with good ability to build and<span> </span></span><span>maintain</span><span><span> </span>work relationships</span></span><span> </span></p></li></ul></div><div><ul><li><p><span><span>Strong communication</span><span><span> </span>and presentation</span><span><span> </span>skills in English (both written and spoken)</span></span><br /> </p></li></ul><p>​<b>More about us </b></p></div></div><div><div><p><span><span>The<span> </span></span><span>Power Device Physics<span> </span></span><span>Team</span><span><span> </span>at the ABB research center</span><span><span> </span>in Switzerland</span><span><span> </span></span><span>conducts interdisciplinary research focusing on multi</span><span>-</span><span>physical phenomena related to<span> </span></span><span>the<span> </span></span><span>broad portfolio of ABB's<span> </span></span><span>devices</span><span><span> </span>and systems</span><span>,<span> </span></span><span>including</span><span><span> </span>switchgear</span><span><span> </span>and</span><span><span> </span>power electronics.</span><span><span> </span>The team<span> </span></span><span>consists</span><span><span> </span>of enthusiastic scientists and engineers whose activities</span><span><span> </span>span from</span><span><span> </span></span><span>deepening the knowledge o</span><span>f</span><span><span> </span></span><span>physical<span> </span></span><span>phenomena such as<span> </span></span><span>dielectric<span> </span></span><span>breakdown</span><span>s</span><span><span> </span>in gases</span><span>/</span><span>solids</span><span>/vacuum,</span><span><span> </span></span><span>or</span><span><span> </span>thermal<span> </span></span><span>management</span><span><span> </span></span><span>with</span><span><span> </span>novel cooling concepts, to solving<span> </span></span><span>questions<span> </span></span><span>directly</span><span><span> </span>related</span><span><span> </span>to ABB's product portfolio</span><span>.<span> </span></span><span>Our<span> </span></span><span>expertise</span><span><span> </span>and<span> </span></span><span>solutions are</span><span><span> </span>used to<span> </span></span><span>enable</span><span><span> </span></span><span>and support<span> </span></span><span>the development of<span> </span></span><span>next</span><span>-</span><span>generation products.</span><span><span> </span>This unique opportunity<span> </span></span><span>allows you</span><span><span> </span>to carry out research in an evolving field</span><span><span> </span>and<span> </span></span><span>to contribute with your<span> </span></span><span>expertise</span><span><span> </span>to ABB’s success by reinforcing<span> </span></span><span>our team</span><span>. If you are passionate about science and technology and want to work in an inspiring environment where your skills<span> </span></span><span>and ideas become part of</span><span><span> </span>solutions<span> </span></span><span>for</span><span><span> </span></span><span>a<span> </span></span><span>sustainable</span><span><span> </span>future</span><span>, then apply now.</span></span><span> </span></p></div></div><div><p><br />This recruitment process is managed by Pedro Labian, Talent Acquisition Partner at ABB Switzerland.</p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "de": "<p>At <b>ABB</b> helfen wir Industrien, schlanker und sauberer zu laufen - und jeder Mensch hier macht das möglich. Sie werden in der Lage sein zu führen, unterstützt zu wachsen und stolz auf die Wirkung, die wir gemeinsam schaffen. Begleiten Sie uns und helfen Sie mit, was die Welt regiert.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b> Diese Position berichtet an:</b></p>Research Team Manager - Power Device Physics<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"> </p><p><br /><b> Ihre Rolle und Verantwortlichkeiten </b><br /><br /> In dieser Funktion haben Sie die Möglichkeit, zum Erfolg von ABB mit Technologie-, Software-, Produkt- und Systementwicklung beizutragen. Jeden Tag identifizieren und implementieren Sie innovative Lösungen für relevante Probleme. Sie werden auch Ihre Expertise präsentieren, indem Sie Ideen zur Verfügung stellen und sowohl unabhängig als auch als Teil eines Forschungs- und Entwicklungsteams (F&E) arbeiten können.<br /><br /> Das Arbeitsmodell für die Rolle ist hybrid.<br /><br /> Sie sind hauptsächlich verantwortlich für:</p><div><div><ul><li><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span> </span>Breakdown-Phänomene und andere Multi</span></span>-</span><span>physikthemen</span></span></p></li></ul></div><div><ul><li><p><span><span>>Beitrag<span></span></span><span>zu und Leitung von Forschungsprojekten zu</span><span><span> </span>nachhaltige Lösungen für<<span></span></span></span><span>transformation</span></span><span><span><span>integration von erneuerbaren Energien</span><span></span><span></span>systems</span></span></span><span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></s </span></span><span><span></span><span>collaborations within<span> </span></span></span></span><span>research center, with<<span> </span></span></span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></s In dieser Rolle<span></span></span><span>als Mitglied von</span><span></span>the<span></span></span><span>ower</span></span><span>De</span>vice<span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><s </span></span><span><span><span><span><span><span><span><span><span>>breites Portfolio von</span><span></span><span><span></span><span></span><span></span></span><span>>längerfristiger</span></span><span>>tical ques</span></span><span>>tical ques</span><span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span> </span></span><span><span><span>basic<span><span><span><span><span><span><span>prototypes</span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span </span></span><span>results</span></span><span>zur Technologieentwicklung und fachkundiger Unterstützung von<span> </span></span><span><span></span>Geschäftsbereiche</span></span><span></span></span></span></span></span></span></span></span></span></span></span><br /><span><span><span><span>>Reporting to the<span></span></span></span><span><span>>Reporting to the<span></span></span><span><span>>Reporting to the<span></span><span><span><span>>Reporting to the<span></span><span><span><span>>Reporting to the<span></span><span><span><span </span></span><span><span> engagieren sich mit funktionsübergreifenden Teams innerhalb und außerhalb des Unternehmens</span></span></span></span><span> trage zur Definition der Teamforschungs-Roadmap</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></p></div></div><p><br /><b> bei.\n• Qualifikationen für die Rolle</b></span><span><span><span><span><span><span><span><span><span><span><span></span><span><span><span><span><span><span><span></span><span></span></span></span></span></span></span></span></span></span></span></span></span></span><span></span><span><span></span><span><span></span><span><span></span><span><span></span><span><span></span><span><span></span><span> </span></span><span></span></span></span></span><span>>Strong communication</span><span></span><span></span>skills in English (sowohl schriftlich als auch gesprochen)</span></span></span></span><div></div><div></span></span><span></span><span></span><span><span></span><span><span><span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span </span>Leistungselektronik.</span><span><span></span> </span> Das Team<span> </span></span><span></span><span></span></span><span></span><span></span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span><span></span></span>< </span></span></span><span>directly</span></span></span>related</span></span></span>to ABB's product portfolio</span></span><span>Our<span></span></span><span>expertise</span></span></span></span></span></span></span></span></span></span><span></span><span>enable</span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span> Diese einzigartige Gelegenheit<span> </span></span><span> ermöglicht es Ihnen</span><span></span></span></span>, Forschung in einem sich entwickelnden Bereich durchzuführen</span><span></span></span>und<span></span></span><span></span><span>, um mit Ihrem<span> beizutragen </span></span><span>expertise</span><span><span> </span> zum Erfolg von ABB durch Verstärkung<span> </span></span><span>unser Team</span><span>. Wenn Sie sich für Wissenschaft und Technologie begeistern und in einem inspirierenden Umfeld arbeiten möchten, in dem Ihre Fähigkeiten <span> </span></span><span><span></span>solutions</span><span><span></span></span></span></span></span></span></span></span></span></span></span></span></span><span><span><span><span><span><span><span><span></span><span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span><span></span><span><span></span><span><span></span><span><span>< Dieser Rekrutierungsprozess wird von Pedro Labian, Talent Acquisition Partner bei ABB Schweiz, geleitet.</p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"> Der Aufbau einer saubereren, intelligenteren Zukunft erfordert alle Arten von Köpfen: das Neugierige, das Mutige und das Kreative. Deshalb begrüßen wir Menschen mit allen Hintergründen und Erfahrungen.</p><p style=\"text-align:left !important\"> </p><p>Ready to make a impact? </p><p></p><p>Bewerben Sie sich noch heute oder besuchen Sie <a target=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a>, um mehr über die Auswirkungen unserer Lösungen auf der ganzen Welt zu erfahren.</p>",
-        "fr": "<p>À <b>ABB</b>, nous aidons les industries à fonctionner plus minces et plus propres. Vous aurez le pouvoir de diriger, de soutenir la croissance et d'être fiers de l'impact que nous créons ensemble. Rejoignez-nous et aidez à exécuter ce qui dirige le monde.</p><p style=\"text-align:inherit!important\"></p><p style=\"text-align:left!important\"><b> Ce poste relève de :</b></p>Research Team Manager - Power Device Physics<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\"></p><p><br /><b> Votre rôle et vos responsabilités </b><br /><br /> Dans ce rôle, vous aurez l'occasion de contribuer au succès de l'ABB avec la technologie, les logiciels, les produits et le développement du système. Chaque jour, vous identifierez et appliquerez des solutions innovantes aux problèmes pertinents. Vous présenterez également votre expertise en fournissant des idées et en étant en mesure de travailler à la fois indépendamment et dans le cadre d'une équipe de recherche et développement (R-D).<br /><br /> Le modèle de travail pour le rôle est hybride.<br /><br /> Vous serez principalement responsable de :</p><div><ul><li><p><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span>< </span> phénomènes de rupture, et autres multi</span><span>-</span><span>thèmes physiques</span></span><span></span></span></p></li></ul></div><div><ul><li><p><span><span>Contribution<span></span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span <span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span> </span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>< Dans ce rôle,<span> </span></span><span><span>en tant que membre de</span><span><span></span></span></span></span><span></span><span></span><span></span></span><span></span><span><span></span><span></span></span><span></span><span></span></span><span><span></span><span></span><span><span></span><span><span><span></span><span><span><span><span><span><span><span><span><span><span><span><span><<span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span><span/span><span><span><s><span </span><span><span><span><span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span </span></span><span>résultats<span></span></span></span><span>à la mise au point de technologies et au soutien d'experts de<span> </span></span><span>ABBs</span><span><span><span></span></span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></s </span></span><span>Faire appel à des équipes interfonctionnelles à l'intérieur et à l'extérieur de l'entreprise</span><span></span></span></span><span>Contribuer à la définition de la feuille de route de recherche de l'équipe</span><span><span><span><span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span>\n• <span><span><span><span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span><span><span><span><span><span><span><span><span><span><span/span><span><span/span><span><span><span><span/span><span><span><span><span><span><span><s><span><span><s </span><span><span><span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span/span><span><span/span><span><span/span><span><span><span><span><span><span><span/span><span><span><span><span><span><span><span><span><span><span><span><span><span><s><span><span><s>< </span>power electronics.</span><span><span> </span> L'équipe <span></span></span></span><span></span><span><span><span></span></span></span></span><span></span><span></span></span><span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></s </span></span></span><span><span></span></span><span><span><span><span><span></span></span></span><span><span><span></span><span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><s Cette occasion unique<span> </span></span><span> vous permet</span><span><span><span></span>de mener des recherches dans un domaine en évolution</span><span><span><span><span><span><span><span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span> </span></span><span>expertise</span><span><span><span></span> </span>s succès en renforçant<span> </span></span><span>notre équipe</span><span>. Si vous êtes passionné par la science et la technologie et voulez travailler dans un environnement inspirant où vos compétences<span> </span></span></span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span><span></span><span></span></span></span></span></span></span></span></span></span></span></span></span> Ce processus de recrutement est géré par Pedro Labian, Talent Acquisition Partner chez ABB Switzerland.</p></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left=\"important\"> Construire un avenir plus propre et plus intelligent prend toutes sortes d'esprits : les curieux, les courageux et les créatifs. C'est pourquoi nous accueillons des gens de tous les horizons et de toutes les expériences.</p><p style=\"text-align:left!important\"> </p><p>Prêt à faire un impact? </p><p></p><p>Appliquer aujourd'hui ou visiter <a cible=\" blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</b></span></a> pour en savoir plus sur l'impact de nos solutions à travers le monde.</p>"
-      },
-      "needsRetranslation": true,
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "en",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 64500,
-          "maxValue": 110000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "Baden-Daettwil, Aargau",
-      "addressRegion": "AG",
-      "employmentType": "FULL_TIME",
-      "salarySource": "estimated",
-      "salaryMin": 64500,
-      "salaryMax": 110000
-    },
-    {
       "id": "company-78rd9w",
       "slug": "80-100-software-sviluppatore-net-desktop-applications-abb-svizzera-sede-ticino-quartino-ticino-78rd9w",
       "company": "ABB Svizzera (sede Ticino)",
@@ -2062,7 +2000,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-09-01T09:20:06.571Z",
       "slugByLocale": {
         "it": "80-100-software-sviluppatore-net-desktop-applications-abb-svizzera-sede-ticino-quartino-ticino-78rd9w",
@@ -2127,7 +2065,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-14T10:25:01.561Z",
       "slugByLocale": {
         "it": "technical-service-specialista-gearless-mill-drive-80-100-abb-svizzera-sede-ticino-baden-aargau-a0lhdn",
@@ -2190,7 +2128,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-14T21:57:25.052Z",
       "titleByLocale": {
         "it": "Ricerca Department Manager - Industrial Solutions (80 - 100%) f/m/d",
@@ -2262,7 +2200,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-12T22:00:06.718Z",
       "titleByLocale": {
         "it": "Power Generation Automation & Digitalization Sales Svizzera",
@@ -2334,7 +2272,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-11T22:25:27.416Z",
       "titleByLocale": {
         "it": "R&D Ingegnere Firmware (80 -100%)",
@@ -2407,7 +2345,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 - 100%) R&D Senior Ingegnere",
@@ -2497,7 +2435,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 - 100%) R&D Ingegnere",
@@ -2603,7 +2541,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "slugByLocale": {
         "it": "80-100-allenatore-tecnico-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
@@ -2682,7 +2620,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "(80 -100%) Production Engineering Specialista",
@@ -2776,7 +2714,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato per EMC in Elettronica di Potere",
@@ -2868,7 +2806,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Procurement Specialista Electronics (80-100%) f/m/d",
@@ -2944,7 +2882,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-07T21:57:00.169Z",
       "titleByLocale": {
         "it": "Procurement Specialista Electro-mechanical components & Electronics (80-100%)",
@@ -3018,7 +2956,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "Field Service Ingegnere",
@@ -3091,7 +3029,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-07-06T22:24:49.189Z",
       "titleByLocale": {
         "it": "(Senior) Scienziato nei sistemi di distribuzione basati su convertitori (80 - 100%)",
@@ -3182,7 +3120,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-09-03T13:40:46.744Z",
+      "crawledAt": "2026-09-03T23:20:22.732Z",
       "firstSeenAt": "2026-08-10T21:55:10.178Z",
       "titleByLocale": {
         "it": "SAP Authorization / User Access Manager m/f/d (80-100%)",
