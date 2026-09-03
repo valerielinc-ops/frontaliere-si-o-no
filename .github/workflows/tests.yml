@@ -1035,20 +1035,24 @@ jobs:
       #
       # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
       # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
-      # pool di vitest invece che da soli. Se il margine non basta si vedrà
-      # come OOM, subito e in chiaro — non come una supposizione scritta in un
-      # commento che costa 67s di wall a ogni run per sempre. Un campionatore di
-      # `MemAvailable` era stato aggiunto per rendere quel margine un numero, ed
-      # è stato tolto: era uno step in background con un timer proprio, quindi a
-      # suite rossa teneva il job appeso al join per la durata del suo `sleep`.
-      # Se il numero servirà, va preso in un modo che muoia con la suite.
+      # pool di vitest invece che da soli. Un campionatore di `MemAvailable`
+      # era stato aggiunto per rendere quel margine un numero, ed era stato
+      # tolto (follow-up #6573): era uno step in background con un timer
+      # proprio (350 `sleep 5`, ~29 min), quindi a suite rossa teneva il job
+      # appeso al join per la durata del suo `sleep` invece di morire subito
+      # col resto. Il rifacimento (`scripts/ci/sample-mem-during.sh`) avvolge
+      # il comando osservato invece di girargli accanto: il sampler è un
+      # processo separato che muore nell'istante in cui `wait` sul PID di
+      # `tsc` sblocca — successo o fallimento — non dopo un conteggio fisso di
+      # iterazioni. Il numero finisce nel log come `[mem-sample] MemAvailable
+      # min=…MB max=…MB`.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
         background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-        run: npm run typecheck:gate
+        run: bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
 
       # ══════════════════════════════════════════════════════════════════════
 # FAMIGLIA 3/4 — vitest related + i lint deterministici che le
