@@ -5335,6 +5335,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tariffario-ambulatoriale-cure-base.title': 'Médecins de famille critiquent tarif Tardoc',
     'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc ne réévalue pas la médecine familiale et augmente les coûts ambulatoires. L\'association mfe demande au Conseil fédéral d\'éviter une dévaluation linéaire.',
     'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Cabinet médical suisse avec médecin généraliste consultant patient âgé en ambulatoire moderne',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.title': 'Acheter une maison à Lucerne : hypothèque et impôts',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.excerpt': 'L\'achat d\'une propriété dans le canton de Lucerne nécessite des compétences fiscales et financières : taxes de passage, hypothèque durable, frais de notaire. Guide opérationnel 2026.',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.imageAlt': 'Achat immobilier suisse : contrats d\'achat et documents hypothécaires sur le bureau, immeuble résidentiel en arrière-plan',
 };
 
 export default blogMetaChFr;

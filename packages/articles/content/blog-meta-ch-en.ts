@@ -5335,6 +5335,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tariffario-ambulatoriale-cure-base.title': 'Family doctors criticize Tardoc tariff',
     'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc does not re-evaluate family medicine and increases outpatient costs. The MFE association asks the Federal Council to avoid a linear devaluation.',
     'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Swiss primary care clinic with general practitioner consulting elderly patient in modern ambulatory setting',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.title': 'Buying a house in Lucerne: mortgage and taxes',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.excerpt': 'Buying a property in the Canton of Lucerne requires fiscal-financial skills: transfer taxes, sustainable mortgage, notary fees. Operating Guide 2026.',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.imageAlt': 'Swiss real estate transaction: property purchase contracts and mortgage documents on desk, residential building in background',
 };
 
 export default blogMetaChEn;
