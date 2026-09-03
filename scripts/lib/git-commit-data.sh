@@ -384,6 +384,24 @@ for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
 
+# Single source of truth for the job-slice path globs (#7167). Bash case
+# statements can't alternate patterns through a `|`-joined variable
+# expansion (the literal `|` becomes part of the glob instead of splitting
+# into alternatives), so the delete-vs-stale-modify guard exemption below
+# and its siblings match through this loop instead of repeating the
+# case-pattern literal at each call site.
+JOBS_SLICE_PATH_GLOBS=("data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json")
+
+is_job_slice_path() {
+  local path="$1" glob
+  for glob in "${JOBS_SLICE_PATH_GLOBS[@]}"; do
+    if [[ "$path" == $glob ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
 # Path-class classifier for the batch snapshot fail-closed contract (#7054).
 # Reviewer follow-up #7060 flagged two open questions: whether the fail-closed
 # abort's blast radius on non-job paths (summary/translation-cache/adapter) is
@@ -399,9 +417,11 @@ done
 # dashboard.
 classify_batch_snapshot_path() {
   local file_path="$1"
+  if is_job_slice_path "$file_path"; then
+    echo "job-slice"
+    return
+  fi
   case "$file_path" in
-    data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-      echo "job-slice" ;;
     data/jobs-crawler-summaries/by-crawler/*.json)
       echo "summary" ;;
     data/translation-cache/*.json)
@@ -559,20 +579,21 @@ restore_stashed_changes_with_safe_merge() {
       fi
 
       key_hint=""
-      case "$f" in
-        data/jobs.json|public/data/jobs.json)
-          key_hint="url"
-          ;;
-        data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-          key_hint="url"
-          ;;
-        data/jobs-crawler-summaries.json)
-          key_hint="key"
-          ;;
-        data/ticino-companies-extra.json)
-          key_hint="website"
-          ;;
-      esac
+      if is_job_slice_path "$f"; then
+        key_hint="url"
+      else
+        case "$f" in
+          data/jobs.json|public/data/jobs.json)
+            key_hint="url"
+            ;;
+          data/jobs-crawler-summaries.json)
+            key_hint="key"
+            ;;
+          data/ticino-companies-extra.json)
+            key_hint="website"
+            ;;
+        esac
+      fi
 
       merge_json_3way \
         "$snapshot_dir/base/$f" \
@@ -1464,13 +1485,9 @@ commit_isolated_from_worktree() {
           # policy. Their generated descriptors and final batch provide the
           # separate retirement boundary; the registry fix here is scoped to
           # sequential directory-wide writers.
-          if [ -n "$base_blob" ]; then
-            case "$f" in
-              data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-                echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
-                continue
-                ;;
-            esac
+          if [ -n "$base_blob" ] && is_job_slice_path "$f"; then
+            echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+            continue
           fi
         else
           case "$f" in
@@ -1511,9 +1528,7 @@ commit_isolated_from_worktree() {
         && [ "$remote_blob" != "$base_blob" ] \
         && [ "$remote_blob" != "$local_blob" ]; then
         key_hint=""
-        case "$f" in
-          data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json) key_hint="url" ;;
-        esac
+        is_job_slice_path "$f" && key_hint="url"
         mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"
         if [ -n "$base_blob" ]; then
           git cat-file blob "$base_blob" > "$merge_dir/base/$f"
