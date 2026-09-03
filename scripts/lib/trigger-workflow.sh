@@ -32,6 +32,9 @@
 #   TRIGGER_REF_WAIT_ATTEMPTS   — max polling attempts (default: 20)
 #   TRIGGER_REF_WAIT_SECONDS    — sleep seconds between polls (default: 2)
 #   TRIGGER_RUN_LOOKUP_SECONDS  — sleep between exact-run lookups (default: 1)
+#   TRIGGER_POST_VERIFY_SECONDS — sleep between post-dispatch ancestry
+#                                 re-check retries on transient failure
+#                                 (default: 1; bounded to 3 attempts)
 #
 # Output (GITHUB_OUTPUT):
 #   dispatch_sent=true|false
@@ -97,6 +100,11 @@ RUN_LOOKUP_ATTEMPTS=3
 RUN_LOOKUP_SECONDS="${TRIGGER_RUN_LOOKUP_SECONDS:-1}"
 if [[ ! "$RUN_LOOKUP_SECONDS" =~ ^[0-5]$ ]]; then
   RUN_LOOKUP_SECONDS=1
+fi
+POST_VERIFY_ATTEMPTS=3
+POST_VERIFY_SECONDS="${TRIGGER_POST_VERIFY_SECONDS:-1}"
+if [[ ! "$POST_VERIFY_SECONDS" =~ ^[0-5]$ ]]; then
+  POST_VERIFY_SECONDS=1
 fi
 
 if [[ ! "$WORKFLOW_FILE" =~ ^[A-Za-z0-9._-]+\.ya?ml$ ]]; then
@@ -192,6 +200,11 @@ read_ref_sha() {
   ' "$response_file"
 }
 
+# Return codes: 0 = confirmed descendant, 1 = definitive semantic mismatch
+# (a 200 response whose comparison payload proves it, e.g. diverged/behind —
+# must fail the caller immediately), 2 = transient (curl transport failure,
+# any non-200 status, or an oversized/unbounded body) — none of these tell us
+# anything about actual ancestry, so the caller may retry them.
 commit_is_expected_or_descendant() {
   local expected_sha="$1"
   local candidate_sha="$2"
@@ -215,9 +228,9 @@ commit_is_expected_or_descendant() {
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${TOKEN}" \
     -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}")"; then
-    return 1
+    return 2
   fi
-  [ "$http_code" = "200" ] && body_is_bounded "$response_file" "$COMPARE_MAX_RESPONSE_BYTES" || return 1
+  [ "$http_code" = "200" ] && body_is_bounded "$response_file" "$COMPARE_MAX_RESPONSE_BYTES" || return 2
 
   TRIGGER_COMPARE_FILE="$response_file" \
   TRIGGER_COMPARE_BASE="$expected_sha" \
@@ -443,11 +456,35 @@ NODE
   exit 1
 fi
 
-if [ -n "$EXPECTED_SHA" ] \
-    && ! commit_is_expected_or_descendant "$EXPECTED_SHA" "$RUN_HEAD_SHA"; then
-  echo "⚠️ ${WORKFLOW_FILE} direct run head ${RUN_HEAD_SHA} does not contain ${EXPECTED_SHA}"
-  write_output "dispatch_sent" "false"
-  exit 1
+if [ -n "$EXPECTED_SHA" ]; then
+  # The run's identity (id, repository, workflow path, event, ref, run_attempt,
+  # head_sha format) is already strictly validated above — this is the last
+  # check, a genuine ancestry re-fetch. A transient failure here (curl
+  # transport error, 5xx, or any non-200 without a definitive comparison
+  # payload — return code 2, see commit_is_expected_or_descendant) is not
+  # evidence of a real mismatch and must not fail the dispatch on the first
+  # try; a definitive semantic mismatch (return code 1, e.g. diverged/behind)
+  # must still fail immediately.
+  POST_VERIFY_STATUS=1
+  for post_verify_attempt in $(seq 1 "$POST_VERIFY_ATTEMPTS"); do
+    if commit_is_expected_or_descendant "$EXPECTED_SHA" "$RUN_HEAD_SHA"; then
+      POST_VERIFY_STATUS=0
+    else
+      POST_VERIFY_STATUS=$?
+    fi
+    if [ "$POST_VERIFY_STATUS" != "2" ]; then
+      break
+    fi
+    if [ "$post_verify_attempt" -lt "$POST_VERIFY_ATTEMPTS" ]; then
+      echo "⏳ transient failure re-checking ${WORKFLOW_FILE} run head ancestry (attempt ${post_verify_attempt}/${POST_VERIFY_ATTEMPTS}) — retrying"
+      sleep "$POST_VERIFY_SECONDS"
+    fi
+  done
+  if [ "$POST_VERIFY_STATUS" != "0" ]; then
+    echo "⚠️ ${WORKFLOW_FILE} direct run head ${RUN_HEAD_SHA} does not contain ${EXPECTED_SHA}"
+    write_output "dispatch_sent" "false"
+    exit 1
+  fi
 fi
 
 echo "✅ ${WORKFLOW_FILE} triggered and exact run ${RUN_ID} verified${RUN_HEAD_SHA:+ at ${RUN_HEAD_SHA}}"
