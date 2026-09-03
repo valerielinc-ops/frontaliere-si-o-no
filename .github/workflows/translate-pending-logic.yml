@@ -227,6 +227,10 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Rollout switch for the language-aware overwrite arm (workspace issue 16).
+          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
+          # can be read before it is allowed to act. Set the repo variable to '1'.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
@@ -329,6 +333,10 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Rollout switch for the language-aware overwrite arm (workspace issue 16).
+          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
+          # can be read before it is allowed to act. Set the repo variable to '1'.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
