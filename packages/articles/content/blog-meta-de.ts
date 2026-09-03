@@ -11159,6 +11159,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Wohnen in Albosaggia und Arbeiten in Graubünden als Grenzgänger',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers von Albosaggia nach Graubünden.',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den umliegenden Bergen',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Leben in Edolo und Arbeiten in Graubünden: Verbindungen und Kosten',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Entdecke die Vor- und Nachteile, in Edolo zu leben und in Graubünden zu arbeiten, inklusive Reisezeit und Lebenshaltungskosten.',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Panoramablick auf Edolo mit den Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

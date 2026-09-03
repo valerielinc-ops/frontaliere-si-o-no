@@ -11162,6 +11162,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.title': 'Vivre à Albosaggia et travailler dans les Grisons en tant que frontalier',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert d\'Albosaggia aux Grisons.',
     'blog.article.vivere-albosaggia-lavorare-grigioni-frontaliere.imageAlt': 'Vue panoramique du Lac de Lugano avec les montagnes environnantes',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.title': 'Vivre à Edolo et travailler dans les Grisons : liens et coûts',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.excerpt': 'Découvrez les avantages et les inconvénients de vivre à Edolo et de travailler dans les Grisons, y compris les temps de trajet et le coût de la vie.',
+    'blog.article.vivere-edolo-lavorare-grigioni-frontaliere.imageAlt': 'Vue panoramique d\'Edolo avec les montagnes suisses en arrière-plan',
 };
 
 export default blogMetaFr;
