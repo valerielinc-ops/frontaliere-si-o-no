@@ -5227,6 +5227,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-calcolo-rendita-zurigo.title': 'Calcul de la rente AVS et prestations complémentaires dans le canton de Zurich',
     'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'La caisse de compensation cantonale de Zurich gère le calcul de la rente AVS et des prestations complémentaires pour assurer une pension adéquate.',
     'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'Un retraité suisse calcule sa rente AVS à Zurich',
+    'blog.article.permesso-l-proroga-appenzello-interno.title': 'Permis L : durée et prolongation en Suisse',
+    'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Le permis L de courte durée permet de travailler jusqu\'à 1 an en Suisse. Découvrez comment fonctionne la prolongation, les contraintes de l\'employeur et le passage au permis B.',
+    'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Bureau d\'immigration suisse avec dossiers de permis de travail et documents officiels',
 };
 
 export default blogMetaChFr;

@@ -5227,6 +5227,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-calcolo-rendita-zurigo.title': 'Calcolo della rendita AVS e prestazioni complementari nel cantone di Zurigo',
     'blog.article.avs-calcolo-rendita-zurigo.excerpt': 'La cassa di compensazione cantonale di Zurigo gestisce il calcolo della rendita AVS e delle prestazioni complementari per garantire una pensione adeguata.',
     'blog.article.avs-calcolo-rendita-zurigo.imageAlt': 'Un pensionato svizzero calcola la sua rendita AVS a Zurigo',
+    'blog.article.permesso-l-proroga-appenzello-interno.title': 'Permesso L: durata e proroga in Svizzera',
+    'blog.article.permesso-l-proroga-appenzello-interno.excerpt': 'Il permesso L di breve durata consente di lavorare fino a 1 anno in Svizzera. Scopri come funziona la proroga, i vincoli del datore di lavoro e il passaggio al permesso B.',
+    'blog.article.permesso-l-proroga-appenzello-interno.imageAlt': 'Ufficio amministrativo svizzero con cartelle di permessi di lavoro e documenti ufficiali sulla scrivania',
 };
 
 export default blogMetaChIt;
