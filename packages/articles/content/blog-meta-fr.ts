@@ -11266,6 +11266,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lainf-denuncia-infortunio-confine.title': 'Accident de trajet : plainte LAA pour frontaliers',
     'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'La LAA couvre les accidents pendant le trajet domicile-travail à la frontière. Voici ce qui change par rapport à un déplacement et comment déposer une plainte.',
     'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Voiture d\'un frontalier approchant le poste de contrôle douanier suisse à Brogeda lors du trajet domicile-travail à la frontière Tessin-Italie',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Vivre à Cuasso al Monte et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Découvrez comment vivre à Cuasso al Monte et travailler au Tessin en tant que frontalier : liaisons, temps de trajet, coût de la vie, zones recommandées, avantages et inconvénients du transfert, ce qu\'il faut considérer avant de déménager.',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Vue aérienne de Cuasso al Monte, Tessin, Suisse',
 };
 
 export default blogMetaFr;

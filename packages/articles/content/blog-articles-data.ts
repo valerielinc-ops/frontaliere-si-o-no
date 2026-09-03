@@ -33654,6 +33654,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'vivere-cuasso-al-monte-lavorare-ticino-frontaliere',
+ category: 'pratico',
+ date: '2026-09-03T21:31:44.370Z',
+ image: '/images/blog/vivere-cuasso-al-monte-lavorare-ticino-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

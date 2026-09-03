@@ -11264,6 +11264,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lainf-denuncia-infortunio-confine.title': 'Accident in progress: LAINF complaint for border workers',
     'blog.article.lainf-denuncia-infortunio-confine.excerpt': 'LAINF covers injuries on the commute to the border. Here\'s what\'s different about a trip and how to file a report.',
     'blog.article.lainf-denuncia-infortunio-confine.imageAlt': 'Frontalier\'s vehicle approaching the Swiss border checkpoint at Brogeda during morning commute on the Ticino-Italy border',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.title': 'Living in Cuasso al Monte and working in Ticino as a border worker',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.excerpt': 'Find out how to live in Cuasso al Monte and work in Ticino as a border worker: connections, travel times, cost of living, recommended areas, advantages and disadvantages of the transfer, what to consider before moving.',
+    'blog.article.vivere-cuasso-al-monte-lavorare-ticino-frontaliere.imageAlt': 'Aerial view of Cuasso al Monte, Ticino, Switzerland',
 };
 
 export default blogMetaEn;
