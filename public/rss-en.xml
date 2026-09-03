@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Sep 2026 16:43:31 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 17:05:35 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,56 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Change of job for border workers over 55: protections and pension</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/job-change-cross-border-worker-pension-protection/</link>
+      <description><![CDATA[When you change position after the age of 55 as a border worker, the tax treatment, occupational pension and the impact on LPP reset. Here are the protections provided by the New 2024 Agreement.]]></description>
+      <content:encoded><![CDATA[## In a nutshell
+- Frontier workers over 55 benefit from specific protections when changing jobs
+- Tax at source is withheld ONLY in Switzerland; Italy avoids double taxation
+- From 1 January 2024, the New Frontier Agreement introduces exemption regimes
+
+## Key facts
+- **What**: Changing jobs as a border worker with tax and pension implications
+- When: From 1 January 2024 (New Frontier Agreement in force)
+- Where: Canton of Ticino and Switzerland-Italy border
+- Who: Frontier workers with G permit, in particular over 55 years of age
+- AVS/AI/IPG rates: 5.3% (employee)
+- Exemption: €7,500 (old frontier workers, transitional regime 2024–2033), €10,000 (new frontier workers)
+- LPP: Varies by age group between 7% and 18% of gross salary
+
+Changing job position after 55 years as a border worker Ticino-Italy presents specific challenges that do not concern Swiss-resident workers. The change of employer is not a simple administrative procedure: it involves readjustments to taxation, occupational security and the sustainability of the pension position in the two States. Since 1 January 2024, with the entry into force of the New Frontier Agreement (signed on 23 December 2020 and ratified by Italy with Law 83 of 13 June 2023), the regulatory landscape has changed significantly, introducing exemptions and transitional regimes that directly affect the border worker who operates a relocation.
+
+The first issue is the tax issue. A
+### Implications for occupational security
+
+The second pillar (LPP, Leistungsprivatversicherung) is the crucial node of job change for a border worker over 55. When changing employers in Switzerland, the frontier worker has to deal with the transfer of his pension fund from the previous company to the new one. The employee's contribution varies by age group: from 25 onwards, the percentage varies between 7% and 18% of the gross salary, depending on the age group and the fund. For a worker who changes position, this means renegotiating contribution terms with the new organization.
+
+The biggest risk is the reduction of the contribution rate during transfers. If the previous company paid 16% and the new company offers 14%, the difference affects the accumulated pension amount up to the time of retirement. The redemption value of the LPP must be explicitly requested from the previous fund and transferred to the new one within 30 days of the exchange; failure to redeem means partial loss of contributory years, with consequences on future income.
+
+### Double Taxation and Tax Credit
+
+Although Switzerland does not apply a complementary tax on border workers, Italy maintains the theoretical right of taxation on the worldwide income of the resident. The protection comes from the tax credit: in form 730 of the Italian declaration, the border worker reports the Swiss tax paid and deducts it from the Italian personal income tax due.
+
+## Useful planning tools
+To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
+### Operational procedure: step-by-step job change
+
+Notifying the change of employer to the SECO (State Secretariat for Economic Affairs) is the first crucial step: this ensures that the G permit is updated in the system and there are no interruptions in the contribution coverage. The application must be submitted within 8 days of the termination of the previous employment. Simultaneously, the cross-border commuter must communicate the change to the cantonal tax office (AFC/ESTV at the federal level, or the cantonal administration of contributions of Ticino): this is crucial so that the withholding tax rate is updated with the new employer. If not notified, the new employer may apply a standard rate, sometimes higher than the due one, with consequent refunds in the declaration.
+
+The new employer, from the first day of work, must enroll the cross-border commuter in their LPP fund and pay the mandatory contributions. It is advisable to verify, before signing the contract, that the pension fund offers at least the minimum legal contribution. The redemption value of the previous LPP must be requested in writing within 30 days; the transfer occurs directly between the two funds, without passing through the individual.
+
+### Tax declaration: the CE section and refunds
+
+The income tax return remains the critical moment. In the Italian model 730, the CE section (foreign employment income) must accurately report: the gross amount received, the Swiss tax paid, and the amounts of AVS/AI contributions. If the withholding tax rate was incorrect due to failure to communicate the change of employer, it is possible to obtain a refund in the subsequent declaration, a procedure that can take 12-18 months. It is equally important to verify that the new employer has correctly communicated the insurance position to the Swiss information system (UPI): administrative errors at this stage generate gaps in AVS payments, which can only be compensated with lengthy procedures at the INPS.
+
+A cross-border commuter over 55 who changes position at a critical moment in their career should consider consulting with a specialist in cross-border taxation. The margins for administrative error are significant: late communication to the SECO or the Ticino tax office can be costly in unpaid taxes or missed deadlines. Use [nav:calculator] to simulate the tax impact of the new position; [nav:pension] allows you to evaluate how the LPP change will affect your future pension income.]]></content:encoded>
+      <pubDate>Thu, 03 Sep 2026 17:05:35 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/cambio-lavoro-frontaliere-tutele-pensione</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/cambio-lavoro-frontaliere-tutele-pensione.webp" medium="image"/>
+    </item>
     <item>
       <title>Border VAT number: self-employed in Switzerland</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/border-vat-number-self-employed-in-switzerland/</link>
@@ -3812,92 +3862,6 @@ For more information on transportation costs and [public transport in Ticino](na
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-lentate-lavorare-ticino-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-lentate-lavorare-ticino-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Lazzate, working in Ticino: the guide</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/live-lazzate-work-ticino-commuter/</link>
-      <description><![CDATA[Lazzate offers lower housing prices for border workers. Discover travel times, commuting costs, taxation (tax at source), G Permit and step-by-step procedure.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Lazzate: Lombardy municipality close to Chiasso, Brogeda, Gaggiolo border crossings
-- Permit G required; withholding tax deducted in Switzerland
-- New Cross-Border Workers Agreement (effective January 1, 2024): different regimes for old and new cross-border workers
-- LAMal mandatory; cross-border workers have the right to choose
-
-## Key facts
-- **What**: Residential move to Lazzate + employment in Ticino
-- Where: Lazzate (Varese, Lombardy) — access via Chiasso, Brogeda, Gaggiolo
-- Who: Cross-border workers category Permit G (employees)
-- When: Permit G renewable annually in January
-- Tax treatment: Withholding tax in Switzerland; double taxation avoided with tax credit in Italy (form CE 730)
-- Convention: Italy-Switzerland of December 9, 1976
-- New Agreement: Effective from January 1, 2024 (ratification IT Law 83 of June 13, 2023); old cross-border workers exemption €7,500, new allowance €10,000
-
-Lazzate, a municipality in the province of Varese, Lombardy, is increasingly attracting cross-border workers drawn by the lower cost of living while maintaining the advantages of a Ticino job. Its proximity to border crossings (Chiasso, Brogeda, Gaggiolo) and reasonable travel times to major Ticino centers (Lugano, Mendrisio, Bellinzona, Locarno) make it a strategic choice. However, to move and work in Switzerland as a cross-border worker, specific permits (Permit G), proper tax declaration, and a clear understanding of the Italo-Swiss tax regimes are necessary.
-
-The New Cross-Border Workers Agreement, effective January 1, 2024, has significantly changed the taxation and refund methods for those living in Italy and working in Switzerland. This guide accompanies the cross-border worker candidate through the requirements, economic implications, and essential administrative procedures.
-
-### Lazzate and the Ticino border
-
-Lazzate is located in the province of Varese, Lombardy, a short distance from the main access points to Ticino. This geographical proximity makes it attractive for those who want to reduce housing costs without moving too far from their workplace. Travel times to major Ticino centers remain reasonable: from Lazzate to Lugano about 1 hour, to Mendrisio about 30–40 minutes, to Bellinzona about 1 hour and 30 minutes, to Locarno about 2 hours.
-
-Daily commuting, however, involves significant additional costs that each cross-border worker candidate should carefully evaluate: fuel (about CHF 150–300 per month), Swiss vignette (CHF 40 per year), A2 and A9 motorway tolls (CHF 80–120 per month), car wear (increase 25–30%), parking in Ticino urban centers (CHF 100–200 per month), and car insurance (higher premiums in Italy compared to Switzerland).
-
-### Permit G: the requirements
-
-To work in Switzerland as a cross-border worker, the first step is to obtain Permit G from the SEM (State Secretariat for Migration). This permit is reserved for cross-border dependent workers who reside permanently in Italy and cross the border daily or regularly. Permit G is valid for one year and is renewable without interruption, provided the employment relationship continues.
-
-The procedure requires a letter of employment from the Ticino employer, a signed employment contract, the Italian identity document, and a municipal residence certificate in Lazzate. Processing times vary from 2 to 4 weeks; renewal occurs in January of each year.
-
-Once Permit G is obtained, the cross-border worker is automatically enrolled in the Swiss social security system: old-age and survivors' insurance (AVS), disability insurance (AI), loss of earnings compensation (IPG), accident insurance (LAINF), and pension fund (LPP according to age group). These contributions are deducted directly from the Swiss paycheck according to federal (AVS/AI/IPG 5.3% for the employee, AD/AC 1.1%, LAINF 0.7–1.5%) and Ticino cantonal rates.
-### Cost of living and housing
-
-Lazzate offers significantly lower purchase and rental prices than the most popular Ticino areas (Lugano, Ascona, Locarno). Prices vary depending on the area of the municipality, proximity to the border and local infrastructure. However, the housing differential must be strictly compared with the additional costs of daily commuting.
-
-Approximate estimate of additional monthly costs: fuel CHF 150–300 (dependent on frequency and distance), car maintenance increase 25–30% (about CHF 50 per month), motorway tolls CHF 80–120, parking in Ticino CHF 100–200 in urban centres, car insurance CHF 100–150 per month (highest premiums in Italy). The Swiss vignette costs CHF 40 per year.
-
-Not all economic scenarios are beneficial for relocation. It depends on personal factors: gross salary, number of actual working days in Ticino (partial teleworking changes the calculation), family composition (spouse, children, dependent parents), and specific housing costs in Lazzate compared to the target Ticino area. A monoredit family with children might find overall convenience; a young couple without children might find that housing savings are nullified by transportation costs and wasted time.
-
-For a realistic and personalized estimate, use our [calcolatore costo della vita Ticino vs Italia](nav:cost-of-living).
-
-### Advantages of moving to Lazzate
-
-- Real estate prices
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Taxation for cross-border workers: the New 2024 Agreement
-
-The cross-border worker living in Lazzate and working in Ticino is subject to **withholding tax in Switzerland** (deducted by the employer directly from the paycheck). There is no double taxation because Italy avoids double taxation by applying a tax credit in the CE section of the 730 declaration (income model). The Italian-Swiss Convention, signed on December 9, 1976, regulates this aspect: the income from employment is taxed exclusively in the State where it is carried out (Switzerland).
-
-The New Cross-Border Workers Agreement, which came into force on January 1, 2024 (ratified by Italy with Law 83 of June 13, 2023), has introduced different regimes for taxation and refunds:
-
-- Old cross-border workers (already such before July 17, 2023): have the right to an exemption of €7,500 annually on employment income, a transitional regime that lasts until December 31, 2033
-- New cross-border workers (starting after July 17, 2023): have an allowance of €10,000 annually
-
-This distinction has significant impacts on refunds and annual liquidity. The lower the income, the more the allowance/exemption positively affects the tax result.
-
-### Procedure and critical deadlines
-
-1. Request Permit G
-Contact the SEM (State Secretariat for Migration) in the canton of Ticino (offices in Chiasso, Lugano, Bellinzona). Provide a letter of employment, employment contract, Italian identity document, certificate of residence in Lazzate. Processing time 2–4 weeks. Validity 1 year, renewable in January of each year.
-
-2. INPS registration and change of address
-Communicate the new Italian address to the employer. Register with the INPS (National Institute for Social Security) cross-border management. Deadline: within 30 days of the change of residence.
-
-3. Italian tax declaration (model 730)
-Complete the 730 model indicating the foreign employment income. Attach the Swiss tax certificate (Verrechnungssteuerbeleg) issued by the employer. Complete the CE section (foreign tax credit). Deadline: by May of the following year (or by November for 730-4).
-
-4. Refund declaration
-If the Swiss employer has withheld more taxes than due, you can request a refund. Process with the Refund Declaration at the Italian Revenue Agency. Deadline: within the ordinary declaration terms.
-
-The LAMal (Swiss health insurance) is mandatory. As a cross-border worker with Permit G, you have the right to choose: you can insure with a Swiss fund (adults' deductible CHF 300–2500 according to the plan) or maintain an Italian insurance, provided you notify the SEM.
-
-Learn more about the procedures with our [Permit G cross-border workers guide](nav:permits) and use our [cross-border salary calculator](nav:calculator) to simulate your net monthly salary considering Swiss taxation, Italian refunds, and the allowance of the New 2024 Agreement.]]></content:encoded>
-      <pubDate>Wed, 02 Sep 2026 03:43:42 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-lazzate-ticino-frontaliere</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-lazzate-ticino-frontaliere.webp" medium="image"/>
     </item>
   </channel>
 </rss>
