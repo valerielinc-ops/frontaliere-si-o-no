@@ -68387,6 +68387,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-affitti-benzina-spingono-inflazione': {
+    title: 'L\'inflazione torna a salire dopo 4 mesi | Frontaliere Ticino',
+    description: 'Inflazione agosto 0,8%, risalita dopo 4 mesi. Affitti, benzina le cause. BNS monitora. Prossima riunione 24 settembre. Leggi impatto sul costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, torna, salire, dopo',
+    ogTitle: 'L\'inflazione torna a salire dopo 4 mesi',
+    ogDescription: 'Inflazione svizzera agosto 0,8%, risalita dopo 4 mesi. Affitti e benzina tra le cause principali di rincaro. BNS monitorizza il trend con obiettivo 0-2%. Prossima riunione 24 settembre. Scopri l\'impatto sul costo della vita e cosa aspettarsi',
+    canonicalPath: '/articoli-svizzera/affitti-benzina-spingono-inflazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'inflazione torna a salire dopo 4 mesi",
+      "description": "Inflazione agosto 0,8%, risalita dopo 4 mesi. Affitti, benzina le cause. BNS monitora. Prossima riunione 24 settembre. Leggi impatto sul costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/affitti-benzina-spingono-inflazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un economista analizza grafici di inflazione e indice dei prezzi al consumo, con vista su Berna di sfondo."
+      },
+      "datePublished": "2026-09-03T08:35:51+00:00",
+      "dateModified": "2026-09-03T08:35:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/affitti-benzina-spingono-inflazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

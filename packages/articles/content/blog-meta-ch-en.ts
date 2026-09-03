@@ -5269,6 +5269,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.emissioni-co2-vcp-2025.title': 'VCP CO2 emissions: 2025 results and achievable targets',
     'blog.article.emissioni-co2-vcp-2025.excerpt': 'In 2025, the CO2 requirements for heavy commercial vehicles in Switzerland come into force: importers reach their targets with 20.8% of the fleet being fully electric.',
     'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Electric heavy-duty truck on Swiss road with Alpine mountains in the background',
+    'blog.article.affitti-benzina-spingono-inflazione.title': 'Inflation rises again after 4 months',
+    'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'In August, Swiss inflation was at 0.8%, after four months of declines. Rent and gasoline among the causes. The National Bank monitors carefully.',
+    'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'An economist analyzes inflation charts and consumer price index data with Bern cityscape in background.',
 };
 
 export default blogMetaChEn;

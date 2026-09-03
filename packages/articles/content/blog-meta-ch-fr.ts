@@ -5269,6 +5269,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.emissioni-co2-vcp-2025.title': 'Émissions de CO2 VCP : résultats 2025 et objectifs atteignables',
     'blog.article.emissioni-co2-vcp-2025.excerpt': 'En 2025, les prescriptions CO2 sur les poids lourds entrent en vigueur en Suisse : les importateurs atteignent les cibles avec 20,8% de flotte entièrement électrique.',
     'blog.article.emissioni-co2-vcp-2025.imageAlt': 'Camion électrique sur route suisse avec chaîne alpine en arrière-plan',
+    'blog.article.affitti-benzina-spingono-inflazione.title': 'L\'inflation repart à la hausse au bout de 4 mois',
+    'blog.article.affitti-benzina-spingono-inflazione.excerpt': 'En août, l\'inflation suisse est à 0,8%, après quatre mois de baisse. Loyers et essence entre les causes. La Banque nationale surveille de près.',
+    'blog.article.affitti-benzina-spingono-inflazione.imageAlt': 'Un économiste analyse des graphiques d\'inflation et des données d\'indice des prix à la consommation, vue de Berne.',
 };
 
 export default blogMetaChFr;
