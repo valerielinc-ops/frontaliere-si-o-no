@@ -68114,6 +68114,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-appenzello-interno-sostenibilita': {
+    title: 'Comprare casa Appenzello Interno: mutuo e tasse',
+    description: 'Procedura, fondi propri, sostenibilità mutuo, spese notarili e imposte cantonali per acquistare immobili in Appenzello Interno. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, appenzello, interno',
+    ogTitle: 'Comprare casa Appenzello Interno: mutuo e tasse',
+    ogDescription: 'Procedura, fondi propri, sostenibilità mutuo, spese notarili e imposte cantonali per acquistare immobili in Appenzello Interno.',
+    canonicalPath: '/articoli-svizzera/appenzello-interno-sostenibilita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Appenzello Interno: mutuo e tasse",
+      "description": "Procedura, fondi propri, sostenibilità mutuo, spese notarili e imposte cantonali per acquistare immobili in Appenzello Interno. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/appenzello-interno-sostenibilita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Facciate di edifici residenziali in una regione alpina svizzera con illuminazione mattutina."
+      },
+      "datePublished": "2026-09-03T04:44:30+00:00",
+      "dateModified": "2026-09-03T04:44:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/appenzello-interno-sostenibilita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

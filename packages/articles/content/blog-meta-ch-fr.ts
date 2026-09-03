@@ -5248,6 +5248,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Acheter une maison à Appenzell Interne : hypothèque et taxes',
     'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guide d\'achat d\'un bien immobilier à Appenzell Interne. Analyse des coûts, taxes de passage, frais de notaire, hypothèque et viabilité financière.',
     'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Maison suisse résidentielle avec documents hypothécaires, représentant l\'achat immobiliare et le financement.',
+    'blog.article.appenzello-interno-sostenibilita.title': 'Acheter maison Appenzell Interne : hypothèque et taxes',
+    'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procédure, fonds propres, viabilité hypothécaire, frais de notaire et impôts cantonaux pour l\'achat de biens immobiliers à Appenzell Interne.',
+    'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Façades de bâtiments résidentiels dans une région alpine suisse avec lumière du matin.',
 };
 
 export default blogMetaChFr;

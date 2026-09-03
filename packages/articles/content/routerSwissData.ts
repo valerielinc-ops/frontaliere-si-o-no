@@ -1775,6 +1775,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-turgovia-mutuo': { it: 'comprare-casa-turgovia-mutuo', en: 'buy-house-thurgau-mortgage', de: 'haus-kaufen-thurgau-hypothek', fr: 'acheter-maison-thurgovie-hypotheque' },
  'apprendistato-formazione-interno-ch': { it: 'apprendistato-formazione-interno-ch', en: 'apprenticeship-professional-training-swiss', de: 'berufslehre-ausbildung-schweiz', fr: 'apprentissage-formation-suisse' },
  'mutuo-ipotecario-appenzello-interno': { it: 'mutuo-ipotecario-appenzello-interno', en: 'mortgage-appenzello-inner-rhoden', de: 'hypothek-appenzell-innerrhoden-guide', fr: 'pret-hypothecaire-appenzell-rhodes' },
+ 'appenzello-interno-sostenibilita': { it: 'appenzello-interno-sostenibilita', en: 'appenzell-innerrhoden-home-sustainability', de: 'appenzell-innerrhoden-hauserwerb', fr: 'appenzell-rhodes-interieures-immobilier' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

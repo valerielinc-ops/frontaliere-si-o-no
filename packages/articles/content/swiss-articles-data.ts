@@ -15742,6 +15742,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'appenzello-interno-sostenibilita',
+    category: 'pratico',
+    date: '2026-09-03T04:44:30.774Z',
+    image: '/images/blog/appenzello-interno-sostenibilita.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

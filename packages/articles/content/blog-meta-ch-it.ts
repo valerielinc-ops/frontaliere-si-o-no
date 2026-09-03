@@ -5248,6 +5248,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mutuo-ipotecario-appenzello-interno.title': 'Comprare casa ad Appenzello Interno: mutuo e imposte',
     'blog.article.mutuo-ipotecario-appenzello-interno.excerpt': 'Guida all\'acquisto di un immobile in Appenzello Interno. Analisi di costi, imposte sui trapassi, spese notarili, mutuo ipotecario e sostenibilità finanziaria.',
     'blog.article.mutuo-ipotecario-appenzello-interno.imageAlt': 'Una casa svizzera moderna con documenti ipotecari su tavolo, rappresenta l\'acquisto immobiliare e il mutuo.',
+    'blog.article.appenzello-interno-sostenibilita.title': 'Comprare casa Appenzello Interno: mutuo e tasse',
+    'blog.article.appenzello-interno-sostenibilita.excerpt': 'Procedura, fondi propri, sostenibilità mutuo, spese notarili e imposte cantonali per acquistare immobili in Appenzello Interno.',
+    'blog.article.appenzello-interno-sostenibilita.imageAlt': 'Facciate di edifici residenziali in una regione alpina svizzera con illuminazione mattutina.',
 };
 
 export default blogMetaChIt;
