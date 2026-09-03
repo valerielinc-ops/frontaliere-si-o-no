@@ -11206,6 +11206,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-730-ristorni-2026.title': 'Detrazioni fiscali frontalieri Italia 2026',
     'blog.article.frontaliere-730-ristorni-2026.excerpt': 'Nuovo Accordo Frontalieri dal 2024: come recuperare le tasse con il 730. Esenzione €7.500 (vecchi) vs €10.000 (nuovi). Ristorni e credito d\'imposta spiegati.',
     'blog.article.frontaliere-730-ristorni-2026.imageAlt': 'Lugano al confine CH-Italia: fulcro del lavoro transfrontaliero e della tassazione',
+    'blog.article.frontaliere-dichiarazione-730-2026.title': 'Frontaliere: dichiarazione 730 e credito d\'imposta',
+    'blog.article.frontaliere-dichiarazione-730-2026.excerpt': 'Guida pratica alla dichiarazione 730 per frontalieri 2026: come ottenere il credito d\'imposta, evitare doppia imposizione, nuove franchigie dal Nuovo Accordo.',
+    'blog.article.frontaliere-dichiarazione-730-2026.imageAlt': 'Modulo 730 con documenti fiscali, calcolatrice e banconote svizzere su scrivania in legno',
 };
 
 export default blogMetaIt;

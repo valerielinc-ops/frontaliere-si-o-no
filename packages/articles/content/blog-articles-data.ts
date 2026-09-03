@@ -33483,6 +33483,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-dichiarazione-730-2026',
+ category: 'fiscale',
+ date: '2026-09-03T09:01:24.024Z',
+ image: '/images/blog/frontaliere-dichiarazione-730-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
