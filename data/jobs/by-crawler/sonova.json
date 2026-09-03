@@ -1,30 +1,30 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-09-03T14:04:54.692Z",
+  "assembledAt": "2026-09-03T23:09:22.410Z",
   "jobs": [
     {
       "id": "sonova-d1ea82454bba",
-      "slug": "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch",
+      "slug": "practical-apprendista-embedded-software-development-python-m-f-d-sonova-staefa",
       "slugByLocale": {
+        "it": "practical-apprendista-embedded-software-development-python-m-f-d-sonova-staefa",
         "en": "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch",
-        "it": "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch",
-        "de": "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch",
-        "fr": "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
+        "de": "practical-auszubildender-embedded-software-development-python-m-f-d-sonova-staefa",
+        "fr": "practical-apprenti-embedded-software-development-python-m-f-d-sonova-staefa"
       },
       "company": "Sonova",
       "companyKey": "sonova",
       "companyDomain": "sonova.com",
       "title": "Practical Trainee (Embedded Software Development & Python) (m/f/d)",
       "titleByLocale": {
-        "en": "Practical Trainee (Embedded Software Development & Python) (m/f/d)",
         "it": "Practical Apprendista (Embedded Software Development & Python) (m/f/d)",
+        "en": "Practical Trainee (Embedded Software Development & Python) (m/f/d)",
         "de": "Practical Auszubildender (Embedded Software Development & Python) (m/f/d)",
         "fr": "Practical Apprenti (Embedded Software Development & Python) (m/f/d)"
       },
       "description": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "en": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "it": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "en": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "de": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "fr": "We are looking for a self-driven Practical Trainee to support the development and integration of embedded software solutions for ASIC testing of hearing instruments. In this role, you will work closely with experienced engineers on real-life testing infrastructure challenges, including USB driver integration, embedded software development, hardware communication, and test automation. This traineeship offers hands-on experience in embedded systems and Python development within an innovative industrial environment.\n\nMore about the role\n\nAs a Practical Trainee in Embedded Software Development & Python, you will support activities such as:\n\n• Familiarizing yourself with the existing ASIC testing infrastructure and hardware setup\n\n• Supporting the integration of a USB to I2C converter chip into a Python-based test framework\n\n• Developing and implementing embedded software components and communication drivers\n\n• Creating Python wrappers and automation scripts for hardware interaction and testing\n\n• Investigating and implementing efficient interrupt handling and power management solutions\n\n• Collaborating with engineers to evaluate alternative technical solutions when required\n\n• Supporting testing, debugging, validation, and documentation of developed software components\n\n• Assisting with synchronization and integration activities between different hardware and software systems\n\n• Optionally supporting CI pipeline integration and test automation improvements\n\nMore about you\n\n• Bachelor’s or Master’s student (ongoing or recently completed) in Electrical Engineering, Embedded Systems, Computer Engineering, Software Engineering, or a similar field\n\n• Good Python programming skills\n\n• Basic experience with embedded software development and hardware communication\n\n• Understanding of hardware interfaces and communication protocols such as USB or I2C\n\n• Familiarity with C/C++ and Linux or Windows environments is a plus\n\n• Structured, analytical, and proactive way of working\n\n• Fluent communication skills in English and ability to work independently\n\nMore about What We Offer\n\nAs a leading global hearing care provider headquartered in Switzerland, we foster an inclusive and collaborative culture. We support work-life balance through a flexible hybrid working model and offer strong learning opportunities, individual development plans, and clear growth paths within R&D.\n\n• Hands-on experience with real embedded systems and hardware testing environments\n\n• Coaching and mentorship by experienced engineers\n\n• Exposure to ASIC testing infrastructure and industrial software development processes\n\n• International and multidisciplinary working environment\n\n• Opportunity to work on innovative technologies related to hearing instruments\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-%28Embedded-Software-Development-&-Python%29-%28mfd%29/1392838033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.793Z",
+      "crawledAt": "2026-09-03T23:09:17.014Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -47,10 +47,23 @@
       "postedDate": "2026-05-12",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1392838033/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:31:34.793Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
+        ],
+        "de": [
+          "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "practical-trainee-embedded-software-development-python-m-f-d-sonova-ch"
+      ],
       "salaryMin": 71000,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -63,8 +76,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:31:34.793Z"
+      }
     },
     {
       "id": "sonova-05280fbe6de4",
@@ -97,7 +109,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Global-Head-of-Intellectual-Property/1412981233/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.789Z",
+      "crawledAt": "2026-09-03T23:09:17.004Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -168,7 +180,7 @@
       "url": "https://jobs.sonova.com/job/Murten-RF-Design-Engineer-%28mfd%29/1414301033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.784Z",
+      "crawledAt": "2026-09-03T23:09:16.994Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,7 +251,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-International-Customer-Service-Specialist-%28mwd%29/1416178333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.783Z",
+      "crawledAt": "2026-09-03T23:09:16.993Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -310,7 +322,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Manager/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.780Z",
+      "crawledAt": "2026-09-03T23:09:16.987Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -372,7 +384,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.775Z",
+      "crawledAt": "2026-09-03T23:09:16.981Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -444,7 +456,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.772Z",
+      "crawledAt": "2026-09-03T23:09:16.974Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -515,7 +527,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.768Z",
+      "crawledAt": "2026-09-03T23:09:16.967Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -592,7 +604,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.763Z",
+      "crawledAt": "2026-09-03T23:09:16.959Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -678,7 +690,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.759Z",
+      "crawledAt": "2026-09-03T23:09:16.946Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -750,7 +762,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.755Z",
+      "crawledAt": "2026-09-03T23:09:16.938Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -828,7 +840,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-KochK%C3%B6chin-EFZ-%28mwd%29/1421319833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.751Z",
+      "crawledAt": "2026-09-03T23:09:16.932Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -908,7 +920,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Informatikerin-EFZ-Applikationsentwicklung-%28mfd%29/1421272633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.747Z",
+      "crawledAt": "2026-09-03T23:09:16.924Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -985,7 +997,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.743Z",
+      "crawledAt": "2026-09-03T23:09:16.918Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1062,7 +1074,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Konstrukteurin-EFZ-%28mwd%29/1421328433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.739Z",
+      "crawledAt": "2026-09-03T23:09:16.912Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1139,7 +1151,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.735Z",
+      "crawledAt": "2026-09-03T23:09:16.904Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1216,7 +1228,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Data-Scientist-%28mfd%29/1408793633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.730Z",
+      "crawledAt": "2026-09-03T23:09:16.885Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1231,14 +1243,14 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1408793633/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "data-scientist-m-f-d-sonova-staefa"
+      ],
       "previousSlugsByLocale": {
         "en": [
           "data-scientist-m-f-d-sonova-staefa"
         ]
       },
-      "previousSlugs": [
-        "data-scientist-m-f-d-sonova-staefa"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:03:31.685Z",
       "salaryMin": 73500,
@@ -1259,8 +1271,8 @@
       "id": "sonova-4414f1cfd509",
       "slug": "clinical-affairs-manager-m-f-d-sonova-ch",
       "slugByLocale": {
-        "en": "clinical-affairs-manager-m-f-d-sonova-ch",
         "it": "clinical-affairs-manager-m-f-d-sonova-ch",
+        "en": "clinical-affairs-manager-m-f-d-sonova-ch",
         "de": "clinical-affairs-manager-m-f-d-sonova-ch",
         "fr": "clinical-affairs-manager-m-f-d-sonova-ch"
       },
@@ -1269,15 +1281,15 @@
       "companyDomain": "sonova.com",
       "title": "Clinical Affairs Manager (m/f/d)",
       "titleByLocale": {
-        "en": "Clinical Affairs Manager (m/f/d)",
         "it": "Clinical Affairs Manager (m/f/d)",
+        "en": "Clinical Affairs Manager (m/f/d)",
         "de": "Clinical Affairs Manager (m/f/d)",
         "fr": "Clinical Affairs Manager (m/f/d)"
       },
       "description": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "en": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "it": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "en": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "de": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "fr": "Sonova is seeking a dedicated and detail-oriented Clinical Affairs Manager to support the clinical evaluation of our innovative hearing instrument systems. As a Clinical Affairs Manager, you will play a crucial role in supporting the market access of our medical devices in ensuring compliance with company procedures and applicable clinical regulations. This position requires a strong understanding of clinical data and the ability to summarize relevant clinical evidence effectively according to a pre-defined plan.\n\nMore about the role:\n\n• Support clinical evaluations for hearing instruments throughout the product lifecycle—from early product development through market launch and post-market activities—in accordance with Sonova procedures and applicable global regulations.\n\n• Plan and scope clinical evaluations; identify, critically appraise and analyze relevant clinical and scientific data.\n\n• Assess device safety, clinical performance and benefit–risk profile against the current state of the art.\n\n• Create and maintain clinical evaluation documentation in collaboration with cross-functional project teams, including Clinical Evaluation Plans and Reports, Clinical Development Plans, scientific literature search plans and reports, and Post-Market Clinical Follow-up Plan and Reports.\n\n• Support with regulatory guidance for product claims.\n\n• Collaborate closely with Clinical Affairs, Clinical Operations, Audiology Research Centers, R&D, Regulatory Affairs, Quality and Marketing to ensure regulatory compliance, knowledge sharing and continuous process improvement.\n\nMore about you:\n\nMust-have:\n\n• A master’s degree or PhD in health sciences, audiology, medicine, biomedical engineering, psychology, life sciences or a related field.\n\n• Experience working with clinical studies or investigations, for example conducting, coordinating or monitoring clinical studies.\n\n• Experience working with clinical data and the ability to critically interpret clinical study results, scientific publications and relevant statistical analyses.\n\n• Experience conducting scientific literature searches using databases such as PubMed, Cochrane or Embase, as well as critically appraising and summarizing the identified evidence.\n\n• Knowledge of relevant clinical and medical-device regulations and standards, such as EU MDR, FDA requirements, GCP or ISO 14155.\n\n• Strong analytical skills and attention to detail.\n\n• Ability to work independently, take ownership and manage responsibilities and deadlines effectively.\n\n• A collaborative, self-motivated approach and the ability to communicate openly and effectively across interdisciplinary teams.\n\n• Fluency in English is required; knowledge of German would be an advantage.\n\nNice to have\n\n• Hands-on experience conducting Clinical Evaluations in accordance with EU MDR.\n\n• Experience within the medical-device industry.\n\n• Experience with hearing instruments, audiology or another relevant healthcare product area.\n\n• Knowledge of Polarion or a comparable documentation management system.\n\nMore about what we offer:\n\nAs one of the world’s leading hearing care providers headquartered in Switzerland, we are committed to building an inclusive culture where you can balance a successful career with your life outside of work through our flexible hybrid working model. We offer a wide range of training opportunities for both professional and personal development, with strong growth opportunities supported by individual development plans.\n\nApplication process:\n\nMagdalena Suszek, Talent Acquisition Partner, is looking forward to receiving your application via our online job application platform, including your CV and cover letter. For this vacancy, only direct applications will be considered.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
@@ -1286,7 +1298,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Clinical-Affairs-Manager-%28mfd%29/1433380733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T13:31:34.722Z",
+      "crawledAt": "2026-09-03T23:09:16.872Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1300,10 +1312,9 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1433380733/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:31:34.722Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1316,16 +1327,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:31:34.722Z"
+      }
     },
     {
       "id": "sonova-00f339ff331d",
       "slug": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
       "slugByLocale": {
-        "de": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
         "it": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
         "en": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
+        "de": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
         "fr": "sachbearbeiter-service-administration-m-w-d-sonova-ch"
       },
       "company": "Sonova",
@@ -1333,16 +1343,16 @@
       "companyDomain": "sonova.com",
       "title": "Sachbearbeiter Service Administration (m/w/d)",
       "titleByLocale": {
-        "de": "Sachbearbeiter Service Administration (m/w/d)",
         "it": "Sachbearbeiter Service Administration (m/w/d)",
         "en": "Sachbearbeiter Service Administration (m/w/d)",
+        "de": "Sachbearbeiter Service Administration (m/w/d)",
         "fr": "Sachbearbeiter Service Administration (m/w/d)"
       },
       "description": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "de": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "it": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "en": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "de": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "fr": "Zur Verstärkung unseres Service-Teams suchen wir genau Sie!\n\nSie übernehmen die Bearbeitung und Koordination von Reparaturaufträgen, stehen unseren Kunden bei Fragen direkt zur Seite, überwachen Termine, erfassen Reklamationen und sorgen dafür, dass Reparaturen, Remakes und Custom-Neubestellungen reibungslos ablaufen. Bringen Sie Ihre Expertise ein und gestalten Sie unseren exzellenten Kundenservice aktiv mit!\n\nMehr über die Rolle\n\n• Bearbeitung von Reparaturaufträgen inklusive Kundenrücksprachen bei Fragen\n\n• Aktive Terminkontrolle der Reparaturen und Sicherstellung der telefonischen Erreichbarkeit der Serviceabteilung\n\n• Erfassung von Kundenreklamationen\n\n• Versandvorbereitung und Fakturierung von Reparaturen, Remakes und Custom-Neubestellungen\n\n• Unterstützung bei administrativen Aufgaben, beispielsweise beim Erstellen von Handlieferscheinen sowie beim Scannen von Kundendokumenten\n\n• Enge Zusammenarbeit mit anderen Abteilungen zur Sicherstellung effizienter Abläufe\n\nMehr über Sie\n\nMust-have\n\n• Kaufmännische oder technische Ausbildung\n\n• Berufserfahrung im Kundenkontakt, idealerweise in einem technischen Umfeld\n\n• Sehr gute Deutschkenntnisse sowie solide Französischkenntnisse (mindestens B1)\n\n• Hohe Zuverlässigkeit und eine selbstständige, strukturierte Arbeitsweise\n\n• Ausgeprägtes Kundenverständnis und eine dienstleistungsorientierte Kommunikation\n\n• Belastbarkeit und Flexibilität sowie die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten und Prioritäten richtig zu setzen\n\n• Teamfähigkeit und Kommunikationsstärke\n\n• Sicherer Umgang mit Windows und MS Office; SAP-Kenntnisse sind von Vorteil\n\nWünschenswert\n\n• Erfahrung im Hörgerätebereich oder in einer Serviceorganisation\n\n• Technisches Verständnis und Audiologie-Kenntnisse\n\n• Englisch- und Italienischkenntnisse\n\n• Kreativität und Bereitschaft, eigene Ideen aktiv einzubringen\n\nMehr über unser Angebot\n\nAls einer der weltweit führenden Hörakustik-Anbieter mit Hauptsitz in der Schweiz setzen wir uns für eine inklusive Unternehmenskultur ein. Wir möchten ein Umfeld schaffen, in dem Sie eine erfolgreiche Karriere mit Ihren Verpflichtungen und Interessen ausserhalb der Arbeit in Einklang bringen können – dank unseres flexiblen hybriden Arbeitsmodells. Wir bieten eine Vielzahl an Weiterbildungsmöglichkeiten für Ihre fachliche und persönliche Entwicklung sowie hervorragende Wachstumschancen durch individuelle Entwicklungspläne.\n\nÜber Deine Bewerbung\n\nMagdalena Suszek, Talent Acquisition Partner, freut sich auf Ihre vollständige Bewerbung über unsere Online-Bewerbungsplattform.\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
       "location": "Staefa, Switzerland",
@@ -1350,7 +1360,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Sachbearbeiter-Service-Administration-%28mwd%29/1433282633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:31:34.716Z",
+      "crawledAt": "2026-09-03T23:09:16.859Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1364,10 +1374,9 @@
       "postedDate": "2026-09-03",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1433282633/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:31:34.716Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1380,8 +1389,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:31:34.716Z"
+      }
     }
   ]
 }

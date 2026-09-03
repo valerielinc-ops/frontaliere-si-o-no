@@ -1,55 +1,43 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-03T13:34:26.933Z",
-  "total": 375,
+  "generatedAt": "2026-09-03T23:12:01.736Z",
+  "total": 377,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 153623,
-  "avgDurationMs": 153623,
+  "unchangedCount": 0,
+  "durationMs": 141705,
+  "avgDurationMs": 141705,
   "durationHistory": [
-    153623
+    141705
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "title": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d)",
-      "company": "Galenica AG (Galenica)",
+      "title": "Assistente di farmacia AFC",
+      "company": "Coop Vitality  (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=3128172.4049447",
-      "location": "Bern",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692417",
+      "location": "Zurich",
+      "canton": "ZH",
       "country": "CH",
-      "category": "technology",
-      "descriptionIt": "Senior Softwareentwickler/Softwareentwicklerin (w/m/d) presso Galenica AG (Gruppo Galenica), con sede a Bern, Untermattweg 8, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "",
-      "postedDate": "2026-06-04",
+      "category": "healthcare",
+      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Zurich, Sihlcity, Kalanderplatz 1, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692417-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-zurich-zh-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "postedDate": "",
       "source": "company-website",
-      "sourceLang": "en",
-      "slug": "software-seniorentwickler-softwareentwicklerin-m-f-d-galenica-ag-galenica-bern",
-      "id": "galenica-44aaf3ac70fe",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "salaryMin": 113000,
-      "salaryMax": 192000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Untermattweg 8",
-      "postalCode": "3027",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
+      "sourceLang": "it",
+      "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-zurich",
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
-        "completeness": 22
+        "completeness": 9
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
