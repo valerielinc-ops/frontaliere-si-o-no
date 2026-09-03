@@ -5278,6 +5278,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.calo-natalita-finanze-pubbliche.title': 'EFV: Geburtenrückgang belastet Schweizer Finanzen',
     'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'Die EFV analysiert die Auswirkungen des historischen Geburtenminimums auf die langfristige Stabilität der Sozialversicherungssysteme und der öffentlichen Kassen.',
     'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Gebäude der Eidgenössischen Finanzverwaltung in Bern.',
+    'blog.article.petizione-delocalizzazioni-svizzera.title': 'Petition gegen Standortverlagerung von Post und Swisscom',
+    'blog.article.petizione-delocalizzazioni-svizzera.excerpt': 'Transfair lanciert eine Petition, um die Verlagerung von Arbeitsplätzen und Know-how ins Ausland durch die Post und Swisscom zu stoppen.',
+    'blog.article.petizione-delocalizzazioni-svizzera.imageAlt': 'Luftaufnahme von Bellinzona, Schweiz, mit historischen Schlössern und moderner Infrastruktur.',
 };
 
 export default blogMetaChDe;

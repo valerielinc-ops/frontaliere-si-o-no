@@ -15832,6 +15832,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'petizione-delocalizzazioni-svizzera',
+    category: 'fiscale',
+    date: '2026-09-03T09:30:21.470Z',
+    image: '/images/blog/petizione-delocalizzazioni-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

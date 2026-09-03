@@ -1785,6 +1785,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'affitti-benzina-spingono-inflazione': { it: 'affitti-benzina-spingono-inflazione', en: 'rent-petrol-drive-swiss-inflation', de: 'mietpreise-benzin-treiben-inflation', fr: 'loyers-essence-poussent-inflation' },
  'pil-q2-2026-industria-forte': { it: 'pil-q2-2026-industria-forte', en: 'gdp-q2-2026-strong-industry-growth', de: 'bip-q2-2026-industrie-starkes-wachstum', fr: 'pib-q2-2026-industrie-croissance-forte' },
  'calo-natalita-finanze-pubbliche': { it: 'calo-natalita-finanze-pubbliche', en: 'birth-rate-decline-public-finances', de: 'geburtenraten-finanzpolitik-schweiz', fr: 'baisse-natalite-finances-publiques' },
+ 'petizione-delocalizzazioni-svizzera': { it: 'petizione-delocalizzazioni-svizzera', en: 'petition-against-outsourcing-switzerland', de: 'petition-gegen-outsourcing-schweiz', fr: 'petition-contre-la-delocalisation-suisse' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5278,6 +5278,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.calo-natalita-finanze-pubbliche.title': 'Aff : la baisse de la natalité pèse sur les finances suisses',
     'blog.article.calo-natalita-finanze-pubbliche.excerpt': 'L\'AFF analyse l\'impact du plus bas historique des naissances sur la stabilité des systèmes de sécurité sociale et sur les caisses publiques à long terme.',
     'blog.article.calo-natalita-finanze-pubbliche.imageAlt': 'Bâtiment de l\'Administration fédérale des finances à Berne.',
+    'blog.article.petizione-delocalizzazioni-svizzera.title': 'Pétition contre la délocalisation de La Poste et Swisscom',
+    'blog.article.petizione-delocalizzazioni-svizzera.excerpt': 'Transfair lance une pétition pour mettre fin aux délocalisations d\'emplois et de savoir-faire à l\'étranger par Poste et Swisscom.',
+    'blog.article.petizione-delocalizzazioni-svizzera.imageAlt': 'Vue aérienne de Bellinzona, Suisse, avec des châteaux historiques et des infrastructures modernes.',
 };
 
 export default blogMetaChFr;
