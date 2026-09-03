@@ -69245,6 +69245,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-lucerna-ipoteca-pratica': {
+    title: 'Comprare casa a Lucerna: mutuo ipotecario e imposte',
+    description: 'Acquistare una proprietà nel Canton Lucerna richiede competenze fiscal-finanziarie: imposte sui trapassi, mutuo sostenibile, spese notarili. Guida operativa',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, lucerna, mutuo',
+    ogTitle: 'Comprare casa a Lucerna: mutuo ipotecario e imposte',
+    ogDescription: 'Acquistare una proprietà nel Canton Lucerna richiede competenze fiscal-finanziarie: imposte sui trapassi, mutuo sostenibile, spese notarili. Guida operativa 2026.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-lucerna-ipoteca-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa a Lucerna: mutuo ipotecario e imposte",
+      "description": "Acquistare una proprietà nel Canton Lucerna richiede competenze fiscal-finanziarie: imposte sui trapassi, mutuo sostenibile, spese notarili. Guida operativa",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-lucerna-ipoteca-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Compravendita immobiliare in Svizzera: contratti d'acquisto e documenti mutuo ipotecario su scrivania, edificio residenziale svizzero sullo sfondo"
+      },
+      "datePublished": "2026-09-03T18:19:14+00:00",
+      "dateModified": "2026-09-03T18:19:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-lucerna-ipoteca-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

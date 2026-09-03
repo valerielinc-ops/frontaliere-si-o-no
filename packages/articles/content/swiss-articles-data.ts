@@ -16003,6 +16003,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-lucerna-ipoteca-pratica',
+    category: 'pratico',
+    date: '2026-09-03T18:19:14.547Z',
+    image: '/images/blog/comprare-casa-lucerna-ipoteca-pratica.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5335,6 +5335,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tariffario-ambulatoriale-cure-base.title': 'Hausärzte kritisieren Tardoc-Tarif',
     'blog.article.tariffario-ambulatoriale-cure-base.excerpt': 'Tardoc schätzt die Familienmedizin nicht auf und erhöht die ambulanten Kosten. Der Verband mfe fordert den Bundesrat auf, eine lineare Abwertung zu vermeiden.',
     'blog.article.tariffario-ambulatoriale-cure-base.imageAlt': 'Schweizer Arztpraxis mit Hausarzt, der Patientin in moderner Ambulanz berät',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.title': 'Haus kaufen in Luzern: Hypothekendarlehen und Steuern',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.excerpt': 'Der Kauf einer Immobilie im Kanton Luzern erfordert steuerliche und finanzielle Kompetenzen: Abgeltungssteuern, nachhaltiges Darlehen, Notarkosten. Betriebsanleitung 2026.',
+    'blog.article.comprare-casa-lucerna-ipoteca-pratica.imageAlt': 'Schweizer Immobilienkauf: Kaufverträge und Hypothekendokumente auf dem Schreibtisch, Wohngebäude im Hintergrund',
 };
 
 export default blogMetaChDe;
