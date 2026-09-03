@@ -11221,6 +11221,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Prêt maison en Suisse pour frontaliers',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Acheter une maison en Suisse auprès d\'un frontalier est possible. Voici les exigences, les banques et les procédures pour obtenir un prêt hypothécaire au Tessin et dans les régions frontalières.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Une maison moderne surplombant le lac Lugano et les montagnes tessinoises',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Prêt maison pour frontaliers : exigences et procédure en Suisse',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Guide pratique pour les frontaliers : comment obtenir un prêt hypothécaire en Suisse, documentation nécessaire, impôt à la source et procédures étape par étape.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Bureau bancaire moderne au Tessin avec documents hypothecaires, vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -11218,6 +11218,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Wohnungsbaudarlehen in der Schweiz für Grenzgänger',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Ein Haus in der Schweiz als Grenzgänger zu kaufen ist möglich. Hier sind die Voraussetzungen, Banken und Verfahren, um ein Hypothekendarlehen im Tessin und in den Grenzregionen zu erhalten.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Ein modernes Haus mit Blick auf den Luganer See und die Tessiner Berge',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Wohnungsbaudarlehen für Grenzgänger: Anforderungen und Verfahren in der Schweiz',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Praktischer Leitfaden für Grenzgänger: So erhalten Sie ein Hypothekendarlehen in der Schweiz, notwendige Unterlagen, Quellensteuer und Schritt-für-Schritt-Verfahren.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modernes Bankburo im Tessin mit Hypothekenunterlagen, Blick auf den Luganersee',
 };
 
 export default blogMetaDe;

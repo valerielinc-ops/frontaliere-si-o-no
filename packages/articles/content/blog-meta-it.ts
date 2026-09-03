@@ -11220,6 +11220,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Mutuo casa in Svizzera per frontalieri',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Acquistare casa in Svizzera da frontaliere è possibile. Ecco requisiti, banche e procedure per ottenere un mutuo ipotecario in Ticino e nelle regioni di confine.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'Una casa moderna con vista sul Lago di Lugano e sulle montagne ticinesi',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Mutuo casa per frontalieri: requisiti e procedura in Svizzera',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Guida pratica per frontalieri: come ottenere un mutuo ipotecario in Svizzera, documentazione necessaria, imposta alla fonte e procedure step-by-step.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Ufficio bancario moderno in Ticino con documenti mutuo, vista su Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -11219,6 +11219,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-mutuo-banche-svizzera.title': 'Home loan in Switzerland for frontier workers',
     'blog.article.frontaliere-mutuo-banche-svizzera.excerpt': 'Buying a house in Switzerland from a border agent is possible. Here are requirements, banks and procedures to obtain a mortgage loan in Ticino and border regions.',
     'blog.article.frontaliere-mutuo-banche-svizzera.imageAlt': 'A modern house overlooking Lake Lugano and Ticino mountains at sunrise',
+    'blog.article.mutuo-frontaliere-procedura-completa.title': 'Mortgage for cross-border commuters: requirements and procedure in Switzerland',
+    'blog.article.mutuo-frontaliere-procedura-completa.excerpt': 'Practical guide for frontier workers: how to obtain a mortgage loan in Switzerland, necessary documentation, tax at source and step-by-step procedures.',
+    'blog.article.mutuo-frontaliere-procedura-completa.imageAlt': 'Modern bank office in Ticino with mortgage documents, view of Lake Lugano in the background',
 };
 
 export default blogMetaEn;
