@@ -135,3 +135,69 @@ export function sanitizeSuccessFactorsField(value) {
   if (typeof value !== 'string') return '';
   return isSuccessFactorsWidgetText(value) ? '' : value;
 }
+
+/**
+ * The j2w multi-location marker: a results row whose posting is open in more
+ * than one office renders the extra offices as a `<small class="nobr">+N
+ * more&hellip;</small>` suffix INSIDE the `<span class="jobLocation">` cell.
+ *
+ * WHY THIS BELONGS HERE, next to the widget guard: it is the same defect
+ * family — tenant page chrome bleeding into a scraped field — and the same
+ * duplication history. `benteler-job-parser.mjs` grew a private
+ * `/\+\s*\d+\s*more/i` (after an ad-hoc `&hellip;` unescape) to flag those
+ * rows, `constellium-job-parser.mjs` dodges the suffix by stopping its
+ * location match at the first `<` instead of at `</span>`, and the seven
+ * parsers that DO read the whole cell — `zurich-insurance-job-parser.mjs`,
+ * `clariant-job-parser.mjs`, `damiani-job-parser.mjs`,
+ * `skyguide-job-parser.mjs`, `patek-philippe-job-parser.mjs`,
+ * `prada-job-parser.mjs` and the shared
+ * `successfactors-shared-job-parser-common.mjs` (CSB tenants) — carried no
+ * guard at all, so their location field read literally "Zürich, CH +1
+ * more&hellip;".
+ * That is not cosmetic: Zurich Insurance fails closed on an unresolvable
+ * Swiss location, so ONE multi-location row aborted the whole crawler run
+ * ("Zurich listing has an unresolved Swiss location", run 33694169583).
+ *
+ * The marker is anchored on `+<digits>` followed by the locale word j2w uses
+ * for "more" (the tenants crawled here serve de/en/fr/it). Anchoring on the
+ * word, not on the bare `+N`, keeps a genuine location containing a digit
+ * from being truncated.
+ */
+export const SF_J2W_MORE_LOCATIONS_RE =
+  /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b[\s\S]*$/i;
+
+/** Text form of `&hellip;` so callers need not unescape it themselves. */
+function unescapeHellip(value) {
+  return String(value).replace(/&hellip;|&#8230;|&#x2026;/gi, '…');
+}
+
+/**
+ * True when `value` carries the j2w "+N more…" multi-location marker.
+ *
+ * Accepts either the extracted cell text or the raw row HTML — callers that
+ * only need to KNOW a row hides extra locations (to keep it for a detail-page
+ * country check) use this; callers that need the visible location use
+ * `stripSuccessFactorsMoreLocations()`.
+ *
+ * @param {unknown} value
+ * @returns {boolean}
+ */
+export function hasSuccessFactorsMoreLocations(value) {
+  if (typeof value !== 'string') return false;
+  return SF_J2W_MORE_LOCATIONS_RE.test(unescapeHellip(value));
+}
+
+/**
+ * Return the visible (primary) location of a j2w `jobLocation` cell, i.e.
+ * `value` without the "+N more…" suffix.
+ *
+ * Non-string input yields `''` — an absent cell and a contaminated one are
+ * different problems, and callers already treat `''` as "no location".
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function stripSuccessFactorsMoreLocations(value) {
+  if (typeof value !== 'string') return '';
+  return unescapeHellip(value).replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
+}

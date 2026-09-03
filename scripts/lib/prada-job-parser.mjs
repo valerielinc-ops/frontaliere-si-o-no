@@ -24,7 +24,11 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const HQ = getCompanyDefaults('prada');
@@ -167,7 +171,11 @@ export function parsePradaListingHtml(html) {
     // Extract location from the next colLocation cell
     const afterMatch = html.slice(match.index, match.index + 1000);
     const locMatch = afterMatch.match(/class="[^"]*colLocation[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
-    const location = locMatch ? normalizeSpace(stripHtml(locMatch[1])) : '';
+    // The whole-`<td>` capture also swallows the nested `<small>+N
+    // more&hellip;</small>` of multi-location rows — keep the visible office.
+    const location = locMatch
+      ? stripSuccessFactorsMoreLocations(normalizeSpace(stripHtml(locMatch[1])))
+      : '';
 
     // Extract department from colDepartment cell if present
     const deptMatch = afterMatch.match(/class="[^"]*colDepartment[^"]*"[^>]*>([\s\S]*?)<\/td>/i);

@@ -51,7 +51,11 @@ import {
   extractBalancedTagBlock,
   USER_AGENT,
 } from './hospital-custom-html-helpers.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 const PAGE_SIZE = 25; // SF CSB default — observed 78 jobs returned on a single
                       // page for ZURZACH Care, so larger sites may need it.
@@ -172,6 +176,11 @@ export function parseCsbSearchResults(html) {
       const dm = cell.match(/(\d{4}-\d{2}-\d{2})/) || cell.match(/(\d{1,2}[.\/-]\d{1,2}[.\/-]\d{4})/);
       if (!postedDate && dm) postedDate = parseLooseDate(dm[1]);
     }
+
+    // A posting open in several offices appends a nested `<small>+N
+    // more&hellip;</small>` to the location cell; both the dedicated-cell read
+    // and the heuristic cell scan capture it. Keep the visible office.
+    location = stripSuccessFactorsMoreLocations(location);
 
     out.push({ relUrl, jobId, title, location, postedDate });
   }

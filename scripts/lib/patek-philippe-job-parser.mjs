@@ -30,7 +30,11 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -247,7 +251,9 @@ function parseListingPage(html, pageUrl) {
       title,
       url,
       jobReqId,
-      location: locationM ? textOf(locationM[1]) : '',
+      // `</span>`-bounded match also swallows the nested `<small>+N
+      // more&hellip;</small>` of multi-location rows — keep the visible office.
+      location: locationM ? stripSuccessFactorsMoreLocations(textOf(locationM[1])) : '',
       department: department ? textOf(department) : '',
       contract: facility ? textOf(facility) : '',
     });

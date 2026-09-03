@@ -3,8 +3,10 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   SF_J2W_WIDGET_PATTERNS,
+  hasSuccessFactorsMoreLocations,
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
 } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
 
 /**
@@ -121,6 +123,41 @@ describe('SuccessFactors jobs2web widget guard', () => {
       // A consumer must not be able to mutate the list for every other crawler.
       expect(Object.isFrozen(SF_J2W_WIDGET_PATTERNS)).toBe(true);
       expect(SF_J2W_WIDGET_PATTERNS.length).toBeGreaterThan(20);
+    });
+  });
+
+  describe('multi-location "+N more" marker', () => {
+    it('keeps the visible office and drops the marker, entity-encoded or not', () => {
+      // The Zurich Insurance run that failed closed read exactly this cell.
+      expect(stripSuccessFactorsMoreLocations('Zürich, CH +1 more&hellip;')).toBe('Zürich, CH');
+      expect(stripSuccessFactorsMoreLocations('Basel, CH +2 more…')).toBe('Basel, CH');
+      expect(stripSuccessFactorsMoreLocations('Muttenz, CH, +3 weitere…')).toBe('Muttenz, CH');
+      expect(stripSuccessFactorsMoreLocations('Genève, CH +1 autre…')).toBe('Genève, CH');
+      expect(stripSuccessFactorsMoreLocations('Mendrisio +4 altri…')).toBe('Mendrisio');
+    });
+
+    it('leaves a single-office location untouched', () => {
+      for (const value of ['Sierre, CH', 'Zürich, CH', 'Mendrisio', 'Route 66, CH']) {
+        expect(stripSuccessFactorsMoreLocations(value)).toBe(value);
+        expect(hasSuccessFactorsMoreLocations(value)).toBe(false);
+      }
+    });
+
+    it('detects the marker in the raw row HTML too', () => {
+      // benteler reads it off the whole `<tr>` block to flag rows whose hidden
+      // office may be the Swiss one.
+      expect(
+        hasSuccessFactorsMoreLocations(
+          '<span class="jobLocation">Paderborn, DE <small class="nobr">+1 more&hellip;</small></span>',
+        ),
+      ).toBe(true);
+    });
+
+    it('treats non-string input as marker-free and yields an empty string', () => {
+      for (const value of [undefined, null, 0, {}, []]) {
+        expect(hasSuccessFactorsMoreLocations(value as unknown as string)).toBe(false);
+        expect(stripSuccessFactorsMoreLocations(value as unknown as string)).toBe('');
+      }
     });
   });
 
