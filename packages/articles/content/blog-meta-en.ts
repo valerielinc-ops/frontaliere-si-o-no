@@ -11291,6 +11291,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-albavilla-lavorare-ticino.title': 'Living in Albavilla and working in Ticino: border guide',
     'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'G leave, taxation, AVS, LPP and LAMal for those who reside in Albavilla and work in Ticino. Practical guide to border life in the Como-Switzerland area.',
     'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Border crossing Ticino-Italy near Albavilla, Como, with view of Lake Lugano at dawn',
+    'blog.article.formazione-continua-ticino-campagna.title': 'Continuous training, the cantonal Ticino countryside kicks off',
+    'blog.article.formazione-continua-ticino-campagna.excerpt': 'The UFCI campaign on basic skills in 5 cities kicked off at the beginning of September. Escape room, docufilm, stations and evening with Andrea Vitali from 5 to 10 September.',
+    'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Bellinzona city center with UFCI continuous education campaign posters displayed in public spaces',
 };
 
 export default blogMetaEn;

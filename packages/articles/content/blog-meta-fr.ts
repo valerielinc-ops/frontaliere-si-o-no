@@ -11293,6 +11293,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-albavilla-lavorare-ticino.title': 'Vivre à Albavilla et travailler au Tessin : guide frontalier',
     'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'Permis G, fiscalité, AVS, LPP et LAMal pour ceux qui résident à Albavilla et travaillent au Tessin. Guide pratique de la vie frontalière dans la zone Côme-Suisse.',
     'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Passage frontalier Tessin-Italie près d\'Albavilla, Como, avec vue sur le lac de Lugano à l\'aube',
+    'blog.article.formazione-continua-ticino-campagna.title': 'Formation continue, au départ de la campagne cantonale tessinoise',
+    'blog.article.formazione-continua-ticino-campagna.excerpt': 'Lancement début septembre de la campagne OFCI sur les compétences de base dans 5 villes. Escape room, film documentaire, stations et soirée avec Andrea Vitali du 5 au 10 septembre.',
+    'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Centre de Bellinzone avec les affiches de la campagne UFCI de formation continue affichées sur les places publiques',
 };
 
 export default blogMetaFr;

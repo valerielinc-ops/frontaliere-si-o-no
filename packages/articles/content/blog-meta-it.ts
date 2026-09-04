@@ -11292,6 +11292,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-albavilla-lavorare-ticino.title': 'Vivere ad Albavilla e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'Permesso G, fiscalità, AVS, LPP e LAMal per chi risiede ad Albavilla e lavora in Ticino. Guida pratica alla vita frontaliera nella zona Como-Svizzera.',
     'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Valico della frontiera Ticino-Italia nei pressi di Albavilla, Como, con vista sul Lago Lugano all\'alba',
+    'blog.article.formazione-continua-ticino-campagna.title': 'Formazione continua, al via la campagna cantonale ticinese',
+    'blog.article.formazione-continua-ticino-campagna.excerpt': 'Al via a inizio settembre la campagna UFCI su competenze di base in 5 città. Escape room, docufilm, stazioni e serata con Andrea Vitali dal 5 al 10 settembre.',
+    'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Bellinzona centrale con adesivi della campagna UFCI sulla formazione continua esposti negli spazi pubblici',
 };
 
 export default blogMetaIt;

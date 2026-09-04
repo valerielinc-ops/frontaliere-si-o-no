@@ -33735,6 +33735,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'formazione-continua-ticino-campagna',
+ category: 'novita',
+ date: '2026-09-04T04:47:16.944Z',
+ image: '/images/blog/formazione-continua-ticino-campagna.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
