@@ -311,6 +311,24 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
  return parts;
 }
 
+/** Separator row of a markdown table (`|---|:--:|`). Shared by the renderer and
+ *  by the `isTableBlock` lookahead so the two can never disagree on what a
+ *  table is (AGENTS.md #6: no duplicated literal regex). */
+const TABLE_SEPARATOR_RE = /^\|(\s*:?-{2,}:?\s*\|)+\s*$/;
+
+/**
+ * True when a block is a markdown table, using the SAME acceptance rule as
+ * `tryRenderMdTable` (header row + separator + at least one body row) without
+ * building the React tree. Lookahead-only: `renderFormattedContent` needs to
+ * know what the block AFTER a `## ` heading is before deciding where an ad goes.
+ */
+export function isTableBlock(text: string): boolean {
+ if (!text.includes('|')) return false;
+ const tableLines = text.split('\n').filter(l => l.trim().startsWith('|'));
+ const sepIdx = tableLines.findIndex(l => TABLE_SEPARATOR_RE.test(l.trim()));
+ return sepIdx > 0 && tableLines.length > sepIdx + 1;
+}
+
 /**
  * Try to render a markdown table from text. Returns null if not a valid table.
  *
@@ -322,7 +340,7 @@ function renderInlineFormatting(text: string, navigators?: NavigatorMap): ReactN
 export function tryRenderMdTable(text: string, keyPrefix: string, navigators?: NavigatorMap): ReactElement | null {
  if (!text.includes('|') || !/^\|[^|]+\|/m.test(text)) return null;
  const tableLines = text.split('\n').filter(l => l.trim().startsWith('|'));
- const isSeparator = (line: string) => /^\|(\s*:?-{2,}:?\s*\|)+\s*$/.test(line.trim());
+ const isSeparator = (line: string) => TABLE_SEPARATOR_RE.test(line.trim());
  const sepIdx = tableLines.findIndex(l => isSeparator(l));
  if (sepIdx <= 0) return null;
  const headerLines = tableLines.slice(0, sepIdx);
@@ -433,6 +451,10 @@ function renderFormattedContent(
  // The renderer enforces the per-article cap (returns null when capped).
  let wordsSinceLastAd = 0;
  let sawContent = false;
+ // Ad deferred from a `## ` boundary whose section opens with a table: it is
+ // re-tried at the first boundary AFTER the table, never dropped (see the H2
+ // branch below).
+ let pendingAdKey: string | null = null;
  const tryEmitAd = (keyPrefix: string): void => {
   if (!adRenderer) return;
   if (!sawContent || wordsSinceLastAd < AD_MIN_WORD_GAP) return;
@@ -476,6 +498,16 @@ function renderFormattedContent(
  for (let idx = 0; idx < blocks.length; idx += 1) {
  const trimmed = blocks[idx].trim();
 
+ // Flush an ad deferred by the H2 lookahead, once the table it would have
+ // straddled is behind us. The gap predicate in tryEmitAd is monotone in
+ // wordsSinceLastAd, so an ad eligible at the H2 is still eligible here: the
+ // deferral moves the ad, it never removes one.
+ if (pendingAdKey && !isTableBlock(trimmed)) {
+  const deferredKey = pendingAdKey;
+  pendingAdKey = null;
+  tryEmitAd(deferredKey);
+ }
+
  // Heading: #### (H4 — sub-sub-heading)
  if (trimmed.startsWith('#### ')) {
  const lines = trimmed.split('\n');
@@ -515,7 +547,17 @@ function renderFormattedContent(
  // Heading: ## — natural section boundary. Try emitting an ad BEFORE the H2
  // (so the ad sits between the previous section's end and this H2's title).
  if (trimmed.startsWith('## ')) {
- tryEmitAd(`pre-h2-${idx}`);
+ // Lookahead: when the section opens with a table, an ad emitted here lands
+ // between the heading and the table it announces — the straddle that
+ // `docs/ads-placement-longform.md` §2 rules out ("mai a cavallo di
+ // tabella"). Defer it to after the table instead of suppressing it, so the
+ // per-article ad count is unchanged (AGENTS.md #7: riposizionamento, non
+ // rimozione).
+ if (isTableBlock(blocks[idx + 1]?.trim() ?? '')) {
+  pendingAdKey = `post-table-h2-${idx}`;
+ } else {
+  tryEmitAd(`pre-h2-${idx}`);
+ }
 
  const lines = trimmed.split('\n');
  const rawHeadingLine = lines[0].replace(/^##\s+/, '').trim();
