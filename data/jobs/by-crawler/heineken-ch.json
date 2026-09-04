@@ -1,6 +1,6 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-09-03T23:35:24.330Z",
+  "assembledAt": "2026-09-04T13:48:01.428Z",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
@@ -48,14 +48,16 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:35:22.004Z",
+      "crawledAt": "2026-09-04T13:47:58.811Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "chauffeur-c-e-heineken-switzerland-fahrweid"
+        "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "c-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-e-heineken-ch-fahrweid"
+          "chauffeur-c-e-heineken-ch-fahrweid",
+          "c-c-e-heineken-switzerland-fahrweid"
         ],
         "de": [
           "chauffeur-c-e-heineken-switzerland-fahrweid"
@@ -124,13 +126,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=153028&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:35:13.657Z",
+      "crawledAt": "2026-09-04T13:47:51.074Z",
       "previousSlugs": [
-        "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
+        "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
+        "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
+          "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern",
+          "personale-in-birrerie-10-su-chiamata-heineken-switzerland-luzern"
         ],
         "en": [
           "mitarbeiterin-brauereifuhrungen-10-auf-abruf-heineken-ch-luzern"
@@ -201,13 +205,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:35:05.789Z",
+      "crawledAt": "2026-09-04T13:47:43.161Z",
       "previousSlugs": [
-        "chauffeur-kat-c-e-heineken-ch-luzern"
+        "chauffeur-kat-c-e-heineken-ch-luzern",
+        "autista-cat-c-e-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-c-e-heineken-ch-luzern"
+          "chauffeur-kat-c-e-heineken-ch-luzern",
+          "autista-cat-c-e-heineken-switzerland-luzern"
         ],
         "en": [
           "chauffeur-kat-c-e-heineken-ch-luzern"
@@ -278,13 +284,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=158627&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:34:59.208Z",
+      "crawledAt": "2026-09-04T13:47:35.186Z",
       "previousSlugs": [
         "agent-customer-service-heineken-ch-luzern",
         "mitarbeiter-in-kundenservice-heineken-ch-luzern",
         "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
         "agent-customer-support-heineken-ch-winterthur",
-        "agent-service-a-la-clientele-heineken-switzerland-winterthur"
+        "agent-service-a-la-clientele-heineken-switzerland-winterthur",
+        "servizio-clienti-agente-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -292,7 +299,8 @@
           "mitarbeiter-in-kundenservice-heineken-ch-luzern",
           "supporto-clienti-dell-agente-heineken-switzerland-winterthur",
           "agent-customer-support-heineken-ch-winterthur",
-          "agent-service-a-la-clientele-heineken-switzerland-winterthur"
+          "agent-service-a-la-clientele-heineken-switzerland-winterthur",
+          "servizio-clienti-agente-heineken-switzerland-luzern"
         ],
         "de": [
           "agent-customer-service-heineken-ch-luzern",
@@ -304,6 +312,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T12:46:50.069Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "currency": "CHF",
@@ -365,13 +374,14 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162611&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:34:50.758Z",
+      "crawledAt": "2026-09-04T13:47:27.062Z",
       "previousSlugs": [
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
         "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
         "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
         "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
-        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur"
+        "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
+        "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -379,7 +389,8 @@
           "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-chur",
           "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-chur",
           "sales-consultant-in-the-field-gastronomy-heineken-switzerland-chur",
-          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur"
+          "consultant-commercial-sur-le-terrain-gastronomie-heineken-switzerland-chur",
+          "consulente-commerciale-nel-settore-gastronomia-heineken-switzerland-luzern"
         ],
         "en": [
           "verkaufsberater-in-im-aussendienst-gastronomie-heineken-ch-luzern",
@@ -394,6 +405,7 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:34:47.887Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "currency": "CHF",
@@ -455,15 +467,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=163082&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:34:42.415Z",
+      "crawledAt": "2026-09-04T13:47:19.398Z",
       "previousSlugs": [
         "betriebsmechaniker-in-heineken-ch-chur",
-        "betriebsmechaniker-in-heineken-switzerland-chur"
+        "betriebsmechaniker-in-heineken-switzerland-chur",
+        "meccanica-aziendale-in-heineken-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsmechaniker-in-heineken-ch-chur",
-          "betriebsmechaniker-in-heineken-switzerland-chur"
+          "betriebsmechaniker-in-heineken-switzerland-chur",
+          "meccanica-aziendale-in-heineken-switzerland-chur"
         ],
         "en": [
           "betriebsmechaniker-in-heineken-switzerland-chur"
@@ -508,7 +522,7 @@
       "title": "Analyst Qualitätssicherung 50 % - 60 %",
       "titleByLocale": {
         "it": "Assicurazione qualità analitica 50% - 60%",
-        "en": "Analyst quality assurance 50% - 60%",
+        "en": "Analyst Qualitätssicherung 50 % - 60 %",
         "de": "Analyst Qualitätssicherung 50 % - 60 %",
         "fr": "Assurance qualité des analystes 50% - 60%"
       },
@@ -538,16 +552,18 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164096&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:34:35.857Z",
+      "crawledAt": "2026-09-04T13:47:11.315Z",
       "previousSlugs": [
         "analyst-qualitatssicherung-50-60-heineken-ch-chur",
         "analista-qualitatssicherung-50-60-heineken-switzerland-chur",
-        "analyste-qualitatssicherung-50-60-heineken-switzerland-chur"
+        "analyste-qualitatssicherung-50-60-heineken-switzerland-chur",
+        "assicurazione-qualita-analitica-50-60-heineken-switzerland-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analyst-qualitatssicherung-50-60-heineken-ch-chur",
-          "analista-qualitatssicherung-50-60-heineken-switzerland-chur"
+          "analista-qualitatssicherung-50-60-heineken-switzerland-chur",
+          "assicurazione-qualita-analitica-50-60-heineken-switzerland-chur"
         ],
         "en": [
           "analyst-qualitatssicherung-50-60-heineken-ch-chur"
@@ -558,6 +574,7 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:19:28.979Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "currency": "CHF",
@@ -619,15 +636,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:34:26.988Z",
+      "crawledAt": "2026-09-04T13:47:03.571Z",
       "previousSlugs": [
         "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
-        "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
+        "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
+        "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
-          "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
+          "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
+          "chauffeur-c-e-m-w-arosa-heineken-switzerland-arosa"
         ],
         "en": [
           "chauffeur-c-e-m-w-arosa-heineken-ch-arosa"
@@ -652,6 +671,70 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "heineken-ch-8d3488d511c4",
+      "jobReqId": "164368",
+      "slug": "sales-market-analyst-w-m-d-heineken-ch-luzern",
+      "slugByLocale": {
+        "de": "sales-market-analyst-w-m-d-heineken-ch-luzern",
+        "it": "sales-market-analyst-w-m-d-heineken-ch-luzern",
+        "en": "sales-market-analyst-w-m-d-heineken-ch-luzern",
+        "fr": "sales-market-analyst-w-m-d-heineken-ch-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Sales & Market Analyst (w/m/d)",
+      "titleByLocale": {
+        "de": "Sales & Market Analyst (w/m/d)",
+        "en": "Sales & Market Analyst (w/m/d)",
+        "it": "Sales & Market Analista (w/m/d)",
+        "fr": "Sales & Market Analyste (w/m/d)"
+      },
+      "description": "Deine Verantwortungen Entwicklung, Pflege und Optimierung interaktiver Power-BI-Reports und KPI-Dashboards inklusive Datenmodellierung, DAX und Power Query Erstellung von Business-, Umsatz-, Kunden- und Kampagnenanalysen sowie Ableitung konkreter Handlungsempfehlungen für Sales und Customer Marketing Verantwortung für den quartalsweisen Incentive- und Zielsetzungsprozess des Aussendienstes von der Zieldefinition und Stakeholder-Abstimmung bis zur Erfolgsmessung und Performance-Steuerung Identifikation relevanter Zielkanäle, Kundensegmente und Wachstumspotenziale Planung, Begleitung und Auswertung von Kampagnen und Aktivierungen inklusive Dokumentation der wichtigsten Learnings Messung der Wirkung von Brand-Visibility-Aktivitäten am Point of Consumption gemäss relevanten Standards und Prioritäten Durchführung von Deep-Dive-Analysen zu Sortiment, Produktmix, Distribution, Kundenentwicklung und Verkaufsperformance Weiterentwicklung von Launch-Trackern gemeinsam mit CMI sowie Unterstützung bei der Definition der On-Trade-Zyklusziele Sicherstellung eines konsistenten und adressatengerechten Reportings in enger Zusammenarbeit mit Sales, Trade Marketing, Controlling, CRM und weiteren Stakeholdern Sicherstellung einer hohen Datenqualität durch Plausibilitätsprüfungen und eine nachvollziehbare KPI-Logik über verschiedene Quellsysteme hinweg Mitarbeit in bereichsübergreifenden Analytics-, Digitalisierungs- und Prozessoptimierungsprojekten inklusive Unterstützung bei Rollouts, Dokumentationen und Anwenderschulungen Übersetzung komplexer geschäftlicher Fragestellungen in verständliche Analysen und Visualisierungen sowie Förderung von Self-Service Analytics durch klare Standards und Wissenstransfer Das bringst du mit Eine abgeschlossene kaufmännische oder vergleichbare Ausbildung. Eine Weiterbildung in Business Analysis, Datenanalyse, Statistik oder Betriebswirtschaft ist von Vorteil. Mehrjährige Berufserfahrung im Bereich Datenanalyse, Reporting oder Sales Analytics, idealerweise im FMCG-Umfeld. Sehr gute Kenntnisse in Power BI, insbesondere in der Dashboard-Entwicklung, Datenmodellierung, Power Query und DAX, sowie einen sicheren Umgang mit Excel und Microsoft 365. Erfahrung mit SAP und Microsoft Dynamics 365 CRM oder vergleichbaren ERP- und CRM-Systemen. Kenntnisse in SQL, Datenmodellen, Schnittstellen und Datenqualität sind ein Plus. Kenntnisse in Dataflows, Lakehouse- oder Cloud-Konzepten sowie ein Verständnis für Governance, Berechtigungen und Dokumentation sind von Vorteil. Sehr gute Deutsch- und gute Englischkenntnisse. Französisch- und/oder Italienischkenntnisse sind ein Plus. Ausgeprägte analytische Fähigkeiten, ein Flair für Zahlen sowie die Fähigkeit, Zusammenhänge und Geschäftschancen zu erkennen. Eine selbständige, strukturierte und sorgfältige Arbeitsweise, verbunden mit Eigeninitiative, Lernbereitschaft und hoher Lösungsorientierung. Kommunikationsstärke, Stakeholder-Orientierung und Freude an der bereichsübergreifenden Zusammenarbeit.",
+      "descriptionByLocale": {
+        "de": "Deine Verantwortungen Entwicklung, Pflege und Optimierung interaktiver Power-BI-Reports und KPI-Dashboards inklusive Datenmodellierung, DAX und Power Query Erstellung von Business-, Umsatz-, Kunden- und Kampagnenanalysen sowie Ableitung konkreter Handlungsempfehlungen für Sales und Customer Marketing Verantwortung für den quartalsweisen Incentive- und Zielsetzungsprozess des Aussendienstes von der Zieldefinition und Stakeholder-Abstimmung bis zur Erfolgsmessung und Performance-Steuerung Identifikation relevanter Zielkanäle, Kundensegmente und Wachstumspotenziale Planung, Begleitung und Auswertung von Kampagnen und Aktivierungen inklusive Dokumentation der wichtigsten Learnings Messung der Wirkung von Brand-Visibility-Aktivitäten am Point of Consumption gemäss relevanten Standards und Prioritäten Durchführung von Deep-Dive-Analysen zu Sortiment, Produktmix, Distribution, Kundenentwicklung und Verkaufsperformance Weiterentwicklung von Launch-Trackern gemeinsam mit CMI sowie Unterstützung bei der Definition der On-Trade-Zyklusziele Sicherstellung eines konsistenten und adressatengerechten Reportings in enger Zusammenarbeit mit Sales, Trade Marketing, Controlling, CRM und weiteren Stakeholdern Sicherstellung einer hohen Datenqualität durch Plausibilitätsprüfungen und eine nachvollziehbare KPI-Logik über verschiedene Quellsysteme hinweg Mitarbeit in bereichsübergreifenden Analytics-, Digitalisierungs- und Prozessoptimierungsprojekten inklusive Unterstützung bei Rollouts, Dokumentationen und Anwenderschulungen Übersetzung komplexer geschäftlicher Fragestellungen in verständliche Analysen und Visualisierungen sowie Förderung von Self-Service Analytics durch klare Standards und Wissenstransfer Das bringst du mit Eine abgeschlossene kaufmännische oder vergleichbare Ausbildung. Eine Weiterbildung in Business Analysis, Datenanalyse, Statistik oder Betriebswirtschaft ist von Vorteil. Mehrjährige Berufserfahrung im Bereich Datenanalyse, Reporting oder Sales Analytics, idealerweise im FMCG-Umfeld. Sehr gute Kenntnisse in Power BI, insbesondere in der Dashboard-Entwicklung, Datenmodellierung, Power Query und DAX, sowie einen sicheren Umgang mit Excel und Microsoft 365. Erfahrung mit SAP und Microsoft Dynamics 365 CRM oder vergleichbaren ERP- und CRM-Systemen. Kenntnisse in SQL, Datenmodellen, Schnittstellen und Datenqualität sind ein Plus. Kenntnisse in Dataflows, Lakehouse- oder Cloud-Konzepten sowie ein Verständnis für Governance, Berechtigungen und Dokumentation sind von Vorteil. Sehr gute Deutsch- und gute Englischkenntnisse. Französisch- und/oder Italienischkenntnisse sind ein Plus. Ausgeprägte analytische Fähigkeiten, ein Flair für Zahlen sowie die Fähigkeit, Zusammenhänge und Geschäftschancen zu erkennen. Eine selbständige, strukturierte und sorgfältige Arbeitsweise, verbunden mit Eigeninitiative, Lernbereitschaft und hoher Lösungsorientierung. Kommunikationsstärke, Stakeholder-Orientierung und Freude an der bereichsübergreifenden Zusammenarbeit.",
+        "it": "Deine Verantwortungen Entwicklung, Pflege und Optimierung interaktiver Power-BI-Reports und KPI-Dashboards inklusive Datenmodellierung, DAX und Power Query Erstellung von Business-, Umsatz-, Kunden- und Kampagnenanalysen sowie Ableitung konkreter Handlungsempfehlungen für Sales und Customer Marketing Verantwortung für den quartalsweisen Incentive- und Zielsetzungsprozess des Aussendienstes von der Zieldefinition und Stakeholder-Abstimmung bis zur Erfolgsmessung und Performance-Steuerung Identifikation relevanter Zielkanäle, Kundensegmente und Wachstumspotenziale Planung, Begleitung und Auswertung von Kampagnen und Aktivierungen inklusive Dokumentation der wichtigsten Learnings Messung der Wirkung von Brand-Visibility-Aktivitäten am Point of Consumption gemäss relevanten Standards und Prioritäten Durchführung von Deep-Dive-Analysen zu Sortiment, Produktmix, Distribution, Kundenentwicklung und Verkaufsperformance Weiterentwicklung von Launch-Trackern gemeinsam mit CMI sowie Unterstützung bei der Definition der On-Trade-Zyklusziele Sicherstellung eines konsistenten und adressatengerechten Reportings in enger Zusammenarbeit mit Sales, Trade Marketing, Controlling, CRM und weiteren Stakeholdern Sicherstellung einer hohen Datenqualität durch Plausibilitätsprüfungen und eine nachvollziehbare KPI-Logik über verschiedene Quellsysteme hinweg Mitarbeit in bereichsübergreifenden Analytics-, Digitalisierungs- und Prozessoptimierungsprojekten inklusive Unterstützung bei Rollouts, Dokumentationen und Anwenderschulungen Übersetzung komplexer geschäftlicher Fragestellungen in verständliche Analysen und Visualisierungen sowie Förderung von Self-Service Analytics durch klare Standards und Wissenstransfer Das bringst du mit Eine abgeschlossene kaufmännische oder vergleichbare Ausbildung. Eine Weiterbildung in Business Analysis, Datenanalyse, Statistik oder Betriebswirtschaft ist von Vorteil. Mehrjährige Berufserfahrung im Bereich Datenanalyse, Reporting oder Sales Analytics, idealerweise im FMCG-Umfeld. Sehr gute Kenntnisse in Power BI, insbesondere in der Dashboard-Entwicklung, Datenmodellierung, Power Query und DAX, sowie einen sicheren Umgang mit Excel und Microsoft 365. Erfahrung mit SAP und Microsoft Dynamics 365 CRM oder vergleichbaren ERP- und CRM-Systemen. Kenntnisse in SQL, Datenmodellen, Schnittstellen und Datenqualität sind ein Plus. Kenntnisse in Dataflows, Lakehouse- oder Cloud-Konzepten sowie ein Verständnis für Governance, Berechtigungen und Dokumentation sind von Vorteil. Sehr gute Deutsch- und gute Englischkenntnisse. Französisch- und/oder Italienischkenntnisse sind ein Plus. Ausgeprägte analytische Fähigkeiten, ein Flair für Zahlen sowie die Fähigkeit, Zusammenhänge und Geschäftschancen zu erkennen. Eine selbständige, strukturierte und sorgfältige Arbeitsweise, verbunden mit Eigeninitiative, Lernbereitschaft und hoher Lösungsorientierung. Kommunikationsstärke, Stakeholder-Orientierung und Freude an der bereichsübergreifenden Zusammenarbeit.",
+        "en": "Deine Verantwortungen Entwicklung, Pflege und Optimierung interaktiver Power-BI-Reports und KPI-Dashboards inklusive Datenmodellierung, DAX und Power Query Erstellung von Business-, Umsatz-, Kunden- und Kampagnenanalysen sowie Ableitung konkreter Handlungsempfehlungen für Sales und Customer Marketing Verantwortung für den quartalsweisen Incentive- und Zielsetzungsprozess des Aussendienstes von der Zieldefinition und Stakeholder-Abstimmung bis zur Erfolgsmessung und Performance-Steuerung Identifikation relevanter Zielkanäle, Kundensegmente und Wachstumspotenziale Planung, Begleitung und Auswertung von Kampagnen und Aktivierungen inklusive Dokumentation der wichtigsten Learnings Messung der Wirkung von Brand-Visibility-Aktivitäten am Point of Consumption gemäss relevanten Standards und Prioritäten Durchführung von Deep-Dive-Analysen zu Sortiment, Produktmix, Distribution, Kundenentwicklung und Verkaufsperformance Weiterentwicklung von Launch-Trackern gemeinsam mit CMI sowie Unterstützung bei der Definition der On-Trade-Zyklusziele Sicherstellung eines konsistenten und adressatengerechten Reportings in enger Zusammenarbeit mit Sales, Trade Marketing, Controlling, CRM und weiteren Stakeholdern Sicherstellung einer hohen Datenqualität durch Plausibilitätsprüfungen und eine nachvollziehbare KPI-Logik über verschiedene Quellsysteme hinweg Mitarbeit in bereichsübergreifenden Analytics-, Digitalisierungs- und Prozessoptimierungsprojekten inklusive Unterstützung bei Rollouts, Dokumentationen und Anwenderschulungen Übersetzung komplexer geschäftlicher Fragestellungen in verständliche Analysen und Visualisierungen sowie Förderung von Self-Service Analytics durch klare Standards und Wissenstransfer Das bringst du mit Eine abgeschlossene kaufmännische oder vergleichbare Ausbildung. Eine Weiterbildung in Business Analysis, Datenanalyse, Statistik oder Betriebswirtschaft ist von Vorteil. Mehrjährige Berufserfahrung im Bereich Datenanalyse, Reporting oder Sales Analytics, idealerweise im FMCG-Umfeld. Sehr gute Kenntnisse in Power BI, insbesondere in der Dashboard-Entwicklung, Datenmodellierung, Power Query und DAX, sowie einen sicheren Umgang mit Excel und Microsoft 365. Erfahrung mit SAP und Microsoft Dynamics 365 CRM oder vergleichbaren ERP- und CRM-Systemen. Kenntnisse in SQL, Datenmodellen, Schnittstellen und Datenqualität sind ein Plus. Kenntnisse in Dataflows, Lakehouse- oder Cloud-Konzepten sowie ein Verständnis für Governance, Berechtigungen und Dokumentation sind von Vorteil. Sehr gute Deutsch- und gute Englischkenntnisse. Französisch- und/oder Italienischkenntnisse sind ein Plus. Ausgeprägte analytische Fähigkeiten, ein Flair für Zahlen sowie die Fähigkeit, Zusammenhänge und Geschäftschancen zu erkennen. Eine selbständige, strukturierte und sorgfältige Arbeitsweise, verbunden mit Eigeninitiative, Lernbereitschaft und hoher Lösungsorientierung. Kommunikationsstärke, Stakeholder-Orientierung und Freude an der bereichsübergreifenden Zusammenarbeit.",
+        "fr": "Deine Verantwortungen Entwicklung, Pflege und Optimierung interaktiver Power-BI-Reports und KPI-Dashboards inklusive Datenmodellierung, DAX und Power Query Erstellung von Business-, Umsatz-, Kunden- und Kampagnenanalysen sowie Ableitung konkreter Handlungsempfehlungen für Sales und Customer Marketing Verantwortung für den quartalsweisen Incentive- und Zielsetzungsprozess des Aussendienstes von der Zieldefinition und Stakeholder-Abstimmung bis zur Erfolgsmessung und Performance-Steuerung Identifikation relevanter Zielkanäle, Kundensegmente und Wachstumspotenziale Planung, Begleitung und Auswertung von Kampagnen und Aktivierungen inklusive Dokumentation der wichtigsten Learnings Messung der Wirkung von Brand-Visibility-Aktivitäten am Point of Consumption gemäss relevanten Standards und Prioritäten Durchführung von Deep-Dive-Analysen zu Sortiment, Produktmix, Distribution, Kundenentwicklung und Verkaufsperformance Weiterentwicklung von Launch-Trackern gemeinsam mit CMI sowie Unterstützung bei der Definition der On-Trade-Zyklusziele Sicherstellung eines konsistenten und adressatengerechten Reportings in enger Zusammenarbeit mit Sales, Trade Marketing, Controlling, CRM und weiteren Stakeholdern Sicherstellung einer hohen Datenqualität durch Plausibilitätsprüfungen und eine nachvollziehbare KPI-Logik über verschiedene Quellsysteme hinweg Mitarbeit in bereichsübergreifenden Analytics-, Digitalisierungs- und Prozessoptimierungsprojekten inklusive Unterstützung bei Rollouts, Dokumentationen und Anwenderschulungen Übersetzung komplexer geschäftlicher Fragestellungen in verständliche Analysen und Visualisierungen sowie Förderung von Self-Service Analytics durch klare Standards und Wissenstransfer Das bringst du mit Eine abgeschlossene kaufmännische oder vergleichbare Ausbildung. Eine Weiterbildung in Business Analysis, Datenanalyse, Statistik oder Betriebswirtschaft ist von Vorteil. Mehrjährige Berufserfahrung im Bereich Datenanalyse, Reporting oder Sales Analytics, idealerweise im FMCG-Umfeld. Sehr gute Kenntnisse in Power BI, insbesondere in der Dashboard-Entwicklung, Datenmodellierung, Power Query und DAX, sowie einen sicheren Umgang mit Excel und Microsoft 365. Erfahrung mit SAP und Microsoft Dynamics 365 CRM oder vergleichbaren ERP- und CRM-Systemen. Kenntnisse in SQL, Datenmodellen, Schnittstellen und Datenqualität sind ein Plus. Kenntnisse in Dataflows, Lakehouse- oder Cloud-Konzepten sowie ein Verständnis für Governance, Berechtigungen und Dokumentation sind von Vorteil. Sehr gute Deutsch- und gute Englischkenntnisse. Französisch- und/oder Italienischkenntnisse sind ein Plus. Ausgeprägte analytische Fähigkeiten, ein Flair für Zahlen sowie die Fähigkeit, Zusammenhänge und Geschäftschancen zu erkennen. Eine selbständige, strukturierte und sorgfältige Arbeitsweise, verbunden mit Eigeninitiative, Lernbereitschaft und hoher Lösungsorientierung. Kommunikationsstärke, Stakeholder-Orientierung und Freude an der bereichsübergreifenden Zusammenarbeit."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Luzern, LU",
+      "category": "Commerciale",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/sales-market-analyst-wmd?jobid=164368",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:46:55.443Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-04T13:46:55.443Z"
     }
   ]
 }
