@@ -23673,11 +23673,11 @@
     },
     {
       "id": "denner-0663915938b0",
-      "slug": "vendeur-vendeuse-denner",
+      "slug": "venditore-venditore-denner-versoix",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditore-denner-versoix",
+        "en": "seller-seller-denner-versoix",
+        "de": "verkaufer-verkaufer-denner-versoix",
         "fr": "vendeur-vendeuse-denner-versoix"
       },
       "company": "Denner",
@@ -23753,13 +23753,21 @@
         "it": [
           "vendeur-vendeuse-denner-avenches",
           "vendeur-vendeuse-denner-sa-versoix",
-          "vendeur-vendeuse-denner-sierre"
+          "vendeur-vendeuse-denner-sierre",
+          "vendeur-vendeuse-denner"
+        ],
+        "en": [
+          "vendeur-vendeuse-denner"
+        ],
+        "de": [
+          "vendeur-vendeuse-denner"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-denner-avenches",
         "vendeur-vendeuse-denner-sa-versoix",
-        "vendeur-vendeuse-denner-sierre"
+        "vendeur-vendeuse-denner-sierre",
+        "vendeur-vendeuse-denner"
       ]
     }
   ]

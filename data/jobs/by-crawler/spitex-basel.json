@@ -307,8 +307,7 @@
         "infermiera-laureata-hf-fh-kinder-spitex-pediatrica-a-anche-possibile-entro-l-ora-spitex-basel-basel",
         "graduated-nurse-hf-fh-kinder-spitex-pediatrics-a-also-possible-by-the-hour-spitex-basel-basel",
         "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-a-auch-stundenweise-moglich",
-        "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-a-egalement-possible-a-l-heure-spitex-basel-basel",
-        "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel"
+        "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-a-egalement-possible-a-l-heure-spitex-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -316,8 +315,7 @@
           "infermiera-laureata-hf-fh-kinder-spitex-pediatrica-a-anche-possibile-entro-l-ora-spitex-basel-basel",
           "graduated-nurse-hf-fh-kinder-spitex-pediatrics-a-also-possible-by-the-hour-spitex-basel-basel",
           "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-a-auch-stundenweise-moglich",
-          "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-a-egalement-possible-a-l-heure-spitex-basel-basel",
-          "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel"
+          "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-a-egalement-possible-a-l-heure-spitex-basel-basel"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-basel",
@@ -348,12 +346,12 @@
     },
     {
       "id": "spitex-basel-3daaf5dead56",
-      "slug": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856",
+      "slug": "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel-a34c1e",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856",
-        "en": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856",
+        "it": "infermiere-di-laurea-hf-fh-kinder-spitex-pediatria-spitex-basel-basel-a34c1e",
+        "en": "graduate-nurse-hf-fh-kinder-spitex-pediatrics-spitex-basel-basel-a34c1e",
         "de": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856",
-        "fr": "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856"
+        "fr": "infirmiere-diplomee-hf-fh-kinder-spitex-pediatrie-spitex-basel-basel-a34c1e"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -408,7 +406,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-kinder-spitex-padiatrie-spitex-basel-1742856"
+      ]
     },
     {
       "id": "spitex-basel-731713c37e5c",
@@ -477,12 +489,12 @@
     },
     {
       "id": "spitex-basel-ee73eab91ddf",
-      "slug": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
+      "slug": "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "it": "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel",
-        "en": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
-        "fr": "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
+        "it": "salute-specialistica-fage-anche-solo-mattina-o-solo-sera-possibili-assegnazioni-a-spitex-basel-basel",
+        "en": "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
+        "fr": "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -528,19 +540,21 @@
         "it": [
           "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
           "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
-          "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
+          "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel",
+          "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel"
         ],
         "en": [
-          "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel"
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
         ],
         "fr": [
-          "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
+          "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel"
         ]
       },
       "previousSlugs": [
         "fachperson-gesundheit-fage-auch-nur-morgen-oder-nur-abendeinsatze-moglich-a-spitex-basel",
         "specialist-health-fage-also-only-morning-or-only-evening-assignments-possible-a-spitex-basel-basel",
-        "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel"
+        "specialiste-de-la-sante-fage-aussi-seulement-le-matin-ou-seulement-le-soir-des-affectations-possibles-a-spitex-basel",
+        "fachperson-gesundheit-fage-auch-nur-morgen-o-nur-abendeinsatze-moglich-a-spitex-basel"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

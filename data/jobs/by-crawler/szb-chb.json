@@ -55,16 +55,14 @@
         "fachfrau-fachmann-gesundheit-notfall-80-szb-chb-biel-bienne",
         "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
         "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-notfall-80-szb-chb-biel-bienne",
           "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne",
           "professional-health-urology-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "professional-health-urology-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "urologie-en-sante-professionnelle-50-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-urologie-80-100-szb-chb-biel-bienne"
@@ -91,9 +89,9 @@
     },
     {
       "id": "szb-chb-511d31c2aff8",
-      "slug": "medizinische-r-praxisassistent-in-kaufmannische-r-collaboratore-trice-70-100-per-empfang-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "assistente-medico-pratico-commerciale-dipendente-70-100-per-la-ricezione-spitalzentrum-biel-centre-hospitalier-bienne",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-kaufmannische-r-collaboratore-trice-70-100-per-empfang-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "assistente-medico-pratico-commerciale-dipendente-70-100-per-la-ricezione-spitalzentrum-biel-centre-hospitalier-bienne",
         "en": "medical-practical-assistant-commercial-employee-70-100-for-reception-spitalzentrum-biel-centre-hospitalier-bienne-biel",
         "de": "medizinische-r-praxisassistent-in-kaufmannische-r-mitarbeiter-in-70-100-fur-empfang-szb",
         "fr": "assistant-medical-pratique-commercial-employe-70-100-pour-l-accueil-spitalzentrum-biel-centre-hospitalier-bienne-biel"
@@ -284,14 +282,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-szb-chb-biel",
-        "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
+        "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-szb-chb-biel",
-          "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "fachfrau-fachmann-gesundheit-geriatrische-rehabilitationsstation-80-100-spitalzentrum-biel-centre-hospitalier-bienne"
+          "fachfrau-fachmann-gesundheit-80-90-akutmedizin-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-27T19:55:34.529Z",
@@ -311,12 +307,12 @@
     },
     {
       "id": "szb-chb-360a57696c55",
-      "slug": "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "it": "medico-senior-chirurgia-pediatrica-superiore-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "en": "senior-physician-senior-physician-paediatric-surgery-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "de": "oberarztin-oberarzt-kinderchirurgie-80-100-szb-chb-biel-bienne",
-        "fr": "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "fr": "medecin-superieur-medecin-superieur-chirurgie-pediatrique-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -374,13 +370,15 @@
           "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "en": [
-          "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne"
+          "senior-physician-or-senior-physician-pneumology-50-100-job-sharing-possible-spitalzentrum-biel-centre-hospitalier-bienne",
+          "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "de": [
           "oberarztin-oder-oberarzt-pneumologie-50-100-jobsharing-moglich-szb-chb-biel-bienne"
         ],
         "fr": [
-          "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre"
+          "pneumologie-chez-le-medecin-principal-ou-le-medecin-principal-50-100-part-de-travail-possible-spitalzentrum-biel-centre",
+          "oberarztin-oberarzt-kinderchirurgie-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-27T19:55:35.132Z",
@@ -452,8 +450,7 @@
         "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
         "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
-        "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "responsabile-controlling-payroll-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -461,8 +458,7 @@
           "sachbearbeiter-in-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
           "sachbearbeiter-in-human-resources-80-100-szb-chb-biel-bienne",
-          "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-          "responsabile-controlling-payroll-risorse-umane-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "sachbearbeiter-in-ressources-humaines-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
         ],
         "en": [
           "sachbearbeiter-in-human-resources-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
@@ -539,13 +535,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
-        "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne",
-          "kinder-e-jugendpsychologe-psychologin-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "kinder-und-jugendpsychologe-psychologin-50-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:32.990Z",
@@ -613,13 +607,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
-        "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne",
-          "oberarzt-in-kinder-e-jugendpsychiatrie-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "oberarzt-in-kinder-und-jugendpsychiatrie-50-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:33.580Z",
@@ -687,13 +679,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-szb-chb-biel-bienne",
-        "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-szb-chb-biel-bienne",
-          "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "dipl-expertin-experte-anasthesiepflege-nds-hf-80-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-03T13:35:19.947Z",
@@ -761,13 +751,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne",
-        "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne",
-          "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "diplomierte-r-pflegefachfrau-mann-stroke-unit-50-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-09-03T13:35:19.387Z",
@@ -835,13 +823,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
-        "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne",
-          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+          "erfahrene-r-diplomierte-pflegefachfrau-mann-akut-pflege-60-100-szb-chb-biel-bienne"
         ]
       },
       "firstSeenAt": "2026-08-21T09:50:05.531Z",

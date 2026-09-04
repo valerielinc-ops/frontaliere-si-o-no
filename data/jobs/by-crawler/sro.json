@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sro-08c94a939d41",
-      "slug": "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "rientri-come-dipl-infermiera-salute-professionale-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
+        "it": "rientri-come-dipl-infermiera-salute-professionale-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "re-enters-as-dipl-nurse-health-professional-sro-ag-spital-region-oberaargau-langenthal",
         "de": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
-        "fr": "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        "fr": "rentre-en-tant-que-dipl-infirmier-professionnel-de-la-sante-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -53,10 +53,18 @@
       "validThrough": "2026-10-01",
       "department": "Gesundheitswesen",
       "previousSlugs": [
-        "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
+        "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal",
+          "wiedereinstiegerinnen-come-dipl-pflegefachperson-fachperson-gesundheit-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
+        ],
+        "fr": [
           "wiedereinstiegerinnen-als-dipl-pflegefachperson-fachperson-gesundheit-sro-langenthal"
         ]
       },
@@ -1143,12 +1151,12 @@
     },
     {
       "id": "sro-88076a4a2ad0",
-      "slug": "fachperson-gesundheit-50-100-sro-langenthal",
+      "slug": "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "fachperson-gesundheit-50-100-sro-langenthal",
-        "it": "fachperson-gesundheit-50-100-sro-langenthal",
-        "en": "fachperson-gesundheit-50-100-sro-langenthal",
-        "fr": "fachperson-gesundheit-50-100-sro-langenthal"
+        "it": "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -1223,13 +1231,16 @@
           "fachperson-qualitatsmanagement-80-100-sro-langenthal",
           "gestion-de-la-qualite-professionnelle-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "professional-health-fage-emergency-center-50-100-sro-ag-spital-region-oberaargau-langenthal",
-          "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu"
+          "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu",
+          "fachperson-gesundheit-50-100-sro-langenthal"
         ],
         "en": [
-          "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d"
+          "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
+          "fachperson-gesundheit-50-100-sro-langenthal"
         ],
         "fr": [
-          "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d"
+          "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
+          "fachperson-gesundheit-50-100-sro-langenthal"
         ]
       },
       "previousSlugs": [
@@ -1244,7 +1255,8 @@
         "fachperson-qualitatsmanagement-80-100-sro-langenthal",
         "gestion-de-la-qualite-professionnelle-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "professional-health-fage-emergency-center-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu"
+        "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu",
+        "fachperson-gesundheit-50-100-sro-langenthal"
       ]
     },
     {
@@ -2580,12 +2592,12 @@
     },
     {
       "id": "sro-1c24b3f1fa4b",
-      "slug": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+      "slug": "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
-        "en": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
+        "it": "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
         "de": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal",
-        "fr": "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
+        "fr": "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2635,34 +2647,36 @@
         "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
         "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
         "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
-        "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
         "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-40-100-medizin-palliativ-care-sro-langenthal",
         "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-bw3bs9",
         "dipl-care-professional-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-ag-spital-region-oberaargau-langenthal",
-        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-y5wf9i"
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-y5wf9i",
+        "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
           "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
           "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
-          "dipl-infermiera-hf-fh-40-100-assunzione-medicina-cura-pallitiva-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
           "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-pflegefachperson-hf-fh-40-100-medizin-palliativ-care-sro-langenthal",
           "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-bw3bs9",
           "dipl-care-professional-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-y5wf9i"
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal-y5wf9i",
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
         ],
         "en": [
-          "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal-2ac4f9"
+          "dipl-nurse-hf-fh-40-100-br-medicine-palliative-care-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
         ],
         "fr": [
-          "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal-2ac4f9"
+          "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal-2ac4f9",
+          "dipl-pflegefachperson-hf-fh-40-100-br-medizin-palliativ-care-sro-langenthal"
         ]
       },
       "firstSeenAt": "2026-09-02T13:37:22.533Z",
@@ -2763,12 +2777,12 @@
     },
     {
       "id": "sro-f71dd9b96f90",
-      "slug": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
-        "it": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
-        "fr": "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        "it": "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -2834,13 +2848,15 @@
           "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
           "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3"
+          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
           "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
           "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal"
+          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
         ],
         "de": [
           "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
@@ -2851,7 +2867,8 @@
           "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region",
           "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau",
-          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal"
+          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
         ]
       },
       "previousSlugs": [
@@ -2875,7 +2892,8 @@
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
         "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
-        "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3"
+        "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
+        "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -3253,9 +3271,9 @@
     },
     {
       "id": "sro-85fa5e904fcb",
-      "slug": "arztsekretar-in-orthopala-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "segretaria-medica-ortopedia-100-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "arztsekretar-in-orthopala-100-sro-ag-spital-region-oberaargau-langenthal",
+        "it": "segretaria-medica-ortopedia-100-sro-ag-spital-region-oberaargau-langenthal",
         "en": "medical-secretary-orthopaedics-100-sro-ag-spital-region-oberaargau-langenthal",
         "de": "arztsekretar-in-orthopadie-100-sro-langenthal",
         "fr": "secretaire-medical-orthopedie-100-sro-ag-spital-region-oberaargau-langenthal"
@@ -3333,7 +3351,8 @@
         "segreteria-medica-ortopedia-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "medical-secretary-orthopedician-80-100-sro-ag-spital-region-oberaargau-langenthal",
         "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal"
+        "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "arztsekretar-in-orthopala-100-sro-ag-spital-region-oberaargau-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3355,7 +3374,8 @@
           "secretaire-medical-orthopedicien-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "segretaria-medico-ortopedica-80-100-sro-ag-spital-region-oberaargau-langenthal",
           "arztsekretar-in-orthopadie-100-sro-langenthal",
-          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal"
+          "chefarztsekretar-in-80-100-orthopadie-sro-langenthal",
+          "arztsekretar-in-orthopala-100-sro-ag-spital-region-oberaargau-langenthal"
         ],
         "en": [
           "medical-secretary-in-gastroenterology-and-hepatology-80-100-sro-ag-spital-region-oberaargau-langenthal"

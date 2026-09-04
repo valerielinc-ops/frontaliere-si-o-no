@@ -15097,9 +15097,9 @@
       "slug": "mpa-fage-o-arztsekretarin-arztsekretar-neurozentrum-40-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "it": "mpa-fage-o-arztsekretarin-arztsekretar-neurozentrum-40-luzerner-kantonsspital-luks-luzern",
-        "en": "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern",
+        "en": "mpa-fage-or-medical-secretary-medical-secretary-neurocenter-40-luzerner-kantonsspital-luks-luzern",
         "de": "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern",
-        "fr": "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern"
+        "fr": "mpa-fage-ou-secretaire-medical-secretaire-medical-neurocentre-40-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15146,6 +15146,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern"
+        ],
+        "en": [
+          "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern"
+        ],
+        "fr": [
           "mpa-fage-oder-arztsekretarin-arztsekretar-neurozentrum-40-luks-luzern"
         ]
       },
@@ -15319,12 +15325,12 @@
     },
     {
       "id": "luks-c0d45556014e",
-      "slug": "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee",
+      "slug": "luogo-di-formazione-per-per-il-dipl-expert-expert-anesthesia-care-nds-hf-100-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
-        "it": "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee",
-        "en": "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee",
+        "it": "luogo-di-formazione-per-per-il-dipl-expert-expert-anesthesia-care-nds-hf-100-luzerner-kantonsspital-luks-sursee",
+        "en": "training-place-for-to-the-dipl-expert-expert-anesthesia-care-nds-hf-100-luzerner-kantonsspital-luks-sursee",
         "de": "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee",
-        "fr": "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee"
+        "fr": "lieu-de-formation-pour-pour-le-dipl-expert-expert-anesthesie-soins-nds-hf-100-luzerner-kantonsspital-luks-sursee"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15379,7 +15385,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee"
+        ],
+        "en": [
+          "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee"
+        ],
+        "fr": [
+          "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "weiterbildungsplatz-zur-zum-dipl-expertin-experte-anasthesiepflege-nds-hf-100-luks-sursee"
+      ]
     },
     {
       "id": "luks-fbd8d2bfab34",
@@ -15856,12 +15876,12 @@
     },
     {
       "id": "luks-12f24b2e2f75",
-      "slug": "lehrperson-per-pflege-in-der-praxis-fh-60-80-luzerner-kantonsspital-luks-wolhusen",
+      "slug": "insegnante-per-la-cura-nella-pratica-fh-60-80-luzerner-kantonsspital-luks-wolhusen",
       "slugByLocale": {
-        "it": "lehrperson-per-pflege-in-der-praxis-fh-60-80-luzerner-kantonsspital-luks-wolhusen",
-        "en": "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen",
+        "it": "insegnante-per-la-cura-nella-pratica-fh-60-80-luzerner-kantonsspital-luks-wolhusen",
+        "en": "teacher-for-care-in-practice-fh-60-80-luzerner-kantonsspital-luks-wolhusen",
         "de": "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen",
-        "fr": "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen"
+        "fr": "professeur-de-soins-en-pratique-fh-60-80-luzerner-kantonsspital-luks-wolhusen"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -15904,10 +15924,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen"
+        "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen",
+        "lehrperson-per-pflege-in-der-praxis-fh-60-80-luzerner-kantonsspital-luks-wolhusen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen",
+          "lehrperson-per-pflege-in-der-praxis-fh-60-80-luzerner-kantonsspital-luks-wolhusen"
+        ],
+        "en": [
+          "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen"
+        ],
+        "fr": [
           "lehrperson-fur-pflege-in-der-praxis-fh-60-80-luks-wolhusen"
         ]
       },
@@ -16891,10 +16919,10 @@
     },
     {
       "id": "luks-0bb13b1d7a2d",
-      "slug": "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee",
+      "slug": "fage-mpa-con-focus-sulla-pneumologia-80-100-luzerner-kantonsspital-luks-sursee",
       "slugByLocale": {
-        "it": "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee",
-        "en": "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee",
+        "it": "fage-mpa-con-focus-sulla-pneumologia-80-100-luzerner-kantonsspital-luks-sursee",
+        "en": "fage-mpa-with-focus-on-pneumology-80-100-luzerner-kantonsspital-luks-sursee",
         "de": "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee",
         "fr": "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee"
       },
@@ -16945,7 +16973,8 @@
         "fage-mpa-avec-un-accent-sur-la-pneumologie-100-luzerner-kantonsspital-luks-sursee",
         "fage-mpa-with-focus-on-pneumology-100-luzerner-kantonsspital-luks-sursee",
         "fage-mpa-with-specialization-in-pulmonology-100-luzerner-kantonsspital-luks-sursee",
-        "fage-mpa-con-specializzazione-in-pneumologia-100-luzerner-kantonsspital-luks-sursee"
+        "fage-mpa-con-specializzazione-in-pneumologia-100-luzerner-kantonsspital-luks-sursee",
+        "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16954,10 +16983,12 @@
           "fage-mpa-avec-un-accent-sur-la-pneumologie-100-luzerner-kantonsspital-luks-sursee",
           "fage-mpa-with-focus-on-pneumology-100-luzerner-kantonsspital-luks-sursee",
           "fage-mpa-with-specialization-in-pulmonology-100-luzerner-kantonsspital-luks-sursee",
-          "fage-mpa-con-specializzazione-in-pneumologia-100-luzerner-kantonsspital-luks-sursee"
+          "fage-mpa-con-specializzazione-in-pneumologia-100-luzerner-kantonsspital-luks-sursee",
+          "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee"
         ],
         "en": [
-          "fage-mpa-with-a-focus-on-pneumology-100-luzerner-kantonsspital-luks-sursee"
+          "fage-mpa-with-a-focus-on-pneumology-100-luzerner-kantonsspital-luks-sursee",
+          "fage-mpa-mit-schwerpunkt-pneumologie-100-luks-sursee"
         ],
         "fr": [
           "fage-mpa-avec-un-accent-sur-la-pneumologie-100-luzerner-kantonsspital-luks-sursee"

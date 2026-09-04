@@ -759,7 +759,7 @@
     },
     {
       "id": "company-ct6cl9",
-      "slug": "responsabile-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
+      "slug": "responsabile-innovation-abb-svizzera-sede-ticino-argovia",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Head of Innovation",
       "location": "Argovia",
@@ -798,10 +798,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "responsabile-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
+        "it": "responsabile-innovation-abb-svizzera-sede-ticino-argovia",
         "en": "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
-        "de": "leiter-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
-        "fr": "responsable-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9"
+        "de": "leiter-innovation-abb-svizzera-sede-ticino-argovia",
+        "fr": "responsable-innovation-abb-svizzera-sede-ticino-argovia"
       },
       "requirementsByLocale": {
         "it": [],
@@ -816,12 +816,22 @@
       "previousSlugsByLocale": {
         "it": [
           "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau",
-          "head-of-innovation-abb-svizzera-sede-ticino"
+          "head-of-innovation-abb-svizzera-sede-ticino",
+          "responsabile-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9"
+        ],
+        "de": [
+          "leiter-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9"
+        ],
+        "fr": [
+          "responsable-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9"
         ]
       },
       "previousSlugs": [
         "head-of-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau",
-        "head-of-innovation-abb-svizzera-sede-ticino"
+        "head-of-innovation-abb-svizzera-sede-ticino",
+        "responsabile-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
+        "leiter-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9",
+        "responsable-innovation-abb-svizzera-sede-ticino-untersiggenthal-aargau-ct6cl9"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1654,7 +1664,7 @@
       "slugByLocale": {
         "it": "direct-current-datacenter-system-architetto-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
         "en": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
-        "de": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "de": "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-argovia",
         "fr": "direct-current-datacenter-system-architecte-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6"
       },
       "requirementsByLocale": {
@@ -1675,7 +1685,8 @@
         "de": [
           "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
           "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-          "gleichstrom-rechenzentrums-systemarchitekt-abb-svizzera-sede-ticino-argovia"
+          "gleichstrom-rechenzentrums-systemarchitekt-abb-svizzera-sede-ticino-argovia",
+          "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau"
         ]
       },
       "previousSlugs": [

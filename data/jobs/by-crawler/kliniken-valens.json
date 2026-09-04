@@ -8044,12 +8044,12 @@
     },
     {
       "id": "kliniken-valens-08d786509018",
-      "slug": "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-e-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-wald",
+      "slug": "dipl-specialista-infermieristico-hf-fh-riabilitazione-muscolo-scheletrica-e-neurologica-m-f-a-80-100-kliniken-valens",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-e-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-wald",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80",
+        "it": "dipl-specialista-infermieristico-hf-fh-riabilitazione-muscolo-scheletrica-e-neurologica-m-f-a-80-100-kliniken-valens",
+        "en": "dipl-nursing-specialist-hf-fh-musculoskeletal-and-neurological-rehabilitation-m-f-a-80-100-kliniken-valens-wald",
         "de": "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-readaptation-musculo-squelettique-et-neurologique-m-f-a-80-100-kliniken"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8092,10 +8092,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80"
+        "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80",
+        "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-e-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-wald"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80",
+          "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-e-neurologische-rehabilitation-m-w-a-80-100-kliniken-valens-wald"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-muskuloskelettale-und-neurologische-rehabilitation-m-w-a-80"
         ]
       },

@@ -610,9 +610,9 @@
       },
       "slugByLocale": {
         "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco",
-        "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco",
-        "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco",
-        "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-giubiasco"
+        "en": "sanitary-equipment-for-kitchens-and-bathrooms-fust-bellinzona",
+        "de": "sanitarausstattung-fur-kuchen-und-badezimmer-fust-bellinzona",
+        "fr": "equipement-sanitaire-pour-cuisines-et-salles-de-bains-fust-bellinzona"
       },
       "requirementsByLocale": {},
       "addressLocality": "Bellinzona",
@@ -3424,19 +3424,26 @@
       },
       "slugByLocale": {
         "it": "multimediaelektroniker-in-cfc-fust-oberburen-h52sps",
-        "en": "multimediaelektroniker-in-efz-fust-oberburen-h52sps",
+        "en": "multimedia-electronics-specialist-in-efz-fust-oberburen",
         "de": "multimediaelektroniker-in-efz-fust-oberburen-h52sps",
-        "fr": "multimediaelektroniker-in-efz-fust-oberburen-h52sps"
+        "fr": "specialiste-de-l-electronique-multimedia-en-efz-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "multimediaelektroniker-in-efz-fust-oberburen"
+        ],
+        "en": [
+          "multimediaelektroniker-in-efz-fust-oberburen-h52sps"
+        ],
+        "fr": [
+          "multimediaelektroniker-in-efz-fust-oberburen-h52sps"
         ]
       },
       "previousSlugs": [
-        "multimediaelektroniker-in-efz-fust-oberburen"
+        "multimediaelektroniker-in-efz-fust-oberburen",
+        "multimediaelektroniker-in-efz-fust-oberburen-h52sps"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3499,9 +3506,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-w060mu",
-        "en": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-w060mu",
-        "de": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-w060mu",
-        "fr": "apprendistato-commercio-al-dettaglio-afc-settore-multimedia-fust-oberburen-w060mu"
+        "en": "afc-retail-trade-multimedia-industry-fust-oberburen-55c752",
+        "de": "afc-einzelhandel-multimedia-industrie-fust-oberburen-55c752",
+        "fr": "afc-commerce-de-detail-industrie-multimedia-fust-oberburen-55c752"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -4988,7 +4995,7 @@
     },
     {
       "id": "company-vcavfl",
-      "slug": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl",
+      "slug": "fiteria-sanitaria-in-cucine-e-bagni-fust-burgdorf",
       "company": "Fust",
       "title": "Sanitärmonteur:in Küchen & Bäder",
       "location": "Burgdorf",
@@ -5020,16 +5027,15 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl",
-        "en": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl",
+        "it": "fiteria-sanitaria-in-cucine-e-bagni-fust-burgdorf",
+        "en": "sanitary-fitter-in-kitchens-bathrooms-fust-burgdorf",
         "de": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl",
-        "fr": "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl"
+        "fr": "installation-sanitaire-dans-les-cuisines-et-salles-de-bains-fust-burgdorf"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "installer-in-kitchens-bathrooms-fust-swiss-household-services-ag-burgdorf",
           "schreinermonteur-in-kuchen-bader-fust-burgdorf-bern-wdvtnj",
           "installateur-dans-les-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-burgdorf",
           "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
@@ -5048,12 +5054,14 @@
           "disponent-in-kuchen-bader-fust-burgdorf-bern",
           "distribuzione-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
           "dispone-di-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
-          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf"
+          "installatore-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl"
         ],
         "en": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-vcavfl",
           "disponent-in-kitchens-bathrooms-fust-burgdorf-bern",
-          "installer-in-kitchens-bathrooms-fust-burgdorf-bern"
+          "installer-in-kitchens-bathrooms-fust-burgdorf-bern",
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl"
         ],
         "de": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-vcavfl",
@@ -5063,7 +5071,8 @@
         "fr": [
           "sanitarmonteur-in-kuchen-bader-fust-swiss-household-services-ag-burgdorf-bern-vcavfl",
           "disposant-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
-          "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern"
+          "installateur-dans-les-cuisines-et-salles-de-bains-fust-burgdorf-bern",
+          "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl"
         ]
       },
       "previousSlugs": [
@@ -5099,7 +5108,8 @@
         "disponent-in-kuchen-bader-fust-burgdorf-bern",
         "distribuzione-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf",
         "dispone-di-in-cucine-e-bagni-fust-swiss-household-services-ag-burgdorf-bern",
-        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern"
+        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern",
+        "sanitarmonteur-in-kuchen-bader-fust-burgdorf-bern-vcavfl"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5161,9 +5171,9 @@
       },
       "slugByLocale": {
         "it": "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-hinwil-zurich-01zrg8",
-        "en": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8",
+        "en": "sales-consultant-in-electrical-household-and-multimedia-fust-hinwil",
         "de": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8",
-        "fr": "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8"
+        "fr": "consultant-en-ventes-en-electromenager-et-multimedia-fust-hinwil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -5174,20 +5184,23 @@
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich"
         ],
         "en": [
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8"
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8"
         ],
         "de": [
           "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8"
         ],
         "fr": [
-          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8"
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8",
+          "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8"
         ]
       },
       "previousSlugs": [
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich",
         "verkaufsberater-in-per-elektrohaushalt-e-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8",
         "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-swiss-household-services-ag-hinwil-zurich-01zrg8",
-        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich"
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich",
+        "verkaufsberater-in-fur-elektrohaushalt-und-multimedia-fust-hinwil-zurich-01zrg8"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5341,7 +5354,7 @@
     },
     {
       "id": "company-o1uyba",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba",
+      "slug": "home-consegna-fitter-negli-elettrodomestici-fust-pratteln",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Pratteln",
@@ -5378,20 +5391,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba",
+        "it": "home-consegna-fitter-negli-elettrodomestici-fust-pratteln",
+        "en": "home-delivery-fitter-in-electrical-household-appliances-fust-pratteln",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba"
+        "fr": "installation-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-pratteln"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft"
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba"
+        ],
+        "en": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba"
+        ],
+        "fr": [
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba"
         ]
       },
       "previousSlugs": [
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft"
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-pratteln-basel-landschaft-o1uyba"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5416,7 +5437,7 @@
     },
     {
       "id": "company-b5tx09",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09",
+      "slug": "home-consegna-fitter-negli-elettrodomestici-fust-lenzburg",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Lenzburg",
@@ -5453,10 +5474,10 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09",
+        "it": "home-consegna-fitter-negli-elettrodomestici-fust-lenzburg",
+        "en": "home-delivery-fitter-in-electrical-household-appliances-fust-lenzburg",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09"
+        "fr": "installation-de-livraison-a-domicile-dans-les-appareils-electromenagers-fust-lenzburg"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -5466,16 +5487,19 @@
           "montatore-a-domicilio-di-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv",
           "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv",
-          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv"
+          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09"
         ],
         "en": [
-          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv"
+          "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09"
         ],
         "de": [
           "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv"
         ],
         "fr": [
-          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv"
+          "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+          "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09"
         ]
       },
       "previousSlugs": [
@@ -5483,7 +5507,8 @@
         "montatore-a-domicilio-di-elettrodomestici-fust-swiss-household-services-ag-lenzburg",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-ic0syv",
         "home-delivery-technician-for-household-appliances-fust-swiss-household-services-ag-lenzburg-ic0syv",
-        "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv"
+        "technicien-de-livraison-a-domicile-pour-appareils-electromenagers-fust-swiss-household-services-ag-lenzburg-ic0syv",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-lenzburg-aargau-b5tx09"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5546,14 +5571,20 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "servicetechniker-in-heimservice-fust-oberburen",
-        "en": "servicetechniker-in-heimservice-fust-oberburen-w089qs",
+        "en": "service-technician-in-home-service-fust-oberburen",
         "de": "servicetechniker-in-heimservice-fust-oberburen-w089qs",
-        "fr": "servicetechniker-in-heimservice-fust-oberburen-w089qs"
+        "fr": "technicien-de-service-en-service-a-domicile-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-heimservice-fust-oberburen-w089qs"
+        ],
+        "en": [
+          "servicetechniker-in-heimservice-fust-oberburen-w089qs"
+        ],
+        "fr": [
           "servicetechniker-in-heimservice-fust-oberburen-w089qs"
         ]
       },

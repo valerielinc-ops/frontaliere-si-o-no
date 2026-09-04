@@ -3821,7 +3821,7 @@
       "slug": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
       "slugByLocale": {
         "it": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-f0acea",
-        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
+        "en": "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal",
         "de": "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
         "fr": "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal-f0acea"
       },
@@ -3870,8 +3870,7 @@
         "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3881,8 +3880,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -8118,9 +8116,9 @@
       "slug": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "it": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "fr": "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal"
+        "it": "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8166,21 +8164,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "en": [
-          "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal"
-        ],
-        "fr": [
-          "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+          "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
-        "sub-assistant-medicine-a-kantonsspital-baselland-ksbl-liestal",
-        "medecine-auxiliaire-a-kantonsspital-baselland-ksbl-liestal"
+        "unterassistentin-unterassistent-medizin-a-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

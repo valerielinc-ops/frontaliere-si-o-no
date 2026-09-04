@@ -3095,12 +3095,12 @@
     },
     {
       "id": "see-spital-b1324a1f0146",
-      "slug": "assistenzarzt-arztin-geriatrie-see-spital-ch",
+      "slug": "assistente-medico-geriatrico-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "en": "assistenzarzt-arztin-geriatrie-see-spital-ch",
+        "it": "assistente-medico-geriatrico-see-spital-horgen",
+        "en": "assistant-doctor-geriatrics-see-spital-horgen",
         "de": "assistenzarzt-arztin-geriatrie-see-spital-ch",
-        "fr": "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        "fr": "assistant-medecin-geriatrie-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3156,7 +3156,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ],
+        "en": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ],
+        "fr": [
+          "assistenzarzt-arztin-geriatrie-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-arztin-geriatrie-see-spital-ch"
+      ]
     },
     {
       "id": "see-spital-981ac5a06760",

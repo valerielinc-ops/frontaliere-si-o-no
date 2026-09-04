@@ -5927,7 +5927,7 @@
         "it": "pianificatore-di-successione-gestione-della-ricchezza-ubs-zentralschweiz",
         "en": "succession-planner-in-wealth-management-ubs-zentralschweiz",
         "de": "succession-planner-in-wealth-management-ubs-zentralschweiz",
-        "fr": "succession-planner-in-wealth-management-ubs-zentralschweiz"
+        "fr": "planificateur-de-releve-gestion-de-la-masse-ubs-zentralschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -5976,15 +5976,14 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "succession-planner-in-wealth-management-ubs-zentralschweiz",
-        "planificateur-de-releve-gestion-de-la-masse-ubs-zentralschweiz"
+        "succession-planner-in-wealth-management-ubs-zentralschweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "succession-planner-in-wealth-management-ubs-zentralschweiz"
         ],
         "fr": [
-          "planificateur-de-releve-gestion-de-la-masse-ubs-zentralschweiz"
+          "succession-planner-in-wealth-management-ubs-zentralschweiz"
         ]
       },
       "needsRetranslation": true,
@@ -7551,12 +7550,12 @@
     },
     {
       "id": "ubs-9283e512a16d",
-      "slug": "registered-client-associate-ubs-missouri",
+      "slug": "cliente-associato-registrato-ubs-missouri",
       "slugByLocale": {
-        "it": "registered-client-associate-ubs-missouri",
+        "it": "cliente-associato-registrato-ubs-missouri",
         "en": "registered-client-associate-ubs-missouri",
         "de": "registered-client-associate-ubs-missouri",
-        "fr": "registered-client-associate-ubs-missouri"
+        "fr": "client-enregistre-associe-ubs-missouri"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -7618,7 +7617,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "UR"
+      "addressRegion": "UR",
+      "previousSlugsByLocale": {
+        "it": [
+          "registered-client-associate-ubs-missouri"
+        ],
+        "fr": [
+          "registered-client-associate-ubs-missouri"
+        ]
+      },
+      "previousSlugs": [
+        "registered-client-associate-ubs-missouri"
+      ]
     },
     {
       "id": "ubs-c583acc69531",
@@ -7627,7 +7637,7 @@
         "it": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich",
         "en": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich",
         "de": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich",
-        "fr": "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich"
+        "fr": "centre-de-cartes-ubs-cartes-de-conseillers-clients-de-ventes-seniors-100-h-f-d-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",

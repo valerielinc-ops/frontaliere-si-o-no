@@ -2891,8 +2891,7 @@
         "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
         "dipl-expert-in-emergency-care-spital-bulach-bulach",
         "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "expert-en-soins-d-urgence-spital-bulach-bulach",
-        "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach"
+        "expert-en-soins-d-urgence-spital-bulach-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2900,8 +2899,7 @@
           "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
           "dipl-expert-in-emergency-care-spital-bulach-bulach",
           "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-          "expert-en-soins-d-urgence-spital-bulach-bulach",
-          "dipl-esperto-in-terapia-intensiva-spital-bulach-bulach"
+          "expert-en-soins-d-urgence-spital-bulach-bulach"
         ],
         "en": [
           "dipl-expertin-experte-intensivpflege-spital-buelach-bulach",
@@ -3429,9 +3427,9 @@
     },
     {
       "id": "spital-buelach-314ba8ba8cfe",
-      "slug": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
+      "slug": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
+        "it": "dipl-infermieristica-professionale-stazione-privata-con-responsabilita-professionale-spital-bulach-bulach",
         "en": "dipl-nursing-professional-private-station-with-professional-responsibility-spital-bulach-bulach",
         "de": "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach",
         "fr": "dipl-station-privee-avec-responsabilite-professionnelle-spital-bulach-bulach"
@@ -3489,7 +3487,15 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-privatstation-mit-fachverantwortung-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-f9c152e62c17",
@@ -3711,8 +3717,7 @@
           "op-lagerungsassistenz-spital-bulach-bulach"
         ],
         "de": [
-          "op-lagerungsassistenz-spital-bulach-bulach",
-          "op-lagerungsassistenz-spital-buelach-bulach"
+          "op-lagerungsassistenz-spital-bulach-bulach"
         ],
         "fr": [
           "op-lagerungsassistenz-spital-bulach-bulach"
@@ -4315,12 +4320,12 @@
     },
     {
       "id": "spital-buelach-ac9151274d8a",
-      "slug": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
+      "slug": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
       "slugByLocale": {
         "de": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "it": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "en": "dipl-expert-in-notfallpflege-spital-buelach-bulach",
-        "fr": "dipl-expert-in-notfallpflege-spital-buelach-bulach"
+        "it": "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
+        "en": "dipl-expert-in-emergency-care-spital-bulach-bulach",
+        "fr": "expert-en-soins-d-urgence-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4387,18 +4392,21 @@
           "esperto-a-anestesia-nds-spital-bulach-bulach",
           "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
           "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
-          "infirmier-ere-anesthesie-nds-spital-bulach-bulach"
+          "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ],
         "en": [
           "dipl-expert-in-emergency-care-spital-bulach-bulach",
-          "dipl-anesthesia-nurse-specialist-spital-bulach-bulach"
+          "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ],
         "de": [
           "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
         ],
         "fr": [
           "expert-en-soins-d-urgence-spital-bulach-bulach",
-          "infirmier-ere-anesthesie-nds-spital-bulach-bulach"
+          "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+          "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ]
       },
       "previousSlugs": [
@@ -4408,7 +4416,8 @@
         "esperto-a-anestesia-nds-spital-bulach-bulach",
         "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
         "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach",
-        "infirmier-ere-anesthesie-nds-spital-bulach-bulach"
+        "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
+        "dipl-expert-in-notfallpflege-spital-buelach-bulach"
       ]
     }
   ]

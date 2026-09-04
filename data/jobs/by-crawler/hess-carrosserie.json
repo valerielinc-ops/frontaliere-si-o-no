@@ -264,12 +264,12 @@
     },
     {
       "id": "hess-carrosserie-0c1d25adc7b5",
-      "slug": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+      "slug": "meccatronica-automobilistica-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
-        "it": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
-        "en": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
+        "it": "meccatronica-automobilistica-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
+        "en": "automotive-mechatronics-commercial-vehicles-m-f-d-carrosserie-hess-ag-bellach",
         "de": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach",
-        "fr": "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+        "fr": "vehicules-commerciaux-mecatroniques-automobiles-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -327,7 +327,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+        ],
+        "fr": [
+          "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "automobilmechatroniker-nutzfahrzeuge-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-99420c6700e9",
@@ -1861,7 +1875,6 @@
       "previousSlugs": [
         "stv-leiter-logistik-m-w-d-hess-bellach",
         "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach",
-        "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach",
         "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach",
         "team-leader-control-room-in-logistics-m-f-d-carrosserie-hess-ag-bellach",
         "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",
@@ -1871,7 +1884,6 @@
         "it": [
           "stv-leiter-logistik-m-w-d-hess-bellach",
           "stv-leiter-logistik-m-w-d-carrosserie-hess-ag-bellach",
-          "responsabile-della-logistica-m-f-d-carrosserie-hess-ag-bellach",
           "team-leader-sala-di-controllo-in-logistica-m-f-d-carrosserie-hess-ag-bellach",
           "team-leader-control-room-in-logistics-m-f-d-carrosserie-hess-ag-bellach",
           "teamleiter-leitstand-in-logistik-m-w-d-hess-bellach",

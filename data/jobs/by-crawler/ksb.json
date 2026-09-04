@@ -7907,13 +7907,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mpa-notfallpraxis-80-ksb-ch",
-        "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden"
+        "mpa-notfallpraxis-80-ksb-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mpa-notfallpraxis-80-ksb-ch",
-          "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden"
+          "mpa-notfallpraxis-80-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:28.223Z",
@@ -7983,14 +7981,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mpa-notfallpraxis-50-ksb-ch",
-          "mpa-notfallpraxis-60-100-ksb-ch",
-          "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden"
+          "mpa-notfallpraxis-60-100-ksb-ch"
         ]
       },
       "previousSlugs": [
         "mpa-notfallpraxis-50-ksb-ch",
-        "mpa-notfallpraxis-60-100-ksb-ch",
-        "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden"
+        "mpa-notfallpraxis-60-100-ksb-ch"
       ],
       "salaryMin": 44000,
       "salaryMax": 61500,
@@ -8009,12 +8005,12 @@
     },
     {
       "id": "ksb-03fb7867796f",
-      "slug": "sachbearbeiter-in-kreditoren-80-100-ksb-ch",
+      "slug": "persona-responsabile-80-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-kreditoren-80-100-ksb-ch",
-        "en": "sachbearbeiter-in-kreditoren-80-100-ksb-ch",
+        "it": "persona-responsabile-80-100-kantonsspital-baden-ksb-baden",
+        "en": "person-in-charge-80-100-kantonsspital-baden-ksb-baden",
         "de": "sachbearbeiter-in-kreditoren-80-100-ksb-ch",
-        "fr": "sachbearbeiter-in-kreditoren-80-100-ksb-ch"
+        "fr": "responsable-80-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -8068,7 +8064,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-kreditoren-80-100-ksb-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-kreditoren-80-100-ksb-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-kreditoren-80-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-kreditoren-80-100-ksb-ch"
+      ]
     }
   ]
 }

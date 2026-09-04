@@ -714,8 +714,7 @@
         "client-advisor-all-kinds-geneva-lancy-red-bridge-full-or-part-time-helvetia-versicherungen-lancy",
         "kundenberater-alle-arten-genf-lancy-red-bridge-vollzeit-oder-teilzeit-helvetia-versicherungen-lancy",
         "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia",
-        "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy",
-        "consulente-clienti-tutti-i-tipi-ginevra-tempo-pieno-o-parziale-helvetia-versicherungen-genf"
+        "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -724,8 +723,7 @@
           "client-advisor-all-kinds-geneva-lancy-red-bridge-full-or-part-time-helvetia-versicherungen-lancy",
           "kundenberater-alle-arten-genf-lancy-red-bridge-vollzeit-oder-teilzeit-helvetia-versicherungen-lancy",
           "conseiller-clients-tous-genres-geneve-lancy-pont-rouge-temps-plein-ou-partiel-helvetia",
-          "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy",
-          "consulente-clienti-tutti-i-tipi-ginevra-tempo-pieno-o-parziale-helvetia-versicherungen-genf"
+          "consulente-clienti-tutti-i-tipi-ginevra-lancy-red-bridge-tempo-pieno-o-parziale-helvetia-versicherungen-lancy"
         ],
         "en": [
           "conseiller-clients-tous-genres-geneve-temps-plein-ou-partiel-helvetia-genf",
@@ -9043,8 +9041,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "werkstudent-transaction-management-real-estate-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-        "etudiant-en-travail-gestion-des-transactions-immobilier-h-f-d-temps-partiel-helvetia-versicherungen-basel-hauptsitz",
-        "studente-di-lavoro-transaction-management-immobiliare-m-f-d-tempo-parziale-helvetia-versicherungen-basel-hauptsitz",
         "werkstudent-transaction-management-real-estate-m-w-d-teilzeit-helvetia-versicherungen-basel-hauptsitz",
         "studente-di-lavoro-gestione-delle-costruzioni-m-f-d-tempo-parziale-helvetia-versicherungen-basel-hauptsitz",
         "working-student-construction-management-m-f-d-part-time-helvetia-versicherungen-basel-hauptsitz",
@@ -9054,7 +9050,6 @@
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-transaction-management-real-estate-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-          "studente-di-lavoro-transaction-management-immobiliare-m-f-d-tempo-parziale-helvetia-versicherungen-basel-hauptsitz",
           "studente-di-lavoro-gestione-delle-costruzioni-m-f-d-tempo-parziale-helvetia-versicherungen-basel-hauptsitz",
           "working-student-construction-management-m-f-d-part-time-helvetia-versicherungen-basel-hauptsitz",
           "werkstudent-construction-management-w-m-d-teilzeit-helvetia-basel-hauptsitz",
@@ -9066,7 +9061,6 @@
         ],
         "fr": [
           "werkstudent-transaction-management-real-estate-w-m-d-teilzeit-helvetia-basel-hauptsitz",
-          "etudiant-en-travail-gestion-des-transactions-immobilier-h-f-d-temps-partiel-helvetia-versicherungen-basel-hauptsitz",
           "werkstudent-transaction-management-real-estate-m-w-d-teilzeit-helvetia-versicherungen-basel-hauptsitz",
           "etudiant-en-travail-gestion-de-la-construction-h-f-d-temps-partiel-helvetia-versicherungen-basel-hauptsitz"
         ],
@@ -10005,12 +9999,12 @@
     },
     {
       "id": "helvetia-0818208c4a8d",
-      "slug": "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel",
+      "slug": "indennita-giornaliera-per-malattia-professionale-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "en": "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel",
+        "it": "indennita-giornaliera-per-malattia-professionale-m-f-d-part-time-fulltime-helvetia-versicherungen-basel",
+        "en": "damage-specialist-sick-day-allowance-m-f-d-part-time-full-time-helvetia-versicherungen-basel",
         "de": "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel",
-        "fr": "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel"
+        "fr": "indemnite-de-jour-de-maladie-specialiste-des-dommages-h-f-d-a-temps-partiel-a-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -10067,7 +10061,8 @@
         "indennita-giornaliera-per-malattia-f-m-d-50-60-helvetia-versicherungen-basel",
         "damage-specialist-sick-day-allowance-f-m-d-50-60-helvetia-versicherungen-basel",
         "schadenspezialist-krankentaggeld-w-m-d-50-60-helvetia-basel",
-        "indemnite-de-jour-de-maladie-f-m-j-helvetia-versicherungen-basel"
+        "indemnite-de-jour-de-maladie-f-m-j-helvetia-versicherungen-basel",
+        "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10085,11 +10080,13 @@
           "indennita-giornaliera-per-malattia-f-m-d-50-60-helvetia-versicherungen-basel",
           "damage-specialist-sick-day-allowance-f-m-d-50-60-helvetia-versicherungen-basel",
           "schadenspezialist-krankentaggeld-w-m-d-50-60-helvetia-basel",
-          "indemnite-de-jour-de-maladie-f-m-j-helvetia-versicherungen-basel"
+          "indemnite-de-jour-de-maladie-f-m-j-helvetia-versicherungen-basel",
+          "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "en": [
           "damage-specialist-foreign-damage-motor-vehicle-f-m-d-part-time-full-time-helvetia-versicherungen-basel",
-          "damage-specialist-sick-day-allowance-f-m-d-60-100-helvetia-versicherungen-basel"
+          "damage-specialist-sick-day-allowance-f-m-d-60-100-helvetia-versicherungen-basel",
+          "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel"
         ],
         "de": [
           "schadenspezialist-auslandsschaden-motorfahrzeug-w-m-d-teilzeit-vollzeit-helvetia-basel",
@@ -10097,7 +10094,8 @@
         ],
         "fr": [
           "vehicules-a-moteur-f-m-d-a-temps-partiel-a-temps-plein-helvetia-versicherungen-basel",
-          "indemnite-de-jour-de-maladie-f-m-d-helvetia-versicherungen-basel"
+          "indemnite-de-jour-de-maladie-f-m-d-helvetia-versicherungen-basel",
+          "schadenspezialist-krankentaggeld-w-m-d-teilzeit-vollzeit-helvetia-basel"
         ]
       },
       "firstSeenAt": "2026-08-25T21:29:26.487Z",

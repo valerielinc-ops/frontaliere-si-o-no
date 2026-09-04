@@ -1191,8 +1191,7 @@
         "ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-specializzazione-kinder-cfc-psychiatrische-dienste-aargau-pdag-windisch",
         "apprenticeship-position-as-a-specialist-child-care-specialist-efz-psychiatrische-dienste-aargau-pdag-windisch",
         "ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-fachrichtung-kinder-efz-pdag-windisch",
-        "poste-d-apprenti-specialiste-de-la-garde-d-enfants-efz-psychiatrische-dienste-aargau-pdag-windisch",
-        "apprendistato-come-fachangestellte-fachangestellter-gesundheit-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+        "poste-d-apprenti-specialiste-de-la-garde-d-enfants-efz-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1200,8 +1199,7 @@
           "ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-specializzazione-kinder-cfc-psychiatrische-dienste-aargau-pdag-windisch",
           "apprenticeship-position-as-a-specialist-child-care-specialist-efz-psychiatrische-dienste-aargau-pdag-windisch",
           "ausbildungsplatz-zur-fachfrau-zum-fachmann-betreuung-fachrichtung-kinder-efz-pdag-windisch",
-          "poste-d-apprenti-specialiste-de-la-garde-d-enfants-efz-psychiatrische-dienste-aargau-pdag-windisch",
-          "apprendistato-come-fachangestellte-fachangestellter-gesundheit-cfc-psychiatrische-dienste-aargau-pdag-windisch"
+          "poste-d-apprenti-specialiste-de-la-garde-d-enfants-efz-psychiatrische-dienste-aargau-pdag-windisch"
         ],
         "en": [
           "lehrstelle-als-fachangestellte-fachangestellter-gesundheit-efz-pdag-windisch",
@@ -5675,12 +5673,12 @@
     },
     {
       "id": "pdag-39b013108216",
-      "slug": "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen",
+      "slug": "specialista-psicologo-o-assistente-psicologo-avanzato-psychiatrische-dienste-aargau-pdag-zofingen",
       "slugByLocale": {
-        "it": "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen",
-        "en": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
+        "it": "specialista-psicologo-o-assistente-psicologo-avanzato-psychiatrische-dienste-aargau-pdag-zofingen",
+        "en": "specialist-psychologist-or-assistant-psychologist-advanced-psychiatrische-dienste-aargau-pdag-zofingen",
         "de": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
-        "fr": "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe"
+        "fr": "psychologue-specialise-ou-psychologue-adjoint-avance-psychiatrische-dienste-aargau-pdag-zofingen"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5723,10 +5721,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe"
+        "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
+        "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe",
+          "fachpsychologin-fachpsychologe-o-assistenzpsychologin-assistenzpsychologe-fortgeschritten-psychiatrische-dienste-aargau-pdag-zofingen"
+        ],
+        "en": [
+          "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe"
+        ],
+        "fr": [
           "fachpsychologin-fachpsychologe-oder-assistenzpsychologin-assistenzpsychologe"
         ]
       },
@@ -5812,12 +5818,12 @@
     },
     {
       "id": "pdag-2054d20710e0",
-      "slug": "arztsekretarin-arztsekretar-pdag-aarau",
+      "slug": "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
-        "it": "arztsekretarin-arztsekretar-pdag-aarau",
-        "en": "arztsekretarin-arztsekretar-pdag-aarau",
+        "it": "segretario-medico-segretario-medico-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "medical-secretary-medical-secretary-psychiatrische-dienste-aargau-pdag-aarau",
         "de": "arztsekretarin-arztsekretar-pdag-aarau",
-        "fr": "arztsekretarin-arztsekretar-pdag-aarau"
+        "fr": "secretaire-medical-secretaire-medical-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5872,7 +5878,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-arztsekretar-pdag-aarau"
+        ],
+        "en": [
+          "arztsekretarin-arztsekretar-pdag-aarau"
+        ],
+        "fr": [
+          "arztsekretarin-arztsekretar-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-arztsekretar-pdag-aarau"
+      ]
     },
     {
       "id": "pdag-57a08a42ccab",

@@ -3507,12 +3507,12 @@
     },
     {
       "id": "kanton-basel-landschaft-f04ad917281f",
-      "slug": "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil",
+      "slug": "maestro-primario-4-classi-kantonale-verwaltung-basel-landschaft-oberwil",
       "slugByLocale": {
-        "it": "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil",
-        "en": "lehrperson-primar-4-klassen-kantonale-verwaltung-basel-landschaft-oberwil",
+        "it": "maestro-primario-4-classi-kantonale-verwaltung-basel-landschaft-oberwil",
+        "en": "teacher-primary-4-classes-kantonale-verwaltung-basel-landschaft-oberwil",
         "de": "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil",
-        "fr": "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil"
+        "fr": "enseignement-primaire-4-kantonale-verwaltung-basel-landschaft-oberwil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -3567,14 +3567,29 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil"
+        ],
+        "en": [
+          "lehrperson-primar-4-klassen-kantonale-verwaltung-basel-landschaft-oberwil"
+        ],
+        "fr": [
+          "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-primar-4-klassen-kanton-basel-landschaft-oberwil",
+        "lehrperson-primar-4-klassen-kantonale-verwaltung-basel-landschaft-oberwil"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-b4a2c3c7c600",
       "slug": "risorse-umane-generalistin-risorse-umane-generalist-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
         "it": "risorse-umane-generalistin-risorse-umane-generalist-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal",
+        "en": "hr-generalist-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal",
         "fr": "ressources-humaines-generalistin-ressources-humaines-generalist-kantonale-verwaltung-basel-landschaft-liestal"
       },
@@ -3630,6 +3645,9 @@
           "hr-generalistin-hr-generalist-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "fr": [
+          "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal"
+        ],
+        "en": [
           "hr-generalistin-hr-generalist-kanton-basel-landschaft-liestal"
         ]
       },
@@ -3730,12 +3748,12 @@
     },
     {
       "id": "kanton-basel-landschaft-798d2107f533",
-      "slug": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil",
+      "slug": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil",
+        "it": "social-pedagogue-social-pedagogue-kantonale-verwaltung-basel-landschaft-oberwil",
         "en": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil",
         "de": "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
-        "fr": "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil"
+        "fr": "pedagogue-sociale-pedagogue-sociale-kantonale-verwaltung-basel-landschaft-oberwil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -3778,11 +3796,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil"
+        "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
+        "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil"
+          "sozialpadagogin-sozialpadagoge-kanton-basel-landschaft-oberwil",
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-kantonale-verwaltung-basel-landschaft-oberwil"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:46.540Z",
@@ -3802,10 +3825,10 @@
     },
     {
       "id": "kanton-basel-landschaft-a27d0530732c",
-      "slug": "konrektorin-konrektor-kanton-basel-landschaft-muttenz",
+      "slug": "vicepresidente-kantonale-verwaltung-basel-landschaft-muttenz",
       "slugByLocale": {
-        "it": "konrektorin-konrektor-kanton-basel-landschaft-muttenz",
-        "en": "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-muttenz",
+        "it": "vicepresidente-kantonale-verwaltung-basel-landschaft-muttenz",
+        "en": "vice-president-kantonale-verwaltung-basel-landschaft-muttenz",
         "de": "konrektorin-konrektor-kanton-basel-landschaft-muttenz",
         "fr": "konrektorin-konrektor-kanton-basel-landschaft-muttenz"
       },
@@ -3862,16 +3885,28 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "konrektorin-konrektor-kanton-basel-landschaft-muttenz"
+        ],
+        "en": [
+          "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-muttenz"
+        ]
+      },
+      "previousSlugs": [
+        "konrektorin-konrektor-kanton-basel-landschaft-muttenz",
+        "konrektorin-konrektor-kantonale-verwaltung-basel-landschaft-muttenz"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-699b7042d7a3",
-      "slug": "leiterin-leiter-berufliche-weiterbildung-kantonale-verwaltung-basel-landschaft-muttenz",
+      "slug": "capo-della-formazione-professionale-kantonale-verwaltung-basel-landschaft-muttenz",
       "slugByLocale": {
-        "it": "leiterin-leiter-berufliche-weiterbildung-kantonale-verwaltung-basel-landschaft-muttenz",
-        "en": "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz",
+        "it": "capo-della-formazione-professionale-kantonale-verwaltung-basel-landschaft-muttenz",
+        "en": "head-of-vocational-training-kantonale-verwaltung-basel-landschaft-muttenz",
         "de": "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz",
-        "fr": "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz"
+        "fr": "chef-de-la-formation-professionnelle-kantonale-verwaltung-basel-landschaft-muttenz"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -3914,10 +3949,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz"
+        "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz",
+        "leiterin-leiter-berufliche-weiterbildung-kantonale-verwaltung-basel-landschaft-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz",
+          "leiterin-leiter-berufliche-weiterbildung-kantonale-verwaltung-basel-landschaft-muttenz"
+        ],
+        "en": [
+          "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz"
+        ],
+        "fr": [
           "leiterin-leiter-berufliche-weiterbildung-kanton-basel-landschaft-muttenz"
         ]
       },
@@ -4590,8 +4633,7 @@
         "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
         "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
         "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
-        "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal",
-        "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
+        "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4607,8 +4649,7 @@
           "case-handler-case-handler-segreteria-contabilita-kantonale-verwaltung-basel-landschaft-liestal",
           "case-handler-case-handler-secretariat-accounting-kantonale-verwaltung-basel-landschaft-liestal",
           "sachbearbeiterin-sachbearbeiter-sekretariat-rechnungswesen-kanton-basel-landschaft-liestal",
-          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal",
-          "musikschulleitung-kantonale-verwaltung-basel-landschaft-liestal"
+          "gestionnaire-de-cas-gestionnaire-secretariat-comptabilite-kantonale-verwaltung-basel-landschaft-liestal"
         ],
         "en": [
           "project-manager-project-manager-spatial-and-transport-planning-kantonale-verwaltung-basel-landschaft-liestal"
@@ -5239,13 +5280,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal",
-        "sachbearbeiterin-fachstelle-opfer-e-kinderbefragung-kantonale-verwaltung-basel-landschaft-liestal"
+        "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal",
-          "sachbearbeiterin-fachstelle-opfer-e-kinderbefragung-kantonale-verwaltung-basel-landschaft-liestal"
+          "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:15.253Z",

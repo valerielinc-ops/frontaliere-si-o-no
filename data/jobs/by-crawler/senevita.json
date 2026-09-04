@@ -3660,8 +3660,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel",
-          "professionista-della-salute-nell-occupazione-permanente-60-80-senevita-biel-be"
+          "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
         ],
         "de": [
           "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
@@ -3674,10 +3673,7 @@
         ]
       },
       "previousSlugs": [
-        "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel",
-        "health-professional-in-permanent-employment-60-80-senevita-biel-be",
-        "professionnels-de-la-sante-en-emploi-permanent-60-80-senevita-biel-be",
-        "professionista-della-salute-nell-occupazione-permanente-60-80-senevita-biel-be"
+        "fachfrau-gesundheit-im-festanstellung-60-80-senevita-be-biel"
       ],
       "salaryMin": 58400,
       "salaryMax": 99600,
@@ -6862,9 +6858,9 @@
     },
     {
       "id": "senevita-275cf362d017",
-      "slug": "fachperson-gesundheit-efz-m-w-80-100-senevita-tg-islikon",
+      "slug": "professionista-della-salute-efz-m-f-80-100-senevita-tg-islikon",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-efz-m-w-80-100-senevita-tg-islikon",
+        "it": "professionista-della-salute-efz-m-f-80-100-senevita-tg-islikon",
         "en": "health-professional-efz-m-f-80-100-senevita-tg-islikon",
         "de": "fachperson-gesundheit-efz-m-w-80-100-senevita-tg-islikon",
         "fr": "professionnels-de-la-sante-efz-h-f-80-100-senevita-tg-islikon"
@@ -6922,7 +6918,15 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-m-w-80-100-senevita-tg-islikon"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-m-w-80-100-senevita-tg-islikon"
+      ]
     },
     {
       "id": "senevita-868ff104fb0d",
@@ -9978,13 +9982,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen",
-        "apprendistato-fachmann-frau-gesundheit-cfc-senevita-ag-wohlen"
+        "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen",
-          "apprendistato-fachmann-frau-gesundheit-cfc-senevita-ag-wohlen"
+          "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:49.266Z",
@@ -14500,12 +14502,12 @@
     },
     {
       "id": "senevita-9d87b7931f59",
-      "slug": "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-cfc-senevita-zg-zug",
+      "slug": "dipendente-di-piscina-in-cura-dipl-infermieristica-professionale-hf-fh-salute-professionale-efz-senevita-zg-zug",
       "slugByLocale": {
-        "it": "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-cfc-senevita-zg-zug",
-        "en": "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita",
+        "it": "dipendente-di-piscina-in-cura-dipl-infermieristica-professionale-hf-fh-salute-professionale-efz-senevita-zg-zug",
+        "en": "pool-employee-in-care-dipl-nursing-professional-hf-fh-health-professional-efz-senevita-zg-zug",
         "de": "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita",
-        "fr": "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita"
+        "fr": "employe-de-la-piscine-en-soins-dipl-professionnels-des-soins-infirmiers-hf-fh-professionnel-de-la-sante-efz-senevita-zg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -14549,10 +14551,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita"
+        "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita",
+        "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-cfc-senevita-zg-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita",
+          "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-cfc-senevita-zg-zug"
+        ],
+        "en": [
+          "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita"
+        ],
+        "fr": [
           "poolmitarbeiter-in-pflege-dipl-pflegefachperson-hf-fh-fachperson-gesundheit-efz-senevita"
         ]
       },

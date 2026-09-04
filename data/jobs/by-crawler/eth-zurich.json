@@ -3614,7 +3614,7 @@
       "slugByLocale": {
         "it": "system-ingegnere-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth-zurich-singapore",
         "en": "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth",
-        "de": "system-ingenieur-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth-zurich-singapore",
+        "de": "system-engineer-fur-ml-plattform-auf-einer-cloud-ahnlichen-hpc-infrastruktur-data-centric-focus-eth-zurich-singapore",
         "fr": "system-ingenieur-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth-zurich-singapore"
       },
       "company": "ETH Zürich",
@@ -3655,14 +3655,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth"
+        "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth",
+        "system-ingenieur-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth-zurich-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth"
         ],
         "de": [
-          "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth"
+          "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth",
+          "system-ingenieur-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth-zurich-singapore"
         ],
         "fr": [
           "system-engineer-for-ml-platform-on-a-cloud-like-hpc-infrastructure-data-centric-focus-eth"
@@ -6511,12 +6513,12 @@
     },
     {
       "id": "eth-zurich-9d1e096d6363",
-      "slug": "student-assistant-for-prenatal-genetics-project-eth-zurich-ch",
+      "slug": "assistente-studentesco-per-il-progetto-prenatal-genetics-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "student-assistant-for-prenatal-genetics-project-eth-zurich-ch",
+        "it": "assistente-studentesco-per-il-progetto-prenatal-genetics-eth-zurich-zurich",
         "en": "student-assistant-for-prenatal-genetics-project-eth-zurich-ch",
         "de": "student-assistent-for-prenatal-genetics-project-eth-zurich-zurich",
-        "fr": "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
+        "fr": "assistant-etudiant-pour-le-projet-de-genetique-prenatale-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6569,7 +6571,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
+        ],
+        "fr": [
+          "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-for-prenatal-genetics-project-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1ab2434e04d3",
@@ -6839,12 +6852,12 @@
     },
     {
       "id": "eth-zurich-035d2a98de11",
-      "slug": "postdoctoral-fellowship-at-design-eth-zurich-ch",
+      "slug": "fellowship-post-dottorale-a-design-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "postdoctoral-fellowship-at-design-eth-zurich-ch",
+        "it": "fellowship-post-dottorale-a-design-eth-zurich-zurich",
         "en": "postdoctoral-fellowship-at-design-eth-zurich-ch",
         "de": "postdoctoral-fellowship-at-design-eth-zurich-ch",
-        "fr": "postdoctoral-fellowship-at-design-eth-zurich-ch"
+        "fr": "bourse-postdoctorale-a-design-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6897,7 +6910,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-fellowship-at-design-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-fellowship-at-design-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-fellowship-at-design-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-8a30173228ce",

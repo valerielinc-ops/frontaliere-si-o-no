@@ -1165,12 +1165,12 @@
     },
     {
       "id": "reha-bellikon-4dca33c6c643",
-      "slug": "logopadin-logopade-reha-bellikon-bellikon",
+      "slug": "medico-di-discorso-medico-di-discorso-rehaklinik-bellikon-bellikon",
       "slugByLocale": {
-        "it": "logopadin-logopade-reha-bellikon-bellikon",
-        "en": "logopadin-logopade-reha-bellikon-bellikon",
+        "it": "medico-di-discorso-medico-di-discorso-rehaklinik-bellikon-bellikon",
+        "en": "speech-doctor-speech-doctor-rehaklinik-bellikon-bellikon",
         "de": "logopadin-logopade-reha-bellikon-bellikon",
-        "fr": "logopadin-logopade-reha-bellikon-bellikon"
+        "fr": "orthophoniste-orthophoniste-rehaklinik-bellikon-bellikon"
       },
       "company": "Rehaklinik Bellikon",
       "companyKey": "reha-bellikon",
@@ -1217,11 +1217,21 @@
       "pensum": "40 - 70%",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "logopadin-logopade-rehaklinik-bellikon-bellikon"
+        "logopadin-logopade-rehaklinik-bellikon-bellikon",
+        "logopadin-logopade-reha-bellikon-bellikon"
       ],
       "previousSlugsByLocale": {
         "de": [
           "logopadin-logopade-rehaklinik-bellikon-bellikon"
+        ],
+        "it": [
+          "logopadin-logopade-reha-bellikon-bellikon"
+        ],
+        "en": [
+          "logopadin-logopade-reha-bellikon-bellikon"
+        ],
+        "fr": [
+          "logopadin-logopade-reha-bellikon-bellikon"
         ]
       },
       "firstSeenAt": "2026-09-01T07:36:45.874Z",

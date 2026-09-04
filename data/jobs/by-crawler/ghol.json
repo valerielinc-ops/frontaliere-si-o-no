@@ -709,11 +709,11 @@
     },
     {
       "id": "ghol-bb90df116e65",
-      "slug": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+      "slug": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
-        "en": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
-        "de": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+        "it": "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "assc-for-the-department-of-medicine-and-neurovascular-unit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "assc-fur-die-abteilung-medizin-und-neurovaskulare-einheit-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -767,7 +767,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ],
+        "en": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ],
+        "de": [
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        ]
+      },
+      "previousSlugs": [
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+      ]
     }
   ]
 }

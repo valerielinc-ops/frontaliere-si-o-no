@@ -592,7 +592,6 @@
         "individual-private-customer-advisor-raiffeisen-poschiavo",
         "privatkundenberater-raiffeisen-poschiavo",
         "conseiller-client-prive-individuel-raiffeisen-poschiavo",
-        "privatkundenberater-raiffeisen-gordola",
         "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
         "conseiller-clientele-privee-individuelle-f-h-d-raiffeisen-thierrens",
         "individual-private-customer-advisor-m-f-d-raiffeisen-thierrens",
@@ -622,7 +621,6 @@
         ],
         "de": [
           "privatkundenberater-raiffeisen-poschiavo",
-          "privatkundenberater-raiffeisen-gordola",
           "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier"
@@ -7947,12 +7945,12 @@
     },
     {
       "id": "raiffeisen-cce05dde178d",
-      "slug": "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht",
+      "slug": "specialista-hr-junior-manager-m-f-d-raiffeisen-kussnacht",
       "slugByLocale": {
-        "it": "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht",
+        "it": "specialista-hr-junior-manager-m-f-d-raiffeisen-kussnacht",
         "en": "hr-specialist-junior-manager-m-f-d-raiffeisen-kussnacht",
         "de": "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht",
-        "fr": "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht"
+        "fr": "specialiste-des-rh-gestionnaire-junior-h-f-d-raiffeisen-kussnacht"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -8007,7 +8005,18 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht"
+        ],
+        "fr": [
+          "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachperson-nachwuchsverantwortliche-w-m-d-raiffeisen-kussnacht"
+      ]
     },
     {
       "id": "raiffeisen-fb749fc676d0",
@@ -8947,9 +8956,9 @@
       "slug": "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-kleindottingen",
       "slugByLocale": {
         "it": "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-kleindottingen",
-        "en": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen",
+        "en": "employee-credit-processing-m-f-d-raiffeisen-kleindottingen",
         "de": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen",
-        "fr": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen"
+        "fr": "traitement-du-credit-des-employes-h-f-d-raiffeisen-kleindottingen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -8997,6 +9006,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen"
+        ],
+        "en": [
+          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen"
+        ],
+        "fr": [
+          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-kleindottingen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:13:53.741Z",
@@ -9019,9 +9034,9 @@
       "slug": "leiter-firmenkundenberatung-mitglied-der-bankleitung-m-w-d-raiffeisen-diepoldsau",
       "slugByLocale": {
         "it": "leiter-firmenkundenberatung-mitglied-der-bankleitung-m-w-d-raiffeisen-diepoldsau",
-        "en": "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau",
+        "en": "head-of-corporate-client-consulting-member-of-bank-management-m-f-d-raiffeisen-diepoldsau",
         "de": "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau",
-        "fr": "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau"
+        "fr": "responsable-de-corporate-client-consulting-membre-de-la-direction-bancaire-h-f-d-raiffeisen-diepoldsau"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9069,6 +9084,12 @@
       "previousSlugsByLocale": {
         "it": [
           "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau"
+        ],
+        "en": [
+          "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau"
+        ],
+        "fr": [
+          "leiter-firmenkundenberatung-mitglied-der-bankleitung-w-m-d-raiffeisen-diepoldsau"
         ]
       },
       "firstSeenAt": "2026-08-25T21:58:57.050Z",
@@ -9088,12 +9109,12 @@
     },
     {
       "id": "raiffeisen-7f51053af381",
-      "slug": "privatkundenberater-basis-w-m-d-raiffeisen-wil",
+      "slug": "consulenza-clienti-privata-m-f-d-raiffeisen-wil",
       "slugByLocale": {
-        "it": "privatkundenberater-basis-w-m-d-raiffeisen-wil",
-        "en": "privatkundenberater-basis-w-m-d-raiffeisen-wil",
+        "it": "consulenza-clienti-privata-m-f-d-raiffeisen-wil",
+        "en": "private-client-advisor-basis-m-f-d-raiffeisen-wil",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-wil",
-        "fr": "privatkundenberater-basis-w-m-d-raiffeisen-wil"
+        "fr": "conseiller-client-prive-base-h-f-d-raiffeisen-wil"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9148,7 +9169,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-basis-w-m-d-raiffeisen-wil"
+        ],
+        "en": [
+          "privatkundenberater-basis-w-m-d-raiffeisen-wil"
+        ],
+        "fr": [
+          "privatkundenberater-basis-w-m-d-raiffeisen-wil"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-basis-w-m-d-raiffeisen-wil"
+      ]
     },
     {
       "id": "raiffeisen-b6d981f111d4",
@@ -9230,12 +9265,12 @@
     },
     {
       "id": "raiffeisen-cb9bec8c39c4",
-      "slug": "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-zeiningen",
       "slugByLocale": {
-        "it": "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen",
-        "en": "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen",
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-zeiningen",
+        "en": "private-client-advisor-individual-m-f-d-raiffeisen-zeiningen",
         "de": "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen",
-        "fr": "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen"
+        "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-zeiningen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9290,7 +9325,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen"
+        ],
+        "en": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen"
+        ],
+        "fr": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-w-m-d-raiffeisen-zeiningen"
+      ]
     },
     {
       "id": "raiffeisen-6e59c5f00bd7",
@@ -9489,12 +9538,12 @@
     },
     {
       "id": "raiffeisen-1c9059c31cae",
-      "slug": "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen",
+      "slug": "host-alla-reception-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen",
-        "en": "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen",
+        "it": "host-alla-reception-raiffeisen-st-gallen",
+        "en": "host-at-the-reception-desk-raiffeisen-st-gallen",
         "de": "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen",
-        "fr": "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen"
+        "fr": "hebergement-a-la-reception-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9550,16 +9599,30 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "gastgeber-in-am-empfangsdesk-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-a9490bc26628",
-      "slug": "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
+      "slug": "presidente-della-direzione-banca-m-f-d-raiffeisen-horw",
       "slugByLocale": {
-        "it": "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
-        "en": "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
+        "it": "presidente-della-direzione-banca-m-f-d-raiffeisen-horw",
+        "en": "chairman-of-the-bank-management-m-f-d-raiffeisen-horw",
         "de": "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw",
-        "fr": "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
+        "fr": "president-de-la-direction-bancaire-h-f-d-raiffeisen-horw"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9614,7 +9677,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
+        ],
+        "en": [
+          "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
+        ],
+        "fr": [
+          "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
+        ]
+      },
+      "previousSlugs": [
+        "vorsitz-der-bankleitung-w-m-d-raiffeisen-horw"
+      ]
     },
     {
       "id": "raiffeisen-f68e3e2d9518",
@@ -9704,11 +9781,11 @@
     },
     {
       "id": "raiffeisen-c3cbf84a3460",
-      "slug": "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon",
+      "slug": "advisor-core-private-client-advisor-raiffeisen-nyon",
       "slugByLocale": {
-        "it": "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon",
+        "it": "advisor-core-private-client-advisor-raiffeisen-nyon",
         "en": "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon",
-        "de": "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon",
+        "de": "berater-core-private-client-advisor-raiffeisen-nyon",
         "fr": "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon"
       },
       "company": "Raiffeisen",
@@ -9764,7 +9841,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon"
+        ],
+        "de": [
+          "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-conseillere-clientele-privee-de-base-raiffeisen-nyon"
+      ]
     },
     {
       "id": "raiffeisen-6256ee5adfa2",
@@ -10131,12 +10219,12 @@
     },
     {
       "id": "raiffeisen-9ac1153f9981",
-      "slug": "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-con-lehrbeginn-august-2027-raiffeisen-erlinsbach",
+      "slug": "apprendistato-come-commerciante-cooperativo-efz-branche-bank-con-apprendistato-a-partire-dal-2027-raiffeisen-erlinsbach",
       "slugByLocale": {
-        "it": "apprendistato-come-kaufmann-kauffrau-cfc-branche-bank-con-lehrbeginn-august-2027-raiffeisen-erlinsbach",
-        "en": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-mit-lehrbeginn-august-2027-raiffeisen",
+        "it": "apprendistato-come-commerciante-cooperativo-efz-branche-bank-con-apprendistato-a-partire-dal-2027-raiffeisen-erlinsbach",
+        "en": "apprenticeship-as-a-merchant-cooperative-efz-branche-bank-with-apprenticeship-beginning-august-2027-raiffeisen",
         "de": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-mit-lehrbeginn-august-2027-raiffeisen",
-        "fr": "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-mit-lehrbeginn-august-2027-raiffeisen"
+        "fr": "apprentissage-comme-marchand-cooperative-efz-branche-bank-avec-apprentissage-a-partir-d-aout-2027-raiffeisen-erlinsbach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10216,6 +10304,12 @@
           "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-qv5kay",
           "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-qwwam7",
           "apprendistato-come-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffe-tsgi49"
+        ],
+        "en": [
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-mit-lehrbeginn-august-2027-raiffeisen"
+        ],
+        "fr": [
+          "lehrstelle-als-kaufmann-kauffrau-efz-branche-bank-mit-lehrbeginn-august-2027-raiffeisen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:14:36.233Z",
@@ -11122,12 +11216,12 @@
     },
     {
       "id": "raiffeisen-a0ac3637a089",
-      "slug": "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wurenlos",
       "slugByLocale": {
-        "it": "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
-        "en": "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-wurenlos",
+        "en": "private-client-advisor-individual-m-f-d-raiffeisen-wurenlos",
         "de": "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos",
-        "fr": "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
+        "fr": "conseiller-client-prive-individuel-h-f-d-raiffeisen-wurenlos"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11182,7 +11276,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
+        ],
+        "en": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
+        ],
+        "fr": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-w-m-d-raiffeisen-wurenlos"
+      ]
     },
     {
       "id": "raiffeisen-79f1279e1761",
@@ -11396,13 +11504,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-        "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen"
+        "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-          "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen"
+          "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:40:51.036Z",
@@ -11842,13 +11948,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-services-m-w-d-raiffeisen-giffers",
-        "collaboratore-trice-services-m-w-d-raiffeisen-giffers"
+        "mitarbeiter-services-m-w-d-raiffeisen-giffers"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-services-m-w-d-raiffeisen-giffers",
-          "collaboratore-trice-services-m-w-d-raiffeisen-giffers"
+          "mitarbeiter-services-m-w-d-raiffeisen-giffers"
         ]
       },
       "firstSeenAt": "2026-09-03T13:40:50.997Z",

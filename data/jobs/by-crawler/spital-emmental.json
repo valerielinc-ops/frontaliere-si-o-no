@@ -2760,8 +2760,7 @@
         "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
         "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
         "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf",
-        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo",
-        "infermiera-a-spital-emmental-burgdorf-742fa7"
+        "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2773,8 +2772,7 @@
           "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
           "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
           "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf",
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo",
-          "infermiera-a-spital-emmental-burgdorf-742fa7"
+          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4u5vo"
         ],
         "en": [
           "dipl-pflegefachperson-a-spital-emmental-burgdorf",
@@ -2973,12 +2971,12 @@
     },
     {
       "id": "spital-emmental-bc8ecee26bd2",
-      "slug": "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf",
+      "slug": "medico-senior-a-radiologia-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf",
+        "it": "medico-senior-a-radiologia-spital-emmental-burgdorf",
+        "en": "senior-physician-a-radiology-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf"
+        "fr": "medecin-principal-a-radiologie-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3031,7 +3029,8 @@
         "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
         "medecin-superieur-medecin-superieur-soins-palliatifs-a-spital-emmental-burgdorf-langnau",
         "medico-senior-cure-palliative-a-spital-emmental-burgdorf-langnau",
-        "head-physician-palliative-care-spital-emmental-burgdorf-langnau"
+        "head-physician-palliative-care-spital-emmental-burgdorf-langnau",
+        "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3040,16 +3039,19 @@
           "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf",
           "medecin-superieur-medecin-superieur-soins-palliatifs-a-spital-emmental-burgdorf-langnau",
           "medico-senior-cure-palliative-a-spital-emmental-burgdorf-langnau",
-          "head-physician-palliative-care-spital-emmental-burgdorf-langnau"
+          "head-physician-palliative-care-spital-emmental-burgdorf-langnau",
+          "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf"
         ],
         "en": [
-          "senior-physician-senior-physician-palliative-care-a-spital-emmental-burgdorf-langnau"
+          "senior-physician-senior-physician-palliative-care-a-spital-emmental-burgdorf-langnau",
+          "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf"
         ],
         "de": [
           "oberarztin-oberarzt-palliative-care-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-soins-palliatifs-a-spital-emmental-burgdorf-langnau"
+          "medecin-superieur-medecin-superieur-soins-palliatifs-a-spital-emmental-burgdorf-langnau",
+          "oberarztin-oberarzt-a-radiologie-spital-emmental-burgdorf"
         ]
       },
       "firstSeenAt": "2026-08-26T09:56:00.363Z",
@@ -3069,12 +3071,12 @@
     },
     {
       "id": "spital-emmental-8045917b97e0",
-      "slug": "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
+      "slug": "dipl-infermiera-a-triage-emergenza-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
-        "en": "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
+        "it": "dipl-infermiera-a-triage-emergenza-spital-emmental-burgdorf",
+        "en": "dipl-nurse-a-triage-emergency-spital-emmental-burgdorf",
         "de": "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf",
-        "fr": "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf"
+        "fr": "dipl-infirmiere-a-triage-urgence-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3134,16 +3136,30 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-a-triage-notfall-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-c72101580ee3",
-      "slug": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+      "slug": "dipl-esperto-dipl-assistenza-di-emergenza-esperto-con-funzione-aggiuntiva-formazione-professionale-a-spital-emmental",
       "slugByLocale": {
-        "it": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
-        "en": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
+        "it": "dipl-esperto-dipl-assistenza-di-emergenza-esperto-con-funzione-aggiuntiva-formazione-professionale-a-spital-emmental",
+        "en": "dipl-expert-dipl-expert-emergency-care-with-additional-function-vocational-training-a-spital-emmental-burgdorf",
         "de": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital",
-        "fr": "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
+        "fr": "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3192,18 +3208,20 @@
       "contractDuration": "permanent",
       "previousSlugs": [
         "dipl-expert-dipl-expert-emergency-care-with-additional-function-vocational-training-a-spital-emmental-burgdorf",
-        "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental"
+        "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental",
+        "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-expert-dipl-expert-emergency-care-with-additional-function-vocational-training-a-spital-emmental-burgdorf",
-          "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental"
+          "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental",
+          "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
         ],
         "en": [
-          "dipl-expert-dipl-expert-emergency-care-with-additional-function-vocational-training-a-spital-emmental-burgdorf"
+          "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
         ],
         "fr": [
-          "c-est-quoi-expert-dipl-expert-soins-d-urgence-avec-fonction-supplementaire-formation-professionnelle-a-spital-emmental"
+          "dipl-expertin-dipl-experte-notfallpflege-mit-zusatzfunktion-berufsbildung-a-spital"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:55.498Z",
@@ -3363,12 +3381,12 @@
     },
     {
       "id": "spital-emmental-b39f1aaeef6c",
-      "slug": "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf",
+      "slug": "medico-senior-chirurgia-medico-senior-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf",
+        "it": "medico-senior-chirurgia-medico-senior-a-spital-emmental-burgdorf",
+        "en": "senior-physician-senior-physician-surgery-a-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf",
-        "fr": "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf"
+        "fr": "medecin-principal-chirurgie-medicale-superieure-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3436,17 +3454,20 @@
           "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
           "medecin-superieur-medecin-superieur-en-psychiatrie-de-vieillesse-a-spital-emmental-burgdorf",
           "psichiatria-senior-a-spital-emmental-burgdorf",
-          "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf"
+          "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf",
+          "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf"
         ],
         "en": [
           "senior-physician-senior-physician-in-old-age-psychiatry-a-spital-emmental-burgdorf",
-          "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf"
+          "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf",
+          "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf"
         ],
         "de": [
           "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-en-psychiatrie-de-vieillesse-a-spital-emmental-burgdorf"
+          "medecin-superieur-medecin-superieur-en-psychiatrie-de-vieillesse-a-spital-emmental-burgdorf",
+          "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
@@ -3455,7 +3476,8 @@
         "oberarztin-oberarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
         "medecin-superieur-medecin-superieur-en-psychiatrie-de-vieillesse-a-spital-emmental-burgdorf",
         "psichiatria-senior-a-spital-emmental-burgdorf",
-        "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf"
+        "senior-physician-senior-physician-age-psychiatry-a-spital-emmental-burgdorf",
+        "oberarztin-oberarzt-chirurgie-a-spital-emmental-burgdorf"
       ]
     },
     {
@@ -3903,16 +3925,11 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "teamleitung-rheumatologie-spital-emmental-burgdorf",
-          "teamleitung-sekretariat-spital-emmental-burgdorf"
-        ],
-        "de": [
-          "teamleitung-sekretariat-spital-emmental-burgdorf"
+          "teamleitung-rheumatologie-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "teamleitung-rheumatologie-spital-emmental-burgdorf",
-        "teamleitung-sekretariat-spital-emmental-burgdorf"
+        "teamleitung-rheumatologie-spital-emmental-burgdorf"
       ],
       "firstSeenAt": "2026-09-03T13:32:53.315Z",
       "salaryMin": 85000,
@@ -3934,9 +3951,9 @@
       "slug": "oberarztin-oberarzt-o-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental-burgdorf",
       "slugByLocale": {
         "it": "oberarztin-oberarzt-o-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental-burgdorf",
-        "en": "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental",
+        "en": "senior-physician-senior-physician-or-stv-senior-physician-stv-senior-physician-a-medical-clinic-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental",
-        "fr": "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental"
+        "fr": "medecin-principal-medecin-principal-ou-stv-medecin-principal-stv-medecin-principal-a-clinique-medicale-spital-emmental"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3990,6 +4007,12 @@
       "previousSlugsByLocale": {
         "it": [
           "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental"
+        ],
+        "en": [
+          "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:52.659Z",
@@ -4009,12 +4032,12 @@
     },
     {
       "id": "spital-emmental-861c9fd5bf1b",
-      "slug": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
+      "slug": "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "en": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
+        "it": "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
+        "en": "senior-physician-senior-physician-old-age-psychiatric-ambulatorium-consultant-service-a-spital-emmental-burgdorf",
         "de": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental",
-        "fr": "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
+        "fr": "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4077,21 +4100,21 @@
       "firstSeenAt": "2026-09-03T13:32:52.065Z",
       "previousSlugsByLocale": {
         "it": [
-          "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
           "senior-physician-senior-physician-old-age-psychiatric-ambulatorium-consultant-service-a-spital-emmental-burgdorf",
-          "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf"
+          "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf",
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
         ],
         "en": [
-          "senior-physician-senior-physician-old-age-psychiatric-ambulatorium-consultant-service-a-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
         ],
         "fr": [
-          "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
         ]
       },
       "previousSlugs": [
-        "medico-senior-medico-senior-old-age-psychiatric-ambulatorium-consulnt-service-a-spital-emmental-burgdorf",
         "senior-physician-senior-physician-old-age-psychiatric-ambulatorium-consultant-service-a-spital-emmental-burgdorf",
-        "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf"
+        "medecin-superieur-medecin-superieur-service-ambulatoire-psychiatrique-et-consultant-a-spital-emmental-burgdorf",
+        "oberarztin-oberarzt-alterspsychiatrisches-ambulatorium-konsiliardienst-a-spital-emmental"
       ]
     },
     {
@@ -4151,8 +4174,7 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-restaurant-a-spital-emmental-burgdorf",
-          "collaboratore-trice-restaurant-a-spital-emmental-burgdorf"
+          "mitarbeiter-in-restaurant-a-spital-emmental-burgdorf"
         ],
         "en": [
           "mitarbeiter-in-restaurant-a-spital-emmental-burgdorf",
@@ -4165,7 +4187,6 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-restaurant-a-spital-emmental-burgdorf",
-        "collaboratore-trice-restaurant-a-spital-emmental-burgdorf",
         "associate-restaurant-a-spital-emmental-burgdorf",
         "collaborateur-trice-restaurant-a-spital-emmental-burgdorf"
       ],
@@ -4186,12 +4207,12 @@
     },
     {
       "id": "spital-emmental-ffc695ec8dc0",
-      "slug": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
+      "slug": "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "en": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
+        "it": "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
+        "en": "training-place-for-dipl-radiology-specialist-hf-dipl-radiology-specialist-hf-a-spital-emmental-burgdorf",
         "de": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital",
-        "fr": "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
+        "fr": "lieu-de-formation-pour-dipl-specialiste-en-radiologie-hf-dipl-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4254,27 +4275,27 @@
       "firstSeenAt": "2026-09-03T13:32:50.841Z",
       "previousSlugsByLocale": {
         "it": [
-          "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
           "training-place-for-dipl-radiology-specialist-hf-dipl-radiology-specialist-hf-a-spital-emmental-burgdorf",
           "lieu-de-formation-pour-dipl-specialiste-en-radiologie-hf-dipl-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf",
           "apprendistato-da-dipl-specialista-in-radiologia-in-hf-dipl-specialista-in-radiologia-in-ic-a-spital-emmental-burgdorf",
           "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital-2",
-          "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau"
+          "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
         ],
         "en": [
-          "training-place-for-dipl-radiology-specialist-hf-dipl-radiology-specialist-hf-a-spital-emmental-burgdorf"
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
         ],
         "fr": [
-          "lieu-de-formation-pour-dipl-specialiste-en-radiologie-hf-dipl-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf"
+          "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
         ]
       },
       "previousSlugs": [
-        "luogo-di-formazione-per-dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf",
         "training-place-for-dipl-radiology-specialist-hf-dipl-radiology-specialist-hf-a-spital-emmental-burgdorf",
         "lieu-de-formation-pour-dipl-specialiste-en-radiologie-hf-dipl-specialiste-de-radiologie-hf-a-spital-emmental-burgdorf",
         "apprendistato-da-dipl-specialista-in-radiologia-in-hf-dipl-specialista-in-radiologia-in-ic-a-spital-emmental-burgdorf",
         "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital-2",
-        "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau"
+        "dipl-specialista-di-radiologia-hf-a-spital-emmental-burgdorf-langnau",
+        "ausbildungsplatz-zur-dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-a-spital"
       ]
     },
     {

@@ -2234,9 +2234,9 @@
     },
     {
       "id": "vz-vermoegenszentrum-d6a92e62bd0d",
-      "slug": "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug",
+      "slug": "apprendistato-come-un-commerciante-banca-commerciale-vz-vermogenszentrum-zug-zug",
       "slugByLocale": {
-        "it": "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug",
+        "it": "apprendistato-come-un-commerciante-banca-commerciale-vz-vermogenszentrum-zug-zug",
         "en": "apprenticeship-as-a-merchant-merchant-bank-vz-vermogenszentrum-zug-zug",
         "de": "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch",
         "fr": "apprentissage-en-tant-que-banque-marchande-vz-vermogenszentrum-zug-zug"
@@ -2294,12 +2294,14 @@
       "previousSlugs": [
         "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch-2",
         "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch",
-        "lehre-als-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug"
+        "lehre-als-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug",
+        "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch-2",
-          "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch"
+          "lehre-als-kauffrau-kaufmann-bank-vz-vermoegenszentrum-ch",
+          "apprendistato-come-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug"
         ],
         "en": [
           "lehre-als-kauffrau-kaufmann-bank-vz-vermogenszentrum-zug"
@@ -2810,11 +2812,11 @@
     },
     {
       "id": "vz-vermoegenszentrum-67acdfa08a66",
-      "slug": "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel",
+      "slug": "consulente-clienti-privato-per-biel-vz-vermogenszentrum-biel-bern",
       "slugByLocale": {
-        "it": "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel",
+        "it": "consulente-clienti-privato-per-biel-vz-vermogenszentrum-biel-bern",
         "en": "private-client-consultant-for-biel-vz-vermogenszentrum-biel-bern",
-        "de": "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
+        "de": "private-client-consultant-fur-biel-vz-vermogenszentrum-biel-bern",
         "fr": "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch"
       },
       "company": "VZ VermögensZentrum",
@@ -2871,10 +2873,15 @@
         ]
       },
       "previousSlugs": [
-        "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
+        "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch",
+          "private-clients-consultant-pour-bienne-vz-vermogenszentrum-biel"
+        ],
+        "de": [
           "private-clients-consultant-pour-bienne-vz-vermoegenszentrum-ch"
         ]
       },
@@ -3464,7 +3471,7 @@
         "it": "wml-praktikum-im-financial-consulting-start-2027-vz-vermogenszentrum-luzern",
         "en": "wml-praktikum-im-financial-consulting-start-2027-vz-vermogenszentrum-luzern",
         "de": "wml-praktikum-im-financial-consulting-start-2027-vz-vermoegenszentrum-ch",
-        "fr": "wml-praktikum-im-financial-consulting-start-2027-vz-vermogenszentrum-luzern"
+        "fr": "stage-wml-en-conseil-financier-debut-2027-vz-vermogenszentrum-luzern-luzern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3636,12 +3643,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-ff047810e97c",
-      "slug": "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich",
+      "slug": "dove-la-finanza-incontra-l-ingegneria-il-programma-del-tirocinante-al-vz-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich",
-        "en": "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich",
+        "it": "dove-la-finanza-incontra-l-ingegneria-il-programma-del-tirocinante-al-vz-vz-vermogenszentrum-zurich-zurich",
+        "en": "where-finance-meets-engineering-the-trainee-program-at-the-vz-vz-vermogenszentrum-zurich-zurich",
         "de": "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermoegenszentrum-ch",
-        "fr": "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich"
+        "fr": "lorsque-la-finance-rencontre-l-ingenierie-le-programme-de-stagiaire-au-vz-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -3696,12 +3703,20 @@
       },
       "previousSlugs": [
         "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermoegenszentrum-ch",
-        "finanza-trifft-auf-engineering-apprendista-programm-beim-vz-80-100-vz-vermogenszentrum-zurich"
+        "finanza-trifft-auf-engineering-apprendista-programm-beim-vz-80-100-vz-vermogenszentrum-zurich",
+        "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermoegenszentrum-ch",
-          "finanza-trifft-auf-engineering-apprendista-programm-beim-vz-80-100-vz-vermogenszentrum-zurich"
+          "finanza-trifft-auf-engineering-apprendista-programm-beim-vz-80-100-vz-vermogenszentrum-zurich",
+          "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich"
+        ],
+        "fr": [
+          "wo-finance-auf-engineering-trifft-das-trainee-programm-beim-vz-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -4584,12 +4599,12 @@
     },
     {
       "id": "vz-vermoegenszentrum-f582b48c69f8",
-      "slug": "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
+      "slug": "apprendistato-come-commerciante-mercante-assicurazione-privata-e-aziendale-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
-        "it": "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
-        "en": "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich",
+        "it": "apprendistato-come-commerciante-mercante-assicurazione-privata-e-aziendale-vz-vermogenszentrum-zurich-zurich",
+        "en": "apprenticeship-as-a-merchant-merchant-private-and-company-insurance-vz-vermogenszentrum-zurich-zurich",
         "de": "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
-        "fr": "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich"
+        "fr": "apprentissage-en-tant-que-marchand-vendeur-assurance-privee-et-assurance-societe-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4645,20 +4660,27 @@
         "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
         "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
         "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
-        "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
+        "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch",
+        "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich",
+        "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermoegenszentrum-ch",
           "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
-          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch",
+          "apprendistato-come-kauffrau-kaufmann-privat-e-firmenversicherung-vz-vermogenszentrum-zurich"
         ],
         "de": [
           "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermoegenszentrum-ch"
         ],
         "fr": [
-          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich"
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-bm-fokus-vz-vermogenszentrum-zurich",
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich"
+        ],
+        "en": [
+          "lehre-als-kauffrau-kaufmann-privat-und-firmenversicherung-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,

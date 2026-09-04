@@ -1416,9 +1416,9 @@
     },
     {
       "id": "spital-thusis-2add6482e8a8",
-      "slug": "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis",
+      "slug": "gestione-del-reparto-di-emergenza-e-clinica-diurna-90-100-con-nds-hf-assistenza-di-emergenza-spital-thusis-thusis",
       "slugByLocale": {
-        "it": "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis",
+        "it": "gestione-del-reparto-di-emergenza-e-clinica-diurna-90-100-con-nds-hf-assistenza-di-emergenza-spital-thusis-thusis",
         "en": "management-of-emergency-department-and-day-clinic-90-100-with-nds-hf-emergency-care-spital-thusis-thusis",
         "de": "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch",
         "fr": "gestion-du-service-d-urgence-et-de-la-clinique-de-jour-90-100-avec-les-soins-d-urgence-nds-hf-spital-thusis-thusis"
@@ -1466,11 +1466,13 @@
       "pensumMax": 100,
       "pensum": "90 - 100%",
       "previousSlugs": [
-        "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch"
+        "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch",
+        "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch"
+          "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch",
+          "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis"
         ],
         "en": [
           "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch"
@@ -1497,9 +1499,9 @@
     },
     {
       "id": "spital-thusis-b7bfe24ad786",
-      "slug": "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100",
+      "slug": "capo-della-casa-con-funzione-secondaria-capo-dell-ospitalita-aggiunto-80-100-spital-thusis-thusis",
       "slugByLocale": {
-        "it": "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100",
+        "it": "capo-della-casa-con-funzione-secondaria-capo-dell-ospitalita-aggiunto-80-100-spital-thusis-thusis",
         "en": "head-of-housekeeping-with-secondary-function-deputy-head-of-hospitality-80-100-spital-thusis-thusis",
         "de": "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100",
         "fr": "chef-de-menage-avec-fonction-secondaire-chef-adjoint-de-l-accueil-80-100-spital-thusis-thusis"
@@ -1577,7 +1579,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100"
+      ]
     },
     {
       "id": "spital-thusis-e3a79dac4ff3",

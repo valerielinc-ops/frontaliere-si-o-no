@@ -3752,12 +3752,12 @@
     },
     {
       "id": "spital-uster-ab8b6e28148c",
-      "slug": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+      "slug": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
       "slugByLocale": {
-        "it": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "en": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
+        "it": "professionisti-della-cura-50-100-riabilitazione-acuta-geriatrica-spital-uster-uster",
+        "en": "care-professionals-50-100-geriatric-acute-rehabilitation-spital-uster-uster",
         "de": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch",
-        "fr": "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        "fr": "professionnels-de-soins-50-100-readaptation-geriatrique-aigue-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3812,16 +3812,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "en": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ],
+        "fr": [
+          "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachpersonen-50-100-geriatrische-akutrehabilitation-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-28579d428611",
-      "slug": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster",
+      "slug": "professionista-50-100-riabilitazione-acuta-geriatrica-servizio-di-tarda-e-notte-spital-uster-uster",
       "slugByLocale": {
-        "it": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster",
-        "en": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+        "it": "professionista-50-100-riabilitazione-acuta-geriatrica-servizio-di-tarda-e-notte-spital-uster-uster",
+        "en": "care-professional-50-100-geriatric-acute-rehabilitation-late-and-night-service-spital-uster-uster",
         "de": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
-        "fr": "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        "fr": "professionnel-de-soins-50-100-readaptation-aigue-geriatrique-service-de-nuit-et-de-tard-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -3864,10 +3878,18 @@
       "requirementsByLocale": {},
       "department": "Pflege",
       "previousSlugs": [
-        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+        "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster",
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-e-nachtdienst-spital-uster"
+        ],
+        "en": [
+          "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
+        ],
+        "fr": [
           "pflegefachperson-50-100-geriatrische-akutrehabilitation-spat-und-nachtdienst-spital-uster"
         ]
       },

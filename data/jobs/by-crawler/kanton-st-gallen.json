@@ -2416,7 +2416,7 @@
       "slug": "esperto-di-protezione-antincendio-esperto-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "esperto-di-protezione-antincendio-esperto-kanton-st-gallen-st-gallen",
-        "en": "brandschutzexpertin-experten-kanton-st-gallen",
+        "en": "fire-protection-expert-expert-kanton-st-gallen-st-gallen",
         "de": "brandschutzexpertin-experten-kanton-st-gallen-ch",
         "fr": "expert-expert-en-protection-contre-l-incendie-kanton-st-gallen-st-gallen"
       },
@@ -2462,7 +2462,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "brandschutzexpertin-experten-kanton-st-gallen-ch",
-        "fire-protection-expert-expert-kanton-st-gallen-st-gallen"
+        "brandschutzexpertin-experten-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2470,7 +2470,7 @@
         ],
         "en": [
           "brandschutzexpertin-experten-kanton-st-gallen-ch",
-          "fire-protection-expert-expert-kanton-st-gallen-st-gallen"
+          "brandschutzexpertin-experten-kanton-st-gallen"
         ],
         "fr": [
           "brandschutzexpertin-experten-kanton-st-gallen-ch"
@@ -4615,12 +4615,12 @@
     },
     {
       "id": "kanton-st-gallen-2e6770ed3ef1",
-      "slug": "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
+      "slug": "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
-        "en": "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
+        "it": "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "staff-lawyer-in-m-f-d-kanton-st-gallen-st-gallen",
         "de": "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
+        "fr": "avocat-du-personnel-en-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -4676,7 +4676,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-406f1e8237a6",
@@ -4920,12 +4934,12 @@
     },
     {
       "id": "kanton-st-gallen-08ec1b15d6d1",
-      "slug": "dozentin-dozenten-per-fachunterricht-reinigung-m-w-d-kanton-st-gallen",
+      "slug": "docente-docente-per-la-pulizia-di-insegnamento-specialistico-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "dozentin-dozenten-per-fachunterricht-reinigung-m-w-d-kanton-st-gallen",
-        "en": "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch",
+        "it": "docente-docente-per-la-pulizia-di-insegnamento-specialistico-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "lecturer-lecturer-for-specialist-teaching-cleaning-m-f-d-kanton-st-gallen-st-gallen",
         "de": "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch",
-        "fr": "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch"
+        "fr": "maitre-de-conferences-pour-le-nettoyage-d-enseignement-specialise-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -4968,10 +4982,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch"
+        "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch",
+        "dozentin-dozenten-per-fachunterricht-reinigung-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch",
+          "dozentin-dozenten-per-fachunterricht-reinigung-m-w-d-kanton-st-gallen"
+        ],
+        "en": [
+          "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "dozentin-dozenten-fur-fachunterricht-reinigung-m-w-d-kanton-st-gallen-ch"
         ]
       },
@@ -5770,8 +5792,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-lernenden-schuladministration-mitarbeiter-in-hr-administration-m-w-d",
-          "verantwortliche-r-lernenden-schuladministration-collaboratore-trice-risorse-umane-administration-m-w-d-kanton-st-gallen"
+          "verantwortliche-r-lernenden-schuladministration-mitarbeiter-in-hr-administration-m-w-d"
         ],
         "en": [
           "verantwortliche-r-lernenden-schuladministration-mitarbeiter-in-hr-administration-m-w-d"
@@ -5781,8 +5802,7 @@
         ]
       },
       "previousSlugs": [
-        "verantwortliche-r-lernenden-schuladministration-mitarbeiter-in-hr-administration-m-w-d",
-        "verantwortliche-r-lernenden-schuladministration-collaboratore-trice-risorse-umane-administration-m-w-d-kanton-st-gallen"
+        "verantwortliche-r-lernenden-schuladministration-mitarbeiter-in-hr-administration-m-w-d"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

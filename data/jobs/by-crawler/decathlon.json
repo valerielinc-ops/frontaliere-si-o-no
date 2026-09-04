@@ -3149,7 +3149,6 @@
         "sport-leader-verkaufsberater-m-w-d-outdoor-wassersport-ski-20-40-decathlon-ch",
         "leader-sportif-consultant-en-ventes-m-f-d-ski-20-40-decathlon-dietlikon-decathlon-dietlikon",
         "sport-leader-verkaufsberater-m-w-d-ski-20-40-decathlon-dietlikon-decathlon-ch",
-        "temporary-sport-leader-sales-advisor-m-f-d-50-noleggio-sci-decathlon-dietlikon-931d05",
         "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
         "sport-leader-sales-advisor-m-f-d-temporary-60-100-ski-rental-baar-decathlon-baar",
         "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
@@ -3170,7 +3169,6 @@
           "sport-leader-verkaufsberater-m-w-d-outdoor-wassersport-ski-20-40-decathlon-ch",
           "leader-sportif-consultant-en-ventes-m-f-d-ski-20-40-decathlon-dietlikon-decathlon-dietlikon",
           "sport-leader-verkaufsberater-m-w-d-ski-20-40-decathlon-dietlikon-decathlon-ch",
-          "temporary-sport-leader-sales-advisor-m-f-d-50-noleggio-sci-decathlon-dietlikon-931d05",
           "sport-leader-sales-advisor-m-f-d-temporary-60-100-noleggio-sci-baar-decathlon-baar",
           "sport-leader-sales-advisor-m-f-d-temporary-60-100-ski-rental-baar-decathlon-baar",
           "sport-leader-verkaufsberater-m-w-d-befristet-60-100-skiverleih-baar-decathlon-ch",
@@ -3604,12 +3602,12 @@
     },
     {
       "id": "decathlon-b6e16b02b9aa",
-      "slug": "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-zurich",
+      "slug": "sport-leader-sales-advisor-m-f-d-temporary-20-lezipark-decathlon-zurich",
       "slugByLocale": {
-        "it": "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-zurich",
+        "it": "sport-leader-sales-advisor-m-f-d-temporary-20-lezipark-decathlon-zurich",
         "en": "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch",
         "de": "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch"
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-temporaire-20-lezipark-decathlon-zurich"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3650,10 +3648,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-zurich"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-befristet-20-lezipark-decathlon-ch"
         ]
       },
@@ -3674,11 +3677,11 @@
     },
     {
       "id": "decathlon-a8b53e4bccc0",
-      "slug": "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch",
+      "slug": "consulente-sportivo-sport-m-f-cdi-20-decathlon-martigny-decathlon-martigny",
       "slugByLocale": {
-        "it": "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch",
-        "en": "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch",
-        "de": "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch",
+        "it": "consulente-sportivo-sport-m-f-cdi-20-decathlon-martigny-decathlon-martigny",
+        "en": "sports-counsellor-sport-m-f-cdi-20-decathlon-martigny-decathlon-martigny",
+        "de": "sportberater-sport-m-w-cdi-20-decathlon-martigny-decathlon-martigny",
         "fr": "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch"
       },
       "company": "Decathlon",
@@ -3732,7 +3735,21 @@
           "maxValue": 18300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-sportif-sport-h-f-cdi-20-decathlon-martigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-401fcd648949",
@@ -4509,11 +4526,11 @@
     },
     {
       "id": "decathlon-5804f8f926e4",
-      "slug": "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch",
+      "slug": "consigliere-location-cycle-protezione-del-raggio-cdd-80-collombey-decathlon-collombey",
       "slugByLocale": {
-        "it": "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch",
-        "en": "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch",
-        "de": "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch",
+        "it": "consigliere-location-cycle-protezione-del-raggio-cdd-80-collombey-decathlon-collombey",
+        "en": "counsellor-location-cycle-future-head-of-radius-cdd-80-collombey-decathlon-collombey",
+        "de": "counsellor-location-cycle-zukunftiger-kopf-des-radius-cdd-80-collombey-decathlon-collombey",
         "fr": "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4567,7 +4584,21 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-location-cycle-futur-responsable-de-rayon-cdd-80-collombey-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-7f7b96b919cd",
@@ -4617,13 +4648,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
-        "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny"
+        "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch",
-          "financial-planning-analysis-fp-a-logistica-transports-and-supply-activities-decathlon-bussigny"
+          "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch"
         ],
         "de": [
           "financial-planning-analysis-fp-a-logistics-transports-and-supply-activities-decathlon-ch"

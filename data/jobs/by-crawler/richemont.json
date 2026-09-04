@@ -1461,7 +1461,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "leitender-vertriebsmitarbeiter-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
+        "fr": "senior-sales-associate-richemont-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -3667,18 +3667,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "regional-finance-controller-europe-richemont-meyrin",
-          "controleur-regional-des-finances-europe-cartier-meyrin"
+          "regional-finance-controller-europe-richemont-meyrin"
         ],
         "it": [
-          "regional-finance-controller-europe-richemont-meyrin",
-          "regional-finanza-controller-europe-cartier-meyrin"
+          "regional-finance-controller-europe-richemont-meyrin"
         ]
       },
       "previousSlugs": [
-        "regional-finance-controller-europe-richemont-meyrin",
-        "controleur-regional-des-finances-europe-cartier-meyrin",
-        "regional-finanza-controller-europe-cartier-meyrin"
+        "regional-finance-controller-europe-richemont-meyrin"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:43:29.595Z",
@@ -10912,11 +10908,11 @@
     },
     {
       "id": "richemont-90462b5ea67f",
-      "slug": "chef-de-projets-richemont-buttes",
+      "slug": "leader-del-progetto-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-projets-richemont-buttes",
-        "en": "chef-de-projets-valfleurier-buttes",
-        "de": "chef-de-projets-valfleurier-buttes",
+        "it": "leader-del-progetto-valfleurier-buttes",
+        "en": "project-leader-valfleurier-buttes",
+        "de": "projektleiter-valfleurier-buttes",
         "fr": "chef-de-projets-richemont-buttes"
       },
       "company": "ValFleurier",
@@ -10959,19 +10955,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leader-del-progetto-valfleurier-buttes",
-        "project-leader-valfleurier-buttes",
-        "projektleiter-valfleurier-buttes"
+        "chef-de-projets-richemont-buttes",
+        "chef-de-projets-valfleurier-buttes"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leader-del-progetto-valfleurier-buttes"
+          "chef-de-projets-richemont-buttes"
         ],
         "en": [
-          "project-leader-valfleurier-buttes"
+          "chef-de-projets-valfleurier-buttes"
         ],
         "de": [
-          "projektleiter-valfleurier-buttes"
+          "chef-de-projets-valfleurier-buttes"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:12.097Z",
@@ -12468,11 +12463,11 @@
     },
     {
       "id": "richemont-d601ca741b2e",
-      "slug": "technicien-de-maintenance-richemont-le-cret-du-locle",
+      "slug": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "en": "technicien-de-maintenance-richemont-le-cret-du-locle",
-        "de": "technicien-de-maintenance-richemont-le-cret-du-locle",
+        "it": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
+        "en": "maintenance-technician-cartier-manufacture-le-cret-du-locle",
+        "de": "wartungstechniker-cartier-manufacture-le-cret-du-locle",
         "fr": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -12527,7 +12522,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ],
+        "en": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ],
+        "de": [
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-b94e2f4aedd0",
@@ -13742,11 +13751,11 @@
     },
     {
       "id": "richemont-250f47ff85cc",
-      "slug": "events-coordinator-intern-richemont-geneva",
+      "slug": "events-coordinatore-tirocinante-fondation-de-la-haute-horlogerie-geneva",
       "slugByLocale": {
-        "it": "events-coordinator-intern-richemont-geneva",
+        "it": "events-coordinatore-tirocinante-fondation-de-la-haute-horlogerie-geneva",
         "en": "events-coordinator-intern-fondation-de-la-haute-horlogerie-geneva",
-        "de": "events-coordinator-intern-richemont-geneva",
+        "de": "events-koordinator-praktikant-fondation-de-la-haute-horlogerie-geneva",
         "fr": "events-coordinator-intern-richemont-geneva"
       },
       "company": "Fondation de la Haute Horlogerie",
@@ -13804,7 +13813,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:30:56.528Z"
+      "firstSeenAt": "2026-09-03T23:30:56.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "events-coordinator-intern-richemont-geneva"
+        ],
+        "de": [
+          "events-coordinator-intern-richemont-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "events-coordinator-intern-richemont-geneva"
+      ]
     }
   ]
 }

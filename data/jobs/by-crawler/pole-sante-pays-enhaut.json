@@ -84,8 +84,7 @@
         "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
         "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -101,8 +100,7 @@
           "auxiliaire-de-sante-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-medico-pole-sante-pays-d-enhaut-chateau-d-oex",
           "assistente-sanitaria-polivalente-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "medico-assistente-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "assistente-sanitario-multiuso-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "medecin-assistant-pole-sante-pays-enhaut-chateau-d-oex",
@@ -132,11 +130,11 @@
     },
     {
       "id": "pole-sante-pays-enhaut-1305a6e51f2a",
-      "slug": "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "infermiera-della-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
-        "de": "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "infermiera-della-salute-mentale-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "mental-health-nurse-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "de": "psychische-gesundheit-krankenschwester-50-70-pole-sante-pays-d-enhaut-chateau-d-oex",
         "fr": "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
       },
       "company": "Pôle Santé Pays-d'Enhaut",
@@ -192,7 +190,21 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "de": [
+          "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-referent-e-en-sante-mentale-50-70-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     },
     {
       "id": "pole-sante-pays-enhaut-26517f0bd7ed",
@@ -245,15 +257,13 @@
       "previousSlugs": [
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
         "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex",
-        "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+        "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante",
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex",
-          "tasso-di-attivita-70-immediatamente-o-da-concordare-pole-sante-pays-d-enhaut-chateau-d-oex"
+          "mehrzweck-gesundheitsassistent-pole-sante-pays-d-enhaut-chateau-d-oex"
         ],
         "en": [
           "auxiliaire-de-sante-polyvalent-e-taux-d-activite-de-70-de-suite-ou-a-convenir-pole-sante"
@@ -279,10 +289,10 @@
     },
     {
       "id": "pole-sante-pays-enhaut-579cbc8a0ed6",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex",
       "slugByLocale": {
-        "it": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
-        "en": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-chs-pole-sante-pays-d-enhaut-chateau-d-oex",
+        "en": "community-health-and-care-assistant-chs-pole-sante-pays-d-enhaut-chateau-d-oex",
         "de": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex",
         "fr": "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
       },
@@ -339,7 +349,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-pole-sante-pays-enhaut-chateau-d-oex"
+      ]
     }
   ]
 }

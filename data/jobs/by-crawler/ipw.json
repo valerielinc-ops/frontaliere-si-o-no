@@ -222,12 +222,12 @@
     },
     {
       "id": "ipw-fd744cf38c01",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatrie-winterthur-ipw-winterthur",
+      "slug": "dipl-specialista-infermieristico-hf-o-fh-servizio-a-lati-e-notte-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur",
+        "it": "dipl-specialista-infermieristico-hf-o-fh-servizio-a-lati-e-notte-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "dipl-nursing-specialist-hf-or-fh-late-and-night-service-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur"
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-ou-fh-service-tardif-et-de-nuit-integrierte-psychiatrie-winterthur-ipw"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -276,20 +276,24 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur",
         "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatr-hsrkb6",
         "dipl-nursing-professional-hf-or-fh-late-and-night-service-integrierte-psychiatrie-winterthur-ipw-winterthur",
-        "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw"
+        "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw",
+        "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur",
           "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatr-hsrkb6",
           "dipl-nursing-professional-hf-or-fh-late-and-night-service-integrierte-psychiatrie-winterthur-ipw-winterthur",
-          "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw"
+          "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw",
+          "dipl-pflegefachfrau-pflegefachmann-hf-o-fh-spat-e-nachtdienst-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ],
         "en": [
-          "dipl-nursing-professional-hf-or-fh-late-and-night-service-integrierte-psychiatrie-winterthur-ipw-winterthur"
+          "dipl-nursing-professional-hf-or-fh-late-and-night-service-integrierte-psychiatrie-winterthur-ipw-winterthur",
+          "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur"
         ],
         "fr": [
-          "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw"
+          "dipl-soins-infirmiers-professionnels-hf-ou-fh-service-de-nuit-et-de-tard-integrierte-psychiatrie-winterthur-ipw",
+          "dipl-pflegefachfrau-pflegefachmann-hf-oder-fh-spat-und-nachtdienst-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-27T00:56:02.420Z",
@@ -1066,12 +1070,12 @@
     },
     {
       "id": "ipw-64efbbea05c9",
-      "slug": "assistenzarztin-assistenzarzt-ipw-winterthur",
+      "slug": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "en": "assistenzarztin-assistenzarzt-ipw-winterthur",
+        "it": "assistente-medico-assistente-medico-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "assistant-doctor-assistant-doctor-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "assistenzarztin-assistenzarzt-ipw-winterthur",
-        "fr": "assistenzarztin-assistenzarzt-ipw-winterthur"
+        "fr": "assistant-medecin-assistant-medecin-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1129,7 +1133,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-2734005abb52",
@@ -1451,7 +1469,7 @@
         "it": "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "stv-station-manager-station-manager-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-        "fr": "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
+        "fr": "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -1499,7 +1517,7 @@
       "pensum": "80 - 100%",
       "previousSlugs": [
         "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-        "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw"
+        "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1510,7 +1528,7 @@
         ],
         "fr": [
           "stv-stationsleiterin-stationsleiter-hometreatment-ipw-winterthur",
-          "stv-gestionnaire-de-station-gestionnaire-de-station-traitement-a-domicile-integrierte-psychiatrie-winterthur-ipw"
+          "stv-stationsleiterin-stationsleiter-hometreatment-integrierte-psychiatrie-winterthur-ipw-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-07T01:17:51.153Z",

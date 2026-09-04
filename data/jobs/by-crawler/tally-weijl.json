@@ -1731,12 +1731,12 @@
     },
     {
       "id": "tally-weijl-d716d2416717",
-      "slug": "flexible-aushilfe-tally-weijl-bern",
+      "slug": "assistenza-flessibile-tally-weijl-bern",
       "slugByLocale": {
-        "it": "flexible-aushilfe-tally-weijl-bern",
-        "en": "flexible-aushilfe-tally-weijl-bern",
+        "it": "assistenza-flessibile-tally-weijl-bern",
+        "en": "flexible-assistance-tally-weijl-bern",
         "de": "flexible-aushilfe-tally-weijl-bern",
-        "fr": "flexible-aushilfe-tally-weijl-bern"
+        "fr": "assistance-souple-tally-weijl-bern"
       },
       "company": "TALLY WEiJL",
       "companyKey": "tally-weijl",
@@ -1789,7 +1789,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "previousSlugsByLocale": {
+        "it": [
+          "flexible-aushilfe-tally-weijl-bern"
+        ],
+        "en": [
+          "flexible-aushilfe-tally-weijl-bern"
+        ],
+        "fr": [
+          "flexible-aushilfe-tally-weijl-bern"
+        ]
+      },
+      "previousSlugs": [
+        "flexible-aushilfe-tally-weijl-bern"
+      ]
     },
     {
       "id": "tally-weijl-1f4bede8f068",

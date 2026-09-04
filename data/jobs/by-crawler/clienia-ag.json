@@ -6086,12 +6086,12 @@
     },
     {
       "id": "clienia-ag-26c95fd49bc3",
-      "slug": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+      "slug": "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
-        "en": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
+        "it": "medico-senior-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
+        "en": "senior-physician-m-f-d-60-100-clienia-ag-pfaffikon-zh-762990",
         "de": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich",
-        "fr": "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        "fr": "medecin-principal-h-f-d-60-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6146,7 +6146,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-m-w-d-60-100-clienia-ag-zurich"
+      ]
     },
     {
       "id": "clienia-ag-b89c7cc223cf",
@@ -6229,12 +6243,12 @@
     },
     {
       "id": "clienia-ag-d253407bc48e",
-      "slug": "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
+      "slug": "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
-        "en": "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon",
+        "it": "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh",
+        "en": "nutritionist-bsc-60-clienia-ag-pfaffikon-zh",
         "de": "ernahrungsberater-in-bsc-60-clienia-ag-zurich",
-        "fr": "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
+        "fr": "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6278,26 +6292,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ernahrungsberater-in-bsc-60-clienia-ag-zurich",
-        "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh",
         "nutritionist-bsc-60-clienia-ag-pfaffikon-zh",
         "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh",
         "bsc-nutrizionale-60-clienia-ag-pfaffikon-zh",
-        "nutritionist-bsc-60-clienia-ag-pfaffikon"
+        "nutritionist-bsc-60-clienia-ag-pfaffikon",
+        "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-in-bsc-60-clienia-ag-zurich",
-          "nutrizionista-bsc-60-clienia-ag-pfaffikon-zh",
           "nutritionist-bsc-60-clienia-ag-pfaffikon-zh",
           "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh",
           "bsc-nutrizionale-60-clienia-ag-pfaffikon-zh",
-          "nutritionist-bsc-60-clienia-ag-pfaffikon"
+          "nutritionist-bsc-60-clienia-ag-pfaffikon",
+          "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
         ],
         "en": [
-          "nutritionist-bsc-60-clienia-ag-pfaffikon-zh"
+          "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
         ],
         "fr": [
-          "nutritionniste-bsc-60-clienia-ag-pfaffikon-zh"
+          "ernahrungsberater-in-bsc-60-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-08-26T10:02:46.533Z",
@@ -6671,12 +6685,12 @@
     },
     {
       "id": "clienia-ag-6dc38fff2561",
-      "slug": "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon",
+      "slug": "psicoterapeuta-psicologica-40-50-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon",
-        "en": "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon",
+        "it": "psicoterapeuta-psicologica-40-50-clienia-ag-pfaffikon-zh",
+        "en": "psychological-psychotherapist-40-50-clienia-ag-pfaffikon-zh",
         "de": "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
-        "fr": "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
+        "fr": "psychotherapie-40-50-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6718,11 +6732,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich"
+        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
+        "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich"
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-zurich",
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "psychologische-psychotherapeutin-psychologischer-psychotherapeuten-40-50-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-09-02T13:37:53.903Z",

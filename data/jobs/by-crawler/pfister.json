@@ -644,12 +644,12 @@
     },
     {
       "id": "pfister-9c3ab52fa845",
-      "slug": "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
+      "slug": "controllo-tecnico-dei-dipendenti-m-f-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
-        "en": "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
+        "it": "controllo-tecnico-dei-dipendenti-m-f-d-mobel-pfister-ag-suhr",
+        "en": "employee-technical-control-m-f-d-mobel-pfister-ag-suhr",
         "de": "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr",
-        "fr": "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
+        "fr": "controle-technique-des-employes-h-f-d-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -707,7 +707,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
+        ],
+        "en": [
+          "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
+        ],
+        "fr": [
+          "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-technische-aufmass-kontrolle-w-m-d-pfister-suhr"
+      ]
     },
     {
       "id": "pfister-02549908b16a",
@@ -1119,12 +1133,12 @@
     },
     {
       "id": "pfister-5e567ccc9d89",
-      "slug": "wohnberaterin-w-m-d-pfister-suhr",
+      "slug": "home-consulente-m-f-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "wohnberaterin-w-m-d-pfister-suhr",
-        "en": "wohnberaterin-w-m-d-pfister-suhr",
+        "it": "home-consulente-m-f-d-mobel-pfister-ag-suhr",
+        "en": "home-consultant-m-f-d-mobel-pfister-ag-suhr",
         "de": "wohnberaterin-w-m-d-pfister-suhr",
-        "fr": "wohnberaterin-w-m-d-pfister-suhr"
+        "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -1182,7 +1196,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnberaterin-w-m-d-pfister-suhr"
+        ],
+        "en": [
+          "wohnberaterin-w-m-d-pfister-suhr"
+        ],
+        "fr": [
+          "wohnberaterin-w-m-d-pfister-suhr"
+        ]
+      },
+      "previousSlugs": [
+        "wohnberaterin-w-m-d-pfister-suhr"
+      ]
     },
     {
       "id": "pfister-98a7bbf5c5d1",

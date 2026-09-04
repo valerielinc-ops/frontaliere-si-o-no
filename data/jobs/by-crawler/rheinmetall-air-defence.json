@@ -1140,12 +1140,12 @@
     },
     {
       "id": "rheinmetall-air-defence-9d78ab4a0e11",
-      "slug": "team-lead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "supporto-professionale-in-loco-teamlead-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "team-lead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "supporto-professionale-in-loco-teamlead-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "chef-d-equipe-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "teamleader-professional-support-sur-place-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -1223,15 +1223,19 @@
       "previousSlugs": [
         "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
         "supporto-professionale-in-loco-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "soutien-professionnel-sur-place-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "soutien-professionnel-sur-place-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "team-lead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "chef-d-equipe-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
+          "team-lead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
         ],
         "fr": [
           "teamlead-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich",
-          "soutien-professionnel-sur-place-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "soutien-professionnel-sur-place-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "chef-d-equipe-professional-onsite-support-m-w-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -3544,12 +3548,12 @@
     },
     {
       "id": "rheinmetall-air-defence-042422e33c32",
-      "slug": "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "manager-di-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "manager-di-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "responsable-de-la-gestion-de-l-obsolescence-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "gestionnaire-d-obsolescence-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3627,15 +3631,17 @@
         ]
       },
       "previousSlugs": [
-        "gestionnaire-d-obsolescence-h-f-d-rheinmetall-air-defence-ag-zurich",
-        "gestione-dell-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich"
+        "gestione-dell-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "responsable-de-la-gestion-de-l-obsolescence-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-dell-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich"
+          "gestione-dell-obsolescenza-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "obsolescence-manager-m-w-d-rheinmetall-air-defence-ag-zurich"
         ],
         "fr": [
-          "gestionnaire-d-obsolescence-h-f-d-rheinmetall-air-defence-ag-zurich"
+          "responsable-de-la-gestion-de-l-obsolescence-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-08-11T10:16:19.687Z",

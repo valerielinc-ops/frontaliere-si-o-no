@@ -13822,7 +13822,7 @@
       "slug": "kochin-koch-cfc-a-50-hirslanden-klinik-bern",
       "slugByLocale": {
         "it": "kochin-koch-cfc-a-50-hirslanden-klinik-bern",
-        "en": "kochin-koch-efz-a-50-hirslanden-bern",
+        "en": "chef-koch-efz-a-50-hirslanden-klinik-hirslanden-klinik-permanence",
         "de": "kochin-koch-efz-a-50-hirslanden-bern",
         "fr": "kochin-koch-efz-a-50-hirslanden-bern"
       },
@@ -13867,6 +13867,9 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "kochin-koch-efz-a-50-hirslanden-bern"
+        ],
+        "en": [
           "kochin-koch-efz-a-50-hirslanden-bern"
         ]
       },
@@ -16694,11 +16697,11 @@
     },
     {
       "id": "hirslanden-8b0c2e61ecee",
-      "slug": "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne",
+      "slug": "50-agente-di-pulizia-cdd-flessibile-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
-        "it": "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne",
+        "it": "50-agente-di-pulizia-cdd-flessibile-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "en": "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne",
-        "de": "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne",
+        "de": "50-flexibles-cdd-reinigungsmittel-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne"
       },
       "company": "Hirslanden Klinik",
@@ -16753,7 +16756,18 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne"
+        ],
+        "de": [
+          "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "agent-e-de-proprete-en-cdd-a-50-flexible-hirslanden-lausanne"
+      ]
     },
     {
       "id": "hirslanden-fe4786a8785e",
@@ -25011,9 +25025,9 @@
       "slug": "leiterin-leiter-finanzen-a-80-100-hirslanden-klinik-zurich",
       "slugByLocale": {
         "it": "leiterin-leiter-finanzen-a-80-100-hirslanden-klinik-zurich",
-        "en": "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich",
+        "en": "head-of-finance-a-80-100-hirslanden-klinik-hirslanden-klinik-im-park",
         "de": "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich",
-        "fr": "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich"
+        "fr": "responsable-des-finances-a-80-100-hirslanden-klinik-hirslanden-klinik-im-park"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25056,6 +25070,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich"
+        ],
+        "en": [
+          "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich"
+        ],
+        "fr": [
           "leiterin-leiter-finanzen-a-80-100-hirslanden-zurich"
         ]
       },

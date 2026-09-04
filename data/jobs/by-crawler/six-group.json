@@ -3358,13 +3358,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "contanti-specialistici-correlati-c-a-80-100-six-group-olten",
-        "specialist-cash-related-c-a-80-100-six-group-olten"
+        "contanti-specialistici-correlati-c-a-80-100-six-group-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "contanti-specialistici-correlati-c-a-80-100-six-group-olten",
-          "specialist-cash-related-c-a-80-100-six-group-olten"
+          "contanti-specialistici-correlati-c-a-80-100-six-group-olten"
         ]
       },
       "firstSeenAt": "2026-08-20T09:48:44.472Z",
@@ -3577,8 +3575,7 @@
           "software-engineer-six-group-madrid",
           "software-engineer-six-group-madrid-2",
           "java-full-stack-developer-six-group-madrid",
-          "software-ingegnere-six-group-madrid",
-          "java-full-stack-sviluppatore-six-group-madrid"
+          "software-ingegnere-six-group-madrid"
         ],
         "en": [
           "software-engineer-six-group-madrid"
@@ -3597,8 +3594,7 @@
         "software-engineer-six-group-madrid-2",
         "java-full-stack-developer-six-group-madrid",
         "software-ingegnere-six-group-madrid",
-        "software-ingenieur-six-group-madrid",
-        "java-full-stack-sviluppatore-six-group-madrid"
+        "software-ingenieur-six-group-madrid"
       ],
       "firstSeenAt": "2026-08-21T21:25:47.374Z",
       "salaryMin": 79000,
@@ -4942,12 +4938,12 @@
     },
     {
       "id": "six-group-b80b9c13934c",
-      "slug": "internship-tax-services-six-group-olten",
+      "slug": "servizi-fiscali-di-stage-six-group-olten",
       "slugByLocale": {
-        "it": "internship-tax-services-six-group-olten",
+        "it": "servizi-fiscali-di-stage-six-group-olten",
         "en": "internship-tax-services-six-group-olten",
         "de": "internship-tax-services-six-group-olten",
-        "fr": "internship-tax-services-six-group-olten"
+        "fr": "services-fiscaux-aux-stagiaires-six-group-olten"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -5002,7 +4998,18 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-tax-services-six-group-olten"
+        ],
+        "fr": [
+          "internship-tax-services-six-group-olten"
+        ]
+      },
+      "previousSlugs": [
+        "internship-tax-services-six-group-olten"
+      ]
     },
     {
       "id": "six-group-dafdd6356477",

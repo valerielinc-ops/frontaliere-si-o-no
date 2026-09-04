@@ -7929,12 +7929,12 @@
     },
     {
       "id": "etat-de-fribourg-72974d7be2ba",
-      "slug": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
+      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-        "it": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg",
+        "en": "administrative-collaborator-ve-etat-de-fribourg-fribourg",
+        "de": "verwaltungsmitarbeiter-vereinigung-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7998,14 +7998,22 @@
       "firstSeenAt": "2026-09-03T23:26:06.144Z",
       "previousSlugsByLocale": {
         "it": [
-          "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
         ],
         "fr": [
           "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-fribourg",
+        "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
       ]
     },
     {
@@ -8152,12 +8160,12 @@
     },
     {
       "id": "etat-de-fribourg-a9563678bcf0",
-      "slug": "lecteur-trice-etat-de-fribourg-ch",
+      "slug": "reader-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "lecteur-trice-etat-de-fribourg-ch",
-        "it": "lecteur-trice-etat-de-fribourg-ch",
+        "it": "reader-etat-de-fribourg-fribourg",
         "en": "lecteur-trice-etat-de-fribourg-ch",
-        "de": "lecteur-trice-etat-de-fribourg-ch"
+        "de": "lesegerat-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8218,7 +8226,18 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:04.086Z"
+      "firstSeenAt": "2026-09-03T23:26:04.086Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lecteur-trice-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "lecteur-trice-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lecteur-trice-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-1a8349989f66",
@@ -8811,12 +8830,12 @@
     },
     {
       "id": "etat-de-fribourg-d4aef580ea24",
-      "slug": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+      "slug": "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "de": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "it": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "en": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "fr": "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
+        "it": "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg",
+        "en": "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
+        "fr": "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8883,20 +8902,24 @@
           "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg",
           "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
           "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
-          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg"
+          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
         ],
         "en": [
-          "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg"
+          "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
         ],
         "fr": [
-          "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg"
+          "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
+          "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
         "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg",
         "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
         "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
-        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg"
+        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
+        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch"
       ]
     },
     {

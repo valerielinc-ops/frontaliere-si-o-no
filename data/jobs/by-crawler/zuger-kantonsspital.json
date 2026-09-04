@@ -1081,12 +1081,12 @@
     },
     {
       "id": "zuger-kantonsspital-0df8ce07a5e1",
-      "slug": "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar",
+      "slug": "assistente-endoscopia-60-100-m-f-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar",
-        "en": "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar",
+        "it": "assistente-endoscopia-60-100-m-f-zuger-kantonsspital-baar",
+        "en": "endoscopy-assistant-60-100-m-f-zuger-kantonsspital-baar",
         "de": "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar",
-        "fr": "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
+        "fr": "assistant-endoscopie-60-100-h-f-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1141,7 +1141,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "en": [
+          "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "endoskopieassistentin-60-100-m-w-zuger-kantonsspital-baar"
+      ]
     },
     {
       "id": "zuger-kantonsspital-e44f48718958",

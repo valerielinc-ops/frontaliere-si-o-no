@@ -1850,11 +1850,11 @@
     },
     {
       "id": "schindler-104c227cd583",
-      "slug": "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg",
+      "slug": "tecnico-di-servizio-per-ascensori-m-f-d-80-100-schindler-fribourg",
       "slugByLocale": {
-        "it": "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg",
-        "en": "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg",
-        "de": "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg",
+        "it": "tecnico-di-servizio-per-ascensori-m-f-d-80-100-schindler-fribourg",
+        "en": "service-technician-for-elevators-m-f-d-80-100-schindler-fribourg",
+        "de": "servicetechniker-fur-aufzuge-m-w-d-80-100-schindler-fribourg",
         "fr": "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg"
       },
       "company": "Schindler",
@@ -1909,7 +1909,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg"
+        ],
+        "en": [
+          "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg"
+        ],
+        "de": [
+          "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-de-service-pour-ascenseurs-h-f-d-80-100-schindler-fribourg"
+      ]
     },
     {
       "id": "schindler-e825851e47cd",
@@ -2431,12 +2445,12 @@
     },
     {
       "id": "schindler-c9b9c1a7bae8",
-      "slug": "servicetechniker-in-m-w-d-80-100-schindler-bern",
+      "slug": "tecnico-di-servizio-in-m-f-d-80-100-schindler-bern",
       "slugByLocale": {
-        "it": "servicetechniker-in-m-w-d-80-100-schindler-bern",
-        "en": "servicetechniker-in-m-w-d-80-100-schindler-bern",
         "de": "servicetechniker-in-m-w-d-80-100-schindler-bern",
-        "fr": "servicetechniker-in-m-w-d-80-100-schindler-bern"
+        "it": "tecnico-di-servizio-in-m-f-d-80-100-schindler-bern",
+        "en": "service-technician-in-m-f-d-80-100-schindler-bern",
+        "fr": "technicien-de-service-en-h-f-d-80-100-schindler-bern"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2491,7 +2505,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T13:52:50.375Z"
+      "firstSeenAt": "2026-09-03T13:52:50.375Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-m-w-d-80-100-schindler-bern"
+        ],
+        "en": [
+          "servicetechniker-in-m-w-d-80-100-schindler-bern"
+        ],
+        "fr": [
+          "servicetechniker-in-m-w-d-80-100-schindler-bern"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-m-w-d-80-100-schindler-bern"
+      ]
     },
     {
       "id": "schindler-053880cdcd48",
@@ -3123,8 +3151,8 @@
       "slug": "mecanicien-ne-en-montage-d-ascenseur-h-f-d-80-100-schindler-fribourg",
       "slugByLocale": {
         "it": "mecanicien-ne-en-montage-d-ascenseur-h-f-d-80-100-schindler-fribourg",
-        "en": "mecanicien-ne-en-montage-d-ascenseur-h-f-d-80-100-schindler-fribourg",
-        "de": "mecanicien-ne-en-montage-d-ascenseur-h-f-d-80-100-schindler-fribourg",
+        "en": "elevator-mechanic-m-f-d-80-100-schindler-fribourg",
+        "de": "aufzug-mechanik-m-w-d-80-100-schindler-fribourg",
         "fr": "mecanicien-ne-en-montage-d-ascenseur-h-f-d-80-100-schindler-fribourg"
       },
       "company": "Schindler",
@@ -5644,13 +5672,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
-        "tecnico-di-servizio-nella-regione-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon",
         "technicien-de-service-region-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-region-sursee-dagmersellen-m-w-d-80-100-schindler-ebikon",
-          "tecnico-di-servizio-nella-regione-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon",
           "technicien-de-service-region-sursee-dagmersellen-m-f-d-80-100-schindler-ebikon"
         ],
         "fr": [

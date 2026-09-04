@@ -2061,12 +2061,12 @@
     },
     {
       "id": "brack-alltron-8bf2ae780877",
-      "slug": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+      "slug": "personale-in-contabilita-brack-alltron-ag-magenwil",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
-        "en": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
+        "it": "personale-in-contabilita-brack-alltron-ag-magenwil",
+        "en": "personnel-in-accounts-receivable-brack-alltron-ag-magenwil",
         "de": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil",
-        "fr": "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+        "fr": "personnel-dans-les-comptes-debiteurs-brack-alltron-ag-magenwil"
       },
       "company": "Brack.Alltron AG",
       "companyKey": "brack-alltron",
@@ -2122,7 +2122,21 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+        ],
+        "en": [
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+        ],
+        "fr": [
+          "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-debitorenbuchhaltung-brack-alltron-magenwil"
+      ]
     },
     {
       "id": "brack-alltron-5daa1660a38a",

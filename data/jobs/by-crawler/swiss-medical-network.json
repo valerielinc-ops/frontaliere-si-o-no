@@ -82,10 +82,11 @@
         "it": "medico pediatrico (M/F)",
         "de": "Kinderarzt (M/W)"
       },
-      "slug": "medecin-pediatre-h-f-swiss-medical-network",
+      "slug": "medico-pediatrico-m-f-swiss-medical-network-saint-imier",
       "slugByLocale": {
-        "it": "medecin-pediatre-h-f-swiss-medical-network",
-        "en": "medecin-pediatre-h-f-swiss-medical-network"
+        "it": "medico-pediatrico-m-f-swiss-medical-network-saint-imier",
+        "en": "pediatric-doctor-m-f-swiss-medical-network-saint-imier",
+        "de": "kinderarzt-m-w-swiss-medical-network-saint-imier"
       },
       "category": "medical",
       "datePosted": "2026-09-02",
@@ -112,7 +113,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-pediatre-h-f-swiss-medical-network"
+        ],
+        "en": [
+          "medecin-pediatre-h-f-swiss-medical-network"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-pediatre-h-f-swiss-medical-network"
+      ]
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
@@ -243,7 +255,8 @@
       "slug": "guest-journey-coordinator-swiss-medical-network",
       "slugByLocale": {
         "it": "guest-journey-coordinator-swiss-medical-network",
-        "en": "guest-journey-coordinator-swiss-medical-network"
+        "en": "guest-journey-coordinator-swiss-medical-network",
+        "de": "guest-journey-koordinator-swiss-medical-network-genolier"
       },
       "category": "healthcare",
       "datePosted": "2026-08-31",
@@ -297,7 +310,8 @@
       "slug": "it-project-manager-erp-digital-systems-swiss-medical-network",
       "slugByLocale": {
         "it": "it-project-manager-erp-digital-systems-swiss-medical-network",
-        "en": "it-project-manager-erp-digital-systems-swiss-medical-network"
+        "en": "it-project-manager-erp-digital-systems-swiss-medical-network",
+        "de": "it-projektmanager-erp-digitale-systeme-swiss-medical-network-genolier"
       },
       "category": "technology",
       "datePosted": "2026-08-28",
@@ -352,7 +366,8 @@
       "slug": "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network",
       "slugByLocale": {
         "it": "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network",
-        "en": "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network"
+        "en": "produkt-owner-informationssysteme-der-ambulanten-zentren-swiss-medical-network",
+        "fr": "proprietaire-du-produit-systemes-d-information-des-centres-ambulatoires-swiss-medical-network-opfikon"
       },
       "category": "technology",
       "datePosted": "2026-08-28",
@@ -635,7 +650,8 @@
       "slug": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
       "slugByLocale": {
         "it": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
-        "en": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network"
+        "en": "medecin-adjoint-e-en-psychiatrie-bilingue-allemand-francais-swiss-medical-network",
+        "de": "assistenzarzt-in-bilingualer-psychiatrie-deutsch-franzosisch-swiss-medical-network-biel"
       },
       "category": "medical",
       "datePosted": "2026-08-25",
@@ -701,7 +717,8 @@
       "slug": "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network",
       "slugByLocale": {
         "it": "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network",
-        "en": "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network"
+        "en": "medecin-specialiste-fmh-en-gynecologie-obstetrique-h-f-swiss-medical-network",
+        "de": "medizinischer-facharzt-fmh-in-gynakologie-geburtshilfe-m-w-swiss-medical-network-saint-imier"
       },
       "category": "medical",
       "datePosted": "2026-08-25",
@@ -756,7 +773,8 @@
       "slug": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
       "slugByLocale": {
         "it": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
-        "en": "assistant-e-s-medicale-s-d-f-swiss-medical-network"
+        "en": "assistant-e-s-medicale-s-d-f-swiss-medical-network",
+        "de": "medizinische-r-assistent-in-swiss-medical-network-biel"
       },
       "category": "admin",
       "datePosted": "2026-08-25",
@@ -819,7 +837,8 @@
       "slug": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
       "slugByLocale": {
         "it": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
-        "en": "medecin-generaliste-medecin-de-famille-swiss-medical-network"
+        "en": "medecin-generaliste-medecin-de-famille-swiss-medical-network",
+        "de": "allgemeinmediziner-hausarzt-swiss-medical-network-saint-imier"
       },
       "category": "medical",
       "datePosted": "2026-08-25",
@@ -3241,7 +3260,8 @@
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
         "en": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network"
+        "it": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
+        "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-wengen"
       },
       "category": "healthcare",
       "datePosted": "2026-09-03",
@@ -3296,7 +3316,8 @@
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "slugByLocale": {
         "en": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
-        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
+        "it": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
+        "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-beromunster"
       },
       "category": "medical",
       "datePosted": "2026-09-03",

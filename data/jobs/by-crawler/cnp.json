@@ -1991,11 +1991,11 @@
     },
     {
       "id": "cnp-b4ec5544d225",
-      "slug": "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier",
+      "slug": "infermiera-case-manager-programma-tpp-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
-        "it": "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier",
+        "it": "infermiera-case-manager-programma-tpp-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "en": "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier",
-        "de": "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier",
+        "de": "nurse-case-manager-tipp-programm-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "fr": "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2051,7 +2051,18 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier"
+        ],
+        "de": [
+          "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-case-manager-programme-tipp-cnp-marin-epagnier"
+      ]
     },
     {
       "id": "cnp-d7d13d073df3",
@@ -2119,22 +2130,18 @@
       "firstSeenAt": "2026-09-01T14:14:31.900Z",
       "previousSlugsByLocale": {
         "it": [
-          "segretario-medico-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "medizinische-sekretarin-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "secretaire-medical-e-cnp-la-chaux-de-fonds"
         ],
         "en": [
-          "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "secretaire-medical-e-cnp-la-chaux-de-fonds"
         ],
         "de": [
-          "medizinische-sekretarin-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
           "secretaire-medical-e-cnp-la-chaux-de-fonds"
         ]
       },
       "previousSlugs": [
-        "segretario-medico-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "medical-secretary-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "medizinische-sekretarin-centre-neuchatelois-de-psychiatrie-cnp-la-chaux-de-fonds",
         "secretaire-medical-e-cnp-la-chaux-de-fonds"

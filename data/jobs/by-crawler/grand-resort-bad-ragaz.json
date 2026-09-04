@@ -1353,12 +1353,12 @@
     },
     {
       "id": "grand-resort-bad-ragaz-beb50c3806a0",
-      "slug": "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "chef-dipendente-ristorante-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "chef-dipendente-ristorante-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
+        "en": "chef-employee-restaurant-100-m-f-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        "fr": "chef-restaurant-salarie-100-h-f-i-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",
@@ -1413,13 +1413,27 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "en": [
+          "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ],
+        "fr": [
+          "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "koch-mitarbeiterrestaurant-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-a53a7faa86a8",
-      "slug": "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+      "slug": "supervisore-del-barista-the-bar-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
-        "it": "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
+        "it": "supervisore-del-barista-the-bar-100-f-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "en": "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "de": "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz",
         "fr": "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
@@ -1478,7 +1492,15 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "bartender-supervisor-the-bar-100-w-m-i-grand-resort-bad-ragaz-bad-ragaz"
+      ]
     },
     {
       "id": "grand-resort-bad-ragaz-19ab278902e0",
@@ -1884,9 +1906,9 @@
       "slug": "chef-de-rang-autentica-ospitalita-italiana-nesso-grand-resort-bad-ragaz-bad-ragaz",
       "slugByLocale": {
         "it": "chef-de-rang-autentica-ospitalita-italiana-nesso-grand-resort-bad-ragaz-bad-ragaz",
-        "en": "chef-de-rang-autentica-ospitalita-italiana-nesso-grand-resort-bad-ragaz-bad-ragaz",
-        "de": "chef-de-rang-autentica-ospitalita-italiana-nesso-grand-resort-bad-ragaz-bad-ragaz",
-        "fr": "chef-de-rang-autentica-ospitalita-italiana-nesso-grand-resort-bad-ragaz-bad-ragaz"
+        "en": "chef-de-rang-authentic-italian-hospitality-nesso-grand-resort-bad-ragaz-bad-ragaz",
+        "de": "chef-de-rang-authentische-italienische-gastfreundschaft-nesso-grand-resort-bad-ragaz-bad-ragaz",
+        "fr": "chef-de-rang-hospitalite-italienne-authentique-grand-resort-bad-ragaz-bad-ragaz"
       },
       "company": "Grand Resort Bad Ragaz",
       "companyKey": "grand-resort-bad-ragaz",

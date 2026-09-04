@@ -1482,9 +1482,9 @@
     },
     {
       "id": "sbb-ab4610594126",
-      "slug": "gestore-dell-impianto-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten",
+      "slug": "plant-manager-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "gestore-dell-impianto-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten",
+        "it": "plant-manager-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten",
         "en": "facility-manager-production-sites-ffs-officine-ferrovie-federali-olten",
         "de": "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten",
         "fr": "directeur-d-usine-sites-de-production-ffs-officine-ferrovie-federali-olten"
@@ -1528,11 +1528,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-09-03T23:20:46.268Z",
       "previousSlugs": [
-        "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten"
+        "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten",
+        "gestore-dell-impianto-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten"
+          "anlagenmanager-in-produktionsstandorte-ffs-officine-ferrovie-federali-olten",
+          "gestore-dell-impianto-nei-siti-di-produzione-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-08-31T17:13:20.510Z",

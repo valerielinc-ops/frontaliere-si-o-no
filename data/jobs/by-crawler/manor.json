@@ -1511,9 +1511,9 @@
       },
       "postedDate": "2026-08-27",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-vente-parfumerie-50-fribourg-collaborateurtrice-vente-parfumerie",
+      "slug": "collaboratore-di-vendita-parfumerie-50-manor-ag-fribourg-collaborateurtrice-vente-parfumerie",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-vente-parfumerie-50-fribourg-collaborateurtrice-vente-parfumerie",
+        "it": "collaboratore-di-vendita-parfumerie-50-manor-ag-fribourg-collaborateurtrice-vente-parfumerie",
         "en": "sales-associate-perfumery-50-manor-ag-fribourg-collaborateurtrice-vente-parfumerie",
         "de": "verkaufsberater-in-parfumerie-50-manor-ag-fribourg-collaborateurtrice-vente-parfumerie",
         "fr": "manor-collaborateur-trice-vente-parfumerie-50-fribourg-collaborateurtrice-vente-parfumerie"
@@ -1544,7 +1544,15 @@
       },
       "addressLocality": "Fribourg Collaborateurtrice vente (Parfumerie)",
       "addressRegion": "FR",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-collaborateur-trice-vente-parfumerie-50-fribourg-collaborateurtrice-vente-parfumerie"
+        ]
+      },
+      "previousSlugs": [
+        "manor-collaborateur-trice-vente-parfumerie-50-fribourg-collaborateurtrice-vente-parfumerie"
+      ]
     },
     {
       "title": "Conseiller/ère de vente (Bijouterie/Montres) 60%",
@@ -5870,7 +5878,7 @@
         "it": "collaboratore-trice-in-vendita-parfumerie-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie",
         "en": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
         "de": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie",
-        "fr": "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        "fr": "employe-en-parfumerie-de-vente-20-manor-ag-zug-mitarbeiterin-verkauf-parfumerie"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita Parfümerie 20%",
@@ -5885,6 +5893,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-verkauf-parfumerie-20-zug-mitarbeiterin-verkauf-parfumerie"
         ]
       },
@@ -6238,7 +6249,7 @@
         "it": "collaboratore-trice-in-vendita-30-manor-ag-basel-mitarbeiterin-verkauf-30",
         "en": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
         "de": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30",
-        "fr": "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
+        "fr": "salaries-en-ventes-30-manor-ag-basel-mitarbeiterin-verkauf-30"
       },
       "titleByLocale": {
         "it": "Dipendenti* nelle vendite 30 %",
@@ -6253,6 +6264,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
+        ],
+        "fr": [
           "manor-mitarbeiter-in-verkauf-30-basel-mitarbeiterin-verkauf-30"
         ]
       },
