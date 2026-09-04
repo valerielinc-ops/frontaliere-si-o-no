@@ -5443,6 +5443,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cressier-guasto-benzina-garantita.title': 'Cressier gestoppt, Benzin durch Bestände garantiert',
     'blog.article.cressier-guasto-benzina-garantita.excerpt': 'Die Raffinerie von Cressier stellt diese Woche aufgrund eines technischen Defekts ein. Sie deckt 30% des Schweizer Bedarfs. Obligatorische Lagerbestände gewährleisten die Versorgung mit Benzin, Diesel und Kerosin.',
     'blog.article.cressier-guasto-benzina-garantita.imageAlt': 'Moderne Erdölraffinerieanlage mit Kontrolltürmen und Lagertanks in der Schweizer Industrielandschaft',
+    'blog.article.domanda-permesso-c-glarona-guida.title': 'Führerschein C Glarus: Voraussetzungen und Beantragung',
+    'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Vollständiger Leitfaden zur Niederlassungsbewilligung C im Kanton Glarus: erforderliche Aufenthaltsjahre, Integration, Antragsverfahren und Übergang zur Einbürgerung.',
+    'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Schweizer Verwaltungsgebäude mit offiziellen Beschilderungen und Flaggen für Einwanderungsbehörden.',
 };
 
 export default blogMetaChDe;

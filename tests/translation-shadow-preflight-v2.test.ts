@@ -134,6 +134,7 @@ function preflightInput(jobs: any[], {
         // accenderla senza dichiararlo.
         freshFirst: false,
         freshHead: 0,
+        freshDeferred: 0,
         freshWindowMs: 0,
         age: {
           count: jobs.length,
