@@ -164,6 +164,35 @@ si applica anche **dopo** i segmenti comuni (`/en/jobs-`, `/de/arbeit-`), e il
 report stampa lo `skeletonHash` di ogni coorte gated, che è l'identità del
 template e non dipende da quali pagine il run ha campionato.
 
+Restava però un residuo, chiuso da #7384: l'etichetta continua a dipendere dal
+**bucket** campionato, e `audit-all.mjs` lo ruota a ogni run
+(`AUDIT_SAMPLE_SALT=$GITHUB_RUN_NUMBER`, così in `round(1/rate)` run si copre
+tutto il dist). Un bucket che pesca solo i calcolatori `…-100000-chf-…` chiama
+la famiglia `it:/calcola-stipendio/stipendio-netto-100000-chf-`, il bucket dopo
+la chiama `it:/calcola-stipendio/stipendio-netto-`: con un inventario cercato
+per uguaglianza, una forma risolveva e l'altra finiva `below-floor`, e il gate
+lampeggiava col numero di run a contenuto immutato. La risoluzione ora è per
+**relazione di prefisso** (`resolveInventoryEntry` in
+`scripts/lib/informationGain.mjs`, condivisa dal gate su dist e dal live-scan):
+un'etichetta che **estende** una chiave inventariata risolve a quella chiave.
+
+Due conseguenze operative:
+
+- **le chiavi di `KNOWN_LOW_GAIN_COHORTS` sono tronchi di famiglia**, non
+  l'etichetta che un run stretto ha stampato. Il verso opposto non è accettato
+  di proposito — un campione può solo allungare il prefisso comune, mai
+  accorciarlo, quindi un'etichetta che **tronca** una chiave è una famiglia più
+  larga e prenderebbe una baseline che non è la sua;
+- **il report dice quale riga ha risposto** (`inventoryKey`, accanto a
+  `label` e `skeletonHash`, sia nella tabella delle coorti che in
+  `recoveredCohorts` / `ratchets`): è la riga da togliere quando una famiglia
+  risale sopra il floor, e non coincide più necessariamente con l'etichetta.
+
+Il suffisso `~<skeletonHash>` resta fuori dalla relazione: viene aggiunto solo
+quando **due template distinti** si riducono alla stessa etichetta, e farli
+risolvere entrambi alla chiave nuda condividerebbe la baseline che quel
+suffisso esiste per tenere separata.
+
 ## Cosa è cambiato con #5002
 
 Le sei famiglie comunali hanno preso

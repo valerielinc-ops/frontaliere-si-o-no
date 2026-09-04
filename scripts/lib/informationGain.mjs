@@ -466,3 +466,52 @@ export const INFORMATION_GAIN_TUNABLES = {
   TEMPLATE_DF_SHARE,
   MAX_SEGMENTS_PER_PAGE,
 };
+
+/**
+ * Resolve a cohort label against a label-keyed inventory (issue #7384).
+ *
+ * The label is derived from the SAMPLED paths, and `audit-all.mjs` rotates the
+ * sampling bucket every run (`AUDIT_SAMPLE_SALT=$GITHUB_RUN_NUMBER`, so a
+ * `round(1/rate)` cycle covers the whole dist). Sampling can only ever make a
+ * family's common prefix LONGER — a bucket that happens to draw only the
+ * `…-100000-chf-…` calculators names the family
+ * `it:/calcola-stipendio/stipendio-netto-100000-chf-` where the full family is
+ * `it:/calcola-stipendio/stipendio-netto-`. Since `KNOWN_LOW_GAIN_COHORTS` is
+ * keyed BY label, a `Map.get()` on that string resolves on one bucket and
+ * misses on the next: the same unchanged content alternates between
+ * "inventoried" and "below-floor", and the gate flaps with the run number.
+ *
+ * So resolution is by PREFIX RELATION, not equality: a label that EXTENDS an
+ * inventoried key resolves to that key. The reverse is deliberately not
+ * accepted — a label can never be shorter than its family's stem, so a key the
+ * label truncates is a different (broader) family, and matching it would hand
+ * an unrelated cohort someone else's recorded baseline.
+ *
+ * Two guards keep the relation from over-matching:
+ *   - the key must end on a slug-token boundary (`-` or `/`), which is what
+ *     `commonPathPrefix` always emits, so `it:/lavoro-` never swallows a
+ *     hypothetical `it:/lavorobis-…`;
+ *   - the extension must not contain `~`, the anti-collision suffix
+ *     `scoreCohorts` appends when two DISTINCT templates reduce to one label.
+ *     Letting `it:/premi-~896cea` match the key `it:/premi-` would give both
+ *     colliding families the one baseline that suffix exists to keep apart.
+ *
+ * Ambiguity cannot arise: two distinct keys of equal length cannot both be a
+ * prefix of the same label, so the longest match is unique. Longest wins, which
+ * is the most specific family recorded.
+ *
+ * @param {Map<string, number>} inventory
+ * @param {string} label
+ * @returns {{key: string, value: number} | null}
+ */
+export function resolveInventoryEntry(inventory, label) {
+  if (inventory.has(label)) return { key: label, value: inventory.get(label) };
+  let best = null;
+  for (const key of inventory.keys()) {
+    if (!key.endsWith('-') && !key.endsWith('/')) continue;
+    if (!label.startsWith(key)) continue;
+    if (label.slice(key.length).includes('~')) continue;
+    if (best === null || key.length > best.length) best = key;
+  }
+  return best === null ? null : { key: best, value: inventory.get(best) };
+}

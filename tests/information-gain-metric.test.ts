@@ -21,11 +21,15 @@ import {
   commonPathPrefix,
   localeOfPath,
   urlPathOf,
+  resolveInventoryEntry,
   extractVisibleText,
   segmentsFromText,
   INFORMATION_GAIN_TUNABLES,
 } from '@/scripts/lib/informationGain.mjs';
-import { factory as createInformationGainAuditor } from '@/scripts/audit-information-gain.mjs';
+import {
+  factory as createInformationGainAuditor,
+  INFORMATION_GAIN_GATE,
+} from '@/scripts/audit-information-gain.mjs';
 
 /** A mail-merge page: same prose, place name and figure substituted. */
 const mailMergePage = (name: string, rate: string): string => `<!doctype html>
@@ -324,5 +328,110 @@ describe('information-gain: il report nomina l\'identità della coorte, non solo
     // Stessa larghezza del suffisso `~` anti-collisione, così un'etichetta
     // `en:/en/~896cea` si cerca nel report per uguaglianza e non per prefisso.
     expect(cohort.skeletonHash).toMatch(/^[0-9a-f]{1,6}$/);
+  });
+});
+
+describe('information-gain: la rotazione del bucket di campionamento non cambia il verdetto (issue #7384)', () => {
+  // `audit-all.mjs` ruota il bucket a ogni run (`AUDIT_SAMPLE_SALT` =
+  // `$GITHUB_RUN_NUMBER`), quindi due run consecutivi vedono sottoinsiemi
+  // DISGIUNTI della stessa famiglia. L'etichetta è il prefisso comune dei path
+  // CAMPIONATI: più stretto è il bucket, più lunga l'etichetta. Con un
+  // inventario indicizzato per uguaglianza, una forma risolve e l'altra no →
+  // `below-floor` → gate rosso a run alterni, a contenuto immutato.
+
+  /** Mail-merge salariale: stessa prosa, professione e cifra sostituite. */
+  const salaryPage = (job: string, gross: string): string => `<!doctype html>
+<html lang="it"><head><title>Stipendio medio in Svizzera: ${job}</title></head>
+<body>
+  <h1>Stipendio medio in Svizzera per ${job}</h1>
+  <p>Lo stipendio mediano lordo di ${job} in Svizzera è di ${gross} franchi all'anno secondo la rilevazione federale.</p>
+  <h2>Come si legge questa cifra</h2>
+  <p>La mediana divide la popolazione salariale a metà ed è meno sensibile agli estremi rispetto alla media aritmetica.</p>
+  <p>Il valore lordo non tiene conto dei contributi sociali obbligatori né dell'imposta alla fonte del frontaliere.</p>
+</body></html>`;
+
+  /** Un bucket di campionamento: 12 pagine consecutive di una sotto-famiglia. */
+  const sampleBucket = (slugStem: string) => {
+    const auditor = createInformationGainAuditor();
+    for (let i = 1; i <= 12; i += 1) {
+      auditor.collect(
+        `dist/stipendio-medio-svizzera-${slugStem}-${i}/index.html`,
+        salaryPage(`${slugStem}-${i}`, String(60000 + i * 1000)),
+      );
+    }
+    const { extra, passed } = auditor.report();
+    return { passed, cohort: extra.cohorts[0], gated: extra.cohortsGated };
+  };
+
+  const bucketA = sampleBucket('informatico');
+  const bucketB = sampleBucket('infermiere');
+
+  it('due bucket disgiunti della stessa famiglia producono etichette DIVERSE', () => {
+    expect(bucketA.gated).toBe(1);
+    expect(bucketB.gated).toBe(1);
+    expect(bucketA.cohort.label).toBe('it:/stipendio-medio-svizzera-informatico-');
+    expect(bucketB.cohort.label).toBe('it:/stipendio-medio-svizzera-infermiere-');
+    expect(bucketA.cohort.label).not.toBe(bucketB.cohort.label);
+  });
+
+  it('entrambi risolvono alla STESSA voce di inventario, quindi nessun offender', () => {
+    // È la risoluzione a decidere il colore del gate, non l'uguaglianza delle
+    // etichette: entrambe le forme devono cadere sulla riga già inventariata.
+    expect(bucketA.cohort.inventoryKey).toBe('it:/stipendio-medio-svizzera-');
+    expect(bucketB.cohort.inventoryKey).toBe(bucketA.cohort.inventoryKey);
+    expect(bucketA.passed).toBe(true);
+    expect(bucketB.passed).toBe(true);
+  });
+
+  it('la voce risolta è quella reale di KNOWN_LOW_GAIN_COHORTS', () => {
+    const { KNOWN_LOW_GAIN_COHORTS } = INFORMATION_GAIN_GATE;
+    const entry = resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, bucketA.cohort.label);
+    expect(entry).not.toBeNull();
+    expect(entry!.key).toBe('it:/stipendio-medio-svizzera-');
+    expect(entry!.value).toBe(KNOWN_LOW_GAIN_COHORTS.get('it:/stipendio-medio-svizzera-'));
+  });
+});
+
+describe('information-gain: la relazione di prefisso non allarga l\'inventario (issue #7384)', () => {
+  const inventory = new Map([
+    ['it:/stipendio-medio-svizzera-', 0],
+    ['it:/vivere-in-austria-lavorare-in-svizzera/', 4.2],
+  ]);
+
+  it('un\'etichetta che ESTENDE una chiave risolve a quella chiave', () => {
+    expect(resolveInventoryEntry(inventory, 'it:/stipendio-medio-svizzera-zurigo-')).toEqual({
+      key: 'it:/stipendio-medio-svizzera-',
+      value: 0,
+    });
+  });
+
+  it('un\'etichetta che TRONCA una chiave non risolve: è una famiglia più larga', () => {
+    // Un campione non può accorciare il prefisso comune di una famiglia, quindi
+    // un'etichetta più corta della chiave è un'altra coorte — darle la baseline
+    // registrata la esenterebbe dal floor senza averla mai misurata.
+    expect(resolveInventoryEntry(inventory, 'it:/stipendio-medio-')).toBeNull();
+    expect(resolveInventoryEntry(inventory, 'it:/')).toBeNull();
+  });
+
+  it('il locale fa parte della chiave: `de:` non pesca la riga `it:`', () => {
+    expect(resolveInventoryEntry(inventory, 'de:/de/stipendio-medio-svizzera-')).toBeNull();
+  });
+
+  it('il suffisso `~` anti-collisione non eredita la baseline della chiave nuda', () => {
+    // Il suffisso esiste perché DUE template distinti si sono ridotti a
+    // un'etichetta sola: farli risolvere entrambi alla stessa riga è esattamente
+    // la condivisione di baseline che il suffisso impedisce.
+    expect(resolveInventoryEntry(inventory, 'it:/stipendio-medio-svizzera-~896cea')).toBeNull();
+  });
+
+  it('vince la chiave PIÙ SPECIFICA fra quelle che l\'etichetta estende', () => {
+    const nested = new Map([
+      ['it:/lavoro-', 1],
+      ['it:/lavoro-ticino-', 2],
+    ]);
+    expect(resolveInventoryEntry(nested, 'it:/lavoro-ticino-autista-')).toEqual({
+      key: 'it:/lavoro-ticino-',
+      value: 2,
+    });
   });
 });

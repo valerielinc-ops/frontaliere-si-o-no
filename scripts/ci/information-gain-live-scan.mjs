@@ -53,7 +53,7 @@
  */
 
 import { fileURLToPath } from 'node:url';
-import { fingerprintPage, scoreCohorts } from '../lib/informationGain.mjs';
+import { fingerprintPage, scoreCohorts, resolveInventoryEntry } from '../lib/informationGain.mjs';
 import { INFORMATION_GAIN_GATE } from '../audit-information-gain.mjs';
 
 const { MEDIAN_IGS_FLOOR_PCT, REGRESSION_TOLERANCE_PCT, KNOWN_LOW_GAIN_COHORTS } =
@@ -177,19 +177,31 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
   const opportunities = [];
 
   for (const cohort of cohorts) {
-    const recorded = inventory.get(cohort.label);
-    if (recorded === undefined) {
+    // Same prefix-relation resolution as the dist gate (issue #7384): this
+    // scan samples 12 URLs per sitemap, so its labels are narrower than the
+    // family stem even more often than the dist auditor's.
+    const entry = resolveInventoryEntry(inventory, cohort.label);
+    if (entry === null) {
       if (cohort.medianIgs < floor) {
-        regressions.push({ ...cohort, recorded: null, reason: 'below-floor' });
+        regressions.push({ ...cohort, recorded: null, inventoryKey: null, reason: 'below-floor' });
       } else if (cohort.medianIgs < target) {
         opportunities.push(cohort);
       }
       continue;
     }
+    const { key: inventoryKey, value: recorded } = entry;
     if (cohort.medianIgs < recorded - tolerance) {
-      regressions.push({ ...cohort, recorded, reason: 'regressed-vs-inventory' });
-    } else if (cohort.medianIgs >= floor) {
-      ratchets.push({ ...cohort, recorded });
+      regressions.push({ ...cohort, recorded, inventoryKey, reason: 'regressed-vs-inventory' });
+    } else if (cohort.medianIgs >= floor && inventoryKey === cohort.label) {
+      // Asimmetria voluta, stessa del gate su dist: il ratchet si stringe su
+      // un campione (una sotto-famiglia sotto la baseline è già una prova di
+      // peggioramento) ma si allenta solo su una misura che copre la famiglia
+      // intera, cioè quando l'etichetta è UGUALE alla chiave. Qui conta il
+      // doppio: questo scan campiona 12 URL per sitemap, quindi la quasi
+      // totalità delle sue etichette è più stretta del tronco inventariato, e
+      // senza questo vincolo ogni run detterebbe di togliere una riga di
+      // famiglia sulla base di una sola sotto-famiglia (issue #7384).
+      ratchets.push({ ...cohort, recorded, inventoryKey });
     }
   }
 
@@ -222,14 +234,13 @@ async function main() {
   const opportunity = opportunities[0] ?? null;
 
   const pct = (v) => `${v.toFixed(1).replace('.', ',')} %`;
+  const inventoryOf = (c) => resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label);
   const table = gated
     .map(
       (c) =>
         `  ${pct(c.medianIgs).padStart(8)}  n=${String(c.pages).padStart(3)}  ` +
         `zero=${String(c.zeroGainPages).padStart(3)}  ${c.label}` +
-        (KNOWN_LOW_GAIN_COHORTS.has(c.label)
-          ? `  [inventario: ${pct(KNOWN_LOW_GAIN_COHORTS.get(c.label))}]`
-          : ''),
+        (inventoryOf(c) ? `  [inventario: ${inventoryOf(c).key} → ${pct(inventoryOf(c).value)}]` : ''),
     )
     .join('\n');
 
@@ -252,11 +263,13 @@ async function main() {
       pages: c.pages,
       medianIgs: Number(c.medianIgs.toFixed(2)),
       zeroGainPages: c.zeroGainPages,
-      recorded: KNOWN_LOW_GAIN_COHORTS.get(c.label) ?? null,
+      recorded: inventoryOf(c)?.value ?? null,
+      inventoryKey: inventoryOf(c)?.key ?? null,
       worst: c.worst.map((p) => ({ urlPath: p.urlPath, igs: Number(p.igs.toFixed(2)) })),
     })),
     regressions: regressions.map((r) => ({
       label: r.label,
+      inventoryKey: r.inventoryKey,
       medianIgs: Number(r.medianIgs.toFixed(2)),
       recorded: r.recorded,
       reason: r.reason,
@@ -266,6 +279,9 @@ async function main() {
     })),
     ratchets: ratchets.map((r) => ({
       label: r.label,
+      // Which line of KNOWN_LOW_GAIN_COHORTS to delete: with prefix resolution
+      // the label here is not necessarily the key that recorded it (#7384).
+      inventoryKey: r.inventoryKey,
       medianIgs: Number(r.medianIgs.toFixed(2)),
       recorded: r.recorded,
     })),

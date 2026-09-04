@@ -49,7 +49,7 @@ import { relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { walkHtmlFiles, ROOT, DEFAULT_DIST } from './lib/audit-runner.mjs';
 import { writeAuditReport } from './lib/auditReport.mjs';
-import { fingerprintPage, scoreCohorts } from './lib/informationGain.mjs';
+import { fingerprintPage, scoreCohorts, resolveInventoryEntry } from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 
 /**
@@ -111,6 +111,15 @@ const MIN_COHORT_PAGES = 12;
  *
  * Values measured on the production sample of 2026-08-24 (see the calibration
  * note above for the method).
+ *
+ * KEYS ARE FAMILY STEMS, not whatever label one run printed. Resolution is by
+ * prefix relation (`resolveInventoryEntry`): a label that EXTENDS a key
+ * resolves to it, a label that TRUNCATES one does not. Recording the label a
+ * narrow sample bucket produced (`…-100000-chf-`) instead of the family stem
+ * (`…-stipendio-netto-`) therefore leaves every other bucket unmatched — the
+ * exact flapping issue #7384 removed. Take the stem from the `label` of a
+ * FULL-dist run, or cut the sampled label back to the last token the whole
+ * family shares.
  */
 const KNOWN_LOW_GAIN_COHORTS = new Map([
   // Salary landings built from one BFS row each: the row IS the page, and the
@@ -183,17 +192,36 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       const recovered = [];
 
       for (const cohort of gated) {
-        const known = KNOWN_LOW_GAIN_COHORTS.get(cohort.label);
-        if (known === undefined) {
+        // Prefix relation, not equality: the label depends on WHICH pages the
+        // rotating sample bucket drew, the inventory key does not (issue #7384).
+        const known = resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, cohort.label);
+        if (known === null) {
           if (cohort.medianIgs < MEDIAN_IGS_FLOOR_PCT) {
-            offenders.push({ ...cohort, reason: 'below-floor', recordedMedian: null });
+            offenders.push({ ...cohort, reason: 'below-floor', recordedMedian: null, inventoryKey: null });
           }
           continue;
         }
-        if (cohort.medianIgs < known - REGRESSION_TOLERANCE_PCT) {
-          offenders.push({ ...cohort, reason: 'regressed-vs-inventory', recordedMedian: known });
-        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT) {
-          recovered.push({ ...cohort, recordedMedian: known });
+        if (cohort.medianIgs < known.value - REGRESSION_TOLERANCE_PCT) {
+          offenders.push({
+            ...cohort,
+            reason: 'regressed-vs-inventory',
+            recordedMedian: known.value,
+            inventoryKey: known.key,
+          });
+        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && known.key === cohort.label) {
+          // La risoluzione per prefisso è ASIMMETRICA di proposito. Verso il
+          // basso un campione basta: una sotto-famiglia sotto la baseline è di
+          // per sé la prova che qualcosa è peggiorato, e il ratchet può solo
+          // stringersi. Verso l'alto no: un bucket di 12 pagine di UNA
+          // sotto-famiglia sopra il floor non dice niente delle altre, e
+          // registrarlo come «coorte risalita» detterebbe di togliere la riga
+          // della famiglia INTERA. Tolta la riga, il bucket successivo che
+          // pesca le sotto-famiglie ancora a 0 % ricade `below-floor`: il gate
+          // tornerebbe a lampeggiare col numero di run, cioè esattamente il
+          // difetto che #7384 chiude. Solo un'etichetta UGUALE alla chiave —
+          // una run che ha misurato la famiglia per intero — è prova di
+          // recupero family-wide.
+          recovered.push({ ...cohort, recordedMedian: known.value, inventoryKey: known.key });
         }
       }
 
@@ -226,6 +254,9 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
           inventorySize: KNOWN_LOW_GAIN_COHORTS.size,
           recoveredCohorts: recovered.map((c) => ({
             label: c.label,
+            // Which inventory line to delete: with prefix resolution the label
+            // in this report is not necessarily the key that recorded it.
+            inventoryKey: c.inventoryKey,
             recordedMedian: c.recordedMedian,
             medianIgs: Number(c.medianIgs.toFixed(2)),
           })),
@@ -244,6 +275,10 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
         // appends to a colliding label, so `en:/en/~896cea` can be matched
         // against this field literally instead of by prefix.
         skeletonHash: c.skeletonHash.toString(16).slice(0, 6),
+            // The inventory line this cohort resolved to, or null. Printed so a
+            // run's verdict shows WHICH key answered for a sample-dependent
+            // label instead of leaving it to be re-derived (issue #7384).
+            inventoryKey: resolveInventoryEntry(KNOWN_LOW_GAIN_COHORTS, c.label)?.key ?? null,
             pages: c.pages,
             medianIgs: Number(c.medianIgs.toFixed(2)),
             meanIgs: Number(c.meanIgs.toFixed(2)),
