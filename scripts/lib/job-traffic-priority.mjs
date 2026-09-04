@@ -83,30 +83,64 @@ export const QUEUE_AGE_ALERT_DAYS = 150;
 export const FRESH_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 /**
- * Ceiling on the freshness head, as a share of the slots the caller will
- * actually take (`cap`).
- *
- * The head has no quota by design — see the partition in
- * buildTrafficPriority() — and the argument for that is an INTAKE ratio
- * (~1.421 jobs/day against a 6.000-job cap per run), not an invariant of this
- * code. Anything that resets `firstSeenAt` in bulk — a full re-crawl, a
- * dataset regeneration, a backfill — makes the whole queue "fresh" at once and
- * the head then covers every slot of the cap: the stride below never runs, so
- * the oldest-first reserve gets ZERO slots for that pass, which is exactly the
- * starvation RESERVE_FOR_OLDEST exists to prevent.
- *
- * Half, so that the guarantee is stated in one number and holds unconditionally:
- * at most half the batch is head, the other half keeps the ordinary stride, and
- * the reserve therefore keeps ~`reserveForOldest` of that half instead of
- * nothing. Fresh jobs cut by the ceiling are NOT dropped — they fall back into
- * the stride like any other job (and, being the newest, never take a reserve
- * slot they did not earn) — and their count is reported as `freshDeferred`, so
- * a truncation that changes the ordering can never be silent.
- *
- * Not a knob: it is the bound that makes the lane's promise unconditional. The
- * one number meant to be tuned here stays `RESERVE_FOR_OLDEST`.
+ * How many slots of the batch go to the oldest-first stride: one age pick every
+ * `strideForReserve(reserve)` slots. Extracted because the ordering loop and
+ * `freshHeadCeiling()` below MUST agree on it — two copies of `round(1 /
+ * reserve)` is a drift waiting to happen, and the ceiling's whole promise is
+ * stated in units of this number.
  */
-export const FRESH_HEAD_MAX_SHARE = 0.5;
+export function strideForReserve(reserveForOldest) {
+  return reserveForOldest > 0 ? Math.max(2, Math.round(1 / reserveForOldest)) : 0;
+}
+
+/**
+ * Largest freshness head that still leaves the oldest-first reserve some slots
+ * inside `capSlots` — the slice the caller will actually take.
+ *
+ * WHY A CEILING AT ALL. The head has no quota by design (see the partition in
+ * buildTrafficPriority()), and the argument for that is an INTAKE ratio
+ * (~1.421 jobs/day against the cap), not an invariant of this code. Anything
+ * that resets `firstSeenAt` in bulk — a full re-crawl, a dataset regeneration,
+ * a backfill — makes the whole queue "fresh" at once, the head then covers
+ * every slot of the cap, the stride never runs, and the reserve gets ZERO
+ * slots for that pass: the exact starvation RESERVE_FOR_OLDEST exists to
+ * prevent.
+ *
+ * WHY THIS SIZE, and not a flat share. A flat half was the first shape of this
+ * ceiling and it was WRONG in a way worth recording: the mop-up's cap is 2.000
+ * (LOCAL_MT_MAX_JOBS) while the measured fresh cohort on 2026-09-04 was 1.308,
+ * so a 1.000-slot ceiling would have deferred ~308 jobs on every ORDINARY run —
+ * a standing loss on the 24-hour destination, paid to prevent a starvation that
+ * in that regime did not exist (head 1.308 of 2.000 leaves 692 stride slots and
+ * ~138 age picks). A ceiling must bite ONLY in the degenerate case it is named
+ * after, so it is derived from the thing it protects instead of being a second
+ * tunable: leave the stride `max(stride, ceil(capSlots * reserve))` slots —
+ * enough for the reserve's designed share of the batch, and never fewer than
+ * one full stride period, or the reserve's share would round down to no age
+ * pick at all on a small batch. At cap 2.000 / reserve 0,2 that is 400 slots
+ * reserved and a ceiling of 1.600, comfortably above the 1.308 measured: in the
+ * normal regime this function returns a number the cohort never reaches, and
+ * `freshDeferred` stays 0.
+ *
+ * Jobs cut by the ceiling are NOT dropped — they fall back into the stride like
+ * any other job (and, being the newest, never take a reserve slot they did not
+ * earn) — and their count is reported as `freshDeferred`, so a truncation that
+ * changes the ordering can never be silent.
+ *
+ * Not a knob: it is derived. The one number meant to be tuned in this module
+ * stays `RESERVE_FOR_OLDEST`.
+ */
+export function freshHeadCeiling(capSlots, reserveForOldest = RESERVE_FOR_OLDEST) {
+  // No reserve configured means no reserve to starve: the pure-traffic order
+  // has nothing this ceiling could protect, so the head stays unbounded.
+  if (!(reserveForOldest > 0)) return capSlots;
+  const forStride = Math.max(
+    strideForReserve(reserveForOldest),
+    Math.ceil(capSlots * reserveForOldest),
+  );
+  // A batch too small to split still gets a lane: one slot, never zero.
+  return Math.max(1, capSlots - forStride);
+}
 
 /**
  * Every key the `stats` half of `buildTrafficPriority()` returns.
@@ -293,17 +327,24 @@ function round1(n) { return Math.round(n * 10) / 10; }
  * one of those slots for a cohort twenty-five times larger than the cascade
  * can serve, starving traffic and backlog on the paid path for nothing.
  *
- * The head is bounded to FRESH_HEAD_MAX_SHARE of `cap` — how many of these
+ * The head is bounded by freshHeadCeiling() against `cap` — how many of these
  * slots the caller will actually take — so that a queue that turns fresh all at
- * once cannot leave the oldest-first reserve with zero slots. `cap` is a HINT
- * about the caller's own slice, never applied to the returned ordering.
+ * once cannot leave the oldest-first reserve with zero slots. The ceiling is
+ * derived from `reserveForOldest` and sized to bite ONLY in that case; `cap` is
+ * a HINT about the caller's own slice, never applied to the returned ordering.
  *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
  * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, cap?: number }} [opts]
  * @returns {{ order: object[], stats: object }}
  */
-export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false, cap = Infinity } = {}) {
+export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false, cap = null } = {}) {
+  // A cap that is NaN, zero or negative would silently fall back to "no cap"
+  // and take the ceiling with it — the lane would look bounded and not be.
+  // `null` (the default) is the honest way to say "I take everything".
+  if (cap !== null && !(Number.isInteger(cap) && cap > 0)) {
+    throw new TypeError(`buildTrafficPriority: cap must be a positive integer or null, got ${JSON.stringify(cap)}`);
+  }
   const jobs = Array.isArray(pending) ? pending : [];
   const pop = popularity && typeof popularity === 'object' ? popularity : {};
 
@@ -322,8 +363,8 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   // ── The freshness lane ────────────────────────────────────────────────
   //
   // Jobs first seen less than FRESH_WINDOW_MS ago go FIRST, all of them, with
-  // no quota up to a ceiling of half the batch (FRESH_HEAD_MAX_SHARE) — and
-  // then the rest of the queue keeps exactly the stride it had.
+  // no quota up to the ceiling that keeps the reserve alive (freshHeadCeiling)
+  // — and then the rest of the queue keeps exactly the stride it had.
   //
   // Why no quota. Three lanes cannot be interleaved by a single stride: that
   // needs two ratios, and the tunable here must stay ONE observable number,
@@ -347,13 +388,13 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
     ? scored.filter(isFresh).sort((a, b) =>
       b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index)
     : [];
-  // ...unless the cohort is bigger than half the batch the caller will take,
-  // in which case the head would BE the batch and the stride below would never
-  // run — see FRESH_HEAD_MAX_SHARE. A caller that declares no cap takes the
-  // whole queue in one pass, so `jobs.length` IS its cap and no job starves.
-  // The floor of one slot keeps the lane alive on a batch too small to split.
-  const capSlots = Number.isFinite(cap) && cap > 0 ? Math.min(cap, jobs.length) : jobs.length;
-  const freshHeadMax = Math.max(1, Math.floor(capSlots * FRESH_HEAD_MAX_SHARE));
+  // ...unless the cohort would cover the whole slice the caller takes, in which
+  // case the head IS the batch and the stride below never runs — see
+  // freshHeadCeiling(), which bites only in that degenerate case. A caller that
+  // declares no cap takes the whole queue in one pass, so `jobs.length` IS its
+  // cap and nobody starves.
+  const capSlots = cap === null ? jobs.length : Math.min(cap, jobs.length);
+  const freshHeadMax = freshHeadCeiling(capSlots, reserveForOldest);
   const freshHead = freshCohort.slice(0, freshHeadMax);
   // Cut from the head, NOT from the queue: these go back into the stride with
   // everybody else, where — being the newest jobs in it — they sort last on the
@@ -373,7 +414,7 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
 
   const order = freshHead.map((s) => s.job);
   const taken = new Set();
-  const stride = reserveForOldest > 0 ? Math.max(2, Math.round(1 / reserveForOldest)) : 0;
+  const stride = strideForReserve(reserveForOldest);
   let ti = 0;
   let ai = 0;
   const nextFrom = (list, cursor) => {
@@ -500,7 +541,7 @@ export function formatPriorityReport(stats) {
     `   Freshness lane:       ${stats.freshFirst
       ? `${stats.freshHead} job(s) ahead of the stride (< ${Math.round(stats.freshWindowMs / 3_600_000)}h old)`
         + (stats.freshDeferred > 0
-          ? ` · ${stats.freshDeferred} more deferred to the stride (head capped at ${pct(FRESH_HEAD_MAX_SHARE)} of the batch, so the oldest-first reserve keeps its slots)`
+          ? ` · ${stats.freshDeferred} more deferred to the stride (head hit its ceiling, so the oldest-first reserve keeps its slots)`
           : '')
       : 'off (this consumer keeps the plain traffic/age stride)'}`,
     `   Queue age (from first-seen, upper bound on time-in-queue):`,

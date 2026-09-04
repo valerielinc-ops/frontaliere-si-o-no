@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
 import {
   RESERVE_FOR_OLDEST,
   FRESH_WINDOW_MS,
-  FRESH_HEAD_MAX_SHARE,
+  freshHeadCeiling,
+  strideForReserve,
   QUEUE_AGE_ALERT_DAYS,
   QUEUE_AGE_BUCKET_KEYS,
   QUEUE_AGE_DISJOINT_BUCKET_KEYS,
@@ -229,7 +230,7 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
       job('ancient', daysAgo(400)),
     ];
     const { order, stats } = buildTrafficPriority(pending, {}, { now: NOW, cap, freshFirst: true });
-    expect(stats.freshHead).toBe(Math.floor(cap * FRESH_HEAD_MAX_SHARE));
+    expect(stats.freshHead).toBe(freshHeadCeiling(cap, RESERVE_FOR_OLDEST));
     expect(stats.freshDeferred).toBe(60 - stats.freshHead);
     // Il job piu' vecchio della coda entra nel batch che il chiamante prende
     // davvero: e' la riserva oldest-first, che senza tetto sarebbe rimasta fuori.
@@ -238,9 +239,32 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(new Set(order.map((j: any) => j.slug)).size).toBe(61);
   });
 
-  it('il tetto non morde quando la coorte sta dentro meta batch', () => {
-    // La corsia resta quella di prima nel regime misurato (~1.421 job/giorno
-    // contro un cap di 6.000): il tetto e' una rete, non una quota.
+  it('nel regime MISURATO il tetto non morde: coorte 1.308 contro il cap vero di 2.000', () => {
+    // Il caso che ha bocciato la prima forma di questo tetto (review di #7358):
+    // un tetto a meta' batch valeva 1.000 contro i 1.308 job freschi misurati
+    // il 2026-09-04, quindi ne rimandava ~308 a OGNI run ordinaria — una
+    // perdita netta sul vincolo delle 24 ore, pagata per evitare una starvation
+    // che in quel regime non esisteva. Il tetto deve mordere SOLO nel caso
+    // degenere per cui e' nato.
+    const cap = 2000;                       // LOCAL_MT_MAX_JOBS di local-mt-mopup.mjs
+    expect(freshHeadCeiling(cap, RESERVE_FOR_OLDEST)).toBe(1600);
+    expect(freshHeadCeiling(cap, RESERVE_FOR_OLDEST)).toBeGreaterThan(1308);
+  });
+
+  it('il tetto lascia allo stride abbastanza slot perche la riserva peschi davvero', () => {
+    // Non basta che il tetto sia < cap: gli slot che avanzano devono bastare per
+    // almeno un periodo intero di stride, altrimenti la quota della riserva
+    // arrotonda a zero pescate e il tetto garantisce solo a parole.
+    for (const cap of [10, 20, 53, 100, 900, 2000, 6000]) {
+      const left = cap - freshHeadCeiling(cap, RESERVE_FOR_OLDEST);
+      expect(Math.floor(left / strideForReserve(RESERVE_FOR_OLDEST)),
+        `cap ${cap}: la riserva non pesca nessuno slot`).toBeGreaterThanOrEqual(1);
+    }
+  });
+
+  it('il tetto non morde quando la coorte sta dentro il tetto', () => {
+    // La corsia resta identica a prima nel regime ordinario: il tetto e' una
+    // rete per il caso degenere, non una quota che si paga tutti i giorni.
     const fresh = Array.from({ length: 7 }, (_, i) => job(`f${i}`, daysAgo(0.5)));
     const rest = Array.from({ length: 20 }, (_, i) => job(`r${i}`, daysAgo(40)));
     const { stats } = buildTrafficPriority([...rest, ...fresh], {}, { now: NOW, cap: 20, freshFirst: true });
@@ -249,12 +273,21 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
   });
 
   it('senza cap dichiarato il chiamante prende tutta la coda, quindi nessuno muore di fame', () => {
-    // `cap` di default = Infinity → il tetto si misura sulla coda intera, che
-    // e' la verita' per un chiamante che non affetta: tutti sono serviti.
+    // `cap` di default = null → il tetto si misura sulla coda intera, che e' la
+    // verita' per un chiamante che non affetta: tutti sono serviti comunque.
     const pending = Array.from({ length: 10 }, (_, i) => job(`f${i}`, daysAgo(0.1)));
     const { stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true });
-    expect(stats.freshHead).toBe(5);
-    expect(stats.freshDeferred).toBe(5);
+    expect(stats.freshHead).toBe(freshHeadCeiling(10, RESERVE_FOR_OLDEST));
+    expect(stats.freshDeferred).toBe(10 - stats.freshHead);
+  });
+
+  it('un cap non dichiarabile e un errore, non un silenzioso ritorno a nessun tetto', () => {
+    // NaN / 0 / negativo cadevano su `jobs.length` e portavano via il tetto con
+    // se': la corsia sarebbe SEMBRATA limitata senza esserlo.
+    for (const bad of [Number.NaN, 0, -5, 12.5, '2000', Infinity]) {
+      expect(() => buildTrafficPriority([job('a', daysAgo(0.1))], {}, { now: NOW, freshFirst: true, cap: bad as any }),
+        `cap ${String(bad)} accettato`).toThrow(/cap must be a positive integer/);
+    }
   });
 
   it('il mop-up dichiara a buildTrafficPriority lo stesso cap con cui affetta', () => {
