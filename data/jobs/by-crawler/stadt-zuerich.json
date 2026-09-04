@@ -172,7 +172,7 @@
       "title": "Ergotherapeut*in, Standort Witikon",
       "titleByLocale": {
         "it": "Terapista occupazionale, Vitikon posizione",
-        "en": "Ergotherapeut*in, Standort Witikon",
+        "en": "Occupational therapist, Vitikon location",
         "de": "Ergotherapeut*in, Standort Witikon",
         "fr": "ergothérapeute, emplacement Vitikon"
       },
@@ -22343,7 +22343,7 @@
         "it": "Università di Scienze Applicate*in Vita Transizionale Giovani Adulti",
         "en": "University of Applied Sciences practitioner*in Transitional Living Young Adults",
         "de": "Fachhochschulpraktikant*in Übergangswohnen Junge Erwachsene",
-        "fr": "University of Applied Sciences Practice* in Transition Living Young Adultes"
+        "fr": "Professeur à l'Université des sciences appliquées* en transition"
       },
       "description": "Fachhochschulpraktikant*in Übergangswohnen Junge Erwachsene bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51490. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -22378,6 +22378,8 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51490",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:26:21.613Z",
       "previousSlugsByLocale": {
         "it": [
           "fachhochschulpraktikant-in-ubergangswohnen-junge-erwachsene-stadt-zurich-zurich",
@@ -22400,8 +22402,6 @@
         "fachhochschulpraktikant-in-ubergangswohnen-junge-erwachsene-stadt-zuerich-zurigo-51490",
         "universita-di-scienze-applicate-in-vita-transizionale-giovani-adulti-stadt-zurich-zurich"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T14:26:21.613Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",

@@ -7401,15 +7401,6 @@
           "• Du arbeitest zuverlässig, sorgfältig und bist ein echter Teamplayer, auf den man sich verlassen kann."
         ]
       },
-      "previousSlugs": [
-        "maschinenfuhrer-in-abfullung-emmi-ch",
-        "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
-        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
-        "machine-operator-filling-emmi-bischofszell",
-        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
-        "maschinenfuhrer-in-abfullung-emmi-bischofszell",
-        "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "maschinenfuhrer-in-abfullung-emmi-ch",
@@ -7418,17 +7409,51 @@
           "machine-operator-filling-emmi-bischofszell",
           "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
           "maschinenfuhrer-in-abfullung-emmi-bischofszell",
-          "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau"
+          "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
+          "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+          "machine-operator-in-preparation-emmi-bischofszell",
+          "maschinenfuhrer-in-aufbereitung-emmi-ch",
+          "operateur-de-machine-en-preparation-emmi-bischofszell",
+          "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+          "machine-operator-in-preparation-100-emmi-bischofszell",
+          "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+          "operateur-de-machine-en-preparation-100-emmi-bischofszell",
+          "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau-vphf8l",
+          "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
         ],
         "en": [
           "machine-operator-filling-emmi-bischofszell",
-          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
+          "maschinenfuhrer-in-abfullung-emmi-bischofszell",
+          "machine-operator-in-preparation-emmi-bischofszell"
         ],
         "fr": [
           "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
-          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
+          "maschinenfuhrer-in-abfullung-emmi-bischofszell",
+          "operateur-de-machine-en-preparation-emmi-bischofszell"
+        ],
+        "de": [
+          "maschinenfuhrer-in-aufbereitung-emmi-ch"
         ]
       },
+      "previousSlugs": [
+        "maschinenfuhrer-in-abfullung-emmi-ch",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
+        "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
+        "machine-operator-filling-emmi-bischofszell",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "maschinenfuhrer-in-abfullung-emmi-bischofszell",
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau",
+        "machine-operator-in-preparation-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-emmi-ch",
+        "operateur-de-machine-en-preparation-emmi-bischofszell",
+        "preparazione-dell-operatore-della-macchina-al-100-emmi-bischofszell",
+        "machine-operator-in-preparation-100-emmi-bischofszell",
+        "maschinenfuhrer-in-aufbereitung-100-emmi-ch",
+        "operateur-de-machine-en-preparation-100-emmi-bischofszell",
+        "operatore-macchina-in-preparazione-emmi-bischofszell-thurgau-vphf8l",
+        "maschinenfuhrer-in-aufbereitung-emmi-bischofszell"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:24.052Z",
       "salaryMin": 57500,
