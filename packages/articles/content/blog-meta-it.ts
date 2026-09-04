@@ -11352,6 +11352,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Mercato del lavoro Ticino: settori in crescita',
     'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Scopri i settori in crescita nel mercato del lavoro ticinese, professioni richieste e prospettive per chi cerca impiego.',
     'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Panoramica della città di Lugano con il lago e le montagne',
+    'blog.article.shopping-outlet-ticino.title': 'Shopping outlet Ticino: guida ai centri commerciali',
+    'blog.article.shopping-outlet-ticino.excerpt': 'Guida pratica per frontalieri: come sfruttare al meglio gli outlet ticinesi, confronto CHF-EUR, orari e strategie di acquisto consapevole.',
+    'blog.article.shopping-outlet-ticino.imageAlt': 'Via dello shopping nel Ticino con vetrine e persone che passano, illuminazione naturale.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Ticino: conviene? Guida prezzi frontalieri',
+    'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Shopping outlet ticinesi: quando conviene per frontalieri. Analisi costi CH-IT, cambio EUR/CHF e pianificazione acquisiti transfrontalieri.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Esterno di un moderno centro commerciale nel Ticino con negozi e architettura svizzera caratteristica',
 };
 
 export default blogMetaIt;

@@ -105,21 +105,18 @@ un obiettivo di brand-authority/longform.
 ## 6. La monetizzazione ads scoraggia il formato longform per limiti di layout/UX?
 
 **Sì, ed è il finding più concreto e azionabile di questo audit.**
-`services/articleAdSlots.ts` implementa oggi una strategia dichiarata
-esplicitamente **"max-density mode"**:
+`components/community/BlogArticles.tsx` — il solo placer inline in produzione,
+dopo la rimozione del modulo `services/articleAdSlots.ts` che non aveva
+consumatori (issue #7338) — applica **un unico profilo di densità a tutti gli
+articoli**: un ad a ogni confine H2 e a fine segmento, con gap minimo di 200
+parole (`AD_MIN_WORD_GAP`) e tetto per articolo `ARTICLE_INLINE_AD_CAP = 8`.
 
-```
-Strategy (2026-05-19): max-density mode — auth-gate removed, every paragraph
-inside the body now gets its own ad via the in-renderer hook in
-BlogArticles.tsx. [...] No heading-safety check: the per-paragraph injector
-[...] is the dominant placer; inter-segment ads complement it.
-```
-
-`computeArticleAdSlots()` piazza un ad **a ogni confine tra segmenti**, senza
-alcun controllo che eviti di spezzare tabelle, citazioni o liste operative —
-esattamente il tipo di interruzione che il brief benchmark (§"Principi per
-frontaliereticino.ch" dell'issue) elenca come da evitare. `MAX_INLINE_ADS` è
-`Number.MAX_SAFE_INTEGER`: non esiste un tetto.
+L'unica protezione strutturale è il rinvio dell'ad quando la sezione dopo l'H2
+apre con una tabella; citazioni e liste operative possono ancora essere spezzate
+— esattamente il tipo di interruzione che il brief benchmark (§"Principi per
+frontaliereticino.ch" dell'issue) elenca come da evitare. Non esiste nessun
+predicato di formato: un longform eredita lo stesso profilo di un articolo
+breve.
 
 Questa è la causa diretta della domanda 6: un longform con tabelle, mappa,
 citazioni multiple e una sezione di scenari verrebbe oggi trattato dal

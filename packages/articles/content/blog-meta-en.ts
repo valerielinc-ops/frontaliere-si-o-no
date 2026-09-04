@@ -11351,6 +11351,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Ticino labour market: growing sectors',
     'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Discover the growing sectors in the Ticino labour market, required professions and prospects for job seekers.',
     'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Panoramic view of Lugano city with the lake and mountains',
+    'blog.article.shopping-outlet-ticino.title': 'Ticino outlet shopping: a guide to shopping centres',
+    'blog.article.shopping-outlet-ticino.excerpt': 'Practical guide for border workers: how to make the most of Ticino outlets, CHF-EUR comparison, schedules and conscious purchasing strategies.',
+    'blog.article.shopping-outlet-ticino.imageAlt': 'Shopping street in Ticino with storefronts and pedestrians, natural lighting.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Ticino outlet: convenient? Border price guide',
+    'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Ticino shopping outlets: when convenient for border crossers. CH-IT cost analysis, EUR/CHF exchange and planning acquired cross-border.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Modern shopping center in Ticino with storefronts and Swiss architectural style',
 };
 
 export default blogMetaEn;

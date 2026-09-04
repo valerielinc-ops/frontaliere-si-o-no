@@ -71195,6 +71195,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-vaud-prezzi-mutuo': {
+    title: 'Comprare casa Vaud: prezzi, mutuo e tasse | Frontaliere Ticino',
+    description: 'Guida pratica all\'acquisto di abitazioni nel Cantone di Vaud: come funzionano i mutui ipotecari, fondi propri, imposta trapassi e spese notarili. Procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, vaud, prezzi',
+    ogTitle: 'Comprare casa Vaud: guida al mutuo e tasse',
+    ogDescription: 'Acquistare una casa nel Vaud richiede pianificazione finanziaria accurata. Scopri come funzionano i mutui ipotecari svizzeri, quali fondi propri servono, e quali tasse e spese notarili si applicano nel Cantone vodese.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-vaud-prezzi-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa Vaud: prezzi, mutuo e tasse",
+      "description": "Guida pratica all'acquisto di abitazioni nel Cantone di Vaud: come funzionano i mutui ipotecari, fondi propri, imposta trapassi e spese notarili. Procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-vaud-prezzi-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di moderni edifici residenziali in una città svizzera lacustre con parchi e montagne"
+      },
+      "datePublished": "2026-09-04T22:31:22+00:00",
+      "dateModified": "2026-09-04T22:31:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-vaud-prezzi-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-comprare-casa-vaud-ipoteca-costi': {
+    title: 'Comprare casa nel Vaud: prezzi e mutuo ipotecario',
+    description: 'Guida completa all\'acquisto immobiliare nel canton Vaud: analisi prezzi, fondi propri, costi fiscali, imposte sui trapassi, spese notarili e sostenibilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, vaud, prezzi',
+    ogTitle: 'Comprare casa nel Vaud: prezzi e mutuo ipotecario',
+    ogDescription: 'Scopri come comprare casa nel canton Vaud: analisi prezzi medi, calcolo fondi propri, spese notarili e imposte sui trapassi. Guida pratica alla sostenibilità del mutuo ipotecario e procedura passo per passo dalla visita al trapasso definitivo.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-vaud-ipoteca-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa nel Vaud: prezzi e mutuo ipotecario",
+      "description": "Guida completa all'acquisto immobiliare nel canton Vaud: analisi prezzi, fondi propri, costi fiscali, imposte sui trapassi, spese notarili e sostenibilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-vaud-ipoteca-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa nel Cantone di Vaud con montagne sullo sfondo; scena di proprietà residenziale svizzera per guida all'acquisto con mutuo."
+      },
+      "datePublished": "2026-09-04T22:48:50+00:00",
+      "dateModified": "2026-09-04T22:48:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-vaud-ipoteca-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -16453,6 +16453,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'comprare-casa-vaud-prezzi-mutuo',
+    category: 'pratico',
+    date: '2026-09-04T22:31:22.704Z',
+    image: '/images/blog/comprare-casa-vaud-prezzi-mutuo.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'comprare-casa-vaud-ipoteca-costi',
+    category: 'pratico',
+    date: '2026-09-04T22:48:50.557Z',
+    image: '/images/blog/comprare-casa-vaud-ipoteca-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

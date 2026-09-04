@@ -11350,6 +11350,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Arbeitsmarkt Tessin: Wachstumsbranchen',
     'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Entdecken Sie die Wachstumsbranchen auf dem Tessiner Arbeitsmarkt, gefragte Berufe und Perspektiven für Arbeitssuchende.',
     'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Panoramablick auf die Stadt Lugano mit dem See und den Bergen',
+    'blog.article.shopping-outlet-ticino.title': 'Shopping Outlet Tessin: Leitfaden für Einkaufszentren',
+    'blog.article.shopping-outlet-ticino.excerpt': 'Praktischer Leitfaden für Grenzgänger: Wie man die Tessiner Outlets am besten nutzt, CHF-EUR-Vergleich, Fahrpläne und bewusste Einkaufsstrategien.',
+    'blog.article.shopping-outlet-ticino.imageAlt': 'Einkaufsstraße im Tessin mit Schaufenstern und Fußgängern, natürliches Licht.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Tessin: lohnt es sich? Preisführer für Grenzüberschreitungen',
+    'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Tessiner Shopping Outlet: Wann es sich für Grenzgänger lohnt. Kostenanalyse CH-IT, Wechselkurs EUR/CHF und grenzüberschreitend erworbene Planung.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Modernes Einkaufszentrum im Tessin mit Geschäften und charakteristischer Schweizer Architektur',
 };
 
 export default blogMetaDe;

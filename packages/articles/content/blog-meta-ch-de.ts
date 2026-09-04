@@ -5485,6 +5485,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Waadt: Kosten und Leistungen',
     'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'Wie die Obhut im Kanton Waadt funktioniert: Kindergärten, Tagesfamilien, Nachschule mit progressiven Einkommensraten und kantonale Zuschüsse stehen zur Verfügung.',
     'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Helle Schweizer Vorschulklasse mit spielenden Kindern, große Fenster mit Alpensicht, farbenfrohe Unterrichtsmaterialien.',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.title': 'Haus kaufen Waadt: Preise, Hypothek und Steuern',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.excerpt': 'Praxisleitfaden zum Kauf im Waadtland: Wie Hypothekendarlehen, Eigenmittel, Stempelsteuer und Notarkosten funktionieren. Schritt-für-Schritt-Verfahren für Schweizer Käufer.',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.imageAlt': 'Luftaufnahme moderner Wohngebäude in einer Schweizer Seestatt mit Parks und Bergen',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Haus kaufen im Waadtland: Preise und Hypothekendarlehen',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Vollständiger Leitfaden zum Kauf eines Hauses im Kanton Waadt: Preise, Eigenmittelanforderungen, Steuerkosten, Abgaben und Tragbarkeit des Hypothekendarlehens.',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Modernes Wohnhaus im Kanton Waadt mit Bergblick; Schweizer Immobilienszenario für Kaufanleitung und Hypothekendarlehen.',
 };
 
 export default blogMetaChDe;
