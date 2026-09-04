@@ -5440,6 +5440,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aggiornamento-direttiva-crs-2026.title': 'New CRS technical directive: obligations from 2026',
     'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'The AFC updates the CRS standard: from 1 January 2026 new reporting obligations and adoption of the mandatory XML 3.0 schema from 2027.',
     'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Financial documents and computer in a Swiss office',
+    'blog.article.cressier-guasto-benzina-garantita.title': 'Cressier stopped, petrol guaranteed by stocks',
+    'blog.article.cressier-guasto-benzina-garantita.excerpt': 'Cressier refinery down for technical failure this week. It covers 30% of Swiss needs. Mandatory stocks guarantee the supply of petrol, diesel and kerosene.',
+    'blog.article.cressier-guasto-benzina-garantita.imageAlt': 'Modern petroleum refinery facility with control towers and storage tanks in Swiss industrial landscape',
 };
 
 export default blogMetaChEn;
