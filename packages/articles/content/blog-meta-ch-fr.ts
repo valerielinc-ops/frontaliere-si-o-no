@@ -5404,6 +5404,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Permis de séjour B canton de Vaud : exigences et renouvellement',
     'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Comment renouveler le permis B en Vaud ? Quelles sont les exigences ? Guide pratique des procédures, des documents nécessaires et des délais pour la rénovation de la résidence.',
     'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Bureau de migration suisse avec des personnes qui soumettent les documents de renouvellement du permis de séjour B',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permis B : renouvellement et exigences dans le Nidwald',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'Comment renouveler le permis de séjour B dans le canton de Nidwald : procédure administrative, documents obligatoires, durée de validité et contacts de l\'administration.',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Bâtiment administratif suisse avec architecture alpine traditionnelle, symbole de la migrationsuisse.',
 };
 
 export default blogMetaChFr;

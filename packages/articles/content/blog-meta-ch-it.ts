@@ -5404,6 +5404,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Permesso di dimora B canton Vaud: requisiti e rinnovo',
     'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Come rinnovare il permesso B nel Vaud? Quali sono i requisiti? Guida pratica alle procedure, documenti necessari e scadenze per il rinnovo della dimora.',
     'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Ufficio migrazione svizzero con persone che presentano documenti per il rinnovo del permesso di dimora B',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permesso B: rinnovo e requisiti nel Nidvaldo',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'Come rinnovare il permesso di dimora B nel Cantone di Nidvaldo: procedura amministrativa, documenti obbligatori, durata della validità e contatti dell\'amministrazione.',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Vista di un edificio amministrativo svizzero con architettura alpina tradizionale, simbolo della burocrazia cantonale.',
 };
 
 export default blogMetaChIt;

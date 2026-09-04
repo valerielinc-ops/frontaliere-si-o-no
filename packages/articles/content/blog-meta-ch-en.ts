@@ -5404,6 +5404,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Residence permit B canton Vaud: requirements and renewal',
     'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'How to renew the B permit in the Vaud? What are the requirements? Practical guide to the procedures, necessary documents and deadlines for the renewal of the residence.',
     'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Swiss migration office with people submitting residence permit B renewal documents',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permit B: renewal and requirements in the Nidvaldo',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'How to renew the residence permit B in the Canton of Nidvaldo: administrative procedure, mandatory documents, duration of validity and contacts of the administration.',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Swiss cantonal administrative building with traditional Alpine architecture, representing Swiss migration administration.',
 };
 
 export default blogMetaChEn;
