@@ -16399,6 +16399,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'patente-guida-glarona-conversione',
+    category: 'pratico',
+    date: '2026-09-04T19:18:40.066Z',
+    image: '/images/blog/patente-guida-glarona-conversione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
