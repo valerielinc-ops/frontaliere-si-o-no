@@ -163,6 +163,38 @@ describe('SuccessFactors jobs2web widget guard', () => {
       expect(stripSuccessFactorsMoreLocations('+1 weitere…')).toBe('');
     });
 
+    it('keeps the offices rendered AFTER the marker (multi-segment cell)', () => {
+      // The tail cut assumes the marker closes the cell. On a skin that keeps
+      // listing offices after it, cutting to end-of-string dropped ", Bern, CH"
+      // silently — and that discarded segment can be the row's only Swiss
+      // office, i.e. the posting the crawler exists to keep. Indistinguishable
+      // from the correct case once it happens, so it is pinned here.
+      expect(stripSuccessFactorsMoreLocations('Lugano, CH +1 more… , Bern, CH')).toBe(
+        'Lugano, CH, Bern, CH',
+      );
+      expect(
+        stripSuccessFactorsMoreLocations('Lugano, CH, +2 altri…, Bern, CH, Genève, CH'),
+      ).toBe('Lugano, CH, Bern, CH, Genève, CH');
+      expect(stripSuccessFactorsMoreLocations('Paderborn, DE ＋1 weitere…; Bern, CH')).toBe(
+        'Paderborn, DE; Bern, CH',
+      );
+      // Still elected as a location by the CSB heuristic gate, which is what
+      // the strip exists to preserve.
+      expect(stripSuccessFactorsMoreLocations('Lugano, CH +1 more… , Bern, CH')).toMatch(
+        /,\s*[A-Z]{2}(?:,|$)/,
+      );
+    });
+
+    it('does not glue non-location trailing text onto the office', () => {
+      // The segment rescue is gated on a separator: page chrome rendered after
+      // the marker must stay cut, or the fix for the multi-segment cell would
+      // pollute every other cell's location.
+      expect(stripSuccessFactorsMoreLocations('Zurich, CH +2 more… Apply now')).toBe('Zurich, CH');
+      expect(stripSuccessFactorsMoreLocations('Bern, CH +3 weitere… Jetzt bewerben')).toBe(
+        'Bern, CH',
+      );
+    });
+
     it('normalizes an entity-encoded or fullwidth "+" before matching', () => {
       // Call sites that hand over raw markup (benteler) or `stripHtml` output
       // without entity decoding would otherwise keep "&#43;3 more…".
