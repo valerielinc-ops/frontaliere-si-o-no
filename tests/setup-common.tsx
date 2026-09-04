@@ -243,6 +243,9 @@ vi.mock('react-leaflet', () => ({
  // portal), same as Marker above, so popup content is queryable without simulating a click.
  CircleMarker: ({ children }: any) => <div data-testid="circle-marker">{children}</div>,
  Popup: ({ children }: any) => <div data-testid="popup">{children}</div>,
+ // Tooltip used by LivabilityMap.tsx and destructured by the shared MapCanvas
+ // shell, which reads the whole react-leaflet surface once on load.
+ Tooltip: ({ children }: any) => <div data-testid="tooltip">{children}</div>,
 }));
 
 // ─── Global isolation guards (isolate: false — all files share one module registry per worker)
