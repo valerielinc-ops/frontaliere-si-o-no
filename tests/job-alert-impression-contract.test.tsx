@@ -148,6 +148,16 @@ describe('#5039 — no alert-CTA impression is emitted from a bare mount', () =>
   });
 });
 
+describe('#7311 — the created event carries the funnel surface dimension', () => {
+  it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
+    const payload = src.slice(src.indexOf("log('job_alert_created'"));
+    expect(payload).toContain('cta_surface: surface');
+    // Kept alongside, not replaced: the PostHog queries read `alert_surface`.
+    expect(payload).toContain('alert_surface: surface');
+  });
+});
+
 describe('#5040 — the apply hand-off leaves a visible trace on the page', () => {
   const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
 
