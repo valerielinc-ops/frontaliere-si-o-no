@@ -11311,6 +11311,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.familiari-carico-detrazioni-irpef.title': 'Steuerreform: IRPEF-Abzüge ohne Zusammenleben',
     'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'Die neue Steuerreform beseitigt die Verpflichtung zum Zusammenleben für IRPEF-Abzüge für unterhaltsberechtigte Familienangehörige mit erheblichen Auswirkungen für Grenzgänger.',
     'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'Eine Familie in einer Panoramasicht von Lugano',
+    'blog.article.frontaliere-remoto-estero-fiscalita.title': 'Grenzgänger aus der Ferne: Gebühren und Abgaben aus dem Urlaub',
+    'blog.article.frontaliere-remoto-estero-fiscalita.excerpt': 'Arbeiten Sie remote im Ausland? Die Besteuerung bleibt in der Schweiz. Quellensteuer, AHV, KVG: Was ändert sich mit dem neuen Grenzgängerabkommen 2024?',
+    'blog.article.frontaliere-remoto-estero-fiscalita.imageAlt': 'Arbeitsplatz eines Grenzgängers mit Laptop und Dokumenten, Homeoffice-Setup mit Luganotal im Hintergrund',
 };
 
 export default blogMetaDe;

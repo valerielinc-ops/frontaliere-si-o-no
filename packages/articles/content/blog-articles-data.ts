@@ -33798,6 +33798,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'frontaliere-remoto-estero-fiscalita',
+ category: 'fiscale',
+ date: '2026-09-04T09:25:14.230Z',
+ image: '/images/blog/frontaliere-remoto-estero-fiscalita.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11314,6 +11314,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.familiari-carico-detrazioni-irpef.title': 'Réforme fiscale : Déductions IRPEF sans cohabitation',
     'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'La nouvelle réforme fiscale supprime l\'obligation de cohabitation pour les déductions IRPEF sur les personnes à charge, avec des implications importantes pour les frontaliers.',
     'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'Une famille dans une vue panoramique de Lugano',
+    'blog.article.frontaliere-remoto-estero-fiscalita.title': 'Frontalier à distance : taxes et droits des vacances',
+    'blog.article.frontaliere-remoto-estero-fiscalita.excerpt': 'Travaillez-vous à distance depuis l\'étranger ? La fiscalité reste en Suisse. Taxe à la source, AVS, LAMal : ce qui change avec le nouvel accord frontalier 2024.',
+    'blog.article.frontaliere-remoto-estero-fiscalita.imageAlt': 'Bureau d\'un frontalier avec ordinateur portable et documents, espace de travail professionnel vue sur la vallée de Lugano',
 };
 
 export default blogMetaFr;
