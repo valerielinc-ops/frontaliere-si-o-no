@@ -19,6 +19,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
 import { auditDescriptionLocales, MAX_RATE, DEFAULT_MIN_HEADROOM_PP } from '../scripts/audit-job-description-locale.mjs';
+import { evaluateQueueAlarm } from '../scripts/lib/queue-alarm.mjs';
 import { classifyIssue } from '../scripts/lib/classify-issue.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 import { inventory, coverageOf } from '../scripts/ci/failure-issue-inventory.mjs';
@@ -274,5 +275,103 @@ describe('job-description-locale-audit.yml — issue contract', () => {
     expect(workflow).toMatch(/min_headroom_pp/);
     expect(workflow).toMatch(/r\.breached \|\| r\.thinMargin/);
     expect(DEFAULT_MIN_HEADROOM_PP).toBeGreaterThan(0);
+  });
+});
+
+describe('allarme sulla coda ferma', () => {
+  // `Number(q.staleSourceCopyJobs || 0) > soglia` diceva «coda a posto» quando
+  // il campo mancava: 0 > 100 e' falso. Un falso negativo silenzioso su un
+  // allarme, prodotto dall'unico input che l'allarme esiste per sorvegliare.
+
+  it('misura e confronta quando il conteggio e leggibile', () => {
+    expect(evaluateQueueAlarm(180, 100)).toEqual({
+      valid: true, queueStuck: true, count: 180, threshold: 100,
+    });
+    expect(evaluateQueueAlarm('4', '100')).toEqual({
+      valid: true, queueStuck: false, count: 4, threshold: 100,
+    });
+  });
+
+  it('la soglia e un confronto stretto: uguale non e superata', () => {
+    expect(evaluateQueueAlarm(100, 100).queueStuck).toBe(false);
+    expect(evaluateQueueAlarm(101, 100).queueStuck).toBe(true);
+  });
+
+  it('un conteggio illeggibile NON e una coda sana', () => {
+    // Il caso che il vecchio codice ingoiava: campo assente.
+    for (const bad of [undefined, null, '', '  ', {}, [], true, NaN, Infinity, -1, 3.5, 'molti']) {
+      const alarm = evaluateQueueAlarm(bad, 100);
+      expect(alarm.valid, `input ${JSON.stringify(bad)}`).toBe(false);
+      expect(alarm.queueStuck, `input ${JSON.stringify(bad)}`).toBe(true);
+      expect(alarm.count).toBeNull();
+    }
+  });
+
+  it('anche una soglia illeggibile invalida la misura', () => {
+    expect(evaluateQueueAlarm(4, '')).toMatchObject({ valid: false, queueStuck: true });
+    expect(evaluateQueueAlarm(4, undefined)).toMatchObject({ valid: false, queueStuck: true });
+  });
+
+  it('zero e un conteggio valido, non un input mancante', () => {
+    expect(evaluateQueueAlarm(0, 100)).toEqual({
+      valid: true, queueStuck: false, count: 0, threshold: 100,
+    });
+    expect(evaluateQueueAlarm('0', '0')).toMatchObject({ valid: true, queueStuck: false });
+  });
+
+  it('rifiuta le forme numeriche esotiche che Number() accetterebbe', () => {
+    // `0x64` vale 100 e `1e3` vale 1000: entrambi interi e non negativi. Una
+    // repo var scritta cosi' diventerebbe silenziosamente un numero diverso da
+    // quello che sembra, che e' l'opposto di cio' che questo parser serve a fare.
+    for (const esotico of ['0x64', '1e3', '+5', '5.0', ' 1_0 ', '١٢٣']) {
+      expect(evaluateQueueAlarm(10, esotico), esotico).toMatchObject({ valid: false });
+    }
+    // Il decimale semplice, con spazi attorno, resta valido.
+    expect(evaluateQueueAlarm(10, ' 100 ')).toMatchObject({ valid: true, threshold: 100 });
+  });
+
+  it('la riga «non leggibile» sta fuori dal guard su queuedJobs', () => {
+    // `queueStuck` si calcola su `r.queue || {}`, quindi un oggetto `queue`
+    // assente apre l'alert. Se la spiegazione vivesse dentro
+    // `if (q.queuedJobs !== undefined)`, l'issue si aprirebbe senza che il
+    // corpo nomini la coda da nessuna parte.
+    const alarmAt = workflow.indexOf('if (!queueAlarm.valid) {');
+    const guardAt = workflow.indexOf('if (q.queuedJobs !== undefined) {');
+    expect(alarmAt).toBeGreaterThan(-1);
+    expect(guardAt).toBeGreaterThan(-1);
+    expect(alarmAt).toBeLessThan(guardAt);
+  });
+
+  it('dice QUALE dei due input manca, non incolpa sempre il conteggio', () => {
+    expect(evaluateQueueAlarm(180, '50.5')).toMatchObject({ valid: false, count: 180, threshold: null });
+    expect(evaluateQueueAlarm(undefined, 100)).toMatchObject({ valid: false, count: null, threshold: 100 });
+    expect(workflow).toContain('la soglia non e leggibile');
+    expect(workflow).toContain('il conteggio della coda non e leggibile');
+  });
+
+  it('lo script pesante NON ri-esporta l allarme', () => {
+    // Un re-export ricrea il percorso di import che il modulo leggero esiste
+    // per evitare: chi lo seguisse si tirerebbe dietro il rilevatore di lingua.
+    const audit = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/audit-job-description-locale.mjs'), 'utf8',
+    );
+    expect(audit).not.toMatch(/export \{[^}]*evaluateQueueAlarm/);
+  });
+
+  it('il workflow usa la funzione e non ricostruisce il confronto a mano', () => {
+    expect(workflow).toContain('evaluateQueueAlarm');
+    expect(workflow).not.toMatch(/Number\(q\.staleSourceCopyJobs/);
+  });
+
+  it('il workflow importa dal modulo senza dipendenze, non dallo script di audit', () => {
+    // Lo script inline gira in un `node --input-type=module`: importare
+    // l'audit tirerebbe dentro il rilevatore di lingua per un confronto fra
+    // due numeri. Vedi AGENTS.md, «Script Node prima di npm ci».
+    expect(workflow).toContain("from './scripts/lib/queue-alarm.mjs'");
+  });
+
+  it('quando la misura manca il report lo dice, invece di tacere', () => {
+    expect(workflow).toContain('queueAlarm.valid');
+    expect(workflow).toContain('Allarme cieco');
   });
 });
