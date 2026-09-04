@@ -69752,6 +69752,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-imposta-successione-donazione-svitto': {
+    title: 'Imposta di successione e donazione: guida Svitto',
+    description: 'Imposte di successione e donazione nel Cantone di Svitto: aliquote, esenzioni, dichiarazione, termini. Guida completa su tassazione patrimonio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, svitto',
+    ogTitle: 'Imposta di successione e donazione: guida Svitto',
+    ogDescription: 'Scopri come funziona l\'imposta di successione e donazione nel Cantone di Svitto. Aliquote, esenzioni per coniuge e figli, procedura di dichiarazione e termini importanti per pianificare il tuo patrimonio.',
+    canonicalPath: '/articoli-svizzera/guida-imposta-successione-donazione-svitto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione: guida Svitto",
+      "description": "Imposte di successione e donazione nel Cantone di Svitto: aliquote, esenzioni, dichiarazione, termini. Guida completa su tassazione patrimonio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-imposta-successione-donazione-svitto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scrivania dell'amministrazione fiscale cantonale con documenti su successione e donazione, calcolatrice e moduli di dichiarazione."
+      },
+      "datePublished": "2026-09-04T01:10:48+00:00",
+      "dateModified": "2026-09-04T01:10:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-imposta-successione-donazione-svitto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -16120,6 +16120,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'guida-imposta-successione-donazione-svitto',
+    category: 'fiscale',
+    date: '2026-09-04T01:10:48.921Z',
+    image: '/images/blog/guida-imposta-successione-donazione-svitto.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
