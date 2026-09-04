@@ -5425,6 +5425,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilateral III: Commission says yes to agreements',
     'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'The CPE-S gave a favourable opinion to Bilateral Agreements III with 9 votes in favour. The debate will reach the Council of States at the end of the month.',
     'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Heating oil price skyrocketing, fault of USA and Iran',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'Homeowners in Switzerland must prepare for significant prices for heating oil due to the Iran-US conflict.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Aerial view of Lugano focusing on residential areas, highlighting the impact of rising heating oil prices.',
 };
 
 export default blogMetaChEn;

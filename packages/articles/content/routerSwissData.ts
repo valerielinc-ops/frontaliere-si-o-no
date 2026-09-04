@@ -1834,6 +1834,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'economia-svizzera-accelerazione-frontalieri': { it: 'economia-svizzera-accelerazione-frontalieri', en: 'swiss-economy-acceleration-frontalieri', de: 'schweizer-wirtschaft-beschleunigung-frontalieri', fr: 'economie-suisse-acceleration-frontalieri' },
  'latte-patate-cari-canicola-svizzera': { it: 'latte-patate-cari-canicola-svizzera', en: 'milk-potatoes-expensive-heatwave-switzerland', de: 'milch-kartoffeln-teuer-hitzewelle-schweiz', fr: 'lait-pommes-de-terre-chers-canicule-suisse' },
  'cpe-s-voto-bilaterali-iii': { it: 'cpe-s-voto-bilaterali-iii', en: 'cpe-s-vote-bilaterals-iii', de: 'cpe-s-abstimmung-bilaterale-iii', fr: 'cpe-s-vote-bilaterales-iii' },
+ 'prezzo-olio-riscaldamento-alle-stelle-usa-iran': { it: 'prezzo-olio-riscaldamento-alle-stelle-usa-iran', en: 'heating-oil-prices-soar-due-to-usa-iran-conflict', de: 'heizolpreise-steigen-wegen-usa-iran-konflikt', fr: 'hausse-des-prix-du-fioul-de-chauffage-due-au-conflit-usa-iran' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

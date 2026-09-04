@@ -70415,6 +70415,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzo-olio-riscaldamento-alle-stelle-usa-iran': {
+    title: 'Prezzo olio da riscaldamento alle stelle, colpa di Usa e Iran',
+    description: 'I proprietari di case in Svizzera devono prepararsi a rincari significativi per l\'olio da riscaldamento a causa del conflitto Iran-USA. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzo, olio, riscaldamento, alle',
+    ogTitle: 'Prezzo olio da riscaldamento alle stelle, colpa di Usa e Iran',
+    ogDescription: 'Scopri come il conflitto Iran-USA sta influenzando i prezzi dell\'olio da riscaldamento in Svizzera e quali sono le implicazioni per i proprietari di case.',
+    canonicalPath: '/articoli-svizzera/prezzo-olio-riscaldamento-alle-stelle-usa-iran/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzo olio da riscaldamento alle stelle, colpa di Usa e Iran",
+      "description": "I proprietari di case in Svizzera devono prepararsi a rincari significativi per l'olio da riscaldamento a causa del conflitto Iran-USA. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/prezzo-olio-riscaldamento-alle-stelle-usa-iran.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con focus su aree residenziali, evidenziando l'impatto dei prezzi dell'olio da riscaldamento."
+      },
+      "datePublished": "2026-09-04T11:51:32+00:00",
+      "dateModified": "2026-09-04T11:51:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/prezzo-olio-riscaldamento-alle-stelle-usa-iran/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

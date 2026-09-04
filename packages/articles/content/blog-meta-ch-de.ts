@@ -5425,6 +5425,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilateral III: Kommission sagt Ja zu Abkommen',
     'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'Die CPE-S hat die Bilateralen Abkommen III mit 9 Ja-Stimmen befürwortet. Die Debatte wird Ende Monat im Ständerat stattfinden.',
     'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Heizölpreis in die Höhe geschossen, Schuld sind die USA und der Iran',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'Hausbesitzer in der Schweiz müssen sich aufgrund des Iran-USA-Konflikts auf erhebliche Preissteigerungen für Heizöl einstellen.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Luftaufnahme von Lugano mit Fokus auf Wohngebiete, die den Einfluss der steigenden Heizölpreise hervorhebt.',
 };
 
 export default blogMetaChDe;
