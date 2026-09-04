@@ -1,14 +1,14 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-09-04T13:46:23.154Z",
+  "assembledAt": "2026-09-04T23:11:36.242Z",
   "jobs": [
     {
       "id": "alpiq-183e0087fef4",
       "slug": "it-domain-architect-trading-alpiq-olten",
       "slugByLocale": {
         "it": "enterprise-architect-etrm-alpiq-olten",
-        "fr": "architecte-d-entreprise-etrm-alpiq-olten",
-        "de": "it-domain-architect-handel-alpiq-olten"
+        "de": "it-domain-architect-handel-alpiq-olten",
+        "fr": "architecte-d-entreprise-etrm-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -16,8 +16,8 @@
       "title": "IT Domain Architect - Trading",
       "titleByLocale": {
         "it": "Enterprise Architect",
-        "fr": "Architecte d'entreprise - ETRM",
-        "de": "IT Domain Architect - Handel"
+        "de": "IT Domain Architect - Handel",
+        "fr": "Architecte d'entreprise - ETRM"
       },
       "description": "IT Domain Architect - Trading\n\nEnergy markets are being reshaped in real time &ndash; and the technology behind trading sits right at the heart of it. As IT Domain Architect for Energy Trading, you will own the architectural vision for the systems that power Alpiq&rsquo;s Trading Division, and turn today&rsquo;s landscape into the target&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
@@ -44,7 +44,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -100,7 +100,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.518Z",
+      "crawledAt": "2026-09-04T23:11:34.276Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -173,7 +173,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -220,7 +220,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
