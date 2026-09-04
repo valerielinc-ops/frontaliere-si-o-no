@@ -142,9 +142,13 @@ jobs:
           SCORE=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.meta.score)")
           TOTAL=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.meta.scoreMax)")
           PERCENT=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.meta.scorePercent)")
+          # Denominator of the score: queries a platform actually answered.
+          # TOTAL above is that same number; QUERIES_TOTAL is the query list.
+          QUERIES_TOTAL=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.meta.totalQueries)")
 
           # Check for trend data (previous score)
           PREV_SCORE=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.trend?.previousScore ?? 'none')" 2>/dev/null || echo "none")
+          PREV_CHECKED=$(node -e "const r=JSON.parse(require('fs').readFileSync('${JSON_REPORT}','utf8')); console.log(r.trend?.previousQueriesChecked ?? 'none')" 2>/dev/null || echo "none")
 
           # Stable titles: no date, no score, no counter anywhere in them (the
           # helper dedups on the first 60 characters).
@@ -152,7 +156,17 @@ jobs:
           ISSUE_PRIORITY=4
           DROP_LINE=""
 
-          if [ "$PREV_SCORE" != "none" ] && [ "$SCORE" -lt "$PREV_SCORE" ]; then
+          # A drop is only real when this run observed at least as many queries
+          # as the one it is compared against: fewer answered queries mechanically
+          # lower the score, and escalating that files a "citations lost" issue
+          # about an API outage.
+          COMPARABLE=1
+          if [ "$PREV_CHECKED" != "none" ] && [ "$TOTAL" -lt "$PREV_CHECKED" ]; then
+            COMPARABLE=0
+            echo "Skipping drop escalation: ${TOTAL} queries checked vs ${PREV_CHECKED} in the previous report."
+          fi
+
+          if [ "$COMPARABLE" = "1" ] && [ "$PREV_SCORE" != "none" ] && [ "$SCORE" -lt "$PREV_SCORE" ]; then
             LOST=$((PREV_SCORE - SCORE))
             ISSUE_TITLE="AI Visibility dropped versus the previous report"
             ISSUE_PRIORITY=2
@@ -161,7 +175,8 @@ jobs:
 
           BODY=$(printf '%s\n' \
             "**Report date:** ${DATE}" \
-            "**Score:** ${SCORE}/${TOTAL} (${PERCENT}%)" \
+            "**Score:** ${SCORE}/${TOTAL} checked queries (${PERCENT}%)" \
+            "**Queries checked:** ${TOTAL}/${QUERIES_TOTAL}" \
             "**Previous score:** ${PREV_SCORE}" \
             "" \
             "${DROP_LINE}" \
