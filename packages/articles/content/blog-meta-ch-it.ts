@@ -5473,6 +5473,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposta-successione-donazione-glarona.title': 'Imposta di successione e donazione canton Glarona: le aliquote',
     'blog.article.imposta-successione-donazione-glarona.excerpt': 'Nel Canton Glarona l\'imposta di successione e donazione segue un regime cantonale autonomo con aliquote che variano per grado di parentela ed esenzioni per coniuge e discendenti. Guida pratica e procedura di dichiarazione.',
     'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Paesaggio alpino del cantone glaronese con edifici amministrativi, simbolo della fiscalità cantonale svizzera e della tassazione di successione e donazione',
+    'blog.article.permesso-b-zugo-guida-pratica.title': 'Permesso di dimora B Canton Zugo: requisiti e rinnovo',
+    'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guida al permesso di dimora B a Zugo: come funziona il permesso rinnovabile, quali requisiti federali e cantonali seguire, documenti e procedura di rinnovo.',
+    'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Interno di un ufficio cantonale di migrazione a Zugo con scrivanie, documenti e area reception',
 };
 
 export default blogMetaChIt;

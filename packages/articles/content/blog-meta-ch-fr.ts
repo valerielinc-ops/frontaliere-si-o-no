@@ -5473,6 +5473,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposta-successione-donazione-glarona.title': 'Droit de succession et donation canton de Glaris : les taux',
     'blog.article.imposta-successione-donazione-glarona.excerpt': 'Dans le canton de Glaris, l\'impôt sur les successions et les donations suit un régime cantonal autonome avec des taux qui varient selon le degré de parenté et des exemptions pour le conjoint et les descendants. Guide pratique et procédure de déclaration.',
     'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Paysage alpin du canton de Glaris avec bâtiments administratifs, symbole de la fiscalité cantonale suisse et de l\'impôt sur les successions et donations',
+    'blog.article.permesso-b-zugo-guida-pratica.title': 'Permis de séjour B Canton Zoug : exigences et renouvellement',
+    'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guide du permis de séjour B à Zoug : comment fonctionne le permis renouvelable, quelles exigences fédérales et cantonales suivre, documents et procédure de renouvellement.',
+    'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Bureau de l\'administration cantonale de migration à Zoug avec bureaux, dossiers et accueil',
 };
 
 export default blogMetaChFr;

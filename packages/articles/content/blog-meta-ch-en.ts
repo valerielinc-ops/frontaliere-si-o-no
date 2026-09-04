@@ -5473,6 +5473,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposta-successione-donazione-glarona.title': 'Inheritance and donation tax of the canton of Glarus: the rates',
     'blog.article.imposta-successione-donazione-glarona.excerpt': 'In the Canton of Glarus, inheritance and gift tax follows an autonomous cantonal regime with rates that vary by degree of kinship and exemptions for spouse and descendants. Practical guide and declaration procedure.',
     'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Alpine landscape of Glarus canton with administrative buildings, representing Swiss cantonal taxation and inheritance law matters',
+    'blog.article.permesso-b-zugo-guida-pratica.title': 'Residence permit B Canton Zug: requirements and renewal',
+    'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guide to residence permit B in Zug: how the renewable permit works, what federal and cantonal requirements to follow, documents and renewal procedure.',
+    'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Interior of a cantonal migration office in Zug with desks, documentation and reception area',
 };
 
 export default blogMetaChEn;
