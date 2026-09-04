@@ -5491,6 +5491,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Haus kaufen im Waadtland: Preise und Hypothekendarlehen',
     'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Vollständiger Leitfaden zum Kauf eines Hauses im Kanton Waadt: Preise, Eigenmittelanforderungen, Steuerkosten, Abgaben und Tragbarkeit des Hypothekendarlehens.',
     'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Modernes Wohnhaus im Kanton Waadt mit Bergblick; Schweizer Immobilienszenario für Kaufanleitung und Hypothekendarlehen.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Kindergarten Zug: Kosten, Tarife und kantonale Zuschüsse',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Im Kanton Zug gelten für Kinderkrippen und Kinderbetreuung progressive Tarife auf Einkommensbasis. Informieren Sie sich über die verfügbaren Optionen, die kantonalen Subventionen und die Zugangsverfahren.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Schweizer Kindergartenklassenzimmer mit farbigen Spielzeugen und Kinderzeichnungen an den Wänden',
 };
 
 export default blogMetaChDe;

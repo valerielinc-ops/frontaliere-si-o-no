@@ -5491,6 +5491,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Comprare casa nel Vaud: prezzi e mutuo ipotecario',
     'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Guida completa all\'acquisto di una casa nel canton Vaud: prezzi, requisiti di fondi propri, costi fiscali, imposte sui trapassi e sostenibilità del mutuo ipotecario.',
     'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Casa nel Cantone di Vaud con montagne sullo sfondo; scena di proprietà residenziale svizzera per guida all\'acquisto con mutuo.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Asilo nido Zugo: costi, tariffe e sussidi cantonali',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Nel canton Zugo, asili nido e custodia seguono tariffe progressive su base reddituale. Scopri le opzioni disponibili, i sussidi cantonali e le procedure di accesso.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Aula di asilo nido svizzera con giocattoli colorati e disegni di bambini alle pareti',
 };
 
 export default blogMetaChIt;
