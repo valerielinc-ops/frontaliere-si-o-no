@@ -53,6 +53,7 @@ describe('Partnerize tag', () => {
       'build-plugins/jobsSeoPagesPlugin.ts',
       'build-plugins/jobSectorPagesPlugin.ts',
       'build-plugins/jobRecencyPagesPlugin.ts',
+      'build-plugins/affiliateRedirectPlugin.ts', // pagine /go/<partner>/
       'packages/articles/engine/ogPagesPlugin.ts', // pagine articolo
       'packages/articles/engine/articleHubPagesPlugin.ts', // hub articoli
     ];
