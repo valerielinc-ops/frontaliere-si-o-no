@@ -5449,6 +5449,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-glarona-come-richiederlo.title': 'Glarus C Permit: Requirements, Procedures and Application',
     'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Permanent residence in Canton Glarus: guide to C permit requirements, language skills, integration and application procedure with cantonal authorities.',
     'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Swiss cantonal administration office with residency permit C documents and identity card on desk',
+    'blog.article.soldati-svizzera-video-guerra.title': 'Dead Swiss Soldiers: Young UDC shocks with war video',
+    'blog.article.soldati-svizzera-video-guerra.excerpt': 'The UDC Youth are promoting a yes to the neutrality initiative with a self-produced war film showing a Switzerland at war.',
+    'blog.article.soldati-svizzera-video-guerra.imageAlt': 'Swiss soldiers in a war video',
 };
 
 export default blogMetaChEn;

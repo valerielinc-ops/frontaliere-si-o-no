@@ -1842,6 +1842,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cressier-guasto-benzina-garantita': { it: 'cressier-guasto-benzina-garantita', en: 'cressier-shutdown-fuel-supply-guaranteed', de: 'cressier-betriebsstillegung-kraftstoff-versorgung', fr: 'cressier-arret-carburant-approvisionnement-garanti' },
  'domanda-permesso-c-glarona-guida': { it: 'domanda-permesso-c-glarona-guida', en: 'residence-permit-c-glarus-application-guide', de: 'aufenthaltsbewilligung-c-glarus-antrag-leitfaden', fr: 'permis-residence-c-glaris-demande-guide' },
  'permesso-c-glarona-come-richiederlo': { it: 'permesso-c-glarona-come-richiederlo', en: 'residence-permit-c-glarus-how-to-apply', de: 'aufenthaltserlaubnis-c-glarus-beantragen', fr: 'permis-residence-c-glaris-demander' },
+ 'soldati-svizzera-video-guerra': { it: 'soldati-svizzera-video-guerra', en: 'swiss-soldiers-war-video', de: 'schweizer-soldaten-kriegsvideo', fr: 'soldats-suisses-video-guerre' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

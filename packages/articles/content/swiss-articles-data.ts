@@ -16345,6 +16345,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'soldati-svizzera-video-guerra',
+    category: 'novita',
+    date: '2026-09-04T16:44:25.957Z',
+    image: '/images/blog/soldati-svizzera-video-guerra.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
