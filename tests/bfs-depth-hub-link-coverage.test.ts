@@ -173,6 +173,53 @@ describe('events hubs link their whole event list past the card cap (#5434)', ()
     expect(missing).toEqual([]);
   });
 
+  /**
+   * The sentinel bucket carries its own, lower `OTHER_EVENTS_CARD_CAP` (24)
+   * because 80 cards on the largest page in the corpus were ~111 KB of markup
+   * on their own (issue #7331). The cut is a page-WEIGHT decision, so it is
+   * only legitimate while reachability is untouched: fewer cards must mean
+   * MORE overflow rows, never fewer linked events. That is the #5434 invariant
+   * again, and it is precisely what stops "make the page lighter" from being
+   * implemented by dropping events.
+   */
+  it('the sentinel renders a smaller card block than a comune hub, and links the same events', () => {
+    const otherEvents = MANY.map((e) => ({ ...e, comune: undefined }));
+    const { html: sentinel } = renderOtherEventsPage({
+      locale: 'it',
+      canton: 'TI',
+      events: otherEvents as never,
+      dateStamp: '2026-06-30',
+      weekendDays: new Set(['2026-07-04', '2026-07-05']),
+      distDir,
+      detailHref: eventDetailHref as never,
+    });
+    const { html: hub } = renderComunePage({
+      locale: 'it',
+      canton: 'TI',
+      comune: 'Lugano',
+      events: MANY as never,
+      dateStamp: '2026-06-30',
+      weekendDays: new Set(['2026-07-04', '2026-07-05']),
+      distDir,
+      detailHref: eventDetailHref as never,
+    });
+
+    // Minifier-tolerant on purpose: `class="ev-card group"` keeps its quotes
+    // (it has whitespace), `class="ev-lnk"` does NOT — a quoted-only pattern
+    // matches zero overflow rows and the invariant below passes vacuously.
+    const cards = (html: string) => html.match(/<article class=["']?ev-card/g)?.length ?? 0;
+    const overflowRows = (html: string) => html.match(/<a class=["']?ev-lnk/g)?.length ?? 0;
+
+    expect(cards(sentinel)).toBe(24);
+    // The hub cap is deliberately NOT lowered — cards are the discovery
+    // surface there, and its pages are nowhere near the byte budget.
+    expect(cards(hub)).toBe(80);
+
+    // Every event is still exactly once on the page: carded or listed.
+    expect(cards(sentinel) + overflowRows(sentinel)).toBe(MANY.length);
+    expect(hrefs(sentinel).size).toBeGreaterThanOrEqual(MANY.length);
+  });
+
   it('renders no overflow block when the list fits under the cap', () => {
     const { html } = renderComunePage({
       locale: 'it',
