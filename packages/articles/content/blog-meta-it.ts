@@ -11346,6 +11346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-non-frontaliere-guida.title': 'Trasferirsi in Svizzera da italiano: la guida',
     'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permesso G, LAMal, AVS, ricerca casa in Ticino, ristorni 2024: procedura completa passo dopo passo per chi non è (ancora) frontaliere.',
     'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Vista aerea di Lugano e del Ticino, destinazione per italiani che si trasferiscono in Svizzera',
+    'blog.article.apertura-conto-svizzera-frontalieri.title': 'Aprire conto banca svizzera per residenti',
+    'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Guida passo-passo: permesso G, documenti richiesti, AVS, LAMal e gestione del cambio CHF-EUR per frontalieri',
+    'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Vista aerea del lungomare di Lugano con edifici bancari moderni, centro finanziario del Canton Ticino',
 };
 
 export default blogMetaIt;

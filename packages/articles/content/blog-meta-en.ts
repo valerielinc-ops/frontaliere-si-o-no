@@ -11345,6 +11345,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-non-frontaliere-guida.title': 'Moving to Switzerland as an Italian: the guide',
     'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permit G, LAMal, AVS, house search in Ticino, refreshments 2024: complete step-by-step procedure for those who are not (yet) border crossers.',
     'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Aerial view of Lugano and Ticino, Switzerland, destination for Italians relocating',
+    'blog.article.apertura-conto-svizzera-frontalieri.title': 'Open Swiss bank account for residents',
+    'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Step-by-step guide: G permit, required documents, AVS, LAMal and CHF-EUR change management for cross-border commuters',
+    'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Aerial view of Lugano waterfront with modern bank buildings, Ticino\'s financial center',
 };
 
 export default blogMetaEn;

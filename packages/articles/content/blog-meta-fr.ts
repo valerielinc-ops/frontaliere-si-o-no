@@ -11347,6 +11347,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-non-frontaliere-guida.title': 'Déménager en Suisse en italien : le guide',
     'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permis G, LAMal, AVS, recherche maison au Tessin, restaurations 2024 : procédure complète étape par étape pour ceux qui ne sont pas (encore) frontaliers.',
     'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Vue aérienne de Lugano et du Tessin, destination pour les Italiens s\'installant en Suisse',
+    'blog.article.apertura-conto-svizzera-frontalieri.title': 'Ouvrir un compte bancaire suisse pour les résidents',
+    'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Guide étape par étape : permis G, documents requis, AVS, LAMal et gestion du changement CHF-EUR pour les frontaliers',
+    'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Vue aérienne du front de lac de Lugano avec bâtiments bancaires modernes, centre financier tessinois',
 };
 
 export default blogMetaFr;

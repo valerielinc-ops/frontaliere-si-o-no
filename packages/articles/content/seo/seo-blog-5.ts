@@ -85559,6 +85559,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apertura-conto-svizzera-frontalieri': {
+    title: 'Aprire conto banca svizzera per residenti | Frontaliere Ticino',
+    description: 'Guida completa all\'apertura di un conto bancario in Svizzera per residenti frontalieri: documenti, permesso G, AVS, LAMal, doppia imposizione e ristorni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, conto, banca, residenti',
+    ogTitle: 'Aprire conto banca svizzera per residenti',
+    ogDescription: 'Come aprire un conto bancario in Svizzera se resiedi in Italia: documenti, banche ticinesi, gestione AVS e LAMal, recupero imposta alla fonte. Procedura passo-passo per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/apertura-conto-svizzera-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire conto banca svizzera per residenti",
+      "description": "Guida completa all'apertura di un conto bancario in Svizzera per residenti frontalieri: documenti, permesso G, AVS, LAMal, doppia imposizione e ristorni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apertura-conto-svizzera-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lungomare di Lugano con edifici bancari moderni, centro finanziario del Canton Ticino"
+      },
+      "datePublished": "2026-09-04T19:48:13+00:00",
+      "dateModified": "2026-09-04T19:48:13+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apertura-conto-svizzera-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

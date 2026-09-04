@@ -11344,6 +11344,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-non-frontaliere-guida.title': 'Als Italiener in die Schweiz ziehen: Der Reiseführer',
     'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Bewilligung G, KVG, AHV, Wohnungssuche im Tessin, Rückerstattungen 2024: Komplettes Verfahren Schritt für Schritt für diejenigen, die (noch) keine Grenzgänger sind.',
     'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Luftaufnahme von Lugano und dem Tessin, beliebtes Ziel für Italiener in der Schweiz',
+    'blog.article.apertura-conto-svizzera-frontalieri.title': 'Eröffnen Sie ein Schweizer Bankkonto für Gebietsansässige',
+    'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Schritt-für-Schritt-Anleitung: Bewilligung G, erforderliche Unterlagen, AHV, KVG und Wechselkursmanagement CHF-EUR für Grenzgänger',
+    'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Luftaufnahme von Luganos Seeufer mit modernen Bankgebäuden, Finanzdistrikt Tessin',
 };
 
 export default blogMetaDe;
