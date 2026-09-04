@@ -11340,6 +11340,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-export-q1-2026.title': 'Varese prima in Lombardia con export +23,2%',
     'blog.article.varese-export-q1-2026.excerpt': 'Nel Q1 2026 la provincia varesina domina il ranking regionale grazie all\'aerospazio che sale del 111,9%. Ma la cassa integrazione straordinaria avanza del 14,9%.',
     'blog.article.varese-export-q1-2026.imageAlt': 'Veduta aerea dell\'area frontaliera Ticino-Italia con paesaggio industriale della provincia di Varese e valli alpine',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Trasferirsi in Svizzera da italiano: guida ai permessi',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permesso B, fiscalità svizzera, AVS e LAMal: tutti i passaggi amministrativi per chi lascia l\'Italia.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Veduta di Lugano dal Ceresio: destinazione comune per trasferimenti dall\'Italia',
 };
 
 export default blogMetaIt;
