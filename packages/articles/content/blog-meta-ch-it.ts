@@ -5395,6 +5395,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bally-caslano-licenziamenti-2025.title': 'Bally, a Caslano l\'ennesimo taglio del personale',
     'blog.article.bally-caslano-licenziamenti-2025.excerpt': 'Regent LP taglia 25 posti amministrativi a Bally Caslano. Dipendenti calano da ~100 a 54. Concordata in corso, perdite 60,5M nel 2024.',
     'blog.article.bally-caslano-licenziamenti-2025.imageAlt': 'Panorama del lago di Lugano e paesaggio ticinese a Caslano, sede dello stabilimento Bally in crisi occupazionale',
+    'blog.article.comprare-casa-san-gallo-mutuo.title': 'Comprare casa San Gallo: mutuo e imposte',
+    'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Guida all\'acquisto immobiliare in Svizzera: mutuo ipotecario, fondi propri, imposta sui trapassi e procedure step-by-step per chi compra nel Canton San Gallo.',
+    'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Casa residenziale svizzera in un paesaggio naturale, simbolo del mercato immobiliare nazionale',
 };
 
 export default blogMetaChIt;

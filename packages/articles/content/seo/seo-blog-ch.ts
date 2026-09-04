@@ -70025,6 +70025,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comprare-casa-san-gallo-mutuo': {
+    title: 'Comprare casa San Gallo: mutuo e imposte | Frontaliere Ticino',
+    description: 'Guida all\'acquisto immobiliare in Svizzera: mutuo ipotecario, fondi propri (20%), imposta sui trapassi e procedure step-by-step. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, comprare, casa, gallo, mutuo',
+    ogTitle: 'Comprare casa San Gallo: mutuo e imposte',
+    ogDescription: 'Scopri come comprare una casa in Svizzera: mutuo ipotecario, fondi propri minimi 20%, imposta sui trapassi, spese notarili e procedura passo-passo nel Canton San Gallo.',
+    canonicalPath: '/articoli-svizzera/comprare-casa-san-gallo-mutuo/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comprare casa San Gallo: mutuo e imposte",
+      "description": "Guida all'acquisto immobiliare in Svizzera: mutuo ipotecario, fondi propri (20%), imposta sui trapassi e procedure step-by-step. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/comprare-casa-san-gallo-mutuo.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Casa residenziale svizzera in un paesaggio naturale, simbolo del mercato immobiliare nazionale"
+      },
+      "datePublished": "2026-09-04T05:24:58+00:00",
+      "dateModified": "2026-09-04T05:24:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/comprare-casa-san-gallo-mutuo/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
