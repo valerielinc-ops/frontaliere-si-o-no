@@ -46,6 +46,7 @@ const SITE_BASE = 'https://giardinohotels.ch';
 const API_URL = `${SITE_BASE}/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 // English translations live behind their own locale-prefixed REST route, with
 // their own slugs — the only place the real /en/ permalink can be read from.
+// locale-segment-ok: rotta REST del sito ESTERNO giardinohotels.ch (WPML), non un path per-locale nostro
 const EN_API_URL = `${SITE_BASE}/en/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 
 /* ── Hotel → location mapping ─────────────────────────────── */
@@ -305,6 +306,7 @@ export function isTrustedDomain(rawUrl = '') {
  * not the job — a silently dead apply link. Use resolvePublicUrl().
  */
 export function buildEnglishUrl(enSlug) {
+  // locale-segment-ok: permalink WPML del sito esterno, lo slug stesso è quello della versione inglese
   return `${SITE_BASE}/en/jobs/${enSlug}/`;
 }
 
@@ -368,6 +370,7 @@ export function resolvePublicUrl(listing, enIndex) {
 
   const deLink = String(listing?.link || '').trim();
   if (deLink && isTrustedDomain(deLink)) return deLink;
+  // locale-segment-ok: fallback al permalink TEDESCO del sito esterno, dove vive lo slug non tradotto
   return wpSlug ? `${SITE_BASE}/de/jobs/${wpSlug}/` : `${SITE_BASE}/de/jobs/`;
 }
 

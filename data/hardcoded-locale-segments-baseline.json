@@ -79,7 +79,6 @@
     "scripts/fetch-istat-cost-basket.mjs\thttps://www.istat.it/it/archivio/statistiche+territoriali",
     "scripts/lib/ats-clients/workday-client.mjs\t${u.origin}/en/${site}${externalPath}",
     "scripts/lib/coopers-job-parser.mjs\t${COOPERS_BASE}/en/jobs/index.php",
-    "scripts/lib/giardino-job-parser.mjs\t${SITE_BASE}/en/jobs/${wpSlug}/",
     "scripts/lib/hugo-boss-job-parser.mjs\thttps://${HUGO_BOSS_HOST}/global/en/job/${encodeURIComponent(seqNo)}/${slugify(title)}",
     "scripts/lib/institution-lavigny-job-parser.mjs\thttps://www.jobup.ch/fr/emplois/detail/${jobupUuid}/",
     "scripts/lib/kulm-hotel-job-parser.mjs\thttps://careers.kulm.com/en/vacancies/${vac.id}",
