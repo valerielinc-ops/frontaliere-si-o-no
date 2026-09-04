@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import {
   SF_J2W_WIDGET_PATTERNS,
   hasSuccessFactorsMoreLocations,
+  hasSuccessFactorsMoreLocationsInRow,
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
@@ -168,6 +169,77 @@ describe('SuccessFactors jobs2web widget guard', () => {
       expect(stripSuccessFactorsMoreLocations('Mendrisio &#43;3 more&hellip;')).toBe('Mendrisio');
       expect(stripSuccessFactorsMoreLocations('Bern, CH ＋2 weitere…')).toBe('Bern, CH');
       expect(hasSuccessFactorsMoreLocations('Bern, CH &plus;2 mehr…')).toBe(true);
+    });
+
+    describe('row-scoped probe (hasSuccessFactorsMoreLocationsInRow)', () => {
+      const row = (cells: string) => `<tr class="data-row">${cells}</tr>`;
+      const titleCell =
+        '<td class="colTitle"><a class="jobTitle-link" href="/job/Team-Lead-2-more-AG/1/">Team Lead +2 altri reparti</a></td>';
+
+      it('flags a row whose location cell carries the marker', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              '<td class="colTitle"><a class="jobTitle-link" href="/job/x/1/">Quality Engineer</a></td>' +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Warburg, NW, DE <small class="nobr">+1 more&hellip;</small></span></td>',
+            ),
+          ),
+        ).toBe(true);
+      });
+
+      it('ignores a marker-shaped title or href, so no detail fetch is wasted', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>',
+            ),
+          ),
+        ).toBe(false);
+      });
+
+      it('still flags a marker rendered OUTSIDE colLocation while that cell exists', () => {
+        // The fail-closed case: scoping the probe to `td.colLocation` alone
+        // would leave the flag off here, and `listSwissJobs()` would then
+        // discard a multi-office row whose hidden office is the Swiss one.
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>' +
+                '<td class="colSites"><small class="nobr">+2 weitere&hellip;</small></td>',
+            ),
+          ),
+        ).toBe(true);
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>' +
+                '<td class="colOffices"><span class="jobLocation">+3 autres&hellip;</span></td>',
+            ),
+          ),
+        ).toBe(true);
+      });
+
+      it('falls back to the whole row when the skin exposes no location-like node', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            '<tr class="data-row"><td>Quality Engineer</td><td>Rothrist, AG, CH +1 more&hellip;</td></tr>',
+          ),
+        ).toBe(true);
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            '<tr class="data-row"><td>Quality Engineer</td><td>Rothrist, AG, CH</td></tr>',
+          ),
+        ).toBe(false);
+      });
+
+      it('treats non-string input as marker-free', () => {
+        for (const value of [undefined, null, 0, {}, []]) {
+          expect(hasSuccessFactorsMoreLocationsInRow(value as unknown as string)).toBe(false);
+        }
+      });
     });
 
     it('treats non-string input as marker-free and yields an empty string', () => {

@@ -206,6 +206,61 @@ export function hasSuccessFactorsMoreLocations(value) {
 }
 
 /**
+ * Fragments of a j2w results row that can legitimately carry the marker: the
+ * location cell(s), the `jobLocation` span(s), and the `<small>` node the
+ * marker itself is rendered in.
+ *
+ * Deliberately NOT anchored on `colLocation` alone — see
+ * `hasSuccessFactorsMoreLocationsInRow()` for why the probe must not fail
+ * closed on a skin that renders the `<small>` outside that cell.
+ */
+/**
+ * Sources, not RegExp objects: `matchAll` needs the `g` flag, and a shared `g`
+ * regex carries `lastIndex` between calls — an early `return true` below would
+ * leave it dirty for the next row. Compiling per call keeps the probe
+ * stateless.
+ */
+const SF_J2W_LOCATION_LIKE_NODE_SOURCES = Object.freeze([
+  '<td[^>]*class="[^"]*location[^"]*"[^>]*>([\\s\\S]*?)</td>',
+  '<span[^>]*class="[^"]*jobLocation[^"]*"[^>]*>([\\s\\S]*?)</span>',
+  '<small[^>]*>([\\s\\S]*?)</small>',
+]);
+
+/**
+ * True when a j2w results ROW hides extra offices behind the "+N more…"
+ * marker, probing only the parts of the row where that marker can live.
+ *
+ * WHY NOT just `hasSuccessFactorsMoreLocations(row)`: the marker matcher spans
+ * de/en/fr/it, so a title or href shaped like "+2 altri" would flip the flag
+ * for the whole row (cost: a wasted detail fetch).
+ *
+ * WHY NOT just the `td.colLocation` cell either: that scoping fails CLOSED.
+ * A skin that renders the `<small>` outside `colLocation` — while that cell
+ * exists — would leave the flag off, and a caller like Benteler's
+ * `listSwissJobs()` then DISCARDS a multi-office row whose visible location is
+ * not Swiss (cost: a genuine Swiss posting silently lost, which is the worse
+ * of the two errors).
+ *
+ * So: probe every location-like node of the row, and fall back to the whole
+ * row only when the skin exposes none of them — narrow enough to keep the
+ * title/href out, wide enough never to be the reason a row is dropped.
+ *
+ * @param {unknown} rowHtml Raw HTML of a single results row.
+ * @returns {boolean}
+ */
+export function hasSuccessFactorsMoreLocationsInRow(rowHtml) {
+  if (typeof rowHtml !== 'string') return false;
+  let sawLocationLikeNode = false;
+  for (const source of SF_J2W_LOCATION_LIKE_NODE_SOURCES) {
+    for (const match of rowHtml.matchAll(new RegExp(source, 'gi'))) {
+      sawLocationLikeNode = true;
+      if (hasSuccessFactorsMoreLocations(match[1])) return true;
+    }
+  }
+  return sawLocationLikeNode ? false : hasSuccessFactorsMoreLocations(rowHtml);
+}
+
+/**
  * Return the visible (primary) location of a j2w `jobLocation` cell, i.e.
  * `value` without the "+N more…" suffix.
  *
