@@ -11348,6 +11348,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.apertura-conto-svizzera-frontalieri.title': 'Open Swiss bank account for residents',
     'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Step-by-step guide: G permit, required documents, AVS, LAMal and CHF-EUR change management for cross-border commuters',
     'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Aerial view of Lugano waterfront with modern bank buildings, Ticino\'s financial center',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Ticino labour market: growing sectors',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Discover the growing sectors in the Ticino labour market, required professions and prospects for job seekers.',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Panoramic view of Lugano city with the lake and mountains',
 };
 
 export default blogMetaEn;

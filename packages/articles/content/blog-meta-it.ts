@@ -11349,6 +11349,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.apertura-conto-svizzera-frontalieri.title': 'Aprire conto banca svizzera per residenti',
     'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Guida passo-passo: permesso G, documenti richiesti, AVS, LAMal e gestione del cambio CHF-EUR per frontalieri',
     'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Vista aerea del lungomare di Lugano con edifici bancari moderni, centro finanziario del Canton Ticino',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Mercato del lavoro Ticino: settori in crescita',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Scopri i settori in crescita nel mercato del lavoro ticinese, professioni richieste e prospettive per chi cerca impiego.',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Panoramica della città di Lugano con il lago e le montagne',
 };
 
 export default blogMetaIt;
