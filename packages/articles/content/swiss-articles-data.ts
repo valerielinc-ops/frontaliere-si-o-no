@@ -16192,6 +16192,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-lacune-contributive-san-gallo',
+    category: 'pensione',
+    date: '2026-09-04T05:59:24.809Z',
+    image: '/images/blog/avs-lacune-contributive-san-gallo.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

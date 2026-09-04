@@ -5398,6 +5398,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-san-gallo-mutuo.title': 'Comprare casa San Gallo: mutuo e imposte',
     'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Guida all\'acquisto immobiliare in Svizzera: mutuo ipotecario, fondi propri, imposta sui trapassi e procedure step-by-step per chi compra nel Canton San Gallo.',
     'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Casa residenziale svizzera in un paesaggio naturale, simbolo del mercato immobiliare nazionale',
+    'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS e prestazioni complementari: guida San Gallo',
+    'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Come funziona il primo pilastro nel Canton San Gallo. Scopri il ruolo della cassa di compensazione cantonale, il calcolo della rendita, le lacune contributive e le prestazioni complementari per il minimo vitale.',
+    'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Edificio della cassa di compensazione cantonale nel San Gallo: punto di riferimento per pratiche AVS e prestazioni complementari',
 };
 
 export default blogMetaChIt;

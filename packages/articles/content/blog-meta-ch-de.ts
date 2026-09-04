@@ -5398,6 +5398,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.comprare-casa-san-gallo-mutuo.title': 'Haus St. Gallen kaufen: Hypothek und Steuern',
     'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Leitfaden zum Immobilienkauf in der Schweiz: Hypothekendarlehen, Eigenmittel, Abgeltungssteuer und Schritt-für-Schritt-Verfahren für Käufer im Kanton St. Gallen.',
     'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Schweizer Wohnhaus in natürlicher Umgebung, Symbol des Immobilienmarkts',
+    'blog.article.avs-lacune-contributive-san-gallo.title': 'AHV und Ergänzungsleistungen: Führer St. Gallen',
+    'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Wie funktioniert die erste Säule im Kanton St. Gallen? Erfahren Sie mehr über die Rolle der kantonalen Ausgleichskasse, die Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
+    'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Gebäude der Ausgleichskasse des Kantons St. Gallen für AHV-Renten und Ergänzungsleistungen',
 };
 
 export default blogMetaChDe;

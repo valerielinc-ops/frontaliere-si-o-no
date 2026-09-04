@@ -1825,6 +1825,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ricerca-medicina-ticino-innovazione': { it: 'ricerca-medicina-ticino-innovazione', en: 'biomedical-research-innovation-ticino', de: 'biomedizinische-forschung-innovation-tessin', fr: 'recherche-biomedicale-innovation-tessin' },
  'bally-caslano-licenziamenti-2025': { it: 'bally-caslano-licenziamenti-2025', en: 'bally-caslano-layoffs-2025', de: 'bally-caslano-entlassungen-2025', fr: 'bally-caslano-licenciements-2025' },
  'comprare-casa-san-gallo-mutuo': { it: 'comprare-casa-san-gallo-mutuo', en: 'buy-home-san-gallo-mortgage', de: 'haus-kaufen-sankt-gallen-hypothek', fr: 'acheter-maison-saint-gall-hypotheque' },
+ 'avs-lacune-contributive-san-gallo': { it: 'avs-lacune-contributive-san-gallo', en: 'avs-contribution-gaps-st-gallen', de: 'avs-beitragslucken-st-gallen', fr: 'avs-lacunes-contributives-st-gall' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
