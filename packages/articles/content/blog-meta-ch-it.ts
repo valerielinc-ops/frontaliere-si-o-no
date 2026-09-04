@@ -5482,6 +5482,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.borse-studio-vaud-requisiti.title': 'Borse di studio canton Vaud: requisiti e importi',
     'blog.article.borse-studio-vaud-requisiti.excerpt': 'Come accedere alle borse e prestiti allo studio del canton Vaud: requisiti economici, merito scolastico, importi massimi e procedura di candidatura.',
     'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Aula universitaria nel canton Vaud con studenti che prendono appunti durante una lezione',
+    'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Asilo nido e custodia bambini nel Canton Vaud: costi e sussidi',
+    'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'Come funziona la custodia nel Canton Vaud: asili nido, famiglie diurne, doposcuola con tariffe progressive sul reddito e sussidi cantonali disponibili.',
+    'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Aula prescolare svizzera luminosa con bambini che giocano, vista sulle Alpi da finestre grandi, arredi educativi colorati.',
 };
 
 export default blogMetaChIt;

@@ -1853,6 +1853,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-b-zugo-guida-pratica': { it: 'permesso-b-zugo-guida-pratica', en: 'permit-b-zug-practical-guide', de: 'aufenthaltserlaubnis-b-zug-praktischer-leitfaden', fr: 'permis-b-zoug-guide-pratique' },
  'scuola-4-giorni-belp': { it: 'scuola-4-giorni-belp', en: 'school-4-days-belp', de: 'schule-4-tage-belp', fr: 'ecole-4-jours-belp' },
  'borse-studio-vaud-requisiti': { it: 'borse-studio-vaud-requisiti', en: 'scholarships-vaud-requirements', de: 'stipendien-waadt-anforderungen', fr: 'bourses-etude-vaud-conditions' },
+ 'asilo-nido-custodia-bambini-vaud': { it: 'asilo-nido-custodia-bambini-vaud', en: 'nursery-childcare-vaud-costs-subsidies', de: 'kita-kinderbetreuung-waadt-kosten-subventionen', fr: 'garderie-garde-enfants-vaud-couts-allocations' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

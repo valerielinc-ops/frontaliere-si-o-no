@@ -5482,6 +5482,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.borse-studio-vaud-requisiti.title': 'Bourses canton de Vaud : exigences et montants',
     'blog.article.borse-studio-vaud-requisiti.excerpt': 'Comment accéder aux bourses et prêts à l\'étude du canton de Vaud : exigences économiques, mérite scolaire, montants maximaux et procédure de candidature.',
     'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Salle de cours à l\'université de Lausanne avec des étudiants prenant des notes',
+    'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Garderie et garde d\'enfants dans le canton de Vaud : frais et allocations',
+    'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'Comment fonctionne la garde dans le canton de Vaud : crèches, familles de jour, après l\'école avec des tarifs progressifs sur le revenu et des allocations cantonales disponibles.',
+    'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Classe maternelle suisse lumineuse avec enfants jouant, grandes fenêtres sur les Alpes, matériel éducatif coloré.',
 };
 
 export default blogMetaChFr;
