@@ -11353,6 +11353,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Marché de l\'emploi Tessin : secteurs en croissance',
     'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Découvrez les secteurs en croissance sur le marché du travail tessinois, les professions recherchées et les perspectives pour les demandeurs d\'emploi.',
     'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Vue panoramique de la ville de Lugano avec le lac et les montagnes',
+    'blog.article.shopping-outlet-ticino.title': 'Shopping outlet Tessin : guide des centres commerciaux',
+    'blog.article.shopping-outlet-ticino.excerpt': 'Guide pratique pour les frontaliers : comment tirer le meilleur parti des points de vente tessinois, comparaison CHF-EUR, horaires et stratégies d\'achat conscient.',
+    'blog.article.shopping-outlet-ticino.imageAlt': 'Rue commerçante au Tessin avec vitrines et piétons, éclairage naturel.',
 };
 
 export default blogMetaFr;
