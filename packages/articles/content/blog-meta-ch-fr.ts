@@ -5395,6 +5395,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bally-caslano-licenziamenti-2025.title': 'Bally, à Caslano, une autre réduction du personnel',
     'blog.article.bally-caslano-licenziamenti-2025.excerpt': 'Regent LP coupe 25 postes administratifs à Bally Caslano. Employés tombent de ~100 à 54. Accordé en cours, pertes 60,5M en 2024.',
     'blog.article.bally-caslano-licenziamenti-2025.imageAlt': 'Vue du lac de Lugano et paysage du Tessin à Caslano, siège de l\'usine Bally en crise',
+    'blog.article.comprare-casa-san-gallo-mutuo.title': 'Acheter maison Saint-Gall : hypothèque et taxes',
+    'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Guide d\'achat immobilier en Suisse : hypothèque, fonds propres, taxe de passage et procédures étape par étape pour ceux qui achètent dans le canton de Saint-Gall.',
+    'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Propriété résidentielle suisse dans un paysage naturel, symbole du marché immobilier national',
 };
 
 export default blogMetaChFr;

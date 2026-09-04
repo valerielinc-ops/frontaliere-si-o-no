@@ -1824,6 +1824,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposte-cantonali-vaud-aliquote': { it: 'imposte-cantonali-vaud-aliquote', en: 'canton-vaud-cantonal-tax-rates', de: 'kanton-waadt-kantonssteuer-saetze', fr: 'impots-cantonaux-vaud-taux' },
  'ricerca-medicina-ticino-innovazione': { it: 'ricerca-medicina-ticino-innovazione', en: 'biomedical-research-innovation-ticino', de: 'biomedizinische-forschung-innovation-tessin', fr: 'recherche-biomedicale-innovation-tessin' },
  'bally-caslano-licenziamenti-2025': { it: 'bally-caslano-licenziamenti-2025', en: 'bally-caslano-layoffs-2025', de: 'bally-caslano-entlassungen-2025', fr: 'bally-caslano-licenciements-2025' },
+ 'comprare-casa-san-gallo-mutuo': { it: 'comprare-casa-san-gallo-mutuo', en: 'buy-home-san-gallo-mortgage', de: 'haus-kaufen-sankt-gallen-hypothek', fr: 'acheter-maison-saint-gall-hypotheque' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
