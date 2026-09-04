@@ -18,7 +18,7 @@
  * exact per-amount figures with its own fee model.
  */
 
-export const WISE_REFERRAL_URL = 'https://wise.com/invite/ihpn/luigis147';
+export const WISE_REFERRAL_URL = 'https://wise.prf.hn/l/4PRMNMW/';
 export const REVOLUT_REFERRAL_URL =
   'https://revolut.com/referral/?referral-code=luigi4mdv!FEB1-26-AR-H1&geo-redirect';
 export const CAMBIAVALUTE_REFERRAL_URL = 'https://dashboard.cambiavalute.ch/r/28693';

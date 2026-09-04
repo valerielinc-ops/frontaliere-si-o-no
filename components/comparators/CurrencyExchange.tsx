@@ -102,8 +102,8 @@ const providers: ExchangeProvider[] = [
  transferTime: '1-2 giorni lavorativi',
  transferTimeKey: '1_2_business_days',
  color: 'from-success-strong to-info-strong',
- features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata', 'Iscriviti da qui: bonus referral'],
- featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount', 'feature_wise_referral_bonus'],
+ features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata'],
+ featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount'],
  type: 'service',
  referralUrl: WISE_REFERRAL_URL,
     goId: 'wise'
