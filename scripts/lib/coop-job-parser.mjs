@@ -307,10 +307,53 @@ function resolveCoopJsonLdGeography(candidate) {
   return null;
 }
 
+function normalizeLocalityKey(value = '') {
+  return normalizeSpace(value)
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '');
+}
+
+/**
+ * Geography carried by the listing row itself (Prospective `sza_workplace.*`),
+ * as an address candidate shaped like the JSON-LD ones. Returns `null` when the
+ * listing has no locality or when it does not resolve to a Swiss municipality —
+ * i.e. when it really is the generic fallback the detail payload must replace.
+ */
+function listingAddressEvidence(job) {
+  const addressLocality = normalizeSpace(job?.addressLocality || job?.location || '');
+  if (!addressLocality) return null;
+  const candidate = {
+    location: addressLocality,
+    addressLocality,
+    addressRegion: normalizeSpace(job?.canton || job?.addressRegion || ''),
+    addressCountry: normalizeSpace(job?.addressCountry || job?.country || ''),
+    postalCode: normalizeSpace(job?.postalCode || ''),
+    streetAddress: normalizeSpace(job?.streetAddress || ''),
+  };
+  const geography = resolveCoopJsonLdGeography(candidate);
+  return geography ? { candidate, geography } : null;
+}
+
 /**
  * Replace listing fallbacks with the source-backed detail payload. Missing,
  * malformed or geographically unresolved detail data is a hard failure: the
  * caller must never publish a partially enriched Coop-family slice.
+ *
+ * Location is the one field where the detail page is NOT authoritative. The
+ * Coop-family ATS emits the EMPLOYER's registered address in the detail
+ * `jobLocation` — for a branch vacancy the JSON-LD says "Bernstrasse 90, 3303
+ * Jegenstorf" (Interdiscount's head office) while the listing row carries the
+ * actual store in `sza_workplace.city`/`.zip`/`.street`. Overwriting the branch
+ * with the head office collapses a whole multi-store slice onto one address:
+ * 255/265 Interdiscount records ended up at the head office, and since the
+ * duplicate-listing fingerprint is `title || location || description`, 238 of
+ * them (90%) then read as the same vacancy re-posted — a CRITICAL in
+ * `audit-parser-quality.mjs` and thin/duplicate content on distinct indexable
+ * URLs (Non-Negotiable #4). So when the listing resolves to a Swiss
+ * municipality of its own and the detail disagrees, the listing wins, and the
+ * postalCode/streetAddress travel WITH it: a head-office street pinned to a
+ * branch city is a wrong address, not a safe default (Non-Negotiable #3).
  */
 export function applyCoopSourceDetailToJob(job, jsonLd) {
   if (!jsonLd || !String(jsonLd?.['@type'] || '').includes('JobPosting')) {
@@ -328,12 +371,18 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
     throw new Error(`Coop-family detail description rejected: ${validation.warnings.join('; ') || `${wordCount(description)} words`}`);
   }
 
-  const evidence = jsonLdAddressCandidates(jsonLd)
+  const detailEvidence = jsonLdAddressCandidates(jsonLd)
     .map((candidate) => ({ candidate, geography: resolveCoopJsonLdGeography(candidate) }))
     .find(({ geography }) => geography);
-  if (!evidence) {
+  if (!detailEvidence) {
     throw new Error(`Coop-family detail location rejected: ${job?.url || 'missing-url'}`);
   }
+
+  const listingEvidence = listingAddressEvidence(job);
+  const listingOverridesDetail = Boolean(listingEvidence)
+    && normalizeLocalityKey(listingEvidence.geography.location)
+      !== normalizeLocalityKey(detailEvidence.geography.location);
+  const evidence = listingOverridesDetail ? listingEvidence : detailEvidence;
 
   const sourceLang = String(job?.sourceLang || 'de').trim() || 'de';
   const updated = {
