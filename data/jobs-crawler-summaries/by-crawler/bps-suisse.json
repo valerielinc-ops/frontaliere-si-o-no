@@ -1,21 +1,19 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-03T23:37:16.880Z",
+  "generatedAt": "2026-09-04T13:49:57.587Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 7019,
-  "avgDurationMs": 7019,
+  "unchangedCount": 0,
+  "durationMs": 6252,
+  "avgDurationMs": 6252,
   "durationHistory": [
-    7019
+    6252
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "bps-suisse-7e40eb648fab",
       "title": "Consulente Alla Clientela Individuale",
@@ -37,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-03",
+      "postedDate": "2026-09-04",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-03T23:37:11.354Z",
+      "crawledAt": "2026-09-04T13:49:52.615Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -78,9 +76,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-03",
+      "postedDate": "2026-09-04",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-03T23:37:12.091Z",
+      "crawledAt": "2026-09-04T13:49:53.476Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -90,7 +88,6 @@
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -120,9 +117,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-03",
+      "postedDate": "2026-09-04",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-03T23:37:12.513Z",
+      "crawledAt": "2026-09-04T13:49:53.775Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -161,9 +158,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-03",
+      "postedDate": "2026-09-04",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-03T23:37:12.883Z",
+      "crawledAt": "2026-09-04T13:49:54.174Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -173,7 +170,6 @@
       "salaryMax": 150000,
       "firstSeenAt": "2026-07-07T11:59:13.173Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -182,5 +178,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
