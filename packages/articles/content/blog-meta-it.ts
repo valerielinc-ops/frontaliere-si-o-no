@@ -11280,6 +11280,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Vivere a Cassina Rizzardi e lavorare in Ticino',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Permesso G, imposta alla fonte, AVS/LPP, LAMal: guida completa per frontalieri Como-Ticino con procedura, costi e checklist trasferimento.',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Lago di Lugano con le Alpi ticinesi riflesse nelle acque calme, mattina serena.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Vivere a Castelnuovo Bozzente e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
 };
 
 export default blogMetaIt;
