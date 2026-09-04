@@ -7,6 +7,7 @@ import {
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
+  classifyUnregisteredFamilyCandidate,
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
@@ -331,6 +332,59 @@ describe('seo-ctr-curve (issue #4300)', () => {
     it('defaults to SEO_CTR_FAMILIES and MIN_IMPRESSIONS_TO_MONITOR when not overridden', () => {
       const result = discoverUnregisteredFamilies([]);
       expect(result).toEqual([]);
+    });
+  });
+
+  describe('classifyUnregisteredFamilyCandidate (issue #7174)', () => {
+    it('classifica il prefisso locale puro come kind locale', () => {
+      const result = classifyUnregisteredFamilyCandidate({ pathContains: '/de/', impressions90d: 700_000 });
+      expect(result.kind).toBe('locale');
+      expect(result.family).toBeDefined();
+      expect(result.family?.id).toBe('de');
+      expect(result.family?.kind).toBe('locale');
+      expect(result.family?.monitored).toBe(false);
+      expect(result.family?.targetCtr).toBeNull();
+    });
+
+    it('classifica un job-board noto come template monitorabile', () => {
+      const result = classifyUnregisteredFamilyCandidate({
+        pathContains: '/find-jobs-ticino/',
+        impressions90d: 70_000,
+      });
+      expect(result.kind).toBe('template');
+      expect(result.family).toBeDefined();
+      expect(result.family?.kind).toBe('template');
+      expect(result.family?.pathContains).toBe('/find-jobs-ticino/');
+      expect(result.family?.pathAliases).toEqual(
+        expect.arrayContaining([
+          '/cerca-lavoro-ticino/',
+          '/jobs-im-tessin/',
+          '/trouver-emploi-tessin/',
+        ]),
+      );
+      expect(result.family?.monitored).toBe(true);
+    });
+
+    it('classifica una sezione fuel nota come template monitorabile', () => {
+      const result = classifyUnregisteredFamilyCandidate({ pathContains: '/prezzi-diesel/', impressions90d: 55_000 });
+      expect(result.kind).toBe('template');
+      expect(result.family).toBeDefined();
+      expect(result.family?.kind).toBe('template');
+      expect(result.family?.pathContains).toBe('/prezzi-diesel/');
+      expect(result.family?.pathAliases).toEqual(
+        expect.arrayContaining([
+          '/diesel-price-switzerland/',
+          '/dieselpreis-schweiz/',
+          '/prix-gasoil-suisse/',
+        ]),
+      );
+      expect(result.family?.monitored).toBe(true);
+    });
+
+    it('lascia unknown per percorsi senza mapping noto', () => {
+      const result = classifyUnregisteredFamilyCandidate({ pathContains: '/sezione-sconosciuta/', impressions90d: 60_000 });
+      expect(result.kind).toBe('unknown');
+      expect(result.family).toBeNull();
     });
   });
 

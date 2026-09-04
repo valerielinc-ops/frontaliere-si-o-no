@@ -23,8 +23,10 @@
  * automated version of what issue #4300 did by hand for
  * `/cerca-lavoro-ticino/`, which sat unmonitored at 911k impressions/90gg
  * for years before someone noticed. Opens/comments a GitHub issue per
- * candidate for human triage (add to the registry, or dismiss); never
- * mutates the registry itself.
+ * candidate for human triage when classification is ambiguous; deterministic
+ * candidates (`locale`, nota job-board known via `services/router.ts`,
+ * noto in `build-plugins/fuelDailyData.ts`) are now auto-registered in
+ * `scripts/lib/seo-ctr-curve.mjs`.
  *
  * Auth: Firebase service-account JSON via GOOGLE_APPLICATION_CREDENTIALS
  * (same as scripts/seo-ctr-baseline.mjs).
@@ -36,7 +38,7 @@
 
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { fetchGscByPage } from './lib/perf-sources/gsc.mjs';
 import {
   SEO_CTR_FAMILIES,
@@ -45,12 +47,14 @@ import {
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
+  classifyUnregisteredFamilyCandidate,
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
+const SEO_CTR_CURVE_PATH = resolve(ROOT, 'scripts', 'lib', 'seo-ctr-curve.mjs');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
 const DISCOVERY_WINDOW_DAYS = 90;
@@ -59,6 +63,60 @@ const dryRun = process.argv.includes('--dry-run');
 
 function pct(n) {
   return n === null || n === undefined ? 'n/a' : `${(n * 100).toFixed(2)}%`;
+}
+
+function escapeSingleQuotes(value) {
+  return String(value).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+}
+
+function serializeFamilyForCurve(family) {
+  const lines = [
+    '  {',
+    `    id: '${escapeSingleQuotes(family.id)}',`,
+    `    label: '${escapeSingleQuotes(family.label)}',`,
+    `    pathContains: '${escapeSingleQuotes(family.pathContains)}',`,
+  ];
+
+  if (Array.isArray(family.pathAliases) && family.pathAliases.length > 0) {
+    const aliases = family.pathAliases.map((alias) => `      '${escapeSingleQuotes(alias)}'`).join(',\n');
+    lines.push('    pathAliases: [');
+    lines.push(aliases);
+    lines.push('    ],');
+  }
+
+  lines.push(`    kind: '${escapeSingleQuotes(family.kind)}',`);
+
+  if (Object.hasOwn(family, 'targetCtrCurveMultiple')) {
+    const multiple = Number(family.targetCtrCurveMultiple);
+    if (Number.isFinite(multiple)) {
+      lines.push(`    targetCtrCurveMultiple: ${multiple},`);
+    }
+  }
+
+  lines.push(`    targetCtr: ${family.targetCtr === null ? 'null' : `${Number(family.targetCtr)}`},`);
+  lines.push(`    monitored: ${family.monitored ? 'true' : 'false'},`);
+  lines.push(`    impressions90d: ${Number(family.impressions90d)},`);
+  lines.push(`    measuredOn: '${escapeSingleQuotes(family.measuredOn)}',`);
+
+  if (typeof family.note === 'string' && family.note.length > 0) {
+    lines.push(`    note: '${escapeSingleQuotes(family.note)}',`);
+  }
+
+  lines.push('  },');
+  return `${lines.join('\n')}\n`;
+}
+
+function registerFamilyInCurveSource(family) {
+  const source = readFileSync(SEO_CTR_CURVE_PATH, 'utf8');
+  const marker = '\n/**\n * The CTR floor a family is actually judged against on a given run.';
+  const markerIndex = source.indexOf(marker);
+  if (markerIndex < 0) {
+    throw new Error('Non riesco a localizzare la fine di SEO_CTR_FAMILIES in seo-ctr-curve.mjs');
+  }
+  const insertion = `${serializeFamilyForCurve(family)}\n`;
+  const output = `${source.slice(0, markerIndex)}${insertion}${source.slice(markerIndex)}`;
+  writeFileSync(SEO_CTR_CURVE_PATH, output, 'utf8');
+  console.log(`   ✅ Registrata automaticamente in SEO_CTR_FAMILIES: ${family.id}`);
 }
 
 function loadState() {
@@ -146,6 +204,21 @@ eterogenee senza un generator condiviso, marcarla \`kind: 'listing'\` con un
   }
 }
 
+async function applyAutoFamilyRegistration({ family }) {
+  if (!family || !family.id) return;
+  if (dryRun) {
+    console.log(`   [dry-run] avrei registrato automaticamente ${family.pathContains} come ${family.kind}`);
+    return;
+  }
+
+  try {
+    registerFamilyInCurveSource(family);
+  } catch (e) {
+    console.warn(`   ⚠️ impossibile registrare automaticamente in SEO_CTR_FAMILIES: ${e.message}`);
+    await reportUnregisteredFamily({ pathContains: family.pathContains, impressions90d: family.impressions90d });
+  }
+}
+
 async function discoverNewFamilies() {
   console.log(`\n🔎 Scoperta famiglie non censite (finestra ${DISCOVERY_WINDOW_DAYS}gg)`);
   try {
@@ -157,8 +230,16 @@ async function discoverNewFamilies() {
       return;
     }
     for (const candidate of candidates) {
-      console.log(`   ⚠️ ${candidate.pathContains}: ${candidate.impressions90d} impressioni/90gg non censite`);
-      await reportUnregisteredFamily(candidate);
+      const classified = classifyUnregisteredFamilyCandidate(candidate);
+      if (classified.kind === 'unknown') {
+        console.log(`   ⚠️ ${classified.pathContains}: ${classified.impressions90d} impressioni/90gg non censite`);
+        await reportUnregisteredFamily(classified);
+      } else if (classified.family) {
+        console.log(
+          `   ✅ ${classified.pathContains} classificata come ${classified.kind} → registrazione automatica`,
+        );
+        await applyAutoFamilyRegistration(classified);
+      }
     }
   } catch (e) {
     console.warn(`   ⚠️ errore GSC durante la scoperta, salto questo giro: ${e.message}`);

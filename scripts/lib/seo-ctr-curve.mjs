@@ -22,6 +22,8 @@
  */
 
 import { weightedAveragePosition, computeCtr } from './analytics-opportunity-utils.mjs';
+import { getJobBoardSlugForCanton, getAggregatorJobBoardSlug, parseJobBoardSlug } from '../../services/router.ts';
+import { FUEL_SECTION_SLUG } from '../../build-plugins/fuelDailyData.ts';
 
 // Index 0 unused — GSC positions are 1-based. Values are CTR fractions
 // (0.316 === 31.6%).
@@ -390,6 +392,164 @@ export function familyPathPrefixes(family) {
 // same set the `locale`-kind exemption in SEO_CTR_FAMILIES is pinned to
 // (`/en/`, `/de/`, `/fr/` — Italian has no prefix, it's the default locale).
 const LOCALE_PATH_PREFIXES = new Set(['en', 'de', 'fr']);
+const ROUTER_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Normalize a route segment for classification, independent from GSC-style path
+ * formatting (trailing slash, locale-prefixed URLs already stripped).
+ */
+function normalizeSegmentFromPathContains(pathContains) {
+  if (!pathContains || typeof pathContains !== 'string') return '';
+  const trimmed = pathContains.trim();
+  if (!trimmed) return '';
+  return trimmed.startsWith('/') ? trimmed.slice(1).replace(/\/$/, '') : trimmed.replace(/\/$/, '');
+}
+
+/**
+ * Build a human-readable label for an auto-registered template family.
+ */
+function toTitleCase(input) {
+  return String(input || '')
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function isLocaleRootSegment(segment) {
+  return LOCALE_PATH_PREFIXES.has(segment);
+}
+
+function resolveJobBoardFamilyFromSegment(segment) {
+  for (const locale of ROUTER_LOCALES) {
+    const match = parseJobBoardSlug(segment, locale);
+    if (!match) continue;
+
+    const { cantonCode, isAggregator } = match;
+    const pathAliases = uniqueSorted(
+      ROUTER_LOCALES.map((l) => {
+        const slug = isAggregator ? getAggregatorJobBoardSlug(l) : getJobBoardSlugForCanton(cantonCode, l);
+        return `/${slug}/`;
+      }),
+    );
+    const label = `Template job-board ${toTitleCase(segment)}`;
+    return {
+      pathContains: `/${segment}/`,
+      pathAliases,
+      id: segment,
+      label,
+      kind: 'template',
+      targetCtr: 0.03,
+      monitored: true,
+      note: `Auto-registrata da discovery template job-board (${isAggregator ? 'aggregatore' : `cantonCode=${cantonCode}`}).`,
+    };
+  }
+  return null;
+}
+
+function resolveFuelFamilyFromSegment(segment) {
+  let fuel = null;
+  for (const locale of ROUTER_LOCALES) {
+    const candidateMap = FUEL_SECTION_SLUG[locale];
+    for (const [fuelType, slug] of Object.entries(candidateMap)) {
+      if (slug === segment) {
+        fuel = fuelType;
+        break;
+      }
+    }
+    if (fuel) break;
+  }
+  if (!fuel) return null;
+
+  const pathAliases = uniqueSorted(
+    ROUTER_LOCALES.map((l) => `/${FUEL_SECTION_SLUG[l][fuel]}/`),
+  );
+  const familyLabel = `Prezzi ${fuel === 'diesel' ? 'diesel' : 'benzina'}`;
+  return {
+    pathContains: `/${segment}/`,
+    pathAliases,
+    id: segment,
+    label: familyLabel,
+    kind: 'template',
+    targetCtr: 0.03,
+    monitored: true,
+    note: `Auto-registrata da discovery template fuel (${segment}).`,
+  };
+}
+
+function resolveLocaleFamilyFromSegment(segment) {
+  return {
+    pathContains: `/${segment}/`,
+    id: segment,
+    label: `${segment.toUpperCase()} locale (riferimento)`,
+    kind: 'locale',
+    targetCtr: null,
+    monitored: false,
+  };
+}
+
+/**
+ * Classify a discovered candidate into a registry-like family when the top segment
+ * maps to a known generator family. Returns:
+ * - `kind: 'locale'` for `/en|de|fr/`
+ * - `kind: 'template'` for known job-board and fuel sections
+ * - `kind: 'unknown'` otherwise.
+ *
+ * This classifier is intentionally conservative: only deterministic mappings with
+ * explicit generator knowledge are auto-registered.
+ */
+export function classifyUnregisteredFamilyCandidate({ pathContains, impressions90d } = {}) {
+  const segment = normalizeSegmentFromPathContains(pathContains);
+  const impressions = Number(impressions90d) || 0;
+  if (!segment) return { pathContains: pathContains || '', impressions90d: impressions, kind: 'unknown', family: null };
+
+  if (isLocaleRootSegment(segment)) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: 'locale',
+      family: {
+        ...resolveLocaleFamilyFromSegment(segment),
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  const jobBoardFamily = resolveJobBoardFamilyFromSegment(segment);
+  if (jobBoardFamily) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: jobBoardFamily.kind,
+      family: {
+        ...jobBoardFamily,
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  const fuelFamily = resolveFuelFamilyFromSegment(segment);
+  if (fuelFamily) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: fuelFamily.kind,
+      family: {
+        ...fuelFamily,
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  return { pathContains: `/${segment}/`, impressions90d: impressions, kind: 'unknown', family: null };
+}
 
 /**
  * Discover path segments carrying MIN_IMPRESSIONS_TO_MONITOR+ impressions
