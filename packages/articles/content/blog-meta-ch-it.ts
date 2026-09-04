@@ -5434,6 +5434,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen taglia 50mila posti: quali fornitori svizzeri rischiano?',
     'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'La ristrutturazione tedesca del colosso colpirà Feintool e pochi altri. Analisi dell\'impatto sulla piazza industriale elvetica secondo gli analisti di Zurigo.',
     'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Interno di stabilimento produttivo svizzero con macchinari di precisione e operai in ambiente illuminato',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Comprare casa in Nidvaldo: prezzi, mutuo e fiscalità',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Acquistare casa in Svizzera richiede di orientarsi tra tre livelli di tassazione, mutuo ipotecario e spese notarili. Scopri come funziona il sistema e come valutare la sostenibilità del prestito.',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Casa residenziale con giardino in paesaggio alpino svizzero con montagne sullo sfondo.',
 };
 
 export default blogMetaChIt;

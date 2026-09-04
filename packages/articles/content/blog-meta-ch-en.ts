@@ -5434,6 +5434,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen cuts 50,000 seats: which Swiss suppliers are at risk?',
     'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'The German restructuring of the colossus will hit Feintool and few others. Analysis of the impact on the Swiss industrial square according to Zurich analysts.',
     'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Swiss manufacturing facility interior with precision machinery and workers in well-lit industrial environment',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Buying a house in Nidvaldo: prices, mortgage and taxation',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Buying a house in Switzerland requires you to navigate between three levels of taxation, mortgage and notary fees. Learn how the system works and how to assess loan sustainability.',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Residential house with garden in Swiss alpine landscape with mountains in the background.',
 };
 
 export default blogMetaChEn;

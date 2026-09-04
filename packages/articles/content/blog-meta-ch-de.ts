@@ -5434,6 +5434,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen streicht 50 \'000 Stellen: Welche Schweizer Zulieferer sind gefährdet?',
     'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'Die deutsche Umstrukturierung des Giganten wird Feintool und einige andere treffen. Analyse der Auswirkungen auf den Schweizer Industriestandort nach Ansicht der Zürcher Analysten.',
     'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Innenraum einer Schweizer Produktionsstätte mit Präzisionswerkzeugen und Arbeitern',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Haus kaufen in Nidwalden: Preise, Hypothek und Steuern',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Beim Hauskauf in der Schweiz müssen Sie sich zwischen drei Steuerstufen, Hypothekendarlehen und Notarkosten orientieren. Erfahren Sie, wie das System funktioniert und wie Sie die Tragbarkeit des Darlehens bewerten können.',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Wohnhaus mit Garten in Schweizer Alpenlandschaft mit Bergen im Hintergrund.',
 };
 
 export default blogMetaChDe;
