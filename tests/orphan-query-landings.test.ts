@@ -10,6 +10,7 @@
 
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -268,14 +269,47 @@ describe('orphanQueryData — helpers', () => {
 // ─── Clustering script contract ─────────────────────────────
 describe('cluster-orphan-queries.mjs — deterministic output', () => {
   const inputPath = path.join(ROOT, 'data', 'gsc-orphan-queries.json');
-  const outputPath = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
+  // FUORI dal repository. Questo caso ESEGUE lo script, e lo script scrive:
+  // puntarlo al percorso canonico faceva riscrivere un file TRACCIATO a ogni
+  // `npm test`, lasciando il working tree sporco di un diff di cron che non
+  // c'entra con ciò su cui si sta lavorando — e che un `git add -A` in una
+  // sessione agent porta dentro una PR qualsiasi. È successo il 2026-09-04.
+  const outputPath = path.join(
+    fs.mkdtempSync(path.join(os.tmpdir(), 'orphan-clusters-')),
+    'gsc-orphan-queries-clusters.json',
+  );
+
+  it('rispetta GSC_ORPHAN_CLUSTERS_OUT e non tocca il file tracciato', () => {
+    // La regressione da impedire non e' un output sbagliato, e' un EFFETTO
+    // COLLATERALE: prima, eseguire questo caso riscriveva
+    // data/gsc-orphan-queries-clusters.json nel working tree. Il test passava
+    // lo stesso, quindi nulla lo segnalava — se ne accorgeva l'agente dopo, con
+    // un file di cron finito nello stage di una PR che non c'entrava.
+    const tracked = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
+    const before = fs.existsSync(tracked) ? fs.readFileSync(tracked, 'utf-8') : null;
+    const redirect = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'orphan-guard-')), 'out.json');
+
+    execFileSync('node', ['scripts/cluster-orphan-queries.mjs'], {
+      cwd: ROOT,
+      stdio: 'pipe',
+      env: { ...process.env, GSC_ORPHAN_CLUSTERS_OUT: redirect },
+    });
+
+    expect(fs.existsSync(redirect), 'lo script ha ignorato GSC_ORPHAN_CLUSTERS_OUT').toBe(true);
+    const after = fs.existsSync(tracked) ? fs.readFileSync(tracked, 'utf-8') : null;
+    expect(after, 'lo script ha scritto il file TRACCIATO nonostante il redirect').toBe(before);
+  });
 
   it('produces a valid clusters file when run against the repo data', () => {
     if (!fs.existsSync(inputPath)) {
       // Missing input is OK in CI — plugin degrades gracefully.
       return;
     }
-    execFileSync('node', ['scripts/cluster-orphan-queries.mjs'], { cwd: ROOT, stdio: 'pipe' });
+    execFileSync('node', ['scripts/cluster-orphan-queries.mjs'], {
+      cwd: ROOT,
+      stdio: 'pipe',
+      env: { ...process.env, GSC_ORPHAN_CLUSTERS_OUT: outputPath },
+    });
     const parsed = JSON.parse(fs.readFileSync(outputPath, 'utf-8'));
     expect(parsed).toHaveProperty('generatedAt');
     expect(parsed).toHaveProperty('clusters');
