@@ -463,14 +463,35 @@ export function renderFormattedContent(
  // re-tried at the first boundary AFTER the table, never dropped (see the H2
  // branch below).
  let pendingAdKey: string | null = null;
- const tryEmitAd = (keyPrefix: string): void => {
-  if (!adRenderer) return;
-  if (!sawContent || wordsSinceLastAd < AD_MIN_WORD_GAP) return;
+ // Word credit already banked when the ad was deferred. The deferred ad may
+ // only consume THAT much: the words accumulated while it waited (the table it
+ // stepped over) belong to the next slot, exactly as they did before the
+ // deferral existed. Without this the deferred ad eats the table's words and
+ // the ad that used to follow it is never emitted — a removal, not a
+ // repositioning (AGENTS.md #7).
+ let wordsAtDefer = 0;
+ const tryEmitAd = (keyPrefix: string): boolean => {
+  if (!adRenderer) return false;
+  if (!sawContent || wordsSinceLastAd < AD_MIN_WORD_GAP) return false;
   const ad = adRenderer(keyPrefix);
-  if (!ad) return;
+  if (!ad) return false;
   renderedBlocks.push(ad);
   wordsSinceLastAd = 0;
   sawContent = false;
+  return true;
+ };
+ // Emit a deferred ad, then hand the words it stepped over back to the gap
+ // counter so the following boundary sees the same credit it would have seen
+ // on the un-deferred path.
+ const flushPendingAd = (): void => {
+  if (!pendingAdKey) return;
+  const deferredKey = pendingAdKey;
+  const carried = wordsSinceLastAd - wordsAtDefer;
+  pendingAdKey = null;
+  if (tryEmitAd(deferredKey) && carried > 0) {
+   wordsSinceLastAd = carried;
+   sawContent = true;
+  }
  };
  const markContent = (words: number): void => {
   wordsSinceLastAd += words;
@@ -508,13 +529,10 @@ export function renderFormattedContent(
 
  // Flush an ad deferred by the H2 lookahead, once the table it would have
  // straddled is behind us. The gap predicate in tryEmitAd is monotone in
- // wordsSinceLastAd, so an ad eligible at the H2 is still eligible here: the
- // deferral moves the ad, it never removes one.
- if (pendingAdKey && !isTableBlock(trimmed)) {
-  const deferredKey = pendingAdKey;
-  pendingAdKey = null;
-  tryEmitAd(deferredKey);
- }
+ // wordsSinceLastAd, so an ad eligible at the H2 is still eligible here. That
+ // alone only saves the DEFERRED ad; flushPendingAd also returns the words the
+ // table contributed, which is what saves the ad AFTER it.
+ if (pendingAdKey && !isTableBlock(trimmed)) flushPendingAd();
 
  // Heading: #### (H4 — sub-sub-heading)
  if (trimmed.startsWith('#### ')) {
@@ -563,6 +581,7 @@ export function renderFormattedContent(
  // rimozione).
  if (isTableBlock(blocks[idx + 1]?.trim() ?? '')) {
   pendingAdKey = `post-table-h2-${idx}`;
+  wordsAtDefer = wordsSinceLastAd;
  } else {
   tryEmitAd(`pre-h2-${idx}`);
  }
@@ -726,6 +745,11 @@ export function renderFormattedContent(
  );
  markContent(countWordsIn(cleanedParagraph));
  }
+
+ // A deferral still open here means the table was the segment's last block:
+ // flush it, then let the carried words compete for the final slot — the same
+ // two chances the un-deferred path had.
+ flushPendingAd();
 
  // Final ad slot — the last section gets its own breakpoint at end-of-segment.
  tryEmitAd('post-end');
