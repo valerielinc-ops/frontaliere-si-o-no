@@ -70,6 +70,33 @@ export const RESERVE_FOR_OLDEST = 0.2;
 export const QUEUE_AGE_ALERT_DAYS = 150;
 
 /**
+ * The freshness window: a job first seen less recently than this is no longer
+ * "new" and stops jumping the queue.
+ *
+ * 24 hours because that is the second condition of the translation map's
+ * destination — «a new job gets all four languages within 24 hours of first
+ * sighting» — not because 24 was tuned against anything. It is a definition
+ * this code serves, so it is a constant here and NOT a knob: the one number
+ * meant to be tuned in this module stays `RESERVE_FOR_OLDEST`, which is what a
+ * feedback loop would have to move on its own.
+ */
+export const FRESH_WINDOW_MS = 24 * 60 * 60 * 1000;
+
+/**
+ * Every key the `stats` half of `buildTrafficPriority()` returns.
+ *
+ * Exported for the same reason as QUEUE_AGE_BUCKET_KEYS below, and after the
+ * same failure: `validTrafficStats()` in translation-shadow-preflight-v2.mjs
+ * checks these EXACTLY, so a field added here and not there invalidates every
+ * shadow preflight observation — silently, and on every run. A consumer that
+ * keeps its own copy of this list is a consumer that will drift.
+ */
+export const TRAFFIC_STATS_KEYS = Object.freeze([
+  'age', 'freshFirst', 'freshHead', 'freshWindowMs',
+  'matchRate', 'matched', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
+]);
+
+/**
  * The age buckets that PARTITION the dated queue: every dated job lands in
  * exactly one, so their sum is `withTimestamp`. Any consumer checking that
  * invariant must sum THESE, never `Object.values(buckets)`.
@@ -233,12 +260,19 @@ function round1(n) { return Math.round(n * 10) / 10; }
  * whichever list runs out first, the other one supplies the remainder. With
  * reserve = 0.2 that is 4 traffic picks then 1 age pick, repeating.
  *
+ * `freshFirst` puts every job younger than FRESH_WINDOW_MS at the head, in one
+ * block, before that stride begins — see the comment at the partition. It is
+ * OFF by default and belongs only to the FREE local-MT mop-up: the AI cascade
+ * caps out at 53 jobs per 90-minute run, and 1.308 fresh jobs would eat every
+ * one of those slots for a cohort twenty-five times larger than the cascade
+ * can serve, starving traffic and backlog on the paid path for nothing.
+ *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
- * @param {{ reserveForOldest?: number, now?: number }} [opts]
+ * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean }} [opts]
  * @returns {{ order: object[], stats: object }}
  */
-export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now() } = {}) {
+export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false } = {}) {
   const jobs = Array.isArray(pending) ? pending : [];
   const pop = popularity && typeof popularity === 'object' ? popularity : {};
 
@@ -254,15 +288,41 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   const matched = scored.filter((s) => s.views > 0).length;
   const trafficEntries = Object.keys(pop).length;
 
+  // ── The freshness lane ────────────────────────────────────────────────
+  //
+  // Jobs first seen less than FRESH_WINDOW_MS ago go FIRST, all of them, with
+  // no quota — and then the rest of the queue keeps exactly the stride it had.
+  //
+  // Why no quota. Three lanes cannot be interleaved by a single stride: that
+  // needs two ratios, and the tunable here must stay ONE observable number,
+  // because it is the lever a feedback loop has to be able to move on its own.
+  // The fresh cohort does not need a ratio because it is SELF-LIMITING —
+  // ~1.421 jobs arrive per day against a 6.000-job cap per run, five runs a
+  // day — so it drains itself instead of starving traffic and backlog. The
+  // 24-hour threshold is fixed by the destination it serves, not tuned.
+  //
+  // Why the ordering is not enough on its own: measured 2026-09-04, 1.308 of
+  // the 1.421 jobs seen in the last 24 hours were still pending — 92,0%. The
+  // lane did not exist, so nothing served them while they were fresh.
+  const freshCutoff = freshFirst ? now - FRESH_WINDOW_MS : -Infinity;
+  const isFresh = (s) => s.queuedAt >= freshCutoff && Number.isFinite(s.queuedAt);
+  // Within the head, highest traffic first: the cohort is served whole either
+  // way, so its internal order only decides who is repaired first inside it.
+  const freshHead = freshFirst
+    ? scored.filter(isFresh).sort((a, b) =>
+      b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index)
+    : [];
+  const rest = freshFirst ? scored.filter((s) => !isFresh(s)) : scored;
+
   // Highest traffic first; ties broken OLDEST first (not by array order) so the
   // 33% of the queue with zero recorded traffic still drains front-to-back
   // instead of in whatever order the slices happened to be read.
-  const byTraffic = [...scored].sort((a, b) =>
+  const byTraffic = [...rest].sort((a, b) =>
     b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index);
-  const byAge = [...scored].sort((a, b) =>
+  const byAge = [...rest].sort((a, b) =>
     a.queuedAt - b.queuedAt || b.views - a.views || a.index - b.index);
 
-  const order = [];
+  const order = freshHead.map((s) => s.job);
   const taken = new Set();
   const stride = reserveForOldest > 0 ? Math.max(2, Math.round(1 / reserveForOldest)) : 0;
   let ti = 0;
@@ -272,7 +332,11 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
     while (i < list.length && taken.has(list[i].index)) i++;
     return i;
   };
-  for (let slot = 0; slot < scored.length; slot++) {
+  // `rest.length`, not `scored.length`: the fresh head is already in `order`,
+  // and the stride must count slots of the REMAINDER — counting them over the
+  // whole queue would shift every oldest-first reserve slot by the size of the
+  // head, silently changing the ordering the head was supposed to leave alone.
+  for (let slot = 0; slot < rest.length; slot++) {
     const wantsAge = stride > 0 && (slot + 1) % stride === 0;
     let pickedFromAge = false;
     let entry = null;
@@ -306,6 +370,12 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
       matchRate: scored.length === 0 ? 0 : matched / scored.length,
       totalViews,
       reserveForOldest,
+      // Quanti slot ha preso la testa fresca. Stampato dal report perche' e'
+      // l'unico modo di vedere che la corsia esiste: l'ordinamento non lascia
+      // altra traccia, e una corsia che smette di funzionare sarebbe muta.
+      freshFirst,
+      freshHead: freshHead.length,
+      freshWindowMs: freshFirst ? FRESH_WINDOW_MS : 0,
       age: summarizeQueueAge(jobs, { now }),
     },
   };
@@ -370,6 +440,12 @@ export function formatPriorityReport(stats) {
     `   With traffic > 0:     ${stats.matched} (${pct(stats.matchRate)})`,
     `   Views held by queue:  ${stats.totalViews}`,
     `   Oldest-first reserve: ${pct(stats.reserveForOldest)} of each batch`,
+    // Stampata sempre, anche spenta e anche a zero: una corsia che smette di
+    // pescare deve essere visibile nel log come «0 job», non sparire dalla
+    // riga insieme al suo effetto.
+    `   Freshness lane:       ${stats.freshFirst
+      ? `${stats.freshHead} job(s) ahead of the stride (< ${Math.round(stats.freshWindowMs / 3_600_000)}h old)`
+      : 'off (this consumer keeps the plain traffic/age stride)'}`,
     `   Queue age (from first-seen, upper bound on time-in-queue):`,
     `     oldest ${a.oldestAgeDays ?? 'n/a'}d · p50 ${a.p50AgeDays ?? 'n/a'}d · p90 ${a.p90AgeDays ?? 'n/a'}d` +
       ` · dated ${a.withTimestamp}/${a.count}`,

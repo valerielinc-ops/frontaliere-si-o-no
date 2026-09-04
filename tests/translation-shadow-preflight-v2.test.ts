@@ -128,6 +128,13 @@ function preflightInput(jobs: any[], {
         matchRate: jobs.length === 0 ? 0 : 1,
         totalViews: jobs.reduce((sum, _item, index) => sum + jobs.length - index, 0),
         reserveForOldest: 0.2,
+        // Corsia freschezza SPENTA (#18): il preflight osserva il cascade, che
+        // la lascia spenta apposta. A corsia spenta il validatore pretende
+        // `freshHead` e `freshWindowMs` a zero, così un consumatore non può
+        // accenderla senza dichiararlo.
+        freshFirst: false,
+        freshHead: 0,
+        freshWindowMs: 0,
         age: {
           count: jobs.length,
           withTimestamp: 0,

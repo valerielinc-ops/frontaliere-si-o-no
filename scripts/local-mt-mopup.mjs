@@ -459,7 +459,17 @@ async function main() {
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity);
+  // `freshFirst` è ACCESO qui e solo qui. Questo è il percorso gratuito —
+  // Argos locale, cap 6.000 job per esecuzione, cinque esecuzioni al giorno —
+  // cioè l'unico che abbia la capacità per il vincolo delle 24 ore: contro un
+  // ingresso di ~1.421 annunci al giorno, la coorte fresca sta comodamente
+  // dentro un singolo passaggio e non affama le altre due corsie.
+  //
+  // Il cascade AI (`relocalize-pending-jobs.mjs`) lo lascia spento apposta:
+  // processa 53 job in 90 minuti per deadline, quindi una testa fresca da
+  // 1.308 job gli mangerebbe tutti gli slot di ogni run senza nemmeno
+  // smaltirla.
+  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity, { freshFirst: true });
   for (const line of formatPriorityReport(stats)) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
