@@ -11272,6 +11272,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.title': 'Leben in Montano Lucino und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Montano Lucino zu leben und im Tessin zu arbeiten.',
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.title': 'Wohnen in Induno Olona und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile, in Induno Olona zu leben und im Tessin zu arbeiten.',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Alpen im Hintergrund',
 };
 
 export default blogMetaDe;

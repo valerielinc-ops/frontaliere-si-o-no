@@ -11273,6 +11273,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.title': 'Living in Montano Lucino and working in Ticino as a border worker',
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Montano Lucino and working in Ticino.',
     'blog.article.vivere-montano-lucino-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Swiss mountains in the background',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.title': 'Living in Induno Olona and working in Ticino as a border worker',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Induno Olona and working in Ticino.',
+    'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss Alps in the background',
 };
 
 export default blogMetaEn;
