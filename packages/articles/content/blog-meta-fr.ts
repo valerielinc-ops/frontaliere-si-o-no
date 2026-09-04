@@ -11308,6 +11308,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Vivre à Orino et travailler au Tessin en tant que frontalier',
     'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Déménager à Orino en tant que frontalier : Permis G, impôt à la source et procédure administrative pour le travail au Tessin.',
     'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano au coucher du soleil, avec batiments modernes et le lac frontiere entre Tessin et Italie.',
+    'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano : 79 licenciements en un seul geste',
+    'blog.article.bally-caslano-79-licenziamenti.excerpt': 'La multinationale annonce la suppression de 25 postes administratifs et de 54 postes opérationnels. Protestations du Conseil d\'État sur le marché libre. Que doit savoir le frontalier ?',
+    'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Siège d\'entreprise à Caslano, Tessin avec vue sur le lac de Lugano',
 };
 
 export default blogMetaFr;

@@ -11307,6 +11307,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Vivere a Orino e lavorare in Ticino da frontaliere',
     'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Trasferirsi a Orino da frontaliere: Permesso G, imposta alla fonte e procedura amministrativa per il lavoro in Ticino.',
     'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Veduta panoramica di Lugano al tramonto, con edifici moderni e il lago di confine fra Ticino e Italia.',
+    'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 licenziamenti in una sola mossa',
+    'blog.article.bally-caslano-79-licenziamenti.excerpt': 'La multinazionale annuncia il taglio di 25 amministrativi e 54 operativi. Proteste del Consiglio di Stato sul libero mercato. Cosa deve sapere il frontaliere?',
+    'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Stabilimento aziendale presso Caslano, Ticino, con vista sul lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;
