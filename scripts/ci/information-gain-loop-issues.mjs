@@ -304,11 +304,28 @@ async function main() {
 
   for (const cohort of verdict.cohorts ?? []) {
     const identity = identityOf(cohort);
-    if (!regressed.has(identity)) resolveOnce(titles.regression(identity));
+    // Asimmetrico come i due produttori (`audit-information-gain.mjs` e
+    // `information-gain-live-scan.mjs`, che allentano il ratchet solo quando
+    // `inventoryKey === cohort.label`): chiudere una regressione è il verso
+    // «recupero», e un campione di UNA sotto-famiglia non è prova family-wide.
+    // Senza il vincolo, con `identity = inventoryKey` una run il cui bucket
+    // pesca la sotto-famiglia sana (`it:/stipendio-medio-svizzera-informatico-`,
+    // sopra baseline) chiuderebbe la issue aperta due run prima dalla
+    // sotto-famiglia ancora a 0 %: si apre con `consecutiveGate: 2` e si
+    // chiuderebbe al primo bucket fortunato, quindi la issue lampeggia col
+    // numero di run e la famiglia thin smette di essere tracciata — il difetto
+    // che #7384 chiude, preso al verso opposto. Fuori inventario `inventoryKey`
+    // è `null`, quindi `identity === label` e il comportamento è invariato.
+    if (!regressed.has(identity) && cohort.label === identity) {
+      resolveOnce(titles.regression(identity));
+    }
     // Il resolve del ratchet solo per le coorti che SONO nell'inventario: una
     // coorte che non c'è non può avere una issue «togli la riga», e ogni
     // resolve costa una ricerca `gh`. Con dodici coorti erano dodici ricerche
-    // per chiudere niente.
+    // per chiudere niente. Qui NON serve il vincolo family-wide di sopra: la
+    // issue di ratchet dice «togli la riga d'inventario», quindi chiuderla su
+    // un campione stretto erra dal lato conservativo (la riga resta, il gate
+    // resta stretto), che è il verso sicuro dell'asimmetria.
     if (cohort.recorded !== null && !ratcheting.has(identity)) {
       resolveOnce(titles.ratchet(identity));
     }

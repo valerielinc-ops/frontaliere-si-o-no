@@ -183,6 +183,22 @@ describe('i titoli delle issue sono stabili e la misura sta nel corpo', () => {
     expect(src).toMatch(/consecutiveGate:\s*2/);
   });
 
+  it('il resolve di una regressione esige una misura family-wide (issue #7384)', () => {
+    // Stessa asimmetria dei due produttori, applicata alla METÀ che chiude:
+    // si APRE su un campione (una sotto-famiglia sotto la baseline è di per sé
+    // una prova di peggioramento) ma si CHIUDE solo su una run che ha misurato
+    // la famiglia intera, cioè quando l'etichetta campionata è uguale
+    // all'identità. Senza il vincolo, con `identity = inventoryKey` il bucket
+    // che pesca la sotto-famiglia sana chiuderebbe la issue aperta da quella
+    // ancora a 0 %: si apre con `consecutiveGate: 2` e si chiuderebbe al primo
+    // bucket fortunato, quindi la issue lampeggia col numero di run.
+    const loop = src.slice(src.indexOf('for (const cohort of verdict.cohorts'));
+    const regressionResolve = loop.slice(0, loop.indexOf('titles.ratchet'));
+    expect(regressionResolve).toMatch(
+      /!regressed\.has\(identity\)\s*&&\s*cohort\.label === identity/,
+    );
+  });
+
   it('lo scan non fa fallire la run', () => {
     const scan = fs.readFileSync(
       path.join(REPO_ROOT, 'scripts/ci/information-gain-live-scan.mjs'),
