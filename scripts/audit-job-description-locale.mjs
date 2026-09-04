@@ -98,11 +98,11 @@ import {
   MIN_SERVED_SHARE,
 } from './lib/job-locale-population.mjs';
 
-// L'allarme sulla coda vive in un modulo SENZA import: lo carica anche lo
-// script inline di job-description-locale-audit.yml, che non deve tirarsi
-// dietro il rilevatore di lingua per confrontare due numeri. Ri-esportato qui
-// perche' resti raggiungibile da chi legge questo script.
-export { evaluateQueueAlarm, parseNonNegativeInteger } from './lib/queue-alarm.mjs';
+// L'allarme sulla coda vive in `./lib/queue-alarm.mjs`, un modulo SENZA import:
+// lo carica anche lo script inline di job-description-locale-audit.yml, che non
+// deve tirarsi dietro il rilevatore di lingua per confrontare due numeri.
+// Deliberatamente NON ri-esportato da qui: un re-export ricrea il percorso di
+// import che il modulo leggero esiste per evitare. Importalo da li'.
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');

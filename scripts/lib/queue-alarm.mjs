@@ -17,10 +17,18 @@
  * @returns {number | null}
  */
 export function parseNonNegativeInteger(value) {
-  if (typeof value !== 'number' && typeof value !== 'string') return null;
-  if (typeof value === 'string' && value.trim() === '') return null;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) && Number.isInteger(parsed) && parsed >= 0 ? parsed : null;
+  if (typeof value === 'number') {
+    return Number.isInteger(value) && value >= 0 ? value : null;
+  }
+  if (typeof value !== 'string') return null;
+  const trimmed = value.trim();
+  // Solo decimale semplice. `Number()` accetterebbe anche `0x64` (=100) e `1e3`
+  // (=1000), entrambi interi e non negativi: una repo var scritta `1e3`
+  // diventerebbe silenziosamente mille invece di essere rifiutata come «non lo
+  // so», che e' l'opposto di cio' che questo parser serve a fare.
+  if (!/^[0-9]+$/.test(trimmed)) return null;
+  const parsed = Number(trimmed);
+  return Number.isSafeInteger(parsed) ? parsed : null;
 }
 
 /**

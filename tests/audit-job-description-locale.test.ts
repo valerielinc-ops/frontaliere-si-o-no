@@ -319,6 +319,45 @@ describe('allarme sulla coda ferma', () => {
     expect(evaluateQueueAlarm('0', '0')).toMatchObject({ valid: true, queueStuck: false });
   });
 
+  it('rifiuta le forme numeriche esotiche che Number() accetterebbe', () => {
+    // `0x64` vale 100 e `1e3` vale 1000: entrambi interi e non negativi. Una
+    // repo var scritta cosi' diventerebbe silenziosamente un numero diverso da
+    // quello che sembra, che e' l'opposto di cio' che questo parser serve a fare.
+    for (const esotico of ['0x64', '1e3', '+5', '5.0', ' 1_0 ', '١٢٣']) {
+      expect(evaluateQueueAlarm(10, esotico), esotico).toMatchObject({ valid: false });
+    }
+    // Il decimale semplice, con spazi attorno, resta valido.
+    expect(evaluateQueueAlarm(10, ' 100 ')).toMatchObject({ valid: true, threshold: 100 });
+  });
+
+  it('la riga «non leggibile» sta fuori dal guard su queuedJobs', () => {
+    // `queueStuck` si calcola su `r.queue || {}`, quindi un oggetto `queue`
+    // assente apre l'alert. Se la spiegazione vivesse dentro
+    // `if (q.queuedJobs !== undefined)`, l'issue si aprirebbe senza che il
+    // corpo nomini la coda da nessuna parte.
+    const alarmAt = workflow.indexOf('if (!queueAlarm.valid) {');
+    const guardAt = workflow.indexOf('if (q.queuedJobs !== undefined) {');
+    expect(alarmAt).toBeGreaterThan(-1);
+    expect(guardAt).toBeGreaterThan(-1);
+    expect(alarmAt).toBeLessThan(guardAt);
+  });
+
+  it('dice QUALE dei due input manca, non incolpa sempre il conteggio', () => {
+    expect(evaluateQueueAlarm(180, '50.5')).toMatchObject({ valid: false, count: 180, threshold: null });
+    expect(evaluateQueueAlarm(undefined, 100)).toMatchObject({ valid: false, count: null, threshold: 100 });
+    expect(workflow).toContain('la soglia non e leggibile');
+    expect(workflow).toContain('il conteggio della coda non e leggibile');
+  });
+
+  it('lo script pesante NON ri-esporta l allarme', () => {
+    // Un re-export ricrea il percorso di import che il modulo leggero esiste
+    // per evitare: chi lo seguisse si tirerebbe dietro il rilevatore di lingua.
+    const audit = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/audit-job-description-locale.mjs'), 'utf8',
+    );
+    expect(audit).not.toMatch(/export \{[^}]*evaluateQueueAlarm/);
+  });
+
   it('il workflow usa la funzione e non ricostruisce il confronto a mano', () => {
     expect(workflow).toContain('evaluateQueueAlarm');
     expect(workflow).not.toMatch(/Number\(q\.staleSourceCopyJobs/);
@@ -333,6 +372,6 @@ describe('allarme sulla coda ferma', () => {
 
   it('quando la misura manca il report lo dice, invece di tacere', () => {
     expect(workflow).toContain('queueAlarm.valid');
-    expect(workflow).toContain('Conteggio della coda non leggibile');
+    expect(workflow).toContain('Allarme cieco');
   });
 });
