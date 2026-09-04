@@ -5461,6 +5461,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprenticeship and vocational training in the canton of Glarus',
     'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'How to find an internship, enter into a contract, learn about the apprentice\'s salary and achieve professional maturity in the canton of Glarus.',
     'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Young apprentice during practical vocational training in a Swiss company workshop with instructor',
+    'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Vaud Family Allowances: Amounts and How to Apply',
+    'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Practical guide to family allowances in the canton of Vaud: how to apply, beneficiaries\' rights, required documents and competent compensation fund.',
+    'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Swiss family reviewing family benefit documents in a modern kitchen with alpine mountain views.',
 };
 
 export default blogMetaChEn;

@@ -16381,6 +16381,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'assegni-familiari-vaud-importi-domanda',
+    category: 'pratico',
+    date: '2026-09-04T18:25:56.667Z',
+    image: '/images/blog/assegni-familiari-vaud-importi-domanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -5461,6 +5461,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprentissage et formation professionnelle dans le canton de Glaris',
     'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Comment trouver un stage, conclure un contrat, connaître la rémunération de l\'apprenti et atteindre la maturité professionnelle dans le canton de Glaris.',
     'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Apprenti en formation professionnelle pratique dans une entreprise suisse avec instructeur',
+    'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Allocations familiales vaudoises : montants et modalités de demande',
+    'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Guide pratique des allocations familiales dans le canton de Vaud : comment faire une demande, droits des bénéficiaires, documents demandés et caisse de compensation compétente.',
+    'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Famille suisse consultant les documents d\'allocations familiales dans une cuisine moderne avec vue sur les Alpes.',
 };
 
 export default blogMetaChFr;

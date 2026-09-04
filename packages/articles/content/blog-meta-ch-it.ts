@@ -5461,6 +5461,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprendistato e formazione professionale nel canton Glarona',
     'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Come trovare un tirocinio, stipulare un contratto, conoscere la retribuzione dell\'apprendista e conseguire la maturità professionale nel canton Glarona.',
     'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Un giovane apprendista durante una lezione pratica di formazione professionale in un\'azienda svizzera con istruttore',
+    'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Assegni familiari Vaud: importi e come fare domanda',
+    'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Guida pratica agli assegni familiari nel cantone di Vaud: come fare domanda, diritti dei beneficiari, documenti richiesti e cassa di compensazione competente.',
+    'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Una famiglia svizzera consulta i documenti sugli assegni familiari in una cucina moderna con vista sulle montagne alpine.',
 };
 
 export default blogMetaChIt;
