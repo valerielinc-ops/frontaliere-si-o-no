@@ -5455,6 +5455,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen streicht weitere 50’000 Stellen',
     'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'Der Volkswagen Konzern hat einen Sanierungsplan angekündigt, der den Abbau von weiteren 50’000 Arbeitsplätzen bis 2030 vorsieht.',
     'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
+    'blog.article.apprendistato-svizzera-guida-pratica.title': 'Aus- und Weiterbildung: So funktioniert es in der Schweiz',
+    'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Erfahren Sie, wie die Lehre in der Schweiz funktioniert: von der Suche nach dem Praktikum bis zum Vertrag, von der Vergütung über den Rechtsschutz bis zur Berufsmaturität.',
+    'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Junger Lehrling arbeitet in modernem Schweizer Betrieb während praktischer Ausbildung',
 };
 
 export default blogMetaChDe;
