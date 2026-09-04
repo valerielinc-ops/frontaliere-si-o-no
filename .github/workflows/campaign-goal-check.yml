@@ -86,7 +86,10 @@ jobs:
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-        run: node scripts/campaign-goal-check.mjs
+        # `npx tsx`: this script imports scripts/lib/seo-ctr-curve.mjs, which
+        # now reaches into services/router.ts / build-plugins/fuelDailyData.ts
+        # (issue #7174). Bare node cannot resolve those TS specifiers.
+        run: npx tsx scripts/campaign-goal-check.mjs
 
       - name: Cleanup credentials
         if: always()
