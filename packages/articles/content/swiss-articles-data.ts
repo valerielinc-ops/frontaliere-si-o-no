@@ -16165,6 +16165,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'ricerca-medicina-ticino-innovazione',
+    category: 'novita',
+    date: '2026-09-04T04:37:39.371Z',
+    image: '/images/blog/ricerca-medicina-ticino-innovazione.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

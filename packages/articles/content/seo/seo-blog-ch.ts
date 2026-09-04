@@ -69947,6 +69947,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ricerca-medicina-ticino-innovazione': {
+    title: 'Ricerca medica in Ticino: dal laboratorio al paziente',
+    description: 'La Giornata della ricerca all\'USI di Lugano: 200 contributi scientifici su come l\'innovazione accelera il percorso dalle scoperte alle cure. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, ricerca, medica, laboratorio, paziente',
+    ogTitle: 'Ricerca medica in Ticino: dal laboratorio al paziente',
+    ogDescription: 'La Giornata della ricerca all\'USI di Lugano: 200 contributi scientifici su come l\'innovazione accelera il percorso dalle scoperte alle cure.',
+    canonicalPath: '/articoli-svizzera/ricerca-medicina-ticino-innovazione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ricerca medica in Ticino: dal laboratorio al paziente",
+      "description": "La Giornata della ricerca all'USI di Lugano: 200 contributi scientifici su come l'innovazione accelera il percorso dalle scoperte alle cure. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ricerca-medicina-ticino-innovazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Laboratorio di ricerca biomedica in Ticino con scienziati al lavoro su campioni e innovazione medica"
+      },
+      "datePublished": "2026-09-04T04:37:39+00:00",
+      "dateModified": "2026-09-04T04:37:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ricerca-medicina-ticino-innovazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

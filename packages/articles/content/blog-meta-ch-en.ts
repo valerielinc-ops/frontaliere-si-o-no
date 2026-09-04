@@ -5389,6 +5389,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.imposte-cantonali-vaud-aliquote.title': 'Cantonal taxes in the canton of Vaud: rates and deductions',
     'blog.article.imposte-cantonali-vaud-aliquote.excerpt': '3-tier tax system, progressive rates for income brackets, allowable deductions and official portal of the canton of Vaud for declarations.',
     'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Swiss cantonal administration building in Vaud region',
+    'blog.article.ricerca-medicina-ticino-innovazione.title': 'Medical research in Ticino: from the laboratory to the patient',
+    'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'The USI Research Day in Lugano: 200 scientific contributions on how innovation accelerates the path from discovery to treatment.',
+    'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Swiss biomedical research laboratory with scientists working on biological samples and medical innovation',
 };
 
 export default blogMetaChEn;

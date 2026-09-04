@@ -5389,6 +5389,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.imposte-cantonali-vaud-aliquote.title': 'Imposte cantonali nel canton Vaud: aliquote e deduzioni',
     'blog.article.imposte-cantonali-vaud-aliquote.excerpt': 'Sistema fiscale a 3 livelli, aliquote progressive per scaglioni di reddito, deduzioni ammesse e portale ufficiale del canton Vaud per le dichiarazioni.',
     'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Edificio amministrativo svizzero del cantone Vaud con vista della città',
+    'blog.article.ricerca-medicina-ticino-innovazione.title': 'Ricerca medica in Ticino: dal laboratorio al paziente',
+    'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'La Giornata della ricerca all\'USI di Lugano: 200 contributi scientifici su come l\'innovazione accelera il percorso dalle scoperte alle cure.',
+    'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Laboratorio di ricerca biomedica in Ticino con scienziati al lavoro su campioni e innovazione medica',
 };
 
 export default blogMetaChIt;

@@ -5389,6 +5389,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.imposte-cantonali-vaud-aliquote.title': 'Impôts cantonaux dans le canton de Vaud : taux et déductions',
     'blog.article.imposte-cantonali-vaud-aliquote.excerpt': 'Système fiscal à 3 niveaux, taux progressifs par tranches de revenus, déductions admises et portail officiel du canton de Vaud pour les déclarations.',
     'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Bâtiment administratif du canton de Vaud en Suisse romande',
+    'blog.article.ricerca-medicina-ticino-innovazione.title': 'Recherche médicale au Tessin : du laboratoire au patient',
+    'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'La Journée de la recherche aux USAGES de Lugano : 200 contributions scientifiques sur la façon dont l\'innovation accélère le parcours des découvertes aux soins.',
+    'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Laboratoire de recherche biomédicale suisse avec scientifiques travaillant sur échantillons biologiques et innovation',
 };
 
 export default blogMetaChFr;
