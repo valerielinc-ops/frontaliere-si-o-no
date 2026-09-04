@@ -11317,6 +11317,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-tilo-italia-2026.title': 'Neuer Streik, die TILO halten an der Grenze an',
     'blog.article.sciopero-tilo-italia-2026.excerpt': 'Nationaler Streik in Italien vom 7. bis 8. September 2026: Auswirkungen auf die TILO-VERBINDUNGEN',
     'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Luftaufnahme von Lugano mit der italienischen Grenze im Hintergrund',
+    'blog.article.lavoro-remoto-estero-vacanza.title': 'Fern vom Ausland im Urlaub: Grenzgängersteuern',
+    'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Fernarbeit im Urlaub in einem Drittland: Wie die Besteuerung funktioniert, was das KVG abdeckt und ob der Arbeitgeber informiert werden muss. Praktischer Leitfaden für Grenzgänger Tessin-Italien.',
+    'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Grenzgänger arbeitet mit Laptop ferngesteuert während des Auslandsurlaubs',
 };
 
 export default blogMetaDe;

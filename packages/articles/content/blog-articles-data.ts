@@ -33816,6 +33816,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'lavoro-remoto-estero-vacanza',
+ category: 'fiscale',
+ date: '2026-09-04T11:58:26.343Z',
+ image: '/images/blog/lavoro-remoto-estero-vacanza.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

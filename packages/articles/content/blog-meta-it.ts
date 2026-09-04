@@ -11319,6 +11319,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-tilo-italia-2026.title': 'Nuovo sciopero, i TILO si fermano al confine',
     'blog.article.sciopero-tilo-italia-2026.excerpt': 'Sciopero nazionale in Italia dal 7 al 8 settembre 2026: ripercussioni sui collegamenti TILO',
     'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Vista aerea di Lugano con il confine italiano in lontananza',
+    'blog.article.lavoro-remoto-estero-vacanza.title': 'Remoto dall\'estero in vacanza: le tasse del frontaliere',
+    'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Lavorare da remoto durante una vacanza in un terzo paese: come funziona la tassazione, cosa copre la LAMal e se il datore deve essere informato. Guida pratica per frontalieri Ticino-Italia.',
+    'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Frontaliere che lavora da remoto con laptop durante vacanza in un paese estero',
 };
 
 export default blogMetaIt;

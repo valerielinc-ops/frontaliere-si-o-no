@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides for cross-border workers in Ticino</description>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Sep 2026 09:42:01 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 11:58:26 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — English</title>
@@ -17,6 +17,95 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Remote from abroad on holiday: cross-border taxes</title>
+      <link>https://frontaliereticino.ch/en/cross-border-articles/remote-work-abroad-vacation/</link>
+      <description><![CDATA[Working remotely during a holiday in a third country: how taxation works, what LAMal covers and whether the employer needs to be informed. Practical guide for border workers Ticino-Italy.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Withholding tax remains in Switzerland, not "in both countries"
+- Italy grants a tax credit to avoid double taxation
+- Communicating international telework to the employer is mandatory
+- LAMal remains covered throughout the foreign stay
+
+## Key facts
+- **What**: Remote telework for a Swiss employer during vacation in a third country
+- When: During smart working days (not official holidays)
+- Where: Any foreign country (not CH, not bordering Italy)
+- Who: Cross-border commuters with Permit G/B residing in Italy, employed by a Swiss company
+- Legislation: New Cross-Border Agreement (effective 1 January 2024); Italy-Switzerland Double Taxation Convention (9 December 1976)
+- Tax: Single withholding in Switzerland; Italian tax credit
+- Coverage: LAMal continues without interruption
+
+A cross-border commuter working remotely during a vacation in a third country moves between three tax systems: Switzerland (where the employer is based), Italy (tax residence of the commuter), and the temporary stay country. The New Cross-Border Agreement, effective 1 January 2024, has clarified how to avoid double taxation, but practical doubts remain regarding taxation and obligations towards the employer.
+
+### The withholding tax regime remains unchanged
+
+Swiss withholding tax applies regardless of where the cross-border commuter is physically located. The employer continues to withhold tax according to the applicable cantonal rate, without considering the temporary stay country. This is a crucial point: taxation occurs ONCE, in Switzerland, never in duplicate.
+
+Italy, thanks to the Convention between the two countries signed on 9 December 1976 and the criteria of the New Agreement, DOES NOT apply a second taxation on the employment income already subject to Swiss withholding tax. The cross-border commuter declares the income in the CE section of the Italian model 730, indicating the gross amount and the taxes paid in Switzerland. The Italian tax authority automatically issues a proportional tax credit, reducing or eliminating additional Italian taxation.
+
+### Communication to the employer: not optional
+
+Informing the employer of the situation (dates of stay, days of international telework, destination country) is not just a courtesy; it is an obligation. Two reasons: first, the employer has the right to know where their employees work for reasons of civil liability, operational continuity, and GDPR compliance (some countries have different data protection rules). Second, written documentation of the communication protects the cross-border commuter in case of subsequent tax audits.
+
+An email to the HR manager with the exact dates, the destination country, and the request for confirmation of the availability of international smart working creates a record that justifies the tax situation before the Italian Revenue Agency or the Swiss cantonal authority.
+### LAMal: continuous cover also from abroad
+
+The most frequently asked question is: Does LAMal (Swiss health insurance) cover the border worker if they work remotely from a foreign country? The answer is yes, no exceptions. The Swiss LAMal covers the border crossing (G permit) throughout the world, including during temporary stay in third countries, as long as it remains enrolled in the Swiss insurance. There is no interruption of coverage, lapse of the policy, or request for information from the insurer before departure.
+
+However, it is prudent to check three aspects of your coverage:
+
+- **LPP (mandatory employer pension)**: Some integrated plans include explicit clauses on coverage during international work. Check your collective bargaining agreement or company LPP membership document for geo exclusions.
+- LAINF (Swiss Accident Insurance): Coverage for accidents while teleworking abroad is generally included, but some employers or insurance intermediaries may apply restrictions on non-EU countries. Ask your employer or intermediary before you leave.
+- Health conventions of the country of destination: If the country of destination has agreements with Switzerland (e.g. EU), costs are generally covered. Non-EU countries may incur out-of-pocket costs; check if your supplementary/private insurance covers these differences.
+
+### Italian tax declaration: the framework
+
+## Useful tools for your case
+To verify your within/over 20 km tax scenario, use the [net salary calculator](nav:calculator) and the [tax return guide](nav:tax-return).
+### Pre-departure checklist
+
+1. Written notification to the employer (MANDATORY)
+Send an email to the HR manager or direct supervisor containing:
+- Exact departure and return dates
+- Days you will continue to work remotely
+- Destination country (relevant information for GDPR and civil liability issues)
+- Contact availability (time zone, emergency number)
+Request a written confirmation of the company's availability for international teleworking.
+
+**2. Insurance coverage verification**
+Check your LAMal policy for geographical exclusions (rare, but some private integrated policies may have limitations). Read the documentation of the company's LPP (mandatory pension) for coverage during foreign work. Verify with the employer's insurance broker if LAINF (accidents) covers smart working from a third country or has exclusions for specific areas.
+
+3. Tax documentation
+Gather and organize:
+- Email communication to the employer (situation attestation)
+- Work communication extracts (emails, chat messages) attesting to teleworking days vs. vacation
+- Certification of residence in Italy (useful if subsequent checks)
+- Copy of the current LAMal policy
+
+### Deadlines and declarative procedure
+
+The ordinary tax deadlines remain unchanged:
+
+- December 31, 2026: The Swiss employer issues the Certificazione Unica (CU) with the work income and withholding taxes deducted during the year.
+- May 15–31, 2027: Deadline for submitting the Italian income tax return (model 730 or model Redditi). If submitted electronically via a CAF intermediary, the deadline may extend to June 30.
+
+In the model 730, enter the declared income in the "Employment Income" section and complete the CE section indicating the taxes paid in Switzerland. The Italian Revenue Agency processes the tax credit automatically; the bank communicates the refund amount (or deduction) within the ordinary deadlines.
+
+### Tools and support: tax calculator
+Use the [tax calculator](nav:calculator) of Frontaliere Ticino to estimate your annual net income considering:
+- Cantonale withholding tax rate (Ticino: about 8–10%, variable by company and family situation)
+- Italian IRPEF brackets (23% up to €28,000; 35% from €28,001 to €50,000; 43% over €50,000)
+- Italian tax credit automatically applied if declared correctly
+
+For questions about AVS/AI (mandatory Swiss pension) and LPP (employer pension), consult the [pension comparator](nav:pension). If you need personalized advice on specific tax implications of your case, contact the Italian Revenue Agency or the cantonal tax administration (AFC/ESTV) in Switzerland.
+]]></content:encoded>
+      <pubDate>Fri, 04 Sep 2026 11:58:26 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/lavoro-remoto-estero-vacanza</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/lavoro-remoto-estero-vacanza.webp" medium="image"/>
+    </item>
     <item>
       <title>New strike, TILO stop at the border</title>
       <link>https://frontaliereticino.ch/en/cross-border-articles/tilo-strike-italy-2026/</link>
@@ -3725,107 +3814,6 @@ For more information and to calculate your net salary, use our [calcolatore fisc
       <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-vilminore-scalve-lavorare-grigioni-frontaliere</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-vilminore-scalve-lavorare-grigioni-frontaliere.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Living in Vione and working in Graubünden: a guide to the frontier</title>
-      <link>https://frontaliereticino.ch/en/cross-border-articles/living-vione-working-graubuenden/</link>
-      <description><![CDATA[Frontier Vione-Grisioni: taxation, G permit, source tax, LAMal and insurance. Advantages, disadvantages and practical checklist for the transfer.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Vione (Lombardy) to Grisons: legal cross-border route with Permit G
-- Withholding tax ONLY in Switzerland, no double taxation (1976 Convention)
-- New Agreement January 2024: €10,000 exemption for new cross-border workers, €7,500 for those before 17.7.2023
-
-## Key facts
-- **What**: Residence in Vione (Brescia), work in Grisons, Permit G regime
-- When: New Cross-Border Agreement effective from 1 January 2024
-- Where: Vallecamonica borders Italian Switzerland and the canton of Grisons
-- Who: Cross-border workers INPS Italy, SEM (Swiss authority), Italian Revenue Agency
-- Tax: Withholding tax in Switzerland, tax credit in Italy form 730 (CE section)
-- Exemption: €10,000 annually (new), €7,500 (cross-border workers before 17.7.2023), transitional regime 2024–2033
-
-Living in Vione and working in Grisons is a cross-border commuting choice increasingly considered by those seeking job opportunities in Switzerland while maintaining roots in the Lombard Vallecamonica. The phenomenon is not new, but with the New Cross-Border Agreement effective from 1 January 2024, the tax rules have been further clarified and simplified. Cross-border workers pay withholding tax exclusively in Switzerland on their employment income, avoiding double taxation mechanisms: the 9 December 1976 Italian-Swiss Convention ensures that Italy automatically recognizes the tax credit through the 730 model (CE section). Those choosing this route must also consider practical aspects beyond taxation: daily commuting, the cost of living in Switzerland, health insurance (LAMal), contributions to AVS and LPP, possible tax refunds.
-
-### How the tax regime works
-The cross-border worker residing in Vione pays withholding tax in Switzerland directly from the Grisons employer. Italy recognizes this payment as a tax credit in the 730 model, avoiding double taxation. The December 2020 New Cross-Border Agreement (ratified by Italy with Law 83 of 13 June 2023, effective from 1 January 2024) introduced the exemption: new cross-border workers (hired after 17 July 2023) benefit from €10,000 annually of income exempt from Italian taxation; those who were already cross-border workers before that date maintain €7,500 of exemption in a transitional regime that continues until 2033.
-
-### Permit and documentation
-The cross-border worker working in Grisons needs Permit G, issued by the Migration Section (SEM) of the canton of Grisons. The 1976 Convention establishes that the canton of employment (Grisons) is the main place of taxation. This normative clarity eliminates jurisdictional conflicts between Italian INPS and Swiss authorities.
-### Cost of living and net income
-A Vione-Grigioni cross-border worker faces a significant cost of living gap between Vallecamonica and Switzerland. Although the gross Swiss salary is higher than the Lombard one, expenses in Switzerland (rent, food, transportation, insurance, municipal taxes) are considerably higher. The net advantage of the Swiss income must be calculated net of:
-- AVS (employee contribution 5.3%)
-- AI/IPG (annual taxation, variable cantonal percentage)
-- Canton of Grisons tax
-- Possible LPP contributions (professional pension)
-A [cross-border salary calculator](nav:calculator) helps compare the gross CH with the net IT after taxes and refunds.
-
-### Health insurance (LAMal) and pension
-Cross-border workers with Permit G have the **right of choice**: they can keep the Italian insurance with INPS/INAIL or choose the Swiss LAMal (Federal Health Insurance). The choice must be made before starting work and affects the entire duration of the employment relationship.
-
-Swiss LAMal: covers care in Switzerland with adult deductibles from CHF 300 to CHF 2,500 according to the chosen plan. Premiums vary by age and canton (Grigioni often competitive). Includes benefits in Switzerland and partially abroad.
-
-Italian INPS: covers the cross-border worker in Italy and, with agreements, also in Switzerland. Contributions are managed autonomously by INPS. Less expensive if the cross-border worker qualifies for the favorable regime.
-
-In addition to health insurance, the cross-border worker pays pension contributions: AVS (old-age, disability, survivors' pension) from the first day of work; LPP (mandatory professional pension) from the age of 25, with rates varying by age group (approximately 7–18% of the paycheck).
-
-### Advantage and disadvantage scenarios
-A young cross-border worker (25–35 years), without dependents, often benefits from the gross Swiss salary and pension accumulation (AVS/LPP). The advantage decreases if:
-- They have dependents in Italy to support (Swiss income is proportionally lower)
-- They opt for LAMal with high premiums (e.g., large families)
-- They face significant commuting costs (gas, Swiss vignette CHF 40/year, parking, car maintenance, highways A2/A9)
-- They do not qualify for the €10,000 exemption (if a new cross-border worker after 17.7.2023)
-
-### Tax refunds and declaration
-The Italian cross-border worker declares Swiss income to the Agenzia Entrate using the 730 or Unico form. They attach the Swiss withholding certificate (Quellensteuerbeleg), obtainable from the employer by February. The Agenzia Entrate automatically applies the tax credit for the Swiss withholding (CE section of the 730), avoiding double taxation. If the Italian + Swiss income exceeds certain thresholds, the cross-border worker may receive a refund (tax refund). Verify annually with your CAF or tax advisor.
-
-## Useful planning tools
-To estimate your pension strategy, use the [pension planner](nav:pension) and the [pillar 3 simulator](nav:pillar3).
-### Checklist: step by step
-
-#### 1. Documents and permits (first month)
-1. Request a residence certificate from the Municipality of Vione
-2. Obtain a work contract or job offer from the Grisons employer
-3. Contact the SEM office of the Grisons canton (Graubünden Landquart) or local branches for the Permit G application
-4. Prepare a valid foreign identity document (passport or Italian ID card)
-5. Submit the application with a copy of the contract and residence certificate
-
-#### 2. Tax and financial aspects (first month, before starting)
-1. Contact the Tax Agency (competent office for Vallecamonica/Brescia) to align the tax code and cross-border declarations
-2. Choose the pension scheme BEFORE starting work:
-   - Stay in INPS: request voluntary AGO management or INAIL integration
-   - Switch to Swiss AVS/LPP: notify the employer, register with the competent Swiss authority
-3. Evaluate the cost of LAMal (compare online at least 2-3 Swiss insurers) vs. maintaining INPS
-4. Use a [cross-border paycheck calculator](nav:calculator) to simulate gross Grisons and net Italy after taxes and refunds
-5. Consult the [cost of living comparator](nav:cost-of-living) Vione vs. destination Grisons communes (rent, food, transport, gasoline)
-
-#### 3. Insurance (first month)
-1. If you choose LAMal: contact accredited Swiss insurers (e.g., Helsana, Visana, KPT), choose a basic or intermediate plan, activate coverage starting from the first day of work
-2. If you stay in INPS: notify the employer of your intention to maintain Italian INPS, integrate with INAIL if required by the type of work
-3. Inform the Italian car insurance of the change of residence (circumscription reported on the green card)
-
-#### 4. Commuting and logistics (before starting)
-1. Verify the route Vione → Grisons workplace: distance, available means (car, trains, buses)
-2. If you use a private car:
-   - Purchase the Swiss vignette (CHF 40/year, mandatory for highways)
-   - Evaluate daily gasoline costs
-   - Roadside assistance: verify car insurance coverage in Switzerland
-3. If you use public transport:
-   - Trenord subscriptions (Lombardy, Brescia-Como-Lecco)
-   - Swiss Railways: RhB (Rhätische Bahn) or SBB for Grisons routes
-   - Request company subscriptions (often the employer provides or contributes)
-
-#### 5. Annual tax declarations (January-May of the following year)
-1. By February: request the withholding certificate (Quellensteuerbeleg) and pay slips from the Swiss employer
-2. March-May: submit the 730 form to the Tax Agency attaching the Swiss certificate, bank statements, and any LAMal/INPS documentation
-3. The Tax Agency automatically applies the tax credit (quadro CE): no further action required
-4. Check for any refunds (rebates) that will be paid in the following months
-
-### Next steps
-Before deciding to move, [access the calculator](nav:calculator) to simulate the monthly paycheck from Grisons and the net Italy after taxes and tax refunds. Compare the [cost of living](nav:cost-of-living) between Vione and the main Grisons communes where you can find work or accommodation. Contact the permits office in the Grisons canton (tel. +41 81 xxx xxxx or official SEM email) for real processing times of the Permit G application. Finally, follow the INPS or Swiss AVS registration process: the pension choice is often irreversible, so evaluate it carefully before starting.]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 02:13:25 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/cross-border-articles/vivere-vione-lavorare-grigioni</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-vione-lavorare-grigioni.webp" medium="image"/>
     </item>
   </channel>
 </rss>

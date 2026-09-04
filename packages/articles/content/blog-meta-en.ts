@@ -11318,6 +11318,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-tilo-italia-2026.title': 'New strike, TILO stop at the border',
     'blog.article.sciopero-tilo-italia-2026.excerpt': 'National strike in Italy from 7 to 8 September 2026: repercussions on TILO CONNECTIONS',
     'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Aerial view of Lugano with the Italian border in the background',
+    'blog.article.lavoro-remoto-estero-vacanza.title': 'Remote from abroad on holiday: cross-border taxes',
+    'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Working remotely during a holiday in a third country: how taxation works, what LAMal covers and whether the employer needs to be informed. Practical guide for border workers Ticino-Italy.',
+    'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Frontalier working remotely on laptop during vacation abroad',
 };
 
 export default blogMetaEn;
