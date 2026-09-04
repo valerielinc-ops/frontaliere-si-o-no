@@ -33753,6 +33753,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'accordo-edilizia-ticino-nuovo',
+ category: 'novita',
+ date: '2026-09-04T06:45:59.351Z',
+ image: '/images/blog/accordo-edilizia-ticino-nuovo.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
