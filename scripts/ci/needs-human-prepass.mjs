@@ -50,10 +50,17 @@
  * in tre run separate, ognuna preceduta da un re-accodo di questo script nel
  * giorno precedente. Ora un verdetto `NON_RETRYABLE` vince sul riconoscimento
  * di famiglia e la issue resta `keep` per il giudizio dello sweep.
+ *
+ * Dal 2026-09-04 (escalation #7307) l'insieme che vince è
+ * `PREPASS_VERDICT_BEATS_FAMILY`, cioè `NON_RETRYABLE` più `max-turns`. Il
+ * criterio non è «il verdetto è definitivo» ma «questo script può cambiare
+ * qualcosa prima di rimetterla in coda?»: non sa scrivere una scheda, quindi un
+ * ri-accodo sul solo titolo rifà la stessa run allo stesso costo. Lo sweep
+ * Claude una scheda la scrive, e resta la porta di rientro.
  */
 import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
-import { NON_RETRYABLE } from './followup-drainer.mjs';
+import { PREPASS_VERDICT_BEATS_FAMILY } from './followup-drainer.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
@@ -149,8 +156,17 @@ export function prepassDecision({ title = '', labels = [], verdict = null } = {}
   // esattamente il loop misurato su #5608 (no-root-cause → escalate →
   // re-accodata dal pre-pass del giorno dopo → stesso no-root-cause, da capo).
   // Il verdetto vince sul riconoscimento di famiglia: resta in `keep`.
-  if (verdict && NON_RETRYABLE.has(verdict)) {
-    return { action: 'keep', reason: `verdetto \`${verdict}\` non-ri-tentabile: resta per il giudizio dello sweep settimanale` };
+  //
+  // Dal 2026-09-04 l'insieme include anche `max-turns` (escalation #7307): il
+  // drainer lo parcheggia `fu-parked` + `needs-human` quando la issue non è
+  // eleggibile alla decomposizione, e questo pre-pass la ri-accodava il giorno
+  // dopo sul solo titolo di famiglia — `Crawler Failure: Run zurich` (#7242) e
+  // `Run volg` (#7179), entrambe rimesse in coda alle 06:49 senza che nulla
+  // fosse cambiato dal verdetto, per morire di nuovo al cap dei turni. È lo
+  // stesso loop di #5608 con un altro verdetto. Il rationale completo e la
+  // misura stanno sulla costante, in `followup-drainer.mjs`.
+  if (verdict && PREPASS_VERDICT_BEATS_FAMILY.has(verdict)) {
+    return { action: 'keep', reason: `verdetto \`${verdict}\` non ri-accodabile a costo zero: resta per il giudizio dello sweep settimanale` };
   }
 
   const monitor = MONITOR_TITLE_PATTERNS.find((re) => re.test(title));

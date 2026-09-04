@@ -243,6 +243,13 @@ jobs:
           ls -la "$CTX_DIR"
 
       - name: Run Claude follow-up triage (batch)
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 32min = cap del job meno il setup pre-Claude misurato (~98s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 32
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
         # tutte già-triagiate / tutte scartate dai gate) la sessione Claude è

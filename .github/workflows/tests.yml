@@ -2004,6 +2004,13 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Run Claude review
+        # Tetto sullo step (classe #7310: nessun tetto sotto il cap del job →
+        # morte `cancelled` che nessun `if: failure()` vede). Qui il cap del job
+        # è 360min ed è CONDIVISO con la suite vitest: un reviewer appeso se la
+        # mangerebbe tutta. 45min sono ~10x il massimo misurato sulle ultime 6
+        # run (91-263s), quindi non tocca nessuna review reale; con il
+        # `continue-on-error` sotto, lo scadere non tinge il job di rosso.
+        timeout-minutes: 45
         id: claude_review
         if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Don't let a hard action failure abort the job before the guard below
