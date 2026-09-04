@@ -147,8 +147,44 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     }
   });
 
+  it('lo scorporo NON parte se il drainer ha già escluso la issue (❓ review #7318)', () => {
+    // `issue-decompose.yml` non ri-controlla l'eleggibilità: va dritto al run
+    // Claude. Il drainer invece esclude `decomposed:1`, `from-decompose`,
+    // `agent:decompose*` e `maybe-resolved` (`isDecomposeEligible`). Senza il
+    // gate, questo pre-pass mandava allo scorporo proprio le issue che il
+    // drainer ne aveva appena escluse — spostando il loop dalla porta `requeue`
+    // a quella `decompose` invece di chiuderlo.
+    const title = 'follow-up(#6205): 3 item deferred — REST files-cap';
+    expect(prepassDecision({ title }).action).toBe('decompose');
+    for (const l of ['decomposed:1', 'from-decompose', 'agent:decompose-queued', 'maybe-resolved']) {
+      // `keep`, non un `not.toBe('decompose')` qualsiasi: l'asserzione debole
+      // lasciava passare il `requeue`, che è il ri-accodo intero del container —
+      // «il modo documentato di rifare max-turns», cioè il loop da un'altra
+      // porta (🔴 review #7325).
+      expect(prepassDecision({ title, labels: [l] }).action, l).toBe('keep');
+    }
+    // E SENZA verdetto, che è il caso che il fallthrough mancava: `verdict` è
+    // `null` sia quando la issue non porta un marker `FIX_OUTCOME`, sia quando
+    // la lettura dei commenti fallisce e il `catch` in `main()` lo azzera.
+    expect(prepassDecision({ title, labels: ['decomposed:1'], verdict: null }).action).toBe('keep');
+    // Con un verdetto catturato, idem.
+    expect(prepassDecision({ title, labels: ['from-decompose'], verdict: 'max-turns' }).action).toBe('keep');
+  });
+
+  it('un aggregato si scorpora anche col verdetto blocked-secrets (🟡 review #7318)', () => {
+    // `STALE_BLOCK_VERDICTS` ritorna `requeue`, e stava sopra il ramo aggregato:
+    // un container con `blocked-secrets` veniva ri-accodato intero, cioè «il
+    // modo documentato di rifare max-turns». Lo scorporo ora lo precede.
+    expect(prepassDecision({
+      title: 'follow-up(#6205): 3 item deferred — REST files-cap', verdict: 'blocked-secrets',
+    }).action).toBe('decompose');
+    // Un titolo NON di famiglia con lo stesso verdetto resta `requeue`: la
+    // decisione del proprietario del 2026-08-24 non è toccata.
+    expect(prepassDecision({ title: 'una cosa qualunque', verdict: 'blocked-secrets' }).action).toBe('requeue');
+  });
+
   it('il verdetto batte il requeue ma NON lo scorporo (🔴 review nanako#778)', () => {
-    // La guardia stava PRIMA del ramo `AGGREGATE_TITLE_RE` e gli toglieva il
+    // La guardia stava PRIMA del ramo `AGGREGATE_ITEMS_RE` e gli toglieva il
     // `decompose`. È l'opposto del criterio che la costante dichiara: lo scorporo
     // CAMBIA l'input del fixer esattamente come la scheda dello sweep, ed è il
     // ramo che il drainer stesso sceglie su `max-turns` (DECOMPOSE-ROUTE). Il
