@@ -78,11 +78,11 @@
     },
     {
       "id": "accor-8dda45f001a9",
-      "slug": "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
+      "slug": "chamberwoman-su-chiamata-m-f-x-csd-e-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
       "slugByLocale": {
-        "it": "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
-        "en": "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
-        "de": "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "it": "chamberwoman-su-chiamata-m-f-x-csd-e-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "en": "chamberwoman-on-call-m-f-x-csd-is-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
+        "de": "kammerfrau-auf-anruf-m-w-x-csd-ist-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland",
         "fr": "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch"
       },
       "company": "Ibis Budget",
@@ -136,7 +136,22 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch"
+        ],
+        "en": [
+          "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch"
+        ],
+        "de": [
+          "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-accor-ch",
+        "femme-de-chambre-sur-appel-h-f-x-cdd-ete-2026-ibis-budget-fairmont-le-montreux-palace-montreux-switzerland"
+      ]
     },
     {
       "id": "accor-b4051da444f6",
@@ -449,13 +464,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "temporary-evening-service-staff-ribelli-f-m-d-accor-ch",
-        "temporary-evening-service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        "temporary-evening-service-staff-ribelli-f-m-d-accor-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "temporary-evening-service-staff-ribelli-f-m-d-accor-ch",
-          "temporary-evening-service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+          "temporary-evening-service-staff-ribelli-f-m-d-accor-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1118,13 +1131,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-staff-ribelli-f-m-d-accor-ch",
-        "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+        "service-staff-ribelli-f-m-d-accor-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-staff-ribelli-f-m-d-accor-ch",
-          "service-staff-ribelli-f-m-d-ibis-budget-25hours-hotel-zurich-west-zurich-switzerland"
+          "service-staff-ribelli-f-m-d-accor-ch"
         ]
       },
       "needsRetranslation": true,

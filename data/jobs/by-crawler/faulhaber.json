@@ -7,9 +7,9 @@
       "slug": "candidatura-spontanea-croglio-faulhaber",
       "slugByLocale": {
         "it": "candidatura-spontanea-croglio-faulhaber",
-        "en": "candidatura-spontanea-croglio-faulhaber",
-        "de": "candidatura-spontanea-faulhaber-croglio",
-        "fr": "candidatura-spontanea-faulhaber-croglio"
+        "en": "spontaneous-application-faulhaber-croglio",
+        "de": "spontananwendung-faulhaber-croglio",
+        "fr": "demande-spontanee-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -48,22 +48,14 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-04T13:28:00.922Z",
       "previousSlugsByLocale": {
-        "en": [
-          "spontaneous-application-faulhaber-croglio"
-        ],
         "de": [
-          "spontananwendung-faulhaber-croglio",
           "candidatura-spontanea-faulhaber-croglio"
         ],
         "fr": [
-          "demande-spontanee-faulhaber-croglio",
           "candidatura-spontanea-faulhaber-croglio"
         ]
       },
       "previousSlugs": [
-        "spontaneous-application-faulhaber-croglio",
-        "spontananwendung-faulhaber-croglio",
-        "demande-spontanee-faulhaber-croglio",
         "candidatura-spontanea-faulhaber-croglio"
       ],
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
@@ -128,13 +120,11 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-04T13:27:49.148Z",
       "previousSlugs": [
-        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-        "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+        "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber",
-          "r-d-mechanical-ingegnere-gearbox-design-faulhaber-croglio"
+          "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
         ],
         "fr": [
           "r-d-mechanical-engineer-gearbox-design-croglio-faulhaber"
@@ -159,9 +149,9 @@
     },
     {
       "id": "faulhaber-7c490c9a513f",
-      "slug": "junior-logistics-specialist-croglio-faulhaber",
+      "slug": "junior-logistica-specialista-faulhaber-croglio",
       "slugByLocale": {
-        "it": "junior-logistics-specialist-croglio-faulhaber",
+        "it": "junior-logistica-specialista-faulhaber-croglio",
         "en": "junior-logistics-specialist-croglio-faulhaber",
         "de": "junior-logistik-spezialist-faulhaber-croglio",
         "fr": "junior-logistique-specialiste-faulhaber-croglio"
@@ -204,7 +194,6 @@
       "crawledAt": "2026-09-04T13:27:36.860Z",
       "previousSlugsByLocale": {
         "it": [
-          "junior-logistica-specialista-faulhaber-croglio",
           "junior-logistics-specialist-croglio-faulhaber"
         ],
         "de": [
@@ -215,7 +204,6 @@
         ]
       },
       "previousSlugs": [
-        "junior-logistica-specialista-faulhaber-croglio",
         "junior-logistics-specialist-croglio-faulhaber"
       ],
       "needsRetranslation": true,
@@ -242,7 +230,7 @@
         "it": "tecnico-di-misura-croglio-faulhaber",
         "en": "technician-di-misura-faulhaber-croglio",
         "de": "techniker-di-misura-faulhaber-croglio",
-        "fr": "tecnico-di-misura-croglio-faulhaber"
+        "fr": "technicien-di-misura-faulhaber-croglio"
       },
       "company": "Faulhaber",
       "companyKey": "faulhaber",
@@ -280,14 +268,6 @@
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
       "crawledAt": "2026-09-04T13:27:20.505Z",
-      "previousSlugsByLocale": {
-        "fr": [
-          "technicien-di-misura-faulhaber-croglio"
-        ]
-      },
-      "previousSlugs": [
-        "technicien-di-misura-faulhaber-croglio"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "salaryMin": 58000,

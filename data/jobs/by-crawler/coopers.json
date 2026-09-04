@@ -3838,12 +3838,12 @@
     },
     {
       "id": "coopers-5d0c996657ef",
-      "slug": "material-buyer-m-f-d-coopers-zug",
+      "slug": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
         "en": "material-buyer-m-f-d-coopers-zug",
-        "it": "material-buyer-m-f-d-coopers-zug",
-        "de": "material-buyer-m-f-d-coopers-zug",
-        "fr": "material-buyer-m-f-d-coopers-zug"
+        "it": "acquirente-materiale-m-f-d-coopers-group-ag-zug",
+        "de": "materialkaufer-m-w-d-coopers-group-ag-zug",
+        "fr": "acheteur-de-materiel-h-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
@@ -3910,7 +3910,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:32:09.513Z"
+      "firstSeenAt": "2026-09-04T13:32:09.513Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "material-buyer-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "material-buyer-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "material-buyer-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "material-buyer-m-f-d-coopers-zug"
+      ]
     },
     {
       "id": "coopers-033711e6d972",

@@ -663,8 +663,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-lager-m-w-d-planzer-wikon",
-          "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+          "mitarbeiter-lager-m-w-d-planzer-wikon"
         ],
         "en": [
           "mitarbeiter-lager-m-w-d-planzer-wikon"
@@ -674,8 +673,7 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-planzer-wikon",
-        "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+        "mitarbeiter-lager-m-w-d-planzer-wikon"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -694,12 +692,12 @@
     },
     {
       "id": "planzer-867da1c9586d",
-      "slug": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken",
+      "slug": "apprendistato-professional-female-manutenzione-efz-planzer-daniken",
       "slugByLocale": {
         "de": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
-        "it": "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken",
-        "en": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
-        "fr": "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken"
+        "it": "apprendistato-professional-female-manutenzione-efz-planzer-daniken",
+        "en": "apprenticeship-professional-female-maintenance-efz-planzer-daniken",
+        "fr": "apprentissage-professionnel-female-maintenance-efz-planzer-daniken"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -746,11 +744,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
+          "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken"
+        ],
+        "fr": [
           "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken"
+        "lehrstelle-fachmann-frau-betriebsunterhalt-efz-planzer-daniken",
+        "apprendistato-fachmann-frau-betriebsunterhalt-cfc-planzer-daniken"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

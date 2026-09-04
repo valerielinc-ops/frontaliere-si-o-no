@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sicpa-89455073f79e",
-      "slug": "laboratory-technician-sicpa-prilly",
+      "slug": "tecnico-di-laboratorio-sicpa-sa-prilly",
       "slugByLocale": {
         "en": "laboratory-technician-sicpa-prilly",
-        "it": "laboratory-technician-sicpa-prilly",
-        "de": "laboratory-technician-sicpa-prilly",
-        "fr": "laboratory-technician-sicpa-prilly"
+        "it": "tecnico-di-laboratorio-sicpa-sa-prilly",
+        "de": "laboratory-techniker-sicpa-sa-prilly",
+        "fr": "laboratory-technicien-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
       "companyKey": "sicpa",
@@ -65,7 +65,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:46:56.305Z"
+      "firstSeenAt": "2026-09-04T13:46:56.305Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laboratory-technician-sicpa-prilly"
+        ],
+        "de": [
+          "laboratory-technician-sicpa-prilly"
+        ],
+        "fr": [
+          "laboratory-technician-sicpa-prilly"
+        ]
+      },
+      "previousSlugs": [
+        "laboratory-technician-sicpa-prilly"
+      ]
     },
     {
       "id": "sicpa-dd5b0e9bd5d2",
@@ -139,7 +153,7 @@
       "slugByLocale": {
         "it": "automazione-tecnico-sicpa-sa-prilly",
         "en": "maintenance-technician-sicpa-sa-prilly",
-        "de": "wartungstechniker-sicpa-sa-prilly",
+        "de": "automation-techniker-sicpa-sa-prilly",
         "fr": "technicien-de-maintenance-sicpa-sa-prilly"
       },
       "company": "SICPA SA",
@@ -280,13 +294,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "image-processing-engineer-sicpa-prilly",
-        "image-processing-ingegnere-sicpa-sa-prilly"
+        "image-processing-engineer-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "image-processing-engineer-sicpa-prilly",
-          "image-processing-ingegnere-sicpa-sa-prilly"
+          "image-processing-engineer-sicpa-prilly"
         ],
         "de": [
           "image-processing-engineer-sicpa-prilly"
@@ -359,13 +371,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-coordinator-sicpa-prilly",
-        "technical-coordinatore-sicpa-sa-prilly"
+        "technical-coordinator-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-coordinator-sicpa-prilly",
-          "technical-coordinatore-sicpa-sa-prilly"
+          "technical-coordinator-sicpa-prilly"
         ],
         "de": [
           "technical-coordinator-sicpa-prilly"
@@ -439,13 +449,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "embedded-software-engineer-sicpa-prilly",
-        "embedded-software-ingegnere-sicpa-sa-prilly"
+        "embedded-software-engineer-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "embedded-software-engineer-sicpa-prilly",
-          "embedded-software-ingegnere-sicpa-sa-prilly"
+          "embedded-software-engineer-sicpa-prilly"
         ],
         "de": [
           "embedded-software-engineer-sicpa-prilly"
@@ -518,13 +526,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operateur-de-logistique-confirme-sicpa-chavornay",
-        "operatore-logistico-confermato-sicpa-sa-chavornay"
+        "operateur-de-logistique-confirme-sicpa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operateur-de-logistique-confirme-sicpa-chavornay",
-          "operatore-logistico-confermato-sicpa-sa-chavornay"
+          "operateur-de-logistique-confirme-sicpa-chavornay"
         ],
         "en": [
           "operateur-de-logistique-confirme-sicpa-chavornay"
@@ -629,14 +635,12 @@
       },
       "previousSlugs": [
         "operator-gardening-road-sicpa-prilly",
-        "operatore-gardening-road-sicpa-sa-prilly",
-        "operatore-giardinaggio-e-strade-sicpa-sa-prilly"
+        "operatore-gardening-road-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "operator-gardening-road-sicpa-prilly",
-          "operatore-gardening-road-sicpa-sa-prilly",
-          "operatore-giardinaggio-e-strade-sicpa-sa-prilly"
+          "operatore-gardening-road-sicpa-sa-prilly"
         ],
         "de": [
           "operator-gardening-road-sicpa-prilly"
@@ -734,13 +738,11 @@
         ]
       },
       "previousSlugs": [
-        "laboratory-technician-specialist-sicpa-prilly",
-        "laboratory-technician-specialista-sicpa-sa-prilly"
+        "laboratory-technician-specialist-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "laboratory-technician-specialist-sicpa-prilly",
-          "laboratory-technician-specialista-sicpa-sa-prilly"
+          "laboratory-technician-specialist-sicpa-prilly"
         ],
         "de": [
           "laboratory-technician-specialist-sicpa-prilly"
@@ -811,13 +813,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-        "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+        "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa",
-          "principal-software-ingegnere-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa-sa-prilly"
+          "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
         ],
         "de": [
           "principal-software-engineer-mobile-sdk-tooling-on-device-computer-vision-ios-android-sicpa"
@@ -955,13 +955,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technical-advisor-sicpa-prilly",
-        "technical-consulente-sicpa-sa-prilly"
+        "technical-advisor-sicpa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-advisor-sicpa-prilly",
-          "technical-consulente-sicpa-sa-prilly"
+          "technical-advisor-sicpa-prilly"
         ],
         "de": [
           "technical-advisor-sicpa-prilly"
@@ -1066,13 +1064,11 @@
       },
       "previousSlugs": [
         "senior-laboratory-technical-specialist-sicpa-prilly",
-        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly",
-        "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly"
+        "technischer-facharzt-fur-laboratoriumstechnik-sicpa-sa-prilly"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-laboratory-technical-specialist-sicpa-prilly",
-          "specialista-tecnico-senior-di-laboratorio-sicpa-sa-prilly"
+          "senior-laboratory-technical-specialist-sicpa-prilly"
         ],
         "de": [
           "senior-laboratory-technical-specialist-sicpa-prilly",
@@ -1144,13 +1140,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automaticien-sicpa-chavornay",
-        "automatico-sicpa-sa-chavornay"
+        "automaticien-sicpa-chavornay"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automaticien-sicpa-chavornay",
-          "automatico-sicpa-sa-chavornay"
+          "automaticien-sicpa-chavornay"
         ],
         "en": [
           "automaticien-sicpa-chavornay"
