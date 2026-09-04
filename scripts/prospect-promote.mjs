@@ -39,6 +39,26 @@ import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } 
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
+// Sì, per due righe di logica si importa un file di ~2.870 righe: nit del
+// reviewer su PR #7276, valutato e NON preso, di proposito.
+//
+// L'estrazione ovvia (`scripts/ci/lib/workflow-push-capability.mjs` + una
+// ri-esportazione dal drainer) e' stata scritta e provata il 2026-09-04:
+// funziona, 526 test verdi. Il motivo per cui non e' stata spedita e' che
+// `scripts/ci/followup-drainer.mjs` e' `mode: identical` nel
+// `loop-sync-manifest.json` del corpus, mentre un file NUOVO non e' nel
+// manifest: la discesa porterebbe giu' il drainer che importa un modulo che
+// li' non esiste, e il drainer del corpus morirebbe con ERR_MODULE_NOT_FOUND
+// a ogni run. E' esattamente il difetto che il 2026-08-27 ha ucciso il
+// pre-pass di `needs-human-sweep.yml` per otto giorni (PR #7273): gli import
+// ESM sono statici, quindi non fallisce a volte, fallisce sempre e in
+// silenzio. Splittare vale la pena solo INSIEME alla voce di manifest e alla
+// PR gemella sul corpus, nello stesso giro.
+//
+// Nel frattempo l'import e' sicuro qui: `followup-drainer.mjs` ha il guard
+// `if (process.argv[1]?.endsWith('followup-drainer.mjs'))` sul suo `main()`,
+// quindi importarlo non esegue niente. Il contrario NON vale — questo file
+// il guard non ce l'ha e un `import()` lo esegue davvero.
 import { canPushWorkflows } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);
