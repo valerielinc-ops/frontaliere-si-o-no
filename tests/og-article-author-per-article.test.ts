@@ -69,13 +69,26 @@ describe('article:author names the article author, not the Redazione', () => {
     expect(src).toMatch(/article:author"\s+content="\$\{[^}]*authorObj\.url[^}]*\}"/);
   });
 
-  it('the SPA emitter reuses the structured data author URL', () => {
+  it('the SPA emitter derives the URL from the authors registry, not the SEO blob', () => {
     const src = readFileSync(join(ROOT, EMITTERS[1]), 'utf-8');
-    // Same contract on the client: the value comes from the `author` of the
-    // structured data already in the document, so the tag and the JSON-LD in
-    // the same page cannot disagree.
+    // Issue #7241 item 1 moved this contract. Reading `sd.author` (the
+    // content/seo/** blob) made the blob a second source of truth for the same
+    // fact the registry already holds, and the two had already diverged on 1712
+    // of the 3692 articles — the blob still carried the legacy Organization node,
+    // so hydration overwrote a correct static tag with the team page. The value
+    // now comes from `authorSlug` + data/authors.ts, the SSG's own source.
     expect(src).toMatch(/updateOrCreateMetaTag\(\s*'property',\s*'article:author',\s*articleAuthorUrl\s*\)/);
-    expect(src).toMatch(/sdAuthor\?\.\['@type'\]\s*===\s*'Person'/);
+    expect(src).toMatch(/articleAuthorUrl = resolveArticleAuthorUrl\(/);
+  });
+
+  it('the shared derivation prefers the registry and keeps the blob as fallback', () => {
+    const src = readFileSync(join(ROOT, 'services/seo/articleAuthorUrl.ts'), 'utf-8');
+    // Order is the whole point: registry first, blob Person second, team page
+    // last. Flipping the first two re-opens the drift this module closed.
+    const registryAt = src.indexOf('getAuthorBySlug(article.authorSlug)');
+    const blobAt = src.search(/blobAuthor\?\.\['@type'\]\s*===\s*'Person'/);
+    expect(registryAt).toBeGreaterThan(-1);
+    expect(blobAt).toBeGreaterThan(registryAt);
   });
 });
 
