@@ -151,6 +151,33 @@ describe('information-gain: utility di percorso', () => {
     expect(commonPathPrefix(['/lavoro-ticino-infermiere/', '/lavoro-ticino-muratore/'])).toBe('/lavoro-ticino-');
   });
 
+  it('cade sul prefisso di caratteri anche DOPO un segmento comune (issue #6975)', () => {
+    // Stessa famiglia flat-slug, due locali. In `it` gli slug stanno alla
+    // radice e il fallback scattava; in `de`/`en`/`fr` il segmento di locale è
+    // comune a tutte le pagine, quindi il fallback non scattava mai e l'intera
+    // famiglia si riduceva a `/en/` — un'etichetta che collide con ogni altra
+    // famiglia flat della stessa lingua e che, essendo la chiave di
+    // `KNOWN_LOW_GAIN_COHORTS`, non può nominarne una sola.
+    expect(commonPathPrefix(['/en/jobs-bern-fitter/', '/en/jobs-aargau-cook/'])).toBe('/en/jobs-');
+    expect(commonPathPrefix(['/de/arbeit-bern-architekt/', '/de/arbeit-freiburg-maurer/'])).toBe('/de/arbeit-');
+  });
+
+  it('resta identica quando il segmento divergente non ha prefisso comune', () => {
+    // Il passo di caratteri rende l'etichetta più specifica, mai meno: è
+    // questo che tiene valide le voci già in `KNOWN_LOW_GAIN_COHORTS` e la
+    // tabella di calibrazione, scritte prima del fix.
+    expect(commonPathPrefix(['/tasse-frontalieri-comune/tradate/', '/tasse-frontalieri-comune/bregnano/'])).toBe(
+      '/tasse-frontalieri-comune/',
+    );
+    expect(
+      commonPathPrefix([
+        '/vivere-in-austria-lavorare-in-svizzera/gaissau/',
+        '/vivere-in-austria-lavorare-in-svizzera/hohenems/',
+      ]),
+    ).toBe('/vivere-in-austria-lavorare-in-svizzera/');
+    expect(commonPathPrefix(['/a/b/x/', '/a/b/'])).toBe('/a/b/');
+  });
+
   it('due famiglie flat-slug DISTINTE che collidono sul prefisso di caratteri non finiscono con la stessa etichetta', () => {
     // `commonPathPrefix` calcola l'etichetta di ogni coorte in isolamento, senza
     // vedere le coorti sorelle: due template realmente diversi (skeletonHash
@@ -260,5 +287,32 @@ describe('information-gain: le pagine noindex sono escluse anche senza apici (is
 
     const { extra } = auditor.report();
     expect(extra.pagesScored + extra.pagesUncohorted).toBe(1);
+  });
+});
+
+describe('information-gain: il report nomina l\'identità della coorte, non solo l\'etichetta (issue #6975)', () => {
+  // L'etichetta è derivata dai path CAMPIONATI, quindi due run con
+  // `AUDIT_SAMPLE_RATE` diverso possono chiamare la stessa famiglia in due
+  // modi. `KNOWN_LOW_GAIN_COHORTS` è indicizzato per etichetta: senza lo
+  // `skeletonHash` nel report non c'è modo di inventariare una coorte se non
+  // indovinando quale nome tornerà al run successivo.
+  it('espone lo skeletonHash di ogni coorte gated', () => {
+    const auditor = createInformationGainAuditor();
+    for (let i = 0; i < 12; i += 1) {
+      auditor.collect(
+        `dist/premi-cassa-malati/cantone-${i}/index.html`,
+        `<!doctype html><html lang="it"><head><title>Premi cassa malati cantone-${i}</title></head>
+<body><h1>Premi cassa malati nel cantone-${i}</h1>
+<p>Nel cantone-${i} il premio medio mensile per un adulto è di ${200 + i} franchi al mese.</p>
+<p>Il premio dipende dalla franchigia scelta e dal modello assicurativo sottoscritto.</p>
+</body></html>`,
+      );
+    }
+
+    const { extra } = auditor.report();
+    expect(extra.cohortsGated).toBe(1);
+    const [cohort] = extra.cohorts;
+    expect(cohort.label).toBe('it:/premi-cassa-malati/cantone-');
+    expect(cohort.skeletonHash).toMatch(/^[0-9a-f]+$/);
   });
 });
