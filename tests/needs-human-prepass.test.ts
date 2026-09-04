@@ -42,6 +42,12 @@ describe('prepassDecision — famiglie di monitor riconosciute positivamente', (
     // del fixer è più alta.
     const d = prepassDecision({ title: 'follow-up(#6205): 3 item deferred — REST files-cap' });
     expect(d.action).toBe('decompose');
+    // Anche al PLURALE: questo file teneva una copia locale della regex che
+    // diceva `\s+item\s+` invece di `\s+items?\s+`, e i titoli li scrive un LLM
+    // che usa entrambe le forme. Il plurale finiva nel `requeue` intero, cioè
+    // nel modo documentato di rifare `max-turns`. Ora la regex è quella
+    // importata da `followup-drainer.mjs`, una sola definizione.
+    expect(prepassDecision({ title: 'follow-up(#6206): 2 items deferred — plurale' }).action).toBe('decompose');
   });
 
   it('una follow-up singola senza item deferred si ri-accoda', () => {
@@ -138,6 +144,23 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
       const d = prepassDecision({ title, verdict: 'max-turns' });
       expect(d.action, title).toBe('keep');
       expect(d.reason, title).toMatch(/max-turns/);
+    }
+  });
+
+  it('il verdetto batte il requeue ma NON lo scorporo (🔴 review nanako#778)', () => {
+    // La guardia stava PRIMA del ramo `AGGREGATE_TITLE_RE` e gli toglieva il
+    // `decompose`. È l'opposto del criterio che la costante dichiara: lo scorporo
+    // CAMBIA l'input del fixer esattamente come la scheda dello sweep, ed è il
+    // ramo che il drainer stesso sceglie su `max-turns` (DECOMPOSE-ROUTE). Il
+    // difetto è arrivato con #7313 su `max-turns`, ma era già latente qui sui
+    // verdetti `NON_RETRYABLE` dal #5608 — spostare il blocco lo toglie a tutti.
+    for (const verdict of ['max-turns', 'no-root-cause']) {
+      for (const title of [
+        'follow-up(#6205): 3 item deferred — REST files-cap',
+        'follow-up(#6206): 2 items deferred — plurale, che la copia locale mancava',
+      ]) {
+        expect(prepassDecision({ title, verdict }).action, `${verdict} / ${title}`).toBe('decompose');
+      }
     }
   });
 

@@ -60,7 +60,7 @@
  */
 import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
-import { PREPASS_VERDICT_BEATS_FAMILY } from './followup-drainer.mjs';
+import { PREPASS_VERDICT_BEATS_FAMILY, AGGREGATE_ITEMS_RE } from './followup-drainer.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
@@ -92,8 +92,19 @@ export const MONITOR_TITLE_PATTERNS = [
   /^follow-up\(#\d+\):/i,
 ];
 
-/** Un container: più cause o più target → si scorpora invece di ri-accodarsi. */
-export const AGGREGATE_TITLE_RE = /\b(\d+)\s+item\s+deferred\b/i;
+/**
+ * Un container: più cause o più target → si scorpora invece di ri-accodarsi.
+ *
+ * È `AGGREGATE_ITEMS_RE` di `followup-drainer.mjs`, importata e non ricopiata.
+ * Qui c'era una seconda definizione, e le due erano DIVERSE: questa diceva
+ * `\s+item\s+`, quella dice `\s+items?\s+`. I titoli li scrive un LLM e usa
+ * entrambe le forme (nella coda di oggi convivono «3 item deferred» e «3 items
+ * deferred»), quindi la copia locale mancava gli aggregati al plurale e li
+ * mandava al `requeue` intero — «il modo documentato di rifare max-turns»,
+ * secondo il commento del ramo qui sotto. Una regex duplicata in due file è
+ * proprio il costrutto che AGENTS.md #6 vieta, e questo è il drift che produce.
+ */
+export { AGGREGATE_ITEMS_RE as AGGREGATE_TITLE_RE } from './followup-drainer.mjs';
 
 /**
  * Verdetti che il 2026-08-24 hanno smesso di essere blocchi di capacità.
@@ -147,36 +158,46 @@ export function prepassDecision({ title = '', labels = [], verdict = null } = {}
     return { action: 'requeue', reason: `verdetto \`${verdict}\` superato dalla decisione del 2026-08-24 sui secret` };
   }
 
-  // Una issue di famiglia monitor può arrivare qui via VERDICT-EXIT
-  // (followup-drainer.mjs) proprio perché il fixer ha già raggiunto un
-  // verdetto NON_RETRYABLE: quello stadio la manda in `needs-human` come
-  // uscita TERMINALE, con lo sweep settimanale come «sola porta di rientro»
-  // (commento in `verdictExitDecision`). Ri-accodarla qui a `agent:fix-queued`
-  // prima che lo sweep la veda riproduce lo stesso verdetto allo stesso costo —
-  // esattamente il loop misurato su #5608 (no-root-cause → escalate →
-  // re-accodata dal pre-pass del giorno dopo → stesso no-root-cause, da capo).
-  // Il verdetto vince sul riconoscimento di famiglia: resta in `keep`.
-  //
-  // Dal 2026-09-04 l'insieme include anche `max-turns` (escalation #7307): il
-  // drainer lo parcheggia `fu-parked` + `needs-human` quando la issue non è
-  // eleggibile alla decomposizione, e questo pre-pass la ri-accodava il giorno
-  // dopo sul solo titolo di famiglia — `Crawler Failure: Run zurich` (#7242) e
-  // `Run volg` (#7179), entrambe rimesse in coda alle 06:49 senza che nulla
-  // fosse cambiato dal verdetto, per morire di nuovo al cap dei turni. È lo
-  // stesso loop di #5608 con un altro verdetto. Il rationale completo e la
-  // misura stanno sulla costante, in `followup-drainer.mjs`.
-  if (verdict && PREPASS_VERDICT_BEATS_FAMILY.has(verdict)) {
-    return { action: 'keep', reason: `verdetto \`${verdict}\` non ri-accodabile a costo zero: resta per il giudizio dello sweep settimanale` };
-  }
-
   const monitor = MONITOR_TITLE_PATTERNS.find((re) => re.test(title));
   if (!monitor) return { action: 'keep', reason: 'famiglia non riconosciuta: la valuta il run Claude' };
 
   // Un container con N item deferred ha più target: lo scorporo produce sub-issue
   // atomiche, dove la resa del fixer è più alta. Ri-accodarlo intero è il modo
   // documentato di rifare `max-turns`.
-  if (AGGREGATE_TITLE_RE.test(title)) {
+  if (AGGREGATE_ITEMS_RE.test(title)) {
     return { action: 'decompose', reason: 'container multi-item generato da un monitor' };
+  }
+  // Il verdetto vince sul riconoscimento di famiglia — ma SOLO sul `requeue`, ed
+  // è per questo che questo blocco sta DOPO lo scorporo e non prima.
+  //
+  // Perché la guardia esiste (#5608): una issue di famiglia monitor può arrivare
+  // qui via VERDICT-EXIT (`followup-drainer.mjs`) proprio perché il fixer ha già
+  // raggiunto un verdetto `NON_RETRYABLE`; quello stadio la manda in
+  // `needs-human` come uscita TERMINALE, con lo sweep settimanale come «sola
+  // porta di rientro» (commento in `verdictExitDecision`). Ri-accodarla a
+  // `agent:fix-queued` prima che lo sweep la veda riproduce lo stesso verdetto
+  // allo stesso costo — il loop misurato su #5608 (`no-root-cause` → escalate →
+  // re-accodata dal pre-pass del giorno dopo → stesso `no-root-cause`, tre volte).
+  //
+  // Dal 2026-09-04 l'insieme include anche `max-turns` (escalation #7307): il
+  // drainer lo parcheggia `fu-parked` + `needs-human` quando la issue non è
+  // eleggibile alla decomposizione, e questo pre-pass la ri-accodava il giorno
+  // dopo sul solo titolo di famiglia — `Crawler Failure: Run zurich` (#7242) e
+  // `Run volg` (#7179), rimesse in coda alle 06:49 con NULLA cambiato dal
+  // verdetto e ripromosse ad `agent:fix` alle 10:13 per rifare gli stessi turni.
+  //
+  // PERCHÉ LA POSIZIONE CONTA (🔴 della review su nanako#778, difetto introdotto
+  // da #7313 e che qui era già latente sui verdetti `NON_RETRYABLE`). Il criterio
+  // della costante è «questo stadio sa cambiare qualcosa prima di rimettere in
+  // coda?». Lo scorporo qui sopra **sa**: cambia l'input del fixer esattamente
+  // come la scheda dello sweep, ed è il ramo che il drainer stesso sceglie su
+  // `max-turns` (DECOMPOSE-ROUTE). Con la guardia messa prima, un container
+  // aggregato di famiglia monitor con un verdetto catturato perdeva quell'uscita
+  // e diventava `keep` — cioè il ramo `decompose` veniva spento proprio nel caso
+  // in cui serve. Qui sotto la guardia intercetta il solo ri-accodo intero, che
+  // è l'unica azione che non cambia niente.
+  if (verdict && PREPASS_VERDICT_BEATS_FAMILY.has(verdict)) {
+    return { action: 'keep', reason: `verdetto \`${verdict}\` non ri-accodabile a costo zero: resta per il giudizio dello sweep settimanale` };
   }
   return { action: 'requeue', reason: `famiglia di monitor riconosciuta (${monitor})` };
 }

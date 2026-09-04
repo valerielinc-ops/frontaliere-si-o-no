@@ -324,6 +324,15 @@ export const NON_RETRYABLE = new Set([
  * Il pre-pass non sa scrivere una scheda; lo sweep sì. Quindi qui la regola è
  * «non riaprire una porta che non puoi accompagnare», non «chiudere l'uscita».
  */
+// DERIVAZIONE, e il perché è una nota e non un elenco: questo insieme è
+// `NON_RETRYABLE` più `max-turns`, ma i due criteri NON coincidono —
+// `NON_RETRYABLE` è «il verdetto è fermo», questo è «lo stadio che legge non sa
+// cambiare niente prima di rimettere in coda». Chi aggiunge un verdetto a
+// `NON_RETRYABLE` lo aggiunge in silenzio anche qui, e nel pre-pass la
+// conseguenza è più pesante: `needs-human` lì non ha altro drenaggio
+// automatico oltre allo sweep settimanale. Se il verdetto che stai aggiungendo
+// sopra è transiente, non appartiene a questo insieme: elencalo qui a mano
+// invece di ereditarlo. (Nit della review su nanako#778.)
 export const PREPASS_VERDICT_BEATS_FAMILY = new Set([...NON_RETRYABLE, 'max-turns']);
 
 // `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
