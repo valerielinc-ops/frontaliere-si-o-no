@@ -11302,6 +11302,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-nuovo.title': 'Construction : nouvel accord de six ans au Tessin',
     'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'L\'accord de construction a été paraphé : indemnité de chantier jusqu\'à 9 francs d\'ici 2028 et temps de trajet compté dès la première minute.',
     'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Chantier de construction au Tessin avec des ouvriers.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Vivre à Cittiglio et travailler au Tessin : guide frontalier',
+    'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio comme zone d\'habitation pour les frontaliers : fiscalité, permis G, coûts de la vie et avantages du transfert de Varèse au canton du Tessin.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Gare de Mendrisio à la frontière entre le Tessin et l\'Italie avec navetteurs transfrontaliers',
 };
 
 export default blogMetaFr;

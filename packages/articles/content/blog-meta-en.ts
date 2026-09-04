@@ -11300,6 +11300,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-nuovo.title': 'Construction: new six-year agreement in Ticino',
     'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'The construction agreement is signed: construction allowance of up to 9 francs by 2028 and travel time counted from the first minute.',
     'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Construction site in Ticino with workers.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Living in Cittiglio and working in Ticino: border guide',
+    'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio as a housing area for border workers: taxation, G permit, living costs and advantages of transferring from Varese to the Canton of Ticino.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Mendrisio border station between Ticino and Italy with cross-border commuters in transit',
 };
 
 export default blogMetaEn;

@@ -11301,6 +11301,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-nuovo.title': 'Edilizia: nuovo accordo di sei anni in Ticino',
     'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'Siglato l\'accordo per l\'edilizia: indennità di cantiere fino a 9 franchi entro il 2028 e tempo di viaggio conteggiato dal primo minuto.',
     'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Cantiere edile in Ticino con operai al lavoro.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Vivere a Cittiglio e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio come zona abitativa per frontalieri: fiscalità, permesso G, costi di vita e vantaggi del trasferimento da Varese al Canton Ticino.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Stazione di Mendrisio al confine tra Ticino e Italia con pendolari frontalieri in transito',
 };
 
 export default blogMetaIt;
