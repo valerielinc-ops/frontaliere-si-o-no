@@ -5380,6 +5380,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avviare-attivita-turgovia-commercio.title': 'Ouvrir une entreprise en Thurgovie : coûts et procédure',
     'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Guide étape par étape : formes juridiques, inscription au registre du commerce, taxes fédérales/cantonales, cotisations AVS/LPP/LAMal et obligations d\'assurance pour démarrer une entreprise en Suisse.',
     'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Entrepreneur suisse consulte les documents d\'inscription au registre du commerce',
+    'blog.article.permesso-l-san-gallo-proroga.title': 'Permis L Saint-Gall : validité et prorogation',
+    'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Permis L de courte durée jusqu\'à 1 an, procédures de renouvellement, contraintes à l\'employeur, transformation en permis B. Guide pratique.',
+    'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Bâtiment administratif cantonal suisse avec drapeau suisse et panorama alpin en arrière-plan',
 };
 
 export default blogMetaChFr;

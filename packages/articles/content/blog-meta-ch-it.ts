@@ -5380,6 +5380,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avviare-attivita-turgovia-commercio.title': 'Aprire un\'attività in Turgovia: costi e procedura',
     'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Guida passo-passo: forme giuridiche, iscrizione registro commercio, tasse federali/cantonali, contributi AVS/LPP/LAMal e obblighi assicurativi per avviare un\'impresa in Svizzera.',
     'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Professionista svizzero legge documenti per l\'iscrizione al registro di commercio e moduli di tassa',
+    'blog.article.permesso-l-san-gallo-proroga.title': 'Permesso L San Gallo: validità e proroga',
+    'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Permesso L di breve durata fino a 1 anno, procedure di rinnovo, vincoli al datore di lavoro, trasformazione in permesso B. Guida pratica.',
+    'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Edificio amministrativo cantonale svizzero con bandiera svizzera e paesaggio alpino sullo sfondo',
 };
 
 export default blogMetaChIt;
