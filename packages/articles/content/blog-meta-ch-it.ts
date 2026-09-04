@@ -5410,6 +5410,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Aprire attività a San Gallo: tasse e procedure',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Dal registro di commercio ai contributi sociali: guida completa ai costi e agli obblighi fiscali per chi avvia un\'impresa nel Cantone di San Gallo.',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Ufficio amministrativo svizzero con scrivanie professionali e documenti di registrazione commerciale e fiscale',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permesso L breve durata Vaud: durata, proroga e diritti',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Il permesso L consente di lavorare in Svizzera fino a 1 anno ed è rinnovabile. Scopri come richiedere la proroga, passare al permesso B e quali sono gli obblighi fiscali.',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Documento permesso di lavoro e contratto d\'impiego svizzero su scrivania in ufficio',
 };
 
 export default blogMetaChIt;

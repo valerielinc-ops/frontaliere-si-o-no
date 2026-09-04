@@ -5410,6 +5410,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Opening a business in St. Gallen: taxes and procedures',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'From the trade register to social contributions: a complete guide to costs and tax obligations for those who start a business in the Canton of St. Gallen.',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Swiss administrative office with professional desks and business registration and tax documents',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permit L short duration Vaud: duration, extension and rights',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'The L permit allows you to work in Switzerland for up to 1 year and is renewable. Learn how to apply for the extension, move to permit B, and what your tax obligations are.',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Work permit and Swiss employment contract on office desk',
 };
 
 export default blogMetaChEn;

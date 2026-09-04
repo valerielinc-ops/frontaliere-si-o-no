@@ -70220,6 +70220,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-breve-durata-vaud-proroga': {
+    title: 'Permesso L breve durata Vaud: durata, proroga e diritti',
+    description: 'Permesso L in Svizzera: durata massima 1 anno, rinnovabile se il lavoro continua. Scopri come richiedere la proroga, passare al permesso B e obblighi fiscali',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, breve, durata, vaud',
+    ogTitle: 'Permesso L breve durata Vaud: durata, proroga e diritti',
+    ogDescription: 'Il permesso L autorizza a lavorare in Svizzera fino a 1 anno ed è rinnovabile. Nel Canton Vaud scopri come richiedere la proroga, passare al permesso B di dimora e quali sono gli obblighi fiscali e le procedure amministrative per il rinnovo.',
+    canonicalPath: '/articoli-svizzera/permesso-l-breve-durata-vaud-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L breve durata Vaud: durata, proroga e diritti",
+      "description": "Permesso L in Svizzera: durata massima 1 anno, rinnovabile se il lavoro continua. Scopri come richiedere la proroga, passare al permesso B e obblighi fiscali",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-breve-durata-vaud-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento permesso di lavoro e contratto d'impiego svizzero su scrivania in ufficio"
+      },
+      "datePublished": "2026-09-04T08:00:51+00:00",
+      "dateModified": "2026-09-04T08:00:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-breve-durata-vaud-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
