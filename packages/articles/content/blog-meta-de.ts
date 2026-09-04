@@ -11284,6 +11284,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Leben in Dizzasco und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Bewilligung G, Steuern, AHV/BVG, KVG, Rückerstattungen, Reisezeiten und Lebenshaltungskosten zwischen Dizzasco und Tessin.',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Morgendlicher Blick auf den Luganer See mit Alpen im Hintergrund und Auto auf der Straße zum Grenzübergang.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Leben in Solbiate mit Cagno als Grenzgänger: So geht\'s',
+    'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Nach Italien an die Grenze ziehen und im Tessin arbeiten: Steuervorteile, zulässige Verfahren, Lebenshaltungskosten und Auswirkungen auf die Gehaltsabrechnung.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Panoramablick auf die Schweiz-Italien-Grenze in Südtessin mit Alpentälern und grenzüberschreitenden Infrastrukturen bei Sonnenuntergang.',
 };
 
 export default blogMetaDe;

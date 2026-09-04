@@ -84779,6 +84779,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-solbiate-frontaliere-pratica': {
+    title: 'Vivere a Solbiate con Cagno da frontaliere: come fare',
+    description: 'Trasferirsi in Italia di confine e lavorare in Ticino: vantaggi fiscali, procedure permessi, costi della vita e impatto sulla busta paga. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, solbiate, cagno, fare',
+    ogTitle: 'Vivere a Solbiate da frontaliere Ticino',
+    ogDescription: 'Solbiate con Cagno e Ticino: guida completa per vivere in Italia e lavorare in Svizzera. Scopri fiscalità, permessi, costi della vita e procedure per frontalieri. Vantaggi, svantaggi e checklist prima del trasferimento.',
+    canonicalPath: '/articoli-frontaliere/vivere-solbiate-frontaliere-pratica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Solbiate con Cagno da frontaliere: come fare",
+      "description": "Trasferirsi in Italia di confine e lavorare in Ticino: vantaggi fiscali, procedure permessi, costi della vita e impatto sulla busta paga. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-solbiate-frontaliere-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del confine svizzero-italiano in Ticino meridionale, con vallate alpine e aree di confine presso i valichi transfrontalieri."
+      },
+      "datePublished": "2026-09-04T03:07:38+00:00",
+      "dateModified": "2026-09-04T03:07:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-solbiate-frontaliere-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
