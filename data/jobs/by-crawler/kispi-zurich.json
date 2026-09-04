@@ -1,14 +1,14 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-09-04T13:26:27.482Z",
+  "assembledAt": "2026-09-04T22:54:10.622Z",
   "jobs": [
     {
       "id": "kispi-zurich-68c752d460e6",
       "slug": "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
-        "de": "diatkoch-80-100-kispi-zurich-zurich",
         "it": "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich",
         "en": "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "diatkoch-80-100-kispi-zurich-zurich",
         "fr": "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
@@ -16,24 +16,25 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Diätkoch 80-100%",
       "titleByLocale": {
-        "de": "Diätkoch 80-100%",
         "it": "Cucina dietetica 80-100 %",
         "en": "Diet cook 80-100 %",
+        "de": "Diätkoch 80-100%",
         "fr": "Diète cuire 80-100 %"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Deine Aufgaben\n• Du gewährleistest eine zeitgemässe und patientengerechte Verpflegung nach dem Cook & Chill Verfahren.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
       "descriptionByLocale": {
-        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Deine Aufgaben\n• Du gewährleistest eine zeitgemässe und patientengerechte Verpflegung nach dem Cook & Chill Verfahren.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
         "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 24.08.2026 I tuoi compiti\n• Si garantisce un pasto contemporaneo e paziente secondo la procedura Cook & Chill.\n\n• Tipo: Tempo pieno\n• Termine: perpetuo",
         "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 24.08.2026 Your tasks\n• You ensure a contemporary and patient-friendly meal according to the Cook & Chill procedure.\n\n• Type: Full-time\n• Time limit: perpetual",
+        "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 24.08.2026 Deine Aufgaben\n• Du gewährleistest eine zeitgemässe und patientengerechte Verpflegung nach dem Cook & Chill Verfahren.\n\n• Art: Vollzeit\n• Befristung: unbefristet",
         "fr": "L'hôpital pour enfants Zurich Eleonorenstiftung en ligne depuis : 24.08.2026 Vos tâches\n• Vous assurez un repas contemporain et convivial selon la procédure Cook & Chill.\n\n• Type: Temps plein\n• Délai: perpétuel"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:22.510Z",
+      "crawledAt": "2026-09-04T22:54:05.453Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -49,9 +50,30 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Application/CheckLogin/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "diatkoch-80-100-kispi-zurich-zurich",
+        "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
+          "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich",
+          "diatkoch-80-100-kispi-zurich-zurich",
+          "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "en": [
+          "diatkoch-80-100-kispi-zurich-zurich",
+          "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ],
+        "fr": [
+          "diatkoch-80-100-kispi-zurich-zurich",
+          "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        ]
       },
+      "firstSeenAt": "2026-09-04T13:26:22.510Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -64,30 +86,7 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-04T13:26:22.510Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "diatkoch-80-100-kispi-zurich-zurich"
-        ],
-        "en": [
-          "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "diatkoch-80-100-kispi-zurich-zurich"
-        ],
-        "fr": [
-          "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "diatkoch-80-100-kispi-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "diet-cook-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "diete-cuire-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "diatkoch-80-100-kispi-zurich-zurich"
-      ]
+      }
     },
     {
       "id": "kispi-zurich-9a4dece2b049",
@@ -121,7 +120,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:18.391Z",
+      "crawledAt": "2026-09-04T22:54:01.402Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,11 +138,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+        "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+          "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+          "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
@@ -199,7 +200,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3731/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:16.634Z",
+      "crawledAt": "2026-09-04T22:53:59.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -217,11 +218,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich"
+        "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
+        "farmacia-esperto-drogist-m-f-60-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich"
+          "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich",
+          "farmacia-esperto-drogist-m-f-60-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "fachfrau-apotheke-drogistin-m-w-60-kispi-zurich-zurich"
@@ -277,7 +280,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:15.749Z",
+      "crawledAt": "2026-09-04T22:53:56.275Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -295,11 +298,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
+        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich",
+        "diploma-di-studenti-in-analisi-biomediche-hf-m-f-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
+          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich",
+          "diploma-di-studenti-in-analisi-biomediche-hf-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
@@ -349,12 +354,13 @@
         "de": "Senior Consultant / Head of Unit (100 %) – Stem Cell Transplantation bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Senior Consultant / Head of Division 100 % bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Vollzeit\n• Befristung: unbefristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3714/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:14.859Z",
+      "crawledAt": "2026-09-04T22:53:55.438Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -376,7 +382,8 @@
         "senior-consultant-head-of-unit-100-stem-cell-transplantation-kispi-zurich-zurich",
         "consulente-senior-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
         "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich"
+        "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+        "senior-consulente-responsabile-division-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -384,7 +391,8 @@
           "senior-consultant-head-of-unit-100-stem-cell-transplantation-kispi-zurich-zurich",
           "consulente-senior-m-w-60-80-universitats-kinderspital-zurich-kispi-zurich",
           "consulente-senior-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich",
-          "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich"
+          "consulente-senior-m-w-universitats-kinderspital-zurich-kispi-zurich",
+          "senior-consulente-responsabile-division-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "senior-consultant-head-of-division-100-kispi-zurich-zurich"
@@ -440,7 +448,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3734/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:14.122Z",
+      "crawledAt": "2026-09-04T22:53:54.723Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -486,7 +494,7 @@
       "companyDomain": "kispi.uzh.ch",
       "title": "Payroll Spezialistin (m/w) 80%",
       "titleByLocale": {
-        "it": "Specialista di Payroll (m/f) 80 %",
+        "it": "Payroll Spezialistin (m/w) 80%",
         "en": "Payroll specialist (m/f) 80 %",
         "de": "Payroll Spezialistin (m/w) 80%",
         "fr": "Spécialiste de la paie (h/f) 80 %"
@@ -498,12 +506,13 @@
         "de": "Payroll Spezialistin (m/w) 80% bei Kinderspital Zürich Eleonorenstiftung in Zürich (8032, ZH), Schweiz.\n\n• Art: Teilzeit\n• Befristung: befristet\n• Standort: Zürich (ZH)\n• Bewerbung über das Umantis-Karriereportal von Universitäts-Kinderspital Zürich (Kispi)",
         "fr": "Spécialiste de la paie (h/f) 80% chez Kinderspital Zürich Eleonorenstiftung à Zurich (8032, ZH), Suisse.\n\n• Type: temps partiel\n• Terme temporaire: temporaire\n• Lieu: Zurich (ZH)\n• Application via le portail de carrière Umantis de l'hôpital universitaire pour enfants Zurich (Kispi)"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3733/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:13.263Z",
+      "crawledAt": "2026-09-04T22:53:53.941Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -521,11 +530,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-spezialistin-m-w-80-kispi-zurich-zurich"
+        "payroll-spezialistin-m-w-80-kispi-zurich-zurich",
+        "specialista-payroll-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "payroll-spezialistin-m-w-80-kispi-zurich-zurich"
+          "payroll-spezialistin-m-w-80-kispi-zurich-zurich",
+          "specialista-payroll-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "payroll-spezialistin-m-w-80-kispi-zurich-zurich"
@@ -581,7 +592,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:12.388Z",
+      "crawledAt": "2026-09-04T22:53:53.138Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -603,7 +614,8 @@
         "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
         "apprentice-apprentice-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
         "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
-        "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich"
+        "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
+        "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -611,7 +623,8 @@
           "apprendista-apprendista-informatik-cfc-w-m-universitats-kinderspital-zurich-kispi-zurich",
           "apprentice-apprentice-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
           "lernende-lernender-informatik-efz-w-m-kispi-zurich-zurich",
-          "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich"
+          "apprenti-e-apprenti-e-informatik-efz-w-m-universitats-kinderspital-zurich-kispi-zurich",
+          "apprendista-fachmann-apprendista-fachfrau-betriebsunterhalt-cfc-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich",
@@ -672,7 +685,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:11.488Z",
+      "crawledAt": "2026-09-04T22:53:52.329Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -736,7 +749,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3737/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:26:10.625Z",
+      "crawledAt": "2026-09-04T22:53:51.516Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -754,11 +767,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich"
+        "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich",
+        "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich"
+          "phd-position-in-developing-language-model-methods-for-pediatric-critical-care-kispi-zurich",
+          "phd-position-in-trustworthy-and-efficient-language-models-for-pediatric-clinical-data"
         ]
       },
       "firstSeenAt": "2026-09-01T23:07:19.953Z",
@@ -852,7 +867,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
