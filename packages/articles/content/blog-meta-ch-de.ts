@@ -5476,6 +5476,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-zugo-guida-pratica.title': 'Aufenthaltsbewilligung B Kanton Zug: Voraussetzungen und Verlängerung',
     'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Leitfaden Aufenthaltsbewilligung B in Zug: Wie funktioniert die erneuerbare Bewilligung, welche eidgenössischen und kantonalen Anforderungen gelten, Dokumente und Erneuerungsverfahren.',
     'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Büroraum einer Kantonalen Migrationsbehörde in Zug mit Schreibtischen, Dokumenten und Empfangsbereich',
+    'blog.article.scuola-4-giorni-belp.title': 'In der Schule nur 4 Tage, überzeugt das Experiment (vorerst)',
+    'blog.article.scuola-4-giorni-belp.excerpt': 'Seit drei Wochen läuft in Belp im Kanton Bern ein neues Pilotprojekt mit 4 Schultagen und 6 Wochen Ferien.',
+    'blog.article.scuola-4-giorni-belp.imageAlt': 'Schule in Belp, Kanton Bern, mit Kindern, die in einem modernen Klassenzimmer spielen und lernen.',
 };
 
 export default blogMetaChDe;

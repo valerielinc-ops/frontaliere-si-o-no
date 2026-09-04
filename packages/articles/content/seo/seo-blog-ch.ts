@@ -71078,6 +71078,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scuola-4-giorni-belp': {
+    title: 'A scuola solo 4 giorni, l\'esperimento (per ora) convince',
+    description: 'Scopri il nuovo progetto pilota a Belp, Canton Berna, con 4 giorni di scuola e 6 settimane di vacanza. Genitori e bambini entusiasti. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, scuola, solo, giorni, esperimento',
+    ogTitle: 'A scuola solo 4 giorni, l\'esperimento (per ora) convince',
+    ogDescription: 'Un nuovo progetto pilota a Belp, Canton Berna, sta riducendo lo stress legato alle vacanze e migliorando la gestione del tempo per le famiglie. Scopri di più.',
+    canonicalPath: '/articoli-svizzera/scuola-4-giorni-belp/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A scuola solo 4 giorni, l'esperimento (per ora) convince",
+      "description": "Scopri il nuovo progetto pilota a Belp, Canton Berna, con 4 giorni di scuola e 6 settimane di vacanza. Genitori e bambini entusiasti. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scuola-4-giorni-belp.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola di Belp, Canton Berna, con bambini che giocano e imparano in un'aula moderna."
+      },
+      "datePublished": "2026-09-04T21:47:50+00:00",
+      "dateModified": "2026-09-04T21:47:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/scuola-4-giorni-belp/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

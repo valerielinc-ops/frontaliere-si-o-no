@@ -5476,6 +5476,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-zugo-guida-pratica.title': 'Permesso di dimora B Canton Zugo: requisiti e rinnovo',
     'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guida al permesso di dimora B a Zugo: come funziona il permesso rinnovabile, quali requisiti federali e cantonali seguire, documenti e procedura di rinnovo.',
     'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Interno di un ufficio cantonale di migrazione a Zugo con scrivanie, documenti e area reception',
+    'blog.article.scuola-4-giorni-belp.title': 'A scuola solo 4 giorni, l\'esperimento (per ora) convince',
+    'blog.article.scuola-4-giorni-belp.excerpt': 'Da tre settimane, a Belp, nel Canton Berna, è in corso un nuovo progetto pilota con 4 giorni di scuola e 6 settimane di vacanza.',
+    'blog.article.scuola-4-giorni-belp.imageAlt': 'Scuola di Belp, Canton Berna, con bambini che giocano e imparano in un\'aula moderna.',
 };
 
 export default blogMetaChIt;

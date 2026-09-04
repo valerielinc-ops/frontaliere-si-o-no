@@ -5476,6 +5476,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-zugo-guida-pratica.title': 'Residence permit B Canton Zug: requirements and renewal',
     'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guide to residence permit B in Zug: how the renewable permit works, what federal and cantonal requirements to follow, documents and renewal procedure.',
     'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Interior of a cantonal migration office in Zug with desks, documentation and reception area',
+    'blog.article.scuola-4-giorni-belp.title': 'At school only 4 days, the experiment (for now) convinces',
+    'blog.article.scuola-4-giorni-belp.excerpt': 'For three weeks, in Belp, in the Canton of Bern, a new pilot project has been underway with 4 days of school and 6 weeks of vacation.',
+    'blog.article.scuola-4-giorni-belp.imageAlt': 'School in Belp, Canton Berna, with children playing and learning in a modern classroom.',
 };
 
 export default blogMetaChEn;
