@@ -11333,6 +11333,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-stazione-gallarate-2026.title': 'Works at Gallarate station: changes to the S5 line and replacement buses',
     'blog.article.lavori-stazione-gallarate-2026.excerpt': 'From 14 September to 5 October 2026, maintenance work at Gallarate station. Changes to the S5 Treviglio-Gallarate-Varese line and replacement buses.',
     'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Aerial view of Gallarate train station during maintenance work',
+    'blog.article.aumento-bollette-varese-frontalieri.title': 'Bills +39% in Varese: border impact',
+    'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Autumn and winter with energy stalemate in the province of Varese. Estimated increases of 39%. What it means for those who work in Canton Ticino.',
+    'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Residential living room in Varese province with autumn view toward Ticino mountains',
 };
 
 export default blogMetaEn;
