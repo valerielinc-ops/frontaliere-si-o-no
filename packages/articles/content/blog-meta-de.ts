@@ -11335,6 +11335,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-bollette-varese-frontalieri.title': 'Rechnungen +39% in Varese: Auswirkungen auf die Grenzen',
     'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Herbst und Winter mit Energieschub in der Provinz Varese. Geschätzte Steigerungen von 39 %. Was das für diejenigen bedeutet, die im Kanton Tessin arbeiten.',
     'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Wohnzimmer in der Provinz Varese mit Herbstblick auf die Bündner Berge',
+    'blog.article.varese-export-q1-2026.title': 'Varese zuerst in der Lombardei mit Export +23,2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'Im Q1 2026 dominiert die Provinz Varese das regionale Ranking dank der um 111,9% gestiegenen Luft- und Raumfahrt. Aber die außerordentliche Integrationskasse schreitet um 14,9% voran.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Luftaufnahme der Schweiz-Italien Grenzregion mit Industriegebiet der Provinz Varese und Alpentäler',
 };
 
 export default blogMetaDe;

@@ -11336,6 +11336,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-bollette-varese-frontalieri.title': 'Bills +39% in Varese: border impact',
     'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Autumn and winter with energy stalemate in the province of Varese. Estimated increases of 39%. What it means for those who work in Canton Ticino.',
     'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Residential living room in Varese province with autumn view toward Ticino mountains',
+    'blog.article.varese-export-q1-2026.title': 'Varese first in Lombardy with export +23.2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'In Q1 2026, the Varese province dominated the regional ranking thanks to aerospace which rose by 111.9%. But the extraordinary layoffs advanced by 14.9%.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Aerial view of Switzerland-Italy border region with Varese province industrial landscape and Alpine valleys',
 };
 
 export default blogMetaEn;
