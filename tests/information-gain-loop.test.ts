@@ -65,12 +65,36 @@ describe('classifyCohorts — i tre bucket sono tre loop diversi', () => {
       [cohort('it:/stipendio-medio-svizzera-informatico-', 9)],
       { ...OPTS, inventory: new Map([['it:/stipendio-medio-svizzera-', 0]]) },
     );
+    // Il punto di #7384: la coorte NON è `below-floor`, perché la riga
+    // d'inventario che la copre è stata trovata.
     expect(regressions).toEqual([]);
     expect(opportunities).toEqual([]);
-    expect(ratchets[0].recorded).toBe(0);
-    // La riga da togliere dall'inventario è la CHIAVE, non l'etichetta di
-    // questo campione: senza questo campo il ratchet non è azionabile.
-    expect(ratchets[0].inventoryKey).toBe('it:/stipendio-medio-svizzera-');
+    // Ma nemmeno un ratchet: 12 pagine di UNA sotto-famiglia sopra il floor
+    // non sono la prova che la famiglia intera sia risalita, e il ratchet
+    // detta di togliere la riga della famiglia INTERA. Toltala, il bucket
+    // successivo che pesca le sotto-famiglie ancora a 0 % ricadrebbe
+    // `below-floor`: il lampeggio tornerebbe dalla porta di servizio.
+    expect(ratchets).toEqual([]);
+  });
+
+  it('la risoluzione per prefisso stringe il ratchet ma non lo allenta (issue #7384)', () => {
+    // L'asimmetria è la proprietà, non un dettaglio: verso il basso un
+    // campione basta come prova, verso l'alto no.
+    const inventory = new Map([['it:/stipendio-medio-svizzera-', 6]]);
+    const narrow = 'it:/stipendio-medio-svizzera-informatico-';
+
+    // Verso il basso: la sotto-famiglia sotto la baseline È una regressione,
+    // e nomina la riga d'inventario contro cui è stata misurata.
+    const down = classifyCohorts([cohort(narrow, 2)], { ...OPTS, inventory });
+    expect(down.regressions.map((r) => r.label)).toEqual([narrow]);
+    expect(down.regressions[0].reason).toBe('regressed-vs-inventory');
+    expect(down.regressions[0].inventoryKey).toBe('it:/stipendio-medio-svizzera-');
+
+    // Verso l'alto: solo un'etichetta UGUALE alla chiave — una misura che
+    // copre la famiglia per intero — vale come recupero.
+    const up = classifyCohorts([cohort('it:/stipendio-medio-svizzera-', 9)], { ...OPTS, inventory });
+    expect(up.ratchets.map((r) => r.label)).toEqual(['it:/stipendio-medio-svizzera-']);
+    expect(up.ratchets[0].inventoryKey).toBe('it:/stipendio-medio-svizzera-');
   });
 
   it('una coorte dell’inventario che peggiora oltre la tolleranza è una regressione', () => {

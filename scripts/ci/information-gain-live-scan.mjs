@@ -192,7 +192,15 @@ export function classifyCohorts(cohorts, { floor, tolerance, target, inventory }
     const { key: inventoryKey, value: recorded } = entry;
     if (cohort.medianIgs < recorded - tolerance) {
       regressions.push({ ...cohort, recorded, inventoryKey, reason: 'regressed-vs-inventory' });
-    } else if (cohort.medianIgs >= floor) {
+    } else if (cohort.medianIgs >= floor && inventoryKey === cohort.label) {
+      // Asimmetria voluta, stessa del gate su dist: il ratchet si stringe su
+      // un campione (una sotto-famiglia sotto la baseline è già una prova di
+      // peggioramento) ma si allenta solo su una misura che copre la famiglia
+      // intera, cioè quando l'etichetta è UGUALE alla chiave. Qui conta il
+      // doppio: questo scan campiona 12 URL per sitemap, quindi la quasi
+      // totalità delle sue etichette è più stretta del tronco inventariato, e
+      // senza questo vincolo ogni run detterebbe di togliere una riga di
+      // famiglia sulla base di una sola sotto-famiglia (issue #7384).
       ratchets.push({ ...cohort, recorded, inventoryKey });
     }
   }

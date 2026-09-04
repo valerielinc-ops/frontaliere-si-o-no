@@ -208,7 +208,19 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
             recordedMedian: known.value,
             inventoryKey: known.key,
           });
-        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT) {
+        } else if (cohort.medianIgs >= MEDIAN_IGS_FLOOR_PCT && known.key === cohort.label) {
+          // La risoluzione per prefisso è ASIMMETRICA di proposito. Verso il
+          // basso un campione basta: una sotto-famiglia sotto la baseline è di
+          // per sé la prova che qualcosa è peggiorato, e il ratchet può solo
+          // stringersi. Verso l'alto no: un bucket di 12 pagine di UNA
+          // sotto-famiglia sopra il floor non dice niente delle altre, e
+          // registrarlo come «coorte risalita» detterebbe di togliere la riga
+          // della famiglia INTERA. Tolta la riga, il bucket successivo che
+          // pesca le sotto-famiglie ancora a 0 % ricade `below-floor`: il gate
+          // tornerebbe a lampeggiare col numero di run, cioè esattamente il
+          // difetto che #7384 chiude. Solo un'etichetta UGUALE alla chiave —
+          // una run che ha misurato la famiglia per intero — è prova di
+          // recupero family-wide.
           recovered.push({ ...cohort, recordedMedian: known.value, inventoryKey: known.key });
         }
       }
