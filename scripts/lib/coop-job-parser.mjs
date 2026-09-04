@@ -313,9 +313,16 @@ function resolveCoopJsonLdGeography(candidate) {
  * as an address candidate shaped like the JSON-LD ones. Returns `null` when the
  * listing has no locality or when it does not resolve to a Swiss municipality —
  * i.e. when it really is the generic fallback the detail payload must replace.
+ *
+ * Reads `addressLocality` ONLY, never `location`: the family's `location` is
+ * built as `city || region || 'Schweiz'`, so it degrades to a region label that
+ * can itself be a municipality name (Bern, Zürich, Zug…) and would resolve here
+ * as if it were branch-level evidence. The crawlers emit `addressLocality`
+ * exclusively for a real workplace city, which makes "the listing knows the
+ * branch" a property of the field rather than a guess made from its value.
  */
 function listingAddressEvidence(job) {
-  const addressLocality = normalizeSpace(job?.addressLocality || job?.location || '');
+  const addressLocality = normalizeSpace(job?.addressLocality || '');
   if (!addressLocality) return null;
   const candidate = {
     location: addressLocality,

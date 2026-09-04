@@ -171,8 +171,8 @@ describe('Interdiscount multi-branch enrichment (#7349)', () => {
     jobLocation: {
       address: {
         '@type': 'PostalAddress',
-        addressLocality: 'Jegensdorf',
-        addressRegion: 'Jegensdorf',
+        addressLocality: 'Jegenstorf',
+        addressRegion: 'Jegenstorf',
         addressCountry: 'Schweiz',
         postalCode: '3303',
         streetAddress: 'Bernstrasse 90',
@@ -222,9 +222,42 @@ describe('Interdiscount multi-branch enrichment (#7349)', () => {
     const fallbackListing = { ...listings[0], location: 'Schweiz', addressLocality: 'Schweiz', canton: 'BE', addressRegion: 'BE' };
 
     expect(applyCoopSourceDetailToJob(fallbackListing, hqDetail)).toMatchObject({
-      location: 'Jegensdorf',
+      location: 'Jegenstorf',
       postalCode: '3303',
       streetAddress: 'Bernstrasse 90',
     });
+  });
+
+  // The listing `location` degrades to the REGION label when
+  // `sza_workplace.city` is empty, and several region labels are ALSO
+  // municipality names — so a region-only row would resolve here and look like
+  // branch evidence, overriding the detail page that on those rows carries the
+  // only real municipality. The crawler withholds `addressLocality` for those
+  // rows and the override reads that field only.
+  it('does not let a region-only listing row override the detail municipality', () => {
+    const { addressLocality, ...regionOnlyListing } = listings[0];
+    // `location` is the region label "Bern", which IS a Swiss municipality.
+    const listing = { ...regionOnlyListing, location: 'Bern', canton: 'BE', addressRegion: 'BE' };
+    const detail = structuredClone(hqDetail);
+    detail.jobLocation.address.addressLocality = 'Ostermundigen';
+    detail.jobLocation.address.addressRegion = 'Ostermundigen';
+
+    expect(applyCoopSourceDetailToJob(listing, detail)).toMatchObject({
+      location: 'Ostermundigen',
+      addressLocality: 'Ostermundigen',
+      canton: 'BE',
+    });
+  });
+
+  // Guard the field contract the override above depends on: the crawlers must
+  // publish `addressLocality` only when a real workplace city exists.
+  it.each([
+    ['interdiscount', '../scripts/lib/interdiscount-job-parser.mjs'],
+    ['jumbo', '../scripts/lib/jumbo-job-parser.mjs'],
+  ])('%s emits addressLocality only for a real workplace city', (_key, modulePath) => {
+    const src = fs.readFileSync(path.resolve(import.meta.dirname, modulePath), 'utf8');
+
+    expect(src).toContain('...(city ? { addressLocality: city } : {})');
+    expect(src).not.toContain('addressLocality: city || location');
   });
 });
