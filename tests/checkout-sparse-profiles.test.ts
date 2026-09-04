@@ -166,6 +166,9 @@ describe('profili di sparse-checkout', () => {
       const { text, before } = computeProfiledText(path.join(WF_DIR, f), pkg.scripts);
       if (text !== before) stale.push(f);
     }
-    expect(stale).toEqual([]);
+    expect(
+      stale,
+      'profili sparse in ritardo — rigenerali con `node scripts/ci/apply-checkout-profiles.mjs` e rileggi il diff',
+    ).toEqual([]);
   }, TIMEOUT);
 });
