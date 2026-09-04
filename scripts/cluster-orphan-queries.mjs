@@ -70,7 +70,15 @@ function readJsonSafe(p) {
 
 function main() {
   const inputPath = path.join(ROOT, 'data', 'gsc-orphan-queries.json');
-  const outputPath = path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
+  // Redirigibile perche' questo script e' ESEGUITO DA UN TEST
+  // (tests/orphan-query-landings.test.ts) per verificarne il contratto. Senza
+  // questa via d'uscita ogni `npm test` riscriveva un file TRACCIATO nel
+  // working tree: `git status` sporco a fine suite, e — con un `git add -A`
+  // in una sessione agent — un file di cron committato dentro una PR che non
+  // c'entra niente. Il cron in produzione non passa la variabile e continua a
+  // scrivere il percorso canonico.
+  const outputPath = process.env.GSC_ORPHAN_CLUSTERS_OUT
+    || path.join(ROOT, 'data', 'gsc-orphan-queries-clusters.json');
 
   const input = readJsonSafe(inputPath);
   if (!input || typeof input !== 'object') {
