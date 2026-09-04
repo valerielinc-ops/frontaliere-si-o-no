@@ -5407,6 +5407,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permesso B: rinnovo e requisiti nel Nidvaldo',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'Come rinnovare il permesso di dimora B nel Cantone di Nidvaldo: procedura amministrativa, documenti obbligatori, durata della validità e contatti dell\'amministrazione.',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Vista di un edificio amministrativo svizzero con architettura alpina tradizionale, simbolo della burocrazia cantonale.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Aprire attività a San Gallo: tasse e procedure',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Dal registro di commercio ai contributi sociali: guida completa ai costi e agli obblighi fiscali per chi avvia un\'impresa nel Cantone di San Gallo.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Ufficio amministrativo svizzero con scrivanie professionali e documenti di registrazione commerciale e fiscale',
 };
 
 export default blogMetaChIt;

@@ -5407,6 +5407,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permis B : renouvellement et exigences dans le Nidwald',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'Comment renouveler le permis de séjour B dans le canton de Nidwald : procédure administrative, documents obligatoires, durée de validité et contacts de l\'administration.',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Bâtiment administratif suisse avec architecture alpine traditionnelle, symbole de la migrationsuisse.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Ouvrir une entreprise à Saint-Gall : taxes et procédures',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Du registre du commerce aux cotisations sociales : guide complet des coûts et des obligations fiscales pour ceux qui créent une entreprise dans le canton de Saint-Gall.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Bureau administratif suisse avec des bureaux professionnels et des documents d\'enregistrement commercial et fiscal',
 };
 
 export default blogMetaChFr;
