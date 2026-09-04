@@ -5482,6 +5482,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.borse-studio-vaud-requisiti.title': 'Scholarships canton Vaud: requirements and amounts',
     'blog.article.borse-studio-vaud-requisiti.excerpt': 'How to access scholarships and loans for study in the canton of Vaud: economic requirements, academic merit, maximum amounts and application procedure.',
     'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Lecture hall at Lausanne University with students taking notes',
+    'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Nursery and childcare in the Canton of Vaud: costs and subsidies',
+    'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'How custody works in the Canton of Vaud: kindergartens, day families, after-school with progressive income rates and available cantonal subsidies.',
+    'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Bright Swiss preschool classroom with children playing, large windows overlooking Alps, colorful educational materials.',
 };
 
 export default blogMetaChEn;

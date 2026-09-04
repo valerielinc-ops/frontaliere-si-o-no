@@ -5482,6 +5482,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.borse-studio-vaud-requisiti.title': 'Stipendien Kanton Waadt: Voraussetzungen und Beträge',
     'blog.article.borse-studio-vaud-requisiti.excerpt': 'So erhalten Sie Zugang zu Stipendien und Studiendarlehen des Kantons Waadt: finanzielle Voraussetzungen, schulische Leistungen, Höchstbeträge und Bewerbungsverfahren.',
     'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Vorlesungssaal der Universität Lausanne mit Studierenden, die Notizen machen',
+    'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Kindertagesstätte und Kinderbetreuung im Kanton Waadt: Kosten und Leistungen',
+    'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'Wie die Obhut im Kanton Waadt funktioniert: Kindergärten, Tagesfamilien, Nachschule mit progressiven Einkommensraten und kantonale Zuschüsse stehen zur Verfügung.',
+    'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Helle Schweizer Vorschulklasse mit spielenden Kindern, große Fenster mit Alpensicht, farbenfrohe Unterrichtsmaterialien.',
 };
 
 export default blogMetaChDe;
