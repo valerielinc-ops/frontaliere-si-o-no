@@ -22,6 +22,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
+import { mutateFixture } from './helpers/mutateFixture';
 
 const SCRIPT = fileURLToPath(
   new URL('../scripts/offload-generated-images-cdn.mjs', import.meta.url),
@@ -90,7 +91,8 @@ describe('data/image CDN preconnect injection', () => {
     // the offload pass must not add a second one, and must not add a
     // dns-prefetch either (an existing preconnect supersedes it). The base
     // script is still required.
-    const preHinted = BASE_HTML.replace(
+    const preHinted = mutateFixture(
+      BASE_HTML,
       '<head>',
       `<head><link rel="preconnect" href="${CDN_ORIGIN}" crossorigin>`,
     );
