@@ -280,6 +280,12 @@ jobs:
           AI_MODELS_PREFER: claude-cli/haiku
           CLAUDE_CLI_MAX_CALLS_PER_RUN: '300'
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          # A/B sul thinking di claude-cli/haiku. Ogni azienda va a un braccio
+          # (sale = id della run, quindi l'assegnazione cambia a ogni giro), e
+          # per ognuna si registrano tempo e traduzioni accettate. Si spegne
+          # mettendo la repo var a '0': il default del codice e' gia' spento,
+          # questa riga e' cio' che lo accende.
+          TRANSLATION_THINKING_AB: ${{ vars.TRANSLATION_THINKING_AB || '1' }}
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -447,6 +453,19 @@ jobs:
             --workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA" \
             --final-translation-commit "$SHADOW_FINAL_TRANSLATION_COMMIT" \
             --observed-job-status "$SHADOW_OBSERVED_JOB_STATUS"
+
+      - name: Upload thinking A/B rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          # `warn` e non `error`: l'esperimento e' opt-in e una run con la repo
+          # var a '0' non produce il file. Un upload rosso direbbe che qualcosa
+          # si e' rotto quando invece l'esperimento e' semplicemente spento.
+          if-no-files-found: warn
 
       - name: Upload translation shadow preflight v2 artifacts
         if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped'
