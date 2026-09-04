@@ -11342,6 +11342,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Moving to Switzerland as an Italian: a guide to permits',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permit B, Swiss taxation, AVS and LAMal: all the administrative steps for those leaving Italy.',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'View of Lugano from Lake Ceresio: common destination for transfers from Italy',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Moving to Switzerland as an Italian: the guide',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permit G, LAMal, AVS, house search in Ticino, refreshments 2024: complete step-by-step procedure for those who are not (yet) border crossers.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Aerial view of Lugano and Ticino, Switzerland, destination for Italians relocating',
 };
 
 export default blogMetaEn;

@@ -11344,6 +11344,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Déménager en Suisse en italien : guide des permis',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permis B, fiscalité suisse, AVS et LAMal : toutes les démarches administratives pour ceux qui quittent l\'Italie.',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Vue de Lugano depuis le lac de Lugano: destination commune pour les transferts depuis l\'Italie',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Déménager en Suisse en italien : le guide',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permis G, LAMal, AVS, recherche maison au Tessin, restaurations 2024 : procédure complète étape par étape pour ceux qui ne sont pas (encore) frontaliers.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Vue aérienne de Lugano et du Tessin, destination pour les Italiens s\'installant en Suisse',
 };
 
 export default blogMetaFr;

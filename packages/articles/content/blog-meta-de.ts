@@ -11341,6 +11341,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Umzug in die Schweiz als Italiener: Führerschein',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Bewilligung B, Schweizer Steuern, AHV und KVG: alle administrativen Schritte für diejenigen, die Italien verlassen.',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Blick auf Lugano vom Luganersee: häufiges Transferziel aus Italien',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Als Italiener in die Schweiz ziehen: Der Reiseführer',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Bewilligung G, KVG, AHV, Wohnungssuche im Tessin, Rückerstattungen 2024: Komplettes Verfahren Schritt für Schritt für diejenigen, die (noch) keine Grenzgänger sind.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Luftaufnahme von Lugano und dem Tessin, beliebtes Ziel für Italiener in der Schweiz',
 };
 
 export default blogMetaDe;

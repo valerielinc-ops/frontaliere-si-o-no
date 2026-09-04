@@ -33888,6 +33888,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-non-frontaliere-guida',
+ category: 'pratico',
+ date: '2026-09-04T19:27:02.116Z',
+ image: '/images/blog/trasferirsi-non-frontaliere-guida.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
