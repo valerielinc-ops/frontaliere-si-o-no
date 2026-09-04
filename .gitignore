@@ -162,3 +162,8 @@ data/employer-outreach/inbound-replies.jsonl
 # still committable rather than swallowed by this rule.
 public/images/events/*
 !public/images/events/catalog/
+
+# Input di scripts/ci/run-related-tests.mjs: il diff da cui seleziona i test.
+# Generati a ogni giro, in CI e in locale (AGENTS.md, Build And Test).
+changed-paths.txt
+changed-paths-status.txt
