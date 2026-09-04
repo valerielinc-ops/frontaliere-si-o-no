@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abraxas",
-  "assembledAt": "2026-09-03T23:36:31.038Z",
+  "assembledAt": "2026-09-04T13:49:33.429Z",
   "jobs": [
     {
       "id": "abraxas-d6bc90937a78",
@@ -17,7 +17,7 @@
       "title": "Software-Engineer 80–100 %",
       "titleByLocale": {
         "it": "Software-Ingegnere 80–100 %",
-        "en": "Software Engineer 80-100%",
+        "en": "Software-Engineer 80–100 %",
         "de": "Software-Ingenieur 80–100 %",
         "fr": "Software-Ingénieur 80–100 %"
       },
@@ -33,7 +33,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-80-100-3988",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:28.211Z",
+      "crawledAt": "2026-09-04T13:49:30.071Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -56,11 +57,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-engineer-80-100-abraxas-st-gallen"
+        "software-engineer-80-100-abraxas-st-gallen",
+        "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-80-100-abraxas-st-gallen"
+          "software-engineer-80-100-abraxas-st-gallen",
+          "software-ingegnere-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "software-engineer-80-100-abraxas-st-gallen"
@@ -112,7 +115,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-solution-architektin-80-100-mit-schwerpunkt-pre-sales-1974",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:27.740Z",
+      "crawledAt": "2026-09-04T13:49:29.587Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -165,7 +168,7 @@
       "title": "Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Software Engineer – Data Migration 80 – 100%",
+        "en": "Software Engineer – Data Migration 80 - 100%",
         "de": "Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -181,7 +184,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-engineer-data-migration-80-100-6005",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:27.268Z",
+      "crawledAt": "2026-09-04T13:49:29.089Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -249,7 +253,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architektin-im-steuerbereich-80-100-2052",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:26.793Z",
+      "crawledAt": "2026-09-04T13:49:28.609Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -273,11 +277,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+        "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+        "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
+          "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen",
+          "software-architetto-nell-area-fiscale-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "software-architekt-in-im-steuerbereich-80-100-abraxas-st-gallen"
@@ -332,7 +338,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/software-architekt-mit-fokus-ki-im-ssdlc-80-100-3313",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:26.322Z",
+      "crawledAt": "2026-09-04T13:49:28.127Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -401,7 +407,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/servicenow-ki-solutions-engineer-80-100-3109",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:25.848Z",
+      "crawledAt": "2026-09-04T13:49:27.643Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -424,11 +431,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+        "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+        "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
+          "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen",
+          "servicenow-ki-solutions-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "servicenow-ki-solutions-engineer-80-100-abraxas-zurich-flughafen"
@@ -480,7 +489,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-software-engineer-80-100-8049",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:25.376Z",
+      "crawledAt": "2026-09-04T13:49:27.159Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -509,7 +519,8 @@
         "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
         "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+        "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -519,7 +530,8 @@
           "senior-openstack-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analista-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen",
           "senior-cyber-security-analyst-engineer-80-100-abraxas-zurich-flughafen",
-          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen"
+          "senior-cyber-security-analyste-ingenieur-80-100-abraxas-informatik-ag-zurich-flughafen",
+          "senior-software-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "de": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -575,7 +587,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-servicenow-ki-engineer-80-100-1142",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:24.899Z",
+      "crawledAt": "2026-09-04T13:49:26.675Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -598,11 +611,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-servicenow-ki-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-servicenow-ki-engineer-80-100-abraxas-zurich-flughafen"
@@ -654,7 +669,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-projektleitung-im-bereich-steuerloesungen-80-100-6736",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:24.427Z",
+      "crawledAt": "2026-09-04T13:49:26.192Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -723,7 +738,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-openstack-engineer-80-100-6985",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:23.955Z",
+      "crawledAt": "2026-09-04T13:49:25.708Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -746,11 +762,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+        "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+        "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
+          "senior-openstack-engineer-80-100-abraxas-zurich-flughafen",
+          "senior-openstack-ingegnere-80-100-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-openstack-engineer-80-100-abraxas-zurich-flughafen"
@@ -802,7 +820,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/senior-linux-engineer-9441",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:23.483Z",
+      "crawledAt": "2026-09-04T13:49:25.224Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -825,11 +844,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "senior-linux-engineer-abraxas-zurich-flughafen"
+        "senior-linux-engineer-abraxas-zurich-flughafen",
+        "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-linux-engineer-abraxas-zurich-flughafen"
+          "senior-linux-engineer-abraxas-zurich-flughafen",
+          "senior-linux-ingegnere-abraxas-informatik-ag-zurich-flughafen"
         ],
         "fr": [
           "senior-linux-engineer-abraxas-zurich-flughafen"
@@ -881,7 +902,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/leiterin-solution-architektur-80-100-7399",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:23.011Z",
+      "crawledAt": "2026-09-04T13:49:24.742Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -909,7 +930,8 @@
         "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
         "junior-solution-architekt-80-100-abraxas-st-gallen",
-        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+        "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+        "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -917,7 +939,8 @@
           "junior-solution-architetto-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architect-80-100-abraxas-informatik-ag-st-gallen",
           "junior-solution-architekt-80-100-abraxas-st-gallen",
-          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen"
+          "solution-junior-architecte-80-100-abraxas-informatik-ag-st-gallen",
+          "responsabile-solution-architektur-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "leiter-in-solution-architektur-80-100-abraxas-st-gallen",
@@ -977,7 +1000,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lehrstelle-als-fachfrau-fachmann-kundendialog-efz-6830",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:22.538Z",
+      "crawledAt": "2026-09-04T13:49:24.258Z",
+      "needsRetranslation": false,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1001,12 +1025,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
-        "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
+        "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen",
+        "apprendistato-come-specialista-esperto-customer-dialogue-efz-abraxas-informatik-ag-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen",
-          "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen"
+          "apprendistato-come-fachfrau-fachmann-kundendialog-cfc-abraxas-informatik-ag-zurich-flughafen",
+          "apprendistato-come-specialista-esperto-customer-dialogue-efz-abraxas-informatik-ag-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-als-fachfrau-fachmann-kundendialog-efz-abraxas-zurich-flughafen"
@@ -1045,7 +1071,7 @@
       "title": "Lead Software Engineer – Data Migration 80 - 100%",
       "titleByLocale": {
         "it": "Lead Software Ingegnere – Data Migration 80 - 100%",
-        "en": "Lead Software Engineer – Data Migration 80 – 100%",
+        "en": "Lead Software Engineer – Data Migration 80 - 100%",
         "de": "Lead Software Ingenieur – Data Migration 80 - 100%",
         "fr": "Lead Software Ingénieur – Data Migration 80 - 100%"
       },
@@ -1061,7 +1087,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/lead-software-engineer-data-migration-80-100-1887",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:22.067Z",
+      "crawledAt": "2026-09-04T13:49:23.777Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1129,7 +1156,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-citrix-80-100-3914",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:21.594Z",
+      "crawledAt": "2026-09-04T13:49:23.293Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1192,7 +1220,7 @@
       "title": "ICT-System Engineer Betrieb 80–100 %",
       "titleByLocale": {
         "it": "ICT System Engineer Operation 80-100%",
-        "en": "ICT System Engineer Operation 80-100%",
+        "en": "ICT-System Engineer Betrieb 80–100 %",
         "de": "ICT-System Ingenieur Betrieb 80–100 %",
         "fr": "Ingénieur système des TIC Fonctionnement 80-100%"
       },
@@ -1208,7 +1236,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-betrieb-80-100-3478",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:21.122Z",
+      "crawledAt": "2026-09-04T13:49:22.810Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1242,7 +1271,8 @@
         "system-engineer-devops-deutsch-80-100-abraxas-bern",
         "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
         "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
-        "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+        "ict-system-ingenieur-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+        "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1256,7 +1286,8 @@
           "system-ingegnere-devops-deutsch-80-100-abraxas-informatik-ag-bern",
           "system-engineer-devops-deutsch-80-100-abraxas-bern",
           "system-ingenieur-devops-deutsch-80-100-abraxas-informatik-ag-bern",
-          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen"
+          "ict-system-ingegnere-betrieb-80-100-abraxas-informatik-ag-st-gallen",
+          "ict-system-engineer-operation-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "de": [
           "ict-system-engineer-betrieb-80-100-abraxas-bern"
@@ -1281,75 +1312,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "abraxas-ef84e9748cd1",
-      "slug": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
-      "slugByLocale": {
-        "it": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
-        "en": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
-        "de": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
-        "fr": "ingenieur-systeme-tic-avec-experience-de-gestion-de-projet-80-100-abraxas-informatik-ag-zurich-flughafen"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
-      "titleByLocale": {
-        "it": "ICT System Engineer con esperienza di gestione del progetto 80-100%",
-        "en": "ICT System Engineer with project management experience 80-100%",
-        "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
-        "fr": "Ingénieur système TIC avec expérience de gestion de projet 80-100%"
-      },
-      "description": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
-      "descriptionByLocale": {
-        "it": "Nel team S ystems Engineering del reparto Servizi Professionali, progettiamo e implementiamo soluzioni ICT moderne per i nostri clienti.\nNel tuo ruolo di ICT System Engineer con esperienza nella gestione dei progetti, accompagni principalmente le comunità nella trasformazione delle infrastrutture IT esistenti in un ambiente di lavoro gestito moderno con Microsoft 365, sia in un approccio ibrido che in cloud. Si assume la responsabilità tecnica nei progetti, pianificare e coordinare l'implementazione e garantire il trasferimento liscio alla società.\nIl vostro posto di lavoro può essere l'aeroporto di Zurigo – il cerchio, St. Gallen o Berna. Diventa parte di un team dedicato che progetta con passione soluzioni moderne e si muove molto insieme.\nIl tuo ruolo\n• Realizzazione tecnica di progetti nel campo di Modern Workplace con prodotti Microsoft (Microsoft 365, Intune, Entra ID, ecc.)\n• Esecuzione delle attività amministrative nell'ambito dell'attuazione del progetto\n• Lavorazione indipendente e coordinamento di ordini più piccoli con diverse interfacce (internamente e con il cliente)\n• Gestione dei progetti, compresa la gestione dei documenti di progetto, la regolazione dei piani di progetto e la partecipazione alla gestione di oggetti di consegna, scadenze, costi e rischi di progetto\n• Preparazione di presentazioni, verbali e altri documenti relativi al progetto\n• Eseguire attività di comunicazione, informazione e documentazione\nIl tuo profilo\n• Formazione professionale completata nel settore dell'informatica, nel settore dei media (ad es. mediamatist:in) o nel settore commerciale con buona comprensione tecnica\n• Conoscenza approfondita di Windows Server, Client, Network, Microsoft 365 e Intune\n• Rapida comprensione e grande disponibilità ad imparare\n• Flessibilità e apertura a nuove idee e la volontà di lavorare sul posto al cliente\n• Lavoro autonomo, ben organizzato e responsabile\n• Personalità cooperativa e comunicativa con piacere nel lavorare insieme in un team\n• Conoscenza fluente del tedesco nelle parole e nella scrittura (almeno livello C1)\nI tuoi vantaggi\n• Lavoro interessante e orientato al futuro in un'azienda innovativa\n• Con il nostro modello di tempo di lavoro annuale è possibile determinare e gestire il vostro tempo di lavoro quotidiano da soli\n• Carico di lavoro (80-100%) e luogo di lavoro quando impiegato\n• Condizioni di lavoro moderne (ad esempio ufficio domestico, infrastruttura)\n• Opportunità di formazione e sviluppo interessanti\n• Cultura familiare, du-culture\n• Abbonamento a metà imposta alle FFS per tutti i dipendenti\n• Eventi aziendali e di squadra",
-        "en": "In the S ystems Engineering Team of the Professional Services department, we design and implement modern ICT solutions for our customers.\nIn your role as an ICT System Engineer with project management experience, you mainly accompany communities in the transformation of their existing IT infrastructures into a modern managed workplace with Microsoft 365, whether in a hybrid or cloud-only approach. You take over the technical responsibility in projects, plan and coordinate the implementation and ensure the smooth transfer to the company.\nYour place of work can be Zurich Airport – The Circle, St. Gallen or Bern. Become part of a dedicated team that passionately designs modern solutions and moves a lot together.\nYour role\n• Technical implementation of projects in the field of Modern Workplace with Microsoft products (Microsoft 365, Intune, Entra ID, etc.)\n• Execution of administrative activities as part of project implementation\n• Independent processing and coordination of smaller orders with several interfaces (internally and with the customer)\n• Project administration within projects, including management of project documents, adjustment of project plans, and participation in the management of delivery objects, deadlines, costs and project risks\n• Preparation of presentations, minutes and other project-related documents\n• Performing communication, information and documentation tasks\nYour profile\n• Completed vocational training in the field of computer science, in the media sector (e.g. mediamatist:in) or in the commercial sector with good technical understanding\n• In-depth knowledge of Windows Server, Clients, Network, Microsoft 365 and Intune\n• Rapid comprehension and a high willingness to learn\n• Flexibility as well as openness to new ideas and the willingness to work on site at the customer\n• Self-employed, well organised and responsible work\n• Cooperative and communicative personality with pleasure in working together in a team\n• Flowing knowledge of German in words and writing (at least C1 level)\nYour Benefits\n• Interesting and future-oriented work in an innovative company\n• With our annual working time model you can determine and manage your daily working time yourself\n• Workload (80-100%) and place of work when employed\n• Modern working conditions (e.g. home office, infrastructure)\n• Attractive training and development opportunities\n• Family culture, du-culture\n• SBB half tax subscription for all employees\n• Corporate and team events",
-        "de": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
-        "fr": "Dans l'équipe d'ingénierie S ystems du département Services professionnels, nous concevons et mettons en œuvre des solutions TIC modernes pour nos clients.\nEn tant qu'ingénieur système TIC avec une expérience de gestion de projet, vous accompagnez principalement les communautés dans la transformation de leurs infrastructures informatiques existantes en un lieu de travail géré moderne avec Microsoft 365, que ce soit dans une approche hybride ou cloud. Vous assumez la responsabilité technique dans les projets, planifiez et coordonnez la mise en œuvre et assurez le transfert en douceur à l'entreprise.\nVotre lieu de travail peut être Zurich Airport – The Circle, St. Gallen ou Berne. Faites partie d'une équipe dévouée qui conçoit avec passion des solutions modernes et se déplace beaucoup ensemble.\nVotre rôle\n• Mise en œuvre technique de projets dans le domaine du lieu de travail moderne avec des produits Microsoft (Microsoft 365, Intune, Entra ID, etc.)\n• Exécution des activités administratives dans le cadre de la mise en œuvre du projet\n• Traitement et coordination indépendants des commandes plus petites avec plusieurs interfaces (internes et avec le client)\n• Administration des projets au sein des projets, y compris la gestion des documents de projet, l ' ajustement des plans de projet et la participation à la gestion des objets d ' exécution, des délais, des coûts et des risques liés aux projets\n• Préparation des exposés, procès-verbaux et autres documents relatifs aux projets\n• Réalisation de tâches de communication, d'information et de documentation\nVotre profil\n• Formation professionnelle complète dans le domaine de l'informatique, dans le secteur des médias (par exemple mediamatist:in) ou dans le secteur commercial avec une bonne compréhension technique\n• Connaissance approfondie de Windows Server, Clients, Réseau, Microsoft 365 et Intune\n• Compréhension rapide et grande volonté d'apprendre\n• Flexibilité, ouverture aux nouvelles idées et volonté de travailler sur place chez le client\n• Travail indépendant, bien organisé et responsable\n• Personnalité coopérative et communicative avec plaisir de travailler en équipe\n• Connaissance de l'allemand en mots et en écriture (au moins niveau C1)\nVos avantages\n• Travail intéressant et tourné vers l'avenir dans une entreprise innovante\n• Avec notre modèle annuel de temps de travail, vous pouvez déterminer et gérer votre temps de travail quotidien vous-même\n• Charge de travail (80-100%) et lieu de travail\n• Conditions de travail modernes (par exemple, bureau à domicile, infrastructure)\n• Possibilités de formation et de perfectionnement intéressantes\n• Culture familiale, du-culture\n• Abonnement à la moitié de la taxe CFF pour tous les salariés\n• Événements d'entreprise et d'équipe"
-      },
-      "location": "Zürich-Flughafen",
-      "canton": "ZH",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T13:52:35.003Z",
-      "addressLocality": "Zürich-Flughafen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8058",
-      "streetAddress": "",
-      "category": "IT / Sicurezza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://apply.refline.ch/215876/2426/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2426",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "firstSeenAt": "2026-08-24T21:32:11.188Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 1
     },
     {
       "id": "abraxas-2ee0dcad4ad9",
@@ -1382,7 +1344,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-devops-80-100-6206",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:20.649Z",
+      "crawledAt": "2026-09-04T13:49:22.329Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1450,7 +1413,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-iam-wafidp-80-100-9599",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:20.162Z",
+      "crawledAt": "2026-09-04T13:49:21.845Z",
+      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1518,7 +1482,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/dwh-softwareengineer-80-100-9720",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:19.688Z",
+      "crawledAt": "2026-09-04T13:49:21.356Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -1587,7 +1551,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/datenschutzspezialistin-50-5528",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:19.215Z",
+      "crawledAt": "2026-09-04T13:49:20.873Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1611,11 +1575,13 @@
       "pensumMax": 50,
       "pensum": "50%",
       "previousSlugs": [
-        "datenschutzspezialist-in-50-abraxas-st-gallen"
+        "datenschutzspezialist-in-50-abraxas-st-gallen",
+        "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "datenschutzspezialist-in-50-abraxas-st-gallen"
+          "datenschutzspezialist-in-50-abraxas-st-gallen",
+          "datenschutzspezialist-in-50-abraxas-informatik-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:29:20.037Z",
@@ -1648,7 +1614,7 @@
       "title": "Business-Analyst im Bereich Steuern 80–100 %",
       "titleByLocale": {
         "it": "Analizzatore fiscale 80-100%",
-        "en": "Tax Business Analyst 80-100%",
+        "en": "Business-Analyst im Bereich Steuern 80–100 %",
         "de": "Business-Analyst im Bereich Steuern 80–100 %",
         "fr": "Analyste des entreprises fiscales 80-100%"
       },
@@ -1664,7 +1630,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/business-analyst-im-bereich-steuern-80-100-2625",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:18.742Z",
+      "crawledAt": "2026-09-04T13:49:20.387Z",
+      "needsRetranslation": true,
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -1689,12 +1656,14 @@
       "previousSlugs": [
         "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
         "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
-        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+        "business-analyste-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+        "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
-          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld"
+          "business-analista-im-bereich-steuern-80-100-abraxas-informatik-ag-frauenfeld",
+          "analizzatore-fiscale-80-100-abraxas-informatik-ag-frauenfeld"
         ],
         "fr": [
           "business-analyst-im-bereich-steuern-80-100-abraxas-frauenfeld",
@@ -1747,7 +1716,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/bereichscontrollerin-60-80-7586",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:18.271Z",
+      "crawledAt": "2026-09-04T13:49:19.894Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1793,7 +1762,8 @@
         "software-engineer-80-100-abraxas-st-gallen",
         "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
         "controleur-regional-dans-60-80-abraxas-informatik-ag-st-gallen",
-        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen"
+        "area-controller-in-60-80-abraxas-informatik-ag-st-gallen",
+        "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1815,7 +1785,8 @@
           "software-ingenieur-80-100-abraxas-informatik-ag-st-gallen",
           "area-controller-in-60-80-abraxas-informatik-ag-st-gallen",
           "bereichscontroller-in-60-80-abraxas-st-gallen",
-          "devops-engineer-80-100-abraxas-st-gallen"
+          "devops-engineer-80-100-abraxas-st-gallen",
+          "bereichscontroller-in-60-80-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "controleur-regional-dans-60-80-abraxas-informatik-ag-st-gallen"
@@ -1867,7 +1838,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-supporterin-epsipol-ordnungsbussen-deutsch-amp-franzoesisch-80-100-5415",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:17.784Z",
+      "crawledAt": "2026-09-04T13:49:19.404Z",
       "needsRetranslation": true,
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
@@ -1938,7 +1909,7 @@
       "title": "Applikations-Manager:in 80–100 %",
       "titleByLocale": {
         "it": "Gestione delle applicazioni: in 80-100%",
-        "en": "Application Manager: in 80-100%",
+        "en": "Applikations-Manager:in 80–100 %",
         "de": "Applikations-Manager:in 80–100 %",
         "fr": "Gestionnaire d'applications : en 80-100%"
       },
@@ -1954,7 +1925,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/applikations-managerin-80-100-4224",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:17.299Z",
+      "crawledAt": "2026-09-04T13:49:18.913Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -1978,11 +1949,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "applikations-manager-in-80-100-abraxas-st-gallen"
+        "applikations-manager-in-80-100-abraxas-st-gallen",
+        "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikations-manager-in-80-100-abraxas-st-gallen"
+          "applikations-manager-in-80-100-abraxas-st-gallen",
+          "gestione-delle-applicazioni-in-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "fr": [
           "applikations-manager-in-80-100-abraxas-st-gallen"
@@ -2034,7 +2007,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:16.825Z",
+      "crawledAt": "2026-09-04T13:49:18.430Z",
       "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
@@ -2103,7 +2076,8 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-teamleiterin-80-100-3906",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:16.351Z",
+      "crawledAt": "2026-09-04T13:49:17.944Z",
+      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2126,11 +2100,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+        "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+        "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abacus-teamleiter-in-80-100-abraxas-st-gallen"
+          "abacus-teamleiter-in-80-100-abraxas-st-gallen",
+          "abacus-team-leader-80-100-abraxas-informatik-ag-st-gallen"
         ],
         "en": [
           "abacus-teamleiter-in-80-100-abraxas-st-gallen"
@@ -2140,92 +2116,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T09:59:56.081Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "abraxas-9abf9398ee81",
-      "slug": "abacus-account-manager-finance-debitors-creditors-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
-      "slugByLocale": {
-        "it": "abacus-account-manager-finance-debitors-creditors-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
-        "en": "abacus-account-manager-finance-debitors-creditors-and-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
-        "de": "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
-        "fr": "abacus-account-manager-finances-debiteurs-creanciers-et-services-bancaires-electroniques-80-100-abraxas-informatik-ag-st"
-      },
-      "company": "Abraxas Informatik AG",
-      "companyKey": "abraxas",
-      "companyDomain": "abraxas.ch",
-      "title": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
-      "titleByLocale": {
-        "it": "Abacus Account Manager Finance, Debitors, Creditors e Electronic Banking 80-100%",
-        "en": "Abacus Account Manager Finance, Debitors, Creditors and Electronic Banking 80-100%",
-        "de": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
-        "fr": "Abacus Account Manager Finances, débiteurs, créanciers et services bancaires électroniques 80-100%"
-      },
-      "description": "Du liebst es, Kundinnen und Kunden kompetent zu unterstützen und praxisnahe Lösungen zu finden? Bei uns übernimmst du spannende Anwenderfragen rund um Abacus und erhältst eine fundierte Einarbeitung, um dein Fachwissen stetig auszubauen. Werde Teil eines motivierten Teams und gestalte exzellente Kundenbetreuung aktiv mit!\nDeine Rolle\n• Gewährleistung des 1st Level Supports unter Einhaltung der vereinbarten Reaktions- und Behebungszeiten gemäss unseren SLA\n• Selbstständige Analyse, Bearbeitung und lückenlose Dokumentation eingehender Supportanfragen\n• Fachgerechte Weiterleitung komplexer Fälle an die zuständigen 2nd Level Teams\n• Bearbeitung sowie konsequente Nachverfolgung offener Tickets mit Fokus auf nachhaltige Lösungen\n• Kontinuierlicher Wissensaustausch im Team, um einen herausragenden Service sicherzustellen\n• Durchführung von Schulungen für unsere Kunden in den von dir betreuten Modulen\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, idealerweise ergänzt durch ein wirtschaftlich ausgerichtetes Studium (z.B. Wirtschaftsinformatik - abgeschlossen oder in Ausbildung)\n• Strukturierte Arbeitsweise, Verantwortungsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Klare und präzise Kommunikation, sowohl schriftlich als auch mündlich auf Deutsch, ist für dich selbstverständlich\n• Interesse an modernen Business-Software-Lösungen und Freude an digitalen Tools; Erfahrung mit Abacus oder anderen ERP-Systemen ist von Vorteil\n• Ausgeprägte Teamorientierung und Engagement, um gemeinsam mit Kolleginnen, Kollegen sowie Kundinnen und Kunden nachhaltige Lösungen zu finden\n• Starke Kundenorientierung, gepaart mit Wertschätzung und Verlässlichkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-      "descriptionByLocale": {
-        "it": "Ti piace sostenere con competenza i clienti e trovare soluzioni pratiche? Con noi, si assumeranno interessanti domande utente su Abacus e ricevere una formazione ben fondata al fine di espandere costantemente la vostra esperienza. Diventa parte di un team motivato e forma attivamente un eccellente supporto clienti!\nIl tuo ruolo\n• Assicurare il supporto di primo livello in conformità con i tempi di risposta e correzione concordati secondo il nostro SLA\n• Analisi indipendente, elaborazione e documentazione senza soluzione di continuità delle richieste di supporto in entrata\n• Inoltro professionale di casi complessi ai team responsabili del secondo livello\n• Lavorazione e monitoraggio coerente dei biglietti aperti con un focus sulle soluzioni sostenibili\n• Lo scambio continuo di conoscenze nel team per garantire un servizio eccezionale\n• Condurre la formazione per i nostri clienti nei moduli che si supervisiona\nIl tuo profilo\n• Formazione commerciale o tecnica completata, integrata idealmente da studi economicamente orientati (ad esempio informatica aziendale - completata o in formazione)\n• Metodi di lavoro strutturati, senso di responsabilità e capacità di mantenere una panoramica anche in situazioni difficili\n• La comunicazione chiara e precisa, sia per iscritto che per orale in tedesco, è una questione ovviamente per voi\n• interesse per le soluzioni software aziendali moderne e il godimento degli strumenti digitali; Esperienza con Abacus o altri sistemi ERP è un vantaggio\n• Forte orientamento e impegno del team per trovare soluzioni sostenibili insieme a colleghi e clienti\n• Forte orientamento al cliente, accoppiato con apprezzamento e affidabilità\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
-        "en": "Do you love to competently support customers and find practical solutions? With us, you will take on exciting user questions about Abacus and receive a well-founded training in order to constantly expand your expertise. Become part of a motivated team and actively shape excellent customer support!\nYour role\n• Ensure 1st level support in compliance with the agreed response and correction times in accordance with our SLA\n• Independent analysis, processing and seamless documentation of incoming support requests\n• Professional forwarding of complex cases to the responsible 2nd level teams\n• Processing and consistent tracking of open tickets with a focus on sustainable solutions\n• Continuous knowledge exchange in the team to ensure outstanding service\n• Conduct training for our customers in the modules you supervise\nYour profile\n• Completed commercial or technical training, ideally supplemented by economically oriented studies (e.g. business informatics - completed or in training)\n• Structured working methods, a sense of responsibility and the ability to maintain an overview even in demanding situations\n• Clear and precise communication, both in writing and oral in German, is a matter of course for you\n• interest in modern business software solutions and enjoyment of digital tools; Experience with Abacus or other ERP systems is an advantage\n• Strong team orientation and commitment to find sustainable solutions together with colleagues and customers\n• Strong customer orientation, coupled with appreciation and reliability\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
-        "de": "Du liebst es, Kundinnen und Kunden kompetent zu unterstützen und praxisnahe Lösungen zu finden? Bei uns übernimmst du spannende Anwenderfragen rund um Abacus und erhältst eine fundierte Einarbeitung, um dein Fachwissen stetig auszubauen. Werde Teil eines motivierten Teams und gestalte exzellente Kundenbetreuung aktiv mit!\nDeine Rolle\n• Gewährleistung des 1st Level Supports unter Einhaltung der vereinbarten Reaktions- und Behebungszeiten gemäss unseren SLA\n• Selbstständige Analyse, Bearbeitung und lückenlose Dokumentation eingehender Supportanfragen\n• Fachgerechte Weiterleitung komplexer Fälle an die zuständigen 2nd Level Teams\n• Bearbeitung sowie konsequente Nachverfolgung offener Tickets mit Fokus auf nachhaltige Lösungen\n• Kontinuierlicher Wissensaustausch im Team, um einen herausragenden Service sicherzustellen\n• Durchführung von Schulungen für unsere Kunden in den von dir betreuten Modulen\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, idealerweise ergänzt durch ein wirtschaftlich ausgerichtetes Studium (z.B. Wirtschaftsinformatik - abgeschlossen oder in Ausbildung)\n• Strukturierte Arbeitsweise, Verantwortungsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Klare und präzise Kommunikation, sowohl schriftlich als auch mündlich auf Deutsch, ist für dich selbstverständlich\n• Interesse an modernen Business-Software-Lösungen und Freude an digitalen Tools; Erfahrung mit Abacus oder anderen ERP-Systemen ist von Vorteil\n• Ausgeprägte Teamorientierung und Engagement, um gemeinsam mit Kolleginnen, Kollegen sowie Kundinnen und Kunden nachhaltige Lösungen zu finden\n• Starke Kundenorientierung, gepaart mit Wertschätzung und Verlässlichkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
-        "fr": "Aimez-vous soutenir les clients avec compétence et trouver des solutions pratiques? Avec nous, vous allez répondre à des questions passionnantes des utilisateurs sur Abacus et recevoir une formation bien fondée afin d'élargir constamment votre expertise. Faites partie d'une équipe motivée et formez activement un excellent support client !\nVotre rôle\n• Assurer le soutien du 1er niveau conformément aux délais de réponse et de correction convenus conformément à notre ALS\n• Analyse indépendante, traitement et documentation transparente des demandes d ' appui reçues\n• Transmission professionnelle de cas complexes aux équipes responsables du 2e niveau\n• Traitement et suivi cohérent des tickets ouverts en mettant l'accent sur les solutions durables\n• Échange continu de connaissances au sein de l'équipe pour assurer un service exceptionnel\n• Conduire la formation de nos clients dans les modules que vous supervisez\nVotre profil\n• Formation commerciale ou technique achevée, idéalement complétée par des études à orientation économique (p. ex. l'informatique des entreprises - achevée ou en formation)\n• Méthodes de travail structurées, sens des responsabilités et capacité de maintenir une vue d'ensemble même dans des situations exigeantes\n• Une communication claire et précise, tant par écrit qu'oralement en allemand, est bien entendu une question pour vous.\n• l'intérêt pour les solutions modernes de logiciels d'affaires et la jouissance des outils numériques; l'expérience avec Abacus ou d'autres systèmes ERP est un avantage\n• Une forte orientation de l'équipe et un engagement à trouver des solutions durables avec des collègues et des clients\n• Une forte orientation client, associée à l'appréciation et à la fiabilité\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
-      },
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
-      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:15.878Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9001",
-      "streetAddress": "St. Leonhard-Strasse 80",
-      "category": "IT / Sviluppo software",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / Informatica per la pubblica amministrazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-12",
-      "applyUrl": "https://apply.refline.ch/215876/2513/index.html?lang=de&cid=1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "215876-2513",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
-        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
-        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
-          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "en": [
-          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
-          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
-        ],
-        "fr": [
-          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas"
-        ]
-      },
-      "firstSeenAt": "2026-08-12T10:18:37.723Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -2271,7 +2161,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-svm-amp-proj-80-100-7621",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:15.406Z",
+      "crawledAt": "2026-09-04T13:49:17.462Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2358,7 +2248,7 @@
       "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-beraterin-bpe-rest-amp-abareport-80-100-2411",
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:36:14.791Z",
+      "crawledAt": "2026-09-04T13:49:16.829Z",
       "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
@@ -2418,6 +2308,172 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "abraxas-9abf9398ee81",
+      "slug": "abacus-account-manager-finance-debitors-creditors-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
+      "slugByLocale": {
+        "it": "abacus-account-manager-finance-debitors-creditors-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
+        "en": "abacus-account-manager-finance-debitors-creditors-and-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
+        "de": "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
+        "fr": "abacus-account-manager-finances-debiteurs-creanciers-et-services-bancaires-electroniques-80-100-abraxas-informatik-ag-st"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
+      "titleByLocale": {
+        "it": "Abacus Account Manager Finance, Debitors, Creditors e Electronic Banking 80-100%",
+        "en": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
+        "de": "Abacus Kundenbetreuer Finanzen, Debitoren, Kreditoren und Electronic Banking 80–100 %",
+        "fr": "Abacus Account Manager Finances, débiteurs, créanciers et services bancaires électroniques 80-100%"
+      },
+      "description": "Du liebst es, Kundinnen und Kunden kompetent zu unterstützen und praxisnahe Lösungen zu finden? Bei uns übernimmst du spannende Anwenderfragen rund um Abacus und erhältst eine fundierte Einarbeitung, um dein Fachwissen stetig auszubauen. Werde Teil eines motivierten Teams und gestalte exzellente Kundenbetreuung aktiv mit!\nDeine Rolle\n• Gewährleistung des 1st Level Supports unter Einhaltung der vereinbarten Reaktions- und Behebungszeiten gemäss unseren SLA\n• Selbstständige Analyse, Bearbeitung und lückenlose Dokumentation eingehender Supportanfragen\n• Fachgerechte Weiterleitung komplexer Fälle an die zuständigen 2nd Level Teams\n• Bearbeitung sowie konsequente Nachverfolgung offener Tickets mit Fokus auf nachhaltige Lösungen\n• Kontinuierlicher Wissensaustausch im Team, um einen herausragenden Service sicherzustellen\n• Durchführung von Schulungen für unsere Kunden in den von dir betreuten Modulen\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, idealerweise ergänzt durch ein wirtschaftlich ausgerichtetes Studium (z.B. Wirtschaftsinformatik - abgeschlossen oder in Ausbildung)\n• Strukturierte Arbeitsweise, Verantwortungsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Klare und präzise Kommunikation, sowohl schriftlich als auch mündlich auf Deutsch, ist für dich selbstverständlich\n• Interesse an modernen Business-Software-Lösungen und Freude an digitalen Tools; Erfahrung mit Abacus oder anderen ERP-Systemen ist von Vorteil\n• Ausgeprägte Teamorientierung und Engagement, um gemeinsam mit Kolleginnen, Kollegen sowie Kundinnen und Kunden nachhaltige Lösungen zu finden\n• Starke Kundenorientierung, gepaart mit Wertschätzung und Verlässlichkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+      "descriptionByLocale": {
+        "it": "Ti piace sostenere con competenza i clienti e trovare soluzioni pratiche? Con noi, si assumeranno interessanti domande utente su Abacus e ricevere una formazione ben fondata al fine di espandere costantemente la vostra esperienza. Diventa parte di un team motivato e forma attivamente un eccellente supporto clienti!\nIl tuo ruolo\n• Assicurare il supporto di primo livello in conformità con i tempi di risposta e correzione concordati secondo il nostro SLA\n• Analisi indipendente, elaborazione e documentazione senza soluzione di continuità delle richieste di supporto in entrata\n• Inoltro professionale di casi complessi ai team responsabili del secondo livello\n• Lavorazione e monitoraggio coerente dei biglietti aperti con un focus sulle soluzioni sostenibili\n• Lo scambio continuo di conoscenze nel team per garantire un servizio eccezionale\n• Condurre la formazione per i nostri clienti nei moduli che si supervisiona\nIl tuo profilo\n• Formazione commerciale o tecnica completata, integrata idealmente da studi economicamente orientati (ad esempio informatica aziendale - completata o in formazione)\n• Metodi di lavoro strutturati, senso di responsabilità e capacità di mantenere una panoramica anche in situazioni difficili\n• La comunicazione chiara e precisa, sia per iscritto che per orale in tedesco, è una questione ovviamente per voi\n• interesse per le soluzioni software aziendali moderne e il godimento degli strumenti digitali; Esperienza con Abacus o altri sistemi ERP è un vantaggio\n• Forte orientamento e impegno del team per trovare soluzioni sostenibili insieme a colleghi e clienti\n• Forte orientamento al cliente, accoppiato con apprezzamento e affidabilità\nI tuoi vantaggi\n• Fino al 60% home office possibile con una pensione 100%\n• Acquisto di vacanza (2 settimane all'anno)\n• 41h settimana con ore di lavoro flessibili su un carico di lavoro a tempo pieno\n• Mente. 25 giorni di vacanze all'anno\n• Abbonamento gratuito per tutti i dipendenti\nManteniamo una cultura aperta – quindi sentitevi liberi di inviarci la vostra applicazione direttamente nel modulo.",
+        "en": "Do you love to competently support customers and find practical solutions? With us, you will take on exciting user questions about Abacus and receive a well-founded training in order to constantly expand your expertise. Become part of a motivated team and actively shape excellent customer support!\nYour role\n• Ensure 1st level support in compliance with the agreed response and correction times in accordance with our SLA\n• Independent analysis, processing and seamless documentation of incoming support requests\n• Professional forwarding of complex cases to the responsible 2nd level teams\n• Processing and consistent tracking of open tickets with a focus on sustainable solutions\n• Continuous knowledge exchange in the team to ensure outstanding service\n• Conduct training for our customers in the modules you supervise\nYour profile\n• Completed commercial or technical training, ideally supplemented by economically oriented studies (e.g. business informatics - completed or in training)\n• Structured working methods, a sense of responsibility and the ability to maintain an overview even in demanding situations\n• Clear and precise communication, both in writing and oral in German, is a matter of course for you\n• interest in modern business software solutions and enjoyment of digital tools; Experience with Abacus or other ERP systems is an advantage\n• Strong team orientation and commitment to find sustainable solutions together with colleagues and customers\n• Strong customer orientation, coupled with appreciation and reliability\nYour Benefits\n• Up to 60% home office possible with a 100% pension\n• Holiday purchase (2 weeks per year)\n• 41h week with flexible working hours on a full-time workload\n• Mind. 25 days of holidays per year\n• Free SBB half-ax subscription for all employees\nWe maintain an open you culture – so feel free to send us your application directly in the you form.",
+        "de": "Du liebst es, Kundinnen und Kunden kompetent zu unterstützen und praxisnahe Lösungen zu finden? Bei uns übernimmst du spannende Anwenderfragen rund um Abacus und erhältst eine fundierte Einarbeitung, um dein Fachwissen stetig auszubauen. Werde Teil eines motivierten Teams und gestalte exzellente Kundenbetreuung aktiv mit!\nDeine Rolle\n• Gewährleistung des 1st Level Supports unter Einhaltung der vereinbarten Reaktions- und Behebungszeiten gemäss unseren SLA\n• Selbstständige Analyse, Bearbeitung und lückenlose Dokumentation eingehender Supportanfragen\n• Fachgerechte Weiterleitung komplexer Fälle an die zuständigen 2nd Level Teams\n• Bearbeitung sowie konsequente Nachverfolgung offener Tickets mit Fokus auf nachhaltige Lösungen\n• Kontinuierlicher Wissensaustausch im Team, um einen herausragenden Service sicherzustellen\n• Durchführung von Schulungen für unsere Kunden in den von dir betreuten Modulen\nDein Profil\n• Abgeschlossene kaufmännische oder technische Ausbildung, idealerweise ergänzt durch ein wirtschaftlich ausgerichtetes Studium (z.B. Wirtschaftsinformatik - abgeschlossen oder in Ausbildung)\n• Strukturierte Arbeitsweise, Verantwortungsbewusstsein und die Fähigkeit, auch in anspruchsvollen Situationen den Überblick zu behalten\n• Klare und präzise Kommunikation, sowohl schriftlich als auch mündlich auf Deutsch, ist für dich selbstverständlich\n• Interesse an modernen Business-Software-Lösungen und Freude an digitalen Tools; Erfahrung mit Abacus oder anderen ERP-Systemen ist von Vorteil\n• Ausgeprägte Teamorientierung und Engagement, um gemeinsam mit Kolleginnen, Kollegen sowie Kundinnen und Kunden nachhaltige Lösungen zu finden\n• Starke Kundenorientierung, gepaart mit Wertschätzung und Verlässlichkeit\nDeine Benefits\n• Bis zu 60 % Home-Office bei einem 100 % -Pensum möglich\n• Ferienkauf (2 Wochen pro Jahr)\n• 41h Woche mit flexiblen Arbeitszeiten bei einem Vollzeitpensum\n• Mind. 25 Tage Ferien pro Jahr\n• Kostenloses SBB-Halbtax-Abo für alle Mitarbeitende\nWir pflegen eine offene Du-Kultur – fühl dich also frei, uns deine Bewerbung gerne direkt in der Du-Form zu schicken.",
+        "fr": "Aimez-vous soutenir les clients avec compétence et trouver des solutions pratiques? Avec nous, vous allez répondre à des questions passionnantes des utilisateurs sur Abacus et recevoir une formation bien fondée afin d'élargir constamment votre expertise. Faites partie d'une équipe motivée et formez activement un excellent support client !\nVotre rôle\n• Assurer le soutien du 1er niveau conformément aux délais de réponse et de correction convenus conformément à notre ALS\n• Analyse indépendante, traitement et documentation transparente des demandes d ' appui reçues\n• Transmission professionnelle de cas complexes aux équipes responsables du 2e niveau\n• Traitement et suivi cohérent des tickets ouverts en mettant l'accent sur les solutions durables\n• Échange continu de connaissances au sein de l'équipe pour assurer un service exceptionnel\n• Conduire la formation de nos clients dans les modules que vous supervisez\nVotre profil\n• Formation commerciale ou technique achevée, idéalement complétée par des études à orientation économique (p. ex. l'informatique des entreprises - achevée ou en formation)\n• Méthodes de travail structurées, sens des responsabilités et capacité de maintenir une vue d'ensemble même dans des situations exigeantes\n• Une communication claire et précise, tant par écrit qu'oralement en allemand, est bien entendu une question pour vous.\n• l'intérêt pour les solutions modernes de logiciels d'affaires et la jouissance des outils numériques; l'expérience avec Abacus ou d'autres systèmes ERP est un avantage\n• Une forte orientation de l'équipe et un engagement à trouver des solutions durables avec des collègues et des clients\n• Une forte orientation client, associée à l'appréciation et à la fiabilité\nVos avantages\n• Jusqu'à 60% bureau à domicile possible avec une pension de 100%\n• Achat de vacances (2 semaines par an)\n• 41h semaine avec horaires de travail flexibles sur une charge de travail à temps plein\n• Esprit. 25 jours de vacances par an\n• Abonnement CFF gratuit demi-axe pour tous les salariés\nNous maintenons une culture ouverte – alors n'hésitez pas à nous envoyer votre candidature directement dans votre formulaire."
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-8245",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:36:15.878Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9001",
+      "streetAddress": "St. Leonhard-Strasse 80",
+      "category": "IT / Sviluppo software",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-12",
+      "applyUrl": "https://apply.refline.ch/215876/2513/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2513",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "previousSlugs": [
+        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
+        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas-informatik-ag-st-gallen",
+        "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
+          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-e-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "en": [
+          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas",
+          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas-informatik-ag-st-gallen"
+        ],
+        "fr": [
+          "abacus-kundenbetreuer-finanzen-debitoren-kreditoren-und-electronic-banking-80-100-abraxas"
+        ]
+      },
+      "firstSeenAt": "2026-08-12T10:18:37.723Z",
+      "salaryMin": 60000,
+      "salaryMax": 102000,
+      "salarySource": "reported",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60000,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
+    },
+    {
+      "id": "abraxas-ef84e9748cd1",
+      "slug": "ict-system-engineer-con-esperienza-di-gestione-del-progetto-80-100-abraxas-informatik-ag-zurich-flughafen",
+      "slugByLocale": {
+        "it": "ict-system-engineer-con-esperienza-di-gestione-del-progetto-80-100-abraxas-informatik-ag-zurich-flughafen",
+        "en": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "de": "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen",
+        "fr": "ingenieur-systeme-tic-avec-experience-de-gestion-de-projet-80-100-abraxas-informatik-ag-zurich-flughafen"
+      },
+      "company": "Abraxas Informatik AG",
+      "companyKey": "abraxas",
+      "companyDomain": "abraxas.ch",
+      "title": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
+      "titleByLocale": {
+        "it": "ICT System Engineer con esperienza di gestione del progetto 80-100%",
+        "en": "ICT System Engineer mit Projektleitungserfahrung 80–100 %",
+        "de": "ICT System Ingenieur mit Projektleitungserfahrung 80–100 %",
+        "fr": "Ingénieur système TIC avec expérience de gestion de projet 80-100%"
+      },
+      "description": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+      "descriptionByLocale": {
+        "it": "Nel team S ystems Engineering del reparto Servizi Professionali, progettiamo e implementiamo soluzioni ICT moderne per i nostri clienti.\nNel tuo ruolo di ICT System Engineer con esperienza nella gestione dei progetti, accompagni principalmente le comunità nella trasformazione delle infrastrutture IT esistenti in un ambiente di lavoro gestito moderno con Microsoft 365, sia in un approccio ibrido che in cloud. Si assume la responsabilità tecnica nei progetti, pianificare e coordinare l'implementazione e garantire il trasferimento liscio alla società.\nIl vostro posto di lavoro può essere l'aeroporto di Zurigo – il cerchio, St. Gallen o Berna. Diventa parte di un team dedicato che progetta con passione soluzioni moderne e si muove molto insieme.\nIl tuo ruolo\n• Realizzazione tecnica di progetti nel campo di Modern Workplace con prodotti Microsoft (Microsoft 365, Intune, Entra ID, ecc.)\n• Esecuzione delle attività amministrative nell'ambito dell'attuazione del progetto\n• Lavorazione indipendente e coordinamento di ordini più piccoli con diverse interfacce (internamente e con il cliente)\n• Gestione dei progetti, compresa la gestione dei documenti di progetto, la regolazione dei piani di progetto e la partecipazione alla gestione di oggetti di consegna, scadenze, costi e rischi di progetto\n• Preparazione di presentazioni, verbali e altri documenti relativi al progetto\n• Eseguire attività di comunicazione, informazione e documentazione\nIl tuo profilo\n• Formazione professionale completata nel settore dell'informatica, nel settore dei media (ad es. mediamatist:in) o nel settore commerciale con buona comprensione tecnica\n• Conoscenza approfondita di Windows Server, Client, Network, Microsoft 365 e Intune\n• Rapida comprensione e grande disponibilità ad imparare\n• Flessibilità e apertura a nuove idee e la volontà di lavorare sul posto al cliente\n• Lavoro autonomo, ben organizzato e responsabile\n• Personalità cooperativa e comunicativa con piacere nel lavorare insieme in un team\n• Conoscenza fluente del tedesco nelle parole e nella scrittura (almeno livello C1)\nI tuoi vantaggi\n• Lavoro interessante e orientato al futuro in un'azienda innovativa\n• Con il nostro modello di tempo di lavoro annuale è possibile determinare e gestire il vostro tempo di lavoro quotidiano da soli\n• Carico di lavoro (80-100%) e luogo di lavoro quando impiegato\n• Condizioni di lavoro moderne (ad esempio ufficio domestico, infrastruttura)\n• Opportunità di formazione e sviluppo interessanti\n• Cultura familiare, du-culture\n• Abbonamento a metà imposta alle FFS per tutti i dipendenti\n• Eventi aziendali e di squadra",
+        "en": "In the S ystems Engineering Team of the Professional Services department, we design and implement modern ICT solutions for our customers.\nIn your role as an ICT System Engineer with project management experience, you mainly accompany communities in the transformation of their existing IT infrastructures into a modern managed workplace with Microsoft 365, whether in a hybrid or cloud-only approach. You take over the technical responsibility in projects, plan and coordinate the implementation and ensure the smooth transfer to the company.\nYour place of work can be Zurich Airport – The Circle, St. Gallen or Bern. Become part of a dedicated team that passionately designs modern solutions and moves a lot together.\nYour role\n• Technical implementation of projects in the field of Modern Workplace with Microsoft products (Microsoft 365, Intune, Entra ID, etc.)\n• Execution of administrative activities as part of project implementation\n• Independent processing and coordination of smaller orders with several interfaces (internally and with the customer)\n• Project administration within projects, including management of project documents, adjustment of project plans, and participation in the management of delivery objects, deadlines, costs and project risks\n• Preparation of presentations, minutes and other project-related documents\n• Performing communication, information and documentation tasks\nYour profile\n• Completed vocational training in the field of computer science, in the media sector (e.g. mediamatist:in) or in the commercial sector with good technical understanding\n• In-depth knowledge of Windows Server, Clients, Network, Microsoft 365 and Intune\n• Rapid comprehension and a high willingness to learn\n• Flexibility as well as openness to new ideas and the willingness to work on site at the customer\n• Self-employed, well organised and responsible work\n• Cooperative and communicative personality with pleasure in working together in a team\n• Flowing knowledge of German in words and writing (at least C1 level)\nYour Benefits\n• Interesting and future-oriented work in an innovative company\n• With our annual working time model you can determine and manage your daily working time yourself\n• Workload (80-100%) and place of work when employed\n• Modern working conditions (e.g. home office, infrastructure)\n• Attractive training and development opportunities\n• Family culture, du-culture\n• SBB half tax subscription for all employees\n• Corporate and team events",
+        "de": "Im S ystems Engineering Team der Abteilung Professional Services gestalten und realisieren wir moderne ICT-Lösungen für unsere Kunden.\nIn der Rolle als ICT System Engineer mit Projektleitungserfahrung begleitest du vorwiegend Gemeinden bei der Transformation ihrer bestehenden IT-Infrastrukturen hin zu einem modernen Managed Workplace mit Microsoft 365 , sei es in einem hybriden oder Cloud-only Ansatz. Du übernimmst die technische Verantwortung in Projekten, planst und koordinierst die Umsetzung und stellst die reibungslose Übergabe am Betrieb sicher.\nDein Arbeitsort kann Zürich Flughafen – The Circle , St. Gallen oder Bern sein. Werde Teil eines engagierten Teams, das mit Leidenschaft moderne Lösungen gestaltet und gemeinsam viel bewegt.\nDeine Rolle\n• Technische Umsetzung von Projekten im Bereich Modern Workplace mit Microsoft-Produkten (Microsoft 365, Intune, Entra ID etc.)\n• Ausführen administrativer Tätigkeiten im Rahmen der Projektabwicklung\n• Selbständige Abwicklung und Koordination von kleineren Aufträgen mit mehreren Schnittstellen (intern sowie beim Kunden)\n• Projektadministration innerhalb der Projekte, einschliesslich Verwaltung von Projektdokumenten, Anpassung von Projektplänen sowie Mitarbeit beim Management von Lieferobjekten, Terminen, Kosten und Projektrisiken\n• Aufbereiten von Präsentationen, Protokollen und weiteren projektbezogenen Unterlagen\n• Wahrnehmen von Kommunikations-, Informations- und Dokumentationsaufgaben\nDein Profil\n• Abgeschlossene Berufsausbildung im Bereich Informatik, im Medienbereich (z. B. Mediamatiker:in) oder im kaufmännischen Bereich mit gutem technischem Verständnis\n• Fundierte Grundkenntnisse in Windows Server, Clients, Netzwerk, Microsoft 365 und Intune\n• Rasche Auffassungsgabe und hohe Lernbereitschaft\n• Flexibilität sowie Offenheit für neue Ideen und die Bereitschaft, auch vor Ort beim Kunden zu arbeiten\n• Selbständige, gut organisierte und verantwortungsbewusste Arbeitsweise\n• Kooperative und kommunikative Persönlichkeit mit Freude an der Zusammenarbeit im Team\n• Fliessende Deutschkenntnisse in Wort und Schrift (mindestens C1-Niveau)\nDeine Benefits\n• Interessante und zukunftsorientierte Tätigkeit in einem innovativen Unternehmen\n• Mit unserem Jahresarbeitszeit-Modell kannst du deine tägliche Arbeitszeit selbst bestimmen und verwalten\n• Arbeitspensum (80–100 %) und Arbeitsort bei Anstellung flexibel regelbar\n• Moderne Arbeitsbedingungen (z. B. Home-Office, Infrastruktur)\n• Attraktive Weiterbildungs- und Entwicklungsmöglichkeiten\n• Familiäre Firmenkultur, Du-Kultur\n• SBB-Halbtaxabo für alle Mitarbeitenden\n• Firmen- und Teamevents",
+        "fr": "Dans l'équipe d'ingénierie S ystems du département Services professionnels, nous concevons et mettons en œuvre des solutions TIC modernes pour nos clients.\nEn tant qu'ingénieur système TIC avec une expérience de gestion de projet, vous accompagnez principalement les communautés dans la transformation de leurs infrastructures informatiques existantes en un lieu de travail géré moderne avec Microsoft 365, que ce soit dans une approche hybride ou cloud. Vous assumez la responsabilité technique dans les projets, planifiez et coordonnez la mise en œuvre et assurez le transfert en douceur à l'entreprise.\nVotre lieu de travail peut être Zurich Airport – The Circle, St. Gallen ou Berne. Faites partie d'une équipe dévouée qui conçoit avec passion des solutions modernes et se déplace beaucoup ensemble.\nVotre rôle\n• Mise en œuvre technique de projets dans le domaine du lieu de travail moderne avec des produits Microsoft (Microsoft 365, Intune, Entra ID, etc.)\n• Exécution des activités administratives dans le cadre de la mise en œuvre du projet\n• Traitement et coordination indépendants des commandes plus petites avec plusieurs interfaces (internes et avec le client)\n• Administration des projets au sein des projets, y compris la gestion des documents de projet, l ' ajustement des plans de projet et la participation à la gestion des objets d ' exécution, des délais, des coûts et des risques liés aux projets\n• Préparation des exposés, procès-verbaux et autres documents relatifs aux projets\n• Réalisation de tâches de communication, d'information et de documentation\nVotre profil\n• Formation professionnelle complète dans le domaine de l'informatique, dans le secteur des médias (par exemple mediamatist:in) ou dans le secteur commercial avec une bonne compréhension technique\n• Connaissance approfondie de Windows Server, Clients, Réseau, Microsoft 365 et Intune\n• Compréhension rapide et grande volonté d'apprendre\n• Flexibilité, ouverture aux nouvelles idées et volonté de travailler sur place chez le client\n• Travail indépendant, bien organisé et responsable\n• Personnalité coopérative et communicative avec plaisir de travailler en équipe\n• Connaissance de l'allemand en mots et en écriture (au moins niveau C1)\nVos avantages\n• Travail intéressant et tourné vers l'avenir dans une entreprise innovante\n• Avec notre modèle annuel de temps de travail, vous pouvez déterminer et gérer votre temps de travail quotidien vous-même\n• Charge de travail (80-100%) et lieu de travail\n• Conditions de travail modernes (par exemple, bureau à domicile, infrastructure)\n• Possibilités de formation et de perfectionnement intéressantes\n• Culture familiale, du-culture\n• Abonnement à la moitié de la taxe CFF pour tous les salariés\n• Événements d'entreprise et d'équipe"
+      },
+      "location": "Zürich-Flughafen",
+      "canton": "ZH",
+      "url": "https://www.abraxas.ch/de/karriere/offene-stellen/ict-system-engineer-mit-projektleitungserfahrung-80-100-7205",
+      "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T13:52:35.003Z",
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8058",
+      "streetAddress": "",
+      "category": "IT / Sicurezza",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / Informatica per la pubblica amministrazione",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-24",
+      "applyUrl": "https://apply.refline.ch/215876/2426/index.html?lang=de&cid=1",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "215876-2426",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "firstSeenAt": "2026-08-24T21:32:11.188Z",
+      "salaryMin": 79000,
+      "salaryMax": 134500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 134500,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+        ]
+      },
+      "previousSlugs": [
+        "ict-system-engineer-mit-projektleitungserfahrung-80-100-abraxas-zurich-flughafen"
+      ]
     }
   ]
 }
