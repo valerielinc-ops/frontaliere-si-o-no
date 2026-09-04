@@ -652,12 +652,19 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const companyCount = new Set(allMatching.map((j) => normKey(j.company)).filter(Boolean)).size;
           const cityCount = new Set(allMatching.map((j) => normKey(j.location)).filter(Boolean)).size;
           const FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
-          const freshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - FRESH_WINDOW_MS;
+          const freshStamp = Date.parse(`${dateStamp}T00:00:00Z`);
+          const freshCutoff = freshStamp - FRESH_WINDOW_MS;
+          // A WINDOW, not a half-line: with only the lower bound a job dated in
+          // the FUTURE (crawler clock skew, misparsed postedDate) counts as
+          // "published in the last 7 days" on a public page, forever. Upper
+          // bound is the END of the build day, so a listing posted later today
+          // still counts.
+          const freshMax = freshStamp + 24 * 60 * 60 * 1000;
           const freshCount = allMatching.filter((j) => {
             // First PARSEABLE date, not first truthy: a malformed postedDate must
             // not collapse the timestamp to 0 and undercount the fresh tile.
             const t = firstParsableMs(j.datePosted, j.postedDate);
-            return t >= freshCutoff;
+            return t >= freshCutoff && t <= freshMax;
           }).length;
 
           const canonicalPath = buildSectorHubPath(locale, sector);

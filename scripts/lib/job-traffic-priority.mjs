@@ -152,7 +152,7 @@ export function freshHeadCeiling(capSlots, reserveForOldest = RESERVE_FOR_OLDEST
  * keeps its own copy of this list is a consumer that will drift.
  */
 export const TRAFFIC_STATS_KEYS = Object.freeze([
-  'age', 'freshDeferred', 'freshFirst', 'freshHead', 'freshWindowMs',
+  'age', 'freshDeferred', 'freshFirst', 'freshFuture', 'freshHead', 'freshWindowMs',
   'matchRate', 'matched', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
 ]);
 
@@ -381,7 +381,19 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   // the 1.421 jobs seen in the last 24 hours were still pending — 92,0%. The
   // lane did not exist, so nothing served them while they were fresh.
   const freshCutoff = freshFirst ? now - FRESH_WINDOW_MS : -Infinity;
-  const isFresh = (s) => s.queuedAt >= freshCutoff && Number.isFinite(s.queuedAt);
+  // La corsia e' un INTERVALLO, non una semiretta. Con il solo limite inferiore
+  // un `queuedAt` nel FUTURO — skew dell'orologio di un crawler, o una data mal
+  // parsata: `jobQueuedAtMs()` accetta qualunque `Date.parse` finito di
+  // `firstSeenAt`/`postedDate`/`crawledAt`/`datePosted` — soddisfa il predicato
+  // a OGNI run, per sempre, e resta in testa alla coda finche' il job e'
+  // pending: non e' fresco, e' solo non databile. Il job non sparisce, perde
+  // solo la testa: cade nel `rest` e viene servito dallo stride come gli altri.
+  const isFuture = (s) => Number.isFinite(s.queuedAt) && s.queuedAt > now;
+  const isFresh = (s) => s.queuedAt >= freshCutoff && Number.isFinite(s.queuedAt) && !isFuture(s);
+  // Contato, non solo scartato: una data futura e' un difetto a monte (crawler o
+  // parser) che senza questo numero resterebbe muto — il job continuerebbe a
+  // essere servito dallo stride e nessuno saprebbe mai perche' non e' in testa.
+  const freshFuture = freshFirst ? scored.filter(isFuture).length : 0;
   // Within the head, highest traffic first: the cohort is served whole either
   // way, so its internal order only decides who is repaired first inside it.
   const freshCohort = freshFirst
@@ -470,6 +482,9 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
       // caso (reset di massa di `firstSeenAt`) in cui l'ordinamento cambia:
       // senza questo numero la troncatura sarebbe muta.
       freshDeferred: freshCohort.length - freshHead.length,
+      // Quanti job la corsia ha escluso perche' datati nel FUTURO. Diverso da
+      // zero = c'e' un crawler che scrive date non servibili, da guardare.
+      freshFuture,
       freshWindowMs: freshFirst ? FRESH_WINDOW_MS : 0,
       age: summarizeQueueAge(jobs, { now }),
     },
@@ -542,6 +557,9 @@ export function formatPriorityReport(stats) {
       ? `${stats.freshHead} job(s) ahead of the stride (< ${Math.round(stats.freshWindowMs / 3_600_000)}h old)`
         + (stats.freshDeferred > 0
           ? ` · ${stats.freshDeferred} more deferred to the stride (head hit its ceiling, so the oldest-first reserve keeps its slots)`
+          : '')
+        + (stats.freshFuture > 0
+          ? ` · ${stats.freshFuture} skipped, dated in the FUTURE (still queued, served by the stride — check the crawler that dated them)`
           : '')
       : 'off (this consumer keeps the plain traffic/age stride)'}`,
     `   Queue age (from first-seen, upper bound on time-in-queue):`,
