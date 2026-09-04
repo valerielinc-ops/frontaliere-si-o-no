@@ -60,7 +60,7 @@ describe('crawlerFixDecision — run cancellata dalla coda (nessun verdetto)', (
   });
 });
 
-describe('crawlerFixDecision — max-turns resta un PARK (nessuna regressione)', () => {
+describe('crawlerFixDecision — max-turns agisce SUBITO (nessuna regressione)', () => {
   it('parka al primo max-turns, senza aspettare la soglia orfano', () => {
     // Un marker FIX_OUTCOME prova che la run è TERMINATA: qui la guardia d'età
     // non serve, e agire subito preserva il timing del park che c'era prima.
@@ -70,6 +70,25 @@ describe('crawlerFixDecision — max-turns resta un PARK (nessuna regressione)',
     expect(old.action).toBe('park-max-turns');
     // Il park per verdetto non consuma un tentativo.
     expect(old.nextAttempt).toBe(2);
+  });
+
+  it('#7280: eleggibile allo scorporo → decompose, non park', () => {
+    // L'invariante di questo blocco è «max-turns non si ri-accoda tal quale»,
+    // e regge: `decompose` non è un re-arm, è lo stadio che riscrive l'input.
+    // Il park incondizionato era invece un'ASIMMETRIA col gemello di questo
+    // stesso file: la path queue-managed manda `outcome === 'max-turns'` alla
+    // DECOMPOSE-ROUTE, i crawler no — e `needs-human` non ha altra uscita che
+    // lo sweep settimanale (7 delle 28 misurate il 2026-09-04).
+    const d = crawlerFixDecision({ outcome: 'max-turns', ageMin: 0.5, attempt: 1, decomposeEligible: true });
+    expect(d.action).toBe('decompose');
+    expect(d.nextAttempt).toBe(1); // nessun tentativo consumato
+    // Il default resta il park: chi non passa il flag non cambia comportamento.
+    expect(crawlerFixDecision({ outcome: 'max-turns', ageMin: OLD, attempt: 0 }).action).toBe('park-max-turns');
+    // E un verdetto FERMO non diventa uno scorporo per il solo fatto di essere
+    // eleggibile: è fermo, non troppo grande.
+    for (const outcome of ['no-root-cause', 'already-fixed']) {
+      expect(crawlerFixDecision({ outcome, ageMin: OLD, attempt: 0, decomposeEligible: true }).action, outcome).toBe('park-verdict');
+    }
   });
 
   it('parka anche i verdetti non-ri-tentabili (abort pulita del fixer)', () => {

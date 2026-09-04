@@ -200,6 +200,13 @@ const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PE
  * `reconcile-followups.mjs`) — altrimenti la rimozione di `agent:decompose`
  * che accompagna quell'esito la rende di nuovo eleggibile al giro successivo
  * (#6275: re-queue infinito).
+ * Esclude anche chi ha già bruciato il suo unico ri-armo (`decompose-retried`):
+ * il park del RESCUE più sotto lascia `fu-parked` + `needs-human` +
+ * `decompose-retried` e TOGLIE `agent:decompose`, quindi senza questa clausola
+ * la issue parcheggiata torna eleggibile e il bound «ri-arma UNA volta, alla
+ * seconda morte park» diventa illimitato: ogni giro brucia una run di scorporo
+ * sulla stessa issue troppo grande. La label non viene mai rimossa, per cui
+ * l'esclusione è definitiva by-construction (#7280).
  * NON esclude `needs-human`: i call-site di routing agiscono PRIMA che quel
  * label venga applicato, e un'issue grande già marcata a mano resta comunque
  * decomponibile se qualcuno la ri-accoda.
@@ -209,7 +216,7 @@ export function isDecomposeEligible(iss) {
   const ls = names(iss);
   return !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
     && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP)
-    && !ls.includes(LBL_MAYBE_RESOLVED);
+    && !ls.includes(LBL_MAYBE_RESOLVED) && !ls.includes(LBL_DECOMP_RETRIED);
 }
 
 /**
@@ -1764,8 +1771,8 @@ export const CRAWLER_MAX_ATTEMPTS = Number(process.env.FOLLOWUP_CRAWLER_MAX_ATTE
  *
  * @param {{outcome: string|null, ageMin: number, attempt?: number, hasPR?: boolean,
  *          quotaBackoffActive?: boolean, settleMin?: number, orphanMinAgeMin?: number,
- *          maxAttempts?: number}} args
- * @returns {{action: 'skip'|'settling'|'hold-quota'|'requeue'|'requeue-zero-work'|'park-max-turns'|'park-verdict'|'park-attempts', nextAttempt: number, reason: string}}
+ *          maxAttempts?: number, decomposeEligible?: boolean}} args
+ * @returns {{action: 'skip'|'settling'|'hold-quota'|'requeue'|'requeue-zero-work'|'decompose'|'park-max-turns'|'park-verdict'|'park-attempts', nextAttempt: number, reason: string}}
  */
 export function crawlerFixDecision({
   outcome,
@@ -1776,10 +1783,24 @@ export function crawlerFixDecision({
   settleMin = SETTLE_MIN,
   orphanMinAgeMin = ORPHAN_MIN_AGE_MIN,
   maxAttempts = CRAWLER_MAX_ATTEMPTS,
+  decomposeEligible = false,
 } = {}) {
   const keep = (action, reason) => ({ action, nextAttempt: attempt, reason });
   if (hasPR) return keep('skip', 'ha una PR fix aperta');
-  if (outcome === 'max-turns') return keep('park-max-turns', 'error_max_turns (deterministico: stesso cap, stesso esito)');
+  // `max-turns` = troppo grande per una run, non un verdetto fermo. La path
+  // queue-managed di questo stesso file lo manda alla DECOMPOSE-ROUTE; qui,
+  // per l'unica categoria che `isQueueManaged` esclude, il park era
+  // INCONDIZIONATO — l'asimmetria che riempie `needs-human` di crawler senza
+  // altra uscita che lo sweep settimanale (#7280: 7 delle 28 `needs-human`
+  // misurate il 2026-09-04 erano `Crawler Failure: Run *` / `[crawler-health]`
+  // con verdetto `max-turns` ed eleggibili allo scorporo). Il park resta per
+  // le ineleggibili — `from-decompose`/`decomposed:1`, dove il secondo livello
+  // di scorporo è escluso su misura (VISION.md D5).
+  if (outcome === 'max-turns') {
+    return decomposeEligible
+      ? keep('decompose', 'error_max_turns: too-large deterministico → scorporo (stessa strada della path queue-managed)')
+      : keep('park-max-turns', 'error_max_turns (deterministico: stesso cap, stesso esito), non eleggibile allo scorporo');
+  }
   if (outcome && ZERO_WORK.has(outcome)) {
     // La run è morta prima di leggere la issue (429): 0 turni, $0, issue INTATTA
     // → ri-accoda SENZA consumare un tentativo. Finestra ancora aperta → non
@@ -2594,6 +2615,7 @@ export function runDrain() {
       attempt,
       hasPR,
       quotaBackoffActive: quotaBackoffUntil !== null,
+      decomposeEligible: DECOMPOSE_ENABLED && isDecomposeEligible(iss),
     });
     const tag = `#${iss.number} — "${iss.title?.slice(0, 50)}"`;
     if (d.action === 'skip') continue;
@@ -2605,6 +2627,14 @@ export function runDrain() {
     if (d.action === 'requeue-zero-work') {
       console.log(`RE-ARM CRAWLER ${tag} (${d.reason}) → agent:fix-queued, il DRAIN lo ripromuove a slot libero`);
       edit(iss.number, { add: [LBL_QUEUED, 'fu-prio:high'], remove: [LBL_FIX] });
+      continue;
+    }
+    if (d.action === 'decompose') {
+      console.log(`DECOMPOSE-ROUTE CRAWLER ${tag} (${d.reason}) → ${LBL_DECOMP_QUEUED}`);
+      routeToDecompose(iss.number, {
+        remove: [LBL_FIX, LBL_QUEUED],
+        note: `🧩 **max-turns → decomposizione**: il fixer ha esaurito il turn-budget senza produrre una PR (esito deterministico: la issue non sta in un run). Instradata allo stadio di decomposizione (\`agent:decompose-queued\`): un run planner la scorporerà in sub-issue atomiche con scheda verificabile. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.`,
+      });
       continue;
     }
     if (d.action === 'requeue') {

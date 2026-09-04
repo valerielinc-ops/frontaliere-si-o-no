@@ -140,10 +140,57 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     // cambiato dal verdetto: la run successiva rifà lo stesso cap di turni.
     // Le altre quattro le ha liberate lo sweep Claude scrivendo una scheda
     // nuova — input cambiato, porta di rientro legittima, non toccata da qui.
+    //
+    // L'invariante è «niente RI-ACCODO a costo zero», e vale ancora tale e
+    // quale. Non è «niente azione»: dal #7280 una famiglia riconosciuta con
+    // `max-turns` ed eleggibile va allo SCORPORO (vedi il test qui sotto), che
+    // cambia l'input come lo cambia la scheda dello sweep.
     for (const title of ['Crawler Failure: Run zurich', 'PostHog Exception: TypeError']) {
       const d = prepassDecision({ title, verdict: 'max-turns' });
+      expect(d.action, title).not.toBe('requeue');
+    }
+    // Ineleggibile allo scorporo → `keep` puro, con il verdetto nel motivo: è
+    // il caso delle `from-decompose`, per cui la porta resta lo sweep (D5: il
+    // secondo livello di scorporo è escluso su misura).
+    for (const title of ['Crawler Failure: Run zurich', 'PostHog Exception: TypeError']) {
+      const d = prepassDecision({ title, labels: ['from-decompose'], verdict: 'max-turns' });
       expect(d.action, title).toBe('keep');
       expect(d.reason, title).toMatch(/max-turns/);
+    }
+  });
+
+  it('#7280: `max-turns` su famiglia riconosciuta è uno SCORPORO, non un keep', () => {
+    // Il collo di bottiglia di `needs-human` non è l'ingresso ma l'USCITA:
+    // misurato il 2026-09-04, 28 issue `needs-human` e `keep=28`, di cui 21 con
+    // verdetto `max-turns`. Per 7 di esse — i `Crawler Failure: Run *` e
+    // `[crawler-health] recruitingapp-2563` — il verdetto era l'UNICO motivo del
+    // `keep`: famiglia riconosciuta, nessuna label che escluda lo scorporo.
+    // Ci finiscono perché il gemello crawler del drainer (`crawlerFixDecision`)
+    // parcheggia `max-turns` senza passare dalla DECOMPOSE-ROUTE che la path
+    // queue-managed usa per lo stesso verdetto.
+    for (const title of [
+      'Crawler Failure: Run zurich',
+      'Crawler Failure: Run volg',
+      '[crawler-health] recruitingapp-2563: crawler unhealthy',
+      'CWV field regression on a tracked page (#5001 watchlist)',
+    ]) {
+      const d = prepassDecision({ title, labels: ['fu-parked'], verdict: 'max-turns' });
+      expect(d.action, title).toBe('decompose');
+    }
+    // Il gate di eleggibilità è quello del drainer, non una copia: le stesse
+    // label che gli tolgono lo scorporo sull'aggregato lo tolgono anche qui.
+    for (const l of ['decomposed:1', 'from-decompose', 'agent:decompose-queued', 'maybe-resolved']) {
+      expect(prepassDecision({
+        title: 'Crawler Failure: Run zurich', labels: [l], verdict: 'max-turns',
+      }).action, l).toBe('keep');
+    }
+    // E la precedenza del #5608 non si tocca: un verdetto `NON_RETRYABLE` resta
+    // `keep` anche su una issue perfettamente eleggibile allo scorporo. È fermo,
+    // non troppo grande — scorporarlo riprodurrebbe lo stesso verdetto su N figlie.
+    for (const v of ['no-root-cause', 'already-fixed', 'blocked-admin-settings', 'revenue-tracker-manual']) {
+      expect(prepassDecision({
+        title: 'Crawler Failure: Run zurich', labels: ['fu-parked'], verdict: v,
+      }).action, v).toBe('keep');
     }
   });
 

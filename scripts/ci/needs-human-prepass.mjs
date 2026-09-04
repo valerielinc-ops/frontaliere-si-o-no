@@ -57,6 +57,20 @@
  * qualcosa prima di rimetterla in coda?»: non sa scrivere una scheda, quindi un
  * ri-accodo sul solo titolo rifà la stessa run allo stesso costo. Lo sweep
  * Claude una scheda la scrive, e resta la porta di rientro.
+ *
+ * ## `max-turns` non è un `keep`, è uno scorporo (#7280)
+ *
+ * Quel criterio però risponde no solo per il `requeue`. `max-turns` significa
+ * «troppo grande per una run», e per quel verdetto il drainer ha già una strada
+ * che NON è il ri-accodo: la DECOMPOSE-ROUTE. Il pre-pass non sa scrivere una
+ * scheda, ma sa consegnare la issue allo stadio che la scrive — quindi per una
+ * famiglia riconosciuta con `max-turns` ed eleggibile allo scorporo l'azione è
+ * `decompose`, non `keep`. Misurato sulle 28 `needs-human` del sito il
+ * 2026-09-04: 21 portano `max-turns` e 7 restavano ferme SOLO per questo.
+ *
+ * Il `keep` resta per le ineleggibili (`from-decompose`, `decomposed:1`): il
+ * secondo livello di scorporo è escluso su misura (VISION.md D5), e per loro la
+ * porta è lo sweep, che una scheda nuova la scrive davvero.
  */
 import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
@@ -187,6 +201,37 @@ export function prepassDecision({ title = '', labels = [], verdict = null } = {}
   // `keep` e `requeue`, e per un titolo che nessun nostro monitor ha scritto il
   // giudizio è dello sweep.
   if (!monitor) return { action: 'keep', reason: 'famiglia non riconosciuta: la valuta il run Claude' };
+  // `max-turns` su una famiglia riconosciuta: NON un `requeue` (rifarebbe la
+  // stessa run allo stesso costo, è il criterio di `PREPASS_VERDICT_BEATS_FAMILY`)
+  // ma lo SCORPORO, che è la strada che quel verdetto ha già nel drainer
+  // (DECOMPOSE-ROUTE, `outcome === 'max-turns'`): un turn-budget esaurito
+  // descrive una issue troppo grande per una run, non un verdetto fermo.
+  //
+  // Perché non contraddice la costante che sta sopra: il suo criterio non è «il
+  // verdetto è definitivo» ma «questo stadio sa cambiare qualcosa prima di
+  // rimettere in coda?». Sul `requeue` la risposta resta no — il pre-pass non sa
+  // scrivere una scheda. Sul `decompose` la risposta è sì, e non perché la
+  // scriva lui: la scrive il run planner, esattamente come la scrive lo sweep.
+  // «Non riaprire una porta che non puoi accompagnare» vale per la porta del
+  // fixer, non per quella dello scorporo, che è accompagnata per costruzione.
+  //
+  // Misurato il 2026-09-04 sulle 28 `needs-human` del sito (#7280): 21 su 28
+  // portano `max-turns`, e per 7 di esse — `Crawler Failure: Run zurich/volg/
+  // lidl/ipersonal/chicco-doro/faulhaber`, `[crawler-health] recruitingapp-2563`
+  // — questo era l'UNICO motivo del `keep`. Ci finiscono perché il gemello
+  // crawler del drainer (`crawlerFixDecision`) parcheggia `max-turns` senza
+  // passare dalla DECOMPOSE-ROUTE che la path queue-managed ha: qui quella
+  // asimmetria si chiude a valle, sull'uscita.
+  //
+  // `isDecomposeEligible` resta il gate, per la stessa ragione del ramo
+  // aggregato qui sopra: esclude `from-decompose`/`decomposed:1`, cioè il
+  // secondo livello di scorporo che VISION.md D5 esclude su misura (z=0,59 fra
+  // il tasso di `max-turns` delle scorporate e quello delle intere). Le
+  // ineleggibili restano allo sweep, che per loro è la porta giusta — è lui che
+  // ha liberato #7096 #7158 #7203 scrivendo una scheda nuova.
+  if (verdict === 'max-turns' && isDecomposeEligible({ labels: labels.map((name) => ({ name })) })) {
+    return { action: 'decompose', reason: 'turn-budget esaurito su famiglia riconosciuta: troppo grande per una run, non un verdetto fermo' };
+  }
   // Il verdetto vince sul riconoscimento di famiglia, ma SOLO sul `requeue`: è
   // l'unica azione qui che non cambia niente per il fixer, mentre lo scorporo
   // qui sopra cambia l'input come lo cambia la scheda dello sweep. Criterio,
