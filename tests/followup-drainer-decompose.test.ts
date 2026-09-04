@@ -56,6 +56,14 @@ describe('isDecomposeEligible — anti-ricorsione by-construction', () => {
     expect(isDecomposeEligible(iss(['maybe-resolved']))).toBe(false);
   });
 
+  it('NON eleggibile: ri-armo già bruciato (decompose-retried, #7280)', () => {
+    // Il park del decompose-rescue lascia esattamente questo set di label e
+    // TOGLIE `agent:decompose`: senza l'esclusione la issue parcheggiata
+    // tornerebbe eleggibile e il bound «ri-arma UNA volta» sarebbe illimitato.
+    expect(isDecomposeEligible(iss(['decompose-retried']))).toBe(false);
+    expect(isDecomposeEligible(iss(['fu-parked', 'needs-human', 'decompose-retried']))).toBe(false);
+  });
+
   it('input vuoto/null senza throw', () => {
     expect(isDecomposeEligible({})).toBe(true);
     expect(isDecomposeEligible({ labels: undefined })).toBe(true);
