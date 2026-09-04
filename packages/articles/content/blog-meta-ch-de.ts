@@ -5461,6 +5461,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tirocinio-formazione-professionale-glarona.title': 'Lehre und Berufsausbildung im Kanton Glarus',
     'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Wie man ein Praktikum findet, einen Vertrag abschliesst, die Entlohnung des Lernenden kennt und die Berufsmaturität im Kanton Glarus erlangt.',
     'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Lehrling bei praktischer Berufsausbildung in einem Schweizer Betrieb mit Ausbilder',
+    'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Waadtländer Familienzulagen: Beträge und Beantragung',
+    'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Praktischer Leitfaden zur Familienzulage im Kanton Waadt: Antragstellung, Anspruchsberechtigung, erforderliche Unterlagen und zuständige Ausgleichskasse.',
+    'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Schweizer Familie bespricht Familienleistungsdokumente in einer modernen Küche mit Alpinblick.',
 };
 
 export default blogMetaChDe;
