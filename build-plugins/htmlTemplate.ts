@@ -7,7 +7,7 @@
  *
  * Phase 3 optimization: reduces string concatenation overhead for 55k+ pages.
  */
-import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective } from './constants';
+import { FAVICON_LINKS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, BASE_URL, SPA_ACTION_REDIRECT_SCRIPT, SEO_STATIC_CSS_FILENAME, CDN_PRECONNECT_HINT, normalizeRobotsDirective } from './constants';
 import { escapeInlineScript } from './shared/inlineJsonScript';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { CRITICAL_CSS_LINK } from './shared/criticalCss';
@@ -136,14 +136,16 @@ export const HEAD_PREFIX = `<meta charset="utf-8">
  */
 export const HEAD_SUFFIX_WITH_SPA = ` ${SPA_ACTION_REDIRECT_SCRIPT}
  ${GTAG_SNIPPET}
- ${ADSENSE_SNIPPET}`;
+ ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}`;
 
 /**
  * Common <head> suffix: GTAG snippet only (no SPA redirect).
  * For pages that don't need the SPA action redirect (editorial, search, etc.)
  */
 export const HEAD_SUFFIX_GTAG = ` ${GTAG_SNIPPET}
- ${ADSENSE_SNIPPET}`;
+ ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}`;
 
 /**
  * Empty `#root` for SPA-shell SEO pages, with a first-paint header-height
@@ -362,7 +364,11 @@ export function buildSimplePage(opts: SimplePageOpts): string {
  // the static loader (ADSENSE_LOADER_CONTENT) and AdSenseBanner guard on an
  // existing `script[src*=".../adsbygoogle.js"]` before injecting, and both
  // only push `<ins>` elements lacking `data-adsbygoogle-status`.
- const staticAnalyticsHtml = `\n ${entryJs && !hasStaticAdSlot ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}`;
+ // Il tag Partnerize esce SEMPRE, anche quando gtag e' saltato perche' la pagina
+ // carica il bundle SPA: la doc Partnerize lo vuole su OGNI pagina tracciabile.
+ // Nessun rischio di doppia esecuzione — una pagina statica ha il proprio <head>,
+ // non eredita quello di index.html, e il bundle SPA non include il tag.
+ const staticAnalyticsHtml = `\n ${entryJs && !hasStaticAdSlot ? '' : `${GTAG_SNIPPET}\n `}${ADSENSE_SNIPPET}\n ${PARTNERIZE_TAG_SNIPPET}`;
 
  // Body composition — three modes:
  //

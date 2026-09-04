@@ -894,6 +894,26 @@ const CurrencyExchange: React.FC = () => {
  </div>
 
  <PartnerRecommendations context="exchange" />
+
+ {/*
+  Placement del Dynamic Ad Widget di Partnerize: il tag (caricato nel <head>,
+  vedi PARTNERIZE_TAG_SNIPPET in build-plugins/constants.ts) inietta qui i
+  creativi dei brand, se il widget e' acceso in dashboard sul selettore
+  `#pz-ad-landscape`.
+
+  L'id e' la prima raccomandazione della doc Partnerize per il targeting:
+  unico nel documento e stabile ai redesign, al contrario di un percorso
+  strutturale tipo `body > div:nth-child(2) > section.main-content`. NON
+  rinominarlo senza aggiornare il campo "Display element (CSS selector)"
+  nella dashboard: cambiato l'id, il widget smette di servire e nessun test
+  qui lo nota.
+
+  `min-h`/`overflow-hidden` riservano lo spazio prima che il creativo arrivi:
+  senza, l'iniezione sposta il contenuto sotto (CLS) esattamente come farebbe
+  uno slot pubblicitario non dimensionato. Vuoto non occupa nulla di visibile.
+ */}
+ <div id="pz-ad-landscape" className="mt-6 min-h-[90px] w-full overflow-hidden [contain:layout]" />
+
  <Suspense fallback={<div className="min-h-[180px] [contain:layout]" />}>
  <LeadMagnetCTA variant="generic" delay={0} />
  </Suspense>

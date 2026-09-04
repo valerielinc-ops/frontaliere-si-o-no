@@ -188,6 +188,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  baseUrl: BASE_URL,
  gtagSnippet: GTAG_SNIPPET,
  adsenseSnippet: ADSENSE_SNIPPET,
+ // `?? ''` perche' il campo e' opzionale nel contratto: finche' il repo
+ // pubblicatore non passa il proprio snippet, qui non deve uscire `undefined`.
+ partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET = '',
  offerwallFcSnippet: OFFERWALL_FC_SNIPPET,
  faviconLinks: FAVICON_LINKS,
  seoStaticCssFilename: SEO_STATIC_CSS_FILENAME,
@@ -1567,6 +1570,7 @@ ${headTags}
  ${asyncCssLink(`/assets/${SEO_STATIC_CSS_FILENAME}`)}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
@@ -1590,6 +1594,7 @@ ${headTags}
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
