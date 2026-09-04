@@ -5437,6 +5437,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Buying a house in Nidvaldo: prices, mortgage and taxation',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Buying a house in Switzerland requires you to navigate between three levels of taxation, mortgage and notary fees. Learn how the system works and how to assess loan sustainability.',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Residential house with garden in Swiss alpine landscape with mountains in the background.',
+    'blog.article.aggiornamento-direttiva-crs-2026.title': 'New CRS technical directive: obligations from 2026',
+    'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'The AFC updates the CRS standard: from 1 January 2026 new reporting obligations and adoption of the mandatory XML 3.0 schema from 2027.',
+    'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Financial documents and computer in a Swiss office',
 };
 
 export default blogMetaChEn;

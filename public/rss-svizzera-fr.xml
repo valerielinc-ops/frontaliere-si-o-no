@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides sur la Suisse : économie, travail, fiscalité et vie quotidienne</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 04 Sep 2026 13:14:44 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 13:42:36 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Suisse</title>
@@ -17,6 +17,43 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-fr.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Nouvelle directive technique CRS : obligations à partir de 2026</title>
+      <link>https://frontaliereticino.ch/fr/articles-suisse/mise-a-jour-directive-crs-2026/</link>
+      <description><![CDATA[L'AFC met à jour la norme CRS : à partir du 1er janvier 2026, de nouvelles obligations de communication et l'adoption du schéma XML 3.0 obligatoire à partir de 2027.]]></description>
+      <content:encoded><![CDATA[## En bref
+- Mise à jour de la directive technique pour le CRS.
+- Nouveaux obligations de communication en vigueur à partir du 1er janvier 2026.
+- Introduction du schéma XML CRS 3.0 de l'OCDE.
+- Obligation d'utilisation du nouveau schéma à partir du 1er janvier 2027.
+
+## Faits clés
+- **Quoi**: Mise à jour de la directive technique CRS/SCC
+- Quand: Publié le 4 septembre 2026
+- Où: Suisse
+- Qui: Administration fédérale des contributions (AFC)
+- Réglementation: Révision CRS en vigueur à partir du 1er janvier 2026
+- Norme: Utilisation du schéma XML CRS 3.0 de l'OCDE
+
+L'Administration fédérale des contributions (AFC) a rendu publique, en date du 4 septembre 2026, une communication officielle concernant la mise à jour de la directive technique relative à la Norme commune de communication de renseignements et de vérification adéquate en matière fiscale, connue sous le nom de CRS ou «SCC». Cette révision s'est rendue nécessaire pour intégrer les nouvelles obligations de communication découlant du cadre normatif international en vigueur sur le territoire suisse dès le 1er janvier 2026. La directive définit avec précision les exigences techniques nécessaires pour les opérateurs financiers qui doivent s'aligner sur les protocoles mis à jour.
+
+### Détails techniques de la révision
+Le cœur de la mise à jour réside dans l'adoption du schéma XML CRS 3.0 promu par l'OCDE. L'AFC a spécifié que ce format deviendra la norme obligatoire pour la transmission des données à partir du 1er janvier 2027. Ce passage technique nécessite une adaptation des systèmes informatiques des institutions financières soumises à ces obligations de communication. La directive vise à garantir la plus grande transparence dans l'échange automatique d'informations, minimisant les disparités techniques entre les différentes juridictions impliquées. Pour ceux qui opèrent dans le secteur financier suisse, la compréhension de ces exigences est essentielle pour éviter des sanctions ou des blocages dans les flux de données vers les autorités compétentes. Il s'agit d'un processus d'alignement qui touche directement les banques et les intermédiaires financiers, lesquels devront former le personnel et mettre à jour les logiciels de gestion dans les délais indiqués. L'activité de reporting, qui relève des compétences de l'AFC, continue de suivre une ligne de rigueur visant à maintenir la conformité de la place financière helvétique par rapport aux normes mondiales définies par l'OCDE. Cette évolution du format XML n'est pas seulement un changement de façade, mais une configuration opérationnelle qui impose des délais serrés de mise en œuvre pour les acteurs du secteur, lesquels doivent garantir la qualité et la correction des données envoyées.
+La mise à jour de la directive technique CRS représente une étape importante pour l'infrastructure d'échange d'informations en Suisse. Avec l'adoption du schéma XML CRS 3.0, l'AFC établit un nouveau standard qualitatif pour la gestion des flux de données fiscales. Contrairement à la période précédente, où les standards étaient moins restrictifs ou basés sur des versions antérieures, le nouveau protocole exige une précision accrue dans le suivi des comptes financiers. Ce changement a des implications directes sur la gestion opérationnelle quotidienne des institutions financières et sur la conformité des données transmises au niveau national et international.  ### Scénarios d'adaptation pour les institutions L'adaptation aux nouveaux standards n'est pas seulement bureaucratique. Les banques et les intermédiaires doivent vérifier que la migration vers le schéma XML 3.0 soit complétée avant la date limite du 1er janvier 2027. Ceux qui ne respecteraient pas les directives techniques risquent de se retrouver dans l'impossibilité de transmettre correctement les données, avec des répercussions sur leur opérationnalité et des contentieux potentiels avec les autorités de surveillance. Un aspect à considérer est la comparaison avec les pratiques de reporting antérieures ; la nouvelle version du format XML introduit des variables plus détaillées nécessitant une extraction de données plus raffinée.  Pour les entreprises, le coût de la vie et la gestion du personnel expert dans la protection des données deviennent des facteurs centraux. L'investissement dans des systèmes de reporting certifiés est un choix obligatoire, non seulement pour respecter les normes émises par l'AFC, mais aussi pour protéger l'intégrité de leur réputation sur le marché. La conformité fiscale, en ce sens, va de pair avec la solidité opérationnelle. Les institutions qui réussiront à mettre en œuvre le schéma CRS 3.0 en temps opportun réduiront le risque d'erreurs dans les déclarations, évitant ainsi des enquêtes supplémentaires de la part du fisc. Pour approfondir les implications fiscales de leur cadre professionnel et comprendre comment les réglementations nationales influencent leur position économique, il est essentiel de surveiller constamment les circulaires publiées par l'Administration fédérale des contributions, car elles représentent la base sur laquelle reposent les vérifications annuelles menées par les bureaux compétents en matière d'impôt fédéral direct.
+
+## Outils utiles pour protéger votre net
+Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
+Pour faire face à la transition vers le schéma XML CRS 3.0, les institutions et les conseillers financiers doivent suivre une procédure rigoureuse de mise à jour technique. Tout d'abord, il est nécessaire de consulter la documentation mise à jour fournie par l'AFC, qui détaille les exigences spécifiques pour le nouveau format. Une simple révision des bases de données existantes ne suffit pas ; il faut vérifier la compatibilité entre les systèmes internes et les exigences de validation de l'OCDE. La date limite du 1er janvier 2027 doit être considérée comme un terme impératif pour la mise en place de tous les processus de reporting. Les entités doivent planifier des tests de transmission avant la fin de l'année, afin de résoudre d'éventuelles anomalies dans le format XML.
+
+Pour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.
+
+*Source: [admin.ch](https://www.admin.ch/it/newnsb/b2F6VQ9fb0D6)*]]></content:encoded>
+      <pubDate>Fri, 04 Sep 2026 13:42:36 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/aggiornamento-direttiva-crs-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/aggiornamento-direttiva-crs-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Acheter une maison à Nidwald : prix, hypothèque et fiscalité</title>
       <link>https://frontaliereticino.ch/fr/articles-suisse/nidwald-acheter-maison-couts-fiscalite/</link>
@@ -3403,67 +3440,6 @@ Restez informé de la croissance économique suisse et des impacts sur l'emploi 
       <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/economia-svizzera-crescita-q2-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/economia-svizzera-crescita-q2-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Médecins de famille, le système tarifaire TARDOC ne convainc pas</title>
-      <link>https://frontaliereticino.ch/fr/articles-suisse/tardoc-medecins-generalistes-suisse/</link>
-      <description><![CDATA[Quelques mois après son entrée en vigueur, le nouveau système tarifaire TARDOC pour les prestations médicales ambulatoires ne convainc pas les médecins de famille et les pédiatres.]]></description>
-      <content:encoded><![CDATA[## En bref
-- TARDOC ne convainc pas les médecins de famille et les pédiatres
-- Augmentent les coûts et diminuent l'attractivité de la profession
-- Les jeunes médecins préfèrent se spécialiser
-
-- **Quoi** : Nouveau système tarifaire TARDOC
-- Quand : Entré en vigueur il y a quelques mois
-- Où : Suisse
-- Qui : Médecins de famille et pédiatres
-- Montant : Augmentation des coûts fixes
-
-Quelques mois seulement après son entrée en vigueur, le nouveau système tarifaire pour les prestations médicales ambulatoires TARDOC ne convainc pas les médecins de famille et les pédiatres. Le souhait de la politique de valorisation de la profession ne se reflète pas dans la réalité actuelle, soutient l’association Médecins de famille et de l'enfance (MFE).
-
-Le co-président Sébastien Jotterand souligne aux microphones de la RSE une augmentation des dépenses : « Notre travail ne change pas, nos coûts fixes augmentent, mais les gains sont bloqués. Cela nous empêchera d'investir dans la formation du personnel ». Et il ajoute : « Le véritable effet catastrophique est cependant ce que les jeunes médecins savent qu'un généraliste gagnera moins qu'un spécialiste et c'est donc là qu'ils iront ».
-
-Mais il n'y a pas de lutte interne entre généralistes et spécialistes : « L’association professionnelle des médecins (FMH) nous soutient, du moins en théorie, en parlant de revaloriser le travail des médecins de famille. Et c'est ce que font aussi les assureurs et, à certains égards, les politiciens. Mais maintenant, nous attendons les faits ».
-
-Il a fallu dix ans de travail et de discussions pour
-### Implications pratiques
-
-Les critiques du TARDOC soulèvent des questions sur les implications pratiques pour les médecins de famille et les patients. Sebastien Jotterand a souligné que l'augmentation des coûts fixes et le blocage des gains pourraient entraîner une baisse de la qualité des prestations médicales. En effet, les médecins de famille peuvent ne pas avoir les ressources nécessaires pour investir dans la formation du personnel et la mise à niveau de l'équipement.
-
-### Scénarios possibles
-
-Un scénario possible est que les jeunes médecins, voyant que les généralistes gagnent moins que les spécialistes, choisissent de se spécialiser. Cela pourrait conduire à une pénurie de médecins de famille, avec des conséquences négatives pour l'accessibilité des soins primaires. Un autre scénario est que les médecins de famille, ne voyant pas d'amélioration de leur situation économique, décident de réduire les heures de travail ou de fermer leurs études, laissant les patients sans point de référence pour les soins primaires.
-
-### Comparaison avec le TARMED
-
-Le TARDOC représente un changement significatif par rapport à l'ancien système TARMED. Alors que LE TARDOC était statique et ne prévoyait pas de mécanismes de révision, le TARDOC est dynamique et permet de corriger toute absurdité ou faille structurelle. Cela pourrait conduire à un système tarifaire plus équitable et durable à long terme, mais seulement si les critiques actuelles sont prises en compte et résolues.
-
-### Soutien des institutions
-
-Malgré les
-
-## Outils utiles pour protéger votre net
-Pour réduire les pertes de change, comparez le [change CHF-EUR](nav:exchange) et les [banques pour frontaliers](nav:banks).
-### Actions concrètes
-
-Pour les médecins de famille en difficulté à cause du TARDOC, il est important de solliciter le soutien des institutions et des associations professionnelles. L'association Médecins de famille et de l'enfance (MFE) et l'association professionnelle des médecins (FMH) peuvent offrir assistance et représentation. En outre, les médecins peuvent participer aux discussions et aux révisions du système tarifaire pour faire entendre leur voix et contribuer à améliorer le TARDOC.
-
-### Outils utiles
-
-Pour les patients qui s'adressent à des médecins de famille, il est important d'être conscient des implications possibles du TARDOC. S'ils constatent des changements dans les performances ou les conditions de travail de leurs médecins, ils peuvent s'adresser aux associations de patients ou aux autorités sanitaires pour signaler d'éventuels problèmes. En outre, ils peuvent utiliser des outils tels que le calculateur de salaire pour mieux comprendre les implications économiques du TARDOC sur leurs médecins de famille.
-
-### Conclusion
-
-Le TARDOC représente un défi pour les médecins de famille et les pédiatres, mais aussi une opportunité d'améliorer le système tarifaire des prestations médicales ambulatoires. Il est essentiel que les institutions et les associations professionnelles travaillent ensemble pour résoudre les problèmes actuels et garantir un système équitable et durable pour tous.
-
-[Scopri di più sul calcolatore stipendio](nav:calculator)
-
-*Source: [rsi.ch](https://www.rsi.ch/s/4056678)*]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 12:29:03 GMT</pubDate>
-      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/fr/articles-suisse/tardoc-medici-famiglia-svizzera</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/tardoc-medici-famiglia-svizzera.webp" medium="image"/>
     </item>
   </channel>
 </rss>

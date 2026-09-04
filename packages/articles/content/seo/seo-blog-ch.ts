@@ -70571,6 +70571,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aggiornamento-direttiva-crs-2026': {
+    title: 'Nuova direttiva tecnica CRS: obblighi dal 2026',
+    description: 'L\'AFC aggiorna lo standard CRS: dal 1° gennaio 2026 nuovi obblighi di comunicazione e adozione dello schema XML 3.0 obbligatorio dal 2027. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, direttiva, tecnica, obblighi',
+    ogTitle: 'Nuova direttiva tecnica CRS: obblighi dal 2026',
+    ogDescription: 'L\'Amministrazione federale delle contribuzioni aggiorna gli standard per lo scambio automatico di informazioni. Ecco cosa cambia per gli istituti finanziari entro il 2027.',
+    canonicalPath: '/articoli-svizzera/aggiornamento-direttiva-crs-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova direttiva tecnica CRS: obblighi dal 2026",
+      "description": "L'AFC aggiorna lo standard CRS: dal 1° gennaio 2026 nuovi obblighi di comunicazione e adozione dello schema XML 3.0 obbligatorio dal 2027. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aggiornamento-direttiva-crs-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti finanziari e computer in un ufficio svizzero"
+      },
+      "datePublished": "2026-09-04T13:42:36+00:00",
+      "dateModified": "2026-09-04T13:42:36+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/aggiornamento-direttiva-crs-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
