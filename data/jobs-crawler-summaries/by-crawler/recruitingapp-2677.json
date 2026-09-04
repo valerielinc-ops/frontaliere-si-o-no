@@ -1,18 +1,18 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-09-03T23:16:00.343Z",
+  "generatedAt": "2026-09-04T13:39:32.126Z",
   "total": 2,
   "discovered": null,
   "written": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 28380,
-  "avgDurationMs": 28380,
+  "unchangedCount": 1,
+  "durationMs": 26806,
+  "avgDurationMs": 26806,
   "durationHistory": [
-    28380
+    26806
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:56.785Z",
+      "crawledAt": "2026-09-04T13:39:29.147Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -44,17 +44,20 @@
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:27:13.870Z",
-      "_qualityScore": 75,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "recruitingapp-2677-4923473206ff",
-      "slug": "legal-compliance-officer-recruitingapp-2677-ch",
+      "slug": "responsabile-legale-e-compliance-e-recruiting-llb-gruppe-stellen-lugano",
       "company": "E-Recruiting LLB-Gruppe Stellen",
       "companyKey": "recruitingapp-2677",
       "companyDomain": "recruitingapp-2677.umantis.com",
@@ -78,17 +81,18 @@
       "featured": false,
       "postedDate": "2026-08-23",
       "applyUrl": "https://recruitingapp-2677.umantis.com/Vacancies/1908/Description/1",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-23T09:36:47.734Z",
-      "_qualityScore": 82,
+      "salaryMin": 101000,
+      "salaryMax": 172500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
