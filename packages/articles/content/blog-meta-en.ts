@@ -11321,6 +11321,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-remoto-estero-vacanza.title': 'Remote from abroad on holiday: cross-border taxes',
     'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Working remotely during a holiday in a third country: how taxation works, what LAMal covers and whether the employer needs to be informed. Practical guide for border workers Ticino-Italy.',
     'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Frontalier working remotely on laptop during vacation abroad',
+    'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano or Milan: cost of living for border workers',
+    'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'As a border worker, the choice to live in Lugano or Milan directly affects the net income received and tax obligations. Compare the actual costs of rent, transportation, spending, and taxation with a handy guide.',
+    'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Panoramic view of Lugano city center at sunset with Lake Lugano in the background',
 };
 
 export default blogMetaEn;
