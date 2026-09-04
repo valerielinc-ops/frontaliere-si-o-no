@@ -56,6 +56,13 @@ import { logCascadeSummary } from './lib/free-translate.mjs';
 import { markRunStart, readRunStartMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
+import {
+  applyThinkingArm,
+  assignThinkingArm,
+  isThinkingAbEnabled,
+  runSalt,
+  summarizeThinkingAb,
+} from './lib/thinking-ab.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1365,6 +1372,16 @@ async function main() {
   let consecutiveFailures = 0;
   const startTime = LEGACY_CLOCK.now();
 
+  // A/B sul thinking di claude-cli/haiku. Spento di default: si accende con
+  // TRANSLATION_THINKING_AB=1. Vedi scripts/lib/thinking-ab.mjs per il perche'
+  // il braccio si assegna per azienda e il sale include l'id della run.
+  const thinkingAb = isThinkingAbEnabled(process.env);
+  const thinkingSalt = runSalt(process.env);
+  const thinkingRows = [];
+  if (thinkingAb) {
+    console.log(`\n🧪 A/B thinking attivo (sale ${thinkingSalt}): ogni azienda va a un braccio, il tempo e l'accettazione sono registrati per braccio.`);
+  }
+
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
 
@@ -1434,9 +1451,28 @@ async function main() {
       const preSig = Array.isArray(preCrawlerJobs)
         ? snapshotCompanySignatures(preCrawlerJobs, key) : new Map();
 
-      await runSharedCrawler([key], companyJobCount);
+      // Il braccio si applica SOLO attorno alla chiamata del crawler, e il
+      // ripristino sta in finally: se il crawler lancia, l'azienda successiva
+      // erediterebbe il braccio sbagliato e l'esperimento misurerebbe un mix.
+      const thinkingArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
+      const armHandle = thinkingArm ? applyThinkingArm(thinkingArm, process.env) : null;
+      // Il tempo si legge da LEGACY_CLOCK, mai dall'orologio di sistema: dopo
+      // il punto di emissione dello shadow preflight vale l'orologio compensato,
+      // e un test in translation-shadow-preflight-v2.test.ts lo difende
+      // cercando il nome dell'altra funzione nel sorgente — quindi non va
+      // nominata nemmeno in un commento. Per questa misura la scelta e' anche
+      // piu' corretta: esclude il costo dell'osservatore invece di addebitarlo
+      // al crawler.
+      const companyStartedMs = LEGACY_CLOCK.now();
+      try {
+        await runSharedCrawler([key], companyJobCount);
+      } finally {
+        if (armHandle) armHandle.restore();
+      }
+      const companyElapsedMs = LEGACY_CLOCK.now() - companyStartedMs;
 
       // Save progress after each company: clear flags and write to disk
+      const fixedBeforeCompany = totalFixed;
       const currentJobs = readJson(DATA_JOBS_PATH);
       const attemptedSlugs = Array.isArray(currentJobs)
         ? changedSlugsSince(preSig, currentJobs, key) : new Set();
@@ -1482,6 +1518,23 @@ async function main() {
         // not in the shared crawler's census) where syncTranslationsToCrawlerFile can't
         // match them. After 3 failed attempts, suppress the flag to break the loop.
         incrementRetryCounterOnCrawlerFile(key, syncResult.handledSlugs, attemptedSlugs);
+      }
+
+      if (thinkingArm) {
+        // `cleared` e' il delta di totalFixed: le traduzioni che hanno superato
+        // il gate. `attempted` e' quante il crawler ne ha toccate. Il rapporto
+        // fra i due e' la meta' che conta dell'esperimento — un braccio piu'
+        // veloce che produce piu' scarti non e' piu' veloce.
+        const row = {
+          arm: thinkingArm,
+          companyKey: key,
+          jobCount: companyJobCount,
+          elapsedMs: companyElapsedMs,
+          attempted: attemptedSlugs.size,
+          cleared: totalFixed - fixedBeforeCompany,
+        };
+        thinkingRows.push(row);
+        console.log(`   🧪 ${key}: braccio ${row.arm}, ${Math.round(row.elapsedMs / 1000)}s per ${row.jobCount} job, ${row.cleared}/${row.attempted} accettate`);
       }
 
       totalProcessed += companyJobCount;
@@ -1618,6 +1671,26 @@ async function main() {
   console.log(`   🔍 ${categories.contaminated} contamination-detected\n`);
 
   logCascadeSummary();
+
+  if (thinkingAb && thinkingRows.length > 0) {
+    const summary = summarizeThinkingAb(thinkingRows);
+    console.log(`\n🧪 A/B thinking — ${summary.rows} aziende, sale ${thinkingSalt}`);
+    for (const [arm, a] of Object.entries(summary.arms)) {
+      const ms = a.msPerJob === null ? 'n/d' : `${Math.round(a.msPerJob / 1000)}s/job`;
+      const acc = a.acceptRate === null ? 'n/d' : `${(a.acceptRate * 100).toFixed(1)}%`;
+      console.log(`   ${arm.padEnd(12)} ${String(a.companies).padStart(3)} aziende, ${String(a.jobs).padStart(4)} job, ${ms.padStart(8)}, accettate ${acc} (${a.cleared}/${a.attempted})`);
+    }
+    // L'artefatto vive nel RUNNER_TEMP e viene caricato dal workflow: non
+    // committarlo, sarebbe un file di dati riscritto a ogni run.
+    const outDir = process.env.RUNNER_TEMP || process.env.TMPDIR || '/tmp';
+    const outPath = path.join(outDir, 'translation-thinking-ab.json');
+    try {
+      writeJsonAtomic(outPath, { salt: thinkingSalt, generatedAt: new Date().toISOString(), summary, rows: thinkingRows });
+      console.log(`   📄 righe scritte in ${outPath}`);
+    } catch (err) {
+      console.log(`   ⚠️  impossibile scrivere l'artefatto A/B: ${err.message}`);
+    }
+  }
   console.log('✅ Re-localization complete.');
 }
 
