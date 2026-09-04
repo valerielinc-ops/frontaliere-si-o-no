@@ -5458,6 +5458,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprentissage et formation : comment ça marche en Suisse',
     'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Découvrez comment fonctionne l\'apprentissage en Suisse : de la recherche du stage au contrat, de la rémunération aux protections légales jusqu\'à la maturité professionnelle.',
     'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Jeune apprenti travaillant en atelier suisse moderne pendant la formation pratique',
+    'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprentissage et formation professionnelle dans le canton de Glaris',
+    'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Comment trouver un stage, conclure un contrat, connaître la rémunération de l\'apprenti et atteindre la maturité professionnelle dans le canton de Glaris.',
+    'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Apprenti en formation professionnelle pratique dans une entreprise suisse avec instructeur',
 };
 
 export default blogMetaChFr;

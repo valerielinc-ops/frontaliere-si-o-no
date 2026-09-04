@@ -1845,6 +1845,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'soldati-svizzera-video-guerra': { it: 'soldati-svizzera-video-guerra', en: 'swiss-soldiers-war-video', de: 'schweizer-soldaten-kriegsvideo', fr: 'soldats-suisses-video-guerre' },
  'volkswagen-taglia-50mila-posti-2030': { it: 'volkswagen-taglia-50mila-posti-2030', en: 'volkswagen-to-cut-50000-jobs-by-2030', de: 'volkswagen-streicht-50000-arbeitsplaetze-bis-2030', fr: 'volkswagen-supprime-50000-emplois-dici-2030' },
  'apprendistato-svizzera-guida-pratica': { it: 'apprendistato-svizzera-guida-pratica', en: 'apprenticeship-switzerland-practical-guide', de: 'lehrling-schweiz-praktischer-leitfaden', fr: 'apprentissage-suisse-guide-pratique' },
+ 'tirocinio-formazione-professionale-glarona': { it: 'tirocinio-formazione-professionale-glarona', en: 'apprenticeship-vocational-training-glarus', de: 'lehre-berufsbildung-glarus', fr: 'apprentissage-formation-professionnelle-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
