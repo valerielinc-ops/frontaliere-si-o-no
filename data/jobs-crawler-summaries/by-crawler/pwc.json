@@ -1,18 +1,48 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-09-03T23:15:21.549Z",
-  "total": 136,
-  "newCount": 1,
-  "updatedCount": 81,
-  "removedCount": 1,
-  "unchangedCount": 18,
-  "durationMs": 2917,
-  "avgDurationMs": 2917,
+  "generatedAt": "2026-09-04T13:38:52.109Z",
+  "total": 137,
+  "newCount": 2,
+  "updatedCount": 82,
+  "removedCount": 0,
+  "unchangedCount": 17,
+  "durationMs": 3132,
+  "avgDurationMs": 3132,
   "durationHistory": [
-    2917
+    3132
   ],
   "newJobs": [
+    {
+      "title": "Manager - Social Security & Payroll Accounting",
+      "slug": "manager-social-security-payroll-accounting-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-social-security-payroll-accounting/7ad1e12c-88ff-4755-9528-eb30c43de5ab",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Social-Security---Payroll-Accounting_759575WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "tax",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-04",
+      "validThrough": "2036-08-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
     {
       "title": "Praktikant:in - Steuerberatung (6 Monate)",
       "slug": "praktikant-in-steuerberatung-6-monate-pwc-bern",
@@ -110,7 +140,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-02T13:42:25.328Z",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -221,6 +250,7 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-28T05:26:25.590Z",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -615,7 +645,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T21:54:15.110Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -761,7 +790,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:51:00.621Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1126,45 +1154,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Associate - Controlling, Advisory Operations",
-      "slug": "senior-associate-controllo-operazioni-advisory-pwc-switzerland-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-controlling-advisory-operations/eaafb013-89b3-4c30-a38e-9b05dd6318ef",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Controlling--Advisory-Operations_731395WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-04",
-      "validThrough": "2026-09-03",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-4572e1d813d8",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-04T22:30:17.009Z",
-      "salarySource": "reported",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Audit - Career Start - Trade, Industries and Services - Automne 2027",
@@ -1716,44 +1706,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Senior Manager/ Director - Beratung Gesundheitswesen mit Fokus Krankenversicherung",
-      "slug": "senior-manager-director-beratung-gesundheitswesen-mit-fokus-krankenversicherung-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-manager-director-beratung-gesundheitswesen-mit-fokus-krankenversicherung/5b6e3f91-c272-4706-baaf-f762490cefa5",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Manager--Director---Beratung-Gesundheitswesen-mit-Fokus-Krankenversicherung_722799WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "consulting",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-17",
-      "validThrough": "2036-04-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "id": "pwc-c1715cb4338c",
-      "salaryMin": 75500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "firstSeenAt": "2026-04-17T22:05:45.953Z",
-      "retranslationAttempts": 0,
-      "salarySource": "reported",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 22
       }
