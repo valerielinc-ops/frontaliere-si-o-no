@@ -1,16 +1,16 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-09-03T23:09:17.216Z",
+  "generatedAt": "2026-09-04T13:24:13.443Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9955,
-  "avgDurationMs": 9955,
+  "durationMs": 14774,
+  "avgDurationMs": 14774,
   "durationHistory": [
-    9955
+    14774
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -188,7 +187,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -225,7 +223,6 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -298,7 +295,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -335,7 +331,6 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
@@ -370,13 +365,13 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
-      "_qualityScore": 75,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 15
       }
@@ -411,13 +406,13 @@
       },
       "sourceLang": "en",
       "id": "sintetica-d948cce11290",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:08:20.981Z",
       "crawledAt": "",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -578,9 +573,9 @@
       },
       "sourceLang": "en",
       "id": "sintetica-62486d021e6a",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
@@ -620,13 +615,13 @@
       },
       "sourceLang": "en",
       "id": "sintetica-1dee0615eb96",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-21T07:33:30.027Z",
       "crawledAt": "",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -703,13 +698,13 @@
       },
       "sourceLang": "it",
       "id": "sintetica-8218af8800e4",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
       "salaryMin": 66500,
       "salaryMax": 110500,
       "currency": "CHF",
       "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -745,9 +740,9 @@
       },
       "sourceLang": "it",
       "id": "sintetica-2161482f648c",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -785,7 +780,7 @@
         "canton": "NE",
         "location": "Couvet"
       },
-      "sourceLang": "it",
+      "sourceLang": "en",
       "id": "sintetica-4302b766b847",
       "firstSeenAt": "2026-07-07T22:12:17.128Z",
       "crawledAt": "",
@@ -793,10 +788,10 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "_qualityScore": 80,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 10,
+        "richness": 18,
         "translation": 25,
         "completeness": 20
       }
