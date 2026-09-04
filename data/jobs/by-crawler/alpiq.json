@@ -1,10 +1,10 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-09-03T23:30:19.482Z",
+  "assembledAt": "2026-09-04T13:46:23.154Z",
   "jobs": [
     {
       "id": "alpiq-183e0087fef4",
-      "slug": "enterprise-architect-etrm-alpiq-olten",
+      "slug": "it-domain-architect-trading-alpiq-olten",
       "slugByLocale": {
         "it": "enterprise-architect-etrm-alpiq-olten",
         "fr": "architecte-d-entreprise-etrm-alpiq-olten"
@@ -12,12 +12,12 @@
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Enterprise Architect - ETRM",
+      "title": "IT Domain Architect - Trading",
       "titleByLocale": {
         "it": "Enterprise Architect",
         "fr": "Architecte d'entreprise - ETRM"
       },
-      "description": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent",
+      "description": "IT Domain Architect - Trading\n\nEnergy markets are being reshaped in real time &ndash; and the technology behind trading sits right at the heart of it. As IT Domain Architect for Energy Trading, you will own the architectural vision for the systems that power Alpiq&rsquo;s Trading Division, and turn today&rsquo;s landscape into the target&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
         "it": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq’s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an…\n\nOlten - 100%\nPermanent",
         "de": "Enterprise Architect - ETRM\n\nD&C Technology ist eine funktionale Einheit, die Alpiq&rsquo;s Business Area Digital & Commerce mit Managementsystemen für den Handel, die Entstehung und den Energievertrieb unterstützt, einschließlich der Bereitstellung digitaler Lösungen für Kunden aus Industrie, Handel und Energiesektor. Wir stellen an&hellip ein;\n\nOlten - 100%\nDauerhaft",
@@ -42,7 +42,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:30:17.107Z",
+      "crawledAt": "2026-09-04T13:46:18.520Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
@@ -56,7 +56,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "enterprise-architect-etrm-alpiq-olten"
+        ]
+      },
+      "previousSlugs": [
+        "enterprise-architect-etrm-alpiq-olten"
+      ]
     },
     {
       "id": "alpiq-32ea120ec164",
@@ -98,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:30:17.106Z",
+      "crawledAt": "2026-09-04T13:46:18.518Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
@@ -170,7 +178,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "alpiq-c0ef4d9c8b9f",
@@ -217,7 +226,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:30:17.106Z",
+      "crawledAt": "2026-09-04T13:46:18.520Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
