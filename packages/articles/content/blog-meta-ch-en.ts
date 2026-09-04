@@ -5383,6 +5383,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-san-gallo-proroga.title': 'St. Gallen permit: validity and extension',
     'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Short-term permit L up to 1 year, renewal procedures, constraints on the employer, transformation into permit B. Practical guide.',
     'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Swiss cantonal administrative building with Swiss flag and alpine mountain backdrop',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Open business Thurgau: trade register and costs',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Practical guide to setting up a business in the canton of Thurgau: registration procedures, legal forms, federal and cantonal taxation, SUVA obligations and social security.',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Swiss business office with person signing commercial registration document; modern professional workspace environment.',
 };
 
 export default blogMetaChEn;

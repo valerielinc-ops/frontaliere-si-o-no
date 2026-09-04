@@ -69869,6 +69869,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondare-impresa-turgovia-procedura-costi': {
+    title: 'Aprire attività Turgovia: registro commercio e costi',
+    description: 'Come aprire un\'attività nel Cantone Turgovia: procedura di iscrizione al registro di commercio, forme giuridiche, tassazione federale e cantonale, obblighi SUVA',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, turgovia, registro',
+    ogTitle: 'Aprire attività Turgovia: guida a costi e procedure',
+    ogDescription: 'Guida completa per fondare un\'impresa nel Cantone Turgovia: procedura di iscrizione, forme giuridiche, tassazione su tre livelli (federale, cantonale, comunale), obblighi assicurativi SUVA e LAMal, contributi AVS/AI/LPP. Consulta l\'amministrazione',
+    canonicalPath: '/articoli-svizzera/fondare-impresa-turgovia-procedura-costi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività Turgovia: registro commercio e costi",
+      "description": "Come aprire un'attività nel Cantone Turgovia: procedura di iscrizione al registro di commercio, forme giuridiche, tassazione federale e cantonale, obblighi SUVA",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondare-impresa-turgovia-procedura-costi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio commerciale svizzero con sottoscrizione di documento di registrazione attività; ambiente professionale moderno."
+      },
+      "datePublished": "2026-09-04T02:48:19+00:00",
+      "dateModified": "2026-09-04T02:48:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fondare-impresa-turgovia-procedura-costi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

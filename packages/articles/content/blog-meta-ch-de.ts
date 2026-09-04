@@ -5383,6 +5383,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-san-gallo-proroga.title': 'Ausweis L St. Gallen: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Kurzzeitbewilligung L bis zu 1 Jahr, Verlängerungsverfahren, Verpflichtungen gegenüber dem Arbeitgeber, Umwandlung in Bewilligung B. Praktischer Leitfaden.',
     'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Schweizer Kantonsgebäude mit Schweizer Flagge und Alpenpanorama im Hintergrund',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Geschäftstätigkeit Thurgau eröffnen: Handelsregister und Kosten',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Thurgau: Anmeldeverfahren, Rechtsformen, Bundes- und Kantonsbesteuerung, Suva- und Vorsorgepflichten.',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Schweizer Geschäftsbüro mit Unterzeichnung eines Handelsregistrierungsdokuments; moderner professioneller Arbeitsplatz.',
 };
 
 export default blogMetaChDe;
