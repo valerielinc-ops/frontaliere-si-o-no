@@ -5410,6 +5410,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Geschäft in St. Gallen eröffnen: Gebühren und Verfahren',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Vom Handelsregister bis zu den Sozialversicherungsbeiträgen: Ein umfassender Leitfaden zu Kosten und Steuerpflichten für Unternehmensgründer im Kanton St. Gallen.',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Schweizer Verwaltungsbüro mit professionellen Schreibtischen und Geschäftsregistrierungs- sowie Steuerdokumenten',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Kurzzeiturlaub Waadt: Dauer, Verlängerung und Rechte',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Die Bewilligung L erlaubt bis zu 1 Jahr in der Schweiz zu arbeiten und ist verlängerbar. Erfahren Sie, wie Sie die Verlängerung beantragen, auf die B-Bewilligung wechseln und welche Steuerpflichten bestehen.',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Arbeitserlaubnis und Schweizer Arbeitsvertrag auf dem Schreibtisch',
 };
 
 export default blogMetaChDe;

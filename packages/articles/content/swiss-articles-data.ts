@@ -16228,6 +16228,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'permesso-l-breve-durata-vaud-proroga',
+    category: 'pratico',
+    date: '2026-09-04T08:00:51.242Z',
+    image: '/images/blog/permesso-l-breve-durata-vaud-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

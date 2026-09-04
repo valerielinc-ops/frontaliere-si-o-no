@@ -5410,6 +5410,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Ouvrir une entreprise à Saint-Gall : taxes et procédures',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Du registre du commerce aux cotisations sociales : guide complet des coûts et des obligations fiscales pour ceux qui créent une entreprise dans le canton de Saint-Gall.',
     'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Bureau administratif suisse avec des bureaux professionnels et des documents d\'enregistrement commercial et fiscal',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permis L courte durée vaudois : durée, prorogation et droits',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Le permis L permet de travailler en Suisse jusqu\'à 1 an et est renouvelable. Découvrez comment demander la prolongation, passer au permis B et quelles sont les obligations fiscales.',
+    'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Permis de travail et contrat d\'emploi suisse sur un bureau professionnel',
 };
 
 export default blogMetaChFr;
