@@ -84857,6 +84857,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-formazione-continua-ticino-campagna': {
+    title: 'Formazione continua, al via la campagna cantonale ticinese',
+    description: 'Campagna UFCI su competenze di base: adesivi in 5 città, escape room 5 settembre, docufilm, stazioni e serata Andrea Vitali 10 settembre. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, formazione, continua, campagna, cantonale',
+    ogTitle: 'Formazione continua: al via la campagna cantonale ticinese',
+    ogDescription: 'Settembre 2026: l\'UFCI promuove le competenze di base con adesivi in 5 città, escape room al Greenday di Bellinzona, docufilm a Bellinzona-Locarno-Chiasso e una serata con Andrea Vitali. Scopri come partecipare dal 5 al 10 settembre.',
+    canonicalPath: '/articoli-frontaliere/formazione-continua-ticino-campagna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Formazione continua, al via la campagna cantonale ticinese",
+      "description": "Campagna UFCI su competenze di base: adesivi in 5 città, escape room 5 settembre, docufilm, stazioni e serata Andrea Vitali 10 settembre. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/formazione-continua-ticino-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona centrale con adesivi della campagna UFCI sulla formazione continua esposti negli spazi pubblici"
+      },
+      "datePublished": "2026-09-04T04:47:17+00:00",
+      "dateModified": "2026-09-04T04:47:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/formazione-continua-ticino-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
