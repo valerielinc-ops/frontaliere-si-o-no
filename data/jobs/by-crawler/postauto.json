@@ -1,6 +1,6 @@
 {
   "crawlerKey": "postauto",
-  "assembledAt": "2026-09-03T23:21:20.174Z",
+  "assembledAt": "2026-09-04T13:36:28.177Z",
   "jobs": [
     {
       "id": "posta-svizzera-centro-regionale-0fd41e8901e3",
@@ -33,7 +33,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-Auxiliaire-Transport-scolaire%2C-Canton-Vaud/74508-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:17.934Z",
+      "crawledAt": "2026-09-04T13:36:25.253Z",
       "addressLocality": "Belmont-sur-Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -56,14 +56,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "fr": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne"
         ],
         "it": [
-          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+          "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
         ]
       },
       "previousSlugs": [
-        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur"
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-postauto-belmont-sur",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-carpostal-belmont-sur-lausanne",
+        "conductrice-conducteur-auxiliaire-transport-scolaire-canton-vaud-post"
       ],
       "firstSeenAt": "2026-08-17T09:59:08.422Z",
       "datePosted": "2026-08-17",
@@ -112,7 +116,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Thierrens/74564-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:16.553Z",
+      "crawledAt": "2026-09-04T13:36:23.938Z",
       "addressLocality": "Thierrens",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -135,12 +139,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-thierrens-post",
-        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+        "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+        "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-thierrens-post",
-          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens"
+          "conductrice-conducteur-carpostal-thierrens-postauto-thierrens",
+          "driver-per-il-dispositivo-carpostal-thierrens-carpostal-thierrens"
         ],
         "en": [
           "conductrice-conducteur-carpostal-thierrens-post"
@@ -154,6 +160,7 @@
       },
       "firstSeenAt": "2026-08-20T21:39:58.447Z",
       "datePosted": "2026-08-20",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -199,7 +206,7 @@
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-St-Aubin-Sauges/74588-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:15.169Z",
+      "crawledAt": "2026-09-04T13:36:22.649Z",
       "addressLocality": "St-Aubin-Sauges",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -222,12 +229,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-        "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+        "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+        "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-postauto-st-aubin-sauges",
-          "conductrice-conducteur-carpostal-st-aubin-sauges-post"
+          "conductrice-conducteur-carpostal-st-aubin-sauges-post",
+          "driver-carpostal-st-aubin-sauges-postauto-ag-st-aubin-sauges"
         ],
         "fr": [
           "conductrice-conducteur-carpostal-st-aubin-sauges-post"
@@ -235,6 +244,7 @@
       },
       "firstSeenAt": "2026-08-26T10:12:04.446Z",
       "datePosted": "2026-08-26",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -280,7 +290,7 @@
       "url": "https://job.post.ch/default/job/Responsable-d'%C3%A9quipe-Personnel-de-conduite%2C-Gland/74610-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:13.792Z",
+      "crawledAt": "2026-09-04T13:36:21.344Z",
       "addressLocality": "Gland",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -304,16 +314,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland"
         ],
         "it": [
           "responsable-d-equipe-personnel-de-conduite-post",
-          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+          "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+          "responsable-d-equipe-personnel-de-conduite-gland-post"
         ]
       },
       "previousSlugs": [
         "responsable-d-equipe-personnel-de-conduite-post",
-        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland"
+        "responsable-d-equipe-personnel-de-conduite-gland-postauto-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-carpostal-gland",
+        "responsable-d-equipe-personnel-de-conduite-gland-post"
       ],
       "firstSeenAt": "2026-08-27T00:49:51.119Z",
       "datePosted": "2026-08-26",
@@ -362,7 +376,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-CarPostal%2C-Aubonne-Gimel-Gland/74652-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:12.407Z",
+      "crawledAt": "2026-09-04T13:36:20.046Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -430,7 +444,7 @@
       "url": "https://job.post.ch/default/job/Conductrice-Conducteur-Auxiliaire-CarPostal%2C-Aubonne/74680-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:11.035Z",
+      "crawledAt": "2026-09-04T13:36:18.726Z",
       "addressLocality": "Aubonne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -479,34 +493,34 @@
       "id": "postauto-89f6a42f9c86",
       "slug": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
       "slugByLocale": {
-        "fr": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
         "it": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
         "en": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-        "de": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+        "de": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+        "fr": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
       "companyDomain": "postauto.ch",
       "title": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains",
       "titleByLocale": {
-        "fr": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains",
         "it": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains",
         "en": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains",
-        "de": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains"
+        "de": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains",
+        "fr": "Conductrice/Conducteur CarPostal, Yverdon-les-Bains"
       },
       "description": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !",
       "descriptionByLocale": {
-        "fr": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !",
         "it": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !",
         "en": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !",
-        "de": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !"
+        "de": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !",
+        "fr": "Tu aimerais prendre le volant et rejoindre CarPostal en tant que conductrice ou conducteur? Tu veux rejoindre la classe jaune et apporter chaque jour une contribution active au succès de CarPostal? Alors n'attends plus pour déposer ta candidature et garantir ponctualité, sécurité et confort aux voyageuses et aux voyageurs jusqu'à leur destination.\n\nFais la différence\n\n- Grâce à ton sens de l'orientation ainsi qu'à tes bonnes connaissances de la région d'Yverdon, tu emmènes les voyageuses et les voyageurs à destination du lundi au dimanche.\n\n- Tu accueilles la clientèle de manière prévenante et compétente à bord de nos cars postaux et tu la conseilles pour toute question relative aux prix et aux horaires.\n\n- Le contact avec les personnes que tu transportes enrichit ton quotidien de rencontres passionnantes et tu t’attaches à créer des expériences positives pour notre clientèle.\n\n- En tant que conductrice ou conducteur, tu fais bien plus que déplacer ton véhicule sur la route. En contact direct avec la clientèle, chaque jour t’apporte son lot de situations nouvelles et variées.\n\nCe que tu apportes\n\n- Pour ce poste, tu disposes d'un permis de conduire de catégorie D ainsi que d'une carte de qualification de conducteur à jour.\n\n- Tu apprécies les avantages des horaires de travail irréguliers, y compris les dimanches et les jours fériés.\n\n- La fiabilité et le plaisir d’être en contact quotidien avec la clientèle comptent parmi tes points forts.\n\n- Tu as de bonnes connaissances en français et tu es à l’aise avec les appareils numériques.\n\nNous te prions de joindre en annexe ton extrait du casier conducteur (SIAC), ta carte de qualification de conducteur (OACP) et ton permis de conduire. Les candidatures incomplètes ne seront pas prises en compte !"
       },
       "location": "Yverdon-les-Bains",
       "canton": "VD",
       "url": "https://job.post.ch/default/job/ConductriceConducteur-CarPostal%2C-Yverdon-les-Bains/74682-fr_FR",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:21:09.643Z",
+      "crawledAt": "2026-09-04T13:36:17.427Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -527,21 +541,12 @@
       "jobReqId": "74682",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-03T13:43:55.069Z",
+      "previousSlugs": [
+        "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
+        "carpostal-driver-carpostal-yverdon-les-bains",
+        "carpostal-fahrer-carpostal-yverdon-les-bains",
+        "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
@@ -559,12 +564,21 @@
           "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
         ]
       },
-      "previousSlugs": [
-        "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
-        "carpostal-driver-carpostal-yverdon-les-bains",
-        "carpostal-fahrer-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
-      ]
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:43:55.069Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "postauto-b4474cae4aea",
@@ -597,7 +611,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74494-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:08.248Z",
+      "crawledAt": "2026-09-04T13:36:16.134Z",
       "addressLocality": "Reichenburg",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -622,13 +636,15 @@
         "postauto-fahrer-in-postauto-reichenburg",
         "postauto-fahrer-in-post",
         "postbus-driver-in-postauto-reichenburg",
-        "pilote-postbus-in-postauto-reichenburg"
+        "pilote-postbus-in-postauto-reichenburg",
+        "postbus-driver-in-postauto-ag-reichenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-reichenburg",
           "postauto-fahrer-in-post",
-          "postbus-driver-in-postauto-reichenburg"
+          "postbus-driver-in-postauto-reichenburg",
+          "postbus-driver-in-postauto-ag-reichenburg"
         ],
         "en": [
           "postauto-fahrer-in-postauto-reichenburg",
@@ -687,7 +703,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74207-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:06.874Z",
+      "crawledAt": "2026-09-04T13:36:14.823Z",
       "addressLocality": "Brugg AG",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -775,7 +791,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74549-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:05.494Z",
+      "crawledAt": "2026-09-04T13:36:13.501Z",
       "addressLocality": "Bad Ragaz",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -797,11 +813,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "postauto-chauffeur-in-postauto-bad-ragaz"
+        "postauto-chauffeur-in-postauto-bad-ragaz",
+        "postauto-chauffeur-in-post"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "postauto-chauffeur-in-postauto-bad-ragaz"
+          "postauto-chauffeur-in-postauto-bad-ragaz",
+          "postauto-chauffeur-in-post"
         ]
       },
       "needsRetranslation": true,
@@ -851,7 +869,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin-im-Stundenlohn/74565-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:04.100Z",
+      "crawledAt": "2026-09-04T13:36:12.180Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -877,13 +895,15 @@
         "postauto-fahrer-in-im-stundenlohn-post",
         "postbus-driver-nel-salario-orario-postauto-einsiedeln",
         "postbus-driver-in-the-hourly-wage-postauto-einsiedeln",
-        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln"
+        "conducteur-postbus-dans-le-salaire-horaire-postauto-einsiedeln",
+        "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
           "postauto-fahrer-in-im-stundenlohn-post",
-          "postbus-driver-nel-salario-orario-postauto-einsiedeln"
+          "postbus-driver-nel-salario-orario-postauto-einsiedeln",
+          "postbus-driver-nel-salario-orario-postauto-ag-einsiedeln"
         ],
         "en": [
           "postauto-fahrer-in-im-stundenlohn-postauto-einsiedeln",
@@ -943,7 +963,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74566-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:02.696Z",
+      "crawledAt": "2026-09-04T13:36:10.895Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "streetAddress": "",
@@ -1011,7 +1031,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74295-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:21:01.300Z",
+      "crawledAt": "2026-09-04T13:36:09.580Z",
       "addressLocality": "Ilanz",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1036,13 +1056,15 @@
         "postauto-fahrer-in-postauto-ilanz",
         "postbus-driver-in-postauto-ilanz",
         "postauto-fahrer-in-post",
-        "pilote-postbus-in-postauto-ilanz"
+        "pilote-postbus-in-postauto-ilanz",
+        "postbus-driver-in-postauto-ag-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-ilanz",
           "postbus-driver-in-postauto-ilanz",
-          "postauto-fahrer-in-post"
+          "postauto-fahrer-in-post",
+          "postbus-driver-in-postauto-ag-ilanz"
         ],
         "en": [
           "postbus-driver-in-postauto-ilanz",
@@ -1101,7 +1123,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Kundenservice-Inkasso/74547-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:59.900Z",
+      "crawledAt": "2026-09-04T13:36:08.263Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1127,13 +1149,15 @@
         "fachspezialist-in-kundenservice-inkasso-post",
         "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
         "specialist-in-customer-service-debt-collection-postauto-zurich",
-        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich"
+        "specialiste-dans-le-recouvrement-des-dettes-du-service-a-la-clientele-postauto-zurich",
+        "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
           "fachspezialist-in-kundenservice-inkasso-post",
-          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich"
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-zurich",
+          "specialista-nella-raccolta-del-debito-del-servizio-clienti-postauto-ag-zurich"
         ],
         "en": [
           "fachspezialist-in-kundenservice-inkasso-postauto-zurich",
@@ -1169,7 +1193,7 @@
         "it": "postauto-chauffeur-in-postauto-klosters",
         "en": "postauto-chauffeur-in-postauto-klosters",
         "de": "postauto-chauffeur-in-postauto-klosters",
-        "fr": "postauto-chauffeur-in-postauto-klosters"
+        "fr": "chauffeur-postauto-in-postauto-ag-klosters"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -1193,7 +1217,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74626-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:58.486Z",
+      "crawledAt": "2026-09-04T13:36:06.946Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1261,7 +1285,7 @@
       "url": "https://job.post.ch/default/job/Bid-Managerin-Markt-%28financial%2C-technical%29/74562-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:57.100Z",
+      "crawledAt": "2026-09-04T13:36:05.650Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -1346,7 +1370,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Fahrerin/74357-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:55.689Z",
+      "crawledAt": "2026-09-04T13:36:04.327Z",
       "addressLocality": "Appenzell",
       "addressRegion": "AI",
       "streetAddress": "",
@@ -1371,14 +1395,16 @@
         "postauto-fahrer-in-postauto-appenzell",
         "postauto-fahrer-in-post",
         "pilote-postbus-in-postauto-ag-appenzell",
-        "postbus-driver-in-postauto-ag-appenzell"
+        "postbus-driver-in-postauto-ag-appenzell",
+        "postbus-driver-in-postauto-appenzell"
       ],
       "previousSlugsByLocale": {
         "it": [
           "postauto-fahrer-in-postauto-appenzell",
           "postauto-fahrer-in-post",
           "pilote-postbus-in-postauto-ag-appenzell",
-          "postbus-driver-in-postauto-ag-appenzell"
+          "postbus-driver-in-postauto-ag-appenzell",
+          "postbus-driver-in-postauto-appenzell"
         ]
       },
       "needsRetranslation": true,
@@ -1428,7 +1454,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74660-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:54.318Z",
+      "crawledAt": "2026-09-04T13:36:03.022Z",
       "addressLocality": "Stans",
       "addressRegion": "NW",
       "streetAddress": "",
@@ -1496,7 +1522,7 @@
       "url": "https://job.post.ch/default/job/PostAuto-Chauffeurin/74661-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:52.933Z",
+      "crawledAt": "2026-09-04T13:36:01.703Z",
       "addressLocality": "Sarnen",
       "addressRegion": "OW",
       "streetAddress": "",
@@ -1578,7 +1604,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74691-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:51.525Z",
+      "crawledAt": "2026-09-04T13:36:00.398Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -1670,7 +1696,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74240-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:50.140Z",
+      "crawledAt": "2026-09-04T13:35:59.107Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1693,14 +1719,16 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur"
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
+          "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen"
         ],
         "it": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-winterthur",
           "security-specialist-in-public-transport-postauto-ag-winterthur",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
@@ -1717,7 +1745,9 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-winterthur",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-winterthur",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-winterthur",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "sicherheitsspezialist-in-offentlicher-verkehr-postauto-wallisellen",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-winterthur"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-03T22:23:06.691Z",
@@ -1766,7 +1796,7 @@
       "url": "https://job.post.ch/default/job/Sicherheitsspezialistin-%C3%96ffentlicher-Verkehr/74239-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:48.768Z",
+      "crawledAt": "2026-09-04T13:35:57.799Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -1793,7 +1823,8 @@
         "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
         "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
         "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
-        "sicherheitsspezialist-in-offentlicher-verkehr-post"
+        "sicherheitsspezialist-in-offentlicher-verkehr-post",
+        "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1801,7 +1832,8 @@
           "security-specialist-in-public-transport-postauto-ag-wallisellen",
           "specialiste-de-la-securite-dans-les-transports-publics-postauto-ag-wallisellen",
           "specialista-in-sicurezza-del-trasporto-pubblico-postauto-ag-wallisellen",
-          "sicherheitsspezialist-in-offentlicher-verkehr-post"
+          "sicherheitsspezialist-in-offentlicher-verkehr-post",
+          "specialista-di-sicurezza-nei-trasporti-pubblici-postauto-wallisellen"
         ],
         "en": [
           "sicherheitsspezialist-in-offentlicher-verkehr-postauto-ag-wallisellen",
@@ -1859,7 +1891,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74425-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:47.388Z",
+      "crawledAt": "2026-09-04T13:35:56.363Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1943,7 +1975,7 @@
       "url": "https://job.post.ch/default/job/Ticketkontrolleurin-und-Kundenberatung/74422-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:45.963Z",
+      "crawledAt": "2026-09-04T13:35:55.076Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2040,7 +2072,7 @@
       "url": "https://job.post.ch/default/job/Fachspezialistin-Betriebssupport-Ladesysteme/74672-de_DE",
       "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:43.521Z",
+      "crawledAt": "2026-09-04T13:35:52.915Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Wankdorfallee 4",
@@ -2076,170 +2108,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "posta-svizzera-centro-regionale-2cca9b18eb82",
-      "slug": "specialiste-agent-de-securite-et-controleuse-controleur-de-titres-yverdon-les-bains-post",
-      "slugByLocale": {
-        "it": "specialiste-agent-de-securite-et-controleuse-controleur-de-titres-yverdon-les-bains-post",
-        "en": "specialiste-agent-de-securite-et-controleuse-controleur-de-titres-yverdon-les-bains-post",
-        "de": "specialiste-agent-de-securite-et-controleuse-controleur-de-titres-yverdon-les-bains-post",
-        "fr": "specialiste-agent-de-securite-et-controleuse-controleur-de-titres-yverdon-les-bains-carpostal-yverdon-les-bains"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Spécialiste agent de sécurité et contrôleuse/contrôleur de titres, Yverdon-les-Bains",
-      "titleByLocale": {
-        "it": "Spécialiste agent de sécurité et contrôleuse/contrôleur de titres, Yverdon-les-Bains",
-        "en": "Spécialiste agent de sécurité et contrôleuse/contrôleur de titres, Yverdon-les-Bains",
-        "de": "Spécialiste agent de sécurité et contrôleuse/contrôleur de titres, Yverdon-les-Bains",
-        "fr": "Spécialiste agent de sécurité et contrôleuse/contrôleur de titres, Yverdon-les-Bains"
-      },
-      "description": "Tu t’intéresses à la sécurité, tu aimes voyager et tu apprécies le contact direct avec les usagers des transports publics ? Rejoins CarPostal et joue un rôle clé dans le maintien de la sécurité et du contrôle de titres de transport dans la région d'Yverdon-les-Bains. Avec toi, chaque voyageur circule en toute sécurité et avec un billet valide.\n\nFais la différence\n\n- Grâce à ton expérience dans le domaine de la sécurité et à ton sang-froid, tu assures le maintien de l’ordre et contribues activement à la sécurité dans les transports publics.\n\n- Avec ton équipe, tu assures le contrôle des titres de transport de manière professionnelle et contribues ainsi de manière décisive à la garantie des recettes.\n\n- Tu informes, conseilles et orientes notre clientèle avec professionnalisme et courtoisie pour toute question relative aux tarifs, aux horaires et aux prestations, afin de créer des expériences positives.\n\n- Tu interviens de manière autonome sur nos lignes régionales variées, du lundi au dimanche (05h00-23h00) et gères les situations délicates avec calme, diplomatie et assurance.\n\n- Tu es également prêt·e à assumer des missions spéciales dans le domaine de la sécurité.\n\n- Tout en faisant preuve d’autonomie, tu collabores étroitement avec ton équipe et adoptes une approche orientée solutions, même dans des contextes exigeants.\n\nCe que tu apportes\n\n- Tu as suivi une formation de base dans le domaine de la sécurité et tu es titulaire du permis de conduire de catégorie B.\n\n- Tu maîtrises le français tant à l’oral qu’à l’écrit et communiques aisément en anglais. Toute autre langue étrangère constitue un atout.\n\n- Grâce à ton approche orientée solutions, tu es capable d’argumenter habilement et de rester calme et à l’aise même dans les situations de stress.\n\n- Tu aimes le contact quotidien avec la clientèle et tu apprécies la diversité qu’apportent les horaires de travail irréguliers (y compris les dimanches et les jours fériés).\n\n- Tu es à l’aise avec les outils numériques et tu as une bonne endurance physique pour faire face à des situations parfois exigeantes.\n\nNous te prions de joindre en annexe ton extrait du casier judiciaire. Les candidatures incomplètes ne seront pas prises en compte !",
-      "descriptionByLocale": {
-        "it": "Tu t’intéresses à la sécurité, tu aimes voyager et tu apprécies le contact direct avec les usagers des transports publics ? Rejoins CarPostal et joue un rôle clé dans le maintien de la sécurité et du contrôle de titres de transport dans la région d'Yverdon-les-Bains. Avec toi, chaque voyageur circule en toute sécurité et avec un billet valide.\n\nFais la différence\n\n- Grâce à ton expérience dans le domaine de la sécurité et à ton sang-froid, tu assures le maintien de l’ordre et contribues activement à la sécurité dans les transports publics.\n\n- Avec ton équipe, tu assures le contrôle des titres de transport de manière professionnelle et contribues ainsi de manière décisive à la garantie des recettes.\n\n- Tu informes, conseilles et orientes notre clientèle avec professionnalisme et courtoisie pour toute question relative aux tarifs, aux horaires et aux prestations, afin de créer des expériences positives.\n\n- Tu interviens de manière autonome sur nos lignes régionales variées, du lundi au dimanche (05h00-23h00) et gères les situations délicates avec calme, diplomatie et assurance.\n\n- Tu es également prêt·e à assumer des missions spéciales dans le domaine de la sécurité.\n\n- Tout en faisant preuve d’autonomie, tu collabores étroitement avec ton équipe et adoptes une approche orientée solutions, même dans des contextes exigeants.\n\nCe que tu apportes\n\n- Tu as suivi une formation de base dans le domaine de la sécurité et tu es titulaire du permis de conduire de catégorie B.\n\n- Tu maîtrises le français tant à l’oral qu’à l’écrit et communiques aisément en anglais. Toute autre langue étrangère constitue un atout.\n\n- Grâce à ton approche orientée solutions, tu es capable d’argumenter habilement et de rester calme et à l’aise même dans les situations de stress.\n\n- Tu aimes le contact quotidien avec la clientèle et tu apprécies la diversité qu’apportent les horaires de travail irréguliers (y compris les dimanches et les jours fériés).\n\n- Tu es à l’aise avec les outils numériques et tu as une bonne endurance physique pour faire face à des situations parfois exigeantes.\n\nNous te prions de joindre en annexe ton extrait du casier judiciaire. Les candidatures incomplètes ne seront pas prises en compte !",
-        "en": "Tu t’intéresses à la sécurité, tu aimes voyager et tu apprécies le contact direct avec les usagers des transports publics ? Rejoins CarPostal et joue un rôle clé dans le maintien de la sécurité et du contrôle de titres de transport dans la région d'Yverdon-les-Bains. Avec toi, chaque voyageur circule en toute sécurité et avec un billet valide.\n\nFais la différence\n\n- Grâce à ton expérience dans le domaine de la sécurité et à ton sang-froid, tu assures le maintien de l’ordre et contribues activement à la sécurité dans les transports publics.\n\n- Avec ton équipe, tu assures le contrôle des titres de transport de manière professionnelle et contribues ainsi de manière décisive à la garantie des recettes.\n\n- Tu informes, conseilles et orientes notre clientèle avec professionnalisme et courtoisie pour toute question relative aux tarifs, aux horaires et aux prestations, afin de créer des expériences positives.\n\n- Tu interviens de manière autonome sur nos lignes régionales variées, du lundi au dimanche (05h00-23h00) et gères les situations délicates avec calme, diplomatie et assurance.\n\n- Tu es également prêt·e à assumer des missions spéciales dans le domaine de la sécurité.\n\n- Tout en faisant preuve d’autonomie, tu collabores étroitement avec ton équipe et adoptes une approche orientée solutions, même dans des contextes exigeants.\n\nCe que tu apportes\n\n- Tu as suivi une formation de base dans le domaine de la sécurité et tu es titulaire du permis de conduire de catégorie B.\n\n- Tu maîtrises le français tant à l’oral qu’à l’écrit et communiques aisément en anglais. Toute autre langue étrangère constitue un atout.\n\n- Grâce à ton approche orientée solutions, tu es capable d’argumenter habilement et de rester calme et à l’aise même dans les situations de stress.\n\n- Tu aimes le contact quotidien avec la clientèle et tu apprécies la diversité qu’apportent les horaires de travail irréguliers (y compris les dimanches et les jours fériés).\n\n- Tu es à l’aise avec les outils numériques et tu as une bonne endurance physique pour faire face à des situations parfois exigeantes.\n\nNous te prions de joindre en annexe ton extrait du casier judiciaire. Les candidatures incomplètes ne seront pas prises en compte !",
-        "de": "Tu t’intéresses à la sécurité, tu aimes voyager et tu apprécies le contact direct avec les usagers des transports publics ? Rejoins CarPostal et joue un rôle clé dans le maintien de la sécurité et du contrôle de titres de transport dans la région d'Yverdon-les-Bains. Avec toi, chaque voyageur circule en toute sécurité et avec un billet valide.\n\nFais la différence\n\n- Grâce à ton expérience dans le domaine de la sécurité et à ton sang-froid, tu assures le maintien de l’ordre et contribues activement à la sécurité dans les transports publics.\n\n- Avec ton équipe, tu assures le contrôle des titres de transport de manière professionnelle et contribues ainsi de manière décisive à la garantie des recettes.\n\n- Tu informes, conseilles et orientes notre clientèle avec professionnalisme et courtoisie pour toute question relative aux tarifs, aux horaires et aux prestations, afin de créer des expériences positives.\n\n- Tu interviens de manière autonome sur nos lignes régionales variées, du lundi au dimanche (05h00-23h00) et gères les situations délicates avec calme, diplomatie et assurance.\n\n- Tu es également prêt·e à assumer des missions spéciales dans le domaine de la sécurité.\n\n- Tout en faisant preuve d’autonomie, tu collabores étroitement avec ton équipe et adoptes une approche orientée solutions, même dans des contextes exigeants.\n\nCe que tu apportes\n\n- Tu as suivi une formation de base dans le domaine de la sécurité et tu es titulaire du permis de conduire de catégorie B.\n\n- Tu maîtrises le français tant à l’oral qu’à l’écrit et communiques aisément en anglais. Toute autre langue étrangère constitue un atout.\n\n- Grâce à ton approche orientée solutions, tu es capable d’argumenter habilement et de rester calme et à l’aise même dans les situations de stress.\n\n- Tu aimes le contact quotidien avec la clientèle et tu apprécies la diversité qu’apportent les horaires de travail irréguliers (y compris les dimanches et les jours fériés).\n\n- Tu es à l’aise avec les outils numériques et tu as une bonne endurance physique pour faire face à des situations parfois exigeantes.\n\nNous te prions de joindre en annexe ton extrait du casier judiciaire. Les candidatures incomplètes ne seront pas prises en compte !",
-        "fr": "Tu t’intéresses à la sécurité, tu aimes voyager et tu apprécies le contact direct avec les usagers des transports publics ? Rejoins CarPostal et joue un rôle clé dans le maintien de la sécurité et du contrôle de titres de transport dans la région d'Yverdon-les-Bains. Avec toi, chaque voyageur circule en toute sécurité et avec un billet valide.\n\nFais la différence\n\n- Grâce à ton expérience dans le domaine de la sécurité et à ton sang-froid, tu assures le maintien de l’ordre et contribues activement à la sécurité dans les transports publics.\n\n- Avec ton équipe, tu assures le contrôle des titres de transport de manière professionnelle et contribues ainsi de manière décisive à la garantie des recettes.\n\n- Tu informes, conseilles et orientes notre clientèle avec professionnalisme et courtoisie pour toute question relative aux tarifs, aux horaires et aux prestations, afin de créer des expériences positives.\n\n- Tu interviens de manière autonome sur nos lignes régionales variées, du lundi au dimanche (05h00-23h00) et gères les situations délicates avec calme, diplomatie et assurance.\n\n- Tu es également prêt·e à assumer des missions spéciales dans le domaine de la sécurité.\n\n- Tout en faisant preuve d’autonomie, tu collabores étroitement avec ton équipe et adoptes une approche orientée solutions, même dans des contextes exigeants.\n\nCe que tu apportes\n\n- Tu as suivi une formation de base dans le domaine de la sécurité et tu es titulaire du permis de conduire de catégorie B.\n\n- Tu maîtrises le français tant à l’oral qu’à l’écrit et communiques aisément en anglais. Toute autre langue étrangère constitue un atout.\n\n- Grâce à ton approche orientée solutions, tu es capable d’argumenter habilement et de rester calme et à l’aise même dans les situations de stress.\n\n- Tu aimes le contact quotidien avec la clientèle et tu apprécies la diversité qu’apportent les horaires de travail irréguliers (y compris les dimanches et les jours fériés).\n\n- Tu es à l’aise avec les outils numériques et tu as une bonne endurance physique pour faire face à des situations parfois exigeantes.\n\nNous te prions de joindre en annexe ton extrait du casier judiciaire. Les candidatures incomplètes ne seront pas prises en compte !"
-      },
-      "location": "Yverdon-les-Bains",
-      "canton": "VD",
-      "url": "https://job.post.ch/default/job/Sp%C3%A9cialiste-agent-de-s%C3%A9curit%C3%A9-et-contr%C3%B4leusecontr%C3%B4leur-de-titres%2C-Yverdon-les-Bains/74627-fr_FR",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-02T23:18:20.021Z",
-      "addressLocality": "Yverdon-les-Bains",
-      "addressRegion": "VD",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "validThrough": "2026-09-30",
-      "pensum": "100%",
-      "applyUrl": "https://job.post.ch/default/job/Sp%C3%A9cialiste-agent-de-s%C3%A9curit%C3%A9-et-contr%C3%B4leusecontr%C3%B4leur-de-titres%2C-Yverdon-les-Bains/74627-fr_FR",
-      "jobReqId": "74627",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-31T17:19:19.415Z",
-      "datePosted": "2026-08-31",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "postauto-2ab28047409d",
-      "slug": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-      "slugByLocale": {
-        "it": "kundenbetreuer-in-flottenmanagement-geschaftskunden-post",
-        "en": "customer-manager-in-fleet-management-business-customers-postauto-moosseedorf",
-        "de": "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-        "fr": "client-manager-dans-la-gestion-du-parc-de-vehicules-postauto-moosseedorf"
-      },
-      "company": "PostAuto AG",
-      "companyKey": "postauto",
-      "companyDomain": "postauto.ch",
-      "title": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
-      "titleByLocale": {
-        "it": "Customer Manager: nella gestione della flotta",
-        "en": "Customer Manager: in fleet management Business customers",
-        "de": "Kundenbetreuer:in Flottenmanagement Geschäftskunden",
-        "fr": "Client Manager: dans la gestion du parc de véhicules"
-      },
-      "description": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du bringst Erfahrung in der Kundenbetreuung mit und verfügst über gute mündliche Deutsch- und Französischkenntnisse (mind. Niveau B2).\n\n- Im Rahmen des 40% Pensums kannst du dir die Arbeitstage Donnerstag und Freitag gut einrichten.\n\n- Selbständiges Arbeiten, hohes Verantwortungs- und Qualitätsbewusstsein sowie gute organisatorische und koordinative Fähigkeiten zeichnen dich aus.\n\n- Du bist kunden- und lösungsorientiert und verfügst über eine rasche Auffassungsgabe.\n\n- Im Umgang mit dem PC, insbesondere mit MS Office, bist du versiert und behältst auch in hektischen Situationen den Überblick und einen kühlen Kopf.",
-      "descriptionByLocale": {
-        "it": "Come parte di Post Company Cars, vi assicurerete che la nostra gestione della flotta funzioni senza problemi e veicoli, processi e dati convergono in modo affidabile.\nCon voi, i nostri clienti business possono sempre contare su un servizio professionale!\n\nPuoi farlo.\n\n- Sei la prima persona di contatto (supporto di primo livello) per i nostri clienti aziendali (società postali e/o terze parti) e garantire un supporto completo.\n\n- Risponde a richieste telefoniche e scritte di clienti in tedesco, francese e inglese competenti e orientate alla soluzione.\n\n- L'utente è responsabile dell'ingresso e dell'uscita dei veicoli commerciali assegnati e della qualità dei dati del veicolo.\n\n- Trasporti, consegna, cambio veicolo e processi di ritorno si controlla con i garage partner, coordinare veicoli a noleggio e garantire la lavorazione tempestiva.\n\n- Assicurarsi che tutti i documenti richiesti siano disponibili in tempo e in pieno, e contribuire a garantire che i nostri dati e le informazioni della flotta siano sempre aggiornati.\n\n- Lavorate con le compagnie di assicurazione e gli uffici di trasporto su strada, ordinate carte di carburante e certificati di assicurazione e prendetevi cura della fatturazione.\n\nLo porti con te.\n\n- Hai esperienza nel supporto clienti e hai una buona conoscenza orale di tedesco e francese (livello minimo B2).\n\n- Come parte del carico di lavoro del 40%, è possibile impostare i giorni lavorativi giovedì e venerdì bene.\n\n- Lavoro indipendente, un elevato senso di responsabilità e qualità, così come buone capacità organizzative e di coordinamento vi distinguono.\n\n- Siete orientati al cliente e alla soluzione e avete una rapida comprensione.\n\n- Quando si tratta del PC, soprattutto con MS Office, si è ben diversificato e mantenere una panoramica e una testa fresca anche in situazioni frenetiche.",
-        "en": "As part of Post Company Cars, you will ensure that our fleet management functions smoothly and vehicles, processes and data converge reliably.\nWith you, our business customers can always count on a professional service!\n\nYou can do that.\n\n- You are the first contact person (first-level support) for our business customers (postal and/or third-party companies) and ensure comprehensive support.\n\n- You answer telephone and written customer inquiries in German, French and English competently and solution-oriented.\n\n- You are responsible for entering and leaving the assigned business vehicles as well as the quality of the vehicle data.\n\n- Transport, delivery, vehicle change and return processes you control with partner garages, coordinate rental vehicles and ensure timely processing.\n\n- Ensure that all required documents are available on time and in full, and help ensure that our data and fleet information is always up-to-date.\n\n- You work with insurance companies and road transport offices, order fuel cards and insurance certificates and take care of the billing.\n\nYou bring that with you\n\n- You have experience in customer support and have good oral knowledge of German and French (minimum level B2).\n\n- As part of the 40% workload, you can set up the working days Thursday and Friday well.\n\n- Independent work, a high sense of responsibility and quality as well as good organizational and coordination skills distinguish you.\n\n- You are customer- and solution-oriented and have a quick understanding.\n\n- When dealing with the PC, especially with MS Office, you are well-versed and keep an overview and a cool head even in hectic situations.",
-        "de": "Als Teil von Post Company Cars stellst du sicher, dass unser Flottenmanagement reibungslos funktioniert und Fahrzeuge, Prozesse und Daten zuverlässig zusammenlaufen.\nMit dir können unsere Geschäftskunden jederzeit auf einen professionellen Service zählen!\n\nDas kannst du bewirken\n\n- Du bist die erste Ansprechperson (First-Level-Support) für unsere Geschäftskunden (Post und/oder Drittfirmen) und stellst eine umfassende Betreuung sicher.\n\n- Telefonische und schriftliche Kundenanfragen beantwortest du in Deutsch, Französisch und Englisch kompetent und lösungsorientiert.\n\n- Du bist für die In- und Ausserverkehrssetzung der zugeteilten Geschäftsfahrzeuge sowie die Qualität der Fahrzeugdaten verantwortlich.\n\n- Transport-, Abliefer-, Fahrzeugwechsel- und Rücknahmeprozesse steuerst du mit Partnergaragen, koordinierst Mietfahrzeuge und stellst eine termingerechte Abwicklung sicher.\n\n- Du stellst sicher, dass alle erforderlichen Dokumente fristgerecht und vollständig vorliegen, und trägst dazu bei, dass unsere Daten und Flotteninformationen stets aktuell sind.\n\n- Mit Versicherungen und Strassenverkehrsämtern arbeitest du zusammen, bestellst Tankkarten und Versicherungsnachweise und kümmerst dich um die Fakturierungen.\n\nDas bringst du mit\n\n- Du bringst Erfahrung in der Kundenbetreuung mit und verfügst über gute mündliche Deutsch- und Französischkenntnisse (mind. Niveau B2).\n\n- Im Rahmen des 40% Pensums kannst du dir die Arbeitstage Donnerstag und Freitag gut einrichten.\n\n- Selbständiges Arbeiten, hohes Verantwortungs- und Qualitätsbewusstsein sowie gute organisatorische und koordinative Fähigkeiten zeichnen dich aus.\n\n- Du bist kunden- und lösungsorientiert und verfügst über eine rasche Auffassungsgabe.\n\n- Im Umgang mit dem PC, insbesondere mit MS Office, bist du versiert und behältst auch in hektischen Situationen den Überblick und einen kühlen Kopf.",
-        "fr": "Dans le cadre de Post Company Cars, vous vous assurerez que notre gestion de parc fonctionne en douceur et que les véhicules, les processus et les données convergent de manière fiable.\nAvec vous, nos clients professionnels peuvent toujours compter sur un service professionnel !\n\nTu peux le faire.\n\n- Vous êtes la première personne de contact (assistance de premier niveau) pour nos clients d'affaires (entreprises postales et/ou tierces) et assurer un soutien complet.\n\n- Vous répondez par téléphone et par écrit aux demandes des clients en allemand, français et anglais de manière compétente et axée sur la solution.\n\n- Vous êtes responsable de l'entrée et de la sortie des véhicules d'affaires ainsi que de la qualité des données du véhicule.\n\n- Les processus de transport, de livraison, de changement de véhicule et de retour que vous contrôlez avec les garages partenaires, coordonnent les véhicules de location et assurent le traitement en temps opportun.\n\n- Assurez-vous que tous les documents requis sont disponibles à temps et en totalité et aidez à assurer que nos données et nos renseignements sur le parc sont toujours à jour.\n\n- Vous travaillez avec des compagnies d'assurance et des bureaux de transport routier, commandez des cartes de carburant et des certificats d'assurance et prenez soin de la facturation.\n\nApporte ça avec toi.\n\n- Vous avez de l'expérience en support à la clientèle et avez une bonne connaissance orale de l'allemand et du français (niveau minimum B2).\n\n- Dans le cadre de la charge de travail de 40%, vous pouvez configurer les jours ouvrables jeudi et vendredi bien.\n\n- Un travail indépendant, un sens élevé des responsabilités et de la qualité ainsi que de bonnes compétences organisationnelles et de coordination vous distinguent.\n\n- Vous êtes orienté client et solution et avez une compréhension rapide.\n\n- Lorsque vous traitez avec le PC, en particulier avec MS Office, vous êtes bien tourné et gardez un aperçu et une tête cool même dans des situations mouvementées."
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74619-de_DE",
-      "source": "PostAuto Dedicated Parser (job.post.ch, brand=PostAuto)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:18:07.321Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Assistenza clienti",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Trasporti pubblici / Autobus",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "validThrough": "2026-09-27",
-      "pensum": "40%",
-      "applyUrl": "https://job.post.ch/default/job/Kundenbetreuerin-Flottenmanagement-Gesch%C3%A4ftskunden/74619-de_DE",
-      "jobReqId": "74619",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-        "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-ag-moosseedorf",
-        "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
-        "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf",
-        "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "customer-manager-nella-gestione-della-flotta-die-schweizerische-post-moosseedorf",
-          "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf",
-          "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
-        ],
-        "en": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-ag-moosseedorf",
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "customer-manager-in-fleet-management-business-customers-die-schweizerische-post-moosseedorf"
-        ],
-        "fr": [
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-ag-moosseedorf",
-          "kundenbetreuer-in-flottenmanagement-geschaftskunden-postauto-moosseedorf",
-          "client-manager-dans-la-gestion-du-parc-de-vehicules-die-schweizerische-post-moosseedorf"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:28:28.882Z",
-      "salaryMin": 94500,
-      "salaryMax": 143000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 94500,
-          "maxValue": 143000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
