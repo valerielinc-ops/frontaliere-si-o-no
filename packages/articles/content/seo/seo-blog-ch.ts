@@ -70805,6 +70805,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-svizzera-guida-pratica': {
+    title: 'Apprendistato e formazione: come funziona in Svizzera',
+    description: 'Guida completa all\'apprendistato svizzero: come trovare un tirocinio, contratto, retribuzione, diritti legali e maturità professionale per studi universitari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, funziona, scopri',
+    ogTitle: 'Apprendistato svizzero: guida pratica a tirocinio e formazione',
+    ogDescription: 'Scopri come funziona l\'apprendistato in Svizzera: ricerca del tirocinio, protezioni legali, retribuzione, contributi sociali, maturità professionale e accesso all\'università.',
+    canonicalPath: '/articoli-svizzera/apprendistato-svizzera-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione: come funziona in Svizzera",
+      "description": "Guida completa all'apprendistato svizzero: come trovare un tirocinio, contratto, retribuzione, diritti legali e maturità professionale per studi universitari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-svizzera-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista lavora in officina svizzera moderna durante la formazione pratica con attrezzi professionali"
+      },
+      "datePublished": "2026-09-04T17:31:51+00:00",
+      "dateModified": "2026-09-04T17:31:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-svizzera-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

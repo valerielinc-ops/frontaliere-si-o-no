@@ -5455,6 +5455,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen supprime 50’000 emplois supplémentaires',
     'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'Le groupe Volkswagen a annoncé un plan de redressement prévoyant la suppression de 50’000 emplois supplémentaires d\'ici 2030.',
     'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Vue aérienne de Lugano avec le lac de Lugano en arrière-plan',
+    'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprentissage et formation : comment ça marche en Suisse',
+    'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Découvrez comment fonctionne l\'apprentissage en Suisse : de la recherche du stage au contrat, de la rémunération aux protections légales jusqu\'à la maturité professionnelle.',
+    'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Jeune apprenti travaillant en atelier suisse moderne pendant la formation pratique',
 };
 
 export default blogMetaChFr;

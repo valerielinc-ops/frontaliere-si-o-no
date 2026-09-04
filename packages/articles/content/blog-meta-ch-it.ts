@@ -5455,6 +5455,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen taglia altri 50’000 posti di lavoro',
     'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'Il gruppo Volkswagen ha annunciato un piano di risanamento che prevede il taglio di ulteriori 50’000 posti di lavoro entro il 2030.',
     'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Vista aerea di Lugano con il Lago Lugano sullo sfondo',
+    'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprendistato e formazione: come funziona in Svizzera',
+    'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Scopri come funziona l\'apprendistato in Svizzera: dalla ricerca del tirocinio al contratto, dalla retribuzione alle protezioni legali fino alla maturità professionale.',
+    'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Giovane apprendista lavora in officina svizzera moderna durante la formazione pratica con attrezzi professionali',
 };
 
 export default blogMetaChIt;

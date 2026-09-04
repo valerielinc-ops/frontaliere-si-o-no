@@ -5455,6 +5455,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen cuts another 50,000 jobs',
     'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'The Volkswagen Group has announced a restructuring plan that envisages the cutting of an additional 50,000 jobs by 2030.',
     'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
+    'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprenticeship and training: how it works in Switzerland',
+    'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Find out how apprenticeships work in Switzerland: from traineeship research to contract, from pay to legal protections to professional maturity.',
+    'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Young apprentice working in modern Swiss workshop during hands-on professional training',
 };
 
 export default blogMetaChEn;

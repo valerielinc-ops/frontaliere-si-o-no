@@ -1844,6 +1844,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-glarona-come-richiederlo': { it: 'permesso-c-glarona-come-richiederlo', en: 'residence-permit-c-glarus-how-to-apply', de: 'aufenthaltserlaubnis-c-glarus-beantragen', fr: 'permis-residence-c-glaris-demander' },
  'soldati-svizzera-video-guerra': { it: 'soldati-svizzera-video-guerra', en: 'swiss-soldiers-war-video', de: 'schweizer-soldaten-kriegsvideo', fr: 'soldats-suisses-video-guerre' },
  'volkswagen-taglia-50mila-posti-2030': { it: 'volkswagen-taglia-50mila-posti-2030', en: 'volkswagen-to-cut-50000-jobs-by-2030', de: 'volkswagen-streicht-50000-arbeitsplaetze-bis-2030', fr: 'volkswagen-supprime-50000-emplois-dici-2030' },
+ 'apprendistato-svizzera-guida-pratica': { it: 'apprendistato-svizzera-guida-pratica', en: 'apprenticeship-switzerland-practical-guide', de: 'lehrling-schweiz-praktischer-leitfaden', fr: 'apprentissage-suisse-guide-pratique' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
