@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
@@ -8,6 +8,7 @@ import {
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
   stripSuccessFactorsMoreLocations,
+  successFactorsMoreLocationsTail,
 } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
 
 /**
@@ -161,6 +162,69 @@ describe('SuccessFactors jobs2web widget guard', () => {
       // exists to prevent.
       expect(stripSuccessFactorsMoreLocations('+2 more… Lugano, CH')).toBe('Lugano, CH');
       expect(stripSuccessFactorsMoreLocations('+1 weitere…')).toBe('');
+    });
+
+    it('keeps the primary office and does NOT concatenate the segments after the marker', () => {
+      // The rescue must not hand a MULTI-office string to the consumers: all
+      // eight treat the result as ONE office and feed it to
+      // splitJobLocation/inferSwissTargetCanton, which resolves the first
+      // STRONG canton signal — "Lugano, CH, Bern, CH" would infer BE for a
+      // Lugano posting and ship the wrong addressRegion.
+      expect(stripSuccessFactorsMoreLocations('Lugano, CH +1 more… , Bern, CH')).toBe('Lugano, CH');
+      expect(stripSuccessFactorsMoreLocations('Lugano, CH, +2 altri…, Bern, CH, Genève, CH')).toBe(
+        'Lugano, CH',
+      );
+    });
+
+    it('exposes the offices the tail cut discards, so the loss is not silent', () => {
+      // The cut assumes the marker closes the cell. On a skin that keeps
+      // listing offices after it, the discarded segment can be the row's only
+      // Swiss office — and the drop is indistinguishable from the correct
+      // case. The tail accessor makes it inspectable instead.
+      expect(successFactorsMoreLocationsTail('Lugano, CH +1 more… , Bern, CH')).toBe('Bern, CH');
+      expect(successFactorsMoreLocationsTail('Lugano, CH, +2 altri…, Bern, CH, Genève, CH')).toBe(
+        'Bern, CH, Genève, CH',
+      );
+      expect(successFactorsMoreLocationsTail('Paderborn, DE ＋1 weitere…; Bern, CH')).toBe(
+        'Bern, CH',
+      );
+    });
+
+    it('reports nothing for the observed skins and for trailing page chrome', () => {
+      // A further OFFICE is separator-delimited; a call to action is not. If
+      // this widened, every ordinary cell would start reporting a phantom
+      // dropped office.
+      for (const value of [
+        'Basel, CH +2 more…',
+        'Muttenz, CH, +3 weitere…',
+        '+2 more… Lugano, CH',
+        'Zurich, CH +2 more… Apply now',
+        'Bern, CH +3 weitere… Jetzt bewerben',
+        'Sierre, CH',
+      ]) {
+        expect(successFactorsMoreLocationsTail(value)).toBe('');
+      }
+      expect(successFactorsMoreLocationsTail(undefined as unknown as string)).toBe('');
+    });
+
+    it('warns once per cell when the cut discards an office', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      try {
+        const cell = 'Sion, CH +1 more… , Bern, CH';
+        stripSuccessFactorsMoreLocations(cell);
+        stripSuccessFactorsMoreLocations(cell);
+        // A results page of N rows sharing one skin quirk must not log N times.
+        expect(warn).toHaveBeenCalledTimes(1);
+        expect(String(warn.mock.calls[0][0])).toContain('Bern, CH');
+        warn.mockClear();
+        // The observed skins stay silent — the warning is the signal that a
+        // tenant changed layout, so it must not fire on the live corpus.
+        stripSuccessFactorsMoreLocations('Basel, CH +2 more…');
+        stripSuccessFactorsMoreLocations('Zurich, CH +2 more… Apply now');
+        expect(warn).not.toHaveBeenCalled();
+      } finally {
+        warn.mockRestore();
+      }
     });
 
     it('normalizes an entity-encoded or fullwidth "+" before matching', () => {
