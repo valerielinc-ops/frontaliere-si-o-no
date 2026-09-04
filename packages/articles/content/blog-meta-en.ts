@@ -11303,6 +11303,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Living in Cittiglio and working in Ticino: border guide',
     'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio as a housing area for border workers: taxation, G permit, living costs and advantages of transferring from Varese to the Canton of Ticino.',
     'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Mendrisio border station between Ticino and Italy with cross-border commuters in transit',
+    'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Living in Orino and working in Ticino as a border worker',
+    'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Moving to Orino as a border worker: G Permit, tax at source and administrative procedure for work in Ticino.',
+    'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Panoramic view of Lugano at sunset, with modern buildings and the border lake between Ticino and Italy.',
 };
 
 export default blogMetaEn;
