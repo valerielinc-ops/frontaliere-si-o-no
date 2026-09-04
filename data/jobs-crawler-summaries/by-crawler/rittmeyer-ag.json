@@ -1,18 +1,51 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-09-04T13:46:56.780Z",
-  "total": 8,
-  "newCount": 0,
+  "generatedAt": "2026-09-04T23:12:55.556Z",
+  "total": 9,
+  "newCount": 1,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 9689,
-  "avgDurationMs": 9689,
+  "durationMs": 12941,
+  "avgDurationMs": 12941,
   "durationHistory": [
-    9689
+    12941
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "AI Enablement Specialist",
+      "slug": "ai-enablement-specialist-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/ai-enablement-specialist/",
+      "applyUrl": "",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-04",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -44,7 +77,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-06-03T00:50:36.287Z",
       "salarySource": "reported",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
