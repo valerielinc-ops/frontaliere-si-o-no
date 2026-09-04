@@ -543,7 +543,7 @@
       "companyDomain": "adullam.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -611,8 +611,7 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "adullam-a8ad282b351a",
