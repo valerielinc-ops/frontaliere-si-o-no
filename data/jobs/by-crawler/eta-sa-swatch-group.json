@@ -1,6 +1,6 @@
 {
   "crawlerKey": "eta-sa-swatch-group",
-  "assembledAt": "2026-09-03T23:20:45.436Z",
+  "assembledAt": "2026-09-04T13:33:37.791Z",
   "jobs": [
     {
       "id": "company-6oyznf",
@@ -22,7 +22,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-03T13:41:20.838Z",
+      "crawledAt": "2026-09-04T13:33:32.069Z",
       "firstSeenAt": "2026-08-31T17:15:47.373Z",
       "titleByLocale": {
         "it": "CHEF/FE DE PROJET INDUSTRIALISATION 100% on site | Manufacture Horlogère Suisse | ETA SA",
@@ -79,8 +79,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "addressRegion": "SO"
     },
     {
       "id": "company-6oyzne",
@@ -100,7 +99,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-03T13:41:20.838Z",
+      "crawledAt": "2026-09-04T13:33:32.069Z",
       "firstSeenAt": "2026-08-31T17:15:47.373Z",
       "titleByLocale": {
         "it": "SPÉCIALISTE DE MESURE - sur site | Manufacture Horlogère Suisse | ETA SA",
@@ -146,8 +145,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "addressRegion": "SO"
     },
     {
       "id": "company-6oyznd",
@@ -167,7 +165,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-03T13:41:20.838Z",
+      "crawledAt": "2026-09-04T13:33:32.069Z",
       "firstSeenAt": "2026-08-31T17:15:47.373Z",
       "titleByLocale": {
         "it": "POLYMECHANIKER/IN IM BEREICH EROSION 80-100%, vor Ort | Manufacture Horlogère Suisse | ETA SA",
@@ -215,8 +213,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "addressRegion": "SO"
     },
     {
       "id": "company-6oyznh",
@@ -236,7 +233,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "eta-sa-swatch-group",
       "companyDomain": "eta.ch",
-      "crawledAt": "2026-09-03T13:41:20.838Z",
+      "crawledAt": "2026-09-04T13:33:32.069Z",
       "firstSeenAt": "2026-08-31T17:15:47.373Z",
       "slugByLocale": {
         "it": "werkzeugmacher-polymechaniker-in-sul-sito-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen-phone",
@@ -274,8 +271,7 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "2540 Grenchen Phone",
-      "addressRegion": "SO",
-      "crawlerMissStreak": 1
+      "addressRegion": "SO"
     },
     {
       "id": "company-6oyznk",
@@ -374,7 +370,9 @@
           "messs-specialist-metrologe-flexibilite-eta-sa-swatch-group-2540-grenchen-phone-5bb886"
         ]
       },
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "company-6oyzng",
@@ -473,7 +471,8 @@
       "country": "CH",
       "addressRegion": "SO",
       "needsRetranslation": true,
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1
     },
     {
       "id": "company-6oyznl",
@@ -580,7 +579,8 @@
       "country": "CH",
       "addressRegion": "SO",
       "needsRetranslation": true,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "crawlerMissStreak": 1
     }
   ]
 }
