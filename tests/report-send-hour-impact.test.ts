@@ -25,6 +25,7 @@ import {
   DEFAULT_MATURITY_HOURS,
   MAX_SCHEDULE_LOOKAHEAD_MS,
   qualifiesOnlyViaTailWindow,
+  collectTailLookupFloors,
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
@@ -215,6 +216,87 @@ describe('aggregate — personal_tail_90_180 split (#6550)', () => {
     ];
     const { segments } = aggregate(deliveries, events, null);
     expect(segments.combined.global.deliveries).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
+  });
+});
+
+describe('collectTailLookupFloors (#6550)', () => {
+  const sentAt = new Date('2026-07-05T10:00:00Z');
+  const floorOf = (d: Date) => new Date(d.getTime() - 180 * 24 * 60 * 60 * 1000);
+
+  it('returns one 180-day floor per subscriber with a personal delivery', () => {
+    const floors = collectTailLookupFloors([
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt, sendTimeSource: 'personal' }),
+    ]);
+    expect([...floors.keys()]).toEqual(['a@x.com']);
+    expect(floors.get('a@x.com')).toEqual(floorOf(sentAt));
+  });
+
+  it('keeps the OLDEST delivery floor when a subscriber has several personal deliveries', () => {
+    const older = new Date('2026-06-01T10:00:00Z');
+    const floors = collectTailLookupFloors([
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt, sendTimeSource: 'personal' }),
+      deliveryDoc({ campaignId: 'weekly_2026-06-01', email: 'a@x.com', sentAt: older, sendTimeSource: 'personal' }),
+    ]);
+    expect(floors.get('a@x.com')).toEqual(floorOf(older));
+  });
+
+  it('ignores global/immediate deliveries and operator verification sends', () => {
+    const floors = collectTailLookupFloors([
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'g@x.com', sentAt, sendTimeSource: 'global' }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'i@x.com', sentAt, sendTimeSource: null }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'op@x.com', sentAt, sendTimeSource: 'personal', isOperatorVerification: true }),
+    ]);
+    expect(floors.size).toBe(0);
+  });
+});
+
+describe('aggregate — subscriberEventTimes overrides the window history (#6550)', () => {
+  const sentAt = new Date('2026-07-05T10:00:00Z');
+  const daysBefore = (n: number) => new Date(sentAt.getTime() - n * 24 * 60 * 60 * 1000);
+  const personalDelivery = () =>
+    deliveryDoc({ campaignId: CAMPAIGN, email: 'sparse@x.com', sentAt, sendTimeSource: 'personal' });
+
+  it('classifies as tail using history the report window never loaded', () => {
+    // No event docs at all in the window — exactly the production shape the
+    // dedicated 180-day read exists for.
+    const { segments } = aggregate([personalDelivery()], [], null, {
+      subscriberEventTimes: new Map([['sparse@x.com', [daysBefore(100), daysBefore(140), daysBefore(170)]]]),
+    });
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(1);
+    expect(segments.combined.personal.deliveries).toBe(0);
+  });
+
+  it('stays in `personal` when the read history shows recent qualification', () => {
+    const { segments } = aggregate([personalDelivery()], [], null, {
+      subscriberEventTimes: new Map([['sparse@x.com', [daysBefore(5), daysBefore(20), daysBefore(80)]]]),
+    });
+    expect(segments.combined.personal.deliveries).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
+  });
+
+  it('falls back to the window events when the subscriber read FAILED (null)', () => {
+    const events = [
+      eventDoc({ campaignId: 'weekly_2026-04-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(100) }),
+      eventDoc({ campaignId: 'weekly_2026-03-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(140) }),
+      eventDoc({ campaignId: 'weekly_2026-02-01', email: 'sparse@x.com', type: 'click', timestamp: daysBefore(170) }),
+    ];
+    const { segments } = aggregate([personalDelivery()], events, null, {
+      subscriberEventTimes: new Map([['sparse@x.com', null]]),
+    });
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(1);
+  });
+
+  it('an empty read history is a real answer: the delivery stays in `personal`', () => {
+    const events = [
+      eventDoc({ campaignId: 'weekly_2026-04-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(100) }),
+      eventDoc({ campaignId: 'weekly_2026-03-01', email: 'sparse@x.com', type: 'open', timestamp: daysBefore(140) }),
+      eventDoc({ campaignId: 'weekly_2026-02-01', email: 'sparse@x.com', type: 'click', timestamp: daysBefore(170) }),
+    ];
+    const { segments } = aggregate([personalDelivery()], events, null, {
+      subscriberEventTimes: new Map([['sparse@x.com', []]]),
+    });
+    expect(segments.combined.personal.deliveries).toBe(1);
     expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
   });
 });
