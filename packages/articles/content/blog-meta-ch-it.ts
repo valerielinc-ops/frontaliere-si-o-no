@@ -5437,6 +5437,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Comprare casa in Nidvaldo: prezzi, mutuo e fiscalità',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Acquistare casa in Svizzera richiede di orientarsi tra tre livelli di tassazione, mutuo ipotecario e spese notarili. Scopri come funziona il sistema e come valutare la sostenibilità del prestito.',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Casa residenziale con giardino in paesaggio alpino svizzero con montagne sullo sfondo.',
+    'blog.article.aggiornamento-direttiva-crs-2026.title': 'Nuova direttiva tecnica CRS: obblighi dal 2026',
+    'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'L\'AFC aggiorna lo standard CRS: dal 1° gennaio 2026 nuovi obblighi di comunicazione e adozione dello schema XML 3.0 obbligatorio dal 2027.',
+    'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Documenti finanziari e computer in un ufficio svizzero',
 };
 
 export default blogMetaChIt;

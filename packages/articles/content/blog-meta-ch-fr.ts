@@ -5437,6 +5437,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Acheter une maison à Nidwald : prix, hypothèque et fiscalité',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Acheter une maison en Suisse nécessite de s\'orienter entre trois niveaux d\'imposition, de prêt hypothécaire et de frais de notaire. Découvrez comment fonctionne le système et comment évaluer la durabilité du prêt.',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Maison résidentielle avec jardin dans un paysage alpin suisse avec montagnes en arrière-plan.',
+    'blog.article.aggiornamento-direttiva-crs-2026.title': 'Nouvelle directive technique CRS : obligations à partir de 2026',
+    'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'L\'AFC met à jour la norme CRS : à partir du 1er janvier 2026, de nouvelles obligations de communication et l\'adoption du schéma XML 3.0 obligatoire à partir de 2027.',
+    'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Documents financiers et ordinateur dans un bureau suisse',
 };
 
 export default blogMetaChFr;

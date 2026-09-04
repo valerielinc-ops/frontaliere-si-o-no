@@ -5437,6 +5437,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Haus kaufen in Nidwalden: Preise, Hypothek und Steuern',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Beim Hauskauf in der Schweiz müssen Sie sich zwischen drei Steuerstufen, Hypothekendarlehen und Notarkosten orientieren. Erfahren Sie, wie das System funktioniert und wie Sie die Tragbarkeit des Darlehens bewerten können.',
     'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Wohnhaus mit Garten in Schweizer Alpenlandschaft mit Bergen im Hintergrund.',
+    'blog.article.aggiornamento-direttiva-crs-2026.title': 'Neue technische SRK-Richtlinie: Pflichten ab 2026',
+    'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'Die ESTV aktualisiert den SRK-Standard: Ab dem 1. Januar 2026 neue Meldepflichten und die Einführung des ab 2027 obligatorischen XML 3.0-Schemas.',
+    'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Finanzunterlagen und Computer in einem Schweizer Büro',
 };
 
 export default blogMetaChDe;
