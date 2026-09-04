@@ -5473,6 +5473,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposta-successione-donazione-glarona.title': 'Erbschafts- und Schenkungssteuer Kanton Glarus: die Steuersätze',
     'blog.article.imposta-successione-donazione-glarona.excerpt': 'Im Kanton Glarus folgt die Erbschafts- und Schenkungssteuer einem autonomen kantonalen System mit Sätzen, die je nach Verwandtschaftsgrad variieren, und Befreiungen für Ehepartner und Nachkommen. Praktischer Leitfaden und Deklarationsverfahren.',
     'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Alpines Landschaftsbild des Kantons Glarus mit Verwaltungsgebäuden, Symbol der Schweizer Kantonsbesteuerung und der Erbschafts- und Schenkungssteuer',
+    'blog.article.permesso-b-zugo-guida-pratica.title': 'Aufenthaltsbewilligung B Kanton Zug: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Leitfaden Aufenthaltsbewilligung B in Zug: Wie funktioniert die erneuerbare Bewilligung, welche eidgenössischen und kantonalen Anforderungen gelten, Dokumente und Erneuerungsverfahren.',
+    'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Büroraum einer Kantonalen Migrationsbehörde in Zug mit Schreibtischen, Dokumenten und Empfangsbereich',
 };
 
 export default blogMetaChDe;

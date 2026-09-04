@@ -1850,6 +1850,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-canton-vaud': { it: 'apprendistato-canton-vaud', en: 'apprenticeship-canton-vaud', de: 'lehre-kanton-waadt', fr: 'apprentissage-canton-vaud' },
  'patente-guida-glarona-conversione': { it: 'patente-guida-glarona-conversione', en: 'driver-license-glarus-conversion', de: 'fuehrerschein-glarus-umwandlung', fr: 'permis-glaris-conversion' },
  'imposta-successione-donazione-glarona': { it: 'imposta-successione-donazione-glarona', en: 'inheritance-tax-donation-canton-glarus-rates', de: 'erbschaftssteuer-schenkungssteuer-kanton-glarus', fr: 'impot-succession-donation-canton-glaris' },
+ 'permesso-b-zugo-guida-pratica': { it: 'permesso-b-zugo-guida-pratica', en: 'permit-b-zug-practical-guide', de: 'aufenthaltserlaubnis-b-zug-praktischer-leitfaden', fr: 'permis-b-zoug-guide-pratique' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
