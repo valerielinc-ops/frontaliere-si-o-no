@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-09-04T13:47:02.685Z",
+  "generatedAt": "2026-09-04T23:12:33.521Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3932,
-  "avgDurationMs": 3932,
+  "durationMs": 3971,
+  "avgDurationMs": 3971,
   "durationHistory": [
-    3932
+    3971
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T13:46:59.931Z",
+      "crawledAt": "2026-09-04T23:12:31.132Z",
       "id": "pkb-private-bank-0b868337e255",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
@@ -46,45 +46,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior Compliance Officer - Client Tax Compliance (FATCA, QI & AEOI/CRS), AML & CDB",
-      "company": "PKB Private Bank SA",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "url": "https://careers.pkb.ch/job/view-job.php?id=27-senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-lugano&language=it",
-      "slug": "senior-compliance-officer-client-tax-compliance-fatca-qi-aeoi-crs-aml-cdb-pkb-private-bank-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Serafino Balestra 1",
-      "postedDate": "2026-07-09",
-      "validThrough": "",
-      "sector": "Banca e servizi finanziari",
-      "role": "Altro",
-      "employmentType": "FULL_TIME",
-      "source": "PKB Dedicated Parser (Arca24)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-02T23:23:55.694Z",
-      "id": "pkb-private-bank-14e6e40f691f",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-10T10:40:31.816Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
