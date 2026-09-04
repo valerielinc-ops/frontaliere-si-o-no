@@ -5428,6 +5428,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Heizölpreis in die Höhe geschossen, Schuld sind die USA und der Iran',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'Hausbesitzer in der Schweiz müssen sich aufgrund des Iran-USA-Konflikts auf erhebliche Preissteigerungen für Heizöl einstellen.',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Luftaufnahme von Lugano mit Fokus auf Wohngebiete, die den Einfluss der steigenden Heizölpreise hervorhebt.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.title': 'Cyber Security Day: Cybersicherheit und künstliche Intelligenz',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.excerpt': 'Die vierte Ausgabe des ATED Cyber Security Day fand am 2. September in Lugano statt und konzentrierte sich auf Cybersicherheit und künstliche Intelligenz.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.imageAlt': 'Luftaufnahme des Stadtzentrums von Lugano mit modernen Gebäuden und digitalen Sicherheitsikonen.',
 };
 
 export default blogMetaChDe;

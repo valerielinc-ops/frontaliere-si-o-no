@@ -5428,6 +5428,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Prezzo olio da riscaldamento alle stelle, colpa di Usa e Iran',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'I proprietari di case in Svizzera devono prepararsi a rincari significativi per l\'olio da riscaldamento a causa del conflitto Iran-USA.',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Vista aerea di Lugano con focus su aree residenziali, evidenziando l\'impatto dei prezzi dell\'olio da riscaldamento.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.title': 'Cyber Security Day: Sicurezza informatica e intelligenza artificiale',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.excerpt': 'La quarta edizione del Cyber Security Day di ATED si è tenuta il 2 settembre a Lugano, con un focus su cybersecurity e intelligenza artificiale.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.imageAlt': 'Vista aerea del centro di Lugano con edifici moderni e icone di sicurezza digitale.',
 };
 
 export default blogMetaChIt;
