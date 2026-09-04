@@ -163,7 +163,7 @@
       "title": "Social Media Manager:in 60 %",
       "titleByLocale": {
         "it": "Social Media Manager: 60%",
-        "en": "Social Media Manager:in 60 %",
+        "en": "Social Media Manager: 60%",
         "de": "Social Media Manager:in 60 %",
         "fr": "Gestionnaire des médias sociaux : 60%"
       },
@@ -197,7 +197,6 @@
       "pensum": "60%",
       "sfJobId": "1423914033",
       "firstSeenAt": "2026-08-17T10:09:49.921Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -340,17 +339,30 @@
       "pensum": "100%",
       "sfJobId": "1423912633",
       "previousSlugs": [
-        "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern"
+        "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern",
+        "stage-in-comunicazione-aziendale-wms-100-suva-luzern",
+        "internship-in-wms-corporate-communication-100-suva-luzern",
+        "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern",
+        "stage-dans-le-wms-corporate-communication-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern"
+          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern",
+          "stage-in-comunicazione-aziendale-wms-100-suva-luzern",
+          "internship-in-wms-corporate-communication-100-suva-luzern",
+          "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern",
+          "stage-dans-le-wms-corporate-communication-100-suva-luzern"
         ],
         "en": [
-          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern"
+          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern",
+          "internship-in-wms-corporate-communication-100-suva-luzern"
         ],
         "fr": [
-          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern"
+          "praktikant-in-wms-kundenmanagement-und-kommunikation-100-suva-luzern",
+          "stage-dans-le-wms-corporate-communication-100-suva-luzern"
+        ],
+        "de": [
+          "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -588,7 +600,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:10:04.766Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -669,7 +680,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:54:52.014Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -1205,7 +1215,6 @@
       "pensum": "80-100%",
       "sfJobId": "1428590033",
       "firstSeenAt": "2026-08-24T10:06:55.900Z",
-      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -1811,7 +1820,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2260,7 +2268,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:44:30.642Z",
-      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -2590,8 +2597,7 @@
         }
       },
       "addressRegion": "JU",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }
