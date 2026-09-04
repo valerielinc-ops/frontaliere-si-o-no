@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-09-03T23:10:34.543Z",
+  "assembledAt": "2026-09-04T13:27:10.989Z",
   "jobs": [
     {
       "id": "cedes-697abaeca835",
@@ -43,13 +43,15 @@
       "url": "https://www.cedes.com/en/career/jobs/business-development-ea-professional-network/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:30.710Z",
+      "crawledAt": "2026-09-04T13:27:07.802Z",
       "previousSlugs": [
-        "business-development-ea-professional-network-cedes-landquart"
+        "business-development-ea-professional-network-cedes-landquart",
+        "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-ea-professional-network-cedes-landquart"
+          "business-development-ea-professional-network-cedes-landquart",
+          "sviluppo-aziendale-ea-rete-professionale-cedes-ag-landquart"
         ],
         "de": [
           "business-development-ea-professional-network-cedes-landquart"
@@ -115,7 +117,17 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:30.271Z",
+      "crawledAt": "2026-09-04T13:27:07.361Z",
+      "previousSlugs": [
+        "lead-buyer-electronics-cedes-landquart",
+        "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-buyer-electronics-cedes-landquart",
+          "elettronica-degli-acquirenti-di-piombo-cedes-ag-landquart"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "salaryMin": 92000,
@@ -131,15 +143,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "previousSlugsByLocale": {
-        "it": [
-          "lead-buyer-electronics-cedes-landquart"
-        ]
-      },
-      "previousSlugs": [
-        "lead-buyer-electronics-cedes-landquart"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "cedes-35a5cf0843f1",
@@ -182,7 +186,7 @@
       "url": "https://www.cedes.com/en/career/jobs/software-test-engineer-80-100-1/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:29.856Z",
+      "crawledAt": "2026-09-04T13:27:06.815Z",
       "firstSeenAt": "2026-07-15T22:20:19.070Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -240,15 +244,17 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:29.372Z",
+      "crawledAt": "2026-09-04T13:27:06.386Z",
       "previousSlugs": [
         "unsolicited-applications-cedes-ag-landquart",
-        "unsolicited-applications-cedes-landquart"
+        "unsolicited-applications-cedes-landquart",
+        "candidature-non-richiesta-cedes-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unsolicited-applications-cedes-ag-landquart",
-          "unsolicited-applications-cedes-landquart"
+          "unsolicited-applications-cedes-landquart",
+          "candidature-non-richiesta-cedes-ag-landquart"
         ],
         "de": [
           "unsolicited-applications-cedes-ag-landquart",
@@ -260,6 +266,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
+      "needsRetranslation": true,
       "salaryMin": 60000,
       "salaryMax": 102000,
       "salarySource": "estimated",

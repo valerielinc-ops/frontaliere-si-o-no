@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-03T23:11:19.653Z",
+  "generatedAt": "2026-09-04T13:28:03.274Z",
   "total": 4,
   "discovered": null,
   "written": 4,
@@ -9,10 +9,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 67182,
-  "avgDurationMs": 67182,
+  "durationMs": 67727,
+  "avgDurationMs": 67727,
   "durationHistory": [
-    67182
+    67727
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,7 +41,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:11:04.836Z",
+      "crawledAt": "2026-09-04T13:27:49.148Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:33:48.674Z",
       "_qualityScore": 83,
@@ -77,7 +77,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:10:39.766Z",
+      "crawledAt": "2026-09-04T13:27:20.505Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 83,
@@ -113,7 +113,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T23:10:53.209Z",
+      "crawledAt": "2026-09-04T13:27:36.860Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 83,
@@ -149,14 +149,14 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:11:17.593Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-04T13:28:00.922Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
-      "_qualityScore": 68,
+      "_qualityScore": 62,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 6,
-        "translation": 20,
+        "translation": 14,
         "completeness": 17
       }
     }

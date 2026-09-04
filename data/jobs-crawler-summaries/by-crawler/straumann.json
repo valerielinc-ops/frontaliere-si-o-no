@@ -1,7 +1,7 @@
 {
   "key": "straumann",
   "label": "Straumann",
-  "generatedAt": "2026-09-03T23:10:17.580Z",
+  "generatedAt": "2026-09-04T13:26:59.244Z",
   "total": 6,
   "discovered": null,
   "written": 6,
@@ -9,10 +9,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5970,
-  "avgDurationMs": 5970,
+  "durationMs": 5445,
+  "avgDurationMs": 5445,
   "durationHistory": [
-    5970
+    5445
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:14.810Z",
+      "crawledAt": "2026-09-04T13:26:56.480Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -43,13 +43,12 @@
       "featured": false,
       "postedDate": "2026-09-03",
       "applyUrl": "https://careers.straumann.com/global/en/job/21468/packaging-development-engineer",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:32:58.193Z",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -65,7 +64,7 @@
       "url": "https://careers.straumann.com/global/en/job/21501/clinical-workflow-product-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:14.127Z",
+      "crawledAt": "2026-09-04T13:26:55.948Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -82,11 +81,11 @@
       "applyUrl": "https://careers.straumann.com/global/en/job/21501/clinical-workflow-product-manager",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-25T21:32:32.535Z",
-      "_qualityScore": 70,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 20,
-        "translation": 16,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -102,7 +101,7 @@
       "url": "https://careers.straumann.com/global/en/job/21464/facility-management-and-workplace-project-manager-straumann-campus-basel",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:13.511Z",
+      "crawledAt": "2026-09-04T13:26:55.348Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -139,7 +138,7 @@
       "url": "https://careers.straumann.com/global/en/job/21609/global-launch-education-manager",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:10:13.831Z",
+      "crawledAt": "2026-09-04T13:26:55.644Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -175,7 +174,7 @@
       "url": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:10:14.489Z",
+      "crawledAt": "2026-09-04T13:26:56.189Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "postalCode": "4002",
@@ -190,7 +189,7 @@
       "featured": false,
       "postedDate": "2026-07-07",
       "applyUrl": "https://careers.straumann.com/global/en/job/21286/lehrstelle-als-interactive-media-designer-efz-m-w-d-ab-august-2027",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-07T22:12:59.400Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -212,7 +211,7 @@
       "url": "https://careers.straumann.com/global/en/job/19026/apprentissage-mecanicien-de-production-et-polymecanicien-cfc",
       "source": "Straumann Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:10:12.825Z",
+      "crawledAt": "2026-09-04T13:26:55.051Z",
       "addressLocality": "Villeret",
       "addressRegion": "BE",
       "addressCountry": "CH",
