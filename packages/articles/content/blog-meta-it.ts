@@ -11298,6 +11298,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Vivere a Sala Comacina e lavorare in Ticino da frontaliere',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento a Sala Comacina per lavorare in Ticino.',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con il Monte San Salvatore',
+    'blog.article.accordo-edilizia-ticino-nuovo.title': 'Edilizia: nuovo accordo di sei anni in Ticino',
+    'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'Siglato l\'accordo per l\'edilizia: indennità di cantiere fino a 9 franchi entro il 2028 e tempo di viaggio conteggiato dal primo minuto.',
+    'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Cantiere edile in Ticino con operai al lavoro.',
 };
 
 export default blogMetaIt;

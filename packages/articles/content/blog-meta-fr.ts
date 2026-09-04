@@ -11299,6 +11299,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Vivre à Sala Comacina et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert à Sala Comacina pour travailler au Tessin.',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du Lac de Lugano avec le Monte San Salvatore',
+    'blog.article.accordo-edilizia-ticino-nuovo.title': 'Construction : nouvel accord de six ans au Tessin',
+    'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'L\'accord de construction a été paraphé : indemnité de chantier jusqu\'à 9 francs d\'ici 2028 et temps de trajet compté dès la première minute.',
+    'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Chantier de construction au Tessin avec des ouvriers.',
 };
 
 export default blogMetaFr;

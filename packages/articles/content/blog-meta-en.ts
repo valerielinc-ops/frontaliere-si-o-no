@@ -11297,6 +11297,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Living in Sala Comacina and working in Ticino as a border worker',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of transferring to Sala Comacina to work in Ticino.',
     'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Monte San Salvatore',
+    'blog.article.accordo-edilizia-ticino-nuovo.title': 'Construction: new six-year agreement in Ticino',
+    'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'The construction agreement is signed: construction allowance of up to 9 francs by 2028 and travel time counted from the first minute.',
+    'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Construction site in Ticino with workers.',
 };
 
 export default blogMetaEn;
