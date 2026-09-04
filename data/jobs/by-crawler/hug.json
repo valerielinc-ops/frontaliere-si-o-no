@@ -2388,11 +2388,11 @@
     },
     {
       "id": "hug-750e15285bae",
-      "slug": "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve",
+      "slug": "assistenza-e-supporto-al-servizio-anestesilogico-80-al-100-hug-geneve",
       "slugByLocale": {
-        "it": "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve",
-        "en": "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve",
-        "de": "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve",
+        "it": "assistenza-e-supporto-al-servizio-anestesilogico-80-al-100-hug-geneve",
+        "en": "care-and-support-to-the-anesthesiology-service-80-to-100-hug-geneve",
+        "de": "betreuung-und-unterstutzung-des-anasthesiologie-service-80-bis-100-hug-geneve",
         "fr": "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve"
       },
       "company": "HUG",
@@ -2448,7 +2448,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "aide-en-soins-et-accompagnement-au-service-d-anesthesiologie-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-805f6d580c36",

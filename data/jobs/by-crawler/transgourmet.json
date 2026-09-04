@@ -2023,12 +2023,12 @@
     },
     {
       "id": "transgourmet-51da45b4-40d",
-      "slug": "marktleiterin-marktleiter-100-transgourmet-kriens",
+      "slug": "market-manager-market-manager-100-transgourmet-kriens",
       "slugByLocale": {
-        "it": "marktleiterin-marktleiter-100-transgourmet-kriens",
+        "it": "market-manager-market-manager-100-transgourmet-kriens",
         "en": "marktleiterin-marktleiter-100-transgourmet-kriens",
         "de": "marktleiterin-marktleiter-100-transgourmet-kriens",
-        "fr": "marktleiterin-marktleiter-100-transgourmet-kriens"
+        "fr": "gestionnaire-de-marche-gestionnaire-de-marche-100-transgourmet-kriens"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2101,7 +2101,18 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "marktleiterin-marktleiter-100-transgourmet-kriens"
+        ],
+        "fr": [
+          "marktleiterin-marktleiter-100-transgourmet-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "marktleiterin-marktleiter-100-transgourmet-kriens"
+      ]
     },
     {
       "id": "transgourmet-3bd06ceb-a44",

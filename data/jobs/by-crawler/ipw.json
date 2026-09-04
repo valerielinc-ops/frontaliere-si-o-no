@@ -2056,12 +2056,12 @@
     },
     {
       "id": "ipw-60efeb88c75b",
-      "slug": "oberarztin-oberarzt-ipw-winterthur",
+      "slug": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-ipw-winterthur",
-        "en": "oberarztin-oberarzt-ipw-winterthur",
+        "it": "medico-senior-medico-senior-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "senior-physician-senior-physician-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "oberarztin-oberarzt-ipw-winterthur",
-        "fr": "oberarztin-oberarzt-ipw-winterthur"
+        "fr": "medecin-superieur-medecin-superieur-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -2119,16 +2119,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ],
+        "en": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-af721da32a20",
-      "slug": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
+      "slug": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
+        "it": "intern-internship-social-work-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "en": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
         "de": "praktikantin-praktikant-sozialarbeit-ipw-winterthur",
-        "fr": "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        "fr": "travail-social-interne-interne-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -2186,7 +2200,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        ],
+        "fr": [
+          "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-sozialarbeit-ipw-winterthur"
+      ]
     }
   ]
 }

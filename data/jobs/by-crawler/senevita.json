@@ -7425,12 +7425,12 @@
     },
     {
       "id": "senevita-9d1d1ca3daa5",
-      "slug": "fachperson-hauswirtschaft-cfc-50-senevita-tg-kreuzlingen",
+      "slug": "specialista-di-pulizia-efz-50-senevita-tg-kreuzlingen",
       "slugByLocale": {
-        "it": "fachperson-hauswirtschaft-cfc-50-senevita-tg-kreuzlingen",
-        "en": "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen",
+        "it": "specialista-di-pulizia-efz-50-senevita-tg-kreuzlingen",
+        "en": "housekeeping-specialist-efz-50-senevita-tg-kreuzlingen",
         "de": "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen",
-        "fr": "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen"
+        "fr": "specialiste-du-menage-efz-50-senevita-tg-kreuzlingen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -7474,10 +7474,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen"
+        "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen",
+        "fachperson-hauswirtschaft-cfc-50-senevita-tg-kreuzlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen",
+          "fachperson-hauswirtschaft-cfc-50-senevita-tg-kreuzlingen"
+        ],
+        "en": [
+          "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen"
+        ],
+        "fr": [
           "fachperson-hauswirtschaft-efz-50-senevita-tg-kreuzlingen"
         ]
       },

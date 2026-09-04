@@ -4048,12 +4048,12 @@
     },
     {
       "id": "schindler-d037cd727344",
-      "slug": "warehouse-agent-m-w-d-50-schindler-ebikon",
+      "slug": "agente-magazzino-m-f-d-50-schindler-ebikon",
       "slugByLocale": {
-        "it": "warehouse-agent-m-w-d-50-schindler-ebikon",
+        "it": "agente-magazzino-m-f-d-50-schindler-ebikon",
         "en": "warehouse-agent-m-w-d-50-schindler-ebikon",
         "de": "warehouse-agent-m-w-d-50-schindler-ebikon",
-        "fr": "warehouse-agent-m-w-d-50-schindler-ebikon"
+        "fr": "agent-d-entrepot-h-f-d-50-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -4107,7 +4107,18 @@
           "maxValue": 53000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "warehouse-agent-m-w-d-50-schindler-ebikon"
+        ],
+        "fr": [
+          "warehouse-agent-m-w-d-50-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "warehouse-agent-m-w-d-50-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-806acdd1f036",
@@ -4692,7 +4703,6 @@
       },
       "previousSlugs": [
         "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-ebikon",
         "manager-per-cookie-einwilligungen-schindler-ebikon-bw0jgk",
         "manager-fur-cookie-einwilligungen-schindler-ebikon-12",
         "lehrstelle-als-informatiker-in-efz-fachrichtung-applikationsentwicklung-fur-2027-schindler-ebikon"

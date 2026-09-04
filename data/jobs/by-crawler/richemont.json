@@ -1359,7 +1359,7 @@
         "it": "addetto-alle-vendite-senior-cartier-geneva",
         "en": "senior-sales-associate-cartier-geneva",
         "de": "leitender-vertriebsmitarbeiter-cartier-geneva",
-        "fr": "senior-sales-associate-richemont-geneva-n74jn7"
+        "fr": "senior-sales-associate-richemont-geneva"
       },
       "company": "Cartier",
       "companyKey": "richemont",
@@ -1478,8 +1478,7 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7",
-          "senior-sales-associate-richemont-geneva"
+          "senior-sales-associate-richemont-geneva-n74jn7"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -9099,11 +9098,11 @@
     },
     {
       "id": "richemont-9aad9a5b4a48",
-      "slug": "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier",
+      "slug": "stage-3-mese-trainee-engineer-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier",
-        "en": "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier",
-        "de": "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier",
+        "it": "stage-3-mese-trainee-engineer-jaeger-lecoultre-le-sentier",
+        "en": "stage-3-months-trainee-engineer-jaeger-lecoultre-le-sentier",
+        "de": "stage-3-monate-trainee-engineer-jaeger-lecoultre-le-sentier",
         "fr": "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -9158,7 +9157,21 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier"
+        ],
+        "en": [
+          "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier"
+        ],
+        "de": [
+          "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier"
+        ]
+      },
+      "previousSlugs": [
+        "stage-3-mois-stagiaire-ingenieur-richemont-le-sentier"
+      ]
     },
     {
       "id": "richemont-01aa35d51ff4",
@@ -10771,11 +10784,11 @@
     },
     {
       "id": "richemont-90462b5ea67f",
-      "slug": "chef-de-projets-richemont-buttes",
+      "slug": "leader-del-progetto-valfleurier-buttes",
       "slugByLocale": {
-        "it": "chef-de-projets-richemont-buttes",
-        "en": "chef-de-projets-valfleurier-buttes",
-        "de": "chef-de-projets-valfleurier-buttes",
+        "it": "leader-del-progetto-valfleurier-buttes",
+        "en": "project-leader-valfleurier-buttes",
+        "de": "projektleiter-valfleurier-buttes",
         "fr": "chef-de-projets-richemont-buttes"
       },
       "company": "ValFleurier",
@@ -10819,19 +10832,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "leader-del-progetto-valfleurier-buttes"
+          "chef-de-projets-richemont-buttes"
         ],
         "en": [
-          "project-leader-valfleurier-buttes"
+          "chef-de-projets-valfleurier-buttes"
         ],
         "de": [
-          "projektleiter-valfleurier-buttes"
+          "chef-de-projets-valfleurier-buttes"
         ]
       },
       "previousSlugs": [
-        "leader-del-progetto-valfleurier-buttes",
-        "project-leader-valfleurier-buttes",
-        "projektleiter-valfleurier-buttes"
+        "chef-de-projets-richemont-buttes",
+        "chef-de-projets-valfleurier-buttes"
       ],
       "firstSeenAt": "2026-08-13T10:28:12.097Z",
       "salaryMin": 60500,
@@ -12329,7 +12341,7 @@
       "slugByLocale": {
         "it": "fragrance-analista-richemont-bellevue",
         "en": "fragrance-analyst-richemont-bellevue",
-        "de": "fragrance-analyst-richemont-bellevue",
+        "de": "duftanalyst-richemont-bellevue",
         "fr": "fragrance-analyste-richemont-bellevue"
       },
       "company": "Richemont",
@@ -12379,6 +12391,9 @@
           "fragrance-analyst-richemont-bellevue"
         ],
         "fr": [
+          "fragrance-analyst-richemont-bellevue"
+        ],
+        "de": [
           "fragrance-analyst-richemont-bellevue"
         ]
       },
@@ -12478,11 +12493,11 @@
     },
     {
       "id": "richemont-d601ca741b2e",
-      "slug": "technicien-de-maintenance-richemont-le-cret-du-locle",
+      "slug": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "technicien-de-maintenance-richemont-le-cret-du-locle",
+        "it": "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
         "en": "maintenance-technician-cartier-manufacture-le-cret-du-locle",
-        "de": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle",
+        "de": "instandhaltungstechniker-cartier-manufacture-le-cret-du-locle",
         "fr": "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
@@ -12526,15 +12541,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle"
+          "technicien-de-maintenance-richemont-le-cret-du-locle"
         ],
         "de": [
-          "wartungstechniker-cartier-manufacture-le-cret-du-locle"
+          "wartungstechniker-cartier-manufacture-le-cret-du-locle",
+          "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
         ]
       },
       "previousSlugs": [
-        "manutenzione-tecnica-cartier-manufacture-le-cret-du-locle",
-        "wartungstechniker-cartier-manufacture-le-cret-du-locle"
+        "wartungstechniker-cartier-manufacture-le-cret-du-locle",
+        "technicien-de-maintenance-richemont-le-cret-du-locle",
+        "technicien-de-maintenance-cartier-manufacture-le-cret-du-locle"
       ],
       "firstSeenAt": "2026-08-25T10:01:33.214Z",
       "salaryMin": 60500,
@@ -12692,11 +12709,11 @@
     },
     {
       "id": "richemont-12e82e5044d4",
-      "slug": "supply-planner-richemont-neuchatel",
+      "slug": "piano-di-alimentazione-panerai-neuchatel",
       "slugByLocale": {
-        "it": "supply-planner-richemont-neuchatel",
+        "it": "piano-di-alimentazione-panerai-neuchatel",
         "en": "supply-planner-richemont-neuchatel",
-        "de": "supply-planner-panerai-neuchatel",
+        "de": "versorgungsplaner-panerai-neuchatel",
         "fr": "supply-planner-richemont-neuchatel"
       },
       "company": "Panerai",
@@ -12741,15 +12758,15 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "piano-di-alimentazione-panerai-neuchatel"
+          "supply-planner-richemont-neuchatel"
         ],
         "de": [
-          "versorgungsplaner-panerai-neuchatel"
+          "supply-planner-panerai-neuchatel"
         ]
       },
       "previousSlugs": [
-        "piano-di-alimentazione-panerai-neuchatel",
-        "versorgungsplaner-panerai-neuchatel"
+        "supply-planner-richemont-neuchatel",
+        "supply-planner-panerai-neuchatel"
       ],
       "firstSeenAt": "2026-08-27T00:54:17.636Z",
       "salaryMin": 60500,

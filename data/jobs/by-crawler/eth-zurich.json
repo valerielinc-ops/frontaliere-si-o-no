@@ -6784,12 +6784,12 @@
     },
     {
       "id": "eth-zurich-cff791c2f925",
-      "slug": "student-assistant-for-strategic-projects-eth-zurich-ch",
+      "slug": "assistente-studentesco-per-progetti-strategici-eth-zurich-zurich",
       "slugByLocale": {
-        "it": "student-assistant-for-strategic-projects-eth-zurich-ch",
+        "it": "assistente-studentesco-per-progetti-strategici-eth-zurich-zurich",
         "en": "student-assistant-for-strategic-projects-eth-zurich-ch",
         "de": "student-assistent-for-strategic-projects-eth-zurich-zurich",
-        "fr": "student-assistant-for-strategic-projects-eth-zurich-ch"
+        "fr": "assistant-etudiant-pour-les-projets-strategiques-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -6842,7 +6842,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-assistant-for-strategic-projects-eth-zurich-ch"
+        ],
+        "fr": [
+          "student-assistant-for-strategic-projects-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "student-assistant-for-strategic-projects-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-c0db22a5890c",
