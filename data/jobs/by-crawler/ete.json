@@ -471,9 +471,9 @@
       "slug": "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
       "slugByLocale": {
         "it": "lehre-zum-logistikerin-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "en": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "en": "apprenticeship-as-a-logistician-efz-start-from-summer-2027-emil-egger-ag-harkingen",
         "de": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "fr": "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "fr": "apprentissage-en-tant-que-logisticien-efz-a-partir-de-l-ete-2027-emil-egger-ag-harkingen"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -516,10 +516,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch"
+        ],
+        "en": [
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch"
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-ete-ch",
+        "lehre-zum-logistikerin-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-23T21:34:44.604Z",
@@ -2021,9 +2028,9 @@
       "slug": "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
       "slugByLocale": {
         "it": "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "en": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
+        "en": "apprenticeship-as-road-transport-specialist-efz-start-from-summer-2027-emil-egger-ag-harkingen",
         "de": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano",
-        "fr": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        "fr": "apprentissage-en-tant-que-specialiste-du-transport-routier-efz-a-partir-de-l-ete-2027-emil-egger-ag-harkingen"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -2066,10 +2073,17 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch"
+        ],
+        "en": [
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
+        ],
+        "fr": [
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
         ]
       },
       "previousSlugs": [
-        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch"
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch",
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-emil-egger-ag-lugano"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:22:56.006Z",
@@ -2089,12 +2103,12 @@
     },
     {
       "id": "ete-89271a69d1db",
-      "slug": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
+      "slug": "apprendistato-come-specialista-del-trasporto-stradale-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen",
       "slugByLocale": {
         "de": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "it": "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
-        "en": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen",
-        "fr": "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        "it": "apprendistato-come-specialista-del-trasporto-stradale-efz-a-partire-dall-estate-2027-emil-egger-ag-st-gallen",
+        "en": "apprenticeship-as-road-transport-specialist-efz-start-from-summer-2027-emil-egger-ag-st-gallen",
+        "fr": "apprentissage-en-tant-que-specialiste-du-transport-routier-efz-a-partir-de-l-ete-2027-emil-egger-ag-st-gallen"
       },
       "company": "Emil Egger AG",
       "companyKey": "ete",
@@ -2148,7 +2162,23 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ],
+        "en": [
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ],
+        "fr": [
+          "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-zum-strassentransportfachfrau-mann-cfc-start-ab-sommer-2027-emil-egger-ag-st-gallen",
+        "lehre-zum-strassentransportfachfrau-mann-efz-start-ab-sommer-2027-ete-ch-st-gallen"
+      ]
     },
     {
       "id": "ete-18e68a1594e4",

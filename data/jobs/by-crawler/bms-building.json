@@ -318,9 +318,9 @@
     },
     {
       "id": "bms-building-281b363e1613",
-      "slug": "teamleader-vente-interne-materiaux-genie-civil-maconnerie-et-amenagement-exterieur-a-100-f",
+      "slug": "materiali-di-vendita-interni-teamlead-ingegneria-civile-muratura-e-accessori-esterni-100-m-f-d-bms-building-materials",
       "slugByLocale": {
-        "it": "teamleader-vente-interne-materiaux-genie-civil-maconnerie-et-amenagement-exterieur-a-100-f",
+        "it": "materiali-di-vendita-interni-teamlead-ingegneria-civile-muratura-e-accessori-esterni-100-m-f-d-bms-building-materials",
         "en": "teamlead-internal-sales-materials-civil-engineering-masonry-and-exterior-fittings-100-m-f-d-bms-building-materials-bulle",
         "de": "teamlead-interne-verkaufsmaterialien-bauingenieurwesen-mauerwerk-und-au-enausstattung-100-m-w-d-bms-building-materials",
         "fr": "teamleader-vente-interne-materiaux-genie-civil-maconnerie-et-amenagement-exterieur-a-100-f"
@@ -409,7 +409,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-vente-interne-materiaux-genie-civil-maconnerie-et-amenagement-exterieur-a-100-f"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-vente-interne-materiaux-genie-civil-maconnerie-et-amenagement-exterieur-a-100-f"
+      ]
     },
     {
       "id": "bms-building-9f4c661fbb21",
@@ -1286,12 +1294,12 @@
     },
     {
       "id": "bms-building-78cc0be546d7",
-      "slug": "logistiker-m-w-d-100-bms-building-materials-fideris",
+      "slug": "logistica-m-f-d-100-bms-building-materials-fideris",
       "slugByLocale": {
-        "it": "logistiker-m-w-d-100-bms-building-materials-fideris",
-        "en": "logistiker-w-m-d-100-bms-building-ch",
+        "it": "logistica-m-f-d-100-bms-building-materials-fideris",
+        "en": "logistics-m-f-d-100-bms-building-materials-fideris",
         "de": "logistiker-w-m-d-100-bms-building-ch",
-        "fr": "logistiker-w-m-d-100-bms-building-ch"
+        "fr": "logistique-h-f-d-100-bms-building-materials-fideris"
       },
       "company": "BMS Building Materials",
       "companyKey": "bms-building",
@@ -1365,7 +1373,8 @@
         "logistiker-w-m-d-80-bms-building-ch",
         "logisticien-h-f-d-80-bms-building-materials-fideris",
         "logistiker-m-w-d-80-bms-building-materials-fideris",
-        "logistiker-w-m-d-80-bms-building-materials-fideris"
+        "logistiker-w-m-d-80-bms-building-materials-fideris",
+        "logistiker-m-w-d-100-bms-building-materials-fideris"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1375,16 +1384,19 @@
           "logistiker-w-m-d-80-bms-building-ch",
           "logisticien-h-f-d-80-bms-building-materials-fideris",
           "logistiker-m-w-d-80-bms-building-materials-fideris",
-          "logistiker-w-m-d-80-bms-building-materials-fideris"
+          "logistiker-w-m-d-80-bms-building-materials-fideris",
+          "logistiker-m-w-d-100-bms-building-materials-fideris"
         ],
         "en": [
-          "logistician-m-f-d-80-bms-building-materials-fideris"
+          "logistician-m-f-d-80-bms-building-materials-fideris",
+          "logistiker-w-m-d-100-bms-building-ch"
         ],
         "de": [
           "logistiker-w-m-d-80-bms-building-ch"
         ],
         "fr": [
-          "logisticien-h-f-d-80-bms-building-materials-fideris"
+          "logisticien-h-f-d-80-bms-building-materials-fideris",
+          "logistiker-w-m-d-100-bms-building-ch"
         ]
       },
       "firstSeenAt": "2026-08-31T17:04:06.562Z",

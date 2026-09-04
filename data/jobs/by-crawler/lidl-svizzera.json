@@ -551,8 +551,8 @@
       "firstSeenAt": "2026-09-02T13:35:19.926Z",
       "slugByLocale": {
         "it": "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne",
-        "en": "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut",
-        "de": "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut",
+        "en": "seller-m-f-d-40-60-lidl-svizzera-lausanne",
+        "de": "verkaufer-m-w-d-40-60-lidl-svizzera-lausanne",
         "fr": "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
       },
       "titleByLocale": {
@@ -585,7 +585,18 @@
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
       "salaryMin": 36300,
-      "salaryMax": 54900
+      "salaryMax": 54900,
+      "previousSlugsByLocale": {
+        "en": [
+          "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
+        ],
+        "de": [
+          "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
+        ]
+      },
+      "previousSlugs": [
+        "vendeur-vendeuse-m-w-d-40-60-lidl-svizzera-lausanne-q6yaut"
+      ]
     },
     {
       "id": "company-xih85k",
@@ -3558,7 +3569,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -3571,13 +3582,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -5978,7 +5989,7 @@
     },
     {
       "id": "company-hrptmu",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu",
+      "slug": "venditore-con-responsabilita-a-turni-m-f-d-80-100-lidl-svizzera-brig",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 80-100%",
       "location": "Brig",
@@ -6014,7 +6025,7 @@
         "fr": "Présentation\n\nVendre est votre passion? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours? Alors vous avez raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Déplacement des responsabilités en l'absence de la direction générale et du sous-ministre\n\n- Mise en œuvre des normes d'orientation client et de vente dans nos succursales\n\n- Appui à la planification du personnel, à la gestion du personnel et à l ' organisation des services\n\n- Disposition et présentation des marchandises\n\n- Activités de trésorerie\nVotre profil\n\n- Expérience professionnelle dans les ventes ou dans un environnement similaire\n\n- Une formation professionnelle idéalement complétée dans le commerce de détail\n\n- Flexibilité concernant les temps d'exploitation (MO-SA entre 05:00 et 22:00)\n\n- Compétences de communication et plaisir à traiter avec les gens\n\n- Haute motivation, engagement et résilience\n\n- Bonne connaissance de l'allemand en mots et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Participer activement. Augmenter quotidiennement sur le plan professionnel et personnel. Nous vous préparons à vos tâches variées et intéressantes avec une formation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, nous vous développerons dans la direction générale adjointe (h/f/d). En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu",
+        "it": "venditore-con-responsabilita-a-turni-m-f-d-80-100-lidl-svizzera-brig",
         "en": "seller-with-shift-responsibility-m-f-d-80-100-lidl-svizzera-brig",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu",
         "fr": "vendeur-avec-responsabilite-de-changement-h-f-d-80-100-lidl-svizzera-brig"
@@ -6024,7 +6035,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu"
@@ -6035,7 +6047,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-80-100-lidl-svizzera-brig-hrptmu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10554,7 +10567,7 @@
         "it": "apprendistato-commercio-al-dettaglio-afp-o-cfc-lidl-svizzera-basel-bs-upklwu",
         "en": "lehrstelle-retail-eba-oder-efz-lidl-svizzera-basel-bs-upklwu",
         "de": "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-basel-bs-upklwu",
-        "fr": "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-basel-bs-upklwu"
+        "fr": "apprenticeship-detailhandel-eba-ou-efz-bale-bs-lidl-svizzera-basel-bs"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -10562,10 +10575,14 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-basel-bs"
+        ],
+        "fr": [
+          "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-basel-bs-upklwu"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-basel-bs"
+        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-basel-bs",
+        "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-basel-bs-upklwu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -10696,9 +10713,9 @@
       },
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afp-o-cfc-lidl-svizzera-buchs-z7y2u3",
-        "en": "lehrstelle-retail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3",
+        "en": "apprenticeship-for-retail-trade-eba-or-egz-book-lidl-svizzera-buchs",
         "de": "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-buchs-z7y2u3",
-        "fr": "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3"
+        "fr": "apprentissage-pour-le-commerce-de-detail-eba-ou-egz-livre-lidl-svizzera-buchs"
       },
       "requirementsByLocale": {},
       "country": "CH",
@@ -10706,10 +10723,18 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-buchs"
+        ],
+        "en": [
+          "lehrstelle-retail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3"
+        ],
+        "fr": [
+          "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-buchs"
+        "lehrstelle-detailhandel-eba-oder-efz-lidl-svizzera-buchs",
+        "lehrstelle-retail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3",
+        "lehrstelle-commerce-de-detail-eba-oder-efz-lidl-svizzera-buchs-z7y2u3"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -25364,7 +25389,7 @@
     },
     {
       "id": "company-54g4mr",
-      "slug": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lausanne-lidl-svizzera-lausanne",
+      "slug": "venditore-responsabile-per-il-team-m-f-d-60-80-losanna-lidl-svizzera-lausanne",
       "company": "Lidl Svizzera",
       "title": "Vendeur / Vendeuse responsable d'équipe (h/f/d) 60-80% — Lausanne",
       "location": "Lausanne",
@@ -25400,9 +25425,9 @@
         "de": "Einleitung\n\nHaben Sie eine Leidenschaft für den Verkauf? Sie möchten jeden Tag das Beste von sich geben, um unseren Kunden das beste Einkaufserlebnis zu bieten? Möchten Sie Teil eines Goldteams sein? Du hast die richtige Tür getroffen. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Teamleiter nach Planung\n\n- Sicherstellen der Kundenzufriedenheit und Verkaufsstandards in unseren Geschäften\n\n- Unterstützung der Personalplanung, des Personalmanagements und der Lagerorganisation\n\n- Bestellung und Präsentation der Ware\n\n- Bargeld\nDein Profil\n\n- Berufserfahrung im Vertrieb oder ähnlichen Bereichen\n\n- Idealerweise abgeschlossene Berufsausbildung im Einzelhandel\n\n- Flexibilität in Bezug auf Arbeitszeiten (Montag bis Samstag zwischen 5 und 22 Uhr; Morgen- und/oder Abendschicht jeweils um 9 Uhr)\n\n- Kommunikationsfähigkeit und Genuss menschlicher Kontakte\n\n- Hohe Motivation, Flexibilität und Stressresistenz\n\n- Gute Kenntnisse in schriftlichem und mündlichem Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Aufgrund Ihrer guten persönlichen Fähigkeiten sind interne berufliche Entwicklungen möglich. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lausanne-lidl-svizzera-lausanne",
-        "en": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr",
-        "de": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr",
+        "it": "venditore-responsabile-per-il-team-m-f-d-60-80-losanna-lidl-svizzera-lausanne",
+        "en": "salesman-responsible-for-team-m-f-d-60-80-lausanne-lidl-svizzera-lausanne",
+        "de": "verkaufer-verantwortlich-fur-team-m-w-d-60-80-lausanne-lidl-svizzera-lausanne",
         "fr": "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr"
       },
       "requirementsByLocale": {},
@@ -25411,12 +25436,20 @@
       "previousSlugsByLocale": {
         "it": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne",
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr",
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lausanne-lidl-svizzera-lausanne"
+        ],
+        "en": [
+          "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr"
+        ],
+        "de": [
           "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr"
         ]
       },
       "previousSlugs": [
         "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne",
-        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr"
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lidl-svizzera-lausanne-54g4mr",
+        "vendeur-vendeuse-responsable-d-equipe-m-w-d-60-80-lausanne-lidl-svizzera-lausanne"
       ],
       "salaryMin": 48400,
       "salaryMax": 73200,
@@ -25473,9 +25506,8 @@
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-berne-lidl-svizzera-bern-ae9635",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-uianji",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-uianji",
-        "seller-with-shift-responsibility-m-f-d-60-80-bern-lidl-svizzera-bern",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-berne-lidl-svizzera-bern",
-        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-lidl-svizzera-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25492,8 +25524,8 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-u3jh8d",
           "seller-with-shift-responsibility-m-f-d-60-80-bern-lidl-svizzera-bern-ae9635",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-uianji",
-          "seller-with-shift-responsibility-m-f-d-60-80-bern-lidl-svizzera-bern",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-lidl-svizzera-bern"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pk",
@@ -25508,15 +25540,15 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-u3jh8d",
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-berne-lidl-svizzera-bern-ae9635",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-uianji",
-          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-berne-lidl-svizzera-bern",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-ssg6pm",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-lidl-svizzera-bern"
         ]
       },
       "slugByLocale": {
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-sdp0eh",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-lidl-svizzera-bern",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-bern-lidl-svizzera-bern",
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bern-sdp0eh",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-bern-lidl-svizzera-bern"
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-berne-lidl-svizzera-bern"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80% — Bern",
@@ -25603,8 +25635,6 @@
         "vendeur-m-f-j-20-80-zurich-lidl-svizzera-zurich",
         "vendeur-vendeur-h-f-d-20-80-zurich-lidl-svizzera-zurich",
         "sales-assistant-m-f-d-20-80-1-zurich-lidl-svizzera-zurich",
-        "seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
-        "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich",
         "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
       ],
       "previousSlugsByLocale": {
@@ -25638,7 +25668,7 @@
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
           "seller-seller-m-f-d-20-80-zurich-lidl-svizzera-zurich",
-          "seller-seller-m-f-d-20-80-lidl-svizzera-zurich"
+          "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-544o5b",
@@ -25655,14 +25685,14 @@
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-52ygua",
           "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-53ljh8",
           "vendeur-vendeur-h-f-d-20-80-zurich-lidl-svizzera-zurich",
-          "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
+          "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
         ]
       },
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-20-80-lidl-svizzera-zurich",
-        "en": "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich",
+        "en": "seller-seller-m-f-d-20-80-lidl-svizzera-zurich",
         "de": "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-zurich-ofbsar",
-        "fr": "verkaufer-verkauferin-m-w-d-20-80-zurich-lidl-svizzera-zurich"
+        "fr": "vendeur-vendeur-h-f-d-20-80-lidl-svizzera-zurich"
       },
       "titleByLocale": {
         "de": "Verkäufer / Verkäuferin (m/w/d) 20-80% — Zürich",
@@ -25735,9 +25765,8 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
         "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw"
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -25756,7 +25785,7 @@
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
-          "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw"
@@ -25765,13 +25794,13 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
           "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern",
-          "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern"
         ]
       },
       "slugByLocale": {
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
+        "fr": "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-28w3kl"
       },
       "titleByLocale": {
@@ -26083,10 +26112,9 @@
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
         "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-        "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -26109,8 +26137,8 @@
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-m9ujuy",
           "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-          "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-51vyzo",
@@ -26126,14 +26154,14 @@
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
           "vendeur-avec-responsabilite-de-quart-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil-a77759",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mopjxd",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil"
         ]
       },
       "slugByLocale": {
         "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf",
-        "en": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil",
-        "fr": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-wadenswil-lidl-svizzera-wadenswil",
+        "en": "seller-with-shift-responsibility-m-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
+        "fr": "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-wadenswil-lidl-svizzera-wadenswil",
         "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-wadenswil-mnlclf"
       },
       "titleByLocale": {

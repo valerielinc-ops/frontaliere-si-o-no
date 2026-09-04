@@ -1407,12 +1407,12 @@
     },
     {
       "id": "deloitte-f6d5489e604f",
-      "slug": "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich",
+      "slug": "consulente-senior-manager-servicenow-strategia-e-trasformazione-tecnologica-deloitte-zurich",
       "slugByLocale": {
-        "it": "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich",
+        "it": "consulente-senior-manager-servicenow-strategia-e-trasformazione-tecnologica-deloitte-zurich",
         "en": "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich",
         "de": "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich",
-        "fr": "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich"
+        "fr": "consultant-principal-gestionnaire-servicenow-strategie-technologique-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",
@@ -1469,7 +1469,18 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich"
+        ],
+        "fr": [
+          "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-consultant-manager-servicenow-technology-strategy-transformation-deloitte-zurich"
+      ]
     },
     {
       "id": "deloitte-a4d8305ed236",
@@ -5104,7 +5115,7 @@
         "it": "consultant-servicenow-technology-strategy-transformation-deloitte-zurich",
         "en": "consultant-servicenow-technology-strategy-transformation-deloitte-zurich",
         "de": "consultant-servicenow-technology-strategy-transformation-deloitte-zurich",
-        "fr": "consultant-servicenow-technology-strategy-transformation-deloitte-zurich"
+        "fr": "consultant-servicenow-strategie-technologique-et-transformation-deloitte-zurich"
       },
       "company": "Deloitte",
       "companyKey": "deloitte",

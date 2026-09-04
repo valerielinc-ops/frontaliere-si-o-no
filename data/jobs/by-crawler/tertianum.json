@@ -156,13 +156,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-          "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon"
+          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ],
         "en": [
           "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
@@ -249,12 +247,12 @@
     },
     {
       "id": "tertianum-5bbd8bc61886",
-      "slug": "ausbildungsverantwortliche-r-pflege-e-betreuung-tertianum-solothurn",
+      "slug": "responsabile-della-formazione-assistenza-e-cura-tertianum-solothurn",
       "slugByLocale": {
-        "it": "ausbildungsverantwortliche-r-pflege-e-betreuung-tertianum-solothurn",
-        "en": "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn",
+        "it": "responsabile-della-formazione-assistenza-e-cura-tertianum-solothurn",
+        "en": "training-manager-care-and-care-tertianum-solothurn",
         "de": "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn",
-        "fr": "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn"
+        "fr": "gestionnaire-de-la-formation-soins-et-soins-tertianum-solothurn"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -297,10 +295,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn"
+        "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn",
+        "ausbildungsverantwortliche-r-pflege-e-betreuung-tertianum-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn",
+          "ausbildungsverantwortliche-r-pflege-e-betreuung-tertianum-solothurn"
+        ],
+        "en": [
+          "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn"
+        ],
+        "fr": [
           "ausbildungsverantwortliche-r-pflege-und-betreuung-tertianum-solothurn"
         ]
       },
@@ -9726,9 +9732,7 @@
         "it": [
           "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
           "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen",
-          "salute-professionale-tertianum-weesen",
-          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-          "specialista-in-assistenza-sanitaria-efz-80-100-tertianum-weesen"
+          "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
@@ -9744,11 +9748,7 @@
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-kirchdorf",
         "fachfrau-fachmann-gesundheit-cfc-80-100-tertianum-weesen",
-        "salute-professionale-tertianum-weesen",
-        "professional-health-tertianum-weesen",
         "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-weesen",
-        "fachfrau-mann-gesundheit-tertianum-weesen",
-        "specialista-in-assistenza-sanitaria-efz-80-100-tertianum-weesen",
         "healthcare-specialist-efz-80-100-tertianum-weesen"
       ],
       "firstSeenAt": "2026-07-16T22:58:03.987Z",

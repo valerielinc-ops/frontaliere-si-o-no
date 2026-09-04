@@ -159,9 +159,9 @@
       "slug": "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
       "slugByLocale": {
         "it": "student-in-pharmazeutische-wissenschaften-o-pharmazie-spital-limmattal-schlieren",
-        "en": "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch",
+        "en": "student-in-pharmaceutical-sciences-or-pharmacy-spital-limmattal-schlieren",
         "de": "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch",
-        "fr": "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch"
+        "fr": "etudiant-en-sciences-pharmaceutiques-ou-en-pharmacie-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -208,6 +208,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch"
+        ],
+        "en": [
+          "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch"
+        ],
+        "fr": [
           "student-in-pharmazeutische-wissenschaften-oder-pharmazie-spital-limmattal-ch"
         ]
       },
@@ -952,12 +958,12 @@
     },
     {
       "id": "spital-limmattal-94ec1c91913f",
-      "slug": "praktikant-in-notfallstation-spital-limmattal-ch",
+      "slug": "interno-in-stazione-di-emergenza-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "praktikant-in-notfallstation-spital-limmattal-ch",
-        "en": "praktikant-in-notfallstation-spital-limmattal-ch",
+        "it": "interno-in-stazione-di-emergenza-spital-limmattal-schlieren",
+        "en": "intern-in-emergency-station-spital-limmattal-schlieren",
         "de": "praktikant-in-notfallstation-spital-limmattal-ch",
-        "fr": "praktikant-in-notfallstation-spital-limmattal-ch"
+        "fr": "stagiaire-a-la-station-d-urgence-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -1012,7 +1018,21 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-notfallstation-spital-limmattal-ch"
+        ],
+        "en": [
+          "praktikant-in-notfallstation-spital-limmattal-ch"
+        ],
+        "fr": [
+          "praktikant-in-notfallstation-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-notfallstation-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-265840c32e3d",

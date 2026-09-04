@@ -52,8 +52,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "3d-messtechniker-in-stadler-rail-ch",
-          "tecnico-di-metrologia-3d-stadler-rail-winterthur"
+          "3d-messtechniker-in-stadler-rail-ch"
         ],
         "en": [
           "3d-messtechniker-in-stadler-rail-winterthur"
@@ -64,9 +63,6 @@
       },
       "previousSlugs": [
         "3d-messtechniker-in-stadler-rail-ch",
-        "3d-metrology-technician-stadler-rail-winterthur",
-        "metrologue-3d-in-stadler-rail-winterthur",
-        "tecnico-di-metrologia-3d-stadler-rail-winterthur",
         "3d-messtechniker-in-stadler-rail-winterthur"
       ],
       "needsRetranslation": true,
@@ -135,13 +131,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "software-system-engineer-stadler-rail-ch",
-          "software-system-ingegnere-stadler-rail-wallisellen"
+          "software-system-engineer-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "software-system-engineer-stadler-rail-ch",
-        "software-system-ingegnere-stadler-rail-wallisellen"
+        "software-system-engineer-stadler-rail-ch"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -13019,10 +13013,10 @@
     },
     {
       "id": "stadler-rail-dc14869526b5",
-      "slug": "cost-engineer-stadler-rail-ch",
+      "slug": "cost-ingegnere-stadler-rail-st-margrethen-7070be",
       "slugByLocale": {
         "de": "cost-engineer-stadler-rail-ch",
-        "it": "cost-engineer-stadler-rail-ch",
+        "it": "cost-ingegnere-stadler-rail-st-margrethen-7070be",
         "en": "cost-engineer-stadler-rail-ch",
         "fr": "cost-engineer-stadler-rail-ch"
       },
@@ -13080,7 +13074,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:29:40.570Z"
+      "firstSeenAt": "2026-09-03T23:29:40.570Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cost-engineer-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cost-engineer-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-974d99a542f0",

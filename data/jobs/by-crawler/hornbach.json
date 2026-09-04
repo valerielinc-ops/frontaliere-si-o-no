@@ -2027,12 +2027,12 @@
     },
     {
       "id": "hornbach-154968",
-      "slug": "verkaufer-in-elektro-hornbach-galgenen",
+      "slug": "venditore-in-elettrico-hornbach-galgenen",
       "slugByLocale": {
-        "it": "verkaufer-in-elektro-hornbach-galgenen",
-        "en": "verkaufer-in-elektro-hornbach-galgenen",
+        "it": "venditore-in-elettrico-hornbach-galgenen",
+        "en": "seller-in-electric-hornbach-galgenen",
         "de": "verkaufer-in-elektro-hornbach-galgenen",
-        "fr": "verkaufer-in-elektro-hornbach-galgenen"
+        "fr": "vendeur-en-electrique-hornbach-galgenen"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2077,19 +2077,21 @@
       "previousSlugs": [
         "assistente-alle-vendite-elettriche-hornbach-galgenen",
         "seller-in-electric-hornbach-galgenen",
-        "vendeur-en-electrique-hornbach-galgenen"
+        "vendeur-en-electrique-hornbach-galgenen",
+        "verkaufer-in-elektro-hornbach-galgenen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistente-alle-vendite-elettriche-hornbach-galgenen",
           "seller-in-electric-hornbach-galgenen",
-          "vendeur-en-electrique-hornbach-galgenen"
+          "vendeur-en-electrique-hornbach-galgenen",
+          "verkaufer-in-elektro-hornbach-galgenen"
         ],
         "en": [
-          "seller-in-electric-hornbach-galgenen"
+          "verkaufer-in-elektro-hornbach-galgenen"
         ],
         "fr": [
-          "vendeur-en-electrique-hornbach-galgenen"
+          "verkaufer-in-elektro-hornbach-galgenen"
         ]
       },
       "needsRetranslation": true,
@@ -2110,12 +2112,12 @@
     },
     {
       "id": "hornbach-154933",
-      "slug": "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
+      "slug": "venditore-in-utensili-da-stiro-hornbach-sirnach",
       "slugByLocale": {
-        "it": "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
-        "en": "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
+        "it": "venditore-in-utensili-da-stiro-hornbach-sirnach",
+        "en": "seller-in-ironware-tools-hornbach-sirnach",
         "de": "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach",
-        "fr": "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+        "fr": "vendeur-dans-les-outils-en-ferrie-hornbach-sirnach"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2171,16 +2173,30 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+        ],
+        "en": [
+          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+        ],
+        "fr": [
+          "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-eisenwaren-werkzeuge-hornbach-sirnach"
+      ]
     },
     {
       "id": "hornbach-154949",
-      "slug": "verkaufer-in-garten-hartwaren-hornbach-galgenen",
+      "slug": "venditore-in-garden-hardware-hornbach-galgenen",
       "slugByLocale": {
-        "it": "verkaufer-in-garten-hartwaren-hornbach-galgenen",
-        "en": "verkaufer-in-garten-hartwaren-hornbach-galgenen",
+        "it": "venditore-in-garden-hardware-hornbach-galgenen",
+        "en": "seller-in-garden-hardware-hornbach-galgenen",
         "de": "verkaufer-in-garten-hartwaren-hornbach-galgenen",
-        "fr": "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+        "fr": "vendeur-en-materiel-de-jardin-hornbach-galgenen"
       },
       "company": "Hornbach",
       "companyKey": "hornbach",
@@ -2236,7 +2252,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+        ],
+        "en": [
+          "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+        ],
+        "fr": [
+          "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-garten-hartwaren-hornbach-galgenen"
+      ]
     },
     {
       "id": "hornbach-155038",

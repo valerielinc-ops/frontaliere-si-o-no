@@ -553,12 +553,12 @@
     },
     {
       "id": "spitex-ch-9b6f44dc97d0",
-      "slug": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+      "slug": "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
       "slugByLocale": {
-        "it": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
-        "en": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "it": "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
+        "en": "care-professional-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
         "de": "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
-        "fr": "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
+        "fr": "professionnel-de-soins-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       },
       "company": "Spitex Zimmerberg AG",
       "companyKey": "spitex-ch",
@@ -609,7 +609,8 @@
         "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
         "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
         "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
-        "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+        "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+        "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -620,7 +621,8 @@
           "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
           "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
           "pflegefachperson-hf-fh-70-90-spitex-ch-thalwil",
-          "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+          "professionista-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
         ],
         "de": [
           "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
@@ -628,7 +630,11 @@
         ],
         "fr": [
           "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
-          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil"
+          "pflegefachperson-hf-fh-70-90-spitex-zimmerberg-ag-thalwil",
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
+        ],
+        "en": [
+          "pflegefachperson-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg"
         ]
       },
       "firstSeenAt": "2026-09-01T23:13:46.544Z",
@@ -837,14 +843,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
-        "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl",
-        "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
+        "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
-          "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl",
-          "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
+          "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-akp-dnii-60-100-spitex-ch-urtenen-schonbuhl"
@@ -867,12 +871,12 @@
     },
     {
       "id": "spitex-ch-c51a1c120225",
-      "slug": "fachperson-gesundheit-cfc-spitex-regio-frick-frick",
+      "slug": "professionista-della-salute-efz-spitex-regio-frick-frick",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-spitex-regio-frick-frick",
-        "en": "fachperson-gesundheit-efz-spitex-ch-frick",
+        "it": "professionista-della-salute-efz-spitex-regio-frick-frick",
+        "en": "health-professional-efz-spitex-regio-frick-frick",
         "de": "fachperson-gesundheit-efz-spitex-ch-frick",
-        "fr": "fachperson-gesundheit-efz-spitex-ch-frick"
+        "fr": "professionnels-de-la-sante-efz-spitex-regio-frick-frick"
       },
       "company": "Spitex Regio Frick",
       "companyKey": "spitex-ch",
@@ -923,6 +927,12 @@
         "it": [
           "fachperson-gesundheit-efz-spitex-ch-frick",
           "fachperson-gesundheit-cfc-spitex-regio-frick-frick"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-spitex-ch-frick"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-spitex-ch-frick"
         ]
       },
       "firstSeenAt": "2026-09-02T23:16:19.088Z",
@@ -1212,13 +1222,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-srk-40-80-spitex-ch-liestal",
-        "assistente-in-srk-40-80-spitex-regio-liestal-liestal"
+        "pflegehelfer-in-srk-40-80-spitex-ch-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-srk-40-80-spitex-ch-liestal",
-          "assistente-in-srk-40-80-spitex-regio-liestal-liestal"
+          "pflegehelfer-in-srk-40-80-spitex-ch-liestal"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:52.226Z",
@@ -1297,11 +1305,9 @@
           "professional-health-80-100-spitex-region-birs-gmbh-reinach-bl",
           "professionnel-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl",
           "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
-          "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
-          "esperto-di-wound-care-50-spitex-region-birs-gmbh-reinach-bl"
+          "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl"
         ],
         "fr": [
-          "specialiste-des-soins-des-plaies-50-spitex-region-birs-gmbh-reinach-bl",
           "professionnels-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl",
           "wundexpertin-wundexperte-50-spitex-region-birs-gmbh-reinach-bl"
         ],
@@ -1314,7 +1320,6 @@
       },
       "previousSlugs": [
         "wundexpertin-wundexperte-50-spitex-ch-reinach-bl",
-        "specialiste-des-soins-des-plaies-50-spitex-region-birs-gmbh-reinach-bl",
         "expert-blesse-50-spitex-region-birs-gmbh-reinach-bl",
         "professionista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
         "health-professional-80-100-spitex-region-birs-gmbh-reinach-bl",
@@ -1324,7 +1329,6 @@
         "professionnel-de-la-sante-80-100-spitex-region-birs-gmbh-reinach-bl",
         "salute-professionale-80-100-spitex-region-birs-gmbh-reinach-bl",
         "specialista-della-salute-80-100-spitex-region-birs-gmbh-reinach-bl",
-        "esperto-di-wound-care-50-spitex-region-birs-gmbh-reinach-bl",
         "wundexpertin-wundexperte-50-spitex-region-birs-gmbh-reinach-bl"
       ],
       "salaryMin": 44000,
@@ -1393,16 +1397,14 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl",
-          "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+          "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl"
         ],
         "it": [
           "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl",
-        "dipl-pflegefachperson-hf-oder-fachperson-gesundheit-fachbereich-demenz-60-90-spitex-ch"
+        "dipl-pflegefachperson-hf-fachbereich-demenz-60-90-spitex-ch-reinach-bl"
       ],
       "salaryMin": 79200,
       "salaryMax": 110700,
@@ -1473,15 +1475,13 @@
         "it": [
           "fachfrau-fachmann-gesundheit-efz-spitex-40-80-spitex-ch-affoltern-am-albis",
           "fachfrau-fachmann-gesundheit-cfc-spitex-dienste-bellach-bellach",
-          "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-          "fachfrau-fachmann-gesundheit-cfc-spitex-40-80-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis"
+          "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-efz-spitex-40-80-spitex-ch-affoltern-am-albis",
         "fachfrau-fachmann-gesundheit-cfc-spitex-dienste-bellach-bellach",
-        "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "fachfrau-fachmann-gesundheit-cfc-spitex-40-80-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis"
+        "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -1614,13 +1614,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis",
-        "diploma-in-assistenza-sociale-con-gestione-dei-caso-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis"
+        "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis",
-          "diploma-in-assistenza-sociale-con-gestione-dei-caso-70-100-seewadel-zentrum-fur-gesundheit-und-alter-affoltern-am-albis"
+          "dipl-pflegefachperson-spitex-mit-fallfuhrung-70-100-spitex-ch-affoltern-am-albis"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:47.960Z",
@@ -1762,13 +1760,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-psychiatrie-und-fachperson-gesundheit-efz-psychiatrie-spitex",
-        "dipl-pflegefachperson-hf-fh-psychiatrie-e-fachperson-gesundheit-cfc-psychiatrie-spitex-oberaargau-ag-langenthal"
+        "dipl-pflegefachperson-hf-fh-psychiatrie-und-fachperson-gesundheit-efz-psychiatrie-spitex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-psychiatrie-und-fachperson-gesundheit-efz-psychiatrie-spitex",
-          "dipl-pflegefachperson-hf-fh-psychiatrie-e-fachperson-gesundheit-cfc-psychiatrie-spitex-oberaargau-ag-langenthal"
+          "dipl-pflegefachperson-hf-fh-psychiatrie-und-fachperson-gesundheit-efz-psychiatrie-spitex"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:46.402Z",

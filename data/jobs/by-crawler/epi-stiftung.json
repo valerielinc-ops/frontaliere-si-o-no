@@ -1363,12 +1363,12 @@
     },
     {
       "id": "epi-stiftung-0dc9590e9d01",
-      "slug": "sozialpadagogin-sozialpadagoge-o-fachfrau-fachmann-betreuung-cfc-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slug": "social-pedagogue-social-pedagogue-o-specialista-supervisione-professionale-efz-schweizerische-epilepsie-stiftung-epi",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-o-fachfrau-fachmann-betreuung-cfc-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
+        "it": "social-pedagogue-social-pedagogue-o-specialista-supervisione-professionale-efz-schweizerische-epilepsie-stiftung-epi",
+        "en": "social-pedagogue-social-pedagogue-or-specialist-professional-supervision-efz-schweizerische-epilepsie-stiftung-epi",
         "de": "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
-        "fr": "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich"
+        "fr": "pedagogue-social-pedagogie-sociale-ou-specialiste-supervision-professionnelle-efz-schweizerische-epilepsie-stiftung-epi"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1411,10 +1411,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich"
+        "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
+        "sozialpadagogin-sozialpadagoge-o-fachfrau-fachmann-betreuung-cfc-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich",
+          "sozialpadagogin-sozialpadagoge-o-fachfrau-fachmann-betreuung-cfc-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich"
+        ],
+        "fr": [
           "sozialpadagogin-sozialpadagoge-oder-fachfrau-fachmann-betreuung-efz-epi-stiftung-zurich"
         ]
       },

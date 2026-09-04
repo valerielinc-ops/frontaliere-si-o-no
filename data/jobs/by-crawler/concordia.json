@@ -1486,12 +1486,12 @@
     },
     {
       "id": "concordia-7b2b18763142",
-      "slug": "kundenberater-in-80-100-in-kloten-concordia-kloten",
+      "slug": "consulente-clienti-in-80-100-in-kloten-concordia-kloten",
       "slugByLocale": {
-        "it": "kundenberater-in-80-100-in-kloten-concordia-kloten",
-        "en": "kundenberater-in-80-100-in-kloten-concordia-kloten",
+        "it": "consulente-clienti-in-80-100-in-kloten-concordia-kloten",
+        "en": "customer-advisor-in-80-100-in-kloten-concordia-kloten",
         "de": "kundenberater-in-80-100-in-kloten-concordia-kloten",
-        "fr": "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        "fr": "conseiller-client-en-80-100-en-kloten-concordia-kloten"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -1550,21 +1550,29 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "consulente-clienti-80-a-kloten-concordia-kloten"
+          "consulente-clienti-80-a-kloten-concordia-kloten",
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        ],
+        "en": [
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
+        ],
+        "fr": [
+          "kundenberater-in-80-100-in-kloten-concordia-kloten"
         ]
       },
       "previousSlugs": [
-        "consulente-clienti-80-a-kloten-concordia-kloten"
+        "consulente-clienti-80-a-kloten-concordia-kloten",
+        "kundenberater-in-80-100-in-kloten-concordia-kloten"
       ]
     },
     {
       "id": "concordia-adf3e395f56d",
-      "slug": "kundenberater-in-80-100-in-chur-concordia-chur",
+      "slug": "consulente-clienti-in-80-100-in-chur-concordia-chur",
       "slugByLocale": {
-        "it": "kundenberater-in-80-100-in-chur-concordia-chur",
-        "en": "kundenberater-in-80-100-in-chur-concordia-chur",
+        "it": "consulente-clienti-in-80-100-in-chur-concordia-chur",
+        "en": "customer-advisor-in-80-100-in-chur-concordia-chur",
         "de": "kundenberater-in-80-100-in-chur-concordia-chur",
-        "fr": "kundenberater-in-80-100-in-chur-concordia-chur"
+        "fr": "conseiller-client-in-80-100-a-chur-concordia-chur"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -1608,25 +1616,25 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consulente-clienti-in-80-100-in-chur-concordia-chur",
         "customer-advisor-in-80-100-in-chur-concordia-chur",
         "conseiller-client-in-80-100-a-chur-concordia-chur",
         "conseiller-client-dans-80-100-a-chur-concordia-chur",
-        "consulente-clienti-80-100-a-coira-concordia-chur"
+        "consulente-clienti-80-100-a-coira-concordia-chur",
+        "kundenberater-in-80-100-in-chur-concordia-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-clienti-in-80-100-in-chur-concordia-chur",
           "customer-advisor-in-80-100-in-chur-concordia-chur",
           "conseiller-client-in-80-100-a-chur-concordia-chur",
           "conseiller-client-dans-80-100-a-chur-concordia-chur",
-          "consulente-clienti-80-100-a-coira-concordia-chur"
+          "consulente-clienti-80-100-a-coira-concordia-chur",
+          "kundenberater-in-80-100-in-chur-concordia-chur"
         ],
         "en": [
-          "customer-advisor-in-80-100-in-chur-concordia-chur"
+          "kundenberater-in-80-100-in-chur-concordia-chur"
         ],
         "fr": [
-          "conseiller-client-in-80-100-a-chur-concordia-chur"
+          "kundenberater-in-80-100-in-chur-concordia-chur"
         ]
       },
       "firstSeenAt": "2026-08-31T17:10:11.430Z",
@@ -1903,12 +1911,12 @@
     },
     {
       "id": "concordia-4eb3036917c3",
-      "slug": "vertrauensarztin-o-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
+      "slug": "medico-fidato-o-medicina-interna-di-fiducia-40-50-concordia-luzern",
       "slugByLocale": {
-        "it": "vertrauensarztin-o-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
-        "en": "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
+        "it": "medico-fidato-o-medicina-interna-di-fiducia-40-50-concordia-luzern",
+        "en": "trusted-physician-or-trusted-internal-medicine-40-50-concordia-luzern",
         "de": "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
-        "fr": "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern"
+        "fr": "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -1954,19 +1962,21 @@
       "previousSlugs": [
         "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
         "trusted-physician-or-trusted-internal-medicine-40-50-concordia-luzern",
-        "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern"
+        "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern",
+        "vertrauensarztin-o-vertrauensarzt-innere-medizin-40-50-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern",
           "trusted-physician-or-trusted-internal-medicine-40-50-concordia-luzern",
-          "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern"
+          "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern",
+          "vertrauensarztin-o-vertrauensarzt-innere-medizin-40-50-concordia-luzern"
         ],
         "en": [
-          "trusted-physician-or-trusted-internal-medicine-40-50-concordia-luzern"
+          "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern"
         ],
         "fr": [
-          "medecin-de-confiance-ou-medecine-interne-de-confiance-40-50-concordia-luzern"
+          "vertrauensarztin-oder-vertrauensarzt-innere-medizin-40-50-concordia-luzern"
         ]
       },
       "firstSeenAt": "2026-08-31T17:10:08.929Z",
@@ -2278,12 +2288,12 @@
     },
     {
       "id": "concordia-14cb04bb126f",
-      "slug": "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen",
+      "slug": "consulente-clienti-in-80-100-a-schaffhausen-concordia-schaffhausen",
       "slugByLocale": {
-        "it": "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen",
-        "en": "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen",
+        "it": "consulente-clienti-in-80-100-a-schaffhausen-concordia-schaffhausen",
+        "en": "customer-consultant-in-80-100-in-schaffhausen-concordia-schaffhausen",
         "de": "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen",
-        "fr": "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen"
+        "fr": "consultant-client-in-80-100-a-schaffhausen-concordia-schaffhausen"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -2327,21 +2337,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consulente-clienti-in-80-100-a-schaffhausen-concordia-schaffhausen",
         "customer-consultant-in-80-100-in-schaffhausen-concordia-schaffhausen",
-        "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen"
+        "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen",
+        "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "consulente-clienti-in-80-100-a-schaffhausen-concordia-schaffhausen",
           "customer-consultant-in-80-100-in-schaffhausen-concordia-schaffhausen",
-          "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen"
+          "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen",
+          "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen"
         ],
         "en": [
-          "customer-consultant-in-80-100-in-schaffhausen-concordia-schaffhausen"
+          "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen"
         ],
         "fr": [
-          "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen"
+          "consultant-client-en-80-100-a-schaffhausen-concordia-schaffhausen",
+          "kundenberater-in-80-100-in-schaffhausen-concordia-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-08-31T17:10:06.950Z",
@@ -2361,12 +2372,12 @@
     },
     {
       "id": "concordia-3e1d2f1547d3",
-      "slug": "kundenberater-in-100-in-schwyz-concordia-schwyz",
+      "slug": "servizio-clienti-in-100-in-schwyz-concordia-schwyz",
       "slugByLocale": {
-        "it": "kundenberater-in-100-in-schwyz-concordia-schwyz",
-        "en": "kundenberater-in-100-in-schwyz-concordia-schwyz",
+        "it": "servizio-clienti-in-100-in-schwyz-concordia-schwyz",
+        "en": "customer-service-in-100-in-schwyz-concordia-schwyz",
         "de": "kundenberater-in-100-in-schwyz-concordia-schwyz",
-        "fr": "kundenberater-in-100-in-schwyz-concordia-schwyz"
+        "fr": "service-client-in-100-en-schwyz-concordia-schwyz"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -2415,7 +2426,7 @@
         "conseiller-client-in-100-a-schwyz-concordia-schwyz",
         "customer-service-in-100-in-schwyz-concordia-schwyz",
         "service-client-in-100-en-schwyz-concordia-schwyz",
-        "servizio-clienti-in-100-in-schwyz-concordia-schwyz"
+        "kundenberater-in-100-in-schwyz-concordia-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2424,13 +2435,15 @@
           "conseiller-client-in-100-a-schwyz-concordia-schwyz",
           "customer-service-in-100-in-schwyz-concordia-schwyz",
           "service-client-in-100-en-schwyz-concordia-schwyz",
-          "servizio-clienti-in-100-in-schwyz-concordia-schwyz"
+          "kundenberater-in-100-in-schwyz-concordia-schwyz"
         ],
         "en": [
-          "customer-advisor-in-100-in-schwyz-concordia-schwyz"
+          "customer-advisor-in-100-in-schwyz-concordia-schwyz",
+          "kundenberater-in-100-in-schwyz-concordia-schwyz"
         ],
         "fr": [
-          "conseiller-client-in-100-a-schwyz-concordia-schwyz"
+          "conseiller-client-in-100-a-schwyz-concordia-schwyz",
+          "kundenberater-in-100-in-schwyz-concordia-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-31T17:10:06.440Z",
@@ -2960,12 +2973,12 @@
     },
     {
       "id": "concordia-494e0c32b609",
-      "slug": "apprendistato-kauffrau-o-kaufmann-cfc-in-horw-sommer-2027-concordia-horw",
+      "slug": "apprendistato-donna-d-affari-o-uomo-d-affari-efz-a-horw-estate-2027-concordia-horw",
       "slugByLocale": {
-        "it": "apprendistato-kauffrau-o-kaufmann-cfc-in-horw-sommer-2027-concordia-horw",
-        "en": "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
+        "it": "apprendistato-donna-d-affari-o-uomo-d-affari-efz-a-horw-estate-2027-concordia-horw",
+        "en": "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw",
         "de": "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
-        "fr": "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw"
+        "fr": "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3011,19 +3024,21 @@
       "previousSlugs": [
         "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
         "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw",
-        "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw"
+        "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw",
+        "apprendistato-kauffrau-o-kaufmann-cfc-in-horw-sommer-2027-concordia-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw",
           "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw",
-          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw"
+          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw",
+          "apprendistato-kauffrau-o-kaufmann-cfc-in-horw-sommer-2027-concordia-horw"
         ],
         "en": [
-          "apprenticeship-businesswoman-or-businessman-efz-in-horw-summer-2027-concordia-horw"
+          "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw"
         ],
         "fr": [
-          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-horw-ete-2027-concordia-horw"
+          "lehrstelle-kauffrau-oder-kaufmann-efz-in-horw-sommer-2027-concordia-horw"
         ]
       },
       "firstSeenAt": "2026-09-01T07:27:56.903Z",
@@ -3043,12 +3058,12 @@
     },
     {
       "id": "concordia-7dbb46e32795",
-      "slug": "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern",
+      "slug": "apprendistato-businesswoman-o-businessman-efz-a-lucerna-estate-2027-concordia-luzern",
       "slugByLocale": {
-        "it": "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern",
-        "en": "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern",
+        "it": "apprendistato-businesswoman-o-businessman-efz-a-lucerna-estate-2027-concordia-luzern",
+        "en": "apprenticeship-businesswoman-or-businessman-efz-in-lucerne-summer-2027-concordia-luzern",
         "de": "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern",
-        "fr": "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern"
+        "fr": "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3094,19 +3109,21 @@
       "previousSlugs": [
         "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern",
         "apprenticeship-businesswoman-or-businessman-efz-in-lucerne-summer-2027-concordia-luzern",
-        "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern"
+        "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern",
+        "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern",
           "apprenticeship-businesswoman-or-businessman-efz-in-lucerne-summer-2027-concordia-luzern",
-          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern"
+          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern",
+          "apprendistato-kauffrau-o-kaufmann-cfc-in-luzern-sommer-2027-concordia-luzern"
         ],
         "en": [
-          "apprenticeship-businesswoman-or-businessman-efz-in-lucerne-summer-2027-concordia-luzern"
+          "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern"
         ],
         "fr": [
-          "apprentissage-femme-d-affaires-ou-homme-d-affaires-efz-a-lucerne-ete-2027-concordia-luzern"
+          "lehrstelle-kauffrau-oder-kaufmann-efz-in-luzern-sommer-2027-concordia-luzern"
         ]
       },
       "firstSeenAt": "2026-09-01T07:27:49.934Z",
@@ -3129,9 +3146,9 @@
       "slug": "kundenberater-in-60-in-zug-e-cham-concordia-zug",
       "slugByLocale": {
         "it": "kundenberater-in-60-in-zug-e-cham-concordia-zug",
-        "en": "kundenberater-in-60-in-zug-und-cham-concordia-zug",
+        "en": "customer-service-in-60-in-zug-and-cham-concordia-zug",
         "de": "kundenberater-in-60-in-zug-und-cham-concordia-zug",
-        "fr": "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+        "fr": "service-clientele-en-60-a-zug-et-cham-concordia-zug"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3179,6 +3196,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+        ],
+        "en": [
+          "kundenberater-in-60-in-zug-und-cham-concordia-zug"
+        ],
+        "fr": [
           "kundenberater-in-60-in-zug-und-cham-concordia-zug"
         ]
       },
@@ -3412,12 +3435,12 @@
     },
     {
       "id": "concordia-29d22828e43f",
-      "slug": "versicherungsberater-in-100-in-visp-concordia-visp",
+      "slug": "consulente-assicurativo-in-100-in-visp-concordia-visp",
       "slugByLocale": {
-        "it": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "en": "versicherungsberater-in-100-in-visp-concordia-visp",
+        "it": "consulente-assicurativo-in-100-in-visp-concordia-visp",
+        "en": "insurance-consultant-in-100-in-visp-concordia-visp",
         "de": "versicherungsberater-in-100-in-visp-concordia-visp",
-        "fr": "versicherungsberater-in-100-in-visp-concordia-visp"
+        "fr": "consultant-en-assurance-in-100-en-viege-concordia-visp"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -3473,7 +3496,21 @@
           "maxValue": 109000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ],
+        "en": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ],
+        "fr": [
+          "versicherungsberater-in-100-in-visp-concordia-visp"
+        ]
+      },
+      "previousSlugs": [
+        "versicherungsberater-in-100-in-visp-concordia-visp"
+      ]
     }
   ]
 }

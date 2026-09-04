@@ -54,13 +54,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -1166,12 +1164,12 @@
     },
     {
       "id": "spruengli-7b0af595b779",
-      "slug": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+      "slug": "stv-filiale-manager-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-aargau",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
-        "en": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden",
+        "it": "stv-filiale-manager-80-100-stazione-ferroviaria-baden-confiserie-sprungli-ag-aargau",
+        "en": "stv-branch-manager-80-100-railway-station-baden-confiserie-sprungli-ag-aargau",
         "de": "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
-        "fr": "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        "fr": "directeur-de-succursale-stv-80-100-gare-ferroviaire-baden-confiserie-sprungli-ag-aargau"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -1216,11 +1214,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau"
+        "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
+        "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau"
+          "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
+          "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        ],
+        "en": [
+          "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
+        ],
+        "fr": [
+          "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
         ]
       },
       "needsRetranslation": true,
@@ -1688,12 +1694,12 @@
     },
     {
       "id": "spruengli-170c4cb68273",
-      "slug": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
+      "slug": "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
-        "it": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "en": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
+        "it": "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
+        "en": "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
         "de": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon",
-        "fr": "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
+        "fr": "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -1742,7 +1748,6 @@
         "confectioner-s-department-cakes-patisserie-100-confiserie-sprungli-ag-dietikon",
         "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon",
         "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon-f55944",
-        "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
         "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
         "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
         "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
@@ -1756,7 +1761,8 @@
         "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
         "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
         "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
-        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-6r53l5"
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-6r53l5",
+        "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1764,7 +1770,6 @@
           "confectioner-s-department-cakes-patisserie-100-confiserie-sprungli-ag-dietikon",
           "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon",
           "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon-f55944",
-          "pasticceria-nel-reparto-torte-e-pasticcerie-100-confiserie-sprungli-ag-dietikon",
           "pastry-confectioner-in-the-cake-patisserie-department-100-confiserie-sprungli-ag-dietikon",
           "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-b0uhbb",
           "konditor-confiseur-in-abteilung-torten-patisserie-100-confiserie-sprungli-ag-dietikon",
@@ -1778,13 +1783,15 @@
           "boulangerie-confiserie-dans-le-departement-de-la-boulangerie-fine-100-confiserie-sprungli-ag-dietikon",
           "backer-konditor-in-abteilung-feinbackerei-100-confiserie-sprungli-ag-dietikon",
           "patisserie-patisserie-100-confiserie-sprungli-ag-dietikon",
-          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-6r53l5"
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon-6r53l5",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ],
         "en": [
-          "confectioner-s-department-cakes-patisserie-100-confiserie-sprungli-ag-dietikon"
+          "confectioner-s-department-cakes-patisserie-100-confiserie-sprungli-ag-dietikon",
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ],
         "fr": [
-          "patissier-dans-le-departement-des-gateaux-patisseries-100-confiserie-sprungli-ag-dietikon"
+          "konditor-confiseur-in-abteilung-torten-patisserie-100-spruengli-dietikon"
         ]
       },
       "needsRetranslation": true,

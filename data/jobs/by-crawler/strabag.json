@@ -93,12 +93,12 @@
     },
     {
       "id": "strabag-359a4bd81b60",
-      "slug": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
+      "slug": "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
       "slugByLocale": {
         "de": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
-        "it": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
-        "en": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg",
-        "fr": "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
+        "it": "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
+        "en": "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
+        "fr": "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg"
       },
       "company": "Strabag BMTI GmbH",
       "companyKey": "strabag",
@@ -157,31 +157,31 @@
       "firstSeenAt": "2026-09-03T13:49:04.252Z",
       "previousSlugsByLocale": {
         "it": [
-          "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
           "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
-          "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg"
+          "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg",
+          "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
         ],
         "en": [
-          "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg"
+          "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
         ],
         "fr": [
-          "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg"
+          "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
         ]
       },
       "previousSlugs": [
-        "meccanico-per-macchine-da-costruzione-in-speciale-ingegneria-civile-strabag-bmti-gmbh-rothenburg",
         "construction-machinery-mechanic-in-special-civil-engineering-strabag-bmti-gmbh-rothenburg",
-        "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg"
+        "mecanicien-des-machines-de-construction-en-genie-civil-special-strabag-bmti-gmbh-rothenburg",
+        "baumaschinenmechaniker-in-spezialtiefbau-strabag-rothenburg"
       ]
     },
     {
       "id": "strabag-a0763fe471b5",
-      "slug": "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
+      "slug": "costruzione-macchine-riparazione-officina-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
       "slugByLocale": {
-        "it": "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
-        "en": "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
+        "it": "costruzione-macchine-riparazione-officina-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
+        "en": "construction-machinery-repair-workshop-manager-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1",
         "de": "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
-        "fr": "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1"
+        "fr": "gestionnaire-d-atelier-de-reparation-de-machines-de-construction-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
       },
       "company": "Strabag BMTI GmbH",
       "companyKey": "strabag",
@@ -225,10 +225,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1"
+        "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
+        "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1",
+          "werkstattleitung-per-baumaschinenreparatur-strabag-bmti-gmbh-ch-8315-lindau-rigacher-1"
+        ],
+        "en": [
+          "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1"
+        ],
+        "fr": [
           "werkstattleitung-fur-baumaschinenreparatur-strabag-ch-8315-lindau-rigacher-1"
         ]
       },
@@ -864,13 +872,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
-        "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
+        "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
-          "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
+          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
         ]
       },
       "firstSeenAt": "2026-09-03T13:48:59.915Z",
@@ -939,13 +945,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-        "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
+        "polier-in-tiefbau-und-strassenbau-strabag-subingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-          "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:48:59.561Z",
@@ -1015,8 +1019,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-ingenieurbau-strabag-erstfeld",
-          "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
+          "projektleiter-in-ingenieurbau-strabag-erstfeld"
         ],
         "en": [
           "projektleiter-in-ingenieurbau-strabag-erstfeld"
@@ -1026,8 +1029,7 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-ingenieurbau-strabag-erstfeld",
-        "responsabile-di-progetto-ingegneria-civile-strabag-ag-erstfeld"
+        "projektleiter-in-ingenieurbau-strabag-erstfeld"
       ],
       "salaryMin": 107000,
       "salaryMax": 162500,

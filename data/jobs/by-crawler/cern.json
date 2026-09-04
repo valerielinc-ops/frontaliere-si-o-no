@@ -134,7 +134,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
-        "programma-di-fellowship-postdoc-di-stato-non-membro-fisica-teorica-cern-geneva-ge-switzerland",
         "associati-corrispondenti-alla-fisica-teorica-cern-geneva-ge-switzerland",
         "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland",
         "entsprechende-assoziation-in-der-theoretischen-physik-cern-geneva-ge-switzerland",
@@ -143,7 +142,6 @@
       "previousSlugsByLocale": {
         "it": [
           "non-member-state-postdoc-fellowship-programme-theoretical-physics-cern-geneva-ge",
-          "programma-di-fellowship-postdoc-di-stato-non-membro-fisica-teorica-cern-geneva-ge-switzerland",
           "associati-corrispondenti-alla-fisica-teorica-cern-geneva-ge-switzerland",
           "corresponding-associateship-in-theoretical-physics-cern-geneva-ge-switzerland",
           "entsprechende-assoziation-in-der-theoretischen-physik-cern-geneva-ge-switzerland",
@@ -2604,11 +2602,11 @@
     },
     {
       "id": "cern-90b6e014e642",
-      "slug": "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
+      "slug": "medico-sperimentale-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
       "slugByLocale": {
-        "it": "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
+        "it": "medico-sperimentale-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
         "en": "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
-        "de": "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
+        "de": "experimentalphysiker-ep-di-2026-29-ld-cern-geneva-geneva-switzerland",
         "fr": "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
@@ -2666,7 +2664,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland"
+        ],
+        "de": [
+          "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "experimental-physicist-ep-di-2026-29-ld-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-398b2444c3ed",

@@ -1907,12 +1907,12 @@
     },
     {
       "id": "claraspital-e2d444802ffc",
-      "slug": "sachbearbeiter-in-gebaudemanagement-claraspital-basel",
+      "slug": "gestione-del-personale-edilizia-st-claraspital-basel",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-gebaudemanagement-claraspital-basel",
-        "en": "sachbearbeiter-in-gebaudemanagement-claraspital-basel",
+        "it": "gestione-del-personale-edilizia-st-claraspital-basel",
+        "en": "personnel-building-management-st-claraspital-basel",
         "de": "sachbearbeiter-in-gebaudemanagement-claraspital-basel",
-        "fr": "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
+        "fr": "gestion-du-personnel-et-du-batiment-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1955,21 +1955,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestione-del-personale-edilizia-st-claraspital-basel",
         "personnel-building-management-st-claraspital-basel",
-        "gestion-du-personnel-et-du-batiment-st-claraspital-basel"
+        "gestion-du-personnel-et-du-batiment-st-claraspital-basel",
+        "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestione-del-personale-edilizia-st-claraspital-basel",
           "personnel-building-management-st-claraspital-basel",
-          "gestion-du-personnel-et-du-batiment-st-claraspital-basel"
+          "gestion-du-personnel-et-du-batiment-st-claraspital-basel",
+          "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
         ],
         "en": [
-          "personnel-building-management-st-claraspital-basel"
+          "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
         ],
         "fr": [
-          "gestion-du-personnel-et-du-batiment-st-claraspital-basel"
+          "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
         ]
       },
       "firstSeenAt": "2026-08-31T17:31:27.780Z",
@@ -1989,12 +1989,12 @@
     },
     {
       "id": "claraspital-b442f4260fe6",
-      "slug": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
+      "slug": "capo-di-infrastructure-building-management-st-claraspital-basel",
       "slugByLocale": {
         "de": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-        "it": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
-        "en": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
-        "fr": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel"
+        "it": "capo-di-infrastructure-building-management-st-claraspital-basel",
+        "en": "head-of-infrastructure-building-management-st-claraspital-basel",
+        "fr": "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -2044,13 +2044,16 @@
           "head-of-infrastructural-facility-management-st-claraspital-basel",
           "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel",
           "head-of-infrastructure-management-st-claraspital-basel",
-          "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+          "chef-de-la-gestion-des-infrastructures-st-claraspital-basel",
+          "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
         ],
         "en": [
-          "head-of-infrastructural-facility-management-st-claraspital-basel"
+          "head-of-infrastructural-facility-management-st-claraspital-basel",
+          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel"
         ],
         "fr": [
-          "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel"
+          "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel",
+          "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel"
         ]
       },
       "previousSlugs": [
@@ -2058,7 +2061,8 @@
         "head-of-infrastructural-facility-management-st-claraspital-basel",
         "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel",
         "head-of-infrastructure-management-st-claraspital-basel",
-        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel",
+        "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,

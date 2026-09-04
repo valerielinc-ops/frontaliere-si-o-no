@@ -652,13 +652,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
-        "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich"
+        "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
-          "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich"
+          "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:46.593Z",
@@ -756,12 +754,12 @@
     },
     {
       "id": "schulthess-klinik-cfb3673d44c7",
-      "slug": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
+      "slug": "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik",
       "slugByLocale": {
         "de": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
-        "it": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
-        "en": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation",
-        "fr": "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        "it": "infermiera-con-una-prospettiva-di-sviluppo-per-la-responsabilita-professionale-sulla-stazione-di-letto-schulthess-klinik",
+        "en": "nurse-with-a-development-perspective-for-professional-responsibility-on-the-bed-station-schulthess-klinik-lengghalde-2",
+        "fr": "infirmiere-ayant-une-perspective-de-developpement-pour-la-responsabilite-professionnelle-au-poste-de-lit-schulthess"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -818,7 +816,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:10:03.612Z"
+      "firstSeenAt": "2026-09-03T23:10:03.612Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        ],
+        "en": [
+          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        ],
+        "fr": [
+          "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation"
+      ]
     },
     {
       "id": "schulthess-klinik-f226253b6361",

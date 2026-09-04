@@ -1121,11 +1121,11 @@
     },
     {
       "id": "ehnv-06f46908f429",
-      "slug": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
+      "slug": "80-cornice-di-prossimita-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
       "slugByLocale": {
-        "it": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
-        "en": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
-        "de": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains",
+        "it": "80-cornice-di-prossimita-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "en": "80-proximity-frame-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
+        "de": "80-naherungsrahmen-etab-hospitaliers-du-nord-vaudois-ehnv-yverdon-les-bains",
         "fr": "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1182,7 +1182,21 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ],
+        "en": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ],
+        "de": [
+          "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-cadre-de-proximite-a-80-ehnv-yverdon-les-bains"
+      ]
     },
     {
       "id": "ehnv-6b8022a603f8",
@@ -1650,11 +1664,11 @@
     },
     {
       "id": "ehnv-11eb6368b90d",
-      "slug": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement",
+      "slug": "un-esperto-di-qualita-e-sicurezza-responsabile-della-materializzazione-e-dello-sviluppo-di-qualita-per-piattaforme",
       "slugByLocale": {
-        "it": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement",
-        "en": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement",
-        "de": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement",
+        "it": "un-esperto-di-qualita-e-sicurezza-responsabile-della-materializzazione-e-dello-sviluppo-di-qualita-per-piattaforme",
+        "en": "an-expert-in-quality-and-safety-responsible-for-materialisation-and-quality-development-for-technical-platforms",
+        "de": "ein-experte-fur-qualitat-und-sicherheit-verantwortlich-fur-materialisierung-und-qualitatsentwicklung-fur-technische",
         "fr": "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
       },
       "company": "Étab. Hospitaliers du Nord Vaudois (eHnv)",
@@ -1711,7 +1725,21 @@
           "maxValue": 64500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ],
+        "en": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ],
+        "de": [
+          "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-expert-e-qualite-et-securite-responsable-de-la-materiovigilance-et-du-developpement"
+      ]
     }
   ]
 }

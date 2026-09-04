@@ -53,13 +53,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistent-in-gesundheit-soziales-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "assistente-in-salute-social-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
         "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-gesundheit-soziales-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-          "assistente-in-salute-social-m-f-d-gesundheitszentrum-fricktal-rheinfelden",
           "assistent-in-gesundheit-e-soziales-ags-o-pflegeassistent-in-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
         ],
         "en": [
@@ -674,12 +672,12 @@
     },
     {
       "id": "gesundheitszentrum-fricktal-3c84488378bc",
-      "slug": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
+      "slug": "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
-        "it": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
-        "en": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2",
-        "fr": "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        "it": "dipl-cura-professionale-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
+        "en": "dipl-care-professional-hf-m-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0",
+        "fr": "dipl-soins-professionnels-hf-h-f-d-gesundheitszentrum-fricktal-rheinfelden-ed6af0"
       },
       "company": "Gesundheitszentrum Fricktal",
       "companyKey": "gesundheitszentrum-fricktal",
@@ -738,11 +736,19 @@
       "firstSeenAt": "2026-09-03T23:12:17.881Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden"
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden",
+        "dipl-pflegefachperson-hf-m-w-d-gesundheitszentrum-fricktal-rheinfelden-2"
       ]
     },
     {

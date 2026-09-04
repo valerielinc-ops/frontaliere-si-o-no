@@ -28094,7 +28094,7 @@
     },
     {
       "id": "company-lx816k",
-      "slug": "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn-lx816k",
+      "slug": "consulente-commerciale-nel-tessile-coop-genossenschaft-olten-solothurn",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Textil",
       "location": "Olten, Solothurn",
@@ -28126,7 +28126,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn-lx816k",
+        "it": "consulente-commerciale-nel-tessile-coop-genossenschaft-olten-solothurn",
         "en": "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k",
         "de": "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k",
         "fr": "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
@@ -28149,7 +28149,8 @@
         "it": [
           "verkaufsberater-in-textil-coop-genossenschaft-olten-nj1rmz",
           "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn",
-          "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
+          "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k",
+          "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn-lx816k"
         ],
         "de": [
           "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
@@ -28158,7 +28159,8 @@
       "previousSlugs": [
         "verkaufsberater-in-textil-coop-genossenschaft-olten-nj1rmz",
         "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn",
-        "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k"
+        "verkaufsberater-in-textil-coop-city-olten-solothurn-lx816k",
+        "verkaufsberater-in-textil-coop-genossenschaft-olten-solothurn-lx816k"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -28463,7 +28465,7 @@
     },
     {
       "id": "company-ycnlu6",
-      "slug": "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-meilen-zurich",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Meilen, Zürich",
@@ -28506,10 +28508,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-meilen-zurich",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-meilen-zurich",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-meilen-zurich"
       },
       "addressLocality": "Meilen",
       "sourceLang": "de",
@@ -28531,11 +28533,19 @@
         "canton": "ZH"
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich"
+        "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich",
+        "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich"
+          "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich",
+          "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-genossenschaft-meilen-zurich-ycnlu6"
         ]
       },
       "salarySource": "estimated",
@@ -29018,7 +29028,7 @@
     },
     {
       "id": "company-f972x9",
-      "slug": "verkaufer-in-kassen-services-coop-basel-stadt-f972x9",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Basel, Basel-Stadt",
@@ -29066,10 +29076,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-basel-stadt-f972x9",
-        "en": "verkaufer-in-kassen-services-coop-basel-stadt-f972x9",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-basel-basel-stadt",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-basel-basel-stadt",
         "de": "verkaufer-in-kassen-services-coop-basel-stadt-f972x9",
-        "fr": "verkaufer-in-kassen-services-coop-basel-stadt-f972x9"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-basel-basel-stadt"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -29086,11 +29096,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-basel-stadt"
+        "verkaufer-in-kassen-services-coop-basel-stadt",
+        "verkaufer-in-kassen-services-coop-basel-stadt-f972x9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-basel-stadt"
+          "verkaufer-in-kassen-services-coop-basel-stadt",
+          "verkaufer-in-kassen-services-coop-basel-stadt-f972x9"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-basel-stadt-f972x9"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-basel-stadt-f972x9"
         ]
       },
       "salarySource": "estimated",
@@ -29336,7 +29354,7 @@
     },
     {
       "id": "company-tg52jf",
-      "slug": "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-burgdorf-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Burgdorf, Bern",
@@ -29384,10 +29402,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf",
-        "en": "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-burgdorf-bern",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-burgdorf-bern",
         "de": "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf",
-        "fr": "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-burgdorf-bern"
       },
       "addressLocality": "Burgdorf",
       "sourceLang": "de",
@@ -29404,11 +29422,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-burgdorf-bern"
+        "verkaufer-in-kassen-services-coop-burgdorf-bern",
+        "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-burgdorf-bern"
+          "verkaufer-in-kassen-services-coop-burgdorf-bern",
+          "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-burgdorf-bern-tg52jf"
         ]
       },
       "salarySource": "estimated",
@@ -29417,7 +29443,7 @@
     },
     {
       "id": "company-lohsy9",
-      "slug": "verkaufer-in-kassen-services-coop-interlaken-bern-lohsy9",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-interlaken-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Interlaken, Bern",
@@ -29465,7 +29491,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-interlaken-bern-lohsy9",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-interlaken-bern",
         "en": "verkaufer-in-kassen-services-coop-genossenschaft-interlaken-lohsy9",
         "de": "verkaufer-in-kassen-services-coop-interlaken-bern-lohsy9",
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-interlaken-lohsy9"
@@ -29486,7 +29512,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-interlaken-bern"
+          "verkaufer-in-kassen-services-coop-interlaken-bern",
+          "verkaufer-in-kassen-services-coop-interlaken-bern-lohsy9"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-genossenschaft-interlaken-lohsy9"
@@ -29494,7 +29521,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-interlaken-lohsy9",
-        "verkaufer-in-kassen-services-coop-interlaken-bern"
+        "verkaufer-in-kassen-services-coop-interlaken-bern",
+        "verkaufer-in-kassen-services-coop-interlaken-bern-lohsy9"
       ],
       "salarySource": "estimated",
       "salaryMin": 68500,
@@ -29847,7 +29875,7 @@
     },
     {
       "id": "company-pwcwh9",
-      "slug": "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-schenkon-luzern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Schenkon, Luzern",
@@ -29895,10 +29923,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9",
-        "en": "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-schenkon-luzern",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-schenkon-luzern",
         "de": "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9",
-        "fr": "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-schenkon-luzern"
       },
       "addressLocality": "Schenkon",
       "sourceLang": "de",
@@ -29915,11 +29943,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-schenkon-luzern"
+        "verkaufer-in-kassen-services-coop-schenkon-luzern",
+        "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-schenkon-luzern"
+          "verkaufer-in-kassen-services-coop-schenkon-luzern",
+          "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-schenkon-luzern-pwcwh9"
         ]
       },
       "salarySource": "estimated",
@@ -29928,7 +29964,7 @@
     },
     {
       "id": "company-cohzgo",
-      "slug": "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-unterageri-zug",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Unterägeri, Zug",
@@ -29976,10 +30012,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo",
-        "en": "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-unterageri-zug",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-unterageri-zug",
         "de": "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo",
-        "fr": "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-unterageri-zug"
       },
       "addressLocality": "Unterägeri",
       "sourceLang": "de",
@@ -29996,11 +30032,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-unterageri-zug"
+        "verkaufer-in-kassen-services-coop-unterageri-zug",
+        "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-unterageri-zug"
+          "verkaufer-in-kassen-services-coop-unterageri-zug",
+          "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-unterageri-zug-cohzgo"
         ]
       },
       "salarySource": "estimated",
@@ -30274,7 +30318,7 @@
     },
     {
       "id": "company-h8cjm0",
-      "slug": "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0",
+      "slug": "venditore-in-food-coop-genossenschaft-spreitenbach-aargau",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food",
       "location": "Spreitenbach, Aargau",
@@ -30320,10 +30364,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0",
-        "en": "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0",
+        "it": "venditore-in-food-coop-genossenschaft-spreitenbach-aargau",
+        "en": "seller-in-food-coop-genossenschaft-spreitenbach-aargau",
         "de": "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0",
-        "fr": "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0"
+        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-spreitenbach-aargau"
       },
       "addressLocality": "Spreitenbach",
       "sourceLang": "de",
@@ -30345,16 +30389,19 @@
           "verkaufer-in-food-coop-spreitenbach-aargau-gyhvr4",
           "sales-associate-food-coop-genossenschaft-spreitenbach-gyhvr4",
           "vendeur-vendeuse-food-coop-genossenschaft-spreitenbach-gyhvr4",
-          "verkaufer-in-food-coop-spreitenbach-aargau"
+          "verkaufer-in-food-coop-spreitenbach-aargau",
+          "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0"
         ],
         "en": [
-          "sales-associate-food-coop-genossenschaft-spreitenbach-gyhvr4"
+          "sales-associate-food-coop-genossenschaft-spreitenbach-gyhvr4",
+          "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0"
         ],
         "de": [
           "verkaufer-in-food-coop-spreitenbach-aargau-gyhvr4"
         ],
         "fr": [
-          "vendeur-vendeuse-food-coop-genossenschaft-spreitenbach-gyhvr4"
+          "vendeur-vendeuse-food-coop-genossenschaft-spreitenbach-gyhvr4",
+          "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0"
         ]
       },
       "previousSlugs": [
@@ -30362,7 +30409,8 @@
         "verkaufer-in-food-coop-spreitenbach-aargau-gyhvr4",
         "sales-associate-food-coop-genossenschaft-spreitenbach-gyhvr4",
         "vendeur-vendeuse-food-coop-genossenschaft-spreitenbach-gyhvr4",
-        "verkaufer-in-food-coop-spreitenbach-aargau"
+        "verkaufer-in-food-coop-spreitenbach-aargau",
+        "verkaufer-in-food-coop-spreitenbach-aargau-h8cjm0"
       ],
       "salarySource": "estimated",
       "salaryMin": 62000,
@@ -30454,7 +30502,7 @@
     },
     {
       "id": "company-u252id",
-      "slug": "verkaufer-in-kassen-services-coop-belp-bern-u252id",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-belp-bern",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Belp, Bern",
@@ -30502,10 +30550,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-belp-bern-u252id",
-        "en": "verkaufer-in-kassen-services-coop-belp-bern-u252id",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-belp-bern",
+        "en": "seller-in-cash-registers-services-coop-genossenschaft-belp-bern",
         "de": "verkaufer-in-kassen-services-coop-belp-bern-u252id",
-        "fr": "verkaufer-in-kassen-services-coop-belp-bern-u252id"
+        "fr": "vendeur-dans-les-caisses-enregistreuses-services-coop-genossenschaft-belp-bern"
       },
       "addressLocality": "Belp",
       "sourceLang": "de",
@@ -30522,11 +30570,19 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-belp-bern"
+        "verkaufer-in-kassen-services-coop-belp-bern",
+        "verkaufer-in-kassen-services-coop-belp-bern-u252id"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-belp-bern"
+          "verkaufer-in-kassen-services-coop-belp-bern",
+          "verkaufer-in-kassen-services-coop-belp-bern-u252id"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-coop-belp-bern-u252id"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-coop-belp-bern-u252id"
         ]
       },
       "salarySource": "estimated",
@@ -30790,7 +30846,7 @@
     },
     {
       "id": "company-idmrv8",
-      "slug": "verkaufer-in-food-getranke-coop-hergiswil-nidwalden",
+      "slug": "venditore-in-food-bevande-coop-genossenschaft-hergiswil-nidwalden",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Food (Getränke)",
       "location": "Hergiswil, Nidwalden",
@@ -30836,10 +30892,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8",
-        "en": "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8",
+        "it": "venditore-in-food-bevande-coop-genossenschaft-hergiswil-nidwalden",
+        "en": "seller-in-food-drinks-coop-genossenschaft-hergiswil-nidwalden",
         "de": "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8",
-        "fr": "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8"
+        "fr": "vendeur-dans-la-nourriture-boissons-coop-genossenschaft-hergiswil-nidwalden"
       },
       "addressLocality": "Hergiswil",
       "sourceLang": "de",
@@ -30857,7 +30913,23 @@
       },
       "salarySource": "estimated",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8",
+          "verkaufer-in-food-getranke-coop-hergiswil-nidwalden"
+        ],
+        "en": [
+          "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8"
+        ],
+        "fr": [
+          "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-getranke-coop-hergiswil-nidwalden-idmrv8",
+        "verkaufer-in-food-getranke-coop-hergiswil-nidwalden"
+      ]
     },
     {
       "id": "company-x6nbnd",
@@ -30944,7 +31016,7 @@
     },
     {
       "id": "company-pwdw92",
-      "slug": "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-pwdw92",
+      "slug": "venditore-in-cassa-servizi-coop-genossenschaft-risch-rotkreuz-zug",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Risch-Rotkreuz, Zug",
@@ -30992,7 +31064,7 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-pwdw92",
+        "it": "venditore-in-cassa-servizi-coop-genossenschaft-risch-rotkreuz-zug",
         "en": "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-pwdw92",
         "de": "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-pwdw92",
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-pwdw92"
@@ -31013,7 +31085,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug"
+          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug",
+          "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-pwdw92"
         ],
         "de": [
           "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-pwdw92"
@@ -31021,7 +31094,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-kassen-services-coop-genossenschaft-risch-rotkreuz-pwdw92",
-        "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug"
+        "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug",
+        "verkaufer-in-kassen-services-coop-risch-rotkreuz-zug-pwdw92"
       ],
       "salarySource": "estimated",
       "salaryMin": 69500,
@@ -31840,7 +31914,7 @@
       },
       "slugByLocale": {
         "it": "cuoca-cuoco-coop-genossenschaft-winterthur-zurich",
-        "en": "kochin-koch-m-w-d-coop-winterthur-zurich-0je6ow",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-winterthur-zurich-829816",
         "de": "kochin-koch-m-w-d-coop-winterthur-zurich-0je6ow",
         "fr": "cuisinier-cuisiniere-coop-genossenschaft-winterthur-zurich"
       },
@@ -31867,6 +31941,9 @@
           "kochin-koch-m-w-d-coop-winterthur-zurich-0je6ow"
         ],
         "fr": [
+          "kochin-koch-m-w-d-coop-winterthur-zurich-0je6ow"
+        ],
+        "en": [
           "kochin-koch-m-w-d-coop-winterthur-zurich-0je6ow"
         ]
       },
@@ -32316,7 +32393,7 @@
     },
     {
       "id": "company-3ipx3o",
-      "slug": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o",
+      "slug": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-baden-aargau",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Hartwaren",
       "location": "Baden, Aargau",
@@ -32353,10 +32430,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o",
-        "en": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o",
+        "it": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-baden-aargau",
+        "en": "sales-consultant-in-hard-goods-coop-genossenschaft-baden-aargau",
         "de": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o",
-        "fr": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
+        "fr": "consultant-en-ventes-en-marchandises-dures-coop-genossenschaft-baden-aargau"
       },
       "addressLocality": "Baden",
       "sourceLang": "de",
@@ -32374,12 +32451,20 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
-        "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o"
+        "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o",
+        "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
-          "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o"
+          "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-3ipx3o",
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
+        ],
+        "en": [
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
+        ],
+        "fr": [
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-3ipx3o"
         ]
       },
       "salarySource": "estimated",
@@ -32388,7 +32473,7 @@
     },
     {
       "id": "company-4zrjy9",
-      "slug": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9",
+      "slug": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-baden-aargau-2a568d",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Hartwaren",
       "location": "Baden, Aargau",
@@ -32425,10 +32510,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9",
-        "en": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9",
+        "it": "consulente-di-vendita-in-beni-duri-coop-genossenschaft-baden-aargau-2a568d",
+        "en": "sales-consultant-in-hard-goods-coop-genossenschaft-baden-aargau-2a568d",
         "de": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9",
-        "fr": "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9"
+        "fr": "consultant-en-ventes-en-marchandises-dures-coop-genossenschaft-baden-aargau-2a568d"
       },
       "addressLocality": "Baden",
       "sourceLang": "de",
@@ -32449,7 +32534,8 @@
         "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-4zrjy9",
         "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-2",
         "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau",
-        "verkaufsberater-in-hartwaren-coop-city-baden-aargau"
+        "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
+        "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -32457,7 +32543,14 @@
           "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-4zrjy9",
           "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau-2",
           "verkaufsberater-in-hartwaren-coop-genossenschaft-baden-aargau",
-          "verkaufsberater-in-hartwaren-coop-city-baden-aargau"
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau",
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9"
+        ],
+        "en": [
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9"
+        ],
+        "fr": [
+          "verkaufsberater-in-hartwaren-coop-city-baden-aargau-4zrjy9"
         ]
       },
       "salarySource": "estimated",
@@ -32466,7 +32559,7 @@
     },
     {
       "id": "company-6606l3",
-      "slug": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3",
+      "slug": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Verkaufsberater:in Kosmetik",
       "location": "St. Gallen, Sankt Gallen",
@@ -32503,10 +32596,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3",
-        "en": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3",
+        "it": "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-sankt-gallen",
+        "en": "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-sankt-gallen",
         "de": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3",
-        "fr": "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3"
+        "fr": "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen"
       },
       "addressLocality": "St. Gallen",
       "sourceLang": "de",
@@ -32524,7 +32617,6 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen",
-        "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-sankt-gallen",
         "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-dqkmwm",
         "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-dqkmwm",
         "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen",
@@ -32532,12 +32624,12 @@
         "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen",
         "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-e49af9",
         "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-e49af9",
-        "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-e49af9"
+        "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-e49af9",
+        "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen",
-          "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-sankt-gallen",
           "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-dqkmwm",
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-dqkmwm",
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen",
@@ -32545,13 +32637,18 @@
           "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-sankt-gallen",
           "consulente-di-vendita-in-cosmetici-coop-genossenschaft-st-gallen-e49af9",
           "sales-consultant-in-cosmetics-coop-genossenschaft-st-gallen-e49af9",
-          "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-e49af9"
+          "consultant-commercial-en-cosmetique-coop-genossenschaft-st-gallen-e49af9",
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3"
         ],
         "en": [
-          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-dqkmwm"
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-dqkmwm",
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3"
         ],
         "de": [
           "verkaufsberater-in-kosmetik-coop-genossenschaft-st-gallen-sankt-gallen-dqkmwm"
+        ],
+        "fr": [
+          "verkaufsberater-in-kosmetik-coop-city-st-gallen-sankt-gallen-6606l3"
         ]
       },
       "salarySource": "estimated",
@@ -32685,9 +32782,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-frischprodukte-brot-e-backwaren-coop-winterthur-zurich-pd3jjg",
-        "en": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg",
+        "en": "seller-in-fresh-products-bread-and-bakery-products-coop-genossenschaft-winterthur-zurich",
         "de": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg",
-        "fr": "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg"
+        "fr": "vendeur-en-produits-frais-pain-et-produits-de-boulangerie-coop-genossenschaft-winterthur-zurich"
       },
       "needsRetranslation": true,
       "addressLocality": "Winterthur",
@@ -32727,7 +32824,8 @@
         ],
         "en": [
           "sales-assistant-fresh-products-bread-and-bakery-coop-genossenschaft-winterthur",
-          "seller-in-fresh-products-bread-and-baked-goods-coop-genossenschaft-winterthur"
+          "seller-in-fresh-products-bread-and-baked-goods-coop-genossenschaft-winterthur",
+          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg"
         ],
         "de": [
           "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-224xqs",
@@ -32735,7 +32833,8 @@
         ],
         "fr": [
           "vendeur-euse-produits-frais-pain-et-patisserie-coop-genossenschaft-winterthur",
-          "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-winterthur"
+          "vendeur-en-produits-frais-pain-et-patisserie-coop-genossenschaft-winterthur",
+          "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg"
         ]
       },
       "previousSlugs": [
@@ -32757,7 +32856,8 @@
         "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-bv59t8",
         "verkaufer-in-frischprodukte-brot-e-backwaren-coop-winterthur-zurich-bv59t8",
         "employe-e-de-vente-produits-frais-pain-et-viennoiseries-coop-genossenschaft-winterthur",
-        "salesperson-fresh-products-bread-and-bakery-coop-genossenschaft-winterthur"
+        "salesperson-fresh-products-bread-and-bakery-coop-genossenschaft-winterthur",
+        "verkaufer-in-frischprodukte-brot-und-backwaren-coop-winterthur-zurich-pd3jjg"
       ],
       "salarySource": "estimated",
       "salaryMin": 73500,
@@ -40306,7 +40406,7 @@
     },
     {
       "id": "company-8nmug2",
-      "slug": "collaboratore-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2",
+      "slug": "dipendenti-nel-servizio-di-sicurezza-coop-genossenschaft-gossau-sankt-gallen",
       "company": "Coop Genossenschaft",
       "title": "Mitarbeiter:in Sicherheitsdienst Support",
       "location": "Gossau, Sankt Gallen",
@@ -40349,10 +40449,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2",
+        "it": "dipendenti-nel-servizio-di-sicurezza-coop-genossenschaft-gossau-sankt-gallen",
         "en": "associate-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2",
         "de": "mitarbeiter-in-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2",
-        "fr": "collaborateur-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2"
+        "fr": "employes-dans-l-appui-aux-services-de-securite-coop-genossenschaft-gossau-sankt-gallen"
       },
       "needsRetranslation": true,
       "addressLocality": "Gossau",
@@ -40375,12 +40475,18 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen",
-        "mitarbeiter-in-sicherheitsdienst-support-coop-gossau-sankt-gallen"
+        "mitarbeiter-in-sicherheitsdienst-support-coop-gossau-sankt-gallen",
+        "collaboratore-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2",
+        "collaborateur-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen",
-          "mitarbeiter-in-sicherheitsdienst-support-coop-gossau-sankt-gallen"
+          "mitarbeiter-in-sicherheitsdienst-support-coop-gossau-sankt-gallen",
+          "collaboratore-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2"
+        ],
+        "fr": [
+          "collaborateur-trice-sicherheitsdienst-support-coop-genossenschaft-gossau-sankt-gallen-8nmug2"
         ]
       },
       "salarySource": "estimated",
@@ -87111,7 +87217,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "cucinare-cucinare-f-m-d-coop-genossenschaft-rickenbach",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
         "de": "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
         "fr": "cuire-cuire-f-m-d-coop-genossenschaft-rickenbach"
       },
@@ -87147,7 +87253,7 @@
         "en": [
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
           "cook-cook-f-m-d-coop-genossenschaft-rickenbach",
-          "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau"
+          "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6"
@@ -87157,8 +87263,8 @@
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau-rb7ga6",
         "kochin-koch-m-w-d-coop-genossenschaft-rickenbach-thurgau",
         "cook-cook-f-m-d-coop-genossenschaft-rickenbach",
-        "chef-chef-m-f-d-coop-genossenschaft-rickenbach-thurgau",
-        "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau"
+        "kochin-koch-m-w-d-coop-ristorante-rickenbach-thurgau",
+        "kochin-koch-w-m-d-coop-genossenschaft-rickenbach-thurgau"
       ],
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -95481,7 +95587,7 @@
         "it": "magaziner-in-vendita-coop-wohlen-aargau-0lgt3d",
         "en": "magaziner-in-sales-coop-wohlen-aargau-0lgt3d",
         "de": "magaziner-in-verkauf-coop-wohlen-aargau-0lgt3d",
-        "fr": "magaziner-in-vente-coop-wohlen-aargau-0lgt3d"
+        "fr": "magasin-en-vente-coop-genossenschaft-wohlen-aargau"
       },
       "addressLocality": "Wohlen",
       "sourceLang": "de",
@@ -95503,11 +95609,15 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "previousSlugs": [
-        "magaziner-in-verkauf-coop-wohlen-aargau"
+        "magaziner-in-verkauf-coop-wohlen-aargau",
+        "magaziner-in-vente-coop-wohlen-aargau-0lgt3d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "magaziner-in-verkauf-coop-wohlen-aargau"
+        ],
+        "fr": [
+          "magaziner-in-vente-coop-wohlen-aargau-0lgt3d"
         ]
       }
     },

@@ -70,9 +70,9 @@
       "slug": "operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f-csvp-poschiavo",
       "slugByLocale": {
         "it": "operatore-sociosanitario-fage-o-addetto-alle-cure-sociosanitarie-m-f-csvp-poschiavo",
-        "en": "operatore-sociosanitario-fage-o-associate-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "de": "operatore-sociosanitario-fage-o-mitarbeiter-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
-        "fr": "operatore-sociosanitario-fage-o-prepose-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        "en": "socio-sanitary-practitioner-fage-or-health-care-assistant-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "de": "heilpraktiker-fage-oder-gesundheitsassistent-m-w-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "fr": "praticien-socio-sanitaire-fage-ou-assistant-de-soins-de-sante-h-f-centro-sanitario-valposchiavo-csvp-poschiavo"
       },
       "company": "Centro Sanitario Valposchiavo (CSVP)",
       "companyKey": "csvp-poschiavo",
@@ -127,7 +127,23 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "en": [
+          "operatore-sociosanitario-fage-o-associate-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "de": [
+          "operatore-sociosanitario-fage-o-mitarbeiter-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ],
+        "fr": [
+          "operatore-sociosanitario-fage-o-prepose-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+        ]
+      },
+      "previousSlugs": [
+        "operatore-sociosanitario-fage-o-associate-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "operatore-sociosanitario-fage-o-mitarbeiter-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo",
+        "operatore-sociosanitario-fage-o-prepose-alle-cure-sociosanitarie-m-f-centro-sanitario-valposchiavo-csvp-poschiavo"
+      ]
     }
   ]
 }

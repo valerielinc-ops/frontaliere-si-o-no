@@ -2095,8 +2095,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
         "it": "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-dietikon",
-        "en": "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
-        "fr": "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
+        "en": "mitarbeiterin-sales-associate-metzgerei-transgourmet-dietikon",
+        "fr": "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -2166,10 +2166,12 @@
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon-2"
         ],
         "en": [
-          "mitarbeiterin-sales-associate-metzgerei-transgourmet-dietikon"
+          "mitarbeiterin-sales-associate-metzgerei-transgourmet-dietikon",
+          "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
         ],
         "fr": [
-          "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon"
+          "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon",
+          "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
         ]
       },
       "previousSlugs": [

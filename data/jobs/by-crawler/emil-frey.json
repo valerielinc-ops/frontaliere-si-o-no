@@ -4732,11 +4732,11 @@
     },
     {
       "id": "emil-frey-076877a20310",
-      "slug": "collaborateur-disposition-administration-emil-frey-marly",
+      "slug": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
       "slugByLocale": {
-        "it": "collaborateur-disposition-administration-emil-frey-marly",
-        "en": "collaborateur-disposition-administration-emil-frey-marly",
-        "de": "collaborateur-disposition-administration-emil-frey-marly",
+        "it": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
+        "en": "collaborator-arrangement-administration-emil-frey-marly",
+        "de": "zusammenarbeitsvereinbarung-verwaltung-emil-frey-marly",
         "fr": "collaborateur-disposition-administration-emil-frey-marly"
       },
       "company": "Emil Frey",
@@ -4792,7 +4792,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-disposition-administration-emil-frey-marly"
+        ],
+        "en": [
+          "collaborateur-disposition-administration-emil-frey-marly"
+        ],
+        "de": [
+          "collaborateur-disposition-administration-emil-frey-marly"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-disposition-administration-emil-frey-marly"
+      ]
     },
     {
       "id": "emil-frey-bdfd53b5c297",
@@ -5765,8 +5779,7 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-warenausgang-emil-frey-safenwil",
-          "impiegato-a-in-logistica-warenausgang-emil-frey-safenwil"
+          "logistiker-in-warenausgang-emil-frey-safenwil"
         ],
         "en": [
           "logistiker-in-warenausgang-emil-frey-safenwil"
@@ -5776,10 +5789,7 @@
         ]
       },
       "previousSlugs": [
-        "logistiker-in-warenausgang-emil-frey-safenwil",
-        "logistics-coordinator-emil-frey-safenwil",
-        "logisticien-logisticienne-sortie-marchandises-emil-frey-safenwil",
-        "impiegato-a-in-logistica-warenausgang-emil-frey-safenwil"
+        "logistiker-in-warenausgang-emil-frey-safenwil"
       ],
       "needsRetranslation": true,
       "salaryMin": 62000,

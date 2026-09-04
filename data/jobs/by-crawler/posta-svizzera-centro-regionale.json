@@ -302,12 +302,12 @@
         "en": "Delivery: in evening packages",
         "fr": "Livraison: en colis du soir"
       },
-      "slug": "zusteller-in-abend-pakete-post",
+      "slug": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
       "slugByLocale": {
-        "it": "zusteller-in-abend-pakete-post",
-        "en": "zusteller-in-abend-pakete-post",
+        "it": "consegna-in-pacchetti-serali-die-schweizerische-post-gwatt-thun",
+        "en": "delivery-in-evening-packages-die-schweizerische-post-gwatt-thun",
         "de": "zusteller-in-abend-pakete-post",
-        "fr": "zusteller-in-abend-pakete-post"
+        "fr": "livraison-en-colis-du-soir-die-schweizerische-post-gwatt-thun"
       },
       "sourceLang": "de",
       "department": "",
@@ -342,7 +342,21 @@
       },
       "addressLocality": "Gwatt (Thun)",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-03T13:42:44.898Z"
+      "firstSeenAt": "2026-09-03T13:42:44.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-abend-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-abend-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-abend-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-abend-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Senior-IAM-Spezialistin/74484-de_DE",
@@ -2834,7 +2848,7 @@
         "it": "business-account-manager-in-post",
         "en": "business-account-manager-in-post",
         "de": "business-account-manager-in-post",
-        "fr": "business-account-manager-in-post"
+        "fr": "gestionnaire-de-comptes-d-entreprise-die-schweizerische-post-zurich"
       },
       "sourceLang": "de",
       "department": "",
@@ -3706,8 +3720,7 @@
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-buchs-ag",
-        "zusteller-in-briefe-und-pakete-post-cj56ww"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-buchs-ag"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-449e3d1e4807",
@@ -4282,8 +4295,7 @@
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-xud16u"
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salarySource": "estimated"
     },
@@ -5602,8 +5614,7 @@
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-post-x07u0p"
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "salarySource": "estimated"
     },
@@ -6549,8 +6560,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-6cm90n"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-d967772111f8",
       "salaryMin": 62000,
@@ -11459,9 +11469,9 @@
       "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich",
       "slugByLocale": {
         "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich",
-        "en": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
+        "en": "teaching-as-a-logistician-in-efz-distribution-sorting-center-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
+        "fr": "enseignement-en-tant-que-logisticien-dans-efz-centre-de-tri-de-distribution-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -11501,6 +11511,12 @@
         "it": [
           "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post",
           "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribution-sortierzentrum-die-schweizerische-post-zurich-mulligen"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-sortierzentrum-post"
         ]
       },
       "previousSlugs": [
@@ -14454,12 +14470,12 @@
         "en": "Delivery:in letters and packages",
         "fr": "Livraison:en lettres et en colis"
       },
-      "slug": "zusteller-in-briefe-und-pakete-post",
+      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-aarburg",
       "slugByLocale": {
-        "it": "zusteller-in-briefe-und-pakete-post",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-aarburg",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-aarburg",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-aarburg"
       },
       "sourceLang": "de",
       "department": "",
@@ -14479,11 +14495,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-briefe-und-pakete-post-2"
+          "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-briefe-und-pakete-post-2"
+        "zusteller-in-briefe-und-pakete-post-2",
+        "zusteller-in-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-ac7e6c4bde34",
       "salaryMin": 68500,
@@ -15456,12 +15480,12 @@
         "en": "Teaching as a logistician: mixed delivery (letters and packages) in EFZ Distribution",
         "fr": "Enseignement en tant que logisticien: livraison mixte (lettres et colis) dans EFZ Distribution"
       },
-      "slug": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
       "slugByLocale": {
-        "it": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
+        "en": "teaching-as-a-logistician-mixed-delivery-letters-and-packages-in-efz-distribution-die-schweizerische-post-nanikon",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "enseignement-en-tant-que-logisticien-livraison-mixte-lettres-et-colis-dans-efz-distribution-die-schweizerische-e02c20"
       },
       "sourceLang": "de",
       "department": "",
@@ -15495,7 +15519,21 @@
       },
       "addressLocality": "Nänikon",
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-03T23:23:55.714Z"
+      "firstSeenAt": "2026-09-03T23:23:55.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Lehre-als-Logistikerin-EFZ-Distribution-gemischte-Zustellung-%28Briefe-und-Pakete%29/73911-de_DE",

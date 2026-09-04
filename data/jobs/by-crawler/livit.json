@@ -1180,12 +1180,12 @@
     },
     {
       "id": "livit-4dc9318a1ec6",
-      "slug": "abteilungsleiter-in-digital-business-services-livit-zurich",
+      "slug": "capo-dipartimento-in-servizi-digitali-e-business-livit-ag-zurich",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-digital-business-services-livit-zurich",
+        "it": "capo-dipartimento-in-servizi-digitali-e-business-livit-ag-zurich",
         "en": "abteilungsleiter-in-digital-business-services-livit-zurich",
         "de": "abteilungsleiter-in-digital-business-services-livit-zurich",
-        "fr": "abteilungsleiter-in-digital-business-services-livit-zurich"
+        "fr": "chef-de-departement-services-numeriques-et-aux-entreprises-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -1241,7 +1241,18 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleiter-in-digital-business-services-livit-zurich"
+        ],
+        "fr": [
+          "abteilungsleiter-in-digital-business-services-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleiter-in-digital-business-services-livit-zurich"
+      ]
     },
     {
       "id": "livit-59c89e25aa6c",

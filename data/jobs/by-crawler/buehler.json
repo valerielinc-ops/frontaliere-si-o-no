@@ -6343,12 +6343,12 @@
     },
     {
       "id": "buehler-cdc2c534001a",
-      "slug": "werkstudent-m-w-d-shipping-im-servizio-clienti-buhler-group-alzenau",
+      "slug": "studente-di-lavoro-m-f-d-spedizione-in-servizio-clienti-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "werkstudent-m-w-d-shipping-im-servizio-clienti-buhler-group-alzenau",
+        "it": "studente-di-lavoro-m-f-d-spedizione-in-servizio-clienti-buhler-group-alzenau",
         "en": "werkstudent-m-w-d-shipping-im-customer-service-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-shipping-im-service-client-buhler-group-alzenau"
+        "fr": "etudiante-au-travail-h-f-d-livraison-en-service-a-la-clientele-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6391,14 +6391,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau"
+        "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau",
+        "werkstudent-m-w-d-shipping-im-servizio-clienti-buhler-group-alzenau",
+        "werkstudent-m-w-d-shipping-im-service-client-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau"
+          "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau",
+          "werkstudent-m-w-d-shipping-im-servizio-clienti-buhler-group-alzenau"
         ],
         "fr": [
-          "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau"
+          "werkstudent-m-w-d-shipping-im-customer-service-buehler-alzenau",
+          "werkstudent-m-w-d-shipping-im-service-client-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-05T11:51:24.575Z",
@@ -6502,7 +6506,7 @@
         "it": "tecnologo-m-f-d-prodotti-digitali-e-accordi-di-servizio-buhler-group-alzenau",
         "en": "technologist-m-f-d-digital-products-service-agreements-buhler-group-alzenau",
         "de": "technologist-m-w-d-digital-products-amp-service-agreements-buehler-alzenau",
-        "fr": "technologist-m-w-d-digital-products-service-agreements-buhler-group-alzenau"
+        "fr": "technologue-h-f-d-produits-numeriques-et-accords-de-service-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6548,7 +6552,7 @@
       "previousSlugs": [
         "technologist-m-w-d-digital-products-amp-service-agreements-buehler-alzenau",
         "technologue-m-f-d-produits-numeriques-et-accords-de-services-buhler-group-alzenau",
-        "technologue-h-f-d-produits-numeriques-et-accords-de-service-buhler-group-alzenau"
+        "technologist-m-w-d-digital-products-service-agreements-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6559,7 +6563,7 @@
         ],
         "fr": [
           "technologue-m-f-d-produits-numeriques-et-accords-de-services-buhler-group-alzenau",
-          "technologue-h-f-d-produits-numeriques-et-accords-de-service-buhler-group-alzenau"
+          "technologist-m-w-d-digital-products-service-agreements-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-06T11:45:50.401Z",
@@ -6812,12 +6816,12 @@
     },
     {
       "id": "buehler-96bba09922b7",
-      "slug": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
+      "slug": "funzionale-commissioning-engineer-azienda-proprietario-m-f-d-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
+        "it": "funzionale-commissioning-engineer-azienda-proprietario-m-f-d-buhler-group-alzenau",
         "en": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau",
         "de": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
-        "fr": "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
+        "fr": "ingenieur-de-mise-en-service-fonctionnel-proprietaire-de-l-entreprise-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -6860,11 +6864,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau"
+        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
+        "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau"
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buehler-alzenau",
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
+        ],
+        "fr": [
+          "functional-commissioning-engineer-inbetriebnehmer-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-12T22:06:55.391Z",
@@ -7224,7 +7233,7 @@
         "it": "studente-di-lavoro-m-f-d-progettazione-elettrica-ingegneria-elettrica-buhler-group-alzenau",
         "en": "working-student-m-f-d-electrical-design-electrical-engineering-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
+        "fr": "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7268,8 +7277,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buehler-alzenau",
-        "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau",
-        "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
+        "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7280,7 +7288,7 @@
           "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
         ],
         "fr": [
-          "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
+          "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:18.797Z",
@@ -7377,7 +7385,7 @@
         "it": "m-f-d-assistente-in-amministrazione-e-gestione-degli-uffici-buhler-group-alzenau",
         "en": "m-f-d-assistant-in-administration-office-management-buhler-group-alzenau",
         "de": "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
-        "fr": "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
+        "fr": "assistance-h-f-d-dans-le-domaine-de-l-administration-et-de-la-gestion-de-bureau-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7422,7 +7430,7 @@
       "previousSlugs": [
         "assistenz-m-w-d-im-bereich-administration-amp-office-management-buehler-alzenau",
         "assistant-h-f-d-en-administration-et-gestion-de-bureau-buhler-group-alzenau",
-        "assistance-h-f-d-dans-le-domaine-de-l-administration-et-de-la-gestion-de-bureau-buhler-group-alzenau"
+        "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7433,7 +7441,7 @@
         ],
         "fr": [
           "assistant-h-f-d-en-administration-et-gestion-de-bureau-buhler-group-alzenau",
-          "assistance-h-f-d-dans-le-domaine-de-l-administration-et-de-la-gestion-de-bureau-buhler-group-alzenau"
+          "assistenz-m-w-d-im-bereich-administration-office-management-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:00:10.223Z",
@@ -7536,9 +7544,9 @@
     },
     {
       "id": "buehler-4aba6abdebdd",
-      "slug": "collaboratore-trice-vertriebsinnendienst-sales-support-m-w-d-buhler-group-alzenau",
+      "slug": "assistenza-commerciale-m-f-d-servizio-vendite-interno-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "collaboratore-trice-vertriebsinnendienst-sales-support-m-w-d-buhler-group-alzenau",
+        "it": "assistenza-commerciale-m-f-d-servizio-vendite-interno-buhler-group-alzenau",
         "en": "sales-assistant-m-w-d-sales-support-vertriebsinnendienst-buhler-group-alzenau",
         "de": "sales-assistant-m-w-d-sales-support-vertriebsinnendienst-buehler-alzenau",
         "fr": "service-de-vente-interne-support-commercial-m-f-d-buhler-group-alzenau"
@@ -7589,12 +7597,14 @@
         "internal-sales-service-sales-support-m-f-d-buhler-group-alzenau",
         "sales-assistant-m-w-d-sales-support-vertriebsinnendienst-buehler-alzenau",
         "employee-sales-services-sales-support-m-f-d-buhler-group-alzenau",
-        "sales-assistant-m-f-d-sales-support-internal-sales-service-buhler-group-alzenau"
+        "sales-assistant-m-f-d-sales-support-internal-sales-service-buhler-group-alzenau",
+        "collaboratore-trice-vertriebsinnendienst-sales-support-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-vertriebsinnendienst-sales-support-m-w-d-buehler-alzenau",
-          "sales-assistant-m-w-d-sales-support-vertriebsinnendienst-buehler-alzenau"
+          "sales-assistant-m-w-d-sales-support-vertriebsinnendienst-buehler-alzenau",
+          "collaboratore-trice-vertriebsinnendienst-sales-support-m-w-d-buhler-group-alzenau"
         ],
         "en": [
           "mitarbeiter-vertriebsinnendienst-sales-support-m-w-d-buhler-group-alzenau",
@@ -7626,12 +7636,12 @@
     },
     {
       "id": "buehler-b6879325400a",
-      "slug": "berufspraktikum-business-development-servizio-clienti-m-w-d-buhler-group-leobendorf-burg-kreuzenstein",
+      "slug": "stage-professionale-sviluppo-aziendale-servizio-clienti-m-f-d-buhler-group-leobendorf-burg-kreuzenstein",
       "slugByLocale": {
-        "it": "berufspraktikum-business-development-servizio-clienti-m-w-d-buhler-group-leobendorf-burg-kreuzenstein",
+        "it": "stage-professionale-sviluppo-aziendale-servizio-clienti-m-f-d-buhler-group-leobendorf-burg-kreuzenstein",
         "en": "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein",
         "de": "berufspraktikum-business-development-customer-service-m-w-d-buehler-leobendorf-burg",
-        "fr": "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein"
+        "fr": "stage-professionnel-developpement-des-affaires-service-a-la-clientele-h-f-d-buhler-group-leobendorf-burg-kreuzenstein"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -7675,11 +7685,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "berufspraktikum-business-development-customer-service-m-w-d-buehler-leobendorf-burg",
-        "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein"
+        "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein",
+        "berufspraktikum-business-development-servizio-clienti-m-w-d-buhler-group-leobendorf-burg-kreuzenstein"
       ],
       "previousSlugsByLocale": {
         "it": [
           "berufspraktikum-business-development-customer-service-m-w-d-buehler-leobendorf-burg",
+          "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein",
+          "berufspraktikum-business-development-servizio-clienti-m-w-d-buhler-group-leobendorf-burg-kreuzenstein"
+        ],
+        "fr": [
           "berufspraktikum-business-development-customer-service-m-w-d-buhler-group-leobendorf-burg-kreuzenstein"
         ]
       },
@@ -8194,12 +8209,12 @@
     },
     {
       "id": "buehler-ff4928aeae6f",
-      "slug": "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau",
+      "slug": "junior-safety-engineer-constructor-m-f-d-sicurezza-della-macchina-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau",
-        "en": "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau",
+        "it": "junior-safety-engineer-constructor-m-f-d-sicurezza-della-macchina-buhler-group-alzenau",
+        "en": "junior-safety-engineer-constructor-m-f-d-machine-safety-buhler-group-alzenau",
         "de": "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buehler-alzenau",
-        "fr": "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau"
+        "fr": "ingenieur-de-securite-constructeur-h-f-d-securite-des-machines-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -8243,14 +8258,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buehler-alzenau",
-        "junior-safety-engineer-constructor-m-f-d-machine-safety-buhler-group-alzenau"
+        "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buehler-alzenau"
+          "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buehler-alzenau",
+          "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau"
         ],
         "en": [
-          "junior-safety-engineer-constructor-m-f-d-machine-safety-buhler-group-alzenau"
+          "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau"
+        ],
+        "fr": [
+          "junior-safety-engineer-konstrukteur-m-w-d-maschinensicherheit-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-17T09:59:09.845Z",
@@ -9556,7 +9575,7 @@
       "slug": "studente-di-lavoro-m-f-d-supporto-vendite-buhler-group-alzenau-514f02",
       "slugByLocale": {
         "it": "studente-di-lavoro-m-f-d-supporto-vendite-buhler-group-alzenau-514f02",
-        "en": "werkstudent-m-w-d-sales-support-buhler-group-alzenau",
+        "en": "working-student-m-f-d-sales-support-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-sales-support-buehler-alzenau",
         "fr": "support-de-vente-h-f-d-pour-etudiant-en-formation-buhler-group-alzenau"
       },
@@ -9603,14 +9622,16 @@
       "previousSlugs": [
         "werkstudent-m-w-d-sales-support-buehler-alzenau",
         "support-aux-ventes-de-h-f-d-buhler-group-alzenau",
-        "working-student-m-f-d-sales-support-buhler-group-alzenau-514f02"
+        "working-student-m-f-d-sales-support-buhler-group-alzenau-514f02",
+        "werkstudent-m-w-d-sales-support-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "werkstudent-m-w-d-sales-support-buehler-alzenau"
         ],
         "en": [
-          "working-student-m-f-d-sales-support-buhler-group-alzenau-514f02"
+          "working-student-m-f-d-sales-support-buhler-group-alzenau-514f02",
+          "werkstudent-m-w-d-sales-support-buhler-group-alzenau"
         ],
         "fr": [
           "werkstudent-m-w-d-sales-support-buehler-alzenau",
@@ -9792,12 +9813,12 @@
     },
     {
       "id": "buehler-91a02caf1e52",
-      "slug": "payroll-specialista-m-w-d-come-elternzeitvertretung-buhler-group-alzenau",
+      "slug": "payroll-specialist-m-f-d-come-rappresentante-del-congedo-parentale-buhler-group-alzenau",
       "slugByLocale": {
-        "it": "payroll-specialista-m-w-d-come-elternzeitvertretung-buhler-group-alzenau",
-        "en": "payroll-specialist-m-w-d-als-elternzeitvertretung-buhler-group-alzenau",
+        "it": "payroll-specialist-m-f-d-come-rappresentante-del-congedo-parentale-buhler-group-alzenau",
+        "en": "payroll-specialist-m-f-d-as-parental-leave-representative-buhler-group-alzenau",
         "de": "payroll-specialist-m-w-d-als-elternzeitvertretung-buehler-alzenau",
-        "fr": "payroll-specialist-m-w-d-als-elternzeitvertretung-buhler-group-alzenau"
+        "fr": "specialiste-de-la-paie-h-f-d-comme-representant-du-conge-parental-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9840,11 +9861,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "payroll-specialist-m-w-d-als-elternzeitvertretung-buehler-alzenau"
+        "payroll-specialist-m-w-d-als-elternzeitvertretung-buehler-alzenau",
+        "payroll-specialista-m-w-d-come-elternzeitvertretung-buhler-group-alzenau",
+        "payroll-specialist-m-w-d-als-elternzeitvertretung-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "payroll-specialist-m-w-d-als-elternzeitvertretung-buehler-alzenau"
+          "payroll-specialist-m-w-d-als-elternzeitvertretung-buehler-alzenau",
+          "payroll-specialista-m-w-d-come-elternzeitvertretung-buhler-group-alzenau"
+        ],
+        "en": [
+          "payroll-specialist-m-w-d-als-elternzeitvertretung-buhler-group-alzenau"
+        ],
+        "fr": [
+          "payroll-specialist-m-w-d-als-elternzeitvertretung-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-25T09:56:06.430Z",
@@ -11047,7 +11077,7 @@
         "it": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
         "en": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
         "de": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
-        "fr": "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
+        "fr": "gestionnaire-d-applications-et-de-processus-operationnels-sap-le-tm-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -11834,8 +11864,7 @@
         "it": [
           "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
           "senior-process-ingegnere-innovation-wheat-rye-buhler-group-uzwil-t33ljc",
-          "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil-t33ljc",
-          "senior-process-ingegnere-innovation-wheat-rye-buhler-group-uzwil"
+          "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil-t33ljc"
         ],
         "de": [
           "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil"
@@ -11847,8 +11876,7 @@
       "previousSlugs": [
         "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil",
         "senior-process-ingegnere-innovation-wheat-rye-buhler-group-uzwil-t33ljc",
-        "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil-t33ljc",
-        "senior-process-ingegnere-innovation-wheat-rye-buhler-group-uzwil"
+        "senior-process-engineer-innovation-wheat-amp-rye-buehler-uzwil-t33ljc"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -12181,9 +12209,9 @@
     },
     {
       "id": "buehler-3a4ddb5986f9",
-      "slug": "application-center-technician-buehler-uzwil",
+      "slug": "centro-di-applicazione-tecnico-buhler-group-uzwil",
       "slugByLocale": {
-        "it": "application-center-technician-buehler-uzwil",
+        "it": "centro-di-applicazione-tecnico-buhler-group-uzwil",
         "en": "application-center-technician-buhler-group-uzwil",
         "de": "application-center-technician-buehler-uzwil",
         "fr": "application-center-technicien-buhler-group-uzwil"
@@ -12229,13 +12257,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "centro-di-applicazione-tecnico-buhler-group-uzwil",
-        "application-center-technicien-buhler-group-uzwil"
+        "application-center-technicien-buhler-group-uzwil",
+        "application-center-technician-buehler-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "centro-di-applicazione-tecnico-buhler-group-uzwil",
-          "application-center-technicien-buhler-group-uzwil"
+          "application-center-technicien-buhler-group-uzwil",
+          "application-center-technician-buehler-uzwil"
         ]
       },
       "firstSeenAt": "2026-09-02T23:16:34.773Z",
@@ -12318,12 +12346,10 @@
       "firstSeenAt": "2026-09-03T13:39:50.259Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-plc-software-development-ingegnere-buhler-group-uzwil",
           "senior-plc-software-development-ingenieur-buhler-group-uzwil",
           "senior-plc-software-development-engineer-buehler-uzwil"
         ],
         "de": [
-          "senior-plc-software-development-ingenieur-buhler-group-uzwil",
           "senior-plc-software-development-engineer-buehler-uzwil"
         ],
         "fr": [
@@ -12331,7 +12357,6 @@
         ]
       },
       "previousSlugs": [
-        "senior-plc-software-development-ingegnere-buhler-group-uzwil",
         "senior-plc-software-development-ingenieur-buhler-group-uzwil",
         "senior-plc-software-development-engineer-buehler-uzwil"
       ]

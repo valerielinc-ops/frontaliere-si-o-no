@@ -5489,12 +5489,12 @@
     },
     {
       "id": "lups-e42ec3dfe0be",
-      "slug": "assistenzarztin-w-m-d-80-100-lups-st-urban",
+      "slug": "assistente-medico-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
-        "it": "assistenzarztin-w-m-d-80-100-lups-st-urban",
-        "en": "assistenzarztin-w-m-d-80-100-lups-st-urban",
+        "it": "assistente-medico-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
+        "en": "assistant-doctor-m-f-d-80-100-luzerner-psychiatrie-lups-st-urban",
         "de": "assistenzarztin-w-m-d-80-100-lups-st-urban",
-        "fr": "assistenzarztin-w-m-d-80-100-lups-st-urban"
+        "fr": "assistant-medecin-h-f-d-80-100-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -5548,7 +5548,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-w-m-d-80-100-lups-st-urban"
+        ],
+        "en": [
+          "assistenzarztin-w-m-d-80-100-lups-st-urban"
+        ],
+        "fr": [
+          "assistenzarztin-w-m-d-80-100-lups-st-urban"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-w-m-d-80-100-lups-st-urban"
+      ]
     },
     {
       "id": "lups-17a302acbab5",
@@ -6308,12 +6322,12 @@
     },
     {
       "id": "lups-8144599ff9a8",
-      "slug": "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee",
+      "slug": "infermiere-leader-nel-trattamento-domestico-60-80-m-f-d-luzerner-psychiatrie-lups-sursee",
       "slugByLocale": {
         "de": "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee",
-        "it": "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee",
-        "en": "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee",
-        "fr": "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee"
+        "it": "infermiere-leader-nel-trattamento-domestico-60-80-m-f-d-luzerner-psychiatrie-lups-sursee",
+        "en": "case-leading-nurse-in-hometreatment-60-80-m-f-d-luzerner-psychiatrie-lups-sursee",
+        "fr": "infirmiere-chef-de-file-en-traitement-a-domicile-60-80-h-f-d-luzerner-psychiatrie-lups-sursee"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6370,7 +6384,21 @@
         }
       },
       "firstSeenAt": "2026-09-03T13:31:47.431Z",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee"
+        ],
+        "en": [
+          "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee"
+        ],
+        "fr": [
+          "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "fallfuhrende-pflegefachperson-im-hometreatment-60-80-m-w-d-lups-sursee"
+      ]
     },
     {
       "id": "lups-35dbf98f38fb",

@@ -199,11 +199,11 @@
     },
     {
       "id": "equans-cacc5828aa0c",
-      "slug": "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
+      "slug": "tecnica-di-manutenzione-del-gas-mazout-equans-switzerland-neuchatel",
       "slugByLocale": {
-        "it": "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
-        "en": "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
-        "de": "technicien-de-maintenance-gaz-mazout-equans-neuchatel",
+        "it": "tecnica-di-manutenzione-del-gas-mazout-equans-switzerland-neuchatel",
+        "en": "gas-mazout-maintenance-technician-equans-switzerland-neuchatel",
+        "de": "techniker-fur-die-wartung-von-gasmaschen-equans-switzerland-neuchatel",
         "fr": "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
       },
       "company": "Equans Switzerland",
@@ -259,7 +259,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+        ],
+        "en": [
+          "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+        ],
+        "de": [
+          "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-gaz-mazout-equans-neuchatel"
+      ]
     },
     {
       "id": "equans-92de0bd07433",
@@ -537,11 +551,11 @@
     },
     {
       "id": "equans-d60e64203ccc",
-      "slug": "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates",
+      "slug": "tecnico-di-manutenzione-ccv-settore-nyon-equans-switzerland-plan-les-ouates",
       "slugByLocale": {
-        "it": "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates",
-        "en": "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates",
-        "de": "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates",
+        "it": "tecnico-di-manutenzione-ccv-settore-nyon-equans-switzerland-plan-les-ouates",
+        "en": "ccv-maintenance-technician-nyon-sector-equans-switzerland-plan-les-ouates",
+        "de": "ccv-instandhaltungstechniker-nyon-sektor-equans-switzerland-plan-les-ouates",
         "fr": "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates"
       },
       "company": "Equans Switzerland",
@@ -597,7 +611,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates"
+        ],
+        "en": [
+          "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates"
+        ],
+        "de": [
+          "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-maintenance-cvc-secteur-de-nyon-equans-plan-les-ouates"
+      ]
     },
     {
       "id": "equans-bdc391d2f323",
@@ -606,7 +634,7 @@
         "it": "senior-responsabile-di-progetto-sanitar-80-100-equans-switzerland-luzern",
         "en": "senior-projektleiter-in-sanitar-80-100-equans-luzern",
         "de": "senior-projektleiter-in-sanitar-80-100-equans-luzern",
-        "fr": "senior-projektleiter-in-sanitar-80-100-equans-luzern"
+        "fr": "directeur-principal-de-projet-sanitaire-80-100-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -654,6 +682,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "senior-projektleiter-in-sanitar-80-100-equans-luzern"
+        ],
+        "fr": [
           "senior-projektleiter-in-sanitar-80-100-equans-luzern"
         ]
       },
@@ -923,11 +954,11 @@
     },
     {
       "id": "equans-23f5f983f408",
-      "slug": "technicien-frigoriste-equans-plan-les-ouates",
+      "slug": "frigosto-tecnico-equans-switzerland-plan-les-ouates",
       "slugByLocale": {
-        "it": "technicien-frigoriste-equans-plan-les-ouates",
-        "en": "technicien-frigoriste-equans-plan-les-ouates",
-        "de": "technicien-frigoriste-equans-plan-les-ouates",
+        "it": "frigosto-tecnico-equans-switzerland-plan-les-ouates",
+        "en": "technician-frigorist-equans-switzerland-plan-les-ouates",
+        "de": "techniker-frigorist-equans-switzerland-plan-les-ouates",
         "fr": "technicien-frigoriste-equans-plan-les-ouates"
       },
       "company": "Equans Switzerland",
@@ -971,21 +1002,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "frigosto-tecnico-equans-switzerland-plan-les-ouates",
         "technician-frigorist-equans-switzerland-plan-les-ouates",
-        "techniker-frigorist-equans-switzerland-plan-les-ouates"
+        "techniker-frigorist-equans-switzerland-plan-les-ouates",
+        "technicien-frigoriste-equans-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "frigosto-tecnico-equans-switzerland-plan-les-ouates",
           "technician-frigorist-equans-switzerland-plan-les-ouates",
-          "techniker-frigorist-equans-switzerland-plan-les-ouates"
+          "techniker-frigorist-equans-switzerland-plan-les-ouates",
+          "technicien-frigoriste-equans-plan-les-ouates"
         ],
         "en": [
-          "technician-frigorist-equans-switzerland-plan-les-ouates"
+          "technicien-frigoriste-equans-plan-les-ouates"
         ],
         "de": [
-          "techniker-frigorist-equans-switzerland-plan-les-ouates"
+          "technicien-frigoriste-equans-plan-les-ouates"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.305Z",
@@ -1005,12 +1036,12 @@
     },
     {
       "id": "equans-8cc0d653a563",
-      "slug": "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
+      "slug": "assemblaggio-automatico-nella-costruzione-di-interruttori-equans-switzerland-spreitenbach",
       "slugByLocale": {
-        "it": "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
-        "en": "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
+        "it": "assemblaggio-automatico-nella-costruzione-di-interruttori-equans-switzerland-spreitenbach",
+        "en": "automatic-assembler-in-switchgear-construction-equans-switzerland-spreitenbach",
         "de": "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach",
-        "fr": "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+        "fr": "monteur-automatique-dans-la-construction-de-commutateurs-equans-switzerland-spreitenbach"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -1066,16 +1097,30 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "en": [
+          "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+        ],
+        "fr": [
+          "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+        ]
+      },
+      "previousSlugs": [
+        "automatikmonteur-in-schaltanlagenbau-equans-spreitenbach"
+      ]
     },
     {
       "id": "equans-6c88daf0b39f",
       "slug": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern",
       "slugByLocale": {
         "it": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-switzerland-luzern",
-        "en": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
+        "en": "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern",
         "de": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern",
-        "fr": "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
+        "fr": "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -1149,11 +1194,13 @@
         ],
         "en": [
           "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern-bb4237",
-          "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern-2d3f2c"
+          "service-technician-in-cold-refrigeration-system-installer-in-equans-switzerland-luzern-2d3f2c",
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
         ],
         "fr": [
           "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern-bb4237",
-          "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern-2d3f2c"
+          "technicien-de-service-en-froid-installation-du-systeme-de-refrigeration-en-equans-switzerland-luzern-2d3f2c",
+          "servicetechniker-in-kalte-kaltesystem-monteur-in-equans-luzern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.298Z",
@@ -1173,11 +1220,11 @@
     },
     {
       "id": "equans-7225137c7d25",
-      "slug": "technicien-frigoriste-ne-fr-equans-neuchatel",
+      "slug": "frigosto-tecnico-ne-fr-equans-switzerland-neuchatel",
       "slugByLocale": {
-        "it": "technicien-frigoriste-ne-fr-equans-neuchatel",
-        "en": "technicien-frigoriste-ne-fr-equans-neuchatel",
-        "de": "technicien-frigoriste-ne-fr-equans-neuchatel",
+        "it": "frigosto-tecnico-ne-fr-equans-switzerland-neuchatel",
+        "en": "technician-frigorist-ne-fr-equans-switzerland-neuchatel",
+        "de": "techniker-frigorist-ne-fr-equans-switzerland-neuchatel",
         "fr": "technicien-frigoriste-ne-fr-equans-neuchatel"
       },
       "company": "Equans Switzerland",
@@ -1233,16 +1280,30 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-frigoriste-ne-fr-equans-neuchatel"
+        ],
+        "en": [
+          "technicien-frigoriste-ne-fr-equans-neuchatel"
+        ],
+        "de": [
+          "technicien-frigoriste-ne-fr-equans-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-frigoriste-ne-fr-equans-neuchatel"
+      ]
     },
     {
       "id": "equans-c96dc3347468",
-      "slug": "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil",
+      "slug": "personale-della-reception-in-lodge-amministrazione-piu-vacanza-e-congedo-di-malattia-zuchwil-equans-switzerland-zuchwil",
       "slugByLocale": {
-        "it": "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil",
-        "en": "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil",
+        "it": "personale-della-reception-in-lodge-amministrazione-piu-vacanza-e-congedo-di-malattia-zuchwil-equans-switzerland-zuchwil",
+        "en": "reception-staff-in-lodge-administration-plus-holiday-and-sick-leave-zuchwil-equans-switzerland-zuchwil",
         "de": "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil",
-        "fr": "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil"
+        "fr": "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -1286,26 +1347,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "personale-della-reception-in-lodge-amministrazione-piu-vacanza-e-congedo-di-malattia-zuchwil-equans-switzerland-zuchwil",
         "reception-staff-in-lodge-administration-plus-holiday-and-sick-leave-zuchwil-equans-switzerland-zuchwil",
         "empfangsmitarbeiter-in-loge-administration-plus-ferien-krankheitsvertretung-zuchwil-equans",
-        "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil"
+        "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil",
+        "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personale-della-reception-in-lodge-amministrazione-piu-vacanza-e-congedo-di-malattia-zuchwil-equans-switzerland-zuchwil",
           "reception-staff-in-lodge-administration-plus-holiday-and-sick-leave-zuchwil-equans-switzerland-zuchwil",
           "empfangsmitarbeiter-in-loge-administration-plus-ferien-krankheitsvertretung-zuchwil-equans",
-          "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil"
+          "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil",
+          "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil"
         ],
         "en": [
-          "reception-staff-in-lodge-administration-plus-holiday-and-sick-leave-zuchwil-equans-switzerland-zuchwil"
+          "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil"
         ],
         "de": [
           "empfangsmitarbeiter-in-loge-administration-plus-ferien-krankheitsvertretung-zuchwil-equans"
         ],
         "fr": [
-          "personnel-d-accueil-en-loge-administration-plus-conges-feries-et-conges-de-maladie-zuchwil-equans-switzerland-zuchwil"
+          "empfangsmitarbeiter-in-loge-administration-plus-ferien-amp-krankheitsvertretung-zuchwil"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.286Z",
@@ -1819,9 +1880,9 @@
       "slug": "servicetechniker-in-br-luftung-klima-equans-switzerland-st-gallen",
       "slugByLocale": {
         "it": "servicetechniker-in-br-luftung-klima-equans-switzerland-st-gallen",
-        "en": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen",
+        "en": "service-technician-in-br-ventilation-air-conditioning-equans-switzerland-st-gallen",
         "de": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen",
-        "fr": "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        "fr": "technicien-des-services-in-br-ventilation-et-climatisation-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -1869,6 +1930,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        ],
+        "en": [
+          "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
+        ],
+        "fr": [
           "servicetechniker-in-br-luftung-amp-klima-equans-st-gallen"
         ]
       },
@@ -2715,9 +2782,9 @@
       "slug": "servicetechniker-in-klima-kalte-equans-switzerland-aarau",
       "slugByLocale": {
         "it": "servicetechniker-in-klima-kalte-equans-switzerland-aarau",
-        "en": "servicetechniker-in-klima-kalte-equans-aarau",
+        "en": "service-technician-in-climate-cold-equans-switzerland-aarau",
         "de": "servicetechniker-in-klima-kalte-equans-aarau",
-        "fr": "servicetechniker-in-klima-kalte-equans-aarau"
+        "fr": "technicien-de-service-dans-le-froid-climatique-equans-switzerland-aarau"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -2765,6 +2832,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "servicetechniker-in-klima-kalte-equans-aarau"
+        ],
+        "en": [
+          "servicetechniker-in-klima-kalte-equans-aarau"
+        ],
+        "fr": [
           "servicetechniker-in-klima-kalte-equans-aarau"
         ]
       },
@@ -2853,9 +2926,9 @@
       "slug": "bauleitende-r-monteur-in-betriebs-e-sicherheitsausrustungen-equans-switzerland-dallikon",
       "slugByLocale": {
         "it": "bauleitende-r-monteur-in-betriebs-e-sicherheitsausrustungen-equans-switzerland-dallikon",
-        "en": "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon",
+        "en": "construction-manager-s-installer-in-operating-and-safety-equipment-equans-switzerland-dallikon",
         "de": "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon",
-        "fr": "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon"
+        "fr": "gestionnaire-s-de-construction-installateur-s-in-equipement-d-exploitation-et-de-securite-equans-switzerland-dallikon"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -2903,6 +2976,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon"
+        ],
+        "en": [
+          "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon"
+        ],
+        "fr": [
           "bauleitende-r-monteur-in-betriebs-und-sicherheitsausrustungen-equans-dallikon"
         ]
       },
@@ -3234,12 +3313,12 @@
     },
     {
       "id": "equans-93b90bde3a7e",
-      "slug": "bauleitende-r-installateur-in-elektro-equans-flims",
+      "slug": "direttore-della-costruzione-r-installatore-in-elettrico-equans-switzerland-flims",
       "slugByLocale": {
-        "it": "bauleitende-r-installateur-in-elektro-equans-flims",
-        "en": "bauleitende-r-installateur-in-elektro-equans-flims",
+        "it": "direttore-della-costruzione-r-installatore-in-elettrico-equans-switzerland-flims",
+        "en": "construction-manager-r-installer-in-electric-equans-switzerland-flims",
         "de": "bauleitende-r-installateur-in-elektro-equans-flims",
-        "fr": "bauleitende-r-installateur-in-elektro-equans-flims"
+        "fr": "gestionnaire-de-construction-r-installateur-in-electric-equans-switzerland-flims"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -3295,7 +3374,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-installateur-in-elektro-equans-flims"
+        ],
+        "en": [
+          "bauleitende-r-installateur-in-elektro-equans-flims"
+        ],
+        "fr": [
+          "bauleitende-r-installateur-in-elektro-equans-flims"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-installateur-in-elektro-equans-flims"
+      ]
     },
     {
       "id": "equans-3684f1c2fa36",
@@ -3364,12 +3457,12 @@
     },
     {
       "id": "equans-5947b44a021a",
-      "slug": "bauleitende-r-installateur-in-sanitar-equans-chur",
+      "slug": "responsabile-della-costruzione-r-installer-in-sanitari-equans-switzerland-chur",
       "slugByLocale": {
-        "it": "bauleitende-r-installateur-in-sanitar-equans-chur",
-        "en": "bauleitende-r-installateur-in-sanitar-equans-chur",
+        "it": "responsabile-della-costruzione-r-installer-in-sanitari-equans-switzerland-chur",
+        "en": "construction-manager-r-installer-in-sanitary-equans-switzerland-chur",
         "de": "bauleitende-r-installateur-in-sanitar-equans-chur",
-        "fr": "bauleitende-r-installateur-in-sanitar-equans-chur"
+        "fr": "directeur-de-construction-r-installateur-dans-les-sanitaires-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -3425,7 +3518,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-installateur-in-sanitar-equans-chur"
+        ],
+        "en": [
+          "bauleitende-r-installateur-in-sanitar-equans-chur"
+        ],
+        "fr": [
+          "bauleitende-r-installateur-in-sanitar-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-installateur-in-sanitar-equans-chur"
+      ]
     },
     {
       "id": "equans-b3174e7fccd8",
@@ -3763,12 +3870,12 @@
     },
     {
       "id": "equans-bef9a8b48f7c",
-      "slug": "sanitarmonteur-in-equans-chur",
+      "slug": "impianto-sanitario-in-equans-switzerland-chur",
       "slugByLocale": {
-        "it": "sanitarmonteur-in-equans-chur",
-        "en": "sanitarmonteur-in-equans-chur",
+        "it": "impianto-sanitario-in-equans-switzerland-chur",
+        "en": "sanitary-fitter-in-equans-switzerland-chur",
         "de": "sanitarmonteur-in-equans-chur",
-        "fr": "sanitarmonteur-in-equans-chur"
+        "fr": "installation-sanitaire-en-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -3812,11 +3919,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sanitarmonteur-in-equans-switzerland-chur"
+        "sanitarmonteur-in-equans-switzerland-chur",
+        "sanitarmonteur-in-equans-chur"
       ],
       "previousSlugsByLocale": {
         "de": [
           "sanitarmonteur-in-equans-switzerland-chur"
+        ],
+        "it": [
+          "sanitarmonteur-in-equans-chur"
+        ],
+        "en": [
+          "sanitarmonteur-in-equans-chur"
+        ],
+        "fr": [
+          "sanitarmonteur-in-equans-chur"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.246Z",
@@ -4099,12 +4216,12 @@
     },
     {
       "id": "equans-2e8c6cfc3e9d",
-      "slug": "heizungsinstallateur-in-heizung-kalte-equans-chur",
+      "slug": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur",
       "slugByLocale": {
-        "it": "heizungsinstallateur-in-heizung-kalte-equans-chur",
-        "en": "heizungsinstallateur-in-heizung-kalte-equans-chur",
+        "it": "installatore-di-riscaldamento-in-riscaldamento-freddo-equans-switzerland-chur",
+        "en": "heating-installer-in-heating-cold-equans-switzerland-chur",
         "de": "heizungsinstallateur-in-heizung-kalte-equans-chur",
-        "fr": "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        "fr": "installateur-de-chauffage-en-chauffage-froid-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -4160,7 +4277,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ],
+        "en": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ],
+        "fr": [
+          "heizungsinstallateur-in-heizung-kalte-equans-chur"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-in-heizung-kalte-equans-chur"
+      ]
     },
     {
       "id": "equans-898ca24c4012",
@@ -4567,9 +4698,9 @@
       "slug": "servicetechniker-in-luftung-equans-switzerland-winterthur",
       "slugByLocale": {
         "it": "servicetechniker-in-luftung-equans-switzerland-winterthur",
-        "en": "servicetechniker-in-luftung-equans-winterthur",
+        "en": "service-technician-in-ventilation-equans-switzerland-winterthur",
         "de": "servicetechniker-in-luftung-equans-winterthur",
-        "fr": "servicetechniker-in-luftung-equans-winterthur"
+        "fr": "technicien-de-service-dans-la-ventilation-equans-switzerland-winterthur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -4628,10 +4759,10 @@
           "tecnico-di-servizio-in-ventilazione-equans-switzerland-winterthur"
         ],
         "en": [
-          "service-technician-in-ventilation-equans-switzerland-winterthur"
+          "servicetechniker-in-luftung-equans-winterthur"
         ],
         "fr": [
-          "technicien-de-service-dans-la-ventilation-equans-switzerland-winterthur"
+          "servicetechniker-in-luftung-equans-winterthur"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.238Z",
@@ -4965,12 +5096,12 @@
     },
     {
       "id": "equans-f25f886e13fc",
-      "slug": "teamleiter-in-service-sanitar-equans-bern",
+      "slug": "team-leader-servizio-sanitario-equans-switzerland-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-service-sanitar-equans-bern",
-        "en": "teamleiter-in-service-sanitar-equans-bern",
+        "it": "team-leader-servizio-sanitario-equans-switzerland-bern",
+        "en": "team-leader-service-sanitary-equans-switzerland-bern",
         "de": "teamleiter-in-service-sanitar-equans-bern",
-        "fr": "teamleiter-in-service-sanitar-equans-bern"
+        "fr": "chef-d-equipe-service-sanitaire-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5025,16 +5156,30 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-service-sanitar-equans-bern"
+        ],
+        "en": [
+          "teamleiter-in-service-sanitar-equans-bern"
+        ],
+        "fr": [
+          "teamleiter-in-service-sanitar-equans-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-service-sanitar-equans-bern"
+      ]
     },
     {
       "id": "equans-db3764e2031f",
       "slug": "collaboratore-trice-reinigung-30-40-equans-switzerland-bern",
       "slugByLocale": {
         "it": "collaboratore-trice-reinigung-30-40-equans-switzerland-bern",
-        "en": "mitarbeiter-in-reinigung-30-40-equans-bern",
+        "en": "employee-in-cleaning-30-40-equans-switzerland-bern",
         "de": "mitarbeiter-in-reinigung-30-40-equans-bern",
-        "fr": "mitarbeiter-in-reinigung-30-40-equans-bern"
+        "fr": "employe-agent-de-nettoyage-30-40-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5101,15 +5246,15 @@
           "collaboratore-trice-empfang-equans-switzerland-bern-y8e2az"
         ],
         "en": [
-          "employee-in-cleaning-30-40-equans-switzerland-bern",
-          "associate-empfang-equans-switzerland-bern"
+          "associate-empfang-equans-switzerland-bern",
+          "mitarbeiter-in-reinigung-30-40-equans-bern"
         ],
         "de": [
           "mitarbeiter-in-empfang-equans-bern"
         ],
         "fr": [
-          "employe-agent-de-nettoyage-30-40-equans-switzerland-bern",
-          "collaborateur-trice-empfang-equans-switzerland-bern"
+          "collaborateur-trice-empfang-equans-switzerland-bern",
+          "mitarbeiter-in-reinigung-30-40-equans-bern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.231Z",
@@ -5428,12 +5573,12 @@
     },
     {
       "id": "equans-71d45d10acd9",
-      "slug": "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug",
+      "slug": "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
       "slugByLocale": {
-        "it": "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug",
-        "en": "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug",
+        "it": "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
+        "en": "housekeeper-in-focus-on-maintenance-cleaning-equans-switzerland-zug",
         "de": "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug",
-        "fr": "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug"
+        "fr": "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5477,26 +5622,26 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
         "housekeeper-in-focus-on-maintenance-cleaning-equans-switzerland-zug",
         "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug",
-        "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug"
+        "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug",
+        "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "housekeeper-in-attenzione-sulla-manutenzione-e-pulizia-equans-switzerland-zug",
           "housekeeper-in-focus-on-maintenance-cleaning-equans-switzerland-zug",
           "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug",
-          "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug"
+          "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug",
+          "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug"
         ],
         "en": [
-          "housekeeper-in-focus-on-maintenance-cleaning-equans-switzerland-zug"
+          "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug"
         ],
         "de": [
           "hauswart-in-schwerpunkt-unterhalt-reinigung-equans-zug"
         ],
         "fr": [
-          "menage-in-centre-sur-l-entretien-et-le-nettoyage-equans-switzerland-zug"
+          "hauswart-in-schwerpunkt-unterhalt-amp-reinigung-equans-zug"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.217Z",
@@ -5665,12 +5810,12 @@
     },
     {
       "id": "equans-db6d6e08f50c",
-      "slug": "senior-energiemanager-equans-schlieren",
+      "slug": "senior-energy-manager-equans-switzerland-schlieren",
       "slugByLocale": {
-        "it": "senior-energiemanager-equans-schlieren",
+        "it": "senior-energy-manager-equans-switzerland-schlieren",
         "en": "senior-energiemanager-equans-schlieren",
         "de": "senior-energiemanager-equans-schlieren",
-        "fr": "senior-energiemanager-equans-schlieren"
+        "fr": "directeur-principal-de-l-energie-equans-switzerland-schlieren"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -5726,7 +5871,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-energiemanager-equans-schlieren"
+        ],
+        "fr": [
+          "senior-energiemanager-equans-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "senior-energiemanager-equans-schlieren"
+      ]
     },
     {
       "id": "equans-bb2a0f8d92a1",
@@ -6304,9 +6460,9 @@
       "slug": "maestro-elettricista-equans-monteceneri",
       "slugByLocale": {
         "it": "maestro-elettricista-equans-monteceneri",
-        "en": "maestro-elettricista-equans-monteceneri",
-        "de": "maestro-elettricista-equans-monteceneri",
-        "fr": "maestro-elettricista-equans-monteceneri"
+        "en": "electrician-master-equans-switzerland-monteceneri",
+        "de": "elektrischer-kapitan-equans-switzerland-monteceneri",
+        "fr": "maitre-electricien-equans-switzerland-monteceneri"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -6457,9 +6613,9 @@
       "slug": "bauleitender-installatore-trice-elettrico-a-m-w-d-equans-switzerland-bern",
       "slugByLocale": {
         "it": "bauleitender-installatore-trice-elettrico-a-m-w-d-equans-switzerland-bern",
-        "en": "bauleitender-elektroinstallateur-w-m-d-equans-bern",
+        "en": "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern",
         "de": "bauleitender-elektroinstallateur-w-m-d-equans-bern",
-        "fr": "bauleitender-elektroinstallateur-w-m-d-equans-bern"
+        "fr": "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -6521,10 +6677,10 @@
           "installateur-electrique-f-m-d-equans-switzerland-bern"
         ],
         "en": [
-          "construction-manager-electrical-installer-m-f-d-equans-switzerland-bern"
+          "bauleitender-elektroinstallateur-w-m-d-equans-bern"
         ],
         "fr": [
-          "gestionnaire-de-construction-installateur-electrique-h-f-d-equans-switzerland-bern"
+          "bauleitender-elektroinstallateur-w-m-d-equans-bern"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.159Z",
@@ -7261,12 +7417,12 @@
     },
     {
       "id": "equans-29fc1a925c96",
-      "slug": "servicemonteur-in-luftung-klima-equans-brig-glis",
+      "slug": "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis",
       "slugByLocale": {
-        "it": "servicemonteur-in-luftung-klima-equans-brig-glis",
-        "en": "servicemonteur-in-luftung-klima-equans-brig-glis",
+        "it": "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis",
+        "en": "service-installer-in-ventilation-climate-equans-switzerland-brig-glis",
         "de": "servicemonteur-in-luftung-klima-equans-brig-glis",
-        "fr": "servicemonteur-in-luftung-klima-equans-brig-glis"
+        "fr": "installateur-in-ventilation-climat-equans-switzerland-brig-glis"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7322,7 +7478,21 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicemonteur-in-luftung-klima-equans-brig-glis"
+        ],
+        "en": [
+          "servicemonteur-in-luftung-klima-equans-brig-glis"
+        ],
+        "fr": [
+          "servicemonteur-in-luftung-klima-equans-brig-glis"
+        ]
+      },
+      "previousSlugs": [
+        "servicemonteur-in-luftung-klima-equans-brig-glis"
+      ]
     },
     {
       "id": "equans-e535c51f16d2",
@@ -7998,12 +8168,12 @@
     },
     {
       "id": "equans-8054197a0165",
-      "slug": "automatiker-in-im-schaltanlagenbau-equans-st-gallen",
+      "slug": "ingegnere-automatico-nella-costruzione-di-interruttori-equans-switzerland-st-gallen",
       "slugByLocale": {
-        "it": "automatiker-in-im-schaltanlagenbau-equans-st-gallen",
-        "en": "automatiker-in-im-schaltanlagenbau-equans-st-gallen",
+        "it": "ingegnere-automatico-nella-costruzione-di-interruttori-equans-switzerland-st-gallen",
+        "en": "automatic-engineer-in-switchgear-construction-equans-switzerland-st-gallen",
         "de": "automatiker-in-im-schaltanlagenbau-equans-st-gallen",
-        "fr": "automatiker-in-im-schaltanlagenbau-equans-st-gallen"
+        "fr": "ingenieur-automatique-dans-la-construction-de-commutateurs-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -8059,7 +8229,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "automatiker-in-im-schaltanlagenbau-equans-st-gallen"
+        ],
+        "en": [
+          "automatiker-in-im-schaltanlagenbau-equans-st-gallen"
+        ],
+        "fr": [
+          "automatiker-in-im-schaltanlagenbau-equans-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "automatiker-in-im-schaltanlagenbau-equans-st-gallen"
+      ]
     },
     {
       "id": "equans-bdd296e4112d",

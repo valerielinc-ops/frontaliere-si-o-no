@@ -765,9 +765,9 @@
     },
     {
       "id": "klinik-lengg-0291bc82ff67",
-      "slug": "pflegeassistenz-o-assistenz-gesundheit-e-soziales-come-dauernachtwache-a-klinik-lengg-zurich",
+      "slug": "assistenza-infermieristica-o-assistenza-sanitaria-e-sociale-come-guardia-notturna-permanente-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "pflegeassistenz-o-assistenz-gesundheit-e-soziales-come-dauernachtwache-a-klinik-lengg-zurich",
+        "it": "assistenza-infermieristica-o-assistenza-sanitaria-e-sociale-come-guardia-notturna-permanente-a-klinik-lengg-zurich",
         "en": "nursing-assistance-or-health-and-social-assistance-as-a-permanent-night-watch-a-klinik-lengg-zurich",
         "de": "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg",
         "fr": "aide-aux-soins-infirmiers-ou-a-la-sante-et-a-l-assistance-sociale-en-tant-que-veille-permanente-a-klinik-lengg-zurich"
@@ -813,11 +813,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg"
+        "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg",
+        "pflegeassistenz-o-assistenz-gesundheit-e-soziales-come-dauernachtwache-a-klinik-lengg-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg"
+          "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg",
+          "pflegeassistenz-o-assistenz-gesundheit-e-soziales-come-dauernachtwache-a-klinik-lengg-zurich"
         ],
         "en": [
           "pflegeassistenz-oder-assistenz-gesundheit-und-soziales-als-dauernachtwache-a-klinik-lengg"
@@ -1012,12 +1014,12 @@
     },
     {
       "id": "klinik-lengg-362213ef1206",
-      "slug": "praktikum-neuropsychologie-a-klinik-lengg-zurich",
+      "slug": "neuropsicologia-di-stage-a-klinik-lengg-zurich",
       "slugByLocale": {
-        "it": "praktikum-neuropsychologie-a-klinik-lengg-zurich",
-        "en": "praktikum-neuropsychologie-a-klinik-lengg-zurich",
+        "it": "neuropsicologia-di-stage-a-klinik-lengg-zurich",
+        "en": "internship-neuropsychology-a-klinik-lengg-zurich",
         "de": "praktikum-neuropsychologie-a-klinik-lengg-zurich",
-        "fr": "praktikum-neuropsychologie-a-klinik-lengg-zurich"
+        "fr": "neuropsychologie-des-stages-a-klinik-lengg-zurich"
       },
       "company": "Klinik Lengg",
       "companyKey": "klinik-lengg",
@@ -1072,7 +1074,21 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-neuropsychologie-a-klinik-lengg-zurich"
+        ],
+        "en": [
+          "praktikum-neuropsychologie-a-klinik-lengg-zurich"
+        ],
+        "fr": [
+          "praktikum-neuropsychologie-a-klinik-lengg-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-neuropsychologie-a-klinik-lengg-zurich"
+      ]
     },
     {
       "id": "klinik-lengg-e91e63ee42e3",

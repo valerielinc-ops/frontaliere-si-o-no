@@ -350,10 +350,10 @@
     },
     {
       "id": "nord-anglia-c2786d183886",
-      "slug": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
+      "slug": "assistente-sociale-esa-la-cote-international-school-nord-anglia-education-aubonne",
       "slugByLocale": {
-        "it": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
-        "en": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
+        "it": "assistente-sociale-esa-la-cote-international-school-nord-anglia-education-aubonne",
+        "en": "socio-educational-assistant-esa-la-cote-international-school-nord-anglia-education-aubonne",
         "de": "assistent-e-socio-educatif-ve-ase-la-cote-international-school-nord-anglia-education-aubonne",
         "fr": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
       },
@@ -411,7 +411,18 @@
           "maxValue": 94500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
+        ],
+        "en": [
+          "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne"
+      ]
     },
     {
       "id": "nord-anglia-1f5c78691369",

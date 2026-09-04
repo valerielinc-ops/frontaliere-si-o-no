@@ -719,12 +719,12 @@
     },
     {
       "id": "nsn-medical-40f2d131fcdc",
-      "slug": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
+      "slug": "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie",
       "slugByLocale": {
-        "it": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
-        "en": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
+        "it": "specialista-medico-fmh-zio-uster-60-100-nsn-medical-group-onkologie",
+        "en": "specialist-medical-practitioner-fmh-zio-uster-60-100-nsn-medical-group-onkologie",
         "de": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie",
-        "fr": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
+        "fr": "medecin-specialiste-fmh-zio-uster-60-100-nsn-medical-group-onkologie"
       },
       "company": "NSN Medical Group",
       "companyKey": "nsn-medical",
@@ -766,11 +766,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster"
+        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster"
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
+        ],
+        "en": [
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
+        ],
+        "fr": [
+          "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-onkologie"
         ]
       },
       "firstSeenAt": "2026-08-25T09:55:45.725Z",

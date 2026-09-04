@@ -1735,9 +1735,9 @@
     },
     {
       "id": "ksgl-f51d1049c311",
-      "slug": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus",
+      "slug": "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus",
+        "it": "apprendistato-come-informatico-scienziato-efz-sviluppo-della-piattaforma-kantonsspital-glarus-ksgl-glarus",
         "en": "apprenticeship-as-computer-scientist-efz-platform-development-kantonsspital-glarus-ksgl-glarus",
         "de": "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
         "fr": "apprentissage-en-informatique-efz-developpement-d-une-plateforme-kantonsspital-glarus-ksgl-glarus"
@@ -1782,11 +1782,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-kantonsspital-glarus-ksgl-glarus"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-ksgl-glarus"
@@ -1989,9 +1991,9 @@
       "slug": "dipl-pflegefachfrau-mann-hf-fh-con-zusatzausbildung-in-diabetesberatung-hofa1-das-o-hfp-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-mann-hf-fh-con-zusatzausbildung-in-diabetesberatung-hofa1-das-o-hfp-kantonsspital-glarus-ksgl-glarus",
-        "en": "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp",
+        "en": "dipl-nursing-specialist-man-hf-fh-with-additional-training-in-diabetes-counselling-hofa1-das-or-hfp-kantonsspital-glarus",
         "de": "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp",
-        "fr": "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp"
+        "fr": "dipl-specialiste-des-soins-infirmiers-man-hf-fh-avec-une-formation-supplementaire-en-conseil-sur-le-diabete-hofa1-das-ou"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2038,6 +2040,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-hf-fh-mit-zusatzausbildung-in-diabetesberatung-hofa1-das-oder-hfp"
         ]
       },

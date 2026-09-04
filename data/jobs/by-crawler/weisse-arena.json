@@ -2270,12 +2270,12 @@
     },
     {
       "id": "weisse-arena-ce4f93b67a09",
-      "slug": "service-barmitarbeiter-in-plaun-weisse-arena-ch",
+      "slug": "dipendenti-del-servizio-bar-a-plaun-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "service-barmitarbeiter-in-plaun-weisse-arena-ch",
-        "en": "service-barmitarbeiter-in-plaun-weisse-arena-ch",
+        "it": "dipendenti-del-servizio-bar-a-plaun-weisse-arena-gruppe-laax",
+        "en": "service-bar-employees-in-plaun-weisse-arena-gruppe-laax",
         "de": "service-barmitarbeiter-in-plaun-weisse-arena-ch",
-        "fr": "service-barmitarbeiter-in-plaun-weisse-arena-ch"
+        "fr": "employes-du-service-bar-a-plaun-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2334,7 +2334,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-barmitarbeiter-in-plaun-weisse-arena-ch"
+        ],
+        "en": [
+          "service-barmitarbeiter-in-plaun-weisse-arena-ch"
+        ],
+        "fr": [
+          "service-barmitarbeiter-in-plaun-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-barmitarbeiter-in-plaun-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-a0b4c14bf6d1",
@@ -2419,7 +2433,7 @@
         "it": "guest-experience-manager-weisse-arena-ch",
         "en": "guest-experience-manager-weisse-arena-ch",
         "de": "guest-experience-manager-weisse-arena-ch",
-        "fr": "guest-experience-manager-weisse-arena-ch"
+        "fr": "gestionnaire-d-experience-invite-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3351,12 +3365,12 @@
     },
     {
       "id": "weisse-arena-0a3c9196fd41",
-      "slug": "collaboratore-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax",
+      "slug": "dipendenti-nelle-operazioni-ferroviarie-e-nell-esperienza-degli-ospiti-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "collaboratore-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax",
+        "it": "dipendenti-nelle-operazioni-ferroviarie-e-nell-esperienza-degli-ospiti-weisse-arena-gruppe-laax",
         "en": "associate-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax",
         "de": "mitarbeiter-in-bahnbetrieb-gasteerlebnis-weisse-arena-ch",
-        "fr": "collaborateur-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax"
+        "fr": "employes-dans-les-operations-ferroviaires-et-l-experience-des-invites-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -3406,7 +3420,9 @@
         "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
         "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
         "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+        "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+        "collaboratore-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax",
+        "collaborateur-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3415,7 +3431,8 @@
           "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
           "mitarbeiter-in-bahnuberwachung-weisse-arena-ch",
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
-          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax"
+          "collaboratore-trice-bahnuberwachung-weisse-arena-gruppe-laax",
+          "collaboratore-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax"
         ],
         "en": [
           "associate-bahnuberwachung-weisse-arena-gruppe-laax",
@@ -3426,7 +3443,8 @@
         ],
         "fr": [
           "collaborateur-trice-bahnuberwachung-weisse-arena-gruppe-laax",
-          "mitarbeiter-in-bahnbetrieb-gasteerlebnis-weisse-arena-ch"
+          "mitarbeiter-in-bahnbetrieb-gasteerlebnis-weisse-arena-ch",
+          "collaborateur-trice-bahnbetrieb-gasteerlebnis-weisse-arena-gruppe-laax"
         ]
       },
       "needsRetranslation": true,
@@ -4065,12 +4083,12 @@
     },
     {
       "id": "weisse-arena-a7169823ff53",
-      "slug": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
+      "slug": "personale-di-servizio-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "servicemitarbeiter-in-weisse-arena-ch",
-        "it": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "en": "servicemitarbeiter-in-weisse-arena-gruppe-laax",
-        "fr": "servicemitarbeiter-in-weisse-arena-gruppe-laax"
+        "it": "personale-di-servizio-in-weisse-arena-gruppe-laax",
+        "en": "service-staff-in-weisse-arena-gruppe-laax",
+        "fr": "personnel-des-services-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4121,7 +4139,8 @@
         "breakfast-service-attendant-weisse-arena-gruppe-laax",
         "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
         "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
-        "servicemitarbeiter-in-weisse-arena-ch"
+        "servicemitarbeiter-in-weisse-arena-ch",
+        "servicemitarbeiter-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4129,16 +4148,19 @@
           "breakfast-service-attendant-weisse-arena-gruppe-laax",
           "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
           "addetto-al-servizio-di-colazione-weisse-arena-gruppe-laax",
-          "servicemitarbeiter-in-weisse-arena-ch"
+          "servicemitarbeiter-in-weisse-arena-ch",
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ],
         "en": [
-          "breakfast-service-attendant-weisse-arena-gruppe-laax"
+          "breakfast-service-attendant-weisse-arena-gruppe-laax",
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ],
         "de": [
           "servicemitarbeiter-in-im-fruhstuckservice-weisse-arena-ch"
         ],
         "fr": [
-          "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax"
+          "employe-de-service-de-petit-dejeuner-weisse-arena-gruppe-laax",
+          "servicemitarbeiter-in-weisse-arena-gruppe-laax"
         ]
       },
       "needsRetranslation": true,

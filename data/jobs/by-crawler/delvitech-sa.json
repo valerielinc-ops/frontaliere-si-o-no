@@ -669,8 +669,8 @@
       "slugByLocale": {
         "en": "customer-support-manager-delvitech-mendrisio",
         "it": "responsabile-del-supporto-clienti-delvitech-sa-mendrisio",
-        "de": "customer-support-manager-delvitech-sa-mendrisio",
-        "fr": "customer-support-manager-delvitech-sa-mendrisio"
+        "de": "kundenbetreuungsleiter-delvitech-sa-mendrisio",
+        "fr": "gestionnaire-de-soutien-a-la-clientele-delvitech-sa-mendrisio"
       },
       "contactEmail": "career@delvi.tech",
       "id": "delvitech-sa-572058706020",
@@ -678,10 +678,17 @@
       "previousSlugsByLocale": {
         "it": [
           "customer-support-manager-delvitech-mendrisio"
+        ],
+        "de": [
+          "customer-support-manager-delvitech-sa-mendrisio"
+        ],
+        "fr": [
+          "customer-support-manager-delvitech-sa-mendrisio"
         ]
       },
       "previousSlugs": [
-        "customer-support-manager-delvitech-mendrisio"
+        "customer-support-manager-delvitech-mendrisio",
+        "customer-support-manager-delvitech-sa-mendrisio"
       ],
       "salaryMin": 82500,
       "salaryMax": 127000,

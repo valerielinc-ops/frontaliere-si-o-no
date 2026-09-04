@@ -586,12 +586,12 @@
     },
     {
       "id": "bls-398ce4135763",
-      "slug": "fachperson-mechanik-bls-ch",
+      "slug": "meccanica-specialistica-bls-ag-bonigen",
       "slugByLocale": {
-        "it": "fachperson-mechanik-bls-ch",
-        "en": "fachperson-mechanik-bls-ch",
+        "it": "meccanica-specialistica-bls-ag-bonigen",
+        "en": "specialist-mechanics-bls-ag-bonigen",
         "de": "fachperson-mechanik-bls-ch",
-        "fr": "fachperson-mechanik-bls-ch"
+        "fr": "mecanique-specialisee-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -647,11 +647,21 @@
         ]
       },
       "previousSlugs": [
-        "fachperson-mechanik-bls-ag-bonigen"
+        "fachperson-mechanik-bls-ag-bonigen",
+        "fachperson-mechanik-bls-ch"
       ],
       "previousSlugsByLocale": {
         "de": [
           "fachperson-mechanik-bls-ag-bonigen"
+        ],
+        "it": [
+          "fachperson-mechanik-bls-ch"
+        ],
+        "en": [
+          "fachperson-mechanik-bls-ch"
+        ],
+        "fr": [
+          "fachperson-mechanik-bls-ch"
         ]
       },
       "firstSeenAt": "2026-08-25T10:08:57.564Z",
@@ -760,12 +770,12 @@
     },
     {
       "id": "bls-997501c5eb3e",
-      "slug": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+      "slug": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
       "slugByLocale": {
-        "it": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "en": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+        "it": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+        "en": "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
         "de": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
-        "fr": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
+        "fr": "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -821,29 +831,29 @@
         ]
       },
       "previousSlugs": [
-        "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
         "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez",
         "automeccanonica-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-spiez",
         "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
         "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
-        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2"
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
+        "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
           "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez",
           "automeccanonica-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-spiez",
           "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-spiez",
           "ingenieur-automechatronics-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-spiez",
-          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch-2",
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
         ],
         "en": [
-          "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
         ],
         "fr": [
-          "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez"
+          "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1160,12 +1170,12 @@
     },
     {
       "id": "bls-a5ea3ca62454",
-      "slug": "polymechaniker-in-bls-ag-bonigen",
+      "slug": "polimeccanico-in-bls-ag-bonigen",
       "slugByLocale": {
-        "it": "polymechaniker-in-bls-ag-bonigen",
-        "en": "polymechaniker-in-bls-ag-bonigen",
+        "it": "polimeccanico-in-bls-ag-bonigen",
+        "en": "polymechanic-in-bls-ag-bonigen",
         "de": "polymechaniker-in-bls-ch",
-        "fr": "polymechaniker-in-bls-ag-bonigen"
+        "fr": "polymecanique-in-bls-ag-bonigen"
       },
       "company": "BLS AG",
       "companyKey": "bls",
@@ -1223,20 +1233,22 @@
       },
       "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "de": [
+          "fachperson-fahrmotoren-bls-ag-bonigen",
+          "fachperson-fahrmotoren-bls-ch"
+        ],
         "it": [
           "polymechaniker-in-bls-ch",
           "fachperson-fahrmotoren-bls-ch",
           "polymechaniker-in-bls-ag-bonigen"
         ],
         "en": [
-          "fachperson-fahrmotoren-bls-ch"
-        ],
-        "de": [
-          "fachperson-fahrmotoren-bls-ag-bonigen",
-          "fachperson-fahrmotoren-bls-ch"
+          "fachperson-fahrmotoren-bls-ch",
+          "polymechaniker-in-bls-ag-bonigen"
         ],
         "fr": [
-          "fachperson-fahrmotoren-bls-ch"
+          "fachperson-fahrmotoren-bls-ch",
+          "polymechaniker-in-bls-ag-bonigen"
         ]
       },
       "previousSlugs": [

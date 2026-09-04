@@ -154,12 +154,12 @@
     },
     {
       "id": "ameos-ch-760941ebfb90",
-      "slug": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+      "slug": "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-        "en": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+        "it": "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
         "de": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-        "fr": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        "fr": "chirurgie-sous-assistante-pj-h-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -213,7 +213,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        ],
+        "en": [
+          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        ],
+        "fr": [
+          "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-9c8b42500b12",
@@ -684,12 +698,12 @@
     },
     {
       "id": "ameos-ch-173b1d8ec3aa",
-      "slug": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+      "slug": "massaggiatore-medico-m-f-d-ameos-schweiz-einsiedeln",
       "slugByLocale": {
-        "it": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "en": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+        "it": "massaggiatore-medico-m-f-d-ameos-schweiz-einsiedeln",
+        "en": "medical-masseur-m-f-d-ameos-schweiz-einsiedeln",
         "de": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
-        "fr": "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        "fr": "masseur-medical-h-f-d-ameos-schweiz-einsiedeln"
       },
       "company": "AMEOS Schweiz",
       "companyKey": "ameos-ch",
@@ -743,7 +757,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ],
+        "en": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ],
+        "fr": [
+          "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+        ]
+      },
+      "previousSlugs": [
+        "medizinischen-masseur-m-w-d-ameos-einsiedeln"
+      ]
     },
     {
       "id": "ameos-ch-c0a673d90dfa",

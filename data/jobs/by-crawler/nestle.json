@@ -1569,7 +1569,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "vet-advisor-nestle-ch",
-        "vet-consulente-nestle-la-tour-de-peilz",
         "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch",
         "tierarztberater-in-vet-advisor-nestle-ch",
         "tierarztberater-in-vet-conseiller-nestle-la-tour-de-peilz-ch"
@@ -1577,7 +1576,6 @@
       "previousSlugsByLocale": {
         "it": [
           "vet-advisor-nestle-ch",
-          "vet-consulente-nestle-la-tour-de-peilz",
           "tierarztberater-in-vet-consulente-nestle-la-tour-de-peilz-ch",
           "tierarztberater-in-vet-advisor-nestle-ch",
           "tierarztberater-in-vet-conseiller-nestle-la-tour-de-peilz-ch"
@@ -1947,13 +1945,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manufacturing-specialist-nestle-ch",
-        "senior-manufacturing-specialista-nestle-konolfingen"
+        "senior-manufacturing-specialist-nestle-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manufacturing-specialist-nestle-ch",
-          "senior-manufacturing-specialista-nestle-konolfingen"
+          "senior-manufacturing-specialist-nestle-ch"
         ],
         "de": [
           "senior-manufacturing-specialist-nestle-ch"
@@ -2487,7 +2483,7 @@
         "it": "corporate-paralegal-nestle-ch",
         "en": "corporate-paralegal-nestle-ch",
         "de": "corporate-paralegal-nestle-ch",
-        "fr": "corporate-paralegal-nestle-vevey"
+        "fr": "societe-parajuridique-nestle-vevey"
       },
       "company": "Nestlé",
       "companyKey": "nestle",
@@ -2541,7 +2537,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "fr": [
+          "corporate-paralegal-nestle-vevey"
+        ]
+      },
+      "previousSlugs": [
+        "corporate-paralegal-nestle-vevey"
+      ]
     },
     {
       "id": "nestle-1419531533",
@@ -3262,8 +3266,7 @@
           "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
           "senior-qualitat-spezialist-nestle-orbe-ch",
           "senior-qualite-specialiste-nestle-orbe-ch",
-          "senior-quality-specialista-nestle-orbe-ch-bxydsy",
-          "senior-quality-specialista-nestle-orbe-ch"
+          "senior-quality-specialista-nestle-orbe-ch-bxydsy"
         ],
         "de": [
           "senior-qualitat-spezialist-nestle-orbe-ch"
@@ -3277,8 +3280,7 @@
         "senior-quality-specialista-nestle-orbe-ch-ca0gfo",
         "senior-qualitat-spezialist-nestle-orbe-ch",
         "senior-qualite-specialiste-nestle-orbe-ch",
-        "senior-quality-specialista-nestle-orbe-ch-bxydsy",
-        "senior-quality-specialista-nestle-orbe-ch"
+        "senior-quality-specialista-nestle-orbe-ch-bxydsy"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,

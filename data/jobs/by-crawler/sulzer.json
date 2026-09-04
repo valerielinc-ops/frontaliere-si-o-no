@@ -14888,8 +14888,8 @@
       "slugByLocale": {
         "it": "business-development-manager-product-specialista-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer",
         "en": "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan",
-        "de": "business-development-manager-product-spezialist-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer",
-        "fr": "business-development-manager-product-specialiste-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer"
+        "de": "business-development-manager-produktspezialist-dampfturbine-und-kompressor-region-subsahara-afrika-sulzer-johannesburg",
+        "fr": "directeur-du-developpement-des-affaires-et-specialiste-des-produits-turbine-a-vapeur-et-compresseur-afrique"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -14930,17 +14930,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan"
+        "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan",
+        "business-development-manager-product-spezialist-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer",
+        "business-development-manager-product-specialiste-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan"
         ],
         "de": [
-          "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan"
+          "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan",
+          "business-development-manager-product-spezialist-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer"
         ],
         "fr": [
-          "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan"
+          "business-development-manager-product-specialist-steam-turbine-and-compressor-sub-saharan",
+          "business-development-manager-product-specialiste-steam-turbine-and-compressor-sub-saharan-africa-region-sulzer"
         ]
       },
       "firstSeenAt": "2026-08-05T22:43:39.084Z",
@@ -15118,7 +15122,7 @@
       "slugByLocale": {
         "it": "montaggio-di-montaggio-sulzer-leeds",
         "en": "assembly-fitter-sulzer-ch",
-        "de": "assembly-fitter-sulzer-leeds",
+        "de": "montagefitter-sulzer-leeds",
         "fr": "assemblage-fitter-sulzer-leeds"
       },
       "company": "Sulzer",
@@ -15161,7 +15165,7 @@
       "previousSlugs": [
         "assembly-fitter-sulzer-ch",
         "baugruppe-fitter-sulzer-leeds",
-        "montagefitter-sulzer-leeds"
+        "assembly-fitter-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15169,7 +15173,7 @@
         ],
         "de": [
           "baugruppe-fitter-sulzer-leeds",
-          "montagefitter-sulzer-leeds"
+          "assembly-fitter-sulzer-leeds"
         ],
         "fr": [
           "assembly-fitter-sulzer-ch"
@@ -15787,9 +15791,9 @@
     },
     {
       "id": "sulzer-2c54e0879ca9",
-      "slug": "industrial-painter-sulzer-portland",
+      "slug": "pittura-industriale-sulzer-portland",
       "slugByLocale": {
-        "it": "industrial-painter-sulzer-portland",
+        "it": "pittura-industriale-sulzer-portland",
         "en": "industrial-painter-sulzer-ch",
         "de": "industriemaler-sulzer-portland",
         "fr": "peintre-industriel-sulzer-portland"
@@ -15833,12 +15837,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "industrial-painter-sulzer-ch",
-        "pittura-industriale-sulzer-portland"
+        "industrial-painter-sulzer-portland"
       ],
       "previousSlugsByLocale": {
         "it": [
           "industrial-painter-sulzer-ch",
-          "pittura-industriale-sulzer-portland"
+          "industrial-painter-sulzer-portland"
         ],
         "de": [
           "industrial-painter-sulzer-ch"
@@ -16094,9 +16098,9 @@
     },
     {
       "id": "sulzer-896895400661",
-      "slug": "office-administrator-sulzer-leeds",
+      "slug": "amministratore-ufficio-sulzer-leeds",
       "slugByLocale": {
-        "it": "office-administrator-sulzer-leeds",
+        "it": "amministratore-ufficio-sulzer-leeds",
         "en": "office-administrator-sulzer-ch",
         "de": "buroverwaltung-sulzer-leeds",
         "fr": "administrateur-de-bureau-sulzer-leeds"
@@ -16140,12 +16144,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "office-administrator-sulzer-ch",
-        "amministratore-ufficio-sulzer-leeds"
+        "office-administrator-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
           "office-administrator-sulzer-ch",
-          "amministratore-ufficio-sulzer-leeds"
+          "office-administrator-sulzer-leeds"
         ],
         "de": [
           "office-administrator-sulzer-ch"
@@ -16250,7 +16254,7 @@
       "slugByLocale": {
         "it": "sales-ingegnere-ingenieur-technico-commercial-sulzer-saint",
         "en": "sales-engineer-ingenieur-technico-commercial-sulzer-ch",
-        "de": "sales-ingenieur-ingenieur-technico-commercial-sulzer-saint",
+        "de": "handelsingenieur-technikingenieur-sulzer-saint",
         "fr": "sales-engineer-ingenieur-technico-commercial-sulzer-ch"
       },
       "company": "Sulzer",
@@ -16292,14 +16296,16 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-engineer-ingenieur-technico-commercial-sulzer-ch"
+        "sales-engineer-ingenieur-technico-commercial-sulzer-ch",
+        "sales-ingenieur-ingenieur-technico-commercial-sulzer-saint"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sales-engineer-ingenieur-technico-commercial-sulzer-ch"
         ],
         "de": [
-          "sales-engineer-ingenieur-technico-commercial-sulzer-ch"
+          "sales-engineer-ingenieur-technico-commercial-sulzer-ch",
+          "sales-ingenieur-ingenieur-technico-commercial-sulzer-saint"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:17.527Z",
@@ -16398,7 +16404,7 @@
       "slugByLocale": {
         "it": "pm-capo-squadra-sulzer-riyadh",
         "en": "pm-team-leader-sulzer-ch",
-        "de": "pm-team-leader-sulzer-riyadh",
+        "de": "pm-teamleiter-sulzer-riyadh",
         "fr": "chef-d-equipe-du-pm-sulzer-riyadh"
       },
       "company": "Sulzer",
@@ -16440,14 +16446,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pm-team-leader-sulzer-ch",
-        "pm-teamleiter-sulzer-riyadh"
+        "pm-team-leader-sulzer-riyadh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pm-team-leader-sulzer-ch"
         ],
         "de": [
-          "pm-teamleiter-sulzer-riyadh"
+          "pm-team-leader-sulzer-riyadh"
         ],
         "fr": [
           "pm-team-leader-sulzer-ch"
@@ -16548,9 +16554,9 @@
     },
     {
       "id": "sulzer-d875f9656c23",
-      "slug": "manual-machinist-sulzer-la-porte",
+      "slug": "macchinista-manuale-sulzer-la-porte",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-la-porte",
+        "it": "macchinista-manuale-sulzer-la-porte",
         "en": "manual-machinist-sulzer-ch",
         "de": "manueller-maschinist-sulzer-la-porte",
         "fr": "machiniste-manuel-sulzer-la-porte"
@@ -16595,15 +16601,15 @@
       "previousSlugs": [
         "manual-machinist-sulzer-ch-3",
         "manual-machinist-sulzer-ch",
-        "macchinista-manuale-sulzer-la-porte",
-        "manual-machinist-sulzer-ch-2"
+        "manual-machinist-sulzer-ch-2",
+        "manual-machinist-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-3",
           "manual-machinist-sulzer-ch",
-          "macchinista-manuale-sulzer-la-porte",
-          "manual-machinist-sulzer-ch-2"
+          "manual-machinist-sulzer-ch-2",
+          "manual-machinist-sulzer-la-porte"
         ],
         "de": [
           "manual-machinist-sulzer-ch-3"
@@ -16630,9 +16636,9 @@
     },
     {
       "id": "sulzer-6be24c14c439",
-      "slug": "manual-machinist-sulzer-pasadena",
+      "slug": "macchinista-manuale-sulzer-pasadena",
       "slugByLocale": {
-        "it": "manual-machinist-sulzer-pasadena",
+        "it": "macchinista-manuale-sulzer-pasadena",
         "en": "manual-machinist-sulzer-ch",
         "de": "manueller-maschinist-sulzer-pasadena",
         "fr": "machiniste-manuel-sulzer-pasadena"
@@ -16677,17 +16683,17 @@
       "previousSlugs": [
         "manual-machinist-sulzer-ch-4",
         "manual-machinist-sulzer-ch",
-        "macchinista-manuale-sulzer-pasadena",
         "manual-machinist-sulzer-ch-3",
-        "manual-machinist-sulzer-ch-2"
+        "manual-machinist-sulzer-ch-2",
+        "manual-machinist-sulzer-pasadena"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manual-machinist-sulzer-ch-4",
           "manual-machinist-sulzer-ch",
-          "macchinista-manuale-sulzer-pasadena",
           "manual-machinist-sulzer-ch-3",
-          "manual-machinist-sulzer-ch-2"
+          "manual-machinist-sulzer-ch-2",
+          "manual-machinist-sulzer-pasadena"
         ],
         "de": [
           "manual-machinist-sulzer-ch-4"
@@ -17729,9 +17735,9 @@
     },
     {
       "id": "sulzer-00bb2b8a266d",
-      "slug": "machine-operator-sulzer-la-porte",
+      "slug": "operatore-automatico-sulzer-la-porte",
       "slugByLocale": {
-        "it": "machine-operator-sulzer-la-porte",
+        "it": "operatore-automatico-sulzer-la-porte",
         "en": "machine-operator-sulzer-ch",
         "de": "maschinenbediener-sulzer-la-porte",
         "fr": "machine-operateur-sulzer-la-porte"
@@ -17775,12 +17781,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "machine-operator-sulzer-ch",
-        "operatore-automatico-sulzer-la-porte"
+        "machine-operator-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "machine-operator-sulzer-ch",
-          "operatore-automatico-sulzer-la-porte"
+          "machine-operator-sulzer-la-porte"
         ],
         "de": [
           "machine-operator-sulzer-ch"
@@ -17807,9 +17813,9 @@
     },
     {
       "id": "sulzer-3a453c7b7c5d",
-      "slug": "mechanical-supervisor-sulzer-la-porte",
+      "slug": "supervisore-meccanico-sulzer-la-porte",
       "slugByLocale": {
-        "it": "mechanical-supervisor-sulzer-la-porte",
+        "it": "supervisore-meccanico-sulzer-la-porte",
         "en": "mechanical-supervisor-sulzer-ch",
         "de": "mechanical-vorgesetzter-sulzer-la-porte",
         "fr": "mechanical-superviseur-sulzer-la-porte"
@@ -17853,12 +17859,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mechanical-supervisor-sulzer-ch",
-        "supervisore-meccanico-sulzer-la-porte"
+        "mechanical-supervisor-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mechanical-supervisor-sulzer-ch",
-          "supervisore-meccanico-sulzer-la-porte"
+          "mechanical-supervisor-sulzer-la-porte"
         ],
         "de": [
           "mechanical-supervisor-sulzer-ch"
@@ -19674,9 +19680,9 @@
     },
     {
       "id": "sulzer-ec3e50046756",
-      "slug": "service-disponent-m-w-d-per-technische-serviceeinsatze-sulzer-bonn",
+      "slug": "servizio-dotato-m-f-d-per-operazioni-di-servizio-tecnico-sulzer-bonn",
       "slugByLocale": {
-        "it": "service-disponent-m-w-d-per-technische-serviceeinsatze-sulzer-bonn",
+        "it": "servizio-dotato-m-f-d-per-operazioni-di-servizio-tecnico-sulzer-bonn",
         "en": "service-disponent-m-f-d-for-technical-service-operations-sulzer-bonn",
         "de": "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch",
         "fr": "service-disposant-h-f-d-pour-les-operations-de-service-technique-sulzer-bonn"
@@ -19719,11 +19725,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
+        "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch",
+        "service-disponent-m-w-d-per-technische-serviceeinsatze-sulzer-bonn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
+          "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch",
+          "service-disponent-m-w-d-per-technische-serviceeinsatze-sulzer-bonn"
         ],
         "en": [
           "service-disponent-m-w-d-fur-technische-serviceeinsatze-sulzer-ch"
@@ -19750,9 +19758,9 @@
     },
     {
       "id": "sulzer-0ba4019ee69a",
-      "slug": "jr-machinist-sulzer-la-porte",
+      "slug": "jr-macchinista-sulzer-la-porte",
       "slugByLocale": {
-        "it": "jr-machinist-sulzer-la-porte",
+        "it": "jr-macchinista-sulzer-la-porte",
         "en": "jr-machinist-sulzer-ch",
         "de": "jr-machinist-sulzer-ch",
         "fr": "jr-machinist-sulzer-ch"
@@ -19797,12 +19805,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jr-machinist-sulzer-ch",
-        "jr-macchinista-sulzer-la-porte"
+        "jr-machinist-sulzer-la-porte"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jr-machinist-sulzer-ch",
-          "jr-macchinista-sulzer-la-porte"
+          "jr-machinist-sulzer-la-porte"
         ]
       },
       "firstSeenAt": "2026-08-21T21:38:34.683Z",
@@ -20048,7 +20056,7 @@
         "it": "contabile-sulzer-riyadh",
         "en": "accountant-sulzer-ch",
         "de": "buchhalter-sulzer-riyadh",
-        "fr": "accountant-sulzer-riyadh"
+        "fr": "comptable-sulzer-riyadh"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -20089,7 +20097,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "accountant-sulzer-ch",
-        "comptable-sulzer-riyadh"
+        "accountant-sulzer-riyadh"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -20099,7 +20107,7 @@
           "accountant-sulzer-ch"
         ],
         "fr": [
-          "comptable-sulzer-riyadh"
+          "accountant-sulzer-riyadh"
         ]
       },
       "firstSeenAt": "2026-08-23T21:46:27.006Z",
@@ -20905,9 +20913,9 @@
     },
     {
       "id": "sulzer-19cb4885b24c",
-      "slug": "technician-product-division-sulzer-ch",
+      "slug": "divisione-di-prodotto-tecnico-sulzer-belle-chasse",
       "slugByLocale": {
-        "it": "technician-product-division-sulzer-ch",
+        "it": "divisione-di-prodotto-tecnico-sulzer-belle-chasse",
         "en": "technician-product-division-sulzer-ch",
         "de": "techniker-product-division-sulzer-belle-chasse",
         "fr": "technicien-product-division-sulzer-belle-chasse"
@@ -20963,7 +20971,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-product-division-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "technician-product-division-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-1557754a6a1b",
@@ -23165,7 +23181,7 @@
         "it": "area-sales-manager-sulzer-ch-2",
         "en": "area-sales-manager-sulzer-ch",
         "de": "area-sales-manager-sulzer-ch-2",
-        "fr": "area-sales-manager-sulzer-ch-2"
+        "fr": "directeur-regional-des-ventes-sulzer-birmingham"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24675,9 +24691,9 @@
     },
     {
       "id": "sulzer-df1787f602f2",
-      "slug": "service-technician-sulzer-ch",
+      "slug": "servizio-tecnico-sulzer-belle-chasse",
       "slugByLocale": {
-        "it": "service-technician-sulzer-ch",
+        "it": "servizio-tecnico-sulzer-belle-chasse",
         "en": "service-technician-sulzer-ch",
         "de": "service-techniker-sulzer-belle-chasse",
         "fr": "service-technicien-sulzer-belle-chasse"
@@ -24733,16 +24749,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-technician-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-technician-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-700e4e591139",
-      "slug": "qc-document-support-sulzer-orange",
+      "slug": "supporto-del-documento-qc-sulzer-orange",
       "slugByLocale": {
-        "it": "qc-document-support-sulzer-orange",
+        "it": "supporto-del-documento-qc-sulzer-orange",
         "en": "qc-document-support-sulzer-ch",
-        "de": "qc-document-support-sulzer-orange",
-        "fr": "qc-document-support-sulzer-orange"
+        "de": "qc-dokumentenunterstutzung-sulzer-orange",
+        "fr": "qc-appui-aux-documents-sulzer-orange"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24785,23 +24809,27 @@
         "production-worker-technician-sulzer-ch",
         "production-worker-technician-sulzer-ch-2",
         "qc-document-support-sulzer-ch",
-        "lavoratore-di-produzione-tecnico-sulzer-orange"
+        "lavoratore-di-produzione-tecnico-sulzer-orange",
+        "qc-document-support-sulzer-orange"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-worker-technician-sulzer-ch",
           "production-worker-technician-sulzer-ch-2",
           "qc-document-support-sulzer-ch",
-          "lavoratore-di-produzione-tecnico-sulzer-orange"
+          "lavoratore-di-produzione-tecnico-sulzer-orange",
+          "qc-document-support-sulzer-orange"
         ],
         "en": [
           "production-worker-technician-sulzer-ch"
         ],
         "de": [
-          "production-worker-technician-sulzer-ch-2"
+          "production-worker-technician-sulzer-ch-2",
+          "qc-document-support-sulzer-orange"
         ],
         "fr": [
-          "production-worker-technician-sulzer-ch-2"
+          "production-worker-technician-sulzer-ch-2",
+          "qc-document-support-sulzer-orange"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:08.586Z",
@@ -24822,12 +24850,12 @@
     },
     {
       "id": "sulzer-00fe54f46d52",
-      "slug": "manual-lathe-machinist-3-axis-sulzer-orange",
+      "slug": "tornio-manuale-3-assi-sulzer-orange",
       "slugByLocale": {
-        "it": "manual-lathe-machinist-3-axis-sulzer-orange",
+        "it": "tornio-manuale-3-assi-sulzer-orange",
         "en": "manual-lathe-machinist-3-axis-sulzer-ch",
         "de": "manual-lathe-machinist-3-axis-sulzer-orange",
-        "fr": "manual-lathe-machinist-3-axis-sulzer-orange"
+        "fr": "axis-machiniste-3-manuel-sulzer-orange"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -24872,13 +24900,15 @@
         "manual-lathe-machinist-3-axis-sulzer-ch",
         "sr-meccanica-macchine-sulzer-orange",
         "sr-maschinenmechanik-sulzer-orange",
-        "mecanicien-des-machines-sulzer-orange"
+        "mecanicien-des-machines-sulzer-orange",
+        "manual-lathe-machinist-3-axis-sulzer-orange"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sr-machinery-mechanic-sulzer-ch",
           "manual-lathe-machinist-3-axis-sulzer-ch",
-          "sr-meccanica-macchine-sulzer-orange"
+          "sr-meccanica-macchine-sulzer-orange",
+          "manual-lathe-machinist-3-axis-sulzer-orange"
         ],
         "en": [
           "sr-machinery-mechanic-sulzer-ch"
@@ -24889,7 +24919,8 @@
         ],
         "fr": [
           "sr-machinery-mechanic-sulzer-ch",
-          "mecanicien-des-machines-sulzer-orange"
+          "mecanicien-des-machines-sulzer-orange",
+          "manual-lathe-machinist-3-axis-sulzer-orange"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:09.509Z",
@@ -25265,13 +25296,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "field-coordinator-maintenance-leader-sulzer-ch",
-        "field-coordinatore-maintenance-leader-sulzer-chengdu"
+        "field-coordinator-maintenance-leader-sulzer-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-coordinator-maintenance-leader-sulzer-ch",
-          "field-coordinatore-maintenance-leader-sulzer-chengdu"
+          "field-coordinator-maintenance-leader-sulzer-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:41.001Z",
@@ -25526,7 +25555,7 @@
         "it": "fp-a-controller-sulzer-ch-2",
         "en": "fp-a-controller-sulzer-ch",
         "de": "fp-a-controller-sulzer-ch-2",
-        "fr": "fp-a-controller-sulzer-madrid"
+        "fr": "controleur-fp-a-sulzer-madrid"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25567,11 +25596,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fp-a-controller-sulzer-ch"
+        "fp-a-controller-sulzer-ch",
+        "fp-a-controller-sulzer-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fp-a-controller-sulzer-ch"
+        ],
+        "fr": [
+          "fp-a-controller-sulzer-madrid"
         ]
       },
       "firstSeenAt": "2026-09-03T13:45:38.047Z",
@@ -25793,12 +25826,12 @@
     },
     {
       "id": "sulzer-8b6940a24400",
-      "slug": "specialist-engineer-res-sulzer-ch",
+      "slug": "specialista-ingegnere-res-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
         "en": "specialist-engineer-res-sulzer-ch",
-        "it": "specialist-engineer-res-sulzer-ch",
-        "de": "specialist-engineer-res-sulzer-ch",
-        "fr": "specialist-engineer-res-sulzer-ch"
+        "it": "specialista-ingegnere-res-sulzer-cuautitlan-izcalli",
+        "de": "spezialist-ingenieur-res-sulzer-cuautitlan-izcalli",
+        "fr": "specialiste-ingenieur-res-sulzer-cuautitlan-izcalli"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25854,7 +25887,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-03T23:30:10.299Z"
+      "firstSeenAt": "2026-09-03T23:30:10.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-engineer-res-sulzer-ch"
+        ],
+        "de": [
+          "specialist-engineer-res-sulzer-ch"
+        ],
+        "fr": [
+          "specialist-engineer-res-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialist-engineer-res-sulzer-ch"
+      ]
     }
   ]
 }

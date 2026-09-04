@@ -52,13 +52,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
-        "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
+        "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun",
-          "responsabile-dell-istruzione-r-anesthesia-care-spital-sts-thun"
+          "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
         ],
         "en": [
           "bildungsverantwortliche-r-anasthesiepflege-spital-sts-thun"
@@ -144,8 +142,7 @@
         "medical-practice-assistant-urology-spital-sts-thun",
         "med-praxisassistent-in-urologie-spital-sts-thun",
         "assistant-medical-en-urologie-spital-sts-thun",
-        "med-praxisassistent-in-kardiologie-spital-sts-thun",
-        "med-assistente-pratica-in-cardiologia-spital-sts-thun"
+        "med-praxisassistent-in-kardiologie-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -161,8 +158,7 @@
           "medical-practice-assistant-urology-spital-sts-thun",
           "med-praxisassistent-in-urologie-spital-sts-thun",
           "assistant-medical-en-urologie-spital-sts-thun",
-          "med-praxisassistent-in-kardiologie-spital-sts-thun",
-          "med-assistente-pratica-in-cardiologia-spital-sts-thun"
+          "med-praxisassistent-in-kardiologie-spital-sts-thun"
         ],
         "en": [
           "med-practice-assistant-in-spinal-surgery-spital-sts-thun",
@@ -241,13 +237,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
-        "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
+        "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun",
-          "specialista-medico-walk-in-praxis-medical-centre-thun-spital-sts-thun"
+          "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
         ],
         "en": [
           "facharzt-arztin-walk-in-praxis-medizinisches-zentrum-thun-spital-sts-thun"
@@ -321,13 +315,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
-        "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun",
-          "dipl-specialista-hf-fh-oncologia-spital-sts-thun"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-onkologie-spital-sts-thun"
@@ -353,12 +345,12 @@
     },
     {
       "id": "spital-sts-7f9deb32d7b4",
-      "slug": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+      "slug": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "en": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
+        "it": "dipl-infermieristica-professionale-dipl-infermieristica-professionale-spital-sts-thun",
+        "en": "dipl-nursing-professional-dipl-nursing-professional-spital-sts-thun",
         "de": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun",
-        "fr": "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        "fr": "dipl-professionnels-des-soins-infirmiers-dipl-professionnels-des-soins-infirmiers-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -412,16 +404,30 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-dipl-pflegefachmann-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-7a0da6b9787b",
-      "slug": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+      "slug": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
       "slugByLocale": {
-        "it": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "en": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
+        "it": "dipl-specialista-di-radiologia-specialista-di-radiologia-hf-spital-sts-thun",
+        "en": "dipl-radiology-specialist-radiology-specialist-hf-spital-sts-thun",
         "de": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun",
-        "fr": "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        "fr": "dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -475,7 +481,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        ],
+        "en": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        ],
+        "fr": [
+          "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-radiologiefachfrau-radiologiefachmann-hf-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-6d0bf6370767",
@@ -591,13 +611,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-        "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+        "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun",
-          "centro-di-emergenza-sanitaria-professionale-spital-sts-thun"
+          "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"
         ],
         "en": [
           "fachfrau-mann-gesundheit-notfallzentrum-spital-sts-thun"

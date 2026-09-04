@@ -313,13 +313,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "financial-controlling-intern-chopard-meyrin",
-        "financial-controlling-tirocinante-chopard-meyrin"
+        "financial-controlling-intern-chopard-meyrin"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-controlling-intern-chopard-meyrin",
-          "financial-controlling-tirocinante-chopard-meyrin"
+          "financial-controlling-intern-chopard-meyrin"
         ],
         "de": [
           "financial-controlling-intern-chopard-meyrin"
@@ -349,7 +347,7 @@
       "slugByLocale": {
         "it": "apprenti-hologer-h-f-chopard-fleurier",
         "en": "apprenti-hologer-h-f-chopard-fleurier",
-        "de": "apprenti-hologer-h-f-chopard-fleurier",
+        "de": "auszubildender-hologer-m-w-chopard-fleurier",
         "fr": "apprenti-hologer-h-f-chopard-fleurier"
       },
       "company": "Chopard",
@@ -411,11 +409,11 @@
     },
     {
       "id": "chopard-5918a2221e65",
-      "slug": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+      "slug": "apprentice-micromechanic-m-f-d-chopard-fleurier",
       "slugByLocale": {
-        "it": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "it": "apprentice-micromechanic-m-f-d-chopard-fleurier",
         "en": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
-        "de": "apprenti-micromecanicien-h-f-d-chopard-fleurier",
+        "de": "auszubildender-mikromechaniker-m-w-d-chopard-fleurier",
         "fr": "apprenti-micromecanicien-h-f-d-chopard-fleurier"
       },
       "company": "Chopard",
@@ -472,13 +470,24 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+        ],
+        "de": [
+          "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-micromecanicien-h-f-d-chopard-fleurier"
+      ]
     },
     {
       "id": "chopard-d9aab7dd07ce",
-      "slug": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
+      "slug": "payroll-specialista-e-assicurazione-sociale-m-f-d-chopard-fleurier",
       "slugByLocale": {
-        "it": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier",
+        "it": "payroll-specialista-e-assicurazione-sociale-m-f-d-chopard-fleurier",
         "en": "payroll-specialist-and-social-insurance-m-f-d-chopard-fleurier",
         "de": "gehaltsabrechnungsspezialist-und-sozialversicherung-m-w-d-chopard-fleurier",
         "fr": "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier"
@@ -538,7 +547,15 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-payroll-et-assurances-sociales-h-f-d-chopard-fleurier"
+      ]
     }
   ]
 }

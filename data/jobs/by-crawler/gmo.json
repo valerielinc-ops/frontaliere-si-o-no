@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "gmo-fdf6239fe3ec",
-      "slug": "infirmier-ere-chef-fe-gmo-ch",
+      "slug": "capo-gmo-lugano",
       "slugByLocale": {
-        "it": "infirmier-ere-chef-fe-gmo-ch",
-        "en": "infirmier-ere-chef-fe-gmo-ch",
-        "de": "infirmier-ere-chef-fe-gmo-ch",
+        "it": "capo-gmo-lugano",
+        "en": "chief-nurse-gmo-lugano",
+        "de": "hauptkrankenschwester-gmo-lugano",
         "fr": "infirmier-ere-chef-fe-gmo-ch"
       },
       "company": "gmo",
@@ -62,15 +62,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-chef-fe-gmo-ch"
+        ],
+        "en": [
+          "infirmier-ere-chef-fe-gmo-ch"
+        ],
+        "de": [
+          "infirmier-ere-chef-fe-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-chef-fe-gmo-ch"
+      ]
     },
     {
       "id": "gmo-2e392bc89d01",
-      "slug": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch",
+      "slug": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
       "slugByLocale": {
-        "it": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch",
-        "en": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch",
-        "de": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch",
+        "it": "specialista-medico-fmh-in-ginecologia-e-ostetricia-gmo-lugano",
+        "en": "fmh-medical-specialist-in-gynaecology-and-obstetrics-gmo-lugano",
+        "de": "fmh-facharzt-fur-gynakologie-und-geburtshilfe-gmo-lugano",
         "fr": "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
       },
       "company": "gmo",
@@ -124,7 +138,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+        ],
+        "en": [
+          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+        ],
+        "de": [
+          "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-specialiste-fmh-en-gynecologie-et-obstetrique-gmo-ch"
+      ]
     },
     {
       "id": "gmo-69ead8a8b120",
@@ -191,11 +219,11 @@
     },
     {
       "id": "gmo-4b5a5ae3e4b8",
-      "slug": "experts-medicaux-gmo-ch",
+      "slug": "esperti-medici-gmo-lugano",
       "slugByLocale": {
-        "it": "experts-medicaux-gmo-ch",
-        "en": "experts-medicaux-gmo-ch",
-        "de": "experts-medicaux-gmo-ch",
+        "it": "esperti-medici-gmo-lugano",
+        "en": "medical-experts-gmo-lugano",
+        "de": "medizinische-experten-gmo-lugano",
         "fr": "experts-medicaux-gmo-ch"
       },
       "company": "gmo",
@@ -249,7 +277,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "previousSlugsByLocale": {
+        "it": [
+          "experts-medicaux-gmo-ch"
+        ],
+        "en": [
+          "experts-medicaux-gmo-ch"
+        ],
+        "de": [
+          "experts-medicaux-gmo-ch"
+        ]
+      },
+      "previousSlugs": [
+        "experts-medicaux-gmo-ch"
+      ]
     },
     {
       "id": "gmo-ac7868278538",

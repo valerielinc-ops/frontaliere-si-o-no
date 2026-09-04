@@ -2937,12 +2937,12 @@
     },
     {
       "id": "valora-7848a268311d",
-      "slug": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
+      "slug": "venditore-venditore-backwerk-24-6-ore-valora-group-zurich",
       "slugByLocale": {
-        "it": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
-        "en": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
+        "it": "venditore-venditore-backwerk-24-6-ore-valora-group-zurich",
+        "en": "seller-seller-backwerk-24-6-hours-valora-group-zurich",
         "de": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich",
-        "fr": "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        "fr": "vendeur-vendeur-retourwerk-24-6-heures-valora-group-zurich"
       },
       "company": "Valora Group",
       "companyKey": "valora",
@@ -2998,7 +2998,21 @@
           "maxValue": 102500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        ],
+        "en": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        ],
+        "fr": [
+          "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "verkauferin-verkaufer-backwerk-24-6-std-valora-zurich"
+      ]
     },
     {
       "id": "valora-54a739dbf0df",

@@ -2550,11 +2550,11 @@
     },
     {
       "id": "siemens-459426058821",
-      "slug": "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens",
+      "slug": "tecnico-di-rilevazione-del-fuoco-80-100-m-f-d-siemens-renens",
       "slugByLocale": {
-        "it": "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens",
-        "en": "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens",
-        "de": "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens",
+        "it": "tecnico-di-rilevazione-del-fuoco-80-100-m-f-d-siemens-renens",
+        "en": "fire-detection-technician-80-100-m-f-d-siemens-renens",
+        "de": "brandmeldetechniker-80-100-m-w-d-siemens-renens",
         "fr": "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens"
       },
       "company": "Siemens",
@@ -2612,7 +2612,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens"
+        ],
+        "en": [
+          "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens"
+        ],
+        "de": [
+          "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-de-service-en-detection-incendie-80-100-f-h-d-siemens-renens"
+      ]
     },
     {
       "id": "siemens-7a1a69b50bc1",
@@ -3879,12 +3893,12 @@
     },
     {
       "id": "siemens-b230d53c4ada",
-      "slug": "service-ingenieur-in-schutz-e-leittechnik-80-100-siemens-zuerich",
+      "slug": "service-engineer-nella-tecnologia-di-protezione-e-controllo-80-100-siemens-zuerich",
       "slugByLocale": {
-        "it": "service-ingenieur-in-schutz-e-leittechnik-80-100-siemens-zuerich",
-        "en": "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+        "it": "service-engineer-nella-tecnologia-di-protezione-e-controllo-80-100-siemens-zuerich",
+        "en": "service-engineer-in-protection-and-control-technology-80-100-siemens-zuerich",
         "de": "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
-        "fr": "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+        "fr": "ingenieur-de-service-en-technologie-de-protection-et-de-controle-80-100-siemens-zuerich"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3929,10 +3943,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+        "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+        "service-ingenieur-in-schutz-e-leittechnik-80-100-siemens-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich",
+          "service-ingenieur-in-schutz-e-leittechnik-80-100-siemens-zuerich"
+        ],
+        "en": [
+          "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
+        ],
+        "fr": [
           "service-ingenieur-in-schutz-und-leittechnik-80-100-siemens-zuerich"
         ]
       },

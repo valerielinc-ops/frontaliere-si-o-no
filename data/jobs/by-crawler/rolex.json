@@ -696,9 +696,9 @@
     },
     {
       "id": "rolex-6acbc0d94f06",
-      "slug": "apprendistato-come-uhrenarbeiter-in-afp-rolex-bienne",
+      "slug": "apprendistato-come-lavoratore-di-orologio-in-eba-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-uhrenarbeiter-in-afp-rolex-bienne",
+        "it": "apprendistato-come-lavoratore-di-orologio-in-eba-rolex-bienne",
         "en": "apprenticeship-as-a-watch-worker-in-eba-rolex-bienne",
         "de": "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch",
         "fr": "apprentissage-en-tant-que-travailleur-de-l-horlogerie-rolex-bienne"
@@ -741,11 +741,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch"
+        "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch",
+        "apprendistato-come-uhrenarbeiter-in-afp-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch"
+          "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch",
+          "apprendistato-come-uhrenarbeiter-in-afp-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-uhrenarbeiter-in-eba-rolex-ch"
@@ -7891,11 +7893,11 @@
     },
     {
       "id": "rolex-114a4c18c6a8",
-      "slug": "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch",
+      "slug": "stage-sostenere-le-attivita-di-un-team-di-formazione-mpc3-1-rolex-bienne",
       "slugByLocale": {
-        "it": "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch",
-        "en": "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch",
-        "de": "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch",
+        "it": "stage-sostenere-le-attivita-di-un-team-di-formazione-mpc3-1-rolex-bienne",
+        "en": "internship-support-the-activities-of-a-training-team-mpc3-1-rolex-bienne",
+        "de": "praktikum-unterstutzung-der-aktivitaten-eines-trainingsteams-mpc3-1-rolex-bienne",
         "fr": "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch"
       },
       "company": "Rolex",
@@ -7948,7 +7950,21 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch"
+        ],
+        "en": [
+          "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch"
+        ],
+        "de": [
+          "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stage-soutenir-les-activites-d-une-equipe-de-formation-mpc3-1-rolex-ch"
+      ]
     },
     {
       "id": "rolex-bd917f38d296",
@@ -8323,11 +8339,11 @@
     },
     {
       "id": "rolex-aea13c7f0d2e",
-      "slug": "apprentissage-d-horloger-ere-cfc-rolex-geneve",
+      "slug": "cfc-apprendimento-dell-orologeria-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-d-horloger-ere-cfc-rolex-geneve",
-        "en": "apprentissage-d-horloger-ere-cfc-rolex-ch-2",
-        "de": "apprentissage-d-horloger-ere-cfc-rolex-ch-2",
+        "it": "cfc-apprendimento-dell-orologeria-rolex-geneve",
+        "en": "cfc-watchmaking-learning-rolex-geneve",
+        "de": "cfc-uhrmacherei-rolex-geneve",
         "fr": "apprentissage-d-horloger-ere-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -8370,12 +8386,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-d-horloger-ere-cfc-rolex-ch-2",
-        "apprentissage-d-horloger-ere-cfc-rolex-ch"
+        "apprentissage-d-horloger-ere-cfc-rolex-ch",
+        "apprentissage-d-horloger-ere-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-d-horloger-ere-cfc-rolex-ch-2",
-          "apprentissage-d-horloger-ere-cfc-rolex-ch"
+          "apprentissage-d-horloger-ere-cfc-rolex-ch",
+          "apprentissage-d-horloger-ere-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-d-horloger-ere-cfc-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-d-horloger-ere-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -8707,11 +8731,11 @@
     },
     {
       "id": "rolex-6b8b9f22e0d5",
-      "slug": "apprentissage-d-informaticien-ne-cfc-rolex-geneve",
+      "slug": "information-technology-learning-cfc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-d-informaticien-ne-cfc-rolex-geneve",
+        "it": "information-technology-learning-cfc-rolex-geneve",
         "en": "apprentissage-d-informaticien-ne-cfc-rolex-ch",
-        "de": "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+        "de": "lernen-in-der-informationstechnologie-cfc-rolex-geneve",
         "fr": "apprentissage-d-informaticien-ne-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -8753,10 +8777,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-d-informaticien-ne-cfc-rolex-ch"
+        "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+        "apprentissage-d-informaticien-ne-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-d-informaticien-ne-cfc-rolex-ch",
+          "apprentissage-d-informaticien-ne-cfc-rolex-geneve"
+        ],
+        "de": [
           "apprentissage-d-informaticien-ne-cfc-rolex-ch"
         ]
       },
@@ -8854,11 +8883,11 @@
     },
     {
       "id": "rolex-0b30e6b7c5ff",
-      "slug": "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-geneve",
+      "slug": "formazione-praticante-in-meccanica-afp-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-geneve",
-        "en": "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2",
-        "de": "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2",
+        "it": "formazione-praticante-in-meccanica-afp-rolex-geneve",
+        "en": "practitioner-training-in-mechanics-afp-rolex-geneve",
+        "de": "praktiker-ausbildung-in-mechanik-afp-rolex-geneve",
         "fr": "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch"
       },
       "company": "Rolex",
@@ -8901,12 +8930,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2",
-        "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch"
+        "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch",
+        "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2",
-          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch"
+          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch",
+          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-de-praticien-ne-en-mecanique-afp-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -9168,11 +9205,11 @@
     },
     {
       "id": "rolex-a6aead5fb363",
-      "slug": "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-geneve",
+      "slug": "cfc-preziosa-pietra-setter-apprendimento-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-geneve",
-        "en": "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch",
-        "de": "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch",
+        "it": "cfc-preziosa-pietra-setter-apprendimento-rolex-geneve",
+        "en": "cfc-precious-stone-setter-learning-rolex-geneve",
+        "de": "cfc-edelsteinsetzer-lernen-rolex-geneve",
         "fr": "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -9214,10 +9251,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch"
+        "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch",
+        "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch",
+          "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch"
+        ],
+        "de": [
           "apprentissage-de-sertisseur-euse-de-pierres-precieuses-cfc-rolex-ch"
         ]
       },
@@ -9239,11 +9284,11 @@
     },
     {
       "id": "rolex-7d544f319240",
-      "slug": "apprentissage-de-laborantin-e-en-physique-cfc-rolex-geneve",
+      "slug": "formazione-di-laborantine-in-fisica-cfc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-laborantin-e-en-physique-cfc-rolex-geneve",
-        "en": "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch",
-        "de": "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch",
+        "it": "formazione-di-laborantine-in-fisica-cfc-rolex-geneve",
+        "en": "laborantine-training-in-cfc-physics-rolex-geneve",
+        "de": "laborantine-training-in-cfc-physik-rolex-geneve",
         "fr": "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -9285,10 +9330,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch"
+        "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch",
+        "apprentissage-de-laborantin-e-en-physique-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch",
+          "apprentissage-de-laborantin-e-en-physique-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch"
+        ],
+        "de": [
           "apprentissage-de-laborantin-e-en-physique-cfc-rolex-ch"
         ]
       },
@@ -9549,10 +9602,10 @@
     },
     {
       "id": "rolex-de7cfe58fa3a",
-      "slug": "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-geneve",
+      "slug": "imparare-l-operatore-automatico-swc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-geneve",
-        "en": "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch-2",
+        "it": "imparare-l-operatore-automatico-swc-rolex-geneve",
+        "en": "swc-automated-machine-operator-learning-rolex-geneve",
         "de": "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch-2",
         "fr": "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch"
       },
@@ -9599,7 +9652,8 @@
         "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch",
         "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve",
         "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2",
-        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
+        "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+        "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9607,13 +9661,17 @@
           "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch",
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-geneve",
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2",
-          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
+          "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch",
+          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-geneve"
         ],
         "de": [
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch-2"
         ],
         "fr": [
           "apprentissage-d-operateur-trice-en-informatique-cfc-rolex-ch"
+        ],
+        "en": [
+          "apprentissage-d-operateur-trice-de-machines-automatisees-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -9715,11 +9773,11 @@
     },
     {
       "id": "rolex-1b5cf863d50c",
-      "slug": "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-geneve",
+      "slug": "apprendimento-di-qualita-in-microtecnica-cfc-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-geneve",
-        "en": "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2",
-        "de": "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2",
+        "it": "apprendimento-di-qualita-in-microtecnica-cfc-rolex-geneve",
+        "en": "quality-learning-in-cfc-microtechnics-rolex-geneve",
+        "de": "qualitativ-hochwertiges-lernen-in-der-cfc-mikrotechnik-rolex-geneve",
         "fr": "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -9762,12 +9820,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2",
-        "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch"
+        "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch",
+        "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2",
-          "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch"
+          "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch",
+          "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-de-qualiticien-ne-en-microtechnique-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -9867,11 +9933,11 @@
     },
     {
       "id": "rolex-754b0383388c",
-      "slug": "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-geneve",
+      "slug": "swc-industrial-designer-apprendimento-rolex-geneve",
       "slugByLocale": {
-        "it": "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-geneve",
-        "en": "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2",
-        "de": "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2",
+        "it": "swc-industrial-designer-apprendimento-rolex-geneve",
+        "en": "swc-industrial-designer-learning-rolex-geneve",
+        "de": "swc-industrial-designer-lernen-rolex-geneve",
         "fr": "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch"
       },
       "company": "Rolex",
@@ -9914,12 +9980,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2",
-        "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch"
+        "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch",
+        "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2",
-          "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch"
+          "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch",
+          "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-geneve"
+        ],
+        "en": [
+          "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2"
+        ],
+        "de": [
+          "apprentissage-de-dessinateur-trice-constructeur-trice-industriel-le-cfc-rolex-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -11267,9 +11341,9 @@
     },
     {
       "id": "rolex-7e2d0864a403",
-      "slug": "apprendistato-come-polymechaniker-in-cfc-rolex-bienne",
+      "slug": "apprendistato-come-un-polimechanic-in-efz-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-polymechaniker-in-cfc-rolex-bienne",
+        "it": "apprendistato-come-un-polimechanic-in-efz-rolex-bienne",
         "en": "apprenticeship-as-a-polymechanic-in-efz-rolex-bienne",
         "de": "lehrstelle-als-polymechaniker-in-efz-rolex-ch",
         "fr": "apprentissage-en-tant-que-polymecanique-rolex-bienne"
@@ -11312,11 +11386,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-polymechaniker-in-efz-rolex-ch"
+        "lehrstelle-als-polymechaniker-in-efz-rolex-ch",
+        "apprendistato-come-polymechaniker-in-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-polymechaniker-in-efz-rolex-ch"
+          "lehrstelle-als-polymechaniker-in-efz-rolex-ch",
+          "apprendistato-come-polymechaniker-in-cfc-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-polymechaniker-in-efz-rolex-ch"
@@ -11663,9 +11739,9 @@
     },
     {
       "id": "rolex-530dc2fffac3",
-      "slug": "apprendistato-come-qualitatsfachmann-frau-in-mikrotechnik-cfc-rolex-bienne",
+      "slug": "apprendistato-come-specialista-di-qualita-nella-microtecnologia-efz-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-qualitatsfachmann-frau-in-mikrotechnik-cfc-rolex-bienne",
+        "it": "apprendistato-come-specialista-di-qualita-nella-microtecnologia-efz-rolex-bienne",
         "en": "apprenticeship-as-a-quality-specialist-in-microtechnology-efz-rolex-bienne",
         "de": "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch",
         "fr": "apprentissage-en-tant-que-specialiste-de-la-qualite-en-microtechnologie-efz-rolex-bienne"
@@ -11708,11 +11784,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch"
+        "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch",
+        "apprendistato-come-qualitatsfachmann-frau-in-mikrotechnik-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch"
+          "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch",
+          "apprendistato-come-qualitatsfachmann-frau-in-mikrotechnik-cfc-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-qualitatsfachmann-frau-in-mikrotechnik-efz-rolex-ch"
@@ -11738,9 +11816,9 @@
     },
     {
       "id": "rolex-e70f9ee7106a",
-      "slug": "apprendistato-come-oberflachenpratiker-in-afp-rolex-bienne",
+      "slug": "apprendistato-come-praticante-di-superficie-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-oberflachenpratiker-in-afp-rolex-bienne",
+        "it": "apprendistato-come-praticante-di-superficie-rolex-bienne",
         "en": "apprenticeship-as-surface-practitioner-in-eba-rolex-bienne",
         "de": "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch",
         "fr": "apprentissage-en-tant-que-praticien-de-surface-rolex-bienne"
@@ -11783,11 +11861,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch"
+        "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch",
+        "apprendistato-come-oberflachenpratiker-in-afp-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch"
+          "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch",
+          "apprendistato-come-oberflachenpratiker-in-afp-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-oberflachenpratiker-in-eba-rolex-ch"
@@ -11813,9 +11893,9 @@
     },
     {
       "id": "rolex-28ffded1f964",
-      "slug": "apprendistato-come-produktionsmechaniker-in-cfc-rolex-bienne",
+      "slug": "apprendistato-come-meccanico-di-produzione-in-efz-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-produktionsmechaniker-in-cfc-rolex-bienne",
+        "it": "apprendistato-come-meccanico-di-produzione-in-efz-rolex-bienne",
         "en": "apprenticeship-as-a-production-mechanic-in-efz-rolex-bienne",
         "de": "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch",
         "fr": "apprentissage-en-tant-que-mecanicien-de-production-rolex-bienne"
@@ -11858,11 +11938,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch"
+        "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch",
+        "apprendistato-come-produktionsmechaniker-in-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch"
+          "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch",
+          "apprendistato-come-produktionsmechaniker-in-cfc-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-produktionsmechaniker-in-efz-rolex-ch"
@@ -11888,9 +11970,9 @@
     },
     {
       "id": "rolex-1d715b2ad6cc",
-      "slug": "apprendistato-come-mechanikpraktiker-in-afp-rolex-bienne",
+      "slug": "apprendistato-come-praticante-meccanico-in-eba-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-mechanikpraktiker-in-afp-rolex-bienne",
+        "it": "apprendistato-come-praticante-meccanico-in-eba-rolex-bienne",
         "en": "apprenticeship-as-a-mechanic-practitioner-in-eba-rolex-bienne",
         "de": "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch",
         "fr": "apprentissage-en-tant-que-mecanicien-en-eba-rolex-bienne"
@@ -11933,11 +12015,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch"
+        "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch",
+        "apprendistato-come-mechanikpraktiker-in-afp-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch"
+          "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch",
+          "apprendistato-come-mechanikpraktiker-in-afp-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-mechanikpraktiker-in-eba-rolex-ch"
@@ -12040,9 +12124,9 @@
     },
     {
       "id": "rolex-431255adcbc1",
-      "slug": "apprendistato-come-oberflachenbeschichter-in-cfc-rolex-bienne",
+      "slug": "apprendistato-come-rivestimento-di-superficie-in-efz-rolex-bienne",
       "slugByLocale": {
-        "it": "apprendistato-come-oberflachenbeschichter-in-cfc-rolex-bienne",
+        "it": "apprendistato-come-rivestimento-di-superficie-in-efz-rolex-bienne",
         "en": "apprenticeship-as-surface-coater-in-efz-rolex-bienne",
         "de": "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch",
         "fr": "apprentissage-comme-revetement-de-surface-dans-efz-rolex-bienne"
@@ -12085,11 +12169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch"
+        "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch",
+        "apprendistato-come-oberflachenbeschichter-in-cfc-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch"
+          "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch",
+          "apprendistato-come-oberflachenbeschichter-in-cfc-rolex-bienne"
         ],
         "en": [
           "lehrstelle-als-oberflachenbeschichter-in-efz-rolex-ch"
@@ -13355,11 +13441,11 @@
     },
     {
       "id": "rolex-3a6a6604f0e1",
-      "slug": "charge-de-projets-h-f-rolex-ch",
+      "slug": "responsabile-del-progetto-m-f-rolex-bienne",
       "slugByLocale": {
-        "it": "charge-de-projets-h-f-rolex-ch",
-        "en": "charge-de-projets-h-f-rolex-ch",
-        "de": "charge-de-projets-h-f-rolex-ch",
+        "it": "responsabile-del-progetto-m-f-rolex-bienne",
+        "en": "project-manager-m-f-rolex-bienne",
+        "de": "projektmanager-m-w-rolex-bienne",
         "fr": "charge-de-projets-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -13412,7 +13498,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-h-f-rolex-ch"
+        ],
+        "en": [
+          "charge-de-projets-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-bf671e080c08",

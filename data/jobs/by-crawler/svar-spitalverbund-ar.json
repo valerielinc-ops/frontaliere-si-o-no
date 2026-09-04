@@ -164,8 +164,7 @@
         "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
         "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
-        "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "medecin-senior-medecin-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -173,8 +172,7 @@
           "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
           "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
-          "medico-senior-medico-senior-chirugie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
         ],
         "en": [
           "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -617,12 +615,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-d48dac43e28e",
-      "slug": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "salute-professionale-in-educazione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "salute-professionale-in-educazione-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "professional-health-in-education-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "sante-professionnelle-en-education-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -665,10 +663,18 @@
       "requirementsByLocale": {},
       "externalId": "4062789",
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
+        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
+        "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau",
+          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-in-ausbildung-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
@@ -689,12 +695,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-3de3aa731c92",
-      "slug": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -737,21 +743,21 @@
       "requirementsByLocale": {},
       "externalId": "4063761",
       "previousSlugs": [
-        "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "en": [
-          "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "fr": [
-          "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "firstSeenAt": "2026-09-02T13:36:06.286Z",
@@ -771,12 +777,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-df7f83a0bbb7",
-      "slug": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -831,7 +837,21 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     }
   ]
 }

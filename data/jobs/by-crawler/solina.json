@@ -2318,12 +2318,12 @@
     },
     {
       "id": "solina-cf04d162e22a",
-      "slug": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+      "slug": "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "en": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
+        "it": "salute-professionale-stiftung-solina-steffisburg-ziegelei-f710fb",
+        "en": "professional-health-stiftung-solina-steffisburg-ziegelei-f710fb",
         "de": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei",
-        "fr": "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        "fr": "sante-professionnelle-stiftung-solina-steffisburg-ziegelei-f710fb"
       },
       "company": "Stiftung Solina",
       "companyKey": "solina",
@@ -2377,7 +2377,21 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei"
+      ]
     },
     {
       "id": "solina-5c1f5104d18f",

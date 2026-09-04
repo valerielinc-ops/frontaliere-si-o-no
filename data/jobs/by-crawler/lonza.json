@@ -10068,7 +10068,7 @@
         "it": "operatore-projekt-accelerate-chance-per-candidato-a-in-riqualificazione-im-4-schicht-betrieb-m-w-d-lonza-ch",
         "en": "operator-project-accelerate-opportunity-for-lateral-entrants-in-4-shift-operation-m-f-d-lonza-ch",
         "de": "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch",
-        "fr": "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch"
+        "fr": "accelerer-le-projet-de-l-operateur-possibilite-pour-les-entrants-lateraux-dans-l-exploitation-en-4-equipes-h-f-d-lonza"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -10116,6 +10116,9 @@
           "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch"
         ],
         "en": [
+          "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch"
+        ],
+        "fr": [
           "operator-projekt-accelerate-chance-fur-quereinsteiger-im-4-schicht-betrieb-m-w-d-lonza-ch"
         ]
       },
@@ -13398,9 +13401,9 @@
     },
     {
       "id": "lonza-b3e230414156",
-      "slug": "senior-lab-technician-lonza-ch",
+      "slug": "tecnico-di-laboratorio-senior-lonza-ch",
       "slugByLocale": {
-        "it": "senior-lab-technician-lonza-ch",
+        "it": "tecnico-di-laboratorio-senior-lonza-ch",
         "en": "senior-lab-technician-lonza-ch",
         "de": "senior-lab-techniker-lonza-ch",
         "fr": "senior-lab-technicien-lonza-ch"
@@ -13458,7 +13461,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-lab-technician-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-lab-technician-lonza-ch"
+      ]
     },
     {
       "id": "lonza-a4d75c1e090a",
@@ -14250,7 +14261,7 @@
       "slugByLocale": {
         "it": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
         "en": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
-        "de": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch",
+        "de": "msat-biokonjugate-prozessexperte-m-w-d-80-100-lonza-ch",
         "fr": "msat-bioconjugates-process-expert-f-m-d-80-100-lonza-ch"
       },
       "company": "Lonza",

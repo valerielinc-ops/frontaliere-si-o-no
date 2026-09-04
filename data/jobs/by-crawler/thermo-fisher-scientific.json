@@ -542,12 +542,12 @@
     },
     {
       "id": "thermo-fisher-scientific-bf1333e1ef3d",
-      "slug": "manager-qa-operations-thermo-fisher-scientific-ch",
+      "slug": "gestione-operazioni-qa-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
       "slugByLocale": {
-        "it": "manager-qa-operations-thermo-fisher-scientific-ch",
+        "it": "gestione-operazioni-qa-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland",
         "en": "manager-qa-operations-thermo-fisher-scientific-ch",
         "de": "manager-qa-operations-thermo-fisher-scientific-ch",
-        "fr": "manager-qa-operations-thermo-fisher-scientific-ch"
+        "fr": "gestionnaire-operations-de-l-aq-thermo-fisher-scientific-schweiz-ag-lengnau-switzerland"
       },
       "company": "Thermo Fisher Scientific (Schweiz) AG",
       "companyKey": "thermo-fisher-scientific",
@@ -602,7 +602,18 @@
           "maxValue": 167500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-qa-operations-thermo-fisher-scientific-ch"
+        ],
+        "fr": [
+          "manager-qa-operations-thermo-fisher-scientific-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-qa-operations-thermo-fisher-scientific-ch"
+      ]
     },
     {
       "id": "thermo-fisher-scientific-36dd8771801a",
