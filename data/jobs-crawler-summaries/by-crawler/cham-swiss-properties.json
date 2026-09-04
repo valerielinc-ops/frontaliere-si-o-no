@@ -1,7 +1,7 @@
 {
   "key": "cham-swiss-properties",
   "label": "Cham Swiss Properties",
-  "generatedAt": "2026-09-03T23:24:47.568Z",
+  "generatedAt": "2026-09-04T13:33:43.965Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6596,
-  "avgDurationMs": 6596,
+  "durationMs": 6297,
+  "avgDurationMs": 6297,
   "durationHistory": [
-    6596
+    6297
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:42.446Z",
+      "crawledAt": "2026-09-04T13:33:38.861Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -47,11 +47,11 @@
       "applyUrl": "https://jobs.dualoo.com/portal/6j9quii0/e92babc9-d7a7-43ad-90f7-d07c64aae4f0/detail?lang=DE",
       "hiringOrganizationName": "Cham Swiss Properties AG",
       "firstSeenAt": "2026-08-31T17:16:20.555Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -68,7 +68,7 @@
       "url": "https://jobs.dualoo.com/portal/6j9quii0/157f7d95-d715-4a8f-a480-6f8601ffec1d/detail?lang=DE",
       "source": "Cham Swiss Properties Dedicated Parser (Dualoo)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:41.944Z",
+      "crawledAt": "2026-09-04T13:33:38.396Z",
       "addressLocality": "Cham",
       "addressRegion": "ZG",
       "streetAddress": "Fabrikstrasse 5",
@@ -86,11 +86,11 @@
       "applyUrl": "https://jobs.dualoo.com/portal/6j9quii0/157f7d95-d715-4a8f-a480-6f8601ffec1d/detail?lang=DE",
       "hiringOrganizationName": "Cham Swiss Properties AG",
       "firstSeenAt": "2026-08-27T20:11:02.995Z",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
