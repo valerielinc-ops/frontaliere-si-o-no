@@ -16,6 +16,7 @@ import { useNavigation } from '@/services/NavigationContext';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { getArticleAuthorOverride, mergeArticleByline, type ArticleAuthorOverride } from '@/services/authorProfileService';
 import { getAuthorBySlug } from '@/data/authors';
+import { resolveArticleProvenance } from '@/services/articleProvenance';
 import { CDN_BLOG_BASE } from '@/services/seo/blogImageCdn';
 
 // Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
@@ -1956,14 +1957,14 @@ function BlogArticles({
  const article = selectedArticleObj;
  if (!article) return null;
  const { authorSlug: effectiveAuthorSlug, authorName: effectiveAuthorName } = mergeArticleByline(articleAuthorOverride, article);
- // `uid` in the registry is a Firebase Auth uid, and it is set for exactly
- // one kind of author: a guest journalist who wrote and submitted the piece
- // himself through the dashboard. Everyone else in the registry is an
- // editorial persona for AI-drafted content. The disclosure below is the
- // only place on the page that states HOW an article came to exist, so it
- // has to split on that, not print the AI wording over a human's byline.
+ // The disclosure below is the only place on the page that states HOW an
+ // article came to exist, so it splits on the article's own provenance:
+ // `aiAssisted` when the article declares it, otherwise the registry default
+ // (`uid` ⇒ guest journalist ⇒ human contributor). The declaration exists
+ // because the registry alone answers a per-article question with a
+ // per-author property — see services/articleProvenance.ts.
  const bylineAuthor = effectiveAuthorSlug ? getAuthorBySlug(effectiveAuthorSlug) : undefined;
- const isHumanContributor = Boolean(bylineAuthor?.uid);
+ const isHumanContributor = !resolveArticleProvenance(article, bylineAuthor).aiAssisted;
 
  // Wait for article body translations to load
  if (!bodyReady) {

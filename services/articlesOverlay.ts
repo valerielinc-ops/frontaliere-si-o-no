@@ -39,6 +39,15 @@ export interface OverlayArticle {
   hasCalculator?: boolean;
   authorSlug?: string;
   /**
+   * Provenance of this article's draft, when the publisher declares it. The
+   * articles this overlay adds are exactly the ones this build does NOT ship,
+   * so without a passthrough here the declaration would be dead for the
+   * freshest articles — the population the transparency disclosure is most
+   * likely to get wrong. `mergeOverlay` spreads the entry as-is, so declaring
+   * the field is all that is needed. See `services/articleProvenance.ts`.
+   */
+  aiAssisted?: boolean;
+  /**
    * The article's slug for THIS index's locale, when the publisher emits one.
    * Optional and forward-looking: with it the list can link a brand-new
    * article without asking for the ~550 KB slugs.json (see the mount effect in
