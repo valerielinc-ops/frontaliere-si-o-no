@@ -33924,6 +33924,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'outlet-prezzi-ticino-frontalieri',
+ category: 'pratico',
+ date: '2026-09-04T22:38:43.214Z',
+ image: '/images/blog/outlet-prezzi-ticino-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
