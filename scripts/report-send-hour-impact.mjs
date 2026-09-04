@@ -437,6 +437,18 @@ const PERSONAL_TAIL_WINDOW_DAYS = 90;
  * @returns {boolean}
  */
 export function qualifiesOnlyViaTailWindow(eventTimes, sentAt) {
+  // A `sent_at` that is truthy but unparsable survives the aggregate loop's
+  // `!d.sent_at` drop and reaches here as an Invalid Date. Every comparison
+  // against NaN is false, so WITHOUT this guard the classification inverts by
+  // construction: no event is skipped by `t >= sentAt`, `daysBefore` is NaN, so
+  // `>= PREFERRED_SEND_WINDOW_DAYS` never `continue`s (within180 counts all)
+  // and `< PERSONAL_TAIL_WINDOW_DAYS` never fires (within90 stays 0) — any
+  // subscriber with PREFERRED_SEND_MIN_EVENTS events returns true. Symmetric to
+  // the guard in collectTailLookupFloors, which already skips these docs: their
+  // 180-day history is never read, so they would be judged on the report's own
+  // window events alone and inflate this small-N bucket. Unclassifiable → keep
+  // them in `personal`, where they were before #6550.
+  if (!(sentAt instanceof Date) || Number.isNaN(sentAt.getTime())) return false;
   if (!Array.isArray(eventTimes) || eventTimes.length === 0) return false;
   let within90 = 0;
   let within180 = 0;

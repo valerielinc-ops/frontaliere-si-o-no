@@ -177,6 +177,17 @@ describe('qualifiesOnlyViaTailWindow (#6550)', () => {
     expect(qualifiesOnlyViaTailWindow([], sentAt)).toBe(false);
     expect(qualifiesOnlyViaTailWindow(undefined as unknown as Date[], sentAt)).toBe(false);
   });
+
+  // An unparsable-but-truthy `sent_at` reaches this function as an Invalid Date
+  // (collectTailLookupFloors skips those docs, so their 180-day history is never
+  // even read). Every NaN comparison being false used to make the answer `true`
+  // by construction — even for events that are entirely inside the recent 90
+  // days, i.e. the exact opposite of what the bucket means.
+  it('false when sentAt is unusable, even with enough recent events to invert the NaN comparisons', () => {
+    const recent = [daysBefore(1), daysBefore(2), daysBefore(3)];
+    expect(qualifiesOnlyViaTailWindow(recent, new Date('not-a-date'))).toBe(false);
+    expect(qualifiesOnlyViaTailWindow(recent, undefined as unknown as Date)).toBe(false);
+  });
 });
 
 describe('aggregate — personal_tail_90_180 split (#6550)', () => {
