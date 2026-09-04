@@ -10,6 +10,7 @@
  *                                   + version-skew self-heal)
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
+ *   PARTNERIZE_TAG_CONTENT        → /assets/partnerize-tag.js (PARTNERIZE_TAG_SNIPPET)
  *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
  *
  * critical.css used to be a per-page inline `<style>` block (~4.3 KB ×
@@ -64,6 +65,8 @@ import {
   POSTHOG_INIT_FILENAME,
   FUEL_CHART_SCRIPT_CONTENT,
   FUEL_CHART_SCRIPT_FILENAME,
+  PARTNERIZE_TAG_CONTENT,
+  PARTNERIZE_TAG_FILENAME,
 } from './constants';
 import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
 
@@ -81,6 +84,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         [EARLY_BOOT_FILENAME, EARLY_BOOT_CONTENT],
         [POSTHOG_INIT_FILENAME, POSTHOG_INIT_CONTENT],
         [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
+        [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
         [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
       ];
 

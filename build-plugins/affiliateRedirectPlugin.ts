@@ -17,6 +17,7 @@ import {
  CF_BEACON_SNIPPET,
  GA4_MEASUREMENT_ID,
  GTAG_LOADER_SNIPPET,
+ PARTNERIZE_TAG_SNIPPET,
  POSTHOG_SNIPPET,
  SEO_STATIC_CSS_LINK,
 } from './constants';
@@ -60,6 +61,7 @@ function buildRedirectPage(partner: typeof PARTNERS[number]): string {
  ${CF_BEACON_SNIPPET}
  ${POSTHOG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}
  <script>(function(){
 var u=${JSON.stringify(targetUrl)};
 var redirected=false;

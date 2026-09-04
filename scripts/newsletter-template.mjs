@@ -494,7 +494,12 @@ function renderJobSection({ jobs, campaign, locale }) {
 // ─── Affiliate partners section ─────────────────────────────
 
 const AFFILIATE_PARTNERS_NL = [
-  { emoji: '💸', name: 'Wise', desc: { it: 'Carta gratuita o zero commissioni fino a CHF 600', en: 'Free card or zero fees up to CHF 600', de: 'Kostenlose Karte oder keine Gebühren bis CHF 600', fr: 'Carte gratuite ou zéro frais jusqu\'à CHF 600' }, goUrl: '/go/wise/' },
+  // Niente bonus di benvenuto in questa riga: `goUrl` porta al deeplink
+  // affiliato Partnerize, che atterra su wise.com senza offerta. La promessa
+  // «carta gratuita / zero commissioni fino a CHF 600» valeva solo per il
+  // vecchio invito personale ed e' stata tolta anche da
+  // `affiliate.wise.description` e da `currency.feature_wise_referral_bonus`.
+  { emoji: '💸', name: 'Wise', desc: { it: 'Tasso di cambio reale, commissioni trasparenti', en: 'Real exchange rate, transparent fees', de: 'Echter Wechselkurs, transparente Gebühren', fr: 'Taux de change réel, frais transparents' }, goUrl: '/go/wise/' },
   { emoji: '🇮🇹', name: 'Fineco Bank', desc: { it: 'Codice AA8381747 — bonus 50€', en: 'Code AA8381747 — €50 bonus', de: 'Code AA8381747 — 50€ Bonus', fr: 'Code AA8381747 — bonus 50€' }, goUrl: '/go/fineco/' },
   { emoji: '🏦', name: 'Crédit Agricole', desc: { it: 'Buono Amazon 50€ con invito', en: '€50 Amazon voucher with invite', de: '50€ Amazon-Gutschein mit Einladung', fr: 'Bon Amazon 50€ avec invitation' }, goUrl: '/go/creditagricole/' },
 ];

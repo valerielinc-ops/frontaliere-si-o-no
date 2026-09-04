@@ -102,8 +102,8 @@ const providers: ExchangeProvider[] = [
  transferTime: '1-2 giorni lavorativi',
  transferTimeKey: '1_2_business_days',
  color: 'from-success-strong to-info-strong',
- features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata', 'Iscriviti da qui: bonus referral'],
- featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount', 'feature_wise_referral_bonus'],
+ features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata'],
+ featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount'],
  type: 'service',
  referralUrl: WISE_REFERRAL_URL,
     goId: 'wise'
@@ -894,6 +894,26 @@ const CurrencyExchange: React.FC = () => {
  </div>
 
  <PartnerRecommendations context="exchange" />
+
+ {/*
+  Placement del Dynamic Ad Widget di Partnerize: il tag (caricato nel <head>,
+  vedi PARTNERIZE_TAG_SNIPPET in build-plugins/constants.ts) inietta qui i
+  creativi dei brand, se il widget e' acceso in dashboard sul selettore
+  `#pz-ad-landscape`.
+
+  L'id e' la prima raccomandazione della doc Partnerize per il targeting:
+  unico nel documento e stabile ai redesign, al contrario di un percorso
+  strutturale tipo `body > div:nth-child(2) > section.main-content`. NON
+  rinominarlo senza aggiornare il campo "Display element (CSS selector)"
+  nella dashboard: cambiato l'id, il widget smette di servire e nessun test
+  qui lo nota.
+
+  `min-h`/`overflow-hidden` riservano lo spazio prima che il creativo arrivi:
+  senza, l'iniezione sposta il contenuto sotto (CLS) esattamente come farebbe
+  uno slot pubblicitario non dimensionato. Vuoto non occupa nulla di visibile.
+ */}
+ <div id="pz-ad-landscape" className="mt-6 min-h-[90px] w-full overflow-hidden [contain:layout]" />
+
  <Suspense fallback={<div className="min-h-[180px] [contain:layout]" />}>
  <LeadMagnetCTA variant="generic" delay={0} />
  </Suspense>

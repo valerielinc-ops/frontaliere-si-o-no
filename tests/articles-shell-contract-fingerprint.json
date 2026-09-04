@@ -1,6 +1,6 @@
 {
   "version": 1,
   "note": "SHA-256 of the SCALAR half of SiteShellContract, JSON.stringify(sorted keys, null, 2), with RegExp values (e.g. contextualLinkRules[].keywordPattern) forced through String(v) via the stringify replacer. Both repos assert this: the main repo from build-plugins/articlesSiteShellBootstrap.ts, this repo from host/siteShellBootstrap.ts. These values render into every article <head>, so a drift between the two makes a fast-published page differ from the full build that later overwrites it. Functions are excluded (not comparable by value) — their behaviour is covered by the byte-identity renders instead. Re-recorded 2026-08-24 (issue #6396): plain JSON.stringify serializes every RegExp to `{}` (no own enumerable props), so a keywordPattern source/flags edit never moved the digest — the fingerprint gave zero protection against regex-only drift between the two repos. The String(v) replacer fixes that; the digest form change is re-recorded in BOTH repos in this same coordinated change (see the paired PR in nanakokyobashi-rgb/frontaliere-articles). Contract VALUES are unchanged from the prior 636b2973... recording — only the serialization of RegExp fields changed.",
-  "scalarFields": 21,
-  "sha256": "5a25f79cdc8b61052b4f5d1840f7f99b529475d67ea1eaf677ae79ae62dae999"
+  "scalarFields": 22,
+  "sha256": "a8d61011f201bab590ebe2b4220429823048d6ccefe6a192fdd3ccbf95bc8bf7"
 }

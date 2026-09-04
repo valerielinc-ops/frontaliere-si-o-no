@@ -23,6 +23,7 @@ import {
   BASE_URL,
   FAVICON_LINKS,
   GTAG_SNIPPET,
+  PARTNERIZE_TAG_SNIPPET,
   ADSENSE_SNIPPET,
   CDN_PRECONNECT_HINT,
   robotsMetaEnhancedForContent,
@@ -353,6 +354,7 @@ ${alternates}
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${GTAG_SNIPPET}
     ${ADSENSE_SNIPPET}
+    ${PARTNERIZE_TAG_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}

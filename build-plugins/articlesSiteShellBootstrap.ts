@@ -23,6 +23,7 @@
 import {
   BASE_URL,
   GTAG_SNIPPET,
+  PARTNERIZE_TAG_SNIPPET,
   ADSENSE_SNIPPET,
   OFFERWALL_FC_SNIPPET,
   FAVICON_LINKS,
@@ -83,6 +84,7 @@ const contract: SiteShellContract = {
   baseUrl: BASE_URL,
   gtagSnippet: GTAG_SNIPPET,
   adsenseSnippet: ADSENSE_SNIPPET,
+  partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET,
   offerwallFcSnippet: OFFERWALL_FC_SNIPPET,
   faviconLinks: FAVICON_LINKS,
   seoStaticCssFilename: SEO_STATIC_CSS_FILENAME,

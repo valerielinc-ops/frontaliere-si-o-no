@@ -778,6 +778,9 @@ function buildHtml(args: BuildHtmlArgs): string {
   const {
     baseUrl: BASE_URL,
     adsenseSnippet: ADSENSE_SNIPPET,
+    // `?? ''`: campo opzionale del contratto, il repo pubblicatore puo' non
+    // passarlo ancora — vedi SiteShellContract.partnerizeTagSnippet.
+    partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET = '',
     cdnPreconnectHint: CDN_PRECONNECT_HINT,
     clampMetaDescription,
     inlineScriptJson,
@@ -962,6 +965,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
     <script type="application/ld+json">${collectionLd}</script>
     ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
     ${ADSENSE_SNIPPET}
+    ${PARTNERIZE_TAG_SNIPPET}
   </head>
   <body class="bg-surface-alt text-heading overflow-x-hidden">
     ${rootShell(hasSpaBundle)}
