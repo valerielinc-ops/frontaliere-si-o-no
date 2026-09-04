@@ -69986,6 +69986,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bally-caslano-licenziamenti-2025': {
+    title: 'Bally, a Caslano l\'ennesimo taglio del personale',
+    description: 'Regent LP taglia 25 posti a Bally Caslano: dipendenti calano da 100 a 54. Concordata in corso, perdite 60,5M nel 2024, ricerca acquirente per salvare',
+    keywords: 'frontalieri, ticino, svizzera, italia, bally, caslano, ennesimo, taglio',
+    ogTitle: 'Bally, a Caslano l\'ennesimo taglio del personale',
+    ogDescription: 'Regent LP taglia 25 posti a Bally Caslano: da 100 a 54 dipendenti. Concordata in corso, perdite 60,5M nel 2024. Attività ferma da mesi, ricerca di acquirente per salvare occupazione ticinese.',
+    canonicalPath: '/articoli-svizzera/bally-caslano-licenziamenti-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bally, a Caslano l'ennesimo taglio del personale",
+      "description": "Regent LP taglia 25 posti a Bally Caslano: dipendenti calano da 100 a 54. Concordata in corso, perdite 60,5M nel 2024, ricerca acquirente per salvare",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bally-caslano-licenziamenti-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del lago di Lugano e paesaggio ticinese a Caslano, sede dello stabilimento Bally in crisi occupazionale"
+      },
+      "datePublished": "2026-09-04T04:55:26+00:00",
+      "dateModified": "2026-09-04T04:55:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bally-caslano-licenziamenti-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

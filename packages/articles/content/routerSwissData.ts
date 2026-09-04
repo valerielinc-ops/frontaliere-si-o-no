@@ -1823,6 +1823,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fondare-impresa-turgovia-procedura-costi': { it: 'fondare-impresa-turgovia-procedura-costi', en: 'founding-business-thurgau-procedure-costs', de: 'unternehmen-grunden-thurgau-verfahren-kosten', fr: 'fonder-entreprise-thurgovie-procedure-frais' },
  'imposte-cantonali-vaud-aliquote': { it: 'imposte-cantonali-vaud-aliquote', en: 'canton-vaud-cantonal-tax-rates', de: 'kanton-waadt-kantonssteuer-saetze', fr: 'impots-cantonaux-vaud-taux' },
  'ricerca-medicina-ticino-innovazione': { it: 'ricerca-medicina-ticino-innovazione', en: 'biomedical-research-innovation-ticino', de: 'biomedizinische-forschung-innovation-tessin', fr: 'recherche-biomedicale-innovation-tessin' },
+ 'bally-caslano-licenziamenti-2025': { it: 'bally-caslano-licenziamenti-2025', en: 'bally-caslano-layoffs-2025', de: 'bally-caslano-entlassungen-2025', fr: 'bally-caslano-licenciements-2025' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
