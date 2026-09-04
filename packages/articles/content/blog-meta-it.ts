@@ -11331,6 +11331,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'Como export -2,2%, Svizzera cresce al +21,2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'La provincia di Como registra un export in calo del 2,2%. Tessile arretra del 7,9%, ma la Svizzera cresce: +21,2%. Analisi UIL su settori e occupazione.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Veduta aerea del distretto di Mendrisio, zona di confine tra Ticino e Como in Lombardia',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Vista aerea della stazione di Gallarate durante i lavori di manutenzione',
 };
 
 export default blogMetaIt;

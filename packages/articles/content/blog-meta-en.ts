@@ -11330,6 +11330,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'As an export -2.2%, Switzerland grows to +21.2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'The province of Como recorded an export decrease of 2.2%. Textiles lag behind by 7.9%, but Switzerland grows: +21.2%. UIL analysis on sectors and employment.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Aerial view of Mendrisio district, border region between Ticino and Lombardy',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Works at Gallarate station: changes to the S5 line and replacement buses',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'From 14 September to 5 October 2026, maintenance work at Gallarate station. Changes to the S5 Treviglio-Gallarate-Varese line and replacement buses.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Aerial view of Gallarate train station during maintenance work',
 };
 
 export default blogMetaEn;
