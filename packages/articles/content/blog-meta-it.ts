@@ -11343,6 +11343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Trasferirsi in Svizzera da italiano: guida ai permessi',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permesso B, fiscalità svizzera, AVS e LAMal: tutti i passaggi amministrativi per chi lascia l\'Italia.',
     'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Veduta di Lugano dal Ceresio: destinazione comune per trasferimenti dall\'Italia',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Trasferirsi in Svizzera da italiano: la guida',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permesso G, LAMal, AVS, ricerca casa in Ticino, ristorni 2024: procedura completa passo dopo passo per chi non è (ancora) frontaliere.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Vista aerea di Lugano e del Ticino, destinazione per italiani che si trasferiscono in Svizzera',
 };
 
 export default blogMetaIt;

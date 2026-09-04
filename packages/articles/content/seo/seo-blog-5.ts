@@ -85520,6 +85520,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-non-frontaliere-guida': {
+    title: 'Trasferirsi in Svizzera da italiano: la guida | Frontaliere Ticino',
+    description: 'Permesso G/B, LAMal, AVS, ricerca casa in Ticino, INPS coordinamento: procedura completa per italiani non frontalieri che si trasferiscono in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, permesso, lamal',
+    ogTitle: 'Trasferirsi in Svizzera: guida per italiani non frontalieri',
+    ogDescription: 'Scopri come trasferirsi in Svizzera da italiano non frontaliere: Permesso G/B, cercare casa in Ticino, LAMal obbligatoria, imposta alla fonte, ristorni nuovo accordo 2024, INPS coordinamento. Checklist primo mese e calcolatore stipendio svizzero.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-non-frontaliere-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi in Svizzera da italiano: la guida",
+      "description": "Permesso G/B, LAMal, AVS, ricerca casa in Ticino, INPS coordinamento: procedura completa per italiani non frontalieri che si trasferiscono in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-non-frontaliere-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano e del Ticino, destinazione per italiani che si trasferiscono in Svizzera"
+      },
+      "datePublished": "2026-09-04T19:27:02+00:00",
+      "dateModified": "2026-09-04T19:27:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-non-frontaliere-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
