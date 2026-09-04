@@ -218,13 +218,27 @@ jobs:
             # longer than the 1 day of every other artifact in deploy.yml, so a
             # weekly cron always finds one. The newest successful deploy
             # is not necessarily the newest one that still HAS its dist. Walk
-            # back until an artifact set is actually present rather than failing
+            # back until a LIVE artifact is actually present rather than failing
             # on the first miss.
-            for cand in $(gh run list --workflow=deploy.yml --branch=main \
-                            --status=success --limit=12 \
-                            --json databaseId --jq '.[].databaseId'); do
+            # REST diretta, non `gh run list`. Misurato: il 2026-08-31 alle
+            # 11:10 questo passo, con
+            #   gh run list --workflow=deploy.yml --branch=main --status=success --limit=12
+            # ha esaminato dodici run del 2026-07-27 e precedenti, mentre
+            # deploy.yml quel giorno aveva UNDICI run riuscite. Il gate e' morto
+            # dicendo che nessun artifact era vivo, quando il problema era che
+            # stava guardando run di un mese prima. L'endpoint qui sotto ordina
+            # per created_at decrescente ed e' l'unica forma che ha restituito
+            # sempre le run recenti.
+            for cand in $(gh api \
+                  "repos/${{ github.repository }}/actions/workflows/deploy.yml/runs?branch=main&status=success&per_page=12" \
+                  --jq '.workflow_runs[].id'); do
+              # `.expired==false`: un artifact scaduto resta ELENCATO ancora per
+              # un po'. Senza questo filtro il ciclo lo sceglie, esce dalla
+              # walk-back, e il fallimento si sposta allo step di download con un
+              # 410 sullo zip invece di provare la run precedente. Stessa forma
+              # del sibling in measure-deploy-delta.yml.
               if gh api "repos/${{ github.repository }}/actions/runs/$cand/artifacts" \
-                   --jq '.artifacts[] | select(.name=="github-pages") | .id' \
+                   --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' \
                  | grep -q .; then
                 RID="$cand"
                 echo "Newest successful deploy that still has its dist: $RID"
@@ -246,7 +260,7 @@ jobs:
         run: |
           set -euo pipefail
           ARTIFACT_ID=$(gh api "repos/${{ github.repository }}/actions/runs/$DEPLOY_RUN_ID/artifacts" \
-            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+            --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' | head -1)
           if [ -z "$ARTIFACT_ID" ]; then
             echo "::error::No 'github-pages' artifact on run $DEPLOY_RUN_ID."
             exit 1

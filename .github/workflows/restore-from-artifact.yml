@@ -36,7 +36,7 @@ jobs:
           mkdir -p _restore
           ARTIFACT_ID=$(gh api \
             repos/${{ github.repository }}/actions/runs/${SOURCE_RUN_ID}/artifacts \
-            --jq '.artifacts[] | select(.name == "github-pages") | .id')
+            --jq '.artifacts[] | select(.name == "github-pages" and .expired == false) | .id')
           if [ -z "$ARTIFACT_ID" ]; then
             echo "::error::No github-pages artifact in run ${SOURCE_RUN_ID}"
             exit 1
