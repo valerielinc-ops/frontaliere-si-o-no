@@ -747,13 +747,12 @@
         "it": "Collaborateur/trice Merchandising (Hardgoods) 50%",
         "en": "Collaborateur/trice Merchandising (Hardgoods) 50%",
         "de": "Collaborateur/trice Merchandising (Hardgoods) 50%",
-        "fr": "Collaborateur/trice Merchandising (Hardgoods) 50%"
+        "fr": "Collaborateur/trice Marchandises (marchandises) 50%"
       },
       "sourceLang": "it",
-      "id": "manor-9f8cb0013391",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:46:32.358Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-9f8cb0013391",
       "salaryMin": 30300,
       "salaryMax": 45800,
       "currency": "CHF",
@@ -770,7 +769,8 @@
       },
       "addressLocality": "Lausanne Collaborateurtrice Merchandising (Hardgoods)",
       "addressRegion": "VD",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-03T13:46:32.358Z"
     },
     {
       "title": "Collaborateur/trice vente (Confection Dames) 70%",
