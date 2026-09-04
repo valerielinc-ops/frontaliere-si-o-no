@@ -29,16 +29,21 @@ import {
 } from '../scripts/report-send-hour-impact.mjs';
 
 // ── Fixture helpers ──────────────────────────────────────────────────────
-// `aggregate()` only reads `doc.id` and `doc.data()` off each item (it never
-// touches `doc.ref` when `data().email` is already set — `d.email || ...`
-// short-circuits before the ref-chasing fallback runs), so a plain object
-// with those two members is a faithful stand-in for a Firestore
-// QueryDocumentSnapshot here. No Firestore mocking needed.
+// `aggregate()` reads `doc.id`, `doc.data()` and — for the #6550 tail split —
+// walks `doc.ref.parent.parent.parent.id` to learn which subscriber family the
+// delivery came from. A plain object with those members is a faithful stand-in
+// for a Firestore QueryDocumentSnapshot here; `collection` below builds the
+// `{root}/{email}/campaign_deliveries/{id}` ref chain. Omitting it leaves
+// `ref` undefined, which is the "root unknown" path both functions tolerate.
+// No Firestore mocking needed.
 
-function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true, isOperatorVerification = false, scheduledFor = null }: {
+function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened = false, clicked = false, messageId = null, canonicalId = true, isOperatorVerification = false, scheduledFor = null, collection = null }: {
   campaignId: string; email: string; sentAt: Date; sendTimeSource?: string | null;
   opened?: boolean; clicked?: boolean; messageId?: string | null; canonicalId?: boolean;
   isOperatorVerification?: boolean;
+  // Subscriber root collection this delivery lives under (#6550): omitted =>
+  // no `ref` at all, mirroring a doc whose ref chain isn't available.
+  collection?: string | null;
   // `scheduled_for` is what the cascade actually scheduled (null when the
   // selected provider has no native scheduled-send) — #3798 Fase 4.
   scheduledFor?: Date | { toDate: () => Date } | null;
@@ -48,6 +53,10 @@ function deliveryDoc({ campaignId, email, sentAt, sendTimeSource = null, opened 
     : `${campaignId}_${normalizeEmail(email)}`; // single-underscore webhook-doc shape
   return {
     id,
+    // newsletter_subscribers/{email}/campaign_deliveries/{id}
+    ref: collection
+      ? { parent: { parent: { id: normalizeEmail(email), parent: { id: collection } } } }
+      : undefined,
     data: () => ({
       email: normalizeEmail(email),
       campaign_id: campaignId,
@@ -229,7 +238,7 @@ describe('collectTailLookupFloors (#6550)', () => {
       deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt, sendTimeSource: 'personal' }),
     ]);
     expect([...floors.keys()]).toEqual(['a@x.com']);
-    expect(floors.get('a@x.com')).toEqual(floorOf(sentAt));
+    expect(floors.get('a@x.com')).toEqual({ floor: floorOf(sentAt), collections: ['newsletter_subscribers'] });
   });
 
   it('keeps the OLDEST delivery floor when a subscriber has several personal deliveries', () => {
@@ -238,7 +247,30 @@ describe('collectTailLookupFloors (#6550)', () => {
       deliveryDoc({ campaignId: CAMPAIGN, email: 'a@x.com', sentAt, sendTimeSource: 'personal' }),
       deliveryDoc({ campaignId: 'weekly_2026-06-01', email: 'a@x.com', sentAt: older, sendTimeSource: 'personal' }),
     ]);
-    expect(floors.get('a@x.com')).toEqual(floorOf(older));
+    expect(floors.get('a@x.com')).toEqual({ floor: floorOf(older), collections: ['newsletter_subscribers'] });
+  });
+
+  it('records the subscriber root collection each floor came from', () => {
+    const floors = collectTailLookupFloors([
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'n@x.com', sentAt, sendTimeSource: 'personal', collection: 'newsletter_subscribers' }),
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'j@x.com', sentAt, sendTimeSource: 'personal', collection: 'job_alert_subscribers' }),
+    ]);
+    expect(floors.get('n@x.com')).toEqual({ floor: floorOf(sentAt), collections: ['newsletter_subscribers'] });
+    // The job-alert family is NOT reachable under newsletter_subscribers: its
+    // events (and so its preferred hour) live under job_alert_subscribers.
+    expect(floors.get('j@x.com')).toEqual({ floor: floorOf(sentAt), collections: ['job_alert_subscribers'] });
+  });
+
+  it('records BOTH roots for an email subscribed to newsletter and job alerts', () => {
+    const older = new Date('2026-06-01T10:00:00Z');
+    const floors = collectTailLookupFloors([
+      deliveryDoc({ campaignId: CAMPAIGN, email: 'both@x.com', sentAt, sendTimeSource: 'personal', collection: 'newsletter_subscribers' }),
+      deliveryDoc({ campaignId: 'alert_2026-06-01', email: 'both@x.com', sentAt: older, sendTimeSource: 'personal', collection: 'job_alert_subscribers' }),
+    ]);
+    expect(floors.get('both@x.com')).toEqual({
+      floor: floorOf(older),
+      collections: ['newsletter_subscribers', 'job_alert_subscribers'],
+    });
   });
 
   it('ignores global/immediate deliveries and operator verification sends', () => {
@@ -265,6 +297,43 @@ describe('aggregate — subscriberEventTimes overrides the window history (#6550
     });
     expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(1);
     expect(segments.combined.personal.deliveries).toBe(0);
+  });
+
+  it('classifies a job-alert delivery on its OWN root history, not the newsletter one', () => {
+    // Regression (#6550 review): the qualification read used to be hardcoded to
+    // newsletter_subscribers. A job-alert-only subscriber therefore got an
+    // EMPTY (not failed) snapshot, which aggregate reads as a real "no history"
+    // answer — so it never fell back to the window events and could never be
+    // classified as tail. Keyed by root, the real history is found.
+    const delivery = deliveryDoc({
+      campaignId: CAMPAIGN, email: 'jobs@x.com', sentAt, sendTimeSource: 'personal', collection: 'job_alert_subscribers',
+    });
+    const { segments } = aggregate([delivery], [], null, {
+      subscriberEventTimes: new Map([
+        ['job_alert_subscribers::jobs@x.com', [daysBefore(100), daysBefore(140), daysBefore(170)]],
+        // Same email under the newsletter root has no history at all — picking
+        // this one would silently keep the delivery in `personal`.
+        ['newsletter_subscribers::jobs@x.com', []],
+      ]),
+    });
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(1);
+    expect(segments.combined.personal.deliveries).toBe(0);
+  });
+
+  it('does not cross-contaminate: newsletter delivery uses the newsletter root history', () => {
+    const delivery = deliveryDoc({
+      campaignId: CAMPAIGN, email: 'both@x.com', sentAt, sendTimeSource: 'personal', collection: 'newsletter_subscribers',
+    });
+    const { segments } = aggregate([delivery], [], null, {
+      subscriberEventTimes: new Map([
+        // Recent qualification on the newsletter side => stays `personal` ...
+        ['newsletter_subscribers::both@x.com', [daysBefore(5), daysBefore(20), daysBefore(80)]],
+        // ... even though the job-alert side would have read as tail.
+        ['job_alert_subscribers::both@x.com', [daysBefore(100), daysBefore(140), daysBefore(170)]],
+      ]),
+    });
+    expect(segments.combined.personal.deliveries).toBe(1);
+    expect(segments.combined[PERSONAL_TAIL_LABEL].deliveries).toBe(0);
   });
 
   it('stays in `personal` when the read history shows recent qualification', () => {

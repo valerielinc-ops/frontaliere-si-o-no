@@ -104,6 +104,9 @@ import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functi
 const SIGNIFICANCE_ALPHA = 0.05;
 const BATCH_PAGE_SIZE = 200;
 const SUBCOLLECTION_CONCURRENCY = 20;
+// Subscriber root assumed when a delivery doc carries no usable ref chain
+// (see collectTailLookupFloors) — the newsletter family.
+const DEFAULT_SUBSCRIBER_COLLECTION = 'newsletter_subscribers';
 const DEFAULT_DAYS = 30;
 const HOUR_MS = 60 * 60 * 1000;
 const DAY_MS = 24 * HOUR_MS;
@@ -466,8 +469,26 @@ export function qualifiesOnlyViaTailWindow(eventTimes, sentAt) {
  * collectionGroup floor by 180 days for every subscriber is exactly what this
  * avoids.
  *
+ * WHICH ROOT COLLECTION the history lives under is recorded alongside the
+ * floor, because `personal` deliveries come from BOTH subscriber families:
+ * loadDeliveries uses `collectionGroup('campaign_deliveries')`, which pulls
+ * `newsletter_subscribers/*` and `job_alert_subscribers/*` alike (the latter
+ * written by scripts/send-job-alerts.mjs with `send_time_source: 'personal'`).
+ * Their qualification history is NOT interchangeable: the write path,
+ * refreshPreferredSendHour, takes a `subscriberRef` and reads
+ * `subscriberRef.collection('events')`, so a job-alert subscriber's hour is
+ * derived from `job_alert_subscribers/{email}/events` (see
+ * functions/src/newsletterResendWebhookCore.js, which builds the ref from
+ * `job_alert_subscribers` and refreshes off it). Reading the newsletter root
+ * for those would return an EMPTY snapshot rather than an error — an empty
+ * history is a real answer to aggregate, so the delivery would never fall back
+ * to the window events and could never be classified as tail: exactly the
+ * silent always-false this whole function exists to avoid. An email present in
+ * both families gets both roots recorded and each one queried separately.
+ *
  * @param {FirebaseFirestore.QueryDocumentSnapshot[]} deliveryDocs
- * @returns {Map<string, Date>} normalized email → lookback floor
+ * @returns {Map<string, {floor: Date, collections: string[]}>} normalized email →
+ *   lookback floor + the subscriber root collection(s) that floor came from
  */
 export function collectTailLookupFloors(deliveryDocs) {
   const floors = new Map();
@@ -479,8 +500,17 @@ export function collectTailLookupFloors(deliveryDocs) {
     const sentAt = toDateSafe(d.sent_at);
     if (Number.isNaN(sentAt?.getTime?.())) continue;
     const floor = new Date(sentAt.getTime() - PREFERRED_SEND_WINDOW_DAYS * DAY_MS);
+    // `campaign_deliveries/{id}` → parent `.parent` is the subscriber doc and
+    // its `.parent` the root collection. Absent (plain fixture docs), assume
+    // the newsletter family — the historical, and still dominant, source.
+    const root = doc.ref?.parent?.parent?.parent?.id || DEFAULT_SUBSCRIBER_COLLECTION;
     const current = floors.get(email);
-    if (!current || floor < current) floors.set(email, floor);
+    if (!current) {
+      floors.set(email, { floor, collections: [root] });
+      continue;
+    }
+    if (floor < current.floor) current.floor = floor;
+    if (!current.collections.includes(root)) current.collections.push(root);
   }
   return floors;
 }
@@ -506,19 +536,27 @@ const TAIL_EVENTS_PER_SUBSCRIBER_CAP = 300;
  * window events, i.e. leave the delivery in `personal`) apart from "history
  * read, and it is empty".
  *
+ * Each subscriber is queried under the root collection collectTailLookupFloors
+ * recorded for them (see its docblock: newsletter vs job-alert history is not
+ * interchangeable), and the result is keyed `${collection}::${email}` so
+ * aggregate can pick the history matching the delivery's own root.
+ *
  * @param {FirebaseFirestore.Firestore} db
- * @param {Map<string, Date>} floorsByEmail
- * @returns {Promise<Map<string, Date[]|null>>}
+ * @param {Map<string, {floor: Date, collections: string[]}>} floorsByEmail
+ * @returns {Promise<Map<string, Date[]|null>>} `${collection}::${email}` → times, or null when the read failed
  */
 async function loadTailQualificationEvents(db, floorsByEmail) {
   const byEmail = new Map();
-  const entries = [...floorsByEmail.entries()];
+  const entries = [];
+  for (const [email, { floor, collections }] of floorsByEmail) {
+    for (const collection of collections) entries.push([email, floor, collection]);
+  }
   if (entries.length === 0) return byEmail;
 
   let failed = 0;
-  const results = await mapWithConcurrency(entries, SUBCOLLECTION_CONCURRENCY, async ([email, floor]) => {
+  const results = await mapWithConcurrency(entries, SUBCOLLECTION_CONCURRENCY, async ([email, floor, collection]) => {
     try {
-      const snap = await db.collection('newsletter_subscribers').doc(email)
+      const snap = await db.collection(collection).doc(email)
         .collection('events')
         .where('occurred_at', '>=', floor)
         .orderBy('occurred_at', 'desc')
@@ -531,15 +569,15 @@ async function loadTailQualificationEvents(db, floorsByEmail) {
         const t = toDateSafe(d.occurred_at ?? d.timestamp);
         if (!Number.isNaN(t?.getTime?.())) times.push(t);
       }
-      return [email, times];
+      return [`${collection}::${email}`, times];
     } catch (e) {
       failed++;
       console.warn(`⚠️  qualification history unavailable for one subscriber: ${e?.message || e}`);
-      return [email, null];
+      return [`${collection}::${email}`, null];
     }
   });
 
-  for (const [email, times] of results) byEmail.set(email, times);
+  for (const [key, times] of results) byEmail.set(key, times);
   if (failed > 0) {
     console.warn(`⚠️  ${failed}/${entries.length} qualification-history reads failed — those deliveries stay in \`personal\` (\`${PERSONAL_TAIL_LABEL}\` under-reports).`);
   }
@@ -701,7 +739,14 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     // Prefer the dedicated 180-day history when it was read; `??` (not `||`)
     // so a subscriber whose read FAILED (null) falls back to the window events
     // while one with a genuinely empty history keeps it.
-    const qualificationTimes = subscriberEventTimes?.get(email) ?? eventTimesByEmail.get(email);
+    // Keyed by the delivery's OWN subscriber root: a job-alert delivery must be
+    // classified on job_alert_subscribers/{email}/events, which is what its
+    // preferred hour was computed from (see collectTailLookupFloors). The bare
+    // `email` key is the fallback for callers that pass a plain email-keyed map.
+    const subscriberRoot = doc.ref?.parent?.parent?.parent?.id;
+    const qualificationTimes = (subscriberRoot ? subscriberEventTimes?.get(`${subscriberRoot}::${email}`) : undefined)
+      ?? subscriberEventTimes?.get(email)
+      ?? eventTimesByEmail.get(email);
     if (groupKey === 'personal' && qualifiesOnlyViaTailWindow(qualificationTimes, sentAt)) {
       groupKey = PERSONAL_TAIL_LABEL;
     }
