@@ -1,18 +1,19 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-04T13:27:18.237Z",
+  "generatedAt": "2026-09-04T22:56:20.497Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2517,
-  "avgDurationMs": 2517,
+  "durationMs": 3285,
+  "avgDurationMs": 3285,
   "durationHistory": [
-    2517
+    3285
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Landwirtschaftliche/r Fachmitarbeiter/in Obstbau",
       "slug": "landwirtschaftliche-r-fachmitarbeiter-in-obstbau-agroscope-wadenswil",
@@ -35,16 +36,20 @@
       "validThrough": "2026-10-29",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 73,
+      "id": "agroscope-2877006d45e2",
+      "salaryMin": 95500,
+      "salaryMax": 159000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-04T13:27:18.232Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Forschungsgruppenleiter/-in Extension Gemüsebau",
       "slug": "forschungsgruppenleiter-in-extension-gemusebau-agroscope-zurich",
