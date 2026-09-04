@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rieter",
-  "assembledAt": "2026-09-03T23:14:56.886Z",
+  "assembledAt": "2026-09-04T13:27:29.326Z",
   "jobs": [
     {
       "id": "rieter-384aba749112",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Senior-Network-Engineer--4058728",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:53.211Z",
+      "crawledAt": "2026-09-04T13:27:25.501Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Rieter AG",
@@ -57,7 +57,8 @@
         "senior-system-ingegnere-rieter-winterthur",
         "senior-system-engineer-rieter-winterthur",
         "senior-system-ingenieur-rieter-winterthur",
-        "senior-system-engineer-100-w-m-d-rieter-winterthur"
+        "senior-system-engineer-100-w-m-d-rieter-winterthur",
+        "senior-network-ingegnere-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -65,7 +66,8 @@
           "senior-system-ingegnere-rieter-winterthur",
           "senior-system-engineer-rieter-winterthur",
           "senior-system-ingenieur-rieter-winterthur",
-          "senior-system-engineer-100-w-m-d-rieter-winterthur"
+          "senior-system-engineer-100-w-m-d-rieter-winterthur",
+          "senior-network-ingegnere-rieter-winterthur"
         ],
         "en": [
           "senior-system-engineer-rieter-winterthur",
@@ -110,7 +112,7 @@
       "title": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
       "titleByLocale": {
         "it": "Amministrazione delle esportazioni (80 % - 100 %)",
-        "en": "Export and Sales Administration (80 % - 100 %)",
+        "en": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "de": "Sachbearbeiter/in Export und Sales Administration (80 % - 100 %)",
         "fr": "Administration des exportations et des ventes (80 % - 100 %)"
       },
@@ -126,7 +128,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Sachbearbeiterin-Export-und-Sales-Administration-80-100---4059400",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:14:52.544Z",
+      "crawledAt": "2026-09-04T13:27:24.746Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "Zürich",
       "streetAddress": "Obermattstrasse 65",
@@ -148,19 +150,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
         "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh",
-        "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon"
+        "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
+        "amministrazione-delle-esportazioni-80-100-rieter-pfaffikon-zh"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh",
           "administration-des-exportations-et-des-ventes-80-100-rieter-pfaffikon-zh",
-          "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon"
+          "sachbearbeiter-in-export-e-sales-administration-80-100-rieter-pfaffikon",
+          "amministrazione-delle-esportazioni-80-100-rieter-pfaffikon-zh"
         ],
         "fr": [
           "sachbearbeiter-in-export-und-sales-administration-80-100-rieter-pfaffikon-zh"
         ]
       },
       "firstSeenAt": "2026-08-24T21:36:53.049Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -206,7 +211,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/SAP-Technical-Service-Delivery-Lead-100-fmd---4052910",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:51.878Z",
+      "crawledAt": "2026-09-04T13:27:24.041Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -272,7 +277,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/OT-Development-Lead-Digital-Controls-Architecture-100-fmd---4051990",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:51.145Z",
+      "crawledAt": "2026-09-04T13:27:23.240Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -292,6 +297,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-10T10:27:28.480Z",
+      "needsRetranslation": true,
       "salaryMin": 121500,
       "salaryMax": 206500,
       "salarySource": "estimated",
@@ -337,7 +343,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Lehrstelle-als-Konstrukteurin-EFZ-mit-BM-m%C3%B6glich---4051090",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:14:50.456Z",
+      "crawledAt": "2026-09-04T13:27:22.508Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "Rütihof 8",
@@ -357,11 +363,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
+        "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil",
+        "apprendistato-come-konstrukteur-in-cfc-con-bm-moglich-rieter-wadenswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
+          "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil",
+          "apprendistato-come-konstrukteur-in-cfc-con-bm-moglich-rieter-wadenswil"
         ],
         "en": [
           "lehrstelle-als-konstrukteur-in-efz-mit-bm-moglich-rieter-wadenswil"
@@ -417,7 +425,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/IT-Project-Manager--4057804",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:49.676Z",
+      "crawledAt": "2026-09-04T13:27:21.684Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -436,6 +444,22 @@
       "employerBrand": "Rieter AG",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "it-project-manager-rieter-winterthur",
+        "responsabile-del-progetto-it-rieter-winterthur"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "it-project-manager-rieter-winterthur",
+          "responsabile-del-progetto-it-rieter-winterthur"
+        ],
+        "de": [
+          "it-project-manager-rieter-winterthur"
+        ],
+        "fr": [
+          "it-project-manager-rieter-winterthur"
+        ]
+      },
       "firstSeenAt": "2026-08-27T00:41:07.404Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -449,21 +473,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "it-project-manager-rieter-winterthur"
-        ],
-        "de": [
-          "it-project-manager-rieter-winterthur"
-        ],
-        "fr": [
-          "it-project-manager-rieter-winterthur"
-        ]
-      },
-      "previousSlugs": [
-        "it-project-manager-rieter-winterthur"
-      ]
+      }
     },
     {
       "id": "rieter-71e710aff781",
@@ -496,7 +506,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Head-of-Trade-Compliance--4054686",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:49.006Z",
+      "crawledAt": "2026-09-04T13:27:20.956Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",
@@ -516,11 +526,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-of-trade-compliance-rieter-winterthur"
+        "head-of-trade-compliance-rieter-winterthur",
+        "responsabile-trade-compliance-rieter-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-of-trade-compliance-rieter-winterthur"
+          "head-of-trade-compliance-rieter-winterthur",
+          "responsabile-trade-compliance-rieter-winterthur"
         ],
         "de": [
           "head-of-trade-compliance-rieter-winterthur"
@@ -575,7 +587,7 @@
       "url": "https://live.solique.ch/rieter/en/jobs/Application-Engineer-Technology-Preparation-100-wmd---4042993",
       "source": "Rieter Dedicated Parser (Solique)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:14:48.322Z",
+      "crawledAt": "2026-09-04T13:27:20.145Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "Klosterstrasse 20",

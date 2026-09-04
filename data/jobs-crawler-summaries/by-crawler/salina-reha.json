@@ -1,7 +1,7 @@
 {
   "key": "salina-reha",
   "label": "Salina Rehaklinik Rheinfelden",
-  "generatedAt": "2026-09-03T23:15:09.376Z",
+  "generatedAt": "2026-09-04T13:27:38.445Z",
   "total": 3,
   "discovered": null,
   "written": 3,
@@ -9,10 +9,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23362,
-  "avgDurationMs": 23362,
+  "durationMs": 20760,
+  "avgDurationMs": 20760,
   "durationHistory": [
-    23362
+    20760
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://link.ostendis.com/publication/mitarbeiter-in-therapiedisposition/duj0xkxsyw3h0wwr6gad30q5if75p0z725in3tqso2se1c74fobo8fezw014255f",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:14:59.110Z",
+      "crawledAt": "2026-09-04T13:27:30.685Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -65,7 +65,7 @@
       "url": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:01.725Z",
+      "crawledAt": "2026-09-04T13:27:32.682Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "featured": false,
       "postedDate": "2026-05-19",
       "applyUrl": "https://link.ostendis.com/publication/psychotherapeut-in/busy2qktsvis75ecdf8xwhe1tpdb7bg3ejrbltowe83y40uy5nylbe38wthkei25",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-20T06:03:59.544Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -102,7 +102,7 @@
       "url": "https://link.ostendis.com/publication/facharzt-fachaerztin-ambulant/zltjilsrep8my2zyizc3ca3su3flqwjdd1yiqkbphkwk4dxd7qffb76pmeuvvl8d",
       "source": "Salina Rehaklinik Dedicated Parser (Ostendis via Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:04.279Z",
+      "crawledAt": "2026-09-04T13:27:34.740Z",
       "addressLocality": "Rheinfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
