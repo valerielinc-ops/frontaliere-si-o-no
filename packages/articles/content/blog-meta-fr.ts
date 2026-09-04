@@ -11350,6 +11350,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.apertura-conto-svizzera-frontalieri.title': 'Ouvrir un compte bancaire suisse pour les résidents',
     'blog.article.apertura-conto-svizzera-frontalieri.excerpt': 'Guide étape par étape : permis G, documents requis, AVS, LAMal et gestion du changement CHF-EUR pour les frontaliers',
     'blog.article.apertura-conto-svizzera-frontalieri.imageAlt': 'Vue aérienne du front de lac de Lugano avec bâtiments bancaires modernes, centre financier tessinois',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.title': 'Marché de l\'emploi Tessin : secteurs en croissance',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.excerpt': 'Découvrez les secteurs en croissance sur le marché du travail tessinois, les professions recherchées et les perspectives pour les demandeurs d\'emploi.',
+    'blog.article.mercato-lavoro-ticino-settori-crescita.imageAlt': 'Vue panoramique de la ville de Lugano avec le lac et les montagnes',
 };
 
 export default blogMetaFr;

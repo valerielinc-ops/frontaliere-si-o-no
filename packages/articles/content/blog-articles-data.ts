@@ -33906,6 +33906,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'mercato-lavoro-ticino-settori-crescita',
+ category: 'novita',
+ date: '2026-09-04T22:07:46.677Z',
+ image: '/images/blog/mercato-lavoro-ticino-settori-crescita.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
