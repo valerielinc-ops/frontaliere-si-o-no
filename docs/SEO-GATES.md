@@ -1,6 +1,6 @@
 # SEO Content Gates
 
-Each gate is a **per-feature ratchet**: counts can only go DOWN. Improvements never auto-rebaseline — run the listed `:rebaseline` script after a deliberate drop and commit the new baseline together with the fix.
+Each gate is a **per-feature ratchet**: counts can only go DOWN. Improvements never auto-rebaseline — run the listed `:rebaseline` script after a deliberate drop and commit the new baseline together with the fix. On a **nice-to-have** gate (bucket table below) an improvement is not rebaselined at all: VISION.md driver D9 (owner instruction 2026-08-25, issue #5983) leaves the baseline as it is, and `cathedral-seo-gates-check.yml` reports it in the job summary without filing an issue (#7354).
 
 > **Hard rule (CLAUDE.md non-negotiables #1, #5):** Never widen a baseline as a workaround. Never set `noindex` to "fix" an orphan/deep page without explicit per-URL approval. Default fix is internal links, not de-index.
 
