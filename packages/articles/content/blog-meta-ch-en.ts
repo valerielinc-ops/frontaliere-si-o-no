@@ -5419,6 +5419,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Accelerating Swiss economy: good news for frontier workers too?',
     'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'The Swiss economy accelerates more than expected with GDP growth of 1.5% in the second quarter of 2026.',
     'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Aerial view of Lugano with mountains in the background, showcasing economic growth.',
+    'blog.article.latte-patate-cari-canicola-svizzera.title': 'More expensive milk and potatoes, kennel also dries up wallets',
+    'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Heatwaves and droughts hit Swiss agriculture, with losses estimated at 522 million francs in 2026.',
+    'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Swiss farmers working in fields affected by drought, with Lake Lugano in the background.',
 };
 
 export default blogMetaChEn;

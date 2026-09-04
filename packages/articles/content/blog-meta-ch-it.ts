@@ -5419,6 +5419,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Economia svizzera in accelerazione: è una buona notizia anche per i frontalieri?',
     'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'L\'economia svizzera accelera più del previsto con una crescita del PIL del 1,5% nel secondo trimestre 2026.',
     'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Vista aerea di Lugano con montagne sullo sfondo, che mostra la crescita economica.',
+    'blog.article.latte-patate-cari-canicola-svizzera.title': 'Latte e patate più cari, la canicola prosciuga anche i portafogli',
+    'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Ondate di calore e siccità colpiscono l\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026.',
+    'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Agricoltori svizzeri lavorano nei campi colpiti dalla siccità, con il lago di Lugano sullo sfondo.',
 };
 
 export default blogMetaChIt;

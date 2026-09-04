@@ -5419,6 +5419,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Schweizer Wirtschaft beschleunigt sich: Gute Nachricht für Grenzgänger?',
     'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'Die Schweizer Wirtschaft beschleunigt sich stärker als erwartet mit einem BIP-Wachstum von 1,5 % im zweiten Quartal 2026.',
     'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit Bergen im Hintergrund, die das Wirtschaftswachstum zeigt.',
+    'blog.article.latte-patate-cari-canicola-svizzera.title': 'Teurere Milch und Kartoffeln, die Hitze trocknet auch die Geldbörsen',
+    'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Hitzewellen und Dürren treffen die Schweizer Landwirtschaft mit geschätzten Verlusten von 522 Millionen Franken im Jahr 2026.',
+    'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Schweizer Bauern arbeiten in von Dürre betroffenen Feldern, mit dem Luganersee im Hintergrund.',
 };
 
 export default blogMetaChDe;
