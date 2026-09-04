@@ -1,6 +1,6 @@
 {
   "crawlerKey": "honegger",
-  "assembledAt": "2026-09-03T23:17:44.725Z",
+  "assembledAt": "2026-09-04T13:27:58.583Z",
   "jobs": [
     {
       "id": "honegger-0823edf1fdcb",
@@ -33,7 +33,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:41.997Z",
+      "crawledAt": "2026-09-04T13:27:56.334Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -75,11 +75,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
+        "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen",
+        "specialista-nella-manutenzione-aziendale-l-f-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
+          "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen",
+          "specialista-nella-manutenzione-aziendale-l-f-d-honegger-ag-sarnen"
         ],
         "en": [
           "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
@@ -89,6 +91,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:39.153Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -134,7 +137,7 @@
       "url": "https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:40.677Z",
+      "crawledAt": "2026-09-04T13:27:55.226Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "addressRegion": "ZH",
@@ -168,12 +171,14 @@
       "pensum": "10 - 50%",
       "previousSlugs": [
         "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil",
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
+          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil",
+          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
         ],
         "en": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil"
@@ -183,6 +188,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:38.618Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
@@ -228,7 +234,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:36.757Z",
+      "crawledAt": "2026-09-04T13:27:51.312Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -268,11 +274,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "gartner-in-m-w-d-honegger-ag-zurich"
+        "gartner-in-m-w-d-honegger-ag-zurich",
+        "giardiniere-lun-f-d-honegger-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-m-w-d-honegger-ag-zurich"
+          "gartner-in-m-w-d-honegger-ag-zurich",
+          "giardiniere-lun-f-d-honegger-ag-zurich"
         ],
         "en": [
           "gartner-in-m-w-d-honegger-ag-zurich"
@@ -282,6 +290,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:36.995Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
@@ -327,7 +336,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:35.569Z",
+      "crawledAt": "2026-09-04T13:27:50.001Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -360,11 +369,13 @@
       "pensumMax": 50,
       "pensum": "25 - 50%",
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich",
+        "collaboratore-trice-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
+          "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich",
+          "collaboratore-trice-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
         ],
         "en": [
           "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
@@ -374,6 +385,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:36.457Z",
+      "needsRetranslation": true,
       "salaryMin": 56500,
       "salaryMax": 75500,
       "salarySource": "estimated",
@@ -419,7 +431,7 @@
       "url": "https://honegger.ch/job/fachmitarbeiter-in-unterhaltsreinigung-m-w-d-region-obwalden-nidwalden-luzern-40-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:34.265Z",
+      "crawledAt": "2026-09-04T13:27:48.998Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -458,11 +470,13 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
+        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen",
+        "specialista-in-pulizia-per-la-manutenzione-l-f-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
+          "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen",
+          "specialista-in-pulizia-per-la-manutenzione-l-f-d-honegger-ag-sarnen"
         ],
         "en": [
           "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
@@ -472,6 +486,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:35.923Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -517,7 +532,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:33.043Z",
+      "crawledAt": "2026-09-04T13:27:47.761Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressRegion": "BE",
@@ -558,11 +573,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
+        "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern",
+        "foreman-special-cleaning-lun-f-d-honegger-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
+          "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern",
+          "foreman-special-cleaning-lun-f-d-honegger-ag-bern"
         ],
         "en": [
           "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
@@ -572,6 +589,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:35.377Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
@@ -617,7 +635,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:31.411Z",
+      "crawledAt": "2026-09-04T13:27:46.337Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -654,11 +672,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz",
+        "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
+          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz",
+          "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-schwyz"
         ],
         "en": [
           "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
@@ -714,7 +734,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-20-30/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:26.528Z",
+      "crawledAt": "2026-09-04T13:27:40.639Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -751,11 +771,13 @@
       "pensumMax": 30,
       "pensum": "20 - 30%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
+        "collaboratore-trice-reinigung-m-w-d-honegger-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
+          "collaboratore-trice-reinigung-m-w-d-honegger-ag-stans"
         ],
         "en": [
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
@@ -765,6 +787,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:33.747Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -810,7 +833,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-region-zuerich-unterer-zuerichsee-horgen-waedenswil-thalwil-50-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:24.848Z",
+      "crawledAt": "2026-09-04T13:27:39.458Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "ZH",
@@ -845,11 +868,13 @@
       "pensumMax": 80,
       "pensum": "50 - 80%",
       "previousSlugs": [
-        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen",
+        "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
+          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen",
+          "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen"
         ],
         "en": [
           "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
@@ -905,7 +930,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-unterhaltsreinigung-m-w-d-langenthal-ca-40/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:23.520Z",
+      "crawledAt": "2026-09-04T13:27:38.338Z",
       "addressLocality": "Langenthal",
       "postalCode": "4900",
       "addressRegion": "BE",
@@ -946,11 +971,13 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
+        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal",
+        "pulizia-manutenzione-leader-team-lunedi-meredi-d-honegger-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
+          "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal",
+          "pulizia-manutenzione-leader-team-lunedi-meredi-d-honegger-ag-langenthal"
         ],
         "en": [
           "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
@@ -1006,7 +1033,7 @@
       "url": "https://honegger.ch/job/einsatzleiter-in-unterhaltsreinigung-m-w-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:22.316Z",
+      "crawledAt": "2026-09-04T13:27:37.168Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -1045,11 +1072,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
+        "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry",
+        "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
+          "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry",
+          "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry"
         ],
         "en": [
           "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
@@ -1105,7 +1134,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-sarnen-40-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:21.131Z",
+      "crawledAt": "2026-09-04T13:27:35.933Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -1138,11 +1167,13 @@
       "pensumMax": 50,
       "pensum": "40 - 50%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen",
+        "collaboratore-trice-reinigung-m-w-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen",
+          "collaboratore-trice-reinigung-m-w-d-honegger-ag-sarnen"
         ],
         "en": [
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
@@ -1152,6 +1183,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:11:29.969Z",
+      "needsRetranslation": true,
       "salaryMin": 53000,
       "salaryMax": 71500,
       "salarySource": "estimated",
@@ -1197,7 +1229,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waeschelogistik-m-w-d-st-gallen-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:15.989Z",
+      "crawledAt": "2026-09-04T13:27:30.570Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -1232,11 +1264,13 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
+        "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
+        "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
+          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
+          "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen"
         ],
         "en": [
           "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
@@ -1246,6 +1280,7 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:40:48.128Z",
+      "needsRetranslation": true,
       "salaryMin": 47500,
       "salaryMax": 63500,
       "salarySource": "estimated",
@@ -1264,9 +1299,9 @@
       "id": "honegger-71b563f28a9b",
       "slug": "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry",
       "slugByLocale": {
-        "de": "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
         "it": "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry",
         "en": "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
+        "de": "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
         "fr": "mitarbeiter-in-ressources-humaines-w-m-d-boudry-ne-100-honegger-ag-boudry"
       },
       "company": "Honegger AG",
@@ -1291,7 +1326,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:17:05.045Z",
+      "crawledAt": "2026-09-04T13:27:22.015Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -1311,18 +1346,21 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
+        "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
+          "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
+          "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry"
         ],
         "fr": [
           "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
         ]
       },
-      "previousSlugs": [
-        "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:32:10.300Z",
       "salaryMin": 49500,
       "salaryMax": 66500,
       "salarySource": "estimated",
@@ -1335,8 +1373,7 @@
           "maxValue": 66500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-03T13:32:10.300Z"
+      }
     }
   ]
 }
