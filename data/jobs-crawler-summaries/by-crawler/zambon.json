@@ -1,16 +1,16 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-03T23:39:25.970Z",
-  "total": 2,
+  "generatedAt": "2026-09-04T13:39:29.963Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5665,
-  "avgDurationMs": 5665,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5749,
+  "avgDurationMs": 5749,
   "durationHistory": [
-    5665
+    5749
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,8 +39,8 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
-      "firstSeenAt": "2026-09-03T13:49:02.200Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -50,43 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "zambon-810317",
-      "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
-      "title": "Stagista in Chimica e Tecnologia Farmaceutica",
-      "company": "Zambon Svizzera SA",
-      "companyKey": "zambon",
-      "location": "Cadempino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6814",
-      "streetAddress": "Via Industria 13",
-      "slug": "stagista-in-chimica-e-tecnologia-farmaceutica-zambon",
-      "category": "general",
-      "datePosted": "2026-09-03",
-      "source": "zambon-ncoreplat-api",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "department": "Open R&D",
-      "seniority": "< 1 year",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-09-03T13:49:02.200Z",
-      "needsRetranslation": true,
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 2,
-        "completeness": 15
-      }
-    },
+  "removedJobs": [
     {
       "id": "zambon-786111",
       "url": "https://app.ncoreplat.com/jobposition/786111/stagista-laboratorio-chimico-controllo-qualita-ch/hr-switzerland",
@@ -118,7 +82,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-04-14T10:54:06.797Z",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "salarySource": "reported",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -126,6 +89,43 @@
         "richness": 18,
         "translation": 25,
         "completeness": 20
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "id": "zambon-810317",
+      "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
+      "title": "Stagista in Chimica e Tecnologia Farmaceutica",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "slug": "stagista-in-chimica-e-tecnologia-farmaceutica-zambon",
+      "category": "general",
+      "datePosted": "2026-09-03",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "department": "Open R&D",
+      "seniority": "< 1 year",
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:02.200Z",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 15
       }
     }
   ]
