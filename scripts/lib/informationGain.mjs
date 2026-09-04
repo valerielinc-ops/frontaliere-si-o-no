@@ -319,7 +319,32 @@ export function fingerprintPage(relPath, html) {
   };
 }
 
-/** Longest common `/`-delimited path prefix — the cohort's human-readable name. */
+/**
+ * Longest common path prefix — the cohort's human-readable name.
+ *
+ * Whole `/`-delimited segments first, then the common CHARACTER prefix of the
+ * first segment where the paths diverge. The character step used to run only
+ * when NO whole segment was common, which made the label locale-asymmetric on
+ * exactly the families that need it most: `/lavoro-argovia-autista/` has no
+ * common segment and gets the readable `it:/lavoro-`, while its own de/en/fr
+ * translations (`/de/arbeit-bern-architekt/`, `/en/jobs-bern-fitter/`) always
+ * share the locale segment, so the fallback never fired and every flat-slug
+ * family in a prefixed locale collapsed to `/de/`, `/en/`, `/fr/`. Those
+ * labels then collided with each other and got the `~skeletonHash` suffix from
+ * `scoreCohorts`, so the same page family reads `it:/lavoro-` in one locale and
+ * `en:/en/~896cea` in another (issue #6975: 37 offenders, several of them
+ * unidentifiable from the report for this reason alone).
+ *
+ * It is not only cosmetic. `KNOWN_LOW_GAIN_COHORTS` in
+ * `audit-information-gain.mjs` is keyed BY label, and a label that stops at
+ * `/fr/` is a key shared with every other flat-slug family in French: one
+ * inventoried value silently standing for several unrelated templates.
+ *
+ * Strictly more specific, never less — when the diverging segment has no
+ * common character prefix (`/tasse-frontalieri-comune/<comune>/`) the label is
+ * byte-identical to what it was before, which is what keeps the existing
+ * inventory entries and the calibration table valid.
+ */
 export function commonPathPrefix(paths) {
   if (paths.length === 0) return '/';
   const split = paths.map((p) => p.split('/').filter(Boolean));
@@ -330,17 +355,15 @@ export function commonPathPrefix(paths) {
     if (!split.every((parts) => parts[i] === segment)) break;
     out.push(segment);
   }
-  if (out.length === 0) {
-    // Flat slug families (`/lavoro-ticino-<x>/`) share no whole segment, so
-    // fall back to the common character prefix of the first segment: that is
-    // what makes `it:/lavoro-ticino-` a readable, stable cohort label.
-    const firsts = split.map((parts) => parts[0] ?? '');
-    let len = 0;
-    while (firsts.every((s) => s.length > len && s[len] === firsts[0][len])) len += 1;
-    const prefix = firsts[0].slice(0, len);
-    return prefix ? `/${prefix}` : '/';
-  }
-  return `/${out.join('/')}/`;
+  // Flat slug families (`/lavoro-ticino-<x>/`, `/en/jobs-<x>/`) share no whole
+  // segment past this depth, so keep the common characters of the one where
+  // they diverge: that is what makes `it:/lavoro-ticino-` a readable label.
+  const diverging = split.map((parts) => parts[out.length] ?? '');
+  let len = 0;
+  while (diverging.every((s) => s.length > len && s[len] === diverging[0][len])) len += 1;
+  const tail = diverging[0].slice(0, len);
+  if (out.length === 0) return tail ? `/${tail}` : '/';
+  return tail ? `/${out.join('/')}/${tail}` : `/${out.join('/')}/`;
 }
 
 const median = (values) => {
