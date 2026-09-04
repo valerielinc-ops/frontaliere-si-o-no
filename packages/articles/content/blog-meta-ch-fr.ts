@@ -5449,6 +5449,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-glarona-come-richiederlo.title': 'Permis C Glaris : exigences, procédures et demande',
     'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Résidence permanente dans le canton de Glaris : guide des exigences du permis C, des connaissances linguistiques, de l\'intégration et de la procédure de demande auprès des autorités cantonales.',
     'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Bureau d\'administration cantonale suisse avec documents de permis de résidence C et carte d\'identité',
+    'blog.article.soldati-svizzera-video-guerra.title': 'Soldats suisses morts : les Jeunes UDC choquent avec une vidéo de guerre',
+    'blog.article.soldati-svizzera-video-guerra.excerpt': 'Les Jeunes UDC promeuvent le oui à l\'initiative sur la neutralité avec un film de guerre autoproduit montrant une Suisse en guerre.',
+    'blog.article.soldati-svizzera-video-guerra.imageAlt': 'Soldats suisses dans une vidéo de guerre',
 };
 
 export default blogMetaChFr;

@@ -5449,6 +5449,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-glarona-come-richiederlo.title': 'Genehmigung C Glarus: Anforderungen, Verfahren und Antrag',
     'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Ständiger Wohnsitz im Kanton Glarus: Leitfaden zu den Anforderungen der C-Bewilligung, Sprachkenntnisse, Integration und Antragsverfahren bei den kantonalen Behörden.',
     'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Schweizer Kantonsamt mit Aufenthaltsgenehmigungsdokumenten und Ausweisen auf dem Schreibtisch',
+    'blog.article.soldati-svizzera-video-guerra.title': 'Tote Schweizer Soldaten: Junge SVP schockiert mit Kriegsvideo',
+    'blog.article.soldati-svizzera-video-guerra.excerpt': 'Die SVP-Jugend fördert das Ja zur Neutralitätsinitiative mit einem selbst produzierten Kriegsfilm, der eine Schweiz im Krieg zeigt.',
+    'blog.article.soldati-svizzera-video-guerra.imageAlt': 'Schweizer Soldaten in einem Kriegsvideo',
 };
 
 export default blogMetaChDe;
