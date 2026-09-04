@@ -6,7 +6,7 @@
  * `data/authors.ts`, while `services/seoService.ts` read `structuredData.author`
  * out of the generated `content/seo/seo-blog*.ts` blobs. #7227 fixed the value the
  * SSG emitted; it left the two sources able to disagree, and measured they already
- * did — 1712 of ~1800 articles carry a real `authorSlug` while their SEO blob still
+ * did — 1712 of the 3692 articles carry a real `authorSlug` while their SEO blob still
  * holds the legacy `{"@id": …#organization}` node, so the SPA overwrote a correct
  * static `article:author` with `/chi-siamo/` on every one of them: #7227's own bug,
  * transposed onto the client-rendered surface.

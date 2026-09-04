@@ -74,7 +74,7 @@ describe('article:author names the article author, not the Redazione', () => {
     // Issue #7241 item 1 moved this contract. Reading `sd.author` (the
     // content/seo/** blob) made the blob a second source of truth for the same
     // fact the registry already holds, and the two had already diverged on 1712
-    // of ~1800 articles — the blob still carried the legacy Organization node,
+    // of the 3692 articles — the blob still carried the legacy Organization node,
     // so hydration overwrote a correct static tag with the team page. The value
     // now comes from `authorSlug` + data/authors.ts, the SSG's own source.
     expect(src).toMatch(/updateOrCreateMetaTag\(\s*'property',\s*'article:author',\s*articleAuthorUrl\s*\)/);

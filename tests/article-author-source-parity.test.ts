@@ -13,7 +13,7 @@
  *            the generated `content/seo/seo-blog*.ts` blobs, falling back to
  *            `/chi-siamo/` when that node is not a `Person` with a `url`.
  *
- * Measured when this gate was first run: they did NOT agree — 1712 of ~1800 articles
+ * Measured when this gate was first run: they did NOT agree — 1712 of the 3692 articles
  * carried a real `authorSlug` while their blob still held the legacy
  * `{"@id": …#organization}` node, so the SPA overwrote the correct static tag with
  * `/chi-siamo/`. The fix collapses the two sources into one: `seoService.ts` now
@@ -85,9 +85,11 @@ describe('article:author — dual source-of-truth parity', () => {
 
   it('SSG and SPA derive the same article:author URL for every article', () => {
     const offenders: string[] = [];
+    let compared = 0;
     for (const article of ARTICLES) {
       const ref = authorRefsByKey.get(`blog-${article.id}`);
       if (!ref) continue; // no SEO blob entry → the SPA never reads one for this id
+      compared++;
       const ssg = ssgAuthorUrl(article.authorSlug);
       const spa = spaAuthorUrl(article, ref);
       if (ssg !== spa) {
@@ -97,6 +99,16 @@ describe('article:author — dual source-of-truth parity', () => {
         );
       }
     }
+    // The `continue` above is the vacuity hole: if the blob key format ever moves
+    // away from `blog-<id>`, every article skips and the assertion below passes
+    // having compared nothing. 3692 of 3736 articles match today (the rest have no
+    // blob entry); a floor well under that catches the format break without
+    // failing on the ordinary drip of new articles.
+    expect(
+      compared,
+      `only ${compared} article(s) matched a content/seo entry by \`blog-<id>\` — the parity ` +
+        `assertion below would be vacuous. Check the shard key format against ARTICLES[].id.`,
+    ).toBeGreaterThan(3000);
     expect(
       offenders.length,
       `${offenders.length} article(s) would emit a different article:author on the static page than ` +

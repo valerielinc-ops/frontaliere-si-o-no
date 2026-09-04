@@ -1902,7 +1902,7 @@ export async function updateMetaTags(section: string): Promise<void> {
  // (#7227). Falls back to that page only when the article has no Person
  // author, which is the same URL the Organization JSON-LD branch emits.
  // Issue #7241 item 1: the blob is no longer a second source of truth for this
- // tag. `sd.author` is read from content/seo/**, which for 1712 of ~1800 articles
+ // tag. `sd.author` is read from content/seo/**, which for 1712 of the 3692 articles
  // still holds the legacy `{"@id": …#organization}` node while the article carries
  // a real `authorSlug` — so this line used to overwrite the correct static tag
  // with the team page URL the moment the SPA hydrated, reproducing the
