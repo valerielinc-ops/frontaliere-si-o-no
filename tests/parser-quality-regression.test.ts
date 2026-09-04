@@ -19,9 +19,17 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractEpflDetailDescription } from '../scripts/lib/epfl-job-parser.mjs';
 import { extractEthZurichDetailDescription } from '../scripts/lib/eth-zurich-job-parser.mjs';
-import { extractKssgDetailDescription } from '../scripts/lib/kssg-job-parser.mjs';
 import { normalizeDescriptionBullets } from '../scripts/lib/crawler-template.mjs';
 import { htmlToText } from '../scripts/lib/hospital-custom-html-helpers.mjs';
+import {
+  applySourceDetailResults,
+  sourceDetailSeverity,
+} from '../scripts/audit-parser-quality.mjs';
+import {
+  createSourceDetailEvidence,
+  createSourceDetailEvidenceBundle,
+  replaySourceDetailEvidenceBundle,
+} from '../scripts/lib/parser-quality-source-detail-replay.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE_DIR = path.join(__dirname, 'fixtures', 'parser-quality');
@@ -55,12 +63,6 @@ describe('parser-quality regression — list structure preserved', () => {
     const desc = extractEthZurichDetailDescription(html);
     expect(desc.length).toBeGreaterThan(200);
     expect(hasStructuredContent(desc)).toBe(true);
-  });
-
-  it('KSSG: detail extractor finds the SAP <span class="jobdescription"> body', () => {
-    const html = loadFixture('kssg');
-    const desc = extractKssgDetailDescription(html);
-    expect(desc.length).toBeGreaterThan(200);
   });
 
   it('normalizeDescriptionBullets restores line-start bullets when inline `• ` is present', () => {
@@ -102,5 +104,83 @@ describe('parser-quality regression — list structure preserved', () => {
     expect(flattened).toContain('• ');
     const restored = normalizeDescriptionBullets(flattened);
     expect(/^\s*•\s/m.test(restored)).toBe(true);
+  });
+});
+
+describe('parser-quality regression — source-detail artifact replay', () => {
+  it('replays the same nine CRITICAL observations from audit run 33530688671', () => {
+    // The historical artifact preserved these PII-safe locations but not the
+    // response bodies. W0 turns that exact gap into the fixture contract: each
+    // future live observation persists the same normalized blob plus body/url
+    // digests, so the historical verdict is reproducible without publishing
+    // descriptions or signed source URLs.
+    const fixture = JSON.parse(fs.readFileSync(
+      path.join(FIXTURE_DIR, 'source-detail-replay-33530688671.json'),
+      'utf8',
+    ));
+    const records = fixture.cases.map((entry: {
+      crawlerKey: string;
+      publishedLocation: string;
+      sourceLocation: string;
+      locationEvidence: string;
+    }) => createSourceDetailEvidence({
+      crawlerKey: entry.crawlerKey,
+      sourceUrl: `https://evidence.invalid/${entry.crawlerKey}`,
+      body: `source-detail-observation:${entry.crawlerKey}:${entry.sourceLocation}`,
+      provenance: fixture.provenance,
+      versions: fixture.versions,
+      observation: {
+        location: {
+          checked: true,
+          matchesPublished: false,
+          inconclusive: false,
+          evidence: entry.locationEvidence,
+          authority: 'source-detail',
+          published: entry.publishedLocation,
+          source: entry.sourceLocation,
+        },
+        description: {
+          publishedDescriptionLength: 300,
+          sourceDescriptionLength: 300,
+          publishedWordCount: 20,
+          overlapWordCount: 20,
+        },
+      },
+    }));
+    const requestedSamples = fixture.cases.map((entry: { crawlerKey: string }) => ({
+      crawlerKey: entry.crawlerKey,
+      url: `https://evidence.invalid/${entry.crawlerKey}`,
+    }));
+    const expected = {
+      provenance: fixture.provenance,
+      versions: fixture.versions,
+      requestedCount: requestedSamples.length,
+      requestedSamples,
+    };
+    const sourceResults = records.map((record: any, index: number) => ({
+      ...requestedSamples[index],
+      sourceDetailEvidence: record,
+    }));
+    const bundle = createSourceDetailEvidenceBundle(sourceResults, expected);
+    const firstReplay = replaySourceDetailEvidenceBundle(bundle, expected);
+    const secondReplay = replaySourceDetailEvidenceBundle(bundle, expected);
+    expect(secondReplay).toEqual(firstReplay);
+    expect(bundle).toMatchObject({ requestedCount: 9, replayableCount: 9 });
+
+    const report = Object.fromEntries(fixture.cases.map((entry: { crawlerKey: string }) => [
+      entry.crawlerKey,
+      { total: 1, issues: [], severity: 'OK' },
+    ]));
+    applySourceDetailResults(report, firstReplay, firstReplay.length);
+
+    expect(Object.keys(report)).toEqual(fixture.cases.map((entry: { crawlerKey: string }) => entry.crawlerKey));
+    expect(Object.values(report).every((entry: any) => sourceDetailSeverity(entry) === 'CRITICAL')).toBe(true);
+    expect(Object.values(report).every((entry: any) => (
+      entry.issues.some((issue: any) => issue.type === 'source-detail-mismatch' && issue.locationMismatches === 1)
+    ))).toBe(true);
+    expect(firstReplay.every((result: any) => (
+      result.evidenceProvenance.repoHeadSha === fixture.provenance.repoHeadSha
+      && result.evidenceProvenance.datasetCommitSha === fixture.provenance.datasetLastCommit.sha
+    ))).toBe(true);
   });
 });

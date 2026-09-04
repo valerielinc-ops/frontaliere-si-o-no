@@ -1,6 +1,6 @@
 {
   "crawlerKey": "clinique-de-la-plaine",
-  "assembledAt": "2026-08-26T10:12:11.335Z",
+  "assembledAt": "2026-09-03T23:39:41.498Z",
   "jobs": [
     {
       "id": "clinique-de-la-plaine-9f68d5dc6b73",
@@ -34,7 +34,7 @@
       "url": "https://laplaine.ch/emploi/une-aide-de-salle-agent-de-sterilisation-a-80-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:12:09.233Z",
+      "crawledAt": "2026-09-03T23:39:38.989Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -70,6 +70,7 @@
       "firstSeenAt": "2026-05-21T11:31:55.808Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -113,7 +114,7 @@
       "url": "https://laplaine.ch/emploi/responsable-du-bloc-operatoire-et-des-soins-100/",
       "source": "Clinique de la Plaine Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:12:06.144Z",
+      "crawledAt": "2026-09-03T23:39:38.462Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -149,6 +150,7 @@
       "firstSeenAt": "2026-06-29T12:49:26.145Z",
       "salaryMin": 116500,
       "salaryMax": 162500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rss-surselva",
-  "assembledAt": "2026-08-26T09:53:09.867Z",
+  "assembledAt": "2026-09-03T23:14:55.529Z",
   "jobs": [
     {
       "id": "rss-surselva-2d9dd6691ec9",
@@ -33,7 +33,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit/5v8rk1h0is40xkzgfbf10xdtptmcs830jqwgj45p6jbumpnr55zyjsjoa0zuco64",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:05.573Z",
+      "crawledAt": "2026-09-03T23:14:51.911Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -54,14 +54,12 @@
       "previousSlugs": [
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-rss-surselva-ch",
         "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-2027-rss-surselva-ch",
-        "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-2027-regionalspital-surselva-ilanz",
-        "apprendistato-come-kauffrau-kaufmann-cfc-branche-gesundheit-regionalspital-surselva-ilanz"
+        "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-2027-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-rss-surselva-ch",
-          "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-2027-rss-surselva-ch",
-          "apprendistato-come-kauffrau-kaufmann-cfc-branche-gesundheit-regionalspital-surselva-ilanz"
+          "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-2027-rss-surselva-ch"
         ],
         "de": [
           "lehrstelle-als-kauffrau-kaufmann-efz-branche-gesundheit-rss-surselva-ch",
@@ -71,6 +69,7 @@
       "firstSeenAt": "2026-06-10T12:49:51.453Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -84,73 +83,88 @@
       "addressRegion": "GR"
     },
     {
-      "id": "rss-surselva-5d1ebe0be7bd",
-      "slug": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
+      "id": "rss-surselva-60c6d437b4ae",
+      "slug": "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
-        "en": "dipl-nurse-hf-nds-emergency-care-or-nurse-hf-with-professional-experience-40-100-regionalspital-surselva-ilanz",
-        "de": "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
-        "fr": "dipl-infirmiere-hf-snd-soins-d-urgence-ou-infirmiere-hf-avec-experience-professionnelle-40-100-regionalspital-surselva"
+        "it": "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
+        "en": "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
+        "de": "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz",
+        "fr": "med-praxisassistent-in-mpa-efz-50-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
-      "title": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 %",
+      "title": "Med. Praxisassistent*in / MPA EFZ 50-100 %",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF NDS Notfallpflege o Pflegefachperson HF con Berufserfahrung 40-100 %",
-        "en": "Dipl. Nurse HF NDS Emergency Care or Nurse HF with professional experience 40-100%",
-        "de": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 %",
-        "fr": "Dipl. Infirmière HF SND Soins d'urgence ou Infirmière HF avec expérience professionnelle 40-100%"
+        "it": "Med. Praxisassistent*in / MPA CFC 50-100 %",
+        "en": "Med. Praxisassistent*in / MPA EFZ 50-100 %",
+        "de": "Med. Praxisassistent*in / MPA EFZ 50-100 %",
+        "fr": "Med. Praxisassistent*in / MPA EFZ 50-100 %"
       },
-      "description": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "description": "Med. Praxisassistent*in / MPA EFZ 50-100 % — Regionalspital Surselva (RSS). Abteilung: Praxis Mediselva. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
-        "it": "Infermiera HF NDS Emergency Care o Infermiera HF con esperienza professionale 40-100 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Dipl. Nurse HF NDS Emergency Care or Nurse HF with professional experience 40-100 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Dipl. Infirmière HF NDS Soins d'urgence ou Infirmière HF ayant une expérience professionnelle 40-100 % — Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
+        "it": "Med. Praxisassistent*in / MPA EFZ 50-100 % — Regionalspital Surselva (RSS). Abteilung: Praxis Mediselva. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "en": "Med. Praxisassistent*in / MPA EFZ 50-100 % — Regionalspital Surselva (RSS). Abteilung: Praxis Mediselva. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "de": "Med. Praxisassistent*in / MPA EFZ 50-100 % — Regionalspital Surselva (RSS). Abteilung: Praxis Mediselva. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Med. Praxisassistent*in / MPA EFZ 50-100 % — Regionalspital Surselva (RSS). Abteilung: Praxis Mediselva. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten"
       },
       "location": "Ilanz",
       "canton": "GR",
-      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
+      "url": "https://link.ostendis.com/publication/med-praxisassistent-in-mpa-efz/cwoc3equcvfxczmoh6dfthdewfv522ooroe8hc5jqyeydllofsgaph42uod7se51",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:05.449Z",
+      "crawledAt": "2026-09-03T23:14:51.764Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Infermieristica",
+      "category": "Sanità",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-17",
-      "applyUrl": "https://link.ostendis.com/cvdropper/2fdc5a6fc27244eea6542991d9ba66f4/DE?src=7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://link.ostendis.com/cvdropper/80f92b498b9c4ce8844c8f7a7d8c6040/DE?src=cwoc3equcvfxczmoh6dfthdewfv522ooroe8hc5jqyeydllofsgaph42uod7se51",
       "requirements": [],
       "requirementsByLocale": {},
-      "department": "Pflege",
-      "pensum": "40 - 100%",
-      "pensumMin": 40,
+      "department": "Praxis Mediselva",
+      "pensum": "50 - 100%",
+      "pensumMin": 50,
       "pensumMax": 100,
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
-        "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilan"
+        "med-praxisassistent-in-mpa-efz-50-100-rss-surselva-ch",
+        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
+        "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+        "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-mpa-efz-50-100-rss-surselva-ch",
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
+          "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+          "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz"
+        ],
         "en": [
-          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
+          "med-praxisassistent-in-mpa-efz-50-100-rss-surselva-ch"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
+          "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-05-17T10:58:29.809Z",
+      "firstSeenAt": "2026-08-31T17:01:00.797Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -164,184 +178,84 @@
       "addressRegion": "GR"
     },
     {
-      "id": "rss-surselva-63f466a3672c",
-      "slug": "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
+      "id": "rss-surselva-af84b0e1fdc0",
+      "slug": "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "en": "health-professional-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "de": "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
-        "fr": "professionnels-de-la-sante-efz-imc-awr-40-60-regionalspital-surselva-ilanz"
+        "it": "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
+        "en": "dipl-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz",
+        "de": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
+        "fr": "dipl-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
-      "title": "Fachperson Gesundheit EFZ IMC / AWR 40-60 %",
+      "title": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 %",
       "titleByLocale": {
-        "it": "Fachperson Gesundheit CFC IMC / AWR 40-60 %",
-        "en": "Health professional EFZ IMC / AWR 40-60%",
-        "de": "Fachperson Gesundheit EFZ IMC / AWR 40-60 %",
-        "fr": "Professionnels de la santé EFZ IMC / AWR 40-60%"
+        "it": "Infermiere certificato HF NDS Anestesia 80 - 100%",
+        "en": "Dipl. HF NDS Anesthesia 80 - 100%",
+        "de": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 %",
+        "fr": "Dipl. HF NDS Anesthésie 80 - 100%"
       },
-      "description": "Fachperson Gesundheit EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "description": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
-        "it": "Specialist Health EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Specialist Health EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Fachperson Gesundheit EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Spécialiste de la santé EFZ IMC / AWR 40-60 % — Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
+        "it": "Dipl. HF NDS Anesthesia 80 - 100 % - Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
+        "en": "Dipl. HF NDS Anesthesia 80 - 100 % - Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
+        "de": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Dipl. HF NDS Anesthésie 80 - 100 % - Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
       },
       "location": "Ilanz",
       "canton": "GR",
-      "url": "https://link.ostendis.com/publication/fachperson-gesundheit-efz-imc-awr/c3f2ela2mxjars58dynuu0c6j0qvq28mmdswiijor2vpdduviki1opamdkvd05ai",
+      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:05.312Z",
+      "crawledAt": "2026-09-03T23:14:51.614Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Infermieristica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://link.ostendis.com/cvdropper/6ff851631a2f4b878e012b6f59f4990f/DE?src=c3f2ela2mxjars58dynuu0c6j0qvq28mmdswiijor2vpdduviki1opamdkvd05ai",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Pflege",
-      "pensum": "40 - 60%",
-      "pensumMin": 40,
-      "pensumMax": 60,
-      "previousSlugs": [
-        "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
-        "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
-        "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
-          "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz"
-        ],
-        "en": [
-          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch"
-        ],
-        "de": [
-          "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz"
-        ],
-        "fr": [
-          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-16T14:41:06.861Z",
-      "salaryMin": 48900,
-      "salaryMax": 68400,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 48900,
-          "maxValue": 68400,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "rss-surselva-d7b292c8c793",
-      "slug": "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-      "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-        "en": "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
-        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
-        "fr": "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz"
-      },
-      "company": "Regionalspital Surselva",
-      "companyKey": "rss-surselva",
-      "companyDomain": "rss.ch",
-      "title": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27",
-      "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF / FH per unsere Interdisziplinäre Abteilung 40-100 %",
-        "en": "Dipl. Nurse HF / FH for our Interdisciplinary Department 40-100 %",
-        "de": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27",
-        "fr": "Dipl. Infirmière HF / FH pour notre département interdisciplinaire 40-100 %"
-      },
-      "description": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27 — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-      "descriptionByLocale": {
-        "it": "Infermiera HF / FH per il nostro Dipartimento interdisciplinare 40-100 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Dipl. Nurse HF / FH for our Interdisciplinary Department 40-100 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27 — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Dipl. Infirmière HF / FH pour notre département interdisciplinaire 40-100 % — Surselva régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
-      },
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-saisonstelle-winter/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
-      "source": "Regionalspital Surselva Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:05.187Z",
-      "addressLocality": "Ilanz",
-      "postalCode": "7130",
-      "streetAddress": "Spitalstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Infermieristica",
+      "category": "Medicina",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-25",
-      "applyUrl": "https://link.ostendis.com/cvdropper/ad6d3b1f60d04cabb885141df99b3e7f/DE?src=1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
+      "postedDate": "2026-06-26",
+      "applyUrl": "https://link.ostendis.com/cvdropper/6928fe028d4c4d039b0375047a9a0364/DE?src=dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pflege",
-      "pensum": "40 - 100%",
-      "pensumMin": 40,
+      "pensum": "80 - 100%",
+      "pensumMin": 80,
       "pensumMax": 100,
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
+        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
+        "dipl-auxiliaire-d-infirmier-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz",
+        "dipl-nurse-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27"
-        ],
         "it": [
-          "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
-          "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz",
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-          "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
-          "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
+          "dipl-auxiliaire-d-infirmier-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz",
+          "dipl-nurse-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz"
         ],
         "en": [
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-          "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
-          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-          "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
         ]
       },
-      "previousSlugs": [
-        "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
-        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
-        "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz",
-        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
-        "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
-        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
-        "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-25T21:30:54.887Z",
+      "firstSeenAt": "2026-06-26T12:17:15.744Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -368,7 +282,7 @@
       "companyDomain": "rss.ch",
       "title": "Lehrstelle Fachperson Gesundheit EFZ 2027",
       "titleByLocale": {
-        "it": "Apprendistato Fachperson Gesundheit CFC 2027",
+        "it": "Apprendistato Professional Health EFZ 2027",
         "en": "Apprenticeship Professional Health EFZ 2027",
         "de": "Lehrstelle Fachperson Gesundheit EFZ 2027",
         "fr": "Apprentissage Santé professionnelle EFZ 2027"
@@ -385,7 +299,7 @@
       "url": "https://link.ostendis.com/publication/lehrstelle-fachperson-gesundheit-efz/twu3vd3co3l3ed0wl3rnh7biy57glhfozoxrsekr5emutfyqufgkr53qwfrmqrb7",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:05.048Z",
+      "crawledAt": "2026-09-03T23:14:51.461Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -405,13 +319,11 @@
       "department": "Pflege",
       "previousSlugs": [
         "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch",
-        "lehrstelle-fachperson-gesundheit-efz-2027-regionalspital-surselva-ilanz",
-        "apprendistato-fachperson-gesundheit-cfc-2027-regionalspital-surselva-ilanz"
+        "lehrstelle-fachperson-gesundheit-efz-2027-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch",
-          "apprendistato-fachperson-gesundheit-cfc-2027-regionalspital-surselva-ilanz"
+          "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
         ],
         "en": [
           "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
@@ -423,10 +335,10 @@
           "lehrstelle-fachperson-gesundheit-efz-2027-rss-surselva-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T12:17:15.911Z",
       "salaryMin": 73000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -470,7 +382,7 @@
       "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-imc-awr/s2k3jjw8ohwa0xannz483hm3ul5318ixidpvqze6z4c4q0fxpjlqmf2sdcx5tuu3",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.923Z",
+      "crawledAt": "2026-09-03T23:14:51.313Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -496,25 +408,23 @@
         "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-rss-surselva-ch",
         "dipl-pflegefachperson-hf-per-unsere-lips-80-100-regionalspital-surselva-ilanz",
         "dipl-pflegefachperson-hf-imc-awr-40-80-regionalspital-surselva-ilanz",
-        "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-regionalspital-surselva-ilanz",
-        "infermiere-qualificato-hf-imc-awr-40-80-regionalspital-surselva-ilanz"
+        "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-imc-awr-40-80-rss-surselva-ch",
           "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-rss-surselva-ch",
           "dipl-pflegefachperson-hf-per-unsere-lips-80-100-regionalspital-surselva-ilanz",
-          "dipl-pflegefachperson-hf-imc-awr-40-80-regionalspital-surselva-ilanz",
-          "infermiere-qualificato-hf-imc-awr-40-80-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-imc-awr-40-80-regionalspital-surselva-ilanz"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fur-unsere-lips-80-100-regionalspital-surselva-ilanz"
         ]
       },
       "firstSeenAt": "2026-06-15T15:14:31.495Z",
-      "needsRetranslation": true,
       "salaryMin": 65200,
       "salaryMax": 91200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -528,85 +438,73 @@
       "addressRegion": "GR"
     },
     {
-      "id": "rss-surselva-af84b0e1fdc0",
-      "slug": "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
+      "id": "rss-surselva-5d1ebe0be7bd",
+      "slug": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz",
-        "en": "dipl-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz",
-        "de": "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
-        "fr": "dipl-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz"
+        "it": "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilanz",
+        "en": "dipl-nurse-hf-nds-emergency-care-or-nurse-hf-with-professional-experience-40-100-regionalspital-surselva-ilanz",
+        "de": "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
+        "fr": "dipl-infirmiere-hf-snd-soins-d-urgence-ou-infirmiere-hf-avec-experience-professionnelle-40-100-regionalspital-surselva"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
-      "title": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 %",
+      "title": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 %",
       "titleByLocale": {
-        "it": "Infermiere certificato HF NDS Anestesia 80 - 100%",
-        "en": "Dipl. HF NDS Anesthesia 80 - 100%",
-        "de": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 %",
-        "fr": "Dipl. HF NDS Anesthésie 80 - 100%"
+        "it": "Dipl. Infermiera HF NDS Emergency Care o infermiera HF con esperienza professionale 40-100%",
+        "en": "Dipl. Nurse HF NDS Emergency Care or Nurse HF with professional experience 40-100%",
+        "de": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 %",
+        "fr": "Dipl. Infirmière HF SND Soins d'urgence ou Infirmière HF avec expérience professionnelle 40-100%"
       },
-      "description": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "description": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
-        "it": "Dipl. HF NDS Anesthesia 80 - 100 % - Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Dipl. HF NDS Anesthesia 80 - 100 % - Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Dipl. Pflegefachperson HF NDS Anästhesie 80 - 100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Dipl. HF NDS Anesthésie 80 - 100 % - Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
+        "it": "Infermiera HF NDS Emergency Care o Infermiera HF con esperienza professionale 40-100 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
+        "en": "Dipl. Nurse HF NDS Emergency Care or Nurse HF with professional experience 40-100 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
+        "de": "Dipl. Pflegefachperson HF NDS Notfallpflege oder Pflegefachperson HF mit Berufserfahrung 40-100 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Dipl. Infirmière HF NDS Soins d'urgence ou Infirmière HF ayant une expérience professionnelle 40-100 % — Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
       },
       "location": "Ilanz",
       "canton": "GR",
-      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-anaesthesie/dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
+      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung/7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.786Z",
+      "crawledAt": "2026-09-03T23:14:51.162Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Medicina",
+      "category": "Infermieristica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://link.ostendis.com/cvdropper/6928fe028d4c4d039b0375047a9a0364/DE?src=dpgym8b9bxlicfinjqbjygzd0usjk7dkxxy35ysh03bb7svl9k5crf7kca3mq25e",
+      "postedDate": "2026-05-17",
+      "applyUrl": "https://link.ostendis.com/cvdropper/2fdc5a6fc27244eea6542991d9ba66f4/DE?src=7z0s6e3l21p5x0vrbh5qa3260d8f11ki0ldx02uq0l3oka6pordnbsw0m34y2nai",
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pflege",
-      "pensum": "80 - 100%",
-      "pensumMin": 80,
+      "pensum": "40 - 100%",
+      "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
-        "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
-        "dipl-auxiliaire-d-infirmier-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz",
-        "dipl-nurse-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz",
-        "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz"
+        "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40",
+        "dipl-pflegefachperson-hf-nds-notfallpflege-o-pflegefachperson-hf-con-berufserfahrung-40-100-regionalspital-surselva-ilan"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-rss-surselva-ch",
-          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz",
-          "dipl-auxiliaire-d-infirmier-hf-nds-anesthesie-80-100-regionalspital-surselva-ilanz",
-          "dipl-nurse-hf-nds-anesthesia-80-100-regionalspital-surselva-ilanz",
-          "infermiere-certificato-hf-nds-anestesia-80-100-regionalspital-surselva-ilanz"
-        ],
         "en": [
-          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
-        ],
-        "de": [
-          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
         ],
         "fr": [
-          "dipl-pflegefachperson-hf-nds-anasthesie-80-100-regionalspital-surselva-ilanz"
+          "dipl-pflegefachperson-hf-nds-notfallpflege-oder-pflegefachperson-hf-mit-berufserfahrung-40"
         ]
       },
-      "firstSeenAt": "2026-06-26T12:17:15.744Z",
+      "firstSeenAt": "2026-05-17T10:58:29.809Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -620,80 +518,186 @@
       "addressRegion": "GR"
     },
     {
-      "id": "rss-surselva-21f943f6ec52",
-      "slug": "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
+      "id": "rss-surselva-63f466a3672c",
+      "slug": "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
       "slugByLocale": {
-        "it": "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
-        "en": "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz",
-        "de": "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
-        "fr": "medicament-assistance-pratique-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
+        "it": "fachperson-gesundheit-cfc-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "en": "health-professional-efz-imc-awr-40-60-regionalspital-surselva-ilanz",
+        "de": "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
+        "fr": "professionnels-de-la-sante-efz-imc-awr-40-60-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
       "companyKey": "rss-surselva",
       "companyDomain": "rss.ch",
-      "title": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva",
+      "title": "Fachperson Gesundheit EFZ IMC / AWR 40-60 %",
       "titleByLocale": {
-        "it": "Med. Praxisassistenz / MPA CFC 50-100 % Praxis Mediselva",
-        "en": "Med. Practice Assistance / MPA EFZ 50-100 % Praxis Mediselva",
-        "de": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva",
-        "fr": "Médicament. Assistance pratique / MPA EFZ 50-100 % Praxis Mediselva"
+        "it": "Professionista della salute EFZ IMC / AWR 40-60%",
+        "en": "Health professional EFZ IMC / AWR 40-60%",
+        "de": "Fachperson Gesundheit EFZ IMC / AWR 40-60 %",
+        "fr": "Professionnels de la santé EFZ IMC / AWR 40-60%"
       },
-      "description": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva — Regionalspital Surselva (RSS). Abteilung: Medizisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "description": "Fachperson Gesundheit EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
       "descriptionByLocale": {
-        "it": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva — Regionalspital Surselva (RSS). Dipartimento: Personale tecnico medico. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva — Regionalspital Surselva (RSS). Department: Medical technical personnel. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva — Regionalspital Surselva (RSS). Abteilung: Medizisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Med. Praxisassistenz / MPA EFZ 50-100 % Praxis Mediselva — Surselva spital régional (RSS). Département: Personnel médical technique. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
+        "it": "Specialist Health EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
+        "en": "Specialist Health EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
+        "de": "Fachperson Gesundheit EFZ IMC / AWR 40-60 % — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Spécialiste de la santé EFZ IMC / AWR 40-60 % — Surselva spital régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
       },
       "location": "Ilanz",
       "canton": "GR",
-      "url": "https://link.ostendis.com/publication/med-praxisassistenz-mpa-efz-praxis-mediselva/xm7gk9mln3phjf2ohmzjbgscd2lxsmuxipr4jwv8iypzrbv3c6s61epwx3vjylt4",
+      "url": "https://link.ostendis.com/publication/fachperson-gesundheit-efz-imc-awr/c3f2ela2mxjars58dynuu0c6j0qvq28mmdswiijor2vpdduviki1opamdkvd05ai",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.659Z",
+      "crawledAt": "2026-09-03T23:14:51.009Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Tecnica",
+      "category": "Infermieristica",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-16",
+      "applyUrl": "https://link.ostendis.com/cvdropper/6ff851631a2f4b878e012b6f59f4990f/DE?src=c3f2ela2mxjars58dynuu0c6j0qvq28mmdswiijor2vpdduviki1opamdkvd05ai",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "department": "Pflege",
+      "pensum": "40 - 60%",
+      "pensumMin": 40,
+      "pensumMax": 60,
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch",
+        "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch"
+        ],
+        "de": [
+          "fachperson-gesundheit-efz-imc-awr-40-60-regionalspital-surselva-ilanz"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-imc-awr-40-60-rss-surselva-ch"
+        ]
+      },
+      "firstSeenAt": "2026-06-16T14:41:06.861Z",
+      "salaryMin": 48900,
+      "salaryMax": 68400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48900,
+          "maxValue": 68400,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "rss-surselva-d7b292c8c793",
+      "slug": "dipl-infermiera-hf-fh-dipartimento-interdisciplinare-40-100-posizione-stagionale-inverno-26-27-regionalspital-surselva",
+      "slugByLocale": {
+        "it": "dipl-infermiera-hf-fh-dipartimento-interdisciplinare-40-100-posizione-stagionale-inverno-26-27-regionalspital-surselva",
+        "en": "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+        "de": "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
+        "fr": "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz"
+      },
+      "company": "Regionalspital Surselva",
+      "companyKey": "rss-surselva",
+      "companyDomain": "rss.ch",
+      "title": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27",
+      "titleByLocale": {
+        "it": "Dipl. Infermiera HF/FH Dipartimento interdisciplinare 40–100% | Posizione stagionale Inverno 26/27",
+        "en": "Dipl. Nurse HF / FH for our Interdisciplinary Department 40-100 %",
+        "de": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27",
+        "fr": "Dipl. Infirmière HF / FH pour notre département interdisciplinaire 40-100 %"
+      },
+      "description": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27 — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+      "descriptionByLocale": {
+        "it": "Infermiera HF / FH per il nostro Dipartimento interdisciplinare 40-100 % — Regionalspital Surselva (RSS). Dipartimento: Cura. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
+        "en": "Dipl. Nurse HF / FH for our Interdisciplinary Department 40-100 % — Regionalspital Surselva (RSS). Department: Care. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
+        "de": "Dipl. Pflegefachperson HF/FH Interdisziplinäre Abteilung 40–100% | Saisonstelle Winter 26/27 — Regionalspital Surselva (RSS). Abteilung: Pflege. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
+        "fr": "Dipl. Infirmière HF / FH pour notre département interdisciplinaire 40-100 % — Surselva régional (RSS). Département: Soins. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
+      },
+      "location": "Ilanz",
+      "canton": "GR",
+      "url": "https://link.ostendis.com/publication/dipl-pflegefachperson-hf-fh-interdisziplinaere-abteilung-saisonstelle-winter/1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
+      "source": "Regionalspital Surselva Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:14:50.859Z",
+      "addressLocality": "Ilanz",
+      "postalCode": "7130",
+      "streetAddress": "Spitalstrasse 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Infermieristica",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
       "experienceLevel": "mid",
       "sector": "Sanità / Assistenza",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-06-16",
-      "applyUrl": "https://link.ostendis.com/cvdropper/2b94e7693ab24d82ae94bf383933a2fb/DE?src=xm7gk9mln3phjf2ohmzjbgscd2lxsmuxipr4jwv8iypzrbv3c6s61epwx3vjylt4",
+      "postedDate": "2026-08-25",
+      "applyUrl": "https://link.ostendis.com/cvdropper/ad6d3b1f60d04cabb885141df99b3e7f/DE?src=1pp4k3ioaji4qveyjqk0ivfrsi6q772snoexvauxgwom4txo8l6ay2o1w35kzfl8",
       "requirements": [],
       "requirementsByLocale": {},
-      "department": "Medizisch technisches Personal",
-      "pensum": "50 - 100%",
-      "pensumMin": 50,
+      "department": "Pflege",
+      "pensum": "40 - 100%",
+      "pensumMin": 40,
       "pensumMax": 100,
       "previousSlugs": [
-        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
-        "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz",
-        "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
+        "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
+        "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz",
+        "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
+        "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+        "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
+        "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-rss-surselva-ch",
-          "assistance-medicale-mpa-efz-50-100-pratique-mediselva-regionalspital-surselva-ilanz",
-          "med-praxisassistenz-mpa-efz-50-100-praxis-mediselva-regionalspital-surselva-ilanz"
+          "qualified-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch",
+          "dipl-infirmiere-hf-fh-pour-notre-departement-interdisciplinaire-40-100-regionalspital-surselva-ilanz",
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
+          "dipl-nurse-hf-fh-for-our-interdisciplinary-department-40-100-regionalspital-surselva-ilanz",
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
+          "dipl-pflegefachperson-hf-fh-per-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz",
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-rss-surselva-ch"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-fh-interdisziplinare-abteilung-40-100-saisonstelle-winter-26-27",
+          "dipl-pflegefachperson-hf-fh-fur-unsere-interdisziplinare-abteilung-40-100-regionalspital-surselva-ilanz"
         ]
       },
-      "firstSeenAt": "2026-06-16T14:41:06.441Z",
-      "needsRetranslation": true,
-      "salaryMin": 67000,
-      "salaryMax": 102000,
+      "firstSeenAt": "2026-08-25T21:30:54.887Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
+          "minValue": 81500,
+          "maxValue": 114000,
           "unitText": "YEAR"
         }
       },
@@ -713,7 +717,7 @@
       "companyDomain": "rss.ch",
       "title": "Dipl. Fachperson Operationstechnik HF oder Dipl. Pflegefachperson HF im OP 60 - 100 %",
       "titleByLocale": {
-        "it": "Dipl. Fachperson Operationstechnik HF o Dipl. Pflegefachperson HF im OP 60 - 100 %",
+        "it": "Dipl. Tecnica chirurgica specialistica HF o Dipl. Infermiera HF in OP 60 - 100%",
         "en": "Dipl. Specialist surgical technique HF or Dipl. Nurse HF in OP 60 - 100%",
         "de": "Dipl. Fachperson Operationstechnik HF oder Dipl. Pflegefachperson HF im OP 60 - 100 %",
         "fr": "Dipl. Technique chirurgicale spécialisée HF ou Dipl. Infirmière HF en OP 60 - 100%"
@@ -730,7 +734,7 @@
       "url": "https://link.ostendis.com/publication/dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op/xwf6ayr6toklo7tf3gpbb1sfm4wgzaoc52mx1s2wvtw3rtts2g4wa47ljc32zinc",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.515Z",
+      "crawledAt": "2026-09-03T23:14:50.708Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -753,13 +757,11 @@
       "pensumMax": 100,
       "previousSlugs": [
         "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss",
-        "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz",
-        "dipl-fachperson-operationstechnik-hf-o-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
+        "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss",
-          "dipl-fachperson-operationstechnik-hf-o-dipl-pflegefachperson-hf-im-op-60-100-regionalspital-surselva-ilanz"
+          "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss"
         ],
         "de": [
           "dipl-fachperson-operationstechnik-hf-oder-dipl-pflegefachperson-hf-im-op-60-100-rss"
@@ -768,10 +770,10 @@
           "dipl-technique-chirurgicale-specialisee-hf-ou-dipl-infirmiere-hf-en-op-60-100-regionalspital-surselva-ilanz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T12:17:15.241Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -799,7 +801,7 @@
       "title": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert SSS Emergency Care 100%",
-        "en": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
+        "en": "Dipl. Expert / Expert HF Emergency Care 100%",
         "de": "Dipl. Experten / Expertin HF Notfallpflege 100 %",
         "fr": "Dipl. Expert / Expert HF Soins d'urgence 100%"
       },
@@ -815,7 +817,7 @@
       "url": "https://link.ostendis.com/publication/dipl-experten-expertin-hf-notfallpflege/vfrppklwtsu2zvfvrwyyo4vr68txzlxik0hr17bvv7d0f0nlfaui3vjq7rx0ucfn",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.386Z",
+      "crawledAt": "2026-09-03T23:14:50.562Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -841,25 +843,23 @@
         "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
         "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
         "dipl-expert-expert-hf-emergency-care-100-regionalspital-surselva-ilanz",
-        "expert-e-en-soins-d-urgence-hf-100-regionalspital-surselva-ilanz",
-        "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz"
+        "expert-e-en-soins-d-urgence-hf-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
           "dipl-ing-experten-expertin-nds-hf-notfallpflege-100-regionalspital-surselva-ilanz",
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch",
-          "expert-e-en-soins-d-urgence-hf-100-regionalspital-surselva-ilanz",
-          "dipl-expert-expert-sss-emergency-care-100-regionalspital-surselva-ilanz"
+          "expert-e-en-soins-d-urgence-hf-100-regionalspital-surselva-ilanz"
         ],
         "fr": [
           "dipl-experten-expertin-hf-notfallpflege-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-05-17T10:58:28.867Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -903,7 +903,7 @@
       "url": "https://link.ostendis.com/publication/radiologie-fachperson-mtr-hf/cqc4g5hihd3yo54po3ii8ehjvonrxgybwaivmkx4gr3nd7235opk8fp2uzqsp6rt",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.250Z",
+      "crawledAt": "2026-09-03T23:14:50.413Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -927,14 +927,12 @@
       "previousSlugs": [
         "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
         "specialista-di-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
-        "tecnico-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
-        "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
+        "tecnico-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch",
-          "tecnico-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz",
-          "specialista-in-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
+          "tecnico-radiologia-mtr-hf-80-100-regionalspital-surselva-ilanz"
         ],
         "en": [
           "radiologie-fachperson-mtr-hf-80-100-rss-surselva-ch"
@@ -943,6 +941,7 @@
       "firstSeenAt": "2026-05-17T10:58:28.751Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -961,7 +960,7 @@
       "slugByLocale": {
         "it": "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz",
         "en": "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz",
-        "de": "dipl-hebamme-hf-fh-80-rss-surselva-ch",
+        "de": "dipl-hebamme-hf-fh-80-regionalspital-surselva-ilanz",
         "fr": "dipl-sage-femme-hf-fh-80-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -986,7 +985,7 @@
       "url": "https://link.ostendis.com/publication/dipl-hebamme-hf-fh/34mzo2ks0bc4ev5idufw4r4wjs2cf5i33sdfbiwf38wr17jx4adedoq4j83n6f9u",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.122Z",
+      "crawledAt": "2026-09-03T23:14:50.265Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1012,8 +1011,7 @@
         "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
         "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
         "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz",
-        "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz",
-        "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz"
+        "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1021,15 +1019,15 @@
           "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
           "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
           "dipl-sage-femme-hf-fh-60-80-regionalspital-surselva-ilanz",
-          "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz",
-          "dipl-midwife-hf-fh-80-regionalspital-surselva-ilanz"
+          "dipl-hebamme-hf-fh-60-80-regionalspital-surselva-ilanz"
         ],
         "en": [
           "dipl-midwife-hf-fh-60-80-regionalspital-surselva-ilanz",
           "dipl-hebamme-hf-fh-80-rss-surselva-ch"
         ],
         "de": [
-          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch"
+          "dipl-hebamme-hf-fh-60-80-rss-surselva-ch",
+          "dipl-hebamme-hf-fh-80-rss-surselva-ch"
         ],
         "fr": [
           "dipl-hebamme-hf-fh-80-rss-surselva-ch",
@@ -1039,6 +1037,7 @@
       "firstSeenAt": "2026-08-24T09:57:48.296Z",
       "salaryMin": 65200,
       "salaryMax": 91200,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1065,7 +1064,7 @@
       "companyDomain": "rss.ch",
       "title": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %",
       "titleByLocale": {
-        "it": "Med. Praxisassistenz o Fachperson Gesundheit per la Notfallstation 50 %",
+        "it": "Med. Assistente di pratica o specialista di salute per il reparto di emergenza 50%",
         "en": "Med. Practice assistant or health specialist for the emergency department 50%",
         "de": "Med. Praxisassistenz oder Fachperson Gesundheit für die Notfallstation 50 %",
         "fr": "Médicament. Assistant de pratique ou spécialiste de la santé pour le service d'urgence 50%"
@@ -1082,7 +1081,7 @@
       "url": "https://link.ostendis.com/publication/med-praxisassistenz-oder-fachperson-gesundheit-fuer-die-notfallstation/c0exl3nzrqrtgp1rleaygvrc3xlbqh0adsriq57hzcefttziardlm1ddghdgv3d2",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.981Z",
+      "crawledAt": "2026-09-03T23:14:50.115Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1105,12 +1104,10 @@
       "pensumMax": 50,
       "previousSlugsByLocale": {
         "de": [
-          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
-          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
+          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
         ],
         "it": [
-          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
-          "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz"
+          "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch"
         ],
         "en": [
           "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
@@ -1121,13 +1118,12 @@
       },
       "previousSlugs": [
         "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-rss-surselva-ch",
-        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz",
-        "med-praxisassistenz-o-fachperson-gesundheit-per-la-notfallstation-50-regionalspital-surselva-ilanz"
+        "med-praxisassistenz-oder-fachperson-gesundheit-fur-die-notfallstation-50-regionalspital-surselva-ilanz"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:29.224Z",
       "salaryMin": 40800,
       "salaryMax": 57000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1146,7 +1142,7 @@
       "slugByLocale": {
         "it": "segretario-medico-100-regionalspital-surselva-ilanz",
         "en": "medical-secretary-100-regionalspital-surselva-ilanz",
-        "de": "arztsekretar-in-100-rss-surselva-ch",
+        "de": "arztsekretar-in-100-regionalspital-surselva-ilanz",
         "fr": "secretaire-medical-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1171,7 +1167,7 @@
       "url": "https://link.ostendis.com/publication/arztsekretaer-in/mbbg1ivtufrojxxp4lxh2jo0umss4tao5hchkf5ljo1mn5qmozr0duu8oeazvk56",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.854Z",
+      "crawledAt": "2026-09-03T23:14:49.967Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1193,25 +1189,26 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "previousSlugs": [
-        "arztsekretar-in-100-rss-surselva-ch",
-        "segretario-medico-100-regionalspital-surselva-ilanz"
+        "arztsekretar-in-100-rss-surselva-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-100-rss-surselva-ch",
-          "segretario-medico-100-regionalspital-surselva-ilanz"
+          "arztsekretar-in-100-rss-surselva-ch"
         ],
         "en": [
           "arztsekretar-in-100-rss-surselva-ch"
         ],
         "fr": [
           "arztsekretar-in-100-rss-surselva-ch"
+        ],
+        "de": [
+          "arztsekretar-in-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-08-17T21:28:01.046Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1225,103 +1222,12 @@
       "addressRegion": "GR"
     },
     {
-      "id": "rss-surselva-41fc82a4bf04",
-      "slug": "analista-biomedico-diplomatico-hf-50-100-regionalspital-surselva-ilanz",
-      "slugByLocale": {
-        "it": "analista-biomedico-diplomatico-hf-50-100-regionalspital-surselva-ilanz",
-        "en": "dipl-biomedical-analyst-hf-50-100-regionalspital-surselva-ilanz",
-        "de": "dipl-biomedizinische-r-analytiker-in-hf-50-100-rss-surselva-ch",
-        "fr": "dipl-analyste-biomedical-hf-50-100-regionalspital-surselva-ilanz"
-      },
-      "company": "Regionalspital Surselva",
-      "companyKey": "rss-surselva",
-      "companyDomain": "rss.ch",
-      "title": "Dipl. biomedizinische*r Analytiker*in HF 50-100 %",
-      "titleByLocale": {
-        "it": "Analista biomedico diplomatico HF 50-100%",
-        "en": "Dipl. biomedical analyst HF 50-100 %",
-        "de": "Dipl. biomedizinische*r Analytiker*in HF 50-100 %",
-        "fr": "Dipl. analyste biomédical HF 50-100 %"
-      },
-      "description": "Dipl. biomedizinische*r Analytiker*in HF 50-100 % — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-      "descriptionByLocale": {
-        "it": "Analista biomedicale HF 50-100 % — Regionalspital Surselva (RSS). Dipartimento: Personale tecnico medico. Luogo di lavoro: Ilanz (GR). Regionalspital Surselva AG è un ospedale regionale ancorato a Ilanz nel cantone di Grigioni e fornisce assistenza di base e di emergenza estesa per circa 2.000 residenti e stagionalmente 20.000 ospiti di vacanza nella regione di Surselva. Come centro sanitario moderno, offriamo condizioni di lavoro interessanti, infrastrutture mediche avanzate e un team dedicato e interdisciplinare. Siamo alla ricerca di professionisti motivati che vogliono contribuire con passione e competenza all'assistenza sanitaria nella nostra unica regione montana",
-        "en": "Biomedical analyst HF 50-100 % — Regionalspital Surselva (RSS). Department: Medical technical personnel. Place of work: Ilanz (GR). Regionalspital Surselva AG is a regionally anchored hospital in Ilanz in the canton of Graubünden and provides extended basic and emergency care for around 22,000 residents and seasonally 20,000 holiday guests in the Surselva region. As a modern health centre, we offer attractive employment conditions, advanced medical infrastructure and a dedicated, interdisciplinary team. We are looking for motivated professionals who want to contribute with passion and competence to health care in our unique mountain region",
-        "de": "Dipl. biomedizinische*r Analytiker*in HF 50-100 % — Regionalspital Surselva (RSS). Abteilung: Medizinisch technisches Personal. Arbeitsort: Ilanz (GR). Die Regionalspital Surselva AG ist ein regional verankertes Spital in Ilanz im Kanton Graubünden und stellt die erweiterte Grund- und Notfallversorgung für rund 22'000 Einwohner und saisonal 20'000 Feriengäste der Region Surselva sicher. Als modernes Gesundheitszentrum bieten wir attraktive Anstellungsbedingungen, fortschrittliche medizinische Infrastruktur und ein engagiertes, interdisziplinäres Team. Wir suchen motivierte Fachkräfte, die mit Leidenschaft und Kompetenz zur Gesundheitsversorgung in unserer einzigartigen Bergregion beitragen möchten",
-        "fr": "Analyste biomédical HF 50-100 % — Surselva psychiatrique régional (RSS). Département: Personnel médical technique. Lieu de travail: Ilanz (GR). Région de Surselva AG est un hôpital régional situé à Ilanz dans le canton des Grisons et fournit des soins de base et d'urgence étendus à environ 22 000 résidents et 20 000 vacanciers saisonniers dans la région de Surselva. En tant que centre de santé moderne, nous offrons des conditions d'emploi attrayantes, une infrastructure médicale avancée et une équipe interdisciplinaire dédiée. Nous recherchons des professionnels motivés qui veulent contribuer avec passion et compétence aux soins de santé dans notre région montagneuse unique"
-      },
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://link.ostendis.com/publication/dipl-biomedizinische-analytiker-in-hf/5f7ldp64mcpxhqn6jcvd67afz7iqop8p8n7ml5vazte313yn750zfexwfkuj1zel",
-      "source": "Regionalspital Surselva Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.721Z",
-      "addressLocality": "Ilanz",
-      "postalCode": "7130",
-      "streetAddress": "Spitalstrasse 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Medicina",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-26",
-      "applyUrl": "https://link.ostendis.com/cvdropper/0de898a9b8434208b0046460716b136e/DE?src=5f7ldp64mcpxhqn6jcvd67afz7iqop8p8n7ml5vazte313yn750zfexwfkuj1zel",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Medizinisch technisches Personal",
-      "pensum": "50 - 100%",
-      "pensumMin": 50,
-      "pensumMax": 100,
-      "previousSlugs": [
-        "dipl-biomedizinische-r-analytiker-in-hf-50-100-rss-surselva-ch",
-        "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz",
-        "dipl-analista-biomedico-hf-50-100-regionalspital-surselva-ilanz",
-        "analista-biomedico-diplomatico-hf-50-100-regionalspital-surselva-ilanz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-biomedizinische-r-analytiker-in-hf-50-100-rss-surselva-ch",
-          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz",
-          "dipl-analista-biomedico-hf-50-100-regionalspital-surselva-ilanz",
-          "analista-biomedico-diplomatico-hf-50-100-regionalspital-surselva-ilanz"
-        ],
-        "en": [
-          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
-        ],
-        "de": [
-          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
-        ],
-        "fr": [
-          "dipl-biomedizinische-r-analytiker-in-hf-50-100-regionalspital-surselva-ilanz"
-        ]
-      },
-      "firstSeenAt": "2026-06-26T12:17:14.573Z",
-      "needsRetranslation": true,
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
       "id": "rss-surselva-1fedfa9cb405",
       "slug": "fatturazione-specialistica-del-paziente-80-100-regionalspital-surselva-ilanz",
       "slugByLocale": {
         "it": "fatturazione-specialistica-del-paziente-80-100-regionalspital-surselva-ilanz",
         "en": "specialist-patient-billing-80-100-regionalspital-surselva-ilanz",
-        "de": "fachspezialist-in-patientenabrechnung-80-100-rss-surselva-ch",
+        "de": "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz",
         "fr": "patient-specialise-facturation-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1346,7 +1252,7 @@
       "url": "https://link.ostendis.com/publication/fachspezialist-in-patientenabrechnung/sxhuo0a2kl8547kj8zr6ahl9p6yz65k9z6ogwkljul56skct5idmjm4irhjliw1i",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.591Z",
+      "crawledAt": "2026-09-03T23:14:49.819Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1369,25 +1275,27 @@
       "pensumMax": 100,
       "previousSlugs": [
         "fachspezialist-in-patientenabrechnung-80-100-rss-surselva-ch",
-        "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz",
-        "fatturazione-specialistica-del-paziente-80-100-regionalspital-surselva-ilanz"
+        "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-patientenabrechnung-80-100-rss-surselva-ch",
-          "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz",
-          "fatturazione-specialistica-del-paziente-80-100-regionalspital-surselva-ilanz"
+          "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz"
         ],
         "en": [
           "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz"
         ],
         "fr": [
           "fachspezialist-in-patientenabrechnung-80-100-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "fachspezialist-in-patientenabrechnung-80-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:11.530Z",
       "salaryMin": 99000,
       "salaryMax": 174000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1406,7 +1314,7 @@
       "slugByLocale": {
         "it": "responsabile-dell-amministrazione-del-paziente-80-100-regionalspital-surselva-ilanz",
         "en": "head-of-patient-administration-80-100-regionalspital-surselva-ilanz",
-        "de": "leitung-patientenadministration-80-100-rss-surselva-ch",
+        "de": "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz",
         "fr": "responsable-de-l-administration-du-patient-80-100-regionalspital-surselva-ilanz"
       },
       "company": "Regionalspital Surselva",
@@ -1431,7 +1339,7 @@
       "url": "https://link.ostendis.com/publication/leitung-patientenadministration/tsqbd81riydicxzxkz8u67wkk3sfw6p7qlo57r1yobn2rg0lvis3eo7w80vjh5ha",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.452Z",
+      "crawledAt": "2026-09-03T23:14:49.669Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1454,25 +1362,27 @@
       "pensumMax": 100,
       "previousSlugs": [
         "leitung-patientenadministration-80-100-rss-surselva-ch",
-        "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz",
-        "responsabile-dell-amministrazione-del-paziente-80-100-regionalspital-surselva-ilanz"
+        "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-patientenadministration-80-100-rss-surselva-ch",
-          "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz",
-          "responsabile-dell-amministrazione-del-paziente-80-100-regionalspital-surselva-ilanz"
+          "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz"
         ],
         "en": [
           "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz"
         ],
         "fr": [
           "leitung-patientenadministration-80-100-regionalspital-surselva-ilanz"
+        ],
+        "de": [
+          "leitung-patientenadministration-80-100-rss-surselva-ch"
         ]
       },
       "firstSeenAt": "2026-08-18T22:14:11.356Z",
       "salaryMin": 165000,
       "salaryMax": 290000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1516,7 +1426,7 @@
       "url": "https://link.ostendis.com/publication/chefarzt-aerztin-innere-medizin/vfved3sr4cwqlwso2tg4m5txxrdg060j0hvr62sbytz1ct2m5v243ok7t0htl00v",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.322Z",
+      "crawledAt": "2026-09-03T23:14:49.519Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1540,8 +1450,7 @@
         "chefarzt-arztin-innere-medizin-regionalspital-surselva-ilanz",
         "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
         "chef-de-service-m-f-d-medecine-interne-regionalspital-surselva-ilanz",
-        "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz",
-        "capo-medico-medicina-interna-regionalspital-surselva-ilanz"
+        "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1549,8 +1458,7 @@
           "medicina-interna-del-medico-principale-regionalspital-surselva-ilanz",
           "capo-medico-m-f-d-medicina-interna-regionalspital-surselva-ilanz",
           "chef-de-service-m-f-d-medecine-interne-regionalspital-surselva-ilanz",
-          "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz",
-          "capo-medico-medicina-interna-regionalspital-surselva-ilanz"
+          "chief-physician-m-f-d-internal-medicine-regionalspital-surselva-ilanz"
         ],
         "en": [
           "chefarzt-arztin-innere-medizin-rss-surselva-ch"
@@ -1565,6 +1473,7 @@
       "firstSeenAt": "2026-06-26T12:17:14.406Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1591,7 +1500,7 @@
       "companyDomain": "rss.ch",
       "title": "Leitende Ärztin / Leitender Arzt Pädiatrie - kombinierbar mit Praxistätigkeit",
       "titleByLocale": {
-        "it": "Leitende Ärztin / Leitender Arzt Pädiatrie - kombinierbar con Praxistätigkeit",
+        "it": "Principale medico / Principale medico Pediatrics - combinabile con l'attività pratica",
         "en": "Principal physician / Principal physician Pediatrics - combinable with practice activity",
         "de": "Leitende Ärztin / Leitender Arzt Pädiatrie - kombinierbar mit Praxistätigkeit",
         "fr": "Médecin principal / Médecin principal Pédiatrie - combinable avec l'activité pratique"
@@ -1608,7 +1517,7 @@
       "url": "https://link.ostendis.com/publication/leitende-aerztin-leitender-arzt-paediatrie-kombinierbar-mit-praxistaetigkeit/lb2tlrhc70p0pm0mj6wanl2ju39g8kak2ypzkl5vv22xty7rznbw5ctk41la4nyj",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:03.185Z",
+      "crawledAt": "2026-09-03T23:14:49.364Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1627,19 +1536,17 @@
       "requirementsByLocale": {},
       "department": "Ärzte",
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch",
-        "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz"
+        "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch",
-          "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-regionalspital-surselva-ilanz"
+          "leitende-arztin-leitender-arzt-padiatrie-kombinierbar-mit-praxistatigkeit-rss-surselva-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-17T10:58:28.279Z",
       "salaryMin": 110500,
       "salaryMax": 154000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1683,7 +1590,7 @@
       "url": "https://link.ostendis.com/publication/hausaerztin-hausarzt/0na83sidjo3kfcjdj75k3827g7efq03w8zpm0mwfg38n3a5rs2unhxe8eezypgum",
       "source": "Regionalspital Surselva Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:02.421Z",
+      "crawledAt": "2026-09-03T23:14:48.713Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "streetAddress": "Spitalstrasse 6",
@@ -1707,8 +1614,7 @@
       "previousSlugsByLocale": {
         "de": [
           "hausarztin-hausarzt-50-100-rss-surselva-ch",
-          "arztsekretar-in-100-rss-surselva-ch",
-          "hausarztin-hausarzt-50-100-regionalspital-surselva-ilanz"
+          "arztsekretar-in-100-rss-surselva-ch"
         ],
         "it": [
           "hausarztin-hausarzt-50-100-rss-surselva-ch",
@@ -1717,8 +1623,7 @@
           "arztsekretar-in-100-rss-surselva-ch",
           "secretaire-medical-100-regionalspital-surselva-ilanz",
           "arztsekretar-in-100-regionalspital-surselva-ilanz",
-          "medecin-de-famille-50-100-regionalspital-surselva-ilanz",
-          "medico-di-famiglia-50-100-regionalspital-surselva-ilanz"
+          "medecin-de-famille-50-100-regionalspital-surselva-ilanz"
         ],
         "en": [
           "hausarztin-hausarzt-50-100-rss-surselva-ch",
@@ -1737,13 +1642,12 @@
         "arztsekretar-in-100-rss-surselva-ch",
         "secretaire-medical-100-regionalspital-surselva-ilanz",
         "arztsekretar-in-100-regionalspital-surselva-ilanz",
-        "medecin-de-famille-50-100-regionalspital-surselva-ilanz",
-        "hausarztin-hausarzt-50-100-regionalspital-surselva-ilanz",
-        "medico-di-famiglia-50-100-regionalspital-surselva-ilanz"
+        "medecin-de-famille-50-100-regionalspital-surselva-ilanz"
       ],
       "firstSeenAt": "2026-05-17T10:58:27.795Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

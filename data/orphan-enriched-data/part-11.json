@@ -5546,10 +5546,10 @@
         "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
-        "en": "/en/find-jobs-ticino/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
-        "de": "/de/jobs-im-tessin/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
-        "fr": "/fr/trouver-emploi-tessin/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd"
+        "it": "/cerca-lavoro-zugo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
+        "en": "/en/find-jobs-zug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
+        "de": "/de/jobs-in-zug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd",
+        "fr": "/fr/trouver-emploi-zoug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-zug-mwuesd"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -12016,10 +12016,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "butcher-meat-specialist-coop-genossenschaft-winterthur",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
+        "it": "macellaio-a-specialista-in-carni-coop-genossenschaft-winterthur",
         "en": "butcher-meat-specialist-coop-genossenschaft-winterthur",
-        "de": "butcher-meat-specialist-coop-genossenschaft-winterthur",
-        "fr": "butcher-meat-specialist-coop-genossenschaft-winterthur"
+        "fr": "boucher-bouchere-specialiste-en-viandes-coop-genossenschaft-winterthur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/butcher-meat-specialist-coop-genossenschaft-winterthur",
@@ -12033,6 +12033,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -16516,6 +16517,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+      "locale": "it",
+      "path": "/cerca-lavoro-sciaffusa/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-sciaffusa/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro negli ultimi 3 giorni",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "offerte di lavoro negli ultimi 3 giorni",
+      "title": "Collaboratore trice in kassen kundendienst",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "Schaffhausen",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "en": "collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "de": "collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "fr": "collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-sciaffusa/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "en": "/en/find-jobs-schaffhausen/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "de": "/de/jobs-im-schaffhausen/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen",
+        "fr": "/fr/trouver-emploi-schaffhouse/collaboratore-trice-in-kassen-kundendienst-60-manor-ag-schaffhausen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -34773,6 +34832,64 @@
         "en": "/en/find-jobs-ticino/installatore-trice-elettrico-a-in-per-industrie-e-wohnbauprojekte-fachkraft-ch-gmbh-lugano",
         "de": "/de/jobs-im-tessin/installatore-trice-elettrico-a-in-per-industrie-e-wohnbauprojekte-fachkraft-ch-gmbh-lugano",
         "fr": "/fr/trouver-emploi-tessin/installatore-trice-elettrico-a-in-per-industrie-e-wohnbauprojekte-fachkraft-ch-gmbh-lugano"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano/"
+      },
+      "queries": [
+        {
+          "query": "elektriker oppegård",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "elektriker oppegård",
+      "title": "Installatore trice elettrico in per photovoltaiksysteme fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "en": "installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "de": "installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "fr": "installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "en": "/en/find-jobs-ticino/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "de": "/de/jobs-im-tessin/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano",
+        "fr": "/fr/trouver-emploi-tessin/installatore-trice-elettrico-a-in-per-photovoltaiksysteme-fachkraft-ch-gmbh-lugano"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75332,10 +75449,10 @@
         "fr": "vendeur-vendeuse-food-coop-genossenschaft-wurenlos"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-soletta/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
-        "en": "/en/find-jobs-solothurn/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
-        "de": "/de/jobs-in-solothurn/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
-        "fr": "/fr/trouver-emploi-soleure/vendeur-vendeuse-food-coop-genossenschaft-wurenlos"
+        "it": "/cerca-lavoro-berna/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
+        "en": "/en/find-jobs-bern/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
+        "de": "/de/jobs-in-bern/vendeur-vendeuse-food-coop-genossenschaft-wurenlos",
+        "fr": "/fr/trouver-emploi-berne/vendeur-vendeuse-food-coop-genossenschaft-wurenlos"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -79485,10 +79602,10 @@
         "fr": "verkaufsberater-jumbo-division-der-coop-genossenschaft-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
-        "en": "/en/find-jobs-ticino/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
-        "de": "/de/jobs-im-tessin/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
-        "fr": "/fr/trouver-emploi-tessin/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern"
+        "it": "/cerca-lavoro-berna/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
+        "en": "/en/find-jobs-bern/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
+        "de": "/de/jobs-in-bern/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern",
+        "fr": "/fr/trouver-emploi-berne/verkaufsberater-jumbo-division-der-coop-genossenschaft-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

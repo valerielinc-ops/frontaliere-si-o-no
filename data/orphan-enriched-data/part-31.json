@@ -18840,10 +18840,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufsberater-in-spielwaren-coop-city-bern-6fjpg3",
         "it": "consulente-di-vendita-giocattoli-coop-genossenschaft-bern",
-        "en": "consulente-di-vendita-giocattoli-coop-genossenschaft-bern",
-        "de": "consulente-di-vendita-giocattoli-coop-genossenschaft-bern",
-        "fr": "consulente-di-vendita-giocattoli-coop-genossenschaft-bern"
+        "en": "sales-consultant-toys-coop-genossenschaft-bern",
+        "fr": "conseiller-de-vente-jouets-coop-genossenschaft-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/consulente-di-vendita-giocattoli-coop-genossenschaft-bern",
@@ -18857,6 +18857,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -21172,10 +21173,10 @@
         "fr": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-lucerna/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern",
-        "en": "/en/find-jobs-lucerne/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern",
+        "it": "/cerca-lavoro-berna/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern",
+        "en": "/en/find-jobs-bern/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern",
         "de": "/de/jobs-im-luzern/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern",
-        "fr": "/fr/trouver-emploi-lucerne/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern"
+        "fr": "/fr/trouver-emploi-berne/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-muri-bei-bern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -25043,10 +25044,10 @@
         "fr": "directeur-de-succursale-stv-denner-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/directeur-de-succursale-stv-denner-luzern",
-        "en": "/en/find-jobs-ticino/directeur-de-succursale-stv-denner-luzern",
-        "de": "/de/jobs-im-tessin/directeur-de-succursale-stv-denner-luzern",
-        "fr": "/fr/trouver-emploi-tessin/directeur-de-succursale-stv-denner-luzern"
+        "it": "/cerca-lavoro-appenzello/directeur-de-succursale-stv-denner-luzern",
+        "en": "/en/find-jobs-appenzell/directeur-de-succursale-stv-denner-luzern",
+        "de": "/de/jobs-in-appenzell/directeur-de-succursale-stv-denner-luzern",
+        "fr": "/fr/trouver-emploi-appenzell/directeur-de-succursale-stv-denner-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28090,10 +28091,10 @@
         "fr": "fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "en": "/en/find-jobs-bern/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "de": "/de/jobs-in-bern/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
-        "fr": "/fr/trouver-emploi-berne/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
+        "it": "/cerca-lavoro-zurigo/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
+        "en": "/en/find-jobs-zurich/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
+        "de": "/de/jobs-in-zurich/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach",
+        "fr": "/fr/trouver-emploi-zurich/fachfrau-fachmann-gesundheit-efz-spitex-ch-bellach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -59819,7 +59820,7 @@
         {
           "query": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
           "clicks": 0,
-          "impressions": 42
+          "impressions": 50
         },
         {
           "query": "\"zurich\" surety",
@@ -59853,6 +59854,11 @@
         },
         {
           "query": "canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "chef",
           "clicks": 0,
           "impressions": 1
         },
@@ -59910,14 +59916,9 @@
           "query": "new openings near me",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "posto fisso",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 73,
+      "totalImpressions": 83,
       "totalClicks": 1,
       "topQuery": "i need jobs in italian speaking switzerland in a restaurant kitchen with split shifts and a seasonal or permanent contract.",
       "title": "Restaurants",
@@ -80394,10 +80395,10 @@
         "fr": "vendeur-vendeuse-coop-genossenschaft-chur"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-vendeuse-coop-genossenschaft-chur",
-        "en": "/en/find-jobs-ticino/vendeur-vendeuse-coop-genossenschaft-chur",
-        "de": "/de/jobs-im-tessin/vendeur-vendeuse-coop-genossenschaft-chur",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-vendeuse-coop-genossenschaft-chur"
+        "it": "/cerca-lavoro-grigioni/vendeur-vendeuse-coop-genossenschaft-chur",
+        "en": "/en/find-jobs-graubunden/vendeur-vendeuse-coop-genossenschaft-chur",
+        "de": "/de/jobs-in-graubunden/vendeur-vendeuse-coop-genossenschaft-chur",
+        "fr": "/fr/trouver-emploi-grisons/vendeur-vendeuse-coop-genossenschaft-chur"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

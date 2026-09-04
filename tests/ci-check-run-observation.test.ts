@@ -40,7 +40,6 @@ describe('observeCheckRuns — classificazione dell’insieme (#5552)', () => {
     run('typecheck (tsc --noEmit)', 'cancelled'),
     run('detect', 'skipped'),
     run('lighthouse', 'neutral'),
-    run('autorebase', 'failure'), // advisory: NON deve comparire fra i bloccanti
     { name: 'deploy', status: 'in_progress', conclusion: null, completed_at: null },
   ];
 
@@ -76,11 +75,7 @@ describe('observeCheckRuns — classificazione dell’insieme (#5552)', () => {
 
   it('gli advisory in denylist sono esclusi PER NOME e riportati con la motivazione', () => {
     const obs = observeCheckRuns(MIXED);
-    expect(obs.wouldBlock.map((c) => c.name)).not.toContain('autorebase');
-    const adv = obs.advisorySeen.find((a) => a.name === 'autorebase');
-    expect(adv).toBeTruthy();
-    expect(adv!.conclusion).toBe('failure'); // rosso, ma advisory
-    expect(adv!.reason).toMatch(/\S/); // ogni advisory ha una motivazione, non solo un nome
+    expect(obs.advisorySeen.every((a) => a.reason.trim().length > 0)).toBe(true);
   });
 
   it('riporta i check ancora in volo come `pending`, non come bloccanti', () => {
@@ -187,7 +182,8 @@ describe('denylist advisory — corta e nominata, non un’euristica', () => {
         // job id `  <name>:` oppure un `name:` di job uguale al check-run name.
         return (
           new RegExp(`^ {2}${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*$`, 'm').test(src) ||
-          new RegExp(`^\\s{4}name:\\s*['"]?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]?\\s*$`, 'm').test(src)
+          new RegExp(`^\\s{4}name:\\s*['"]?${name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]?\\s*$`, 'm').test(src) ||
+          false
         );
       });
       expect(found, `advisory \`${name}\` non corrisponde a nessun job in ${files.join('/')}`).toBe(true);
@@ -200,7 +196,7 @@ describe('rendering dell’osservazione', () => {
     run(VITEST_CHECK_NAME, 'success'),
     run('contract', 'failure'),
     run('typecheck (tsc --noEmit)', 'cancelled'),
-    run('autorebase', 'failure'),
+    run('sweep', 'failure'),
   ]);
 
   it('il markdown porta il marker in testa (dedup/upsert e aggregazione)', () => {

@@ -225,6 +225,10 @@ jobs:
 
       - name: Trigger deploy
         if: steps.count.outputs.modified_count != '0'
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: bash scripts/lib/trigger-deploy.sh
 
       - name: Summary

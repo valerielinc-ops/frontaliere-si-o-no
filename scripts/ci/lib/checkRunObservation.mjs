@@ -58,10 +58,7 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
  *
  * Il criterio è UNO e verificabile: sono i check-run prodotti dalla MACCHINA
  * del ciclo autonomo, che AGISCE sulla PR invece di GIUDICARLA. Un loro rosso
- * dice che l'automazione è inciampata, non che il codice della PR sia cattivo —
- * e sono anche i soli che possono essere rossi *a causa* del merge in corso
- * (`auto-merge` è il job che sta eseguendo questa stessa osservazione: contarlo
- * sarebbe circolare).
+ * dice che l'automazione è inciampata, non che il codice della PR sia cattivo.
  *
  * Ogni voce è il `name` esatto del check-run, con il workflow che lo produce.
  * Deliberatamente NON contiene i quattro check sostanziali — `vitest (unit +
@@ -83,12 +80,8 @@ import { VITEST_CHECK_NAME } from './constants.mjs';
  * Nessun altro nome di questa mappa è ambiguo sui trigger `pull_request*`.
  */
 export const ADVISORY_CHECK_NAMES = Object.freeze({
-  'auto-merge':
-    'auto-merge-on-lgtm.yml — è il job che produce questa osservazione: contarlo sarebbe circolare',
-  autorebase:
-    'pr-autorebase.yml — rebasa la PR, non la giudica; un rosso è un rebase non riuscito',
   sweep:
-    'auto-merge-sweep.yml / worktree-branch-janitor.yml — spazzino della coda, nessun verdetto sul codice',
+    'worktree-branch-janitor.yml — spazzino della coda, nessun verdetto sul codice',
   'delete-closed-unmerged':
     'worktree-branch-janitor.yml — pota i branch delle PR chiuse, gira dopo la decisione',
   preflight:

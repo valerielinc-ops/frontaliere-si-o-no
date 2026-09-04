@@ -1102,6 +1102,83 @@
       ]
     },
     {
+      "slug": "addetto-al-picking-coop-genossenschaft-schafisheim",
+      "locale": "it",
+      "path": "/cerca-lavoro-argovia/addetto-al-picking-coop-genossenschaft-schafisheim/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-argovia/addetto-al-picking-coop-genossenschaft-schafisheim/"
+      },
+      "queries": [
+        {
+          "query": "kommissionierer jobs",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "kommissionierer jobs in der nähe",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "coop jobs schafisheim",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jobs kommissionierer",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "kommissioniererin job",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "topQuery": "kommissionierer jobs",
+      "title": "Addetto al picking coop genossenschaft schafisheim",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "addetto-al-picking-coop-genossenschaft-schafisheim",
+        "en": "addetto-al-picking-coop-genossenschaft-schafisheim",
+        "de": "addetto-al-picking-coop-genossenschaft-schafisheim",
+        "fr": "addetto-al-picking-coop-genossenschaft-schafisheim"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/addetto-al-picking-coop-genossenschaft-schafisheim",
+        "en": "/en/find-jobs-aargau/addetto-al-picking-coop-genossenschaft-schafisheim",
+        "de": "/de/jobs-im-aargau/addetto-al-picking-coop-genossenschaft-schafisheim",
+        "fr": "/fr/trouver-emploi-argovie/addetto-al-picking-coop-genossenschaft-schafisheim"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "addetto-al-servizio-di-cambio-nella-prevenzione-sanitaria-axa-svizzera-befristet-von-august-2026-bis-januar-2027-80-100-",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/addetto-al-servizio-di-cambio-nella-prevenzione-sanitaria-axa-svizzera-befristet-von-august-2026-bis-januar-2027-80-100-/",
@@ -5441,10 +5518,10 @@
         "fr": "aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
-        "en": "/en/find-jobs-zug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
+        "it": "/cerca-lavoro-nidvaldo/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
+        "en": "/en/find-jobs-nidwalden/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
         "de": "/de/jobs-im-bern/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs",
-        "fr": "/fr/trouver-emploi-zoug/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs"
+        "fr": "/fr/trouver-emploi-nidwald/aspirant-in-stv-geschaftsfuhrer-in-coop-genossenschaft-buochs"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13065,10 +13142,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "butcher-meat-specialist-coop-genossenschaft-birsfelden",
+        "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-birsfelden-basel-landschaft-h5pt3l",
+        "it": "macellaio-a-esperto-a-di-carni-coop-genossenschaft-birsfelden",
         "en": "butcher-meat-specialist-coop-genossenschaft-birsfelden",
-        "de": "butcher-meat-specialist-coop-genossenschaft-birsfelden",
-        "fr": "butcher-meat-specialist-coop-genossenschaft-birsfelden"
+        "fr": "boucher-bouchere-expert-e-en-viandes-coop-genossenschaft-birsfelden"
       },
       "localePaths": {
         "it": "/cerca-lavoro-soletta/butcher-meat-specialist-coop-genossenschaft-birsfelden",
@@ -13082,6 +13159,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -17477,10 +17555,10 @@
         "it": "commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
-        "en": "/en/find-jobs-graubunden/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
+        "it": "/cerca-lavoro-berna/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
+        "en": "/en/find-jobs-bern/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
         "de": "/de/jobs-im-zug/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus",
-        "fr": "/fr/trouver-emploi-grisons/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus"
+        "fr": "/fr/trouver-emploi-berne/commesso-a-prodotti-freschi-frutta-e-verdura-coop-genossenschaft-klosters-serneus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -18006,6 +18084,64 @@
         "en": "/en/find-jobs-ticino/conseiller-commercial-incluant-representant-de-la-direction-christ-uhren-schmuck-ag-winterthur",
         "de": "/de/jobs-im-tessin/conseiller-commercial-incluant-representant-de-la-direction-christ-uhren-schmuck-ag-winterthur",
         "fr": "/fr/trouver-emploi-tessin/conseiller-commercial-incluant-representant-de-la-direction-christ-uhren-schmuck-ag-winterthur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich/"
+      },
+      "queries": [
+        {
+          "query": "vente a domicile",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "vente a domicile",
+      "title": "Conseiller conseillere de vente en textiles de maison coop genossenschaft",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "en": "conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "de": "conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "fr": "conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "en": "/en/find-jobs-zurich/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "de": "/de/jobs-im-zurich/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich",
+        "fr": "/fr/trouver-emploi-zurich/conseiller-conseillere-de-vente-en-textiles-de-maison-coop-genossenschaft-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -19548,6 +19684,63 @@
         "gsc",
         "translation-cache",
         "slug-registry",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+      "locale": "it",
+      "path": "/cerca-lavoro-san-gallo/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-san-gallo/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen/"
+      },
+      "queries": [
+        {
+          "query": "praktikum thurgau",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "praktikum thurgau",
+      "title": "Consulente digitale in customer center valiant bank ag st gallen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "en": "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "de": "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "fr": "consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-san-gallo/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "en": "/en/find-jobs-st-gallen/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "de": "/de/jobs-im-st-gallen/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen",
+        "fr": "/fr/trouver-emploi-saint-gall/consulente-digitale-in-customer-center-80-100-valiant-bank-ag-st-gallen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
         "all-known-slugs"
       ]
     },
@@ -21429,10 +21622,67 @@
         "fr": "cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
-        "en": "/en/find-jobs-ticino/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
-        "de": "/de/jobs-im-tessin/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
-        "fr": "/fr/trouver-emploi-tessin/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49"
+        "it": "/cerca-lavoro-zurigo/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
+        "en": "/en/find-jobs-zurich/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
+        "de": "/de/jobs-in-zurich/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49",
+        "fr": "/fr/trouver-emploi-zurich/cuisinier-cuisiniere-m-f-d-coop-genossenschaft-zurich-12da49"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-argovie/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-argovie/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen/"
+      },
+      "queries": [
+        {
+          "query": "coop schafisheim jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "coop schafisheim jobs",
+      "title": "Cuisiniere cuisinier coop genossenschaft oftringen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "en": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "de": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "fr": "cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-argovia/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "en": "/en/find-jobs-aargau/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "de": "/de/jobs-im-aargau/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen",
+        "fr": "/fr/trouver-emploi-argovie/cuisiniere-cuisinier-m-w-d-coop-genossenschaft-oftringen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -29163,10 +29413,10 @@
         "fr": "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
-        "en": "/en/find-jobs-ticino/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
-        "de": "/de/jobs-im-tessin/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
-        "fr": "/fr/trouver-emploi-tessin/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach"
+        "it": "/cerca-lavoro-basilea/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
+        "en": "/en/find-jobs-basel/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
+        "de": "/de/jobs-in-basel/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
+        "fr": "/fr/trouver-emploi-bale/fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -31301,6 +31551,64 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+      "locale": "de",
+      "path": "/de/jobs-in-basel/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel/",
+      "observedPaths": {
+        "de": "/de/jobs-in-basel/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel/"
+      },
+      "queries": [
+        {
+          "query": "gebietsverkaufsleiter jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "gebietsverkaufsleiter jobs",
+      "title": "Gebietsverkaufsleiter in industrie und metall sfs group",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "en": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "fr": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "en": "/en/find-jobs-basel/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "de": "/de/jobs-im-basel/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel",
+        "fr": "/fr/trouver-emploi-bale/gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -52271,6 +52579,69 @@
         "en": "/en/find-jobs-ticino/project-manager-costumer-representation-m-f-d-solothurner-spitaler-ag-soh-olten",
         "de": "/de/jobs-im-tessin/project-manager-costumer-representation-m-f-d-solothurner-spitaler-ag-soh-olten",
         "fr": "/fr/trouver-emploi-tessin/project-manager-costumer-representation-m-f-d-solothurner-spitaler-ag-soh-olten"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "project-manager-it-banking-alten-switzerland-chiasso",
+      "locale": "en",
+      "path": "/en/find-jobs-bern/project-manager-it-banking-alten-switzerland-chiasso/",
+      "observedPaths": {
+        "en": "/en/find-jobs-bern/project-manager-it-banking-alten-switzerland-chiasso/"
+      },
+      "queries": [
+        {
+          "query": "alten chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "alten chiasso",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "alten chiasso",
+      "title": "Project manager it banking",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "ALTEN Switzerland",
+      "companyKey": "alten-switzerland",
+      "location": "Chiasso",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "project-manager-it-banking-alten-switzerland-chiasso",
+        "en": "project-manager-it-banking-alten-switzerland-chiasso",
+        "de": "project-manager-it-banking-alten-switzerland-chiasso",
+        "fr": "project-manager-it-banking-alten-switzerland-chiasso"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/project-manager-it-banking-alten-switzerland-chiasso",
+        "en": "/en/find-jobs-ticino/project-manager-it-banking-alten-switzerland-chiasso",
+        "de": "/de/jobs-im-bern/project-manager-it-banking-alten-switzerland-chiasso",
+        "fr": "/fr/trouver-emploi-tessin/project-manager-it-banking-alten-switzerland-chiasso"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

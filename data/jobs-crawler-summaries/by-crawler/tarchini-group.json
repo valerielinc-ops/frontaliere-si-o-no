@@ -1,16 +1,16 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-08-26T10:10:12.192Z",
+  "generatedAt": "2026-09-03T23:16:58.673Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5872,
-  "avgDurationMs": 5872,
+  "durationMs": 5305,
+  "avgDurationMs": 5305,
   "durationHistory": [
-    5872
+    5305
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -41,6 +41,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T21:34:24.989Z",
+      "salarySource": "estimated",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -67,7 +68,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -76,6 +77,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-31T11:36:03.527Z",
+      "salarySource": "estimated",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -102,7 +104,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -113,6 +115,7 @@
       "postalCode": "6850",
       "id": "tarchini-group-12e715eba42b",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
+      "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -139,7 +142,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -150,6 +153,7 @@
       "postalCode": "6900",
       "id": "tarchini-group-b286e34534eb",
       "firstSeenAt": "2026-04-13T22:32:13.614Z",
+      "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

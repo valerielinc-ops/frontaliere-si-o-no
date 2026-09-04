@@ -42,6 +42,7 @@ import np from 'node:path';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
+  BUILD_DATE_STAMP,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
@@ -476,6 +477,7 @@ interface Copy {
   webcamLabel: string;
   webcamNote: string;
   webcamSource: string;
+  webcamDisclaimer: (sourceName: string) => string;
   webcamUnavailable: string;
   faqTitle: string;
   breadcrumbHome: string;
@@ -561,6 +563,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Immagini aggiornate automaticamente ogni minuto quando la pagina è aperta. Usa il link \"Fonte\" per la versione ufficiale live.",
     webcamSource: 'Fonte',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam gestita da ${sourceName}. Frontaliereticino.ch non è responsabile per disponibilità o contenuto.`,
     webcamUnavailable: 'Webcam non disponibile per questo valico. Nessuna immagine live è pubblicata al momento per questa frontiera.',
     faqTitle: 'Domande frequenti',
     breadcrumbHome: 'Home',
@@ -662,6 +666,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Images refresh automatically every minute while the page is open. Use the "Source" link for the official live feed.',
     webcamSource: 'Source',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam operated by ${sourceName}. Frontaliereticino.ch is not responsible for its availability or content.`,
     webcamUnavailable: 'No webcam available for this crossing. No live images are currently published for this border.',
     faqTitle: 'Frequently asked questions',
     breadcrumbHome: 'Home',
@@ -763,6 +769,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       'Bilder aktualisieren sich automatisch jede Minute, solange die Seite geöffnet ist. Klicken Sie auf „Quelle" für den offiziellen Feed.',
     webcamSource: 'Quelle',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam betrieben von ${sourceName}. Frontaliereticino.ch ist nicht verantwortlich für Verfügbarkeit oder Inhalt.`,
     webcamUnavailable: 'Keine Webcam für diesen Grenzübergang verfügbar. Für diese Grenze werden derzeit keine Live-Bilder veröffentlicht.',
     faqTitle: 'Häufige Fragen',
     breadcrumbHome: 'Startseite',
@@ -864,6 +872,8 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     webcamNote:
       "Les images se rafraîchissent automatiquement chaque minute tant que la page est ouverte. Cliquez sur « Source » pour la version officielle.",
     webcamSource: 'Source',
+    webcamDisclaimer: (sourceName) =>
+      `Webcam gérée par ${sourceName}. Frontaliereticino.ch n'est pas responsable de la disponibilité ou du contenu.`,
     webcamUnavailable: "Webcam non disponible pour ce poste frontière. Aucune image en direct n'est actuellement publiée pour cette frontière.",
     faqTitle: 'Questions fréquentes',
     breadcrumbHome: 'Accueil',
@@ -1354,6 +1364,7 @@ function renderWebcamSection(
       <strong>${esc(w.label)}</strong> — ${esc(copy.webcamSource)}:
       <a href="${esc(w.sourceUrl)}" rel="nofollow noopener" target="_blank" style="${LINK_ACCENT_STYLE};text-decoration:underline">${esc(w.sourceName)}</a>
       ${licenseHtml}
+      <div class="s-DEr6hT">${esc(copy.webcamDisclaimer(w.sourceName))}</div>
     </figcaption>
   </figure>`;
     })
@@ -3122,7 +3133,16 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         perCrossing: {},
       });
       const history = readHistory(rootDir);
-      const today = new Date();
+      // BUILD_DATE_STAMP (deploy-wide, derived from DEPLOY_BUILD_ID), NOT a
+      // fresh `new Date()` — this "today" gates which past months qualify
+      // for archive pages, and on the matrix deploy the it/en/de/fr shards
+      // are independent processes. A per-shard `new Date()` could cross a
+      // UTC-midnight boundary between shards, so the current month flips to
+      // "past" on one shard but not its siblings: the archive page (and its
+      // sitemap-border-wait.xml entry, emitted from the same pass) exists on
+      // one shard but not the others once merged (#6971, same class as #5911
+      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_DATE_STAMP doc.
+      const today = new Date(BUILD_DATE_STAMP);
 
       // ── F8 social-virality: snapshot webcam frames for per-page og:image ──
       // Runs BEFORE page generation so `renderLeafPage` can detect the

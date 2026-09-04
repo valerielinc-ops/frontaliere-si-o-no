@@ -1,16 +1,16 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-08-26T10:17:48.262Z",
+  "generatedAt": "2026-09-03T23:34:30.217Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 11251,
-  "avgDurationMs": 11251,
+  "durationMs": 11487,
+  "avgDurationMs": 11487,
   "durationHistory": [
-    11251
+    11487
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -77,6 +78,8 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -115,6 +118,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-11T22:04:16.279Z",
+      "salarySource": "estimated",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,6 +156,7 @@
       "streetAddress": "",
       "postalCode": "6874",
       "firstSeenAt": "2026-04-23T22:07:57.426Z",
+      "salarySource": "estimated",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -189,6 +194,7 @@
       "postalCode": "6874",
       "id": "mks-pamp-9aa99d99b95f",
       "firstSeenAt": "2026-04-13T22:10:50.570Z",
+      "salarySource": "reported",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,

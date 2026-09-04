@@ -13,29 +13,18 @@
  * a user who opens at 23:00 and again at 01:00 has a preference near 00:00 —
  * an arithmetic mean of 23 and 1 would wrongly yield 12 (noon). Each event's
  * hour-of-day is converted to an angle on a 24-hour clock and the (sin, cos)
- * vectors are averaged (weighted by recency), then the resulting angle is
+ * vectors are averaged (weighted by event intent and recency), then the resulting angle is
  * converted back to an hour. The resultant vector length doubles as a
  * "concentration" signal: close to 1 means the user's opens/clicks cluster
  * tightly around one hour, close to 0 means they're spread evenly across the
  * day (no real preference).
  */
 
-const RECENCY_WINDOWS = [
- { maxDays: 7, weight: 30 },
- { maxDays: 14, weight: 25 },
- { maxDays: 30, weight: 18 },
- { maxDays: 60, weight: 10 },
- { maxDays: 90, weight: 5 },
- // Tail bucket added 2026-08-25: measured on report-send-hour-impact.mjs
- // (issue #3798) that only ~23% of post-launch deliveries reach the
- // `personal` tier — the rest fall back to the weaker site-wide `global`
- // hour (open rate 23.0% vs personal's 37.5%, +14.6pp). A subscriber who
- // opens roughly once a month can land just short of PREFERRED_SEND_MIN_EVENTS
- // within the old 90-day window; this gives them 90 more days to qualify,
- // at a low weight so a stale, sparse signal never outweighs a real recent
- // pattern.
- { maxDays: 180, weight: 2 },
-];
+// A click is a stronger intent signal than an open, but recency must still win
+// when the click is materially older. With this half-life, a click from 10 days
+// ago (2.5x intent) weighs less than an open from yesterday.
+const EVENT_TYPE_WEIGHTS = { open: 1, click: 2.5 };
+const RECENCY_HALF_LIFE_DAYS = 4;
 
 export const PREFERRED_SEND_MIN_EVENTS = 3;
 export const PREFERRED_SEND_WINDOW_DAYS = 180;
@@ -45,10 +34,7 @@ export const PREFERRED_SEND_WINDOW_DAYS = 180;
 export const PREFERRED_SEND_REFRESH_INTERVAL_MS = 6 * 60 * 60 * 1000;
 
 function recencyWeight(daysSince) {
- for (const window of RECENCY_WINDOWS) {
-  if (daysSince < window.maxDays) return window.weight;
- }
- return 0;
+ return Math.exp(-Math.LN2 * daysSince / RECENCY_HALF_LIFE_DAYS);
 }
 
 // Accepts a Date, an ISO/parsable date string, or a Firestore-Timestamp-like
@@ -101,11 +87,11 @@ export function computePreferredSendHour(events, now = new Date()) {
   if (!occurredAt) continue;
 
   const daysSince = (now.getTime() - occurredAt.getTime()) / (1000 * 60 * 60 * 24);
-  // Outside the lookback window (PREFERRED_SEND_WINDOW_DAYS, 180 days — see
-  // RECENCY_WINDOWS above) or a bogus future timestamp — skip.
+  // Outside the lookback window (PREFERRED_SEND_WINDOW_DAYS, 180 days) or a
+  // bogus future timestamp — skip.
   if (daysSince < 0 || daysSince >= PREFERRED_SEND_WINDOW_DAYS) continue;
 
-  const weight = recencyWeight(daysSince);
+  const weight = EVENT_TYPE_WEIGHTS[event.type] * recencyWeight(daysSince);
   if (weight <= 0) continue;
 
   sampleCount += 1;

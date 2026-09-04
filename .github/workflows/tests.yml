@@ -1,7 +1,8 @@
 name: tests
 
-# Runs the full vitest suite on every PR + every push to main as a BLOCKING
-# CI gate. Before this workflow existed, vitest tests were never run in CI —
+# Runs the Vitest tests related to the PR diff on every PR as a BLOCKING
+# CI gate. Direct crawler pushes to main intentionally do not run this workflow.
+# Before this workflow existed, vitest tests were never run in CI —
 # regression gates like `tests/build-plugins/criticalCssRootHeight.test.ts`
 # (added in PR #294) landed already-failing without anyone noticing, and the
 # `#root{min-height:100vh}` bug hit production for 24h until manual report.
@@ -13,18 +14,14 @@ name: tests
 # queued crawler runs — PRs sat un-dequeued. Collapsing to one runner frees 4
 # slots per PR.
 #
-# MEASURED, not estimated (CI run 28099661052, full ~847-file suite on one
-# 4-vCPU runner): vitest 366s + setup/assemble/lint overhead → 536s total job
-# wall (~8.9 min). The `pool: 'threads'` worker pool (below) parallelises files
-# across the runner's 4 vCPUs, so wall ≈ work/4 — NOT the 4×164s≈656s an
-# additive per-shard model predicts (536s is ~1.9× a single shard's ~281s, not
-# 4×). 536s lands inside the ~10 min Claude review window (`pr-review-loop`), so
-# the review stays the gating slice and the vitest check costs the PR ~zero
-# extra wall time. The same measured run completed every heavy source-scan guard
-# (no-inlanguage, cathedral-no-ti-hardcodes, …) with no per-test timeout.
+# Historical baseline (CI run 28099661052, full ~847-file suite on one 4-vCPU
+# runner): Vitest took 366s before setup/assemble/lint overhead. The PR path no
+# longer pays that full-suite cost: `run-related-tests.mjs` selects the tests
+# reachable from changed source files and always includes changed test files.
 #
-# Behaviour-preserving: every test still runs, no test is skipped and no
-# threshold is relaxed — only the parallelism (wall-time, not coverage) changed.
+# Deliberate policy: this required PR check is related-only. Full-suite coverage
+# is not part of the PR path; a diff with no existing source/test candidates
+# succeeds with zero Vitest tests instead of falling back to the full suite.
 #
 # Tests that read data/jobs.json (gitignored): the assemble step regenerates
 # it from the per-slice files committed under data/jobs-by-slice/.
@@ -43,9 +40,10 @@ name: tests
 # questo file va oltre, su decisione esplicita del proprietario.
 #
 # ── Conseguenza #1: i quattro cancelli diventano BLOCCANTI ────────────────
-# Fino a oggi UN SOLO check-run governava davvero il merge — `vitest (unit +
-# integration)`, l'unico su cui `auto-merge-eval.mjs` fa `select` (non esiste
-# branch protection su `main`: `branches/main/protection` → 404). `contract`,
+# Il ruleset su `main` richiede il check-run `vitest (unit + integration)`.
+# Poiché questo job comprende anche il controllo finale della Claude review,
+# la sua conclusione resta rossa quando la review contiene un `🔴 Important`;
+# il native auto-merge non può quindi bypassare quel gate. `contract`,
 # `typecheck` e `collision` giravano, si vedevano rossi, e non fermavano
 # niente: misura in `scripts/ci/lib/checkRunObservation.mjs` (issue #5552), PR
 # #5590 mergiata il 2026-08-11 con `contract` = `failure`. Fondendoli nel job
@@ -103,24 +101,18 @@ name: tests
 #
 # ── Il checkout: uno solo, e perché QUESTO profilo ────────────────────────
 # I quattro job avevano tre profili diversi e INCOMPATIBILI fra loro:
-#   - `vitest`: albero pieno, fetch bulk shallow (`fetch-depth: 1`), niente
-#     `filter:` — sopra il crossover ~1,5 GB dove lo sparse smette di convenire;
+#   - `vitest`: albero applicativo quasi completo, storia profonda e sparse
+#     mirato — i grandi artefatti statici non servono a questo job;
 #   - `contract`: `fetch-depth: 0` + `filter: blob:none` — la storia PROFONDA
 #     serve a `check-sibling-patterns.mjs` / `check-below-floor-bridge.mjs`, che
 #     diffano a tre punti contro il merge-base;
 #   - `collision`/`typecheck`: sparse, `fetch-depth: 1`.
-# Un job solo può avere un profilo solo, e i due requisiti veri (albero PIENO
-# per vitest, storia PROFONDA per i source guard) si sommano invece di
-# escludersi. `fetch-depth: 0` SENZA `filter:` sarebbe il clone integrale
-# (`.git` 15 GB): non è un'opzione. Quindi: albero pieno, `fetch-depth: 0`,
-# `filter: blob:none` — cioè ESATTAMENTE il profilo che il job `contract` gira
-# in produzione da settimane, il solo dei tre già misurato su questa
-# combinazione. Le due distribuzioni sono sovrapponibili (misure già in questo
-# file): `contract` p50 158s / p95 358s / max 420s, `vitest` p50 2m28s / p90
-# 5m12s / max 8m14s. Il commento storico che sconsigliava `blob:none` per
-# vitest misurava +125% su una baseline di 75s che oggi non esiste più.
-# NIENTE `sparse-checkout`: `verify-checkout-profiles.mjs` accetta di escludere
-# MENO del calcolato, mai di più, e vitest oggi non esclude nulla.
+# Un job solo può avere un profilo solo: manteniamo la storia profonda per i
+# source guard, ma materializziamo solo il codice e i corpus necessari a questo
+# job. I bucket esclusi sono artefatti statici (immagini, docs e snapshot) che
+# non vengono letti da tsc, assemble+migrate, guard o dal related runner. Il
+# profilo è volutamente scritto qui come allow/deny esplicito e va mantenuto
+# insieme al test `checkout-sparse-profiles.test.ts`.
 #
 # ── Il nome del check-run NON cambia, ed è deliberato ─────────────────────
 # Il job fa quattro cose e si chiama ancora `vitest (unit + integration)`: è
@@ -128,11 +120,11 @@ name: tests
 # `pr-review-loop.yml` girano su `workflow_run`, quindi eseguono SEMPRE la
 # versione su `main` di se stessi e di `scripts/ci/lib/constants.mjs`. Una PR
 # che rinomina il check produce un nome che i lettori su `main` non conoscono:
-# `auto-merge-eval` gate 3 legge length 0, `pr-autorebase.headHasVitestCheck`
-# torna false e heal-dispatcha all'infinito — cioè esattamente il deadlock che
-# la testata di `constants.mjs` descrive, e la PR del rename non mergerebbe MAI
-# da sola. Il rename onesto richiede due PR concatenate: prima insegnare ai
-# lettori su `main` ad accettare entrambi i nomi, poi rinominare.
+# `auto-merge-eval` gate 3 legge length 0 e il lettore su `main` non riconosce
+# più la PR — cioè esattamente il deadlock che la testata di `constants.mjs`
+# descrive, e la PR del rename non mergerebbe MAI da sola. Il rename onesto
+# richiede due PR concatenate: prima insegnare ai lettori su `main` ad accettare
+# entrambi i nomi, poi rinominare.
 on:
   pull_request:
     branches: [main]
@@ -144,16 +136,7 @@ on:
     # `contract` still re-validates a PR body edit; `ready_for_review` is
     # required so `collision` still re-scans a draft coming out of draft.
     types: [opened, edited, synchronize, reopened, ready_for_review]
-  push:
-    branches: [main]
-  # Dispatchable so pr-autorebase.yml can re-run vitest on a freshly-rebased PR
-  # head: a PAT push to a PR branch does NOT reliably re-trigger `pull_request`
-  # workflows (observed: rebased heads of #1587/#1526 got zero check-runs), so
-  # the autorebase explicitly dispatches this on the branch ref. The run's
-  # `vitest (unit + integration)` check-run lands on the branch head SHA (= PR
-  # head), satisfying auto-merge-eval gate 3, and its `workflow_run: completed`
-  # re-fires auto-merge-on-lgtm. No Claude review is re-run (auto-merge-eval
-  # carries the existing ## LGTM forward across a pure main-merge rebase).
+  # Kept available for manual diagnostics and recovery runs.
   workflow_dispatch:
 
 # Union of the three original workflows' `permissions:` (tests.yml itself had
@@ -174,35 +157,13 @@ permissions:
 #   older head irrelevant, so cancelling it is free — the answer for the head
 #   that matters is still produced. `cancel-in-progress: true` is correct.
 #
-#   Push-to-main runs ask "is main healthy RIGHT NOW?" — the signal AGENTS.md
-#   ("main rosso blocca a cascata: priorità assoluta main verde") depends on.
-#   Every main push shares ONE group (`github.ref` is always `refs/heads/main`),
-#   so with cancel-in-progress: true each merge killed the run started by the
-#   previous merge. The suite needs ~9 min; auto-merge lands PRs every 2-5 min
-#   during a backlog burst, so main runs were killed before reaching a verdict
-#   essentially whenever the repo was busy — MEASURED over the last 30 main-push
-#   runs: 14 cancelled (47%), i.e. main's health was unobservable roughly half
-#   the time, and precisely during the bursts where a regression is most likely.
-#   A cancelled run is not a neutral outcome here: it destroys the only signal
-#   that says whether main is green, so a regression stays invisible until some
-#   unrelated PR happens to inherit it.
-#
-# Fix: keep newest-wins for PRs, let the main verdict RUN TO COMPLETION.
-# `cancel-in-progress: false` does NOT queue main runs without bound — GitHub
-# caps a group at 1 running + 1 pending and drops the superseded middle, so a
-# burst of N merges still costs 2 runs, not N. What changes is that the running
-# one now finishes: main gets a real verdict roughly every suite-length instead
-# of never. The verdict may lag main's tip by a commit or two, which is the
-# intended trade (the coordinator's "va bene che valga solo l'ultimo, purché
-# almeno uno arrivi in fondo") — a slightly stale green/red beats no answer.
-#
-# This is strictly MORE gate, not less: no test is skipped, no threshold moved,
-# no failure downgraded. It only stops throwing away results already paid for.
+#   Direct pushes to main are intentionally outside this workflow: crawler
+#   automation keeps its direct-push path without paying for or depending on
+#   the PR test job.
 concurrency:
   group: tests-${{ github.workflow }}-${{ github.ref }}
-  # PR + workflow_dispatch → newest-wins. push (main only, per `on:` above) →
-  # run to completion so the health signal actually lands.
-  cancel-in-progress: ${{ github.event_name != 'push' }}
+  # PR and workflow_dispatch runs use newest-wins.
+  cancel-in-progress: true
 
 jobs:
   # Job UNICO: checkout + setup-node + npm ci una volta sola, poi le quattro
@@ -231,6 +192,9 @@ jobs:
     # disabilitato anche se il runner conserva la directory.
     env:
       NODE_COMPILE_CACHE: node_modules/.cache/node-compile
+      # Keep review classification aligned with the former pr-review-loop.
+      # This is consumed by both the re-review guard and tier selection.
+      NONCODE_RE: '^(data/|public/|reports/|_newsletter_variants/|docs/)|(^|/)(package-lock\\.json|pnpm-lock\\.yaml|yarn\\.lock)$|\\.(snap|png|jpe?g|webp|gif|svg|ico|woff2?)$'
     steps:
       # `git checkout` scrive l'albero con un thread solo per default (issue
       # #6152). Misurato in locale sull'albero pieno di questo repo: 51,0s ->
@@ -256,7 +220,119 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: 0
-          filter: blob:none
+          # Allowlist non-cone: il job usa tsc e Vitest con riferimenti runtime
+          # che il profilo statico non può chiudere in modo affidabile.
+          sparse-checkout: |
+            /.github/
+            /.githooks/
+            /build-plugins/
+            /components/
+            /functions/
+            /hooks/
+            /infra/
+            /scripts/
+            /server/
+            /services/
+            /tests/
+            /packages/*/engine/
+            /packages/*/src/
+            /packages/*/tests/
+            # These are the two symlink targets needed by tsc and the related
+            # import graph. Keep them file-scoped: including the parent
+            # `packages/articles/content/` would materialize the full article
+            # corpus in this CI checkout.
+            /packages/articles/content/blog-articles-data.ts
+            /packages/articles/content/swiss-articles-data.ts
+            /packages/articles/content/blogArticleIds.ts
+            /packages/articles/content/routerBlogData.ts
+            /packages/articles/content/routerSwissData.ts
+            /packages/articles/content/blogImageCdnMirror.ts
+            /packages/articles/content/blog-meta-*.ts
+            /packages/articles/content/seo/seo-blog*.ts
+            # Runtime reads selected by the related-test graph when locale
+            # bundles change. The services/locales/blog-body symlink is in the
+            # checkout, but its corpus target is otherwise excluded.
+            /packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts
+            # Type-only dependency imported by the SEO modules above; keep it
+            # file-scoped so the article corpus remains excluded.
+            /packages/articles/content/seo/seoMetadataType.ts
+            /packages/articles/index.ts
+            /packages/articles/articleSections.ts
+            /data/
+            !/data/translation-cache/
+            !/data/orphan-enriched-data/
+            !/data/jobs-snapshots-history/
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/evidence-index.json
+            # related-search-candidates.json e slug-registry.json restano IN
+            # checkout: due test del suite blocking li leggono da filesystem
+            # con un path runtime (resolve(__dirname, ...)), invisibile
+            # all'analisi statica degli import di verify-checkout-profiles.mjs
+            # (lo stesso "punto cieco" gia' documentato per npm-run-chain in
+            # checkout-profile-analyzer.mjs:199-205, issue #6234). Escluderli
+            # qui fa fallire SEMPRE tests/seo/related-search-clusters-emitted.test.ts
+            # e tests/seo/cathedral-slug-registry-canton-backfill.test.ts non
+            # appena il selettore related li sceglie — indipendentemente dal
+            # contenuto del diff — bloccando PR che non c'entrano nulla con
+            # questi due file (osservato su PR #6661/#6662, 2026-08-29).
+            /public/
+            !/public/images/
+            # Stesso punto cieco di related-search-candidates.json/slug-registry.json
+            # sopra: send-job-alerts.mjs (usato dal test email di alert lavoro)
+            # fa fs.readdirSync('public/images/brands') a module-load per
+            # costruire la mappa slug->logo — un path runtime,
+            # invisibile a verify-checkout-profiles.mjs. Con la directory esclusa il
+            # readdirSync fallisce (try/catch silenzioso -> Map vuota) e OGNI test
+            # "brand logo" del file fallisce, indipendentemente dal diff (osservato
+            # su #6682 e #6686, 2026-08-30, nessuno dei due tocca questo codice).
+            # Piccolo: 483 file, ~1.2 MB — nulla a che vedere con le decine di GB
+            # di public/images/ escluse per il resto.
+            /public/images/brands/
+            /*.cjs
+            /*.js
+            /*.json
+            /*.md
+            /*.mjs
+            /*.ts
+            /*.tsx
+            /*.yaml
+            /*.yml
+            /*.config.*
+            # Stesso punto cieco di related-search-candidates.json sopra: due test
+            # leggono un doc sotto /docs/ (bucket escluso, 108 MB/706 file) con un
+            # path runtime — invisibile a verify-checkout-profiles.mjs. `/*.md`
+            # sopra copre i doc di root (ISSUES.md, REVIEW.md, ecc., osservato
+            # rosso su #6699 2026-08-30: readFileSync ISSUES.md ENOENT), ma
+            # docs/FIX-ISSUE-COMMAND.md resta sotto il bucket escluso senza
+            # questo carve-out puntuale.
+            /docs/FIX-ISSUE-COMMAND.md
+            /docs/preferred-sources-checklist.md
+            # Runtime `fs.readFileSync(ROOT, 'index.html'/'index.css')` reads in
+            # tests/bfs-depth-hub-link-coverage.test.ts and tests/events-card-atoms.test.ts
+            # — invisible to verifyCheckoutProfiles' import-graph analysis (it only
+            # resolves static imports, not runtime path strings), so this gap
+            # shipped silently until the sparse profile actually excluded them.
+            /index.html
+            /index.css
+            # Several related tests read this root file at runtime rather than
+            # importing it, so the dependency is invisible to the graph.
+            /firestore.rules
+            /.gitignore
+            /.npmrc
+            /package-lock.json
+            /package.json
+            /tsconfig*.json
+            /vitest.config.ts
+            # The reviewer must be able to read the two repository contracts;
+            # keep them explicit so this job still excludes unrelated docs and
+            # the full article corpus.
+            /REVIEW.md
+            /AGENTS.md
+          sparse-checkout-cone-mode: false
 
       # UNA sola invocazione (erano tre). Niente `--ignore-scripts`: lo usava il
       # solo job `collision`, che non eseguiva codice del repo; qui la stessa
@@ -265,15 +341,30 @@ jobs:
         uses: ./.github/actions/ci-npm-setup
 
       - name: Cache Vitest/Vite transform cache
-        uses: actions/cache@v5
+        id: vitest-cache
+        uses: actions/cache/restore@v5
         with:
           path: |
             node_modules/.vite-independent
             node_modules/.vite-dependent
             node_modules/.cache/node-compile
+            .cache/vitest-related
           key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
           restore-keys: |
             vitest-transform-${{ runner.os }}-
+
+      - name: Cache TypeScript incremental state
+        # `tsc --noEmit` mantiene il controllo completo, ma riusa il grafo e
+        # le diagnostiche dei file invariati tra run dello stesso ramo. Il
+        # compilatore verifica hash/opzioni prima del riuso; la cache è quindi
+        # una misura di performance, non una scorciatoia del gate.
+        id: tsc-cache
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/tsc
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+          restore-keys: |
+            tsc-incremental-${{ runner.os }}-
 
       # ══════════════════════════════════════════════════════════════════════
       # FAMIGLIA 1/4 — contract (ex job `contract`, ex pr-body-contract.yml)
@@ -388,7 +479,7 @@ jobs:
             // #N", "Chiusa da #N", "Risolve #N") or an English gerund ("Closing #N")
             // reads as closure to a human and closes NOTHING: the issue stays open
             // forever with the fix already on `main`. The detection already existed
-            // in the lib (used by auto-merge-eval.mjs's narrow drift-fallback path)
+            // in the lib (reused by the deterministic review/merge gates)
             // but never reached a PR opened through the normal `## LGTM` review path
             // — real recurrence (issue #5784): PR #5776 said `Chiude #5725` and #5725
             // stayed open until closed by hand; same shape on #5724, near-miss on
@@ -944,23 +1035,27 @@ jobs:
       #
       # La conseguenza va detta, perché è reale e accettata: `tsc` tiene 4,4 GB
       # di RSS, il runner ne ha 16, e ora quei 4,4 GB stanno accanto ai DUE
-      # pool di vitest invece che da soli. Se il margine non basta si vedrà
-      # come OOM, subito e in chiaro — non come una supposizione scritta in un
-      # commento che costa 67s di wall a ogni run per sempre. Un campionatore di
-      # `MemAvailable` era stato aggiunto per rendere quel margine un numero, ed
-      # è stato tolto: era uno step in background con un timer proprio, quindi a
-      # suite rossa teneva il job appeso al join per la durata del suo `sleep`.
-      # Se il numero servirà, va preso in un modo che muoia con la suite.
+      # pool di vitest invece che da soli. Un campionatore di `MemAvailable`
+      # era stato aggiunto per rendere quel margine un numero, ed era stato
+      # tolto (follow-up #6573): era uno step in background con un timer
+      # proprio (350 `sleep 5`, ~29 min), quindi a suite rossa teneva il job
+      # appeso al join per la durata del suo `sleep` invece di morire subito
+      # col resto. Il rifacimento (`scripts/ci/sample-mem-during.sh`) avvolge
+      # il comando osservato invece di girargli accanto: il sampler è un
+      # processo separato che muore nell'istante in cui `wait` sul PID di
+      # `tsc` sblocca — successo o fallimento — non dopo un conteggio fisso di
+      # iterazioni. Il numero finisce nel log come `[mem-sample] MemAvailable
+      # min=…MB max=…MB`.
       # ══════════════════════════════════════════════════════════════════════
       - name: tsc --noEmit (baseline + ratchet)
         if: ${{ !cancelled() }}
         background: true
         env:
           NODE_OPTIONS: --max-old-space-size=8192
-        run: npm run typecheck:gate
+        run: bash scripts/ci/sample-mem-during.sh -- npm run typecheck:gate
 
       # ══════════════════════════════════════════════════════════════════════
-      # FAMIGLIA 3/4 — vitest (suite intera) + i lint deterministici che le
+# FAMIGLIA 3/4 — vitest related + i lint deterministici che le
       # stavano davanti. È la fetta lunga del job; `!cancelled()` sul primo step
       # perché un rosso in un'altra famiglia non deve nascondere il verdetto
       # dei test.
@@ -1100,7 +1195,7 @@ jobs:
         # loosen a threshold or delete the passage to get the gate green.
         run: node scripts/audit-article-factuality.mjs --changed origin/${{ github.base_ref || 'main' }}
 
-      - name: Decide i gate corpus-wide pertinenti a questo diff
+      - name: Collect changed paths (corpus gates delegated to frontaliere-articles)
         # ─── LO SPLIT CORPUS-WIDE (registro: scripts/ci/corpus-wide-tests.mjs)
         #
         # Sette file di test costano 201,4s misurati (run 32172467043): il 20,1%
@@ -1120,11 +1215,14 @@ jobs:
         #     a rosso apre una issue `Workflow Failure: corpus-wide gates`
         #     chiusa dal reconciler orario `close-recovered-failure-issues.yml`.
         #
-        # ORA anche su `push` a main (prima solo su `pull_request`): il commit
-        # appena mergiato riceve la STESSA valutazione per-diff, con l'API
-        # compare al posto di `pulls/<n>/files`. Prima di questa modifica un
-        # push che non toccava affatto il corpus faceva comunque ripartire
-        # tutti e sette i gate O(corpus) dentro `tests.yml`, e una deriva pura
+        # Il ramo `push` resta difensivo per eventuali dispatch/manual run, ma
+        # `tests.yml` non è triggerato dai push diretti a main: i writer dati
+        # mantengono il proprio percorso senza pagare questa suite. Quando il
+        # ramo viene usato, il commit riceve la STESSA valutazione per-diff,
+        # con l'API compare al posto di `pulls/<n>/files`. Prima di questa
+        # configurazione un push che non toccava affatto il corpus faceva
+        # comunque ripartire tutti e sette i gate O(corpus) dentro `tests.yml`,
+        # e una deriva pura
         # del DATO (es. job-locale-consistency, 25744/77967 = 33,02% contro il
         # tetto 33,00%, misurato 2026-08-24) rendeva rosso il check bloccante
         # `vitest (unit + integration)` su main — il segnale che AGENTS.md
@@ -1136,16 +1234,18 @@ jobs:
         # che — a differenza di corpus-wide-gates.yml — non ha un reconciler
         # `close-recovered-failure-issues` che lo richiuda da solo al verde.
         #
-        # FAIL-SAFE, e la direzione conta: qualunque errore di questo step
-        # lascia `skip` VUOTO, quindi la suite gira INTERA. Un guasto qui costa
-        # tempo, mai copertura. `|| true` sul fetch e `|| echo` sul merge-base
-        # servono a questo. Su `push` il fallback su `git diff` resta comunque
-        # NON dichiarato: dalla fusione dei job il checkout è `fetch-depth: 0`,
-        # quindi `$BEFORE_SHA` sarebbe risolvibile, ma l'API `compare` è già la
-        # via primaria e aggiungere un secondo ramo qui vorrebbe la sua misura;
-        # se la compare non risponde, `changed-paths.txt` resta vuoto e la
-        # suite gira intera — stessa direzione di ogni altro fallimento qui.
+        # FAIL-SAFE: qualunque errore o risposta troncata viene propagato in
+        # `changed-paths-status.txt`; related interpreta `error`/`partial` come
+        # richiesta di suite completa. Solo un elenco vuoto con stato
+        # `complete` può legittimamente produrre zero test.
         id: corpus
+        # I gate che scansionano l'intero corpus appartengono al repository
+        # `nanakokyobashi-rgb/frontaliere-articles`, che li esegue nel proprio
+        # workflow post-merge. Questo step non li esegue: raccoglie il diff e
+        # calcola soltanto la lista di test da escludere dal related run.
+        # Deve restare attivo perché `run-related-tests.mjs` consuma sempre
+        # `changed-paths.txt`, anche quando tutti i gate corpus-wide sono
+        # delegati.
         if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1170,15 +1270,19 @@ jobs:
           # step della factuality qui sopra crea `origin/<base>` per nome, per
           # cui il fallback `git merge-base` sotto ORA risolve davvero invece di
           # essere un ramo morto. L'API resta comunque la via primaria: è esatta
-          # e non dipende dalla storia locale. Ogni ramo è `|| true`/vuoto:
-          # qualunque guasto lascia changed-paths.txt vuoto → `skip` vuoto →
-          # suite INTERA. La direzione del fail-safe è quella giusta: un
-          # guasto qui costa tempo, mai copertura.
+          # e non dipende dalla storia locale. Lo stato separato impedisce che
+          # un guasto diventi un falso diff vuoto.
           : > changed-paths.txt
+          printf '%s\n' unknown > changed-paths-status.txt
           cap=3000
           if [ -n "$PR_NUMBER" ]; then
-            gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
-              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            if gh api "repos/${GITHUB_REPOSITORY}/pulls/${PR_NUMBER}/files" \
+              --paginate -q '.[].filename' > changed-paths.txt 2>/dev/null; then
+              printf '%s\n' complete > changed-paths-status.txt
+            else
+              : > changed-paths.txt
+              printf '%s\n' error > changed-paths-status.txt
+            fi
           elif [ "$GITHUB_EVENT_NAME" = "push" ] && [ -n "$BEFORE_SHA" ] \
             && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
             # `compare` invece di `pulls/<n>/files`: un push a main non ha una
@@ -1200,27 +1304,41 @@ jobs:
             # silenzio, ed è esattamente lo scenario che il controllo sotto
             # dichiara di coprire.
             cap=300
-            gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
-              -q '.files[].filename' > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+            if gh api "repos/${GITHUB_REPOSITORY}/compare/${BEFORE_SHA}...${AFTER_SHA}" \
+              -q '.files[].filename' > changed-paths.txt 2>/dev/null; then
+              printf '%s\n' complete > changed-paths-status.txt
+            else
+              : > changed-paths.txt
+              printf '%s\n' error > changed-paths-status.txt
+            fi
+          else
+            printf '%s\n' complete > changed-paths-status.txt
           fi
           if [ ! -s changed-paths.txt ] && [ -n "$PR_NUMBER" ]; then
             echo "API senza risposta utile → fallback su git"
             base="$(git merge-base HEAD "origin/${BASE_REF}" 2>/dev/null || true)"
             if [ -n "$base" ]; then
-              git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null || : > changed-paths.txt
+              if git diff --name-only "$base" HEAD > changed-paths.txt 2>/dev/null; then
+                printf '%s\n' complete > changed-paths-status.txt
+              else
+                : > changed-paths.txt
+                printf '%s\n' error > changed-paths-status.txt
+              fi
+            else
+              printf '%s\n' error > changed-paths-status.txt
             fi
           fi
           count="$(wc -l < changed-paths.txt | tr -d ' ')"
           echo "path toccati: $count"
           if [ "$count" = "0" ]; then
-            echo "elenco vuoto → nessuna esclusione, gira la suite intera"
+            echo "elenco vuoto → related-only senza candidati Vitest"
             exit 0
           fi
           # Sia `pulls/<n>/files` che `compare` troncano su un diff enorme
           # (rispondono 200 con una lista PARZIALE, non un errore, e senza un
           # campo che dichiari il troncamento) — il fail-safe sul fallimento
-          # non lo copre: un path corpus caduto oltre il taglio farebbe
-          # escludere un gate che invece doveva restare bloccante. La soglia
+          # non lo copre: un path corpus caduto oltre il taglio non entra nella
+          # selezione related. La soglia
           # è quella del ramo che ha prodotto `changed-paths.txt` ($cap,
           # impostato sopra): 3000 per `pulls/<n>/files` (verificato, quella
           # API pagina per davvero), 300 per `compare` (documentato, "Working
@@ -1230,24 +1348,25 @@ jobs:
           # indisturbato un push fra 300 e 2999 file con `changed-paths.txt`
           # già troncato, cioè esattamente il rischio che questo controllo
           # esiste per intercettare. Sopra la soglia si rinuncia a decidere e
-          # gira la suite intera, la stessa direzione di ogni altro
-          # fallimento qui.
+          # mantiene comunque il comportamento related-only sul diff disponibile.
           if [ "$count" -ge "$cap" ]; then
-            echo "elenco al cap dell'API ($count >= $cap): possibile troncamento → suite intera"
+            printf '%s\n' partial > changed-paths-status.txt
+            echo "elenco al cap dell'API ($count >= $cap): fallback conservativo alla suite completa"
             exit 0
           fi
           decision="$(node scripts/ci/corpus-wide-tests.mjs --gha-output < changed-paths.txt || true)"
           printf '%s\n' "$decision"
           printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
 
-      - name: vitest run (test che non leggono il dataset)
+      - name: Obsolete pre-assemble test slot
+        # Il related run unico viene eseguito dopo assemble+migrate. Questo
+        # vecchio slot resta disattivato per non costruire due volte il grafo
+        # Vitest; il comando non deve mai tornare a `npm test`/suite completa.
+        if: ${{ false }}
         # VITEST_DATASET_GROUP=independent → vitest.config.ts esclude i file
         # classificati da scripts/ci/dataset-dependent-tests.mjs. La partizione
-        # è calcolata dal sorgente a ogni run (mai una lista committata da
-        # tenere in sync) ed è verificata disgiunta e completa: 772 + 586 =
-        # 1358 = suite intera. La classificazione è volutamente conservativa,
-        # quindi un test nuovo che legge il dataset finisce in questo gruppo
-        # solo se NON tocca il filesystem — al più perde parallelismo.
+        # è calcolata dal sorgente a ogni run. La partizione conserva solo
+        # l'ordine assemble → test dataset: entrambi i comandi sono related-only.
         #
         # ─── IN BACKGROUND, E QUESTA POSIZIONE È IL MECCANISMO
         #
@@ -1291,18 +1410,20 @@ jobs:
         background: true
         env:
           VITEST_DATASET_GROUP: independent
+          # Il gate PR non dipende dal corpus riscritto dai crawler.
+          VITEST_SKIP_LIVE_DATA: 'true'
           # I due gruppi Vitest girano contemporaneamente: su ubuntu-latest
           # (4 vCPU) due worker ciascuno evita che ogni processo apra un pool
           # completo e faccia scadere i test sotto contesa CPU.
           VITEST_MAX_WORKERS: 2
           VITEST_CACHE_DIR: node_modules/.vite-independent
-          # Calcolato per diff anche su push a main (non solo su pull_request,
-          # vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
+          # Calcolato per diff anche su eventuali run push/manual (non solo su
+          # pull_request, vedi lo step "Decide i gate corpus-wide"); vuoto su qualunque suo
           # esito anomalo → nessuna esclusione, suite intera. `parseCorpusSkipList`
           # filtra comunque il valore contro il registro: questa env non puo'
           # spegnere un test che non sia uno dei sette.
           VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-1.json
+        run: echo "pre-assemble related slot disabled; the single related run executes after assemble+migrate"
 
       - name: Cache assemble-jobs output
         # Mirrors deploy.yml's identical step. assemble-jobs-dataset.mjs has a
@@ -1381,46 +1502,48 @@ jobs:
           node scripts/assemble-jobs-dataset.mjs --stats
           node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
-      - name: vitest run (test che leggono il dataset)
-        # FOREGROUND, e subito dopo "Assemble + migrate" senza niente in mezzo:
-        # la sequenza naturale degli step foreground è già tutta la dipendenza
-        # che ha (data/jobs.json + lo slug registry, scritti dall'assemble —
-        # mai da tsc, mai dai lint, mai dall'altro gruppo vitest). Nessun join
-        # qui sopra, quindi il gruppo indipendente resta in volo e questi due
-        # gruppi CPU-bound si sovrappongono per davvero. Il pool è limitato a
-        # due worker per processo per evitare oversubscription del runner.
+      - name: vitest related (PR diff)
+        # FOREGROUND, dopo "Assemble + migrate": i test scelti dal grafo
+        # possono leggere i dataset generati. Questo è l'unico invocatore di
+        # Vitest del job PR; `run-related-tests.mjs` usa il related graph e un
+        # fallback conservativo quando il percorso non è rappresentabile.
         env:
-          VITEST_DATASET_GROUP: dependent
-          VITEST_MAX_WORKERS: 2
-          VITEST_CORPUS_SKIP: ${{ steps.corpus.outputs.skip }}
-          VITEST_CACHE_DIR: node_modules/.vite-dependent
-        run: npm test -- --reporter=default --reporter=json --outputFile=shard-timing-2.json
+          # Vitest 4's related graph can exceed Node's default 4GB heap in this
+          # repository. Keep the graph bounded to one fork and leave headroom
+          # on the hosted runner; this does not change the related-only scope.
+          NODE_OPTIONS: --max-old-space-size=8192
+          VITEST_SKIP_LIVE_DATA: 'true'
+          VITEST_MAX_WORKERS: 1
+          # Un file sorgente senza edge di import statico verso nessun test
+          # (script CLI mai `import`-ato, es. scripts/prospect-validate.mjs)
+          # fa scattare in run-related-tests.mjs il fallback "nessun edge →
+          # tutta la suite": ~1900 file invece di pochi. Il cap a 1 worker
+          # sopra era tarato sul caso comune (grafo related piccolo, poche
+          # decine di file); su ~1900 file indipendenti lo stesso cap li
+          # serializza su un solo core (osservato: >30 min, PR #6661,
+          # 2026-08-30). VITEST_MAX_WORKERS_FALLBACK si applica SOLO quando
+          # run-related-tests.mjs segnala di aver usato quel fallback — il
+          # percorso related-only comune resta invariato a 1 worker.
+          VITEST_MAX_WORKERS_FALLBACK: 3
+          VITEST_POOL: forks
+          VITEST_CACHE_DIR: node_modules/.vite-related
+          CHANGED_PATHS_STATUS_FILE: changed-paths-status.txt
+          VITEST_SKIP_CORPUS_WIDE: 'true'
+        run: node scripts/ci/run-related-tests.mjs --reporter=default --reporter=json --outputFile=shard-timing-related.json
 
       # ══════════════════════════════════════════════════════════════════════
-      # L'UNICO join della seconda metà del job, e chiude due cose insieme:
-      #   1. i sei cancelli deterministici (`tsc` + i cinque lint, avviati
-      #      molto più sopra);
-      #   2. `vitest run (test che non leggono il dataset)`, lanciato in
-      #      background prima ancora dell'assemble.
-      # Entrambi devono essere rijoinati PRIMA che il job finisca, altrimenti
-      # il loro esito non entra nel verdetto — un gruppo vitest non rijoinato
-      # sarebbe un intero mezzo-suite il cui rosso non arrossa niente. Il test
+      # L'UNICO join della seconda metà del job chiude i sei cancelli
+      # deterministici (`tsc` + i cinque lint, avviati molto più sopra).
+      # Devono essere rijoinati PRIMA che il job finisca, altrimenti il loro
+      # esito non entra nel verdetto. Il test
       # `tests/workflow-background-wait-schema.test.ts` lo verifica in modo
       # strutturale, su tutti i workflow: ogni `background:` vuole un
       # `wait-all` DOPO di sé nello stesso job. Questo join è anche l'unico
       # modo di SAPERE come sono andati: fino a qui il loro esito non esiste.
       #
-      # Perché UNO SOLO, e perché in fondo. `wait-all` non ha una forma
-      # selettiva: unisce TUTTO ciò che è ancora in background, non un
-      # sottoinsieme nominato. Ogni join intermedio è quindi un punto in cui la
-      # finestra di sovrapposizione più lunga del job — il gruppo indipendente —
-      # verrebbe chiusa per sbaglio, e tutto ciò che segue tornerebbe in fila
-      # senza che nulla lo segnali. Messo qui, invece, dentro quella finestra ci
-      # stanno gratis sia i sei cancelli (~78s misurati) sia assemble+migrate
-      # (~326s, run 32959864544) sia il gruppo dipendente. Dove serviva un
-      # ordine — assemble prima del gruppo dipendente — lo dà la sequenza
-      # foreground, che è selettiva per costruzione. Non aggiungere join qui
-      # sopra: è la regressione già misurata (vedi la STORIA sull'assemble).
+      # `wait-all` non ha una forma selettiva: unisce tutto ciò che è ancora in
+      # background. Va quindi lasciato in fondo, dopo il related run, per non
+      # serializzare i cancelli con assemble+migrate.
       #
       # NB: la durata di uno step in background dev'essere legata al LAVORO
       # che accompagna, mai a un timer proprio — vedi la nota sul
@@ -1430,25 +1553,51 @@ jobs:
       - name: Wait for background gates and independent vitest
         wait-all: true
 
-      - name: Upload test timing
+      # Il salvataggio post-job di `actions/cache` non parte quando uno step
+      # successivo fallisce (per esempio Vitest): TSC può essere verde, ma la
+      # sua cache resterebbe vuota. Salviamo subito dopo il join, anche se il
+      # verdetto complessivo del job è già destinato al rosso.
+      - name: Save TypeScript incremental state
+        if: ${{ always() && steps.tsc-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/tsc
+          key: tsc-incremental-${{ runner.os }}-${{ hashFiles('package-lock.json', 'tsconfig.json', 'scripts/ci/check-typecheck-baseline.mjs') }}
+
+      - name: Save Vitest related graph
+        if: ${{ always() && steps.vitest-cache.outputs.cache-hit != 'true' }}
+        uses: actions/cache/save@v5
+        with:
+          path: |
+            node_modules/.vite-independent
+            node_modules/.vite-dependent
+            node_modules/.cache/node-compile
+            .cache/vitest-related
+          key: vitest-transform-${{ runner.os }}-${{ hashFiles('package-lock.json', 'vitest.config.ts', '.github/workflows/tests.yml') }}
+
+      - name: Upload related test timing
         # always() so we still collect timings when the run is red (a slow test
         # that times out is exactly the data point we want for re-balancing).
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
         with:
-          name: shard-timing-1
-          path: shard-timing-1.json
+          name: shard-timing-related
+          path: shard-timing-related.json
           retention-days: 7
           if-no-files-found: ignore
 
-      - name: Upload test timing (dataset group)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: shard-timing-2
-          path: shard-timing-2.json
-          retention-days: 7
-          if-no-files-found: ignore
+      - name: Report Vitest failures on PR
+        # The two Vitest steps can fail independently; this step must still
+        # run after either group fails and must never mask the original gate.
+        if: ${{ always() && github.event_name == 'pull_request' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          RUN_ID: ${{ github.run_id }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/ci/report-vitest-failure.mjs
 
       - name: Resolve PR from pull request
         id: resolve
@@ -1490,7 +1639,7 @@ jobs:
         run: |
           set -euo pipefail
           last=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\\\[bot\\\\])?|frontaliere-automation\\\\[bot\\\\])$";"i")) and (.body|contains("## LGTM")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -z "$last" ]; then
             echo "skip=false" >> "$GITHUB_OUTPUT"; echo "Nessuna review LGTM precedente → review piena."; exit 0
           fi
@@ -1508,7 +1657,7 @@ jobs:
           # un rebase di solo main-merge — ma quel code NON è il contributo della
           # PR, che resta invariato. Confronta allora il FINGERPRINT del contributo
           # (3-dot vs merge-base con main, code-only) a HEAD vs all'ultima LGTM: se
-          # uguale, la PR non ha cambiato il proprio code (es. autorebase ha solo
+          # uguale, la PR non ha cambiato il proprio code (es. un aggiornamento
           # mergiato main) → skip Claude. Stessa funzione che auto-merge-eval usa
           # per il carry-forward dell'LGTM → niente drift. NULL/incerto → review
           # piena (conservativo). vitest gira comunque sull'head (safety net).
@@ -1529,7 +1678,7 @@ jobs:
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
           REPO: ${{ github.repository }}
-        # Tier high (claude-sonnet-5, max-turns 60, adversarial pass): toccato CODE
+        # Tier high (claude-opus-5, max-turns 60, adversarial pass): toccato CODE
         # funnel-critical — test gate, workflow CI, build-plugin SEO, o script
         # che mutano/emettono dati indicizzati (crawler/parser/adapter, backfill,
         # migrate, assemble dataset, sitemap/canonical/slug/structured-data).
@@ -1593,7 +1742,7 @@ jobs:
           # `normal`, scavalcando il guard di incompletezza dieci righe sotto.
           if [ -z "$files" ] && [ "$files_complete" = "1" ]; then
             echo "Empty file list (rebase-only or empty PR)."
-            set_tier normal claude-sonnet-5 35
+            set_tier normal claude-opus-5 35
             exit 0
           fi
           # Elenco incompleto: il tier NON si decide su un campione. Senza questo
@@ -1609,7 +1758,7 @@ jobs:
             else
               echo "Elenco file INCOMPLETO ($count/$expected, causa: $reason) → tier high forzato: niente minimal, niente decisione funnel su un campione."
             fi
-            set_tier high claude-sonnet-5 60
+            set_tier high claude-opus-5 60
             exit 0
           fi
           # Strip DATA/static: il tier si decide solo sul CODE.
@@ -1626,7 +1775,7 @@ jobs:
             # contract, posta review (~4-6 turni osservati). REVERT-TRIGGER: se
             # compaiono `error_max_turns` sul tier minimal → bump 12→16.
             echo "Data/docs-only PR (no reviewable code touched) → tier minimal."
-            set_tier minimal claude-sonnet-5 12
+            set_tier minimal claude-opus-5 12
             exit 0
           fi
           # funnel_crit <file-list> → exit 0 se la lista contiene CODE funnel-critical
@@ -1642,7 +1791,7 @@ jobs:
 
           # (Rimossa 2026-07-17 la variante crawler_parser_only del 2026-06-30:
           # discriminava SOLO il modello — claude-sonnet-4-6 sui diff
-          # crawler/parser-only — e il modello è ora UNIFICATO claude-sonnet-5
+          # crawler/parser-only — e il modello è ora UNIFICATO claude-opus-5
           # su ogni tier per decisione owner. Stesso scope e stessi turni.)
 
           # ── Incremental re-review (token-lever): se esiste GIÀ una review Claude su
@@ -1650,15 +1799,15 @@ jobs:
           # commit reviewato, non l'intera PR. Il grosso del contributo era già stato
           # reviewato; ri-leggerlo per intero a ogni fix-push brucia token (osservato
           # su #3038: review Opus full ripetute sullo stesso codice). Modello per
-          # criticità del DELTA: funnel-critical → tier high/claude-sonnet-5 (rigore,
-          # scope ridotto); altrimenti tier incremental (modello sempre claude-sonnet-5). Prima review /
+          # criticità del DELTA: funnel-critical → tier high/claude-opus-5 (rigore,
+          # scope ridotto); altrimenti tier incremental (modello sempre claude-opus-5). Prima review /
           # nessun commit precedente / delta vuoto
           # → review piena (sotto). Il fingerprint-skip a monte (guard step) copre già
           # il caso "contributo invariato"; qui il contributo È cambiato, ma in modo
           # incrementale. Il prompt resta autorizzato a Read/grep i file pieni per il
           # contesto → le interazioni col code non-toccato restano coglibili.
           lastRev=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
-            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("claude";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
+            --jq '[.[] | select(.user.type=="Bot" and (.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")))] | last | .commit_id // empty' 2>/dev/null || true)
           if [ -n "$lastRev" ] && [ "$lastRev" != "$HEAD_SHA" ]; then
             delta_code=$(gh api "repos/$REPO/compare/$lastRev...$HEAD_SHA" --jq '.files[].filename' 2>/dev/null \
               | grep -Fxf <(echo "$code_files") || true)
@@ -1666,18 +1815,14 @@ jobs:
               echo "incremental_base=$lastRev" >> "$GITHUB_OUTPUT"
               echo "Incremental re-review: solo il delta dei file PR da $lastRev:"; echo "$delta_code"
               if funnel_crit "$delta_code"; then
-                set_tier incremental-high claude-sonnet-5 35
+                # Keep the historical 35-turn safety margin until a live run
+                # proves that the stricter delta-scoped prompt is safe below it.
+                set_tier incremental-high claude-opus-5 35
               else
-                # 25→35 (2026-07-17, analisi Fable-5 su 112 morti error_max_turns
-                # storiche di questo workflow): incremental è il tier con meno
-                # morti in assoluto (1 storica + 1 marginale il 2026-07-17 stesso,
-                # run 29569000630, PR #4343, nt=26 su cap 25 — verdetto già
-                # formato, morto per overhead di setup non per taglia del delta).
-                # Bump di allineamento/assicurazione a parità con incremental-high,
-                # NON perché il pattern sia ricorrente qui: se muore ancora a 35
-                # dopo i fix di prefetch/disciplina-turni sopra, è di nuovo un
-                # problema strutturale, non di budget — non ribumpare al buio.
-                set_tier incremental claude-sonnet-5 35
+                # Mantieni il cap storico di 35: il bundle riduce il contesto e
+                # i turni medi, ma non deve trasformare un delta complesso in un
+                # max_turns senza ancora avere una misura live sufficiente.
+                set_tier incremental claude-opus-5 35
               fi
               exit 0
             fi
@@ -1685,7 +1830,7 @@ jobs:
           fi
 
           # CODE funnel-critical → high (full scope, 60 turni), altrimenti normal
-          # (35 turni). Modello UNIFICATO claude-sonnet-5 su OGNI tier (owner
+          # (35 turni). Modello UNIFICATO claude-opus-5 su OGNI tier (owner
           # 2026-07-17: mai claude-sonnet-4-6).
           #
           # high-mega (2026-07-17, analisi Fable-5): la coda di PR sovradimensionate
@@ -1698,63 +1843,19 @@ jobs:
           code_file_count=$(echo "$code_files" | grep -c . || true)
           if funnel_crit "$code_files"; then
             if [ "$code_file_count" -ge 25 ]; then
-              set_tier high-mega claude-sonnet-5 90
+              set_tier high-mega claude-opus-5 90
             else
-              set_tier high claude-sonnet-5 60
+              set_tier high claude-opus-5 60
             fi
           else
-            set_tier normal claude-sonnet-5 35
+            set_tier normal claude-opus-5 35
           fi
-
-      # Rijoina l'install lanciato in background sopra. `wait-all` invece di
-      # `wait: headroom-install` perché quando lo step bg è saltato (PR non
-      # reviewabile) non c'è nessun bg outstanding e `wait-all` è un no-op,
-      # mentre attendere per id uno step mai avviato non ha semantica definita.
-      # Debounce anti-burst (#3153), spostato qui da "Resolve PR from tests run".
-      #
-      # Cosa protegge: un burst di push ravvicinati sullo stesso branch (agent
-      # che itera fix in <1min) può produrre PIÙ eventi `tests`-success in
-      # sequenza. Il `cancel-in-progress` di `tests` (keyed sul ref) ne elimina
-      # gran parte, ma una corsa in cui ogni push arriva DOPO che il precedente
-      # ha già concluso con successo fa comunque partire una review Claude per
-      # uno SHA che sta per essere superato. Si dorme una finestra breve e si
-      # ricontrolla la head LIVE: se è avanzata, il `tests` del push più recente
-      # farà scattare la propria review (gira su OGNI push, niente
-      # paths-ignore), quindi uscire qui non lascia MAI la PR senza review.
-      #
-      # Perché QUI e non più nel resolve: identica semantica, ma questi 25s ora
-      # cadono mentre l'install di Headroom lavora in background, invece che da
-      # soli prima del checkout. Misura che ha motivato lo spostamento (run
-      # 30372284779): "Resolve PR" 26s + "Install Headroom (background)" 32s di
-      # cui 30s riassorbiti dal wait — gli step fra install e wait (Setup Node,
-      # re-review guard, tier) durano <2s in totale, quindi non mascheravano
-      # niente. Con il debounce qui la finestra di copertura passa da ~2s a ~27s
-      # e il ricontrollo della head diventa pure più tardivo, cioè più efficace.
-      - name: Debounce burst pushes (recheck PR head)
-        id: debounce
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
-          PRN: ${{ steps.resolve.outputs.pr_number }}
-          RUN_HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
-        run: |
-          set -uo pipefail
-          echo "Debounce: attesa 25s per assorbire push rapidi in burst prima di invocare Claude..."
-          sleep 25
-          LIVE_SHA=$(gh pr view "$PRN" --repo "$REPO" --json headRefOid --jq '.headRefOid // empty' 2>/dev/null || true)
-          if [ -n "${LIVE_SHA:-}" ] && [ "$LIVE_SHA" != "$RUN_HEAD_SHA" ]; then
-            echo "Debounce: PR #$PRN è avanzata a $LIVE_SHA (questo evento era per $RUN_HEAD_SHA) — un push più recente è già arrivato, la sua run di tests/review se ne occuperà. Skip."
-            echo "superseded=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "superseded=false" >> "$GITHUB_OUTPUT"
 
       - name: Wait for background Headroom install
         wait-all: true
 
       - name: Setup Headroom compression proxy
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         uses: ./.github/actions/setup-headroom
         with:
           # L'install è già girato in background sopra: qui serve solo far
@@ -1772,7 +1873,7 @@ jobs:
         # ripiegare su `gh pr view --json files`. Il risparmio non era nelle tre
         # `gh` call (puro bash, zero Claude) ma nel `gh pr diff`, che su una PR
         # data-only puo' essere enorme: quello resta saltato, sotto.
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Fetch una volta sola, PRIMA che Claude parta, ciò che il prompt gli
         # farebbe rifare turno-per-turno (osservato in 3/3 transcript morti
         # error_max_turns analizzati 2026-07-17: `gh pr view`, `gh pr diff`, il
@@ -1805,8 +1906,13 @@ jobs:
           # costruzione (gli `--exclude` coprono proprio quei path) e il fetch
           # su una PR da migliaia di file dati non e' gratis. Il file esiste
           # comunque, cosi' un `Read` non fallisce.
+          # Su una review incrementale il diff completo è inutile e può essere
+          # enorme: il bundle contiene solo delta.patch, che è la superficie
+          # realmente da rivalutare rispetto alla precedente review.
           if [ "${TIER:-}" = "minimal" ]; then
             : > "$CTX_DIR/diff.patch"
+          elif [ -n "${INCREMENTAL_BASE:-}" ]; then
+            echo "(incremental review: full PR diff omitted; see delta.patch)" > "$CTX_DIR/diff.patch"
           else
             gh pr diff "$PR_NUMBER" --repo "$REPO" \
               --exclude 'data/**' --exclude 'public/**' --exclude 'reports/**' \
@@ -1815,20 +1921,91 @@ jobs:
               || echo "(diff fetch failed — rieseguire gh pr diff manualmente)" > "$CTX_DIR/diff.patch"
           fi
           if [ -n "${INCREMENTAL_BASE:-}" ]; then
-            gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
-              --jq '.files[] | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
-              > "$CTX_DIR/delta.patch" \
-              || echo "(delta fetch failed — rieseguire la gh api compare manualmente)" > "$CTX_DIR/delta.patch"
+            # Fetch compare once and derive both outputs locally. The old
+            # implementation made separate compare calls for the tier and the
+            # bundle, while Claude also received the complete PR file list.
+            if gh api "repos/$REPO/compare/$INCREMENTAL_BASE...$HEAD_SHA" \
+              > "$CTX_DIR/compare.json" 2>/dev/null; then
+              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | .filename' \
+                "$CTX_DIR/compare.json" > "$CTX_DIR/delta-files.txt"
+              jq -r '.files[]? | select(.filename|test("^(data|public|reports|_newsletter_variants|docs)/")|not) | "\(.filename)\n\(.patch // "(binary/large)")"' \
+                "$CTX_DIR/compare.json" > "$CTX_DIR/delta.patch"
+            else
+              echo "(delta fetch failed — compare unavailable)" > "$CTX_DIR/delta.patch"
+              : > "$CTX_DIR/delta-files.txt"
+            fi
           fi
           gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
             --jq '[.[] | select(.body // "" | contains("<!-- sibling-check -->"))] | last | .body // empty' \
             > "$CTX_DIR/sibling-check.md" 2>/dev/null || true
+          # Claude non ha bisogno dell'elenco completo dei file dati/statici:
+          # per la review servono il body, il diff code e i file code toccati.
+          # Tenere fuori i path rigenerati riduce il contesto senza alterare la
+          # decisione del tier, gia' calcolata sopra sul payload REST completo.
+          grep -vE "$NONCODE_RE" "$CTX_DIR/files.txt" > "$CTX_DIR/code-files.txt" || : > "$CTX_DIR/code-files.txt"
+          if [ -n "${INCREMENTAL_BASE:-}" ]; then
+            # Incremental Claude context is strictly delta-scoped. The full PR
+            # list remains available only to the zero-Claude tier calculation.
+            grep -vE "$NONCODE_RE" "$CTX_DIR/delta-files.txt" > "$CTX_DIR/review-code-files.txt" || : > "$CTX_DIR/review-code-files.txt"
+          else
+            cp "$CTX_DIR/code-files.txt" "$CTX_DIR/review-code-files.txt"
+          fi
+          # The sibling check is advisory and is already posted separately.
+          # Repeating its potentially large sticky comment in every
+          # incremental context caused needless reads and token usage.
+          if [ -n "${INCREMENTAL_BASE:-}" ]; then
+            printf '%s\n' 'Advisory sibling-check omitted for incremental review; inspect it only if the supplied delta directly intersects a flagged pattern.' \
+              > "$CTX_DIR/sibling-signal.md"
+          else
+            cp "$CTX_DIR/sibling-check.md" "$CTX_DIR/sibling-signal.md" 2>/dev/null \
+              || echo "No sibling-check signal available." > "$CTX_DIR/sibling-signal.md"
+          fi
+          # Unico input Claude: assembla una fotografia deterministica del
+          # contesto già raccolto, così il reviewer fa un solo Read iniziale e
+          # non ricostruisce il contesto con gh/grep in turni successivi.
+          {
+            echo "# PR review bundle"
+            echo
+            echo "## Metadata"
+            echo "- PR: #$PR_NUMBER"
+            echo "- HEAD: $HEAD_SHA"
+            echo "- Tier: ${TIER:-unknown}"
+            echo "- Incremental base: ${INCREMENTAL_BASE:-none}"
+            echo "- Changed file entries: $(wc -l < "$CTX_DIR/files.txt")"
+            echo "- Changed code file entries (full PR, tier only): $(wc -l < "$CTX_DIR/code-files.txt")"
+            echo "- Review code file entries (delta-scoped when incremental): $(wc -l < "$CTX_DIR/review-code-files.txt")"
+            echo "- Code diff lines: $(wc -l < "$CTX_DIR/diff.patch")"
+            echo
+            echo "## PR metadata"
+            cat "$CTX_DIR/pr.json"
+            echo
+            echo "## Changed code-file list"
+            cat "$CTX_DIR/review-code-files.txt"
+            echo
+            echo "## Code-only diff"
+            cat "$CTX_DIR/diff.patch"
+            echo
+            echo "## Incremental delta"
+            if [ -f "$CTX_DIR/delta.patch" ]; then cat "$CTX_DIR/delta.patch"; else echo "No incremental base: this is a full review."; fi
+            echo
+            echo "## Sibling-check signal"
+            cat "$CTX_DIR/sibling-signal.md"
+          } > "$CTX_DIR/review-bundle.md"
           echo "Prefetched review context in $CTX_DIR:"
           ls -la "$CTX_DIR"
 
+      - name: Mint GitHub App token for Claude review
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Run Claude review
         id: claude_review
-        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Don't let a hard action failure abort the job before the guard below
         # can classify it — the guard decides whether to fail loudly.
         continue-on-error: true
@@ -1841,6 +2018,11 @@ jobs:
           REVIEW_TIER: ${{ steps.tier.outputs.tier }}
           INCREMENTAL_BASE: ${{ steps.tier.outputs.incremental_base }}
         with:
+          # A custom App token bypasses Claude's OIDC workflow-identity check.
+          # That check rejects this PR because tests.yml itself is being changed
+          # and therefore is not byte-identical to the version on main.
+          # `mint-app-token.mjs` fails soft, so retain GITHUB_TOKEN as fallback.
+          github_token: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           # Le PR fix-issue sono aperte da `claude[bot]`: senza whitelist
           # claude-code-action aborta ("non-human actor"). Whitelist esplicita
@@ -1849,7 +2031,7 @@ jobs:
           # (run 26621967484 era exit 1 col precedente vincolo non-human-actor).
           # `frontaliere-automation[bot]` (App): sotto pull_request l'actor della
           # review = l'actor del run di `tests` → su una PR la cui ultima push
-          # viene dall'App (autorebase / redflag-fixer / issue-fix) `github.actor`
+          # viene dall'App (redflag-fixer / issue-fix) `github.actor`
           # è l'App-bot; senza whitelist la review abortirebbe "non-human actor".
           allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
           show_full_output: true
@@ -1863,43 +2045,21 @@ jobs:
           # Rischio noto e accettato: reviewer gira su OGNI PR (incluse quelle
           # aperte da bot/automation) con GITHUB_TOKEN pull-requests:write +
           # issues:write, senza restrizione su Bash/Write/Edit.
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
-            Reviewer automatico PR #${{ steps.resolve.outputs.pr_number }} ("${{ steps.resolve.outputs.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
+            PR review automation for #${{ steps.resolve.outputs.pr_number }} (HEAD ${{ steps.resolve.outputs.head_sha }}), tier ${{ steps.tier.outputs.tier }}.
 
-            **Tier `minimal` (PR data/docs-only, ZERO code) — percorso corto, ≤6 turni:** NON leggere `REVIEW.md` né `AGENTS.md`, NON fare cross-file probing né adversarial check (no-op senza code). Fai SOLO: (1) leggi con `Read` i due file gia' prefetchati in `${{ runner.temp }}/review-ctx/` — `pr.json` (title/body/labels) e `files.txt` (elenco file completo). Il path e' questo, NON dedurlo dal Bootstrap: su questo tier il Bootstrap non lo leggi. NON usare `gh pr view --json files`, tronca a 100 in silenzio; (2) verifica il completeness contract del body — `## Implementato` e `## Non implementato (ancora)` presenti, ogni bullet sensato, nessun placeholder vuoto/`TBD`; un bullet che dichiara `per scelta` / `by construction` / `blocked: decisione del proprietario` **col motivo scritto dopo lo stato** è una voce CHIUSA: non chiederne l'implementazione, non è un finding; (3) se il body è a posto → posta `gh pr review $PR_NUMBER --comment --body` con una review breve che chiude con `## LGTM` (string esatta → auto-merge); se il contract è violato → `🟡` (o `🔴 Important` se grave) e NIENTE `## LGTM`. Non aprire/scorrere i file dati/static. FERMATI dopo aver postato. (Se il Tier NON è `minimal`, ignora questo paragrafo e segui la Disciplina turni + Bootstrap sotto.)
+            Read `REVIEW.md` first; it is the single source of truth for severity, scope, required checks, and output format. Do not read `AGENTS.md` unless REVIEW.md explicitly requires a specific rule.
 
-            **Disciplina turni (budget rigido, tutti i tier eccetto `minimal`):** hai un budget di ${{ steps.tier.outputs.max_turns }} turni. Un messaggio con tool-call = 1 turno **indipendentemente da quanti tool_use contiene** — dati storici (112 morti `error_max_turns` analizzate su questo workflow, 2026-07-17) mostrano p50 ~20 turni contro un lavoro reale che ne richiederebbe ~10-12: la differenza è quasi tutta overhead meccanico, non ragionamento. Quindi: (1) probe indipendenti (grep/Read/gh su file diversi, verifiche non correlate) vanno emesse **in parallelo nello stesso messaggio**, mai una-per-turno; (2) `PR_NUMBER`/`HEAD_SHA`/`INCREMENTAL_BASE` sono già nell'env di questo prompt — mai spendere un turno su `env`/`printenv` per rileggerli; (3) il checkout NON ha `node_modules` installato — mai `npm`/`npx`/build/test runner, il verdetto si basa su lettura statica del diff, non su esecuzione; (4) **entro il turno $((${{ steps.tier.outputs.max_turns }} - 5))** DEVI aver postato la review — se a quel punto hai ancora verifiche aperte, postale come `❓ q:` (con l'escalation funnel-critical già normata sotto) invece di continuare a probeare: una review postata con un `❓` sblocca il loop, una review MAI postata brucia l'intero run senza verdetto (è successo in almeno un caso osservato: verdetto già formato al turno 22 su un cap di 25, morto al 26 senza mai postare).
+            The deterministic review bundle is already prepared in `${{ runner.temp }}/review-ctx/`: `review-bundle.md` is the primary input and includes PR metadata, the review-scoped code-file list, code-only diff, incremental delta (when present), and sibling signal. Generated data/static paths are intentionally omitted from the bundle. Read it before using GitHub or repository tools. Do not repeat `gh pr view`, `gh pr diff`, or `gh api compare` unless the bundle explicitly reports that a section is incomplete.
 
-            **Bootstrap:**
-            1. Leggi `REVIEW.md` — contratto operativo completo (tier, severity, filtro scopo, completeness contract, cross-file pattern repetition, test plan compliance, adversarial check, format).
-            2. `AGENTS.md` è grande: NON leggerlo salvo necessità specifica esplicita (un finding richiede di citare un non-negotiable preciso). REVIEW.md basta da solo per il workflow di review — leggere AGENTS.md a ogni run è token sprecato.
-            3. Il contesto PR è già prefetchato (zero-Claude, prima che tu parta) in `${{ runner.temp }}/review-ctx/`: `pr.json` (`gh pr view --json title,body,labels`), `files.txt` (elenco file COMPLETO dalla REST paginata — `gh pr view --json files` tronca a 100 e non paginare e' il difetto della #6190) e `diff.patch` (diff del SOLO code, stesso `--exclude` di sempre). **Leggili con `Read` — non rieseguire `gh pr view`/`gh pr diff`**, è lo stesso identico output e rifarlo brucia turni di setup. I file dati/static rigenerati (`data/**` job JSON, snapshot, translation-cache, blog-articles; `public/**` immagini/asset) NON sono code: NON revieware il loro contenuto riga-per-riga né contarli come finding — valuta solo se il CODE che li genera è corretto. Se serve un campione di output dati, aprilo mirato con `Read`, non scorrere l'intero blob nel diff.
+            If `INCREMENTAL_BASE` is set, review only the delta and its interactions. Treat the prior Claude review as already approved context; do not re-read unchanged code unless needed to understand a concrete delta. The sibling signal may be intentionally compact or omitted on incremental runs. If the bundle says the code contribution is unchanged, post a short review ending exactly with `## LGTM`.
 
-            **Re-review INCREMENTALE (solo se `INCREMENTAL_BASE` è valorizzato, tier `incremental`/`incremental-high`):** i commit fino a `$INCREMENTAL_BASE` sono GIÀ stati reviewati in un pass precedente — NON ri-revieware l'intero contributo. Il delta dei file code dall'ultima review è già prefetchato in `${{ runner.temp }}/review-ctx/delta.patch` — **leggilo con `Read`, non rieseguire la `gh api compare`** (rifarla turno-per-turno era il primo consumatore di setup-turni osservato). Concentra la review su QUESTE modifiche e sulle loro interazioni. Sei comunque autorizzato (e incoraggiato, se il delta tocca o dipende da code non incluso) a `Read`/`grep` i file pieni per il CONTESTO — l'obiettivo è non ri-spendere token rivalutando code già approvato, non chiudere gli occhi sulle interazioni. Severity e formato invariati. Se il delta è vuoto o solo data/docs → chiudi con `## LGTM` senza inventare finding.
+            Review in one pass with a hard repository-tool budget: read the two contract files and the bundle, then use at most one batched read/search call for direct delta interactions. Never scan the whole repository, enumerate all siblings, or re-fetch the PR through GitHub. Validate the body contract, inspect only concrete interactions, verify declared performance claims against supplied evidence, and stop probing once the verdict is determined. Do not invent missing-test findings. Use sibling candidates as leads, not verdicts. For high tiers, include exactly three concise unresolved items in `## Adversarial check`; they must be real unverified risks, not generic missing coverage.
 
-            **Esegui workflow di review come specificato in REVIEW.md:**
-            - completeness contract → Implementato critical thinking → Non implementato filtro scopo → scope drift → cross-file pattern repetition (step 5) → test plan compliance (step 6) → claim perf non validato (step 7) → output.
-            - **Stati letterali di `## Non implementato (ancora)` — sono SEI, e tre CHIUDONO la voce (REVIEW.md step 2).** Lavoro ancora dovuto: `in questa PR`, `PR concatenata #N`, `blocked: <causa tecnica>`. Voce chiusa con un motivo: `per scelta`, `by construction`, `blocked: decisione del proprietario`. **Su un bullet che dichiara uno dei tre chiudenti e porta il motivo DOPO lo stato non si emette 🔴** («va implementato»): è un no motivato, ed è la stessa tassonomia che `scripts/ci/followup-has-candidates.mjs` (`CLOSING_STATES`) e i due fixer autonomi leggono da `scripts/lib/pr-body-sections-check.mjs`. Ri-emetterlo non lo fa chiudere da nessuno — il 🔴-fixer legge lo stato e declina, il round si consuma, e a round 2 la PR prende `needs-human` con la diagnosi sbagliata «il fixer non ce la fa» su una PR che non aveva niente da fixare. Motivo debole → `❓ q:`. Resta 🔴 il caso opposto: stato chiudente SENZA motivo, o col motivo che nega lo stato («non per scelta ma per un limite dell'API») — quello è un `out of scope` travestito.
-            - Tier `high`, `high-mega` (PR funnel-critical sovradimensionata, stesso rigore di `high` con più turni) O `incremental-high`: aggiungi sezione `## Adversarial check` con 3 cose NON verificate prima del summary finale (per incremental-high: limitate al delta reviewato).
-            - **Sezioni mancanti + tier `high`/`high-mega` (REVIEW.md step 4): posta il 🔴 process MA NON terminare.** Prosegui con review sostanziale + `## Adversarial check` completi nello stesso pass — il 🔴 blocca solo l'auto-merge, non un merge manuale, quindi la sostanza deferita evapora. Solo tier normal può terminare al process gate.
-            - **Claim perf non validato (REVIEW.md step 7):** PR perf/build/CI che dichiara speedup/regressione attesa senza misura baseline pre-merge (solo "atteso X→Y" / "il profiler misura post-deploy") su tier `high`/`high-mega` → 🔴 Important. Chiedi misura pre/post o revert-risk esplicito.
-            - **Escalation ❓ funnel-critical (REVIEW.md Verification):** un ❓ q (incluso quelli nell'adversarial check) il cui soggetto impatta monetizzazione/traffico (writeJson/persistenza dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense) → promuovi a 🔴 o apri follow-up issue + linkala. Mai ❓ funnel-critical passivo accanto a `## LGTM`.
-            - **No missing-test findings (REVIEW.md → IGNORA → test coverage):** NON sollevare "manca un test" / "aggiungi coverage" / "pinna con un test" come 🟡 nit né come voce `## Adversarial check`, nemmeno su path funnel-critici. Nell'adversarial check elenca rischi di COMPORTAMENTO/correttezza non verificati, mai assenza di test. Eccezione (resta in scope): un BUG in un test ESISTENTE (assertion/regex/guard leaky, fixture date assolute).
+            **Closing states in `## Non implementato (ancora)`.** The five states of `CLOSING_STATES` (`scripts/ci/followup-has-candidates.mjs`) close a bullet, e su quello **non si emette 🔴**: `in questa PR` and `PR concatenata #N` (tracked work, not residual scope), then `per scelta` — «falso positivo» is an accepted synonym of the same `by-choice` state, unless negated — `by construction`, and `blocked: decisione del proprietario`. Those last three are a motivated no, so they close only when the motive is written **after** the state; a bare `per scelta`/`by construction` with no motive stays 🔴. What does NOT close is `blocked: <causa tecnica>`, i.e. every other `blocked: <causa>`: `bulletState()` maps it to `blocked-technical`, which `CLOSING_STATES` deliberately omits — read the CAUSE, not the prefix. Getting either side wrong deadlocks the loop: re-raise the 🔴 on a closed bullet and the fixer declines with a reason, the round cap trips, and `needs-human` lands with the wrong diagnosis on a PR that has nothing to fix. Tier `minimal` carries the same rule: check that both sections exist and that **nessun placeholder vuoto** (`TBD`, `N/A`, empty bullet) fills them — but a bullet closed with a motive **non è un finding**.
 
-            **Cross-file pattern probing (REVIEW.md step 5):** il commento sticky `<!-- sibling-check -->` (postato dal job zero-Claude di pr-body-contract), se presente sulla PR, è già prefetchato in `${{ runner.temp }}/review-ctx/sibling-check.md` — leggilo con `Read` invece di cercarlo via `gh api`/`gh pr view --json comments`: contiene già i file gemelli candidati che condividono i costrutti modificati dal diff — parti da quella lista (verifica i candidati, non fidarti ciecamente: è token-match euristico). Se il file è vuoto o insufficiente, quando il diff fix-a un pattern (regex, parsing idiom, assertion shape), usa `rg` per cercare il pattern equivalente nel resto del repo. **Scopa la ricerca al CODE** — `rg <pattern> scripts build-plugins components services functions server hooks tests` (oppure `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`): cercare dentro `data/`/`public/` matcha migliaia di blob dati rigenerati = turni e token sprecati senza segnale. Pattern presente non toccato in file funnel-critico → 🔴; altrove → 🟡.
-
-            **Posta UNA review:**
-            `gh pr review $PR_NUMBER --comment --body "<markdown formato REVIEW.md>"`
-
-            **Constraint:**
-            - Single-pass, una sola review per run.
-            - Read-only: no push, no edit file.
-            - Zero finding accettabile → chiudi con `## LGTM` (string esatta triggera auto-merge). Non inventare per riempire.
-            - 🔴 aperto → NON scrivere `## LGTM`.
-            - ❓ funnel-critical non escalato (né 🔴 né follow-up issue) → NON scrivere `## LGTM`.
-            - Incerto → `❓ q:`, no speculazione.
-
+            Post exactly one review with `gh pr review ${PR_NUMBER} --comment --body ...`. End with `## LGTM` only when there is no open `🔴 Important`, no unresolved funnel-critical question, and the bundle/body contract is valid. If uncertain, emit `❓ q:`; never use `## LGTM` beside an unresolved Important finding. Work read-only: do not edit files, commit, push, run npm, or run tests. Batch independent reads/searches in one tool call and stop immediately after posting the review.
       - name: Fail on transient API error (no review posted)
         # claude-code-action can exit 0 even when the model run ABORTED on a
         # transient Anthropic API error WITHOUT posting a review. The job then
@@ -1928,7 +2088,7 @@ jobs:
         #    has no `## LGTM` so it won't auto-merge, and it gets re-reviewed on
         #    the next push / by the rescuer once quota recovers. No false-green.
         # `set -uo pipefail` (NOT -e): grep in conditionals must not abort.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -1977,10 +2137,92 @@ jobs:
           fi
           echo "Review step completed without an unrecovered transient API error."
 
+      - name: Require approving Claude review
+        id: review_gate
+        if: always() && steps.claude_review.outcome != 'failure' && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          reviews=$(gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp)
+          # Questo è il gate autorevole della Claude review per il job required:
+          # ultima review del bot reviewer, `## LGTM` presente e nessun finding
+          # `🔴 Important` reale. Il native auto-merge può procedere solo dopo
+          # la conclusione successiva di questo job.
+          review_commit=$(printf '%s' "$reviews" | node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            import { REDFLAG_IMPORTANT_RE } from "./scripts/ci/lib/constants.mjs";
+            const pages = JSON.parse(readFileSync(0, "utf8"));
+            const reviews = pages.flat();
+            const bots = reviews.filter((r) => r.user?.type === "Bot" && /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/i.test(r.user?.login || ""));
+            const lastBot = bots.length ? bots[bots.length - 1] : null;
+            const body = lastBot?.body || "";
+            process.stdout.write(lastBot && body.includes("## LGTM") && !REDFLAG_IMPORTANT_RE.test(body)
+              ? (lastBot.commit_id || "") : "");
+          ')
+          approved=false
+          if [ "$review_commit" = "$HEAD_SHA" ]; then
+            approved=true
+          elif [ -n "$review_commit" ]; then
+            head_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$HEAD_SHA" 2>/dev/null || echo NULL)
+            review_fp=$(node scripts/ci/pr-contribution-fingerprint.mjs "$review_commit" 2>/dev/null || echo NULL)
+            if [ "$head_fp" != "NULL" ] && [ "$head_fp" = "$review_fp" ]; then
+              approved=true
+              echo "LGTM carry-forward: il contributo della PR è invariato tra $review_commit e $HEAD_SHA."
+            fi
+          fi
+          if [ "$approved" = "true" ]; then
+            echo "approved=true" >> "$GITHUB_OUTPUT"
+            echo "Review Claude approvante trovata sulla HEAD $HEAD_SHA: LGTM senza 🔴 Important."
+            exit 0
+          fi
+
+          echo "approved=false" >> "$GITHUB_OUTPUT"
+          marker='<!-- REVIEW_GATE_NO_LGTM -->'
+          existing=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq '.[].body' 2>/dev/null || true)
+          if ! printf '%s' "$existing" | grep -Fq "$marker"; then
+            gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$marker
+          ⚠️ **Review gate bloccato** — la review Claude sulla HEAD $HEAD_SHA non contiene un LGTM valido senza un finding Important. Il merge resta bloccato.
+
+          Run: $RUN_URL" || echo "::warning::Impossibile pubblicare il commento del review gate."
+          fi
+          echo "::error::Nessuna review Claude approvante sulla HEAD: manca LGTM oppure è presente un finding 🔴 Important."
+          exit 1
+
+      # L’autorebase usa esattamente il checkout e npm ci già pagati da questo
+      # job. Parte solo dopo il verdetto approvante; un finding, uno skip Claude
+      # o un errore del review gate lo saltano automaticamente. Il token App è
+      # l’identità primaria; il fallback GITHUB_TOKEN mantiene il job
+      # fail-soft, ma non riattiva i workflow downstream per l’anti-recursion.
+      - name: Mint autorebase App token
+        if: steps.review_gate.outputs.approved == 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Rebase near-merge PRs after approved review
+        if: steps.review_gate.outputs.approved == 'true'
+        env:
+          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: 'false'
+        run: node scripts/ci/pr-autorebase.mjs
+
+      - name: Cleanup autorebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
       - name: Claude usage metrics
         # Solo se la review Claude è effettivamente girata (guard non-skip): a
         # review skippata non c'è execution_file da riassumere.
-        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.debounce.outputs.superseded != 'true'
+        if: always() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true'
         # Exact token/cost for this run (replaces estimates). Writes a table to
         # the run Step Summary + a grep-able CLAUDE_USAGE line to the log.
         # Best-effort: never fails the job.

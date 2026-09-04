@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cs-bregaglia",
-  "assembledAt": "2026-08-26T10:06:10.383Z",
+  "assembledAt": "2026-09-03T23:15:07.355Z",
   "jobs": [
     {
       "id": "cs-bregaglia-98393ca40498",
@@ -34,7 +34,7 @@
       "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:06:07.760Z",
+      "crawledAt": "2026-09-03T23:15:03.024Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -54,6 +54,7 @@
       "firstSeenAt": "2026-05-19T09:59:27.433Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -66,101 +67,38 @@
       }
     },
     {
-      "id": "cs-bregaglia-d03ecc06dc84",
-      "slug": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
+      "id": "cs-bregaglia-39b430c315cf",
+      "slug": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
       "slugByLocale": {
-        "it": "apprendistato-al-csb-apertura-bando-2027-cs-bregaglia-promontogno",
-        "en": "entrepreneurship-at-csb-opening-call-2027-centro-sanitario-bregaglia-promontogno",
-        "de": "entrepreneurship-bei-csb-eroffnungsausschreibung-2027-centro-sanitario-bregaglia-promontogno",
-        "fr": "entrepreneurship-chez-csb-appel-d-ouverture-2027-centro-sanitario-bregaglia-promontogno"
+        "it": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "en": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "de": "aiuto-cucina-al-50-cs-bregaglia-promontogno",
+        "fr": "aiuto-cucina-al-50-cs-bregaglia-promontogno"
       },
       "company": "Centro Sanitario Bregaglia",
       "companyKey": "cs-bregaglia",
       "companyDomain": "csbregaglia.ch",
-      "title": "Apprendistato al CSB: apertura bando 2027",
+      "title": "aiuto cucina al 50%",
       "titleByLocale": {
-        "it": "Apprendistato al CSB: apertura bando 2027",
-        "en": "Entrepreneurship at CSB: opening call 2027",
-        "de": "Entrepreneurship bei CSB: Eröffnungsausschreibung 2027",
-        "fr": "Entrepreneurship chez CSB: appel d'ouverture 2027"
+        "it": "aiuto cucina al 50%",
+        "en": "aiuto cucina al 50%",
+        "de": "aiuto cucina al 50%",
+        "fr": "aiuto cucina al 50%"
       },
-      "description": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
+      "description": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
       "descriptionByLocale": {
-        "it": "Il Centro Sanitario Bregaglia ha aperto i bandi per candidarsi ai percorsi di apprendistato che prenderanno il via nell’agosto 2027. I giovani sono invitati, qualora fossero interessati alle professioni sanitarie, a prenderne visione e a sottomettere le loro candidature. Le posizioni aperte riguardano la formazione come Operatrice/tore sociosanitaria/o AFC e assistente di studio medico AFC.",
-        "en": "The Bregaglia Health Centre opened the call for apprenticeships that will start in August 2027. Young people are invited, if they are interested in health professions, to take a look at them and submit their applications. Open positions include training as a sociosanitary/or AFC Operator and AFC Medical Study Assistant.",
-        "de": "Das Bregaglia Health Center eröffnete den Aufruf für Ausbildungsplätze, der im August 2027 beginnen wird. Junge Menschen werden eingeladen, wenn sie sich für Gesundheitsberufe interessieren, sich diese anzusehen und ihre Bewerbungen einzureichen. Offene Positionen umfassen die Ausbildung als Soziosanitär / AFC-Operator und AFC Medical Study Assistant.",
-        "fr": "Le Bregaglia Health Centre a ouvert l'appel à l'apprentissage qui débutera en août 2027. Les jeunes sont invités, s'ils s'intéressent aux professions de la santé, à les examiner et à présenter leur candidature. Les postes ouverts comprennent la formation en tant qu'opérateur socio-sanitaire ou AFC et assistant d'étude médicale AFC."
-      },
-      "needsRetranslation": false,
-      "location": "Promontogno",
-      "canton": "GR",
-      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
-      "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:06:07.760Z",
-      "addressLocality": "Promontogno",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7606",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2023-07-24",
-      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/324-apertura-bandi-per-apprendistato-al-csb",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-04T11:35:05.054Z",
-      "salaryMin": 73000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "cs-bregaglia-3a09c2e54a5a",
-      "slug": "responsabile-delle-cure-spitex-80-cs-bregaglia-promontogno",
-      "slugByLocale": {
-        "it": "responsabile-delle-cure-spitex-80-cs-bregaglia-promontogno",
-        "en": "manager-delle-cure-spitex-80-centro-sanitario-bregaglia-promontogno",
-        "de": "verantwortlicher-delle-cure-spitex-80-centro-sanitario-bregaglia-promontogno",
-        "fr": "responsable-delle-cure-spitex-80-centro-sanitario-bregaglia-promontogno"
-      },
-      "company": "Centro Sanitario Bregaglia",
-      "companyKey": "cs-bregaglia",
-      "companyDomain": "csbregaglia.ch",
-      "title": "responsabile delle cure Spitex (80%)",
-      "titleByLocale": {
-        "it": "responsabile delle cure Spitex (80%)",
-        "en": "Manager delle cure Spitex (80%)",
-        "de": "Verantwortlicher delle cure Spitex (80%)",
-        "fr": "Responsable delle cure Spitex (80%)"
-      },
-      "description": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per rafforzare il nostro servizio Spitex cerchiamo una persona motivata e dinamica con formazione di infermiere/a diplomato/a, che assuma il ruolo di responsabile delle cure Spitex. In collaborazione con la direzione Spitex, sarà responsabile dell’organizzazione operativa, della pianificazione del personale e della qualità delle cure.",
-      "descriptionByLocale": {
-        "it": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per rafforzare il nostro servizio Spitex cerchiamo una persona motivata e dinamica con formazione di infermiere/a diplomato/a, che assuma il ruolo di responsabile delle cure Spitex. In collaborazione con la direzione Spitex, sarà responsabile dell’organizzazione operativa, della pianificazione del personale e della qualità delle cure.",
-        "en": "The Bregaglia Health Centre (CSB) is an integrated health centre that brings together different outpatient and stationary health benefits under one roof. Our offer includes acute and long-term care, with a department specialized in treating people with dementia, a medical study, a pharmacy, Spitex service, relief service, physiotherapy and additional medical and therapeutic performance. In order to strengthen our Spitex service, we seek a motivated and dynamic person with the formation of a graduate nurse who assumes the role of Spitex care manager. In collaboration with the Spitex management, he will be responsible for operational organization, staff planning and quality of care.",
-        "de": "Das Bregaglia Health Center (CSB) ist ein integriertes Gesundheitszentrum, das verschiedene ambulante und stationäre Gesundheitsvorteile unter einem Dach vereint. Unser Angebot umfasst die Akut- und Langzeitpflege mit einer Abteilung, die auf die Behandlung von Menschen mit Demenz spezialisiert ist, eine medizinische Studie, eine Apotheke, Spitex-Service, Hilfsdienst, Physiotherapie und zusätzliche medizinische und therapeutische Leistungen. Um unseren Spitex Service zu stärken, suchen wir eine motivierte und dynamische Person mit der Bildung einer Diplom-Krankenschwester, die die Rolle des Spitex Care Managers übernimmt. In Zusammenarbeit mit der Spitex-Geschäftsführung wird er für die operative Organisation, Personalplanung und Pflegequalität verantwortlich sein.",
-        "fr": "Le Centre de santé Bregaglia (CSB) est un centre de santé intégré qui réunit sous un même toit différents services de santé ambulatoires et fixes. Notre offre comprend des soins actifs et de longue durée, avec un département spécialisé dans le traitement des personnes atteintes de démence, une étude médicale, une pharmacie, Spitex service, service de secours, physiothérapie et performance médicale et thérapeutique supplémentaire. Afin de renforcer notre service Spitex, nous recherchons une personne motivée et dynamique avec la formation d'une infirmière diplômée qui assume le rôle de gestionnaire de soins Spitex. En collaboration avec la direction de Spitex, il sera responsable de l'organisation opérationnelle, de la planification du personnel et de la qualité des soins."
+        "it": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "en": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "de": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%.",
+        "fr": "ll Centro Sanitario Bregaglia (CSB) è un centro sanitario integrato che riunisce sotto un unico tetto diverse prestazioni sanitarie ambulatoriali e stazionarie. La nostra offerta comprende cure acute e di lunga durata, con un reparto specializzato nella cura delle persone affette da demenza, uno studio medico, una farmacia, il servizio Spitex, il servizio di soccorso, la fisioterapia e ulteriori prestazioni mediche e terapeutiche. Per ampliamento del nostro team di cucina cerchiamo, con inserimento immediato o per data da convenire, una nuova figura di aiuto cucina 50%."
       },
       "needsRetranslation": true,
       "location": "Promontogno",
       "canton": "GR",
-      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/459-offerta-di-lavoro-responsabile-delle-cure-spitex-80",
+      "url": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
       "source": "CS Bregaglia Dedicated Parser (Joomla RSS feed)",
       "sourceLang": "it",
-      "crawledAt": "2026-08-26T10:06:07.758Z",
+      "crawledAt": "2026-09-03T23:15:03.018Z",
       "addressLocality": "Promontogno",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -169,24 +107,25 @@
       "category": "Sanità / Ospedali",
       "contract": "full-time",
       "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
+      "experienceLevel": "mid",
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/459-offerta-di-lavoro-responsabile-delle-cure-spitex-80",
+      "postedDate": "2026-09-01",
+      "applyUrl": "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro/467-offerta-di-lavoro-aiuto-cucina-al-51",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-13T21:53:59.873Z",
-      "salaryMin": 88400,
-      "salaryMax": 123200,
+      "firstSeenAt": "2026-09-01T14:14:16.640Z",
+      "salaryMin": 40800,
+      "salaryMax": 57000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 88400,
-          "maxValue": 123200,
+          "minValue": 40800,
+          "maxValue": 57000,
           "unitText": "YEAR"
         }
       }

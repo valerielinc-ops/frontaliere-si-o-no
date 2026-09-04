@@ -15,9 +15,11 @@
  * carry it as broken for ever.
  */
 import { politeFetch } from './polite-fetch.mjs';
-import { extractVacancies, textOf } from './extract.mjs';
+import { extractVacancies, isSufficientVacancyDescription, textOf } from './extract.mjs';
 import { extractLinks } from './careers-trail.mjs';
+import { resolveDetailOrListingSwissGeography } from './location-evidence.mjs';
 import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs';
+import { createSpecUrlPolicy } from './public-fetch-policy.mjs';
 
 /**
  * @typedef {Object} CrawlerSpec
@@ -27,7 +29,10 @@ import { normalizeHost, registrableDomain, tenantLabel } from './registrable.mjs
  * @property {string} platform            registrable domain of the ATS, '' when self-hosted
  * @property {'jsonld'|'microdata'|'template'} mode
  * @property {string[]} seedUrls
+ * @property {string[]} [allowedDetailOrigins] Exact extra origins reviewed for cross-origin ATS/CDN detail URLs
  * @property {string} [detailTemplate]    URL template shared by the vacancy links
+ * @property {boolean} [detailEnrichment] Fetch detail pages for authoritative fields
+ * @property {number} [detailFetchWorkers] Maximum concurrent detail fetches
  * @property {number} sampleVacancyCount
  * @property {string[]} sampleTitles
  * @property {string} [canton]
@@ -120,27 +125,55 @@ export function isExpectedSynthesisError(err) {
  * @param {Record<string, any>} candidate
  * @returns {Promise<{ spec: CrawlerSpec|null, reason?: string, vacancies: any[] }>}
  */
-export async function synthesizeSpec(candidate) {
+export async function synthesizeSpec(candidate, runtime = {}) {
   const seed = candidate.careersUrl || (candidate.tenantHost ? `https://${candidate.tenantHost}/` : null)
     || (candidate.domain ? `https://${candidate.domain}/` : null);
   if (!seed) return { spec: null, reason: 'nessun URL di partenza', vacancies: [] };
 
-  const res = await politeFetch(seed);
+  const res = await politeFetch(seed, {
+    fetchImpl: runtime.fetchImpl,
+    lookupImpl: runtime.lookupImpl,
+    sleepImpl: runtime.sleepImpl,
+  });
   if (!res.ok) return { spec: null, reason: `seed irraggiungibile (${res.status})`, vacancies: [] };
 
   const links = extractLinks(res.body, res.url);
   const { vacancies, via } = extractVacancies(res.body, res.url, links);
   if (!vacancies.length) return { spec: null, reason: 'nessun annuncio estratto dal seed', vacancies: [] };
 
+  // A synthesised spec must not silently learn an unreviewed ATS/CDN origin.
+  // Existing promoted specs may name `allowedDetailOrigins` explicitly, but
+  // autonomous discovery has no evidence that employer.example is entitled to
+  // make us fetch ats.example. Reject the candidate instead of passing a gate
+  // that production later (correctly) reduces to zero rows.
+  const seedOrigin = new URL(res.url).origin;
+  const crossOriginVacancy = vacancies.find((vacancy) => {
+    try { return new URL(vacancy.url).origin !== seedOrigin; } catch { return true; }
+  });
+  if (crossOriginVacancy) {
+    return {
+      spec: null,
+      reason: `origine dettaglio non autorizzata: ${String(crossOriginVacancy.url || '').slice(0, 160)}`,
+      vacancies: [],
+    };
+  }
+
   const host = normalizeHost(new URL(res.url).hostname);
+  const listingNeedsDetail = vacancies.some(
+    (vacancy) => !resolveDetailOrListingSwissGeography({}, vacancy).geography
+      || !isSufficientVacancyDescription(vacancy.description),
+  );
+  /** @type {CrawlerSpec} */
   const spec = {
     companyKey: crawlerKeyFor(candidate),
     companyName: candidate.name || tenantLabel(host) || host,
     companyHost: host,
     platform: candidate.platform || (registrableDomain(host) === registrableDomain(candidate.domain || '') ? '' : registrableDomain(host)),
-    mode: via,
+    mode: /** @type {'jsonld'|'microdata'|'template'} */ (via),
     seedUrls: [res.url],
     detailTemplate: commonUrlTemplate(vacancies.map((v) => v.url)) || undefined,
+    detailEnrichment: via === 'template' || listingNeedsDetail,
+    detailFetchWorkers: 4,
     sampleVacancyCount: vacancies.length,
     sampleTitles: vacancies.slice(0, 5).map((v) => v.title),
     canton: candidate.canton || undefined,
@@ -157,25 +190,39 @@ export async function synthesizeSpec(candidate) {
  * @param {CrawlerSpec} spec
  * @returns {Promise<{ vacancies: any[], errors: string[] }>}
  */
-export async function runSpec(spec) {
+export async function runSpec(spec, runtime = {}) {
   /** @type {any[]} */
   const all = [];
   const errors = [];
-  for (const seed of spec.seedUrls) {
-    const res = await politeFetch(seed);
-    if (!res.ok) { errors.push(`${seed}: HTTP ${res.status}`); continue; }
-    const links = extractLinks(res.body, res.url);
-    const { vacancies } = extractVacancies(res.body, res.url, links);
-    for (const v of vacancies) {
-      all.push({
-        ...v,
-        company: v.company || spec.companyName,
-        companyKey: spec.companyKey,
-        companyDomain: spec.companyHost,
-        sourceLang: spec.sourceLang,
-        canton: spec.canton,
+  const urlPolicy = createSpecUrlPolicy(spec, { lookupImpl: runtime.lookupImpl });
+  try {
+    for (const seed of spec.seedUrls) {
+      const res = await politeFetch(seed, {
+        urlPolicy,
+        dispatcher: urlPolicy.dispatcher,
+        fetchImpl: runtime.fetchImpl,
+        sleepImpl: runtime.sleepImpl,
       });
+      if (!res.ok) { errors.push(`${seed}: HTTP ${res.status}`); continue; }
+      const links = extractLinks(res.body, res.url);
+      const { vacancies } = extractVacancies(res.body, res.url, links);
+      for (const v of vacancies) {
+        try { await urlPolicy(v.url); } catch {
+          errors.push(`${v.url}: origine dettaglio non autorizzata`);
+          continue;
+        }
+        all.push({
+          ...v,
+          company: v.company || spec.companyName,
+          companyKey: spec.companyKey,
+          companyDomain: spec.companyHost,
+          sourceLang: spec.sourceLang,
+          canton: spec.canton,
+        });
+      }
     }
+  } finally {
+    await urlPolicy.dispatcher.close();
   }
   // Same vacancy can surface from two seeds; key on URL.
   const seen = new Set();

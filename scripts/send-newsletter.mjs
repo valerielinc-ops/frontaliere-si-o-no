@@ -32,7 +32,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, getFeaturedTools, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildBriefingBatchPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, prepareNewsletterJobContext, validateJobUrls, buildBriefingPrompt, buildBriefingBatchPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics, isCompanyHubSlug } from '../services/newsletter-content.mjs';
 import { selectFeaturedArticleId } from '../services/newsletter-article-rotation.mjs';
 import { describeSegment, inferInterest, selectArticleCandidates, CONTENT_STRATEGIES, INTERESTS } from '../services/newsletter-segments.mjs';
 import { getSeasonalUtilityContent } from '../services/newsletter-seasonal.mjs';
@@ -62,6 +62,7 @@ import { computeScheduledSendAt, resolveEffectivePreferredHour, computeGlobalPre
 // used for its locale-aware URL construction (tests/newsletter-locale-urls.test.ts
 // guards its presence here) — the implementation is the canonical shared helper.
 import { localePathPrefix as localePrefix, loadBlogMeta, localizeArticle, loadArticlePerformanceWinners } from './lib/articleContent.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1286,7 +1287,7 @@ function loadLocalJobsData() {
     // Fallback: assemble from per-crawler slices (handles CI when assembly step failed)
     try {
       const slicesDir = new URL('../data/jobs/by-crawler/', import.meta.url);
-      const sliceFiles = fs.readdirSync(slicesDir).filter((f) => f.endsWith('.json') && f !== '.gitkeep');
+      const sliceFiles = listSliceFileNames(fileURLToPath(slicesDir));
       for (const file of sliceFiles) {
         const slice = JSON.parse(fs.readFileSync(new URL(file, slicesDir), 'utf8'));
         if (Array.isArray(slice.jobs)) jobs.push(...slice.jobs);
@@ -1572,6 +1573,21 @@ async function fetchResumeChunkSizes(campaignId) {
   }
 }
 
+/**
+ * Remove recipients already recorded for this campaign before doing any
+ * per-recipient work (job matching, AI, or HTML assembly).
+ *
+ * The resume filter used to run only after all of that work, which made a
+ * continuation run rebuild thousands of emails just to send the small tail.
+ */
+export function filterUnsentSubscribers(subscribers, alreadySent) {
+  const sent = new Set([...alreadySent].map((email) => normalizeEmail(email)));
+  return subscribers.filter((subscriber) => {
+    const email = normalizeEmail(subscriber?.email);
+    return email && !sent.has(email);
+  });
+}
+
 // ─── Subject A/B auto-promotion ─────────────────────────────
 // On by default (kill switch: NEWSLETTER_AB_AUTOPROMOTE=false). Safe: a no-op
 // until a recent campaign has a statistically significant winner with enough
@@ -1711,6 +1727,11 @@ async function persistDelivery(recipient, messageId, meta) {
   }
 }
 
+const NEWSLETTER_SEND_THROTTLE = Object.freeze({
+  delayMs: 100,
+  adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
+});
+
 async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
@@ -1739,7 +1760,7 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
     const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
       concurrency: 1,
-      delayMs: 1000,
+      ...NEWSLETTER_SEND_THROTTLE,
       forceProvider: EMAIL_PROVIDER,
       finalizeForProvider,
       onSent: persistSent,
@@ -1753,7 +1774,7 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
     const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
     const result = await sendEmailCascade(emails, {
       concurrency: 1,
-      delayMs: 1000,
+      ...NEWSLETTER_SEND_THROTTLE,
       finalizeForProvider,
       onSent: persistSent,
     });
@@ -2043,6 +2064,7 @@ async function main() {
   if (recentlyFeaturedJobs.length) {
     console.log(`🔄 Job rotation: excluding ${recentlyFeaturedJobs.length} recently featured slugs`);
   }
+  const fullNewsletterJobContext = prepareNewsletterJobContext(jobs, recentlyFeaturedJobs);
 
   // Tool-of-the-week index: shared across all locales so every subscriber sees the
   // same featured tool, but the tool's title/description is rendered in their locale.
@@ -2071,8 +2093,8 @@ async function main() {
     const locale = nlNormLocale(readArgValue('--locale') || 'it');
     const previewFeaturedTool = getFeaturedToolForLocale(locale);
     const previewJobs = validateJobUrls(
-      matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, jobs, 4),
-      jobs,
+      matchJobsForSubscriber({ locationInterest: null, sectorInterest: null }, fullNewsletterJobContext, 4),
+      fullNewsletterJobContext,
     );
     let briefing = noAI
       ? getFallbackBriefing(locale, exchangeRate)
@@ -2225,6 +2247,20 @@ async function main() {
       console.warn('\u26a0\ufe0f No subscribers found. Aborting.');
       return;
     }
+
+    // Resume as early as possible. This must happen after the cooldown and
+    // digest filters (which define this run's eligible audience), but before
+    // enrich/matching/cohort/AI work below.
+    if (alreadySentForCampaign.size > 0) {
+      const before = subscribers.length;
+      subscribers = filterUnsentSubscribers(subscribers, alreadySentForCampaign);
+      console.log(`📋 Campaign resume pre-filter: ${before} eligible → ${subscribers.length} unsent (skipped ${before - subscribers.length})`);
+    }
+
+    if (subscribers.length === 0) {
+      console.log('✅ All eligible subscribers already received this campaign. Nothing to prepare or send.');
+      return;
+    }
   }
 
   subscribers = subscribers.map((subscriber) => enrichSubscriberJobContext(subscriber, jobContextIndex));
@@ -2234,15 +2270,7 @@ async function main() {
   let aiFallbackCount = 0;
 
   // Build valid slug index for URL validation in final HTML
-  const validJobSlugs = new Set();
-  for (const j of jobs) {
-    if (j.slug) validJobSlugs.add(j.slug);
-    if (j.slugByLocale) {
-      for (const s of Object.values(j.slugByLocale)) {
-        if (s) validJobSlugs.add(s);
-      }
-    }
-  }
+  const validJobSlugs = fullNewsletterJobContext.validSlugs;
 
   // ── Phase 1: Match jobs for all subscribers & build cohorts ──
   console.log('\n📋 Phase 1: Job matching & cohort grouping...');
@@ -2250,12 +2278,15 @@ async function main() {
   // pool, so a test listing can't surface in real subscribers' newsletters (nor
   // displace a real job from the top-4). The owner still sees them.
   const jobsNoCanary = jobs.filter((j) => !isCanaryJob(j));
+  const publicNewsletterJobContext = prepareNewsletterJobContext(jobsNoCanary, recentlyFeaturedJobs);
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
-    const eligibleJobs = isOwnerEmail(subscriber.email) ? jobs : jobsNoCanary;
-    const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobs, 4, locale, recentlyFeaturedJobs);
-    const matchedJobs = validateJobUrls(rawMatched, jobs).map((job) => ({
+    const eligibleJobContext = isOwnerEmail(subscriber.email)
+      ? fullNewsletterJobContext
+      : publicNewsletterJobContext;
+    const rawMatched = matchJobsForSubscriber(subscriber, eligibleJobContext, 4, locale);
+    const matchedJobs = validateJobUrls(rawMatched, fullNewsletterJobContext).map((job) => ({
       ...job,
       alertMatch: jobMatchesAlerts(job, subscriberAlerts),
     }));

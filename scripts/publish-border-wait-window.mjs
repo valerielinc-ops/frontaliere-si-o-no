@@ -35,6 +35,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
   DEFAULT_WINDOW_DAYS,
   aggregateCrossingStats,
@@ -103,8 +104,7 @@ if (CHECK_ONLY) {
   process.exit(0);
 }
 
-fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-fs.writeFileSync(OUT_PATH, body);
+writeJsonAtomic(OUT_PATH, payload);
 log(
   `wrote ${path.relative(REPO_ROOT, OUT_PATH)} — ` +
     `${payload.current.weekStart}..${payload.current.weekEnd}, ` +

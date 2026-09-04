@@ -1,11 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchHilconaDetailPage,
+  normalizeHilconaJobUrl,
   parseHilconaSitemapXml,
   parseHilconaDetailHtml,
   slugify,
   stripHtml,
   inferEmploymentType,
 } from '@/scripts/lib/hilcona-job-parser.mjs';
+import { archiveRemovedJobsToSlice } from '@/scripts/lib/expired-jobs-archive.mjs';
+import { resolveHilconaSwissLocation } from '@/scripts/update-hilcona-jobs.mjs';
 
 // ── sitemap fixtures ──────────────────────────────────────────────────
 
@@ -95,6 +102,7 @@ const SAMPLE_DETAIL_HTML = `<!DOCTYPE html>
                 Bendererstrasse 21<br>
                 9494 Schaan
               </p>
+              <a href="https://www.google.com/maps/dir//Bendererstrasse+21,+9494,+Schaan+Liechtenstein/@9.505954,47.176268">Route berechnen</a>
             </div>
             <div class="order-5 border-t pt-3">
               <div class="font-bold">Sprache</div>
@@ -135,9 +143,119 @@ const MINIMAL_DETAIL_HTML = `<html><body>
 <p class="mb-0 text-job-theme">80-100%</p>
 </body></html>`;
 
+describe('Hilcona Swiss geography gate', () => {
+  it('keeps source-backed Swiss municipalities and rejects foreign or missing workplaces', () => {
+    expect(resolveHilconaSwissLocation({ location: 'Landquart', postalCode: '7302', addressCountry: 'CH' }))
+      .toEqual({ location: 'Landquart', canton: 'GR', postalCode: '7302' });
+    expect(resolveHilconaSwissLocation({ location: 'Basel', postalCode: '4058', addressCountry: 'CH' }))
+      .toEqual({ location: 'Basel', canton: 'BS', postalCode: '4058' });
+
+    for (const location of ['Schaan', 'Radolfzell', 'Ampfing', 'Pfaffstätt', '', 'undefined']) {
+      expect(resolveHilconaSwissLocation({ location, postalCode: '9494', addressCountry: 'LI' })).toBeNull();
+    }
+  });
+
+  it('keeps Zell only with the source-backed Swiss country and 6144 postal evidence', () => {
+    expect(resolveHilconaSwissLocation({ location: 'Zell', postalCode: '6144', addressCountry: 'CH' }))
+      .toEqual({ location: 'Zell', canton: 'LU', postalCode: '6144' });
+    expect(resolveHilconaSwissLocation({ location: 'Zell', postalCode: '', addressCountry: 'CH' })).toBeNull();
+    expect(resolveHilconaSwissLocation({ location: 'Zell', postalCode: '6144', addressCountry: 'DE' })).toBeNull();
+    expect(resolveHilconaSwissLocation({ location: 'Zell', postalCode: '8487', addressCountry: 'CH' })).toBeNull();
+  });
+
+  it('does not mutate persisted identity while normalizing a retained job', () => {
+    const prior = {
+      id: 'hilcona-zell-1',
+      url: 'https://career.bellfoodgroup.com/de/stelle/test-1',
+      slug: 'test-hilcona-zell',
+      previousSlugs: ['old-test-hilcona-zell'],
+      location: 'Zell',
+    };
+    const geography = resolveHilconaSwissLocation({
+      location: prior.location,
+      postalCode: '6144',
+      addressCountry: 'CH',
+    });
+    const normalized = { ...prior, ...geography };
+
+    expect(normalized).toMatchObject({
+      id: prior.id,
+      url: prior.url,
+      slug: prior.slug,
+      previousSlugs: prior.previousSlugs,
+      location: 'Zell',
+      canton: 'LU',
+    });
+    expect(resolveHilconaSwissLocation({
+      location: normalized.location,
+      postalCode: normalized.postalCode,
+      addressCountry: 'CH',
+    })).toEqual(geography);
+  });
+
+  it('archives every historical route when a persisted foreign job is retired', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'hilcona-expired-'));
+    const prior = {
+      id: 'hilcona-schaan-1',
+      url: 'https://career.bellfoodgroup.com/de/stelle/test-1',
+      slug: 'test-hilcona-schaan',
+      slugByLocale: { de: 'test-hilcona-schaan', it: 'test-hilcona-schaan-it' },
+      previousSlugs: ['old-test-hilcona-schaan'],
+      previousSlugsByLocale: { de: ['noch-aelter-test-hilcona-schaan'] },
+      company: 'Hilcona AG (Bell Food Group)',
+      companyKey: 'hilcona',
+      location: 'Schaan',
+      addressLocality: 'Schaan',
+    };
+
+    try {
+      expect(resolveHilconaSwissLocation({
+        location: prior.location,
+        postalCode: '9494',
+        addressCountry: 'LI',
+      })).toBeNull();
+      expect(archiveRemovedJobsToSlice([prior], 'hilcona', { dir })).toBe(1);
+
+      const [archived] = JSON.parse(fs.readFileSync(path.join(dir, 'hilcona.json'), 'utf8'));
+      expect(archived).toMatchObject({
+        slug: prior.slug,
+        slugByLocale: prior.slugByLocale,
+        previousSlugs: prior.previousSlugs,
+        previousSlugsByLocale: prior.previousSlugsByLocale,
+        location: prior.location,
+      });
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('Hilcona job parser', () => {
+  describe('normalizeHilconaJobUrl', () => {
+    it('allows only relative or same-origin HTTPS Hilcona job routes', () => {
+      const path = '/de/stelle/produktionsmitarbeiter-m-w-d-2180';
+      expect(normalizeHilconaJobUrl(path)).toBe(`https://career.bellfoodgroup.com${path}`);
+      expect(normalizeHilconaJobUrl(`https://career.bellfoodgroup.com${path}`))
+        .toBe(`https://career.bellfoodgroup.com${path}`);
+      expect(normalizeHilconaJobUrl(`https://attacker.example${path}`)).toBeNull();
+      expect(normalizeHilconaJobUrl(`http://career.bellfoodgroup.com${path}`)).toBeNull();
+      expect(normalizeHilconaJobUrl('https://career.bellfoodgroup.com/de/unternehmen/2180')).toBeNull();
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchHilconaDetailPage('https://attacker.example/de/stelle/test-job-100'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseHilconaSitemapXml', () => {
     it('extracts only German /de/stelle/ URLs', () => {
       const jobs = parseHilconaSitemapXml(SAMPLE_SITEMAP_XML);
@@ -177,6 +295,15 @@ describe('Hilcona job parser', () => {
       </urlset>`;
       const jobs = parseHilconaSitemapXml(dupeXml);
       expect(jobs.length).toBe(1);
+    });
+
+    it('rejects an off-domain sitemap entry without suppressing a valid job', () => {
+      const xml = `<urlset>
+        <url><loc>https://attacker.example/de/stelle/test-job-100</loc></url>
+        <url><loc>https://career.bellfoodgroup.com/de/stelle/test-job-100</loc></url>
+      </urlset>`;
+      expect(parseHilconaSitemapXml(xml).map((job) => job.url))
+        .toEqual(['https://career.bellfoodgroup.com/de/stelle/test-job-100']);
     });
 
     it('returns empty for null/empty input', () => {
@@ -219,6 +346,25 @@ describe('Hilcona job parser', () => {
     it('extracts location from address', () => {
       const result = parseHilconaDetailHtml(SAMPLE_DETAIL_HTML);
       expect(result.location).toBe('Schaan');
+      expect(result.postalCode).toBe('9494');
+      expect(result.addressCountry).toBe('LI');
+    });
+
+    it('preserves the country and postal evidence needed to disambiguate Zell LU', () => {
+      const html = MINIMAL_DETAIL_HTML
+        .replace('4147 Aesch', '6144 Zell')
+        .replace(
+          '</body>',
+          '<a href="https://www.google.com/maps/dir//Zelgmatte+1,+6144,+Zell+Schweiz/@7.927826,47.138289">Route berechnen</a></body>',
+        );
+      const detail = parseHilconaDetailHtml(html);
+
+      expect(detail).toMatchObject({ location: 'Zell', postalCode: '6144', addressCountry: 'CH' });
+      expect(resolveHilconaSwissLocation(detail)).toEqual({
+        location: 'Zell',
+        canton: 'LU',
+        postalCode: '6144',
+      });
     });
 
     it('extracts contract type', () => {

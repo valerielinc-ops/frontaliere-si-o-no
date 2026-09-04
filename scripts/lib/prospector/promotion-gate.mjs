@@ -31,6 +31,7 @@ export const GATE_DEFAULTS = {
   minReachable: 1,
   minTitleMatch: 0.8,
   minContentful: 0.75,
+  minLocationSourceRate: 1,
   minDistinct: 0.8,
   /**
    * Quota delle pagine di dettaglio che devono leggere come annuncio di lavoro.
@@ -109,6 +110,12 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
   mark('hasCrawlerKey', Boolean(candidate.crawlerKey),
     'nessuna chiave crawler: la spec non e\' stata sintetizzata');
 
+  // A template spec only knows title/URL from the index. Without the detail
+  // pass it can silently publish an employer default (historically Lugano)
+  // and a teaser as if they were per-job facts.
+  mark('detailEnrichment', candidate.mode !== 'template' || candidate.detailEnrichment === true,
+    'spec template senza arricchimento del dettaglio: localita\' e descrizione non sono verificate');
+
   mark('keyFree', !candidate.crawlerKey || !(ctx.existingKeys || new Set()).has(candidate.crawlerKey),
     `la chiave ${candidate.crawlerKey} esiste gia' in produzione`);
 
@@ -140,6 +147,13 @@ export function evaluatePromotion(candidate, ctx = {}, opts = {}) {
 
   mark('contentful', Number(latest.contentfulRate || 0) >= g.minContentful,
     'troppe pagine di dettaglio senza prosa: probabile render lato client');
+
+  const locationSourceRate = latest.locationSourceRate;
+  mark('sourceBackedLocation',
+    Number(locationSourceRate) >= g.minLocationSourceRate,
+    locationSourceRate === undefined
+      ? 'nessuna misura della localita\' source-backed nell\'ultima validazione: serve una nuova validazione'
+      : `solo il ${Math.round(Number(locationSourceRate) * 100)}% delle pagine campionate espone una localita' svizzera source-backed, serve ${Math.round(g.minLocationSourceRate * 100)}%`);
 
   mark('distinct', Number(latest.distinctRate || 0) >= g.minDistinct,
     'troppi titoli ripetuti nel listing');

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "csvm-mustair",
-  "assembledAt": "2026-08-26T10:21:27.953Z",
+  "assembledAt": "2026-09-03T23:21:12.748Z",
   "jobs": [
     {
       "id": "csvm-mustair-00cba1f47deb",
@@ -34,7 +34,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/rettungssanitaeter-in-auf-teilzeitbasis.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:25.228Z",
+      "crawledAt": "2026-09-03T23:21:10.066Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -52,18 +52,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
-        "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+        "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair",
-          "soccorritore-a-a-tempo-parziale-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
+          "rettungssanitater-in-auf-teilzeitbasis-csvm-mustair-mustair"
         ]
       },
       "firstSeenAt": "2026-05-19T10:23:25.014Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -101,13 +100,12 @@
         "de": "Pflegehelfer(in) SRK 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für das Pflegeheim suchen wir per sofort oder nach Vereinbarung \n• Ihr Profil  Erfolgreicher SRK Kurs oder die Bereitschaft, diesen zu absolvieren oder Lehrgang Pflegehelfer(in) oder Pflegeassistent(in)  Freude an der Pflege und Betreuung älterer und kranker Menschen  Ausgeprägtes Verantwortungsbewusstsein  Grosse Flexibilität und Belastbarkeit  Offene Persönlichkeit \n• Ihre Verantwortung  Fachgerechte Pflege und Betreuung unserer Bewohner(innen) in allen Diensten, inklusive regelmässiger Nachtdienste  Ausführen von hauswirtschaftlichen \n• Aufgaben  Mithilfe bei der Gewährleistung einer wirksamen, zweckmässigen und wirtschaftlichen Pflege Unser Angebot  Eine interessante und abwechslungsreiche Tätigkeit  Zeitgerechte Arbeitsbedingungen mit 5 Wochen Ferien für alle  Sorgfältige Einführung in die neue Aufgabe und regelmässige Fortbildungen  Angenehmes Arbeitsklima in einem motivierten Team Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch. Für Fragen stehen Ihnen Frau Annemarie Stricker (Bereichsleiterin Pflege, 081 851 61 22) oder Frau Angela Giacomelli (Personaldienst, 081 851 61 75) gerne zur Verfügung. eine(n) Pflegehelfer(in) SRK 80-100%\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/319/Pflegehelferin-80-100_Mai-2026_d.pdf",
         "fr": "SRK 80-100% — Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR)\n\nLe Centre da Sandà Val Müstair est un petit centre de santé dans la belle vallée du Val Müstair. Sous un même toit sont intégrés un hôpital aigu avec des services d'urgence et de sauvetage, une maison de soins infirmiers, un cabinet de médecin et le Spitex.\n\nVotre profil - Cours réussi de SRK ou volonté de compléter ou de suivre les cours Travailleurs ou assistantes de soins - joie de prendre soin des personnes âgées et malades - Sens des responsabilités exprimé - Grande flexibilité et résilience - Personnalité ouverte\n\nVotre responsabilité - soins professionnels et soins à nos résidents dans tous les services, y compris les services de nuit réguliers - exécution des tâches domestiques - aide à assurer des soins efficaces, rapides et économiques\n\nNotre offre - Une activité intéressante et variée - Des conditions de travail adaptées au temps avec 5 semaines de vacances pour tous - Introduction attentive à la nouvelle tâche et formation régulière - Un environnement de travail agréable dans une équipe motivée\n\nNous avons hâte de recevoir votre candidature complète au Centre da Sandà Val Müstair, Mme Angela Giacomelli, Service RH, Via Val Müstair 186, 7536 Sta. Maria ou par courriel à Angela.giacomelli@csvm.ch. Pour toute question, veuillez contacter Mme Annemarie Stricker (Chef de service, 081 851 61 22) ou Mme Angela Giacomelli (Service personnel, 081 851 61 75).\n\nPour en savoir plus sur un travailleur soignant SRK 80-100%\n\nDescription de travail (PDF): https://www.csvm.ch/image/easyblog_articles 319/assistant de soins-80 100_mai-2026_d.pdf"
       },
-      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/pflegehelfer-in-srk-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:24.889Z",
+      "crawledAt": "2026-09-03T23:21:09.729Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -125,13 +123,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
-        "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
+        "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair",
-          "assistente-infermieristico-srk-80-100-center-da-sanda-val-mustair-csvm-sta"
+          "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
         ],
         "en": [
           "pflegehelfer-in-srk-80-100-csvm-mustair-mustair"
@@ -143,6 +139,7 @@
       "firstSeenAt": "2026-05-21T22:13:17.732Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -150,84 +147,6 @@
           "@type": "QuantitativeValue",
           "minValue": 81500,
           "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "csvm-mustair-b510abc4e696",
-      "slug": "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-      "slugByLocale": {
-        "it": "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "en": "summer-internship-in-a-nursing-home-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "de": "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-        "fr": "stage-d-ete-a-la-maison-de-retraite-center-da-sanda-val-mustair-csvm-sta"
-      },
-      "company": "Center da Sanda Val Müstair (CSVM)",
-      "companyKey": "csvm-mustair",
-      "companyDomain": "csvm.ch",
-      "title": "Sommerpraktikum im Pflegeheim",
-      "titleByLocale": {
-        "it": "Stage estivo nella casa di cura",
-        "en": "Summer Internship in Nursing Home",
-        "de": "Sommerpraktikum im Pflegeheim",
-        "fr": "Stage d'été en maison de retraite"
-      },
-      "description": "Sommerpraktikum im Pflegeheim — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nSommerpraktikum im Val Müstair – dort, wo andere Ferien machen Sind Sie bereit für eine spannende Herausforderung in einer neuen Umgebung und möchten Sie diesen Sommer Teil unseres Teams im Pflegeheim sein? Dann freuen wir uns, Sie kennenzulernen. Wir sind ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach vereinen wir ein Akutspital mit Rettungsdienst, ein Pflegeheim, eine Arztpraxis sowie die Spitex. Zur Unterstützung unseres Pflegeteams suchen wir für die Monate Juli und August 2026 für mindestens 4–8 Wochen eine motivierte Praktikantin / einen motivierten Praktikanten mit Verantwortungsbewusstsein und Freude am Umgang mit älteren Menschen. Bei Bedarf kann eine Wohngelegenheit organisiert werden. Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung mit Motivationsschreiben und Lebenslauf an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/321/Sommerjob_Pflegeheim_Mai-2026_d.pdf",
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nTirocinio estivo presso la casa di cura — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nStage estivo in Val Müstair – dove altri vanno in vacanza Sei pronto per una sfida emozionante in un nuovo ambiente e vorresti far parte del nostro team nella casa di cura quest' estate? Allora non vediamo l'ora di conoscerti. Siamo un piccolo centro sanitario nella bellissima valle montana della Val Müstair. Sotto lo stesso tetto uniamo un ospedale per casi acuti con un servizio di ambulanza, una casa di cura, uno studio medico e Spitex. Per supportare il nostro team infermieristico, per i mesi di luglio e agosto 2026 cerchiamo uno stagista motivato con senso di responsabilità e piacere nel trattare con gli anziani per almeno 4–8 settimane. Se necessario, è possibile organizzare un alloggio. Abbiamo suscitato il vostro interesse? Saremo lieti di ricevere la vostra candidatura con lettera di motivazione e curriculum vitae al Center da sandà Val Müstair, Sig.ra Angela Giacomelli, Servizio del personale, Via Val Müstair 186, 7536 Sta. Maria o via e-mail a angela.giacomelli@csvm.ch.\n\nCompiti\n\n- Supporto del team infermieristico nella casa di cura\n- Collaborazione nell'assistenza e nella cura degli anziani\n- Assunzione di compiti di responsabilità nell'ambito del tirocinio\n\nRequisiti\n\n- senso di responsabilità\n- Piacere nel trattare con gli anziani\n- Motivazione per uno stage estivo di almeno 4–8 settimane\n- Disponibilità a lavorare in",
-        "en": "Description\n\nSummer internship in the nursing home — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nSummer internship in Val Müstair – where other holidays are taking place Are you ready for an exciting challenge in a new environment and would you like to be part of our team at the nursing home this summer? Then we are happy to meet you. We are a small health center in the beautiful Val Müstair mountain valley. Under one roof we combine an acute hospital with rescue service, a nursing home, a doctor's office and the Spitex.\n\nTo support our nursing team, we are looking for a motivated intern for at least 4-8 weeks for the months of July and August 2026, with a sense of responsibility and a joy in dealing with the elderly. If necessary, we can organise a housing opportunity. Have we aroused your interest? Then we look forward to your application with a letter of motivation and CV to the Center da Sandà Val Müstair, Mrs. Angela Giacomelli, HR Service, Via Val Müstair 186, 7536 Sta. Maria or by email to angela.giacomelli@csvm.ch.\n\nTasks\n\n- support of the nursing team in the nursing home - cooperation in the care and care of the elderly - acceptance of responsible tasks within the framework of the internship\n\nRequirements\n\n- awareness of responsibility - joy in dealing with the elderly - motivation for a summer internship of at least 4–8 weeks - willingness to work in a new environment\n\nWe offer\n\n- insight into working in a small health centre in the Val Müstair valley - possibility to gain practical experience in the care sector - organisation of a housing facility if necessary\n\nContact\n\nHave we aroused your interest? Then we look forward to your application with letter of motivation and CV to the Center da Sandà Val Müstair, Mrs. Angela Giacomelli, HR Service, Via Val Müstair 186, 7536 Sta. Maria or by email to angela.giacomelli@csvm.ch.\n\nJob description (PDF): https://www.csvm.ch/images/easyblog_articles/321/summerjob_pflegeheim_May-2026_d.pdf",
-        "de": "Sommerpraktikum im Pflegeheim — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nSommerpraktikum im Val Müstair – dort, wo andere Ferien machen Sind Sie bereit für eine spannende Herausforderung in einer neuen Umgebung und möchten Sie diesen Sommer Teil unseres Teams im Pflegeheim sein? Dann freuen wir uns, Sie kennenzulernen. Wir sind ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach vereinen wir ein Akutspital mit Rettungsdienst, ein Pflegeheim, eine Arztpraxis sowie die Spitex. Zur Unterstützung unseres Pflegeteams suchen wir für die Monate Juli und August 2026 für mindestens 4–8 Wochen eine motivierte Praktikantin / einen motivierten Praktikanten mit Verantwortungsbewusstsein und Freude am Umgang mit älteren Menschen. Bei Bedarf kann eine Wohngelegenheit organisiert werden. Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre Bewerbung mit Motivationsschreiben und Lebenslauf an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/321/Sommerjob_Pflegeheim_Mai-2026_d.pdf",
-        "fr": "Désignation des marchandises\n\nStage d'été dans la maison de soins infirmiers — Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nStage d'été à Val Müstair – où d'autres vacances ont lieu Êtes-vous prêt pour un défi passionnant dans un nouvel environnement et souhaitez-vous faire partie de notre équipe à la maison de retraite cet été? Ensuite, nous sommes heureux de vous rencontrer. Nous sommes un petit centre de santé dans la belle vallée de Val Müstair. Sous un même toit, nous combinons un hôpital aigu avec service de secours, une maison de retraite, un cabinet de médecin et le Spitex.\n\nPour soutenir notre équipe de soins infirmiers, nous recherchons un stagiaire motivé pendant au moins 4-8 semaines pour les mois de juillet et août 2026, avec un sens des responsabilités et une joie dans la gestion des personnes âgées. Si nécessaire, nous pouvons organiser une opportunité de logement. Avons-nous suscité votre intérêt? Ensuite, nous attendons avec impatience votre candidature avec une lettre de motivation et CV au Centre da Sandà Val Müstair, Mme Angela Giacomelli, HR Service, Via Val Müstair 186, 7536 Sta. Maria ou par email à angela.giacomelli@csvm.ch.\n\nTâches\n\n- soutien de l'équipe de soins infirmiers dans la maison de soins infirmiers - coopération dans les soins et soins aux personnes âgées - acceptation des tâches responsables dans le cadre du stage\n\nBesoins\n\n- la sensibilisation aux responsabilités - la joie de traiter avec les personnes âgées - la motivation pour un stage d'été d'au moins 4 à 8 semaines - la volonté de travailler dans un nouvel environnement\n\nNous offrons\n\n- la possibilité de travailler dans un petit centre de santé de la vallée du Val Müstair - la possibilité d'acquérir une expérience pratique dans le secteur des soins - l'organisation d'un logement si nécessaire\n\nPersonne à contacter\n\nNous avons suscité votre intérêt? Ensuite, nous attendons avec impatience votre candidature avec lettre de motivation et CV au Centre da Sandà Val Müstair, Mme Angela Giacomelli, HR Service, Via Val Müstair 186, 7536 Sta. Maria ou par courriel à angela.giacomelli@csvm.ch.\n\nDescription de travail (PDF): https://www.csvm.ch/image/easyblog_articles/321/summerjob_pflegeheim_mai-2026_d.pdf"
-      },
-      "needsRetranslation": false,
-      "location": "Sta",
-      "canton": "GR",
-      "url": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
-      "source": "CSVM Dedicated Parser (Joomla HTML)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:24.432Z",
-      "addressLocality": "Sta",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7536",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-21",
-      "applyUrl": "https://www.csvm.ch/de/aktuelles/sommerpraktikum-im-pflegeheim.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-        "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
-        "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair",
-          "stage-estivo-nella-casa-di-cura-center-da-sanda-val-mustair-csvm-sta",
-          "sommerpraktikum-im-pflegeheim-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
-        ],
-        "fr": [
-          "sommerpraktikum-im-pflegeheim-csvm-mustair-mustair"
-        ]
-      },
-      "firstSeenAt": "2026-05-21T22:13:17.730Z",
-      "salaryMin": 73000,
-      "salaryMax": 102000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 102000,
           "unitText": "YEAR"
         }
       }
@@ -251,20 +170,20 @@
         "de": "Einsatzleitung Spitex 80-100%",
         "fr": "Ligne opérationnelle Spitex 80-100 %"
       },
-      "description": "Einsatzleitung Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
+      "description": "Einsatzleitung Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDie Spitex Val Müstair, als Teil des Gesundheitszentrums Val Müstair, bietet per 1. Januar 2027 oder nach Vereinbarung eine Kaderstelle als Ihre Qualifikation  Dipl. Pflegefachperson HF mit fundiertem Praxiswissen  Führungspersönlichkeit mit entsprechender Weiterbildung  Kommunikationsgeschick auf allen Ebenen  Hohes Engagement, Gestaltungswille und Initiativkraft  Kenntnisse InterRAI HomeCare  Führerausweis Kat. B Ihr Kernauftrag  Umsetzen des Leistungsauftrags der öffentichen Spitex  Evaluation, Beratung und Planung des Leistungsbedarfs  Erstellung der Dienst- Einsatzplanung  Kooperation mit Ärzten, Behörden und Versicherern  Mitarbeiterführung  Vertretung der Spitexorganisation innerhalb der Geschäftsleitung Unser Angebot  Eine sehr gut funktionierende Spitexorganisation mit >100 Klienten und >22 Mitarbeitenden  Hybrides Arbeitszeitmodell: Präsenz, Homeoffice 60/20 oder 70/30 möglich  Offen für Top-Sharing, auch als Bewerbung zu zweit  Grosszügiger Arbeitsplatz, moderne IT-Infrastruktur und Unterstützung durch das Sekretariat  Marktgerechte Vergütung Überzeugen Sie uns und richten Sie ihre vollständige Bewerbung bis 30. September 2026 an Frau Angela Giacomelli, Personalverantwortliche, angela.giacomelli@csvm.ch. Weiter Informationen zum Gesundheitszentrum Val Müstair finden Sie auf www.csvm.ch. Wir freuen uns auf den Kontakt mit Ihnen. Einsatzleitung Spitex, 80-100%\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/322/Einsatzleitung-Spitex_Jan.-2026_d_Neugestaltung.pdf",
       "descriptionByLocale": {
         "it": "Gestione delle operazioni Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/en/aktuelles/einsatzleitung-spitex-80-100.html",
         "en": "Operations management Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allegato alla pagina https://www.csvm.ch/en/aktuelles/einsatzleitung-spitex-80-100.html",
-        "de": "Einsatzleitung Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDettagli completi sul PDF allegato alla pagina https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
+        "de": "Einsatzleitung Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDie Spitex Val Müstair, als Teil des Gesundheitszentrums Val Müstair, bietet per 1. Januar 2027 oder nach Vereinbarung eine Kaderstelle als Ihre Qualifikation  Dipl. Pflegefachperson HF mit fundiertem Praxiswissen  Führungspersönlichkeit mit entsprechender Weiterbildung  Kommunikationsgeschick auf allen Ebenen  Hohes Engagement, Gestaltungswille und Initiativkraft  Kenntnisse InterRAI HomeCare  Führerausweis Kat. B Ihr Kernauftrag  Umsetzen des Leistungsauftrags der öffentichen Spitex  Evaluation, Beratung und Planung des Leistungsbedarfs  Erstellung der Dienst- Einsatzplanung  Kooperation mit Ärzten, Behörden und Versicherern  Mitarbeiterführung  Vertretung der Spitexorganisation innerhalb der Geschäftsleitung Unser Angebot  Eine sehr gut funktionierende Spitexorganisation mit >100 Klienten und >22 Mitarbeitenden  Hybrides Arbeitszeitmodell: Präsenz, Homeoffice 60/20 oder 70/30 möglich  Offen für Top-Sharing, auch als Bewerbung zu zweit  Grosszügiger Arbeitsplatz, moderne IT-Infrastruktur und Unterstützung durch das Sekretariat  Marktgerechte Vergütung Überzeugen Sie uns und richten Sie ihre vollständige Bewerbung bis 30. September 2026 an Frau Angela Giacomelli, Personalverantwortliche, angela.giacomelli@csvm.ch. Weiter Informationen zum Gesundheitszentrum Val Müstair finden Sie auf www.csvm.ch. Wir freuen uns auf den Kontakt mit Ihnen. Einsatzleitung Spitex, 80-100%\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/322/Einsatzleitung-Spitex_Jan.-2026_d_Neugestaltung.pdf",
         "fr": "Gestion des opérations Spitex 80-100% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR). Dettagli completi sul PDF allégato alla pagina https://www.csvm.ch/en/aktuelles/einsatzleitung-spitex-80-100.html"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/einsatzleitung-spitex-80-100.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:23.908Z",
+      "crawledAt": "2026-09-03T23:21:09.245Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -282,13 +201,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
-        "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
+        "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzleitung-spitex-80-100-csvm-mustair-mustair",
-          "linea-operativa-spitex-80-100-center-da-sanda-val-mustair-csvm-sta"
+          "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
         ],
         "en": [
           "einsatzleitung-spitex-80-100-csvm-mustair-mustair"
@@ -300,6 +217,7 @@
       "firstSeenAt": "2026-06-26T21:46:49.221Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -343,7 +261,7 @@
       "url": "https://www.csvm.ch/de/aktuelles/lehrstellen-2027.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:23.906Z",
+      "crawledAt": "2026-09-03T23:21:08.759Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -365,8 +283,7 @@
         "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
         "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
         "lehrstellen-2026-csvm-mustair-mustair",
-        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-        "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta"
+        "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -374,8 +291,7 @@
           "apprendistato-2026-center-da-sanda-val-mustair-csvm-sta",
           "apprenticeships-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
           "lehrstellen-2026-csvm-mustair-mustair",
-          "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
-          "applicazioni-2027-center-da-sanda-val-mustair-csvm-sta"
+          "apprentissages-2026-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair"
         ],
         "en": [
           "lehrstellen-2027-csvm-mustair-mustair",
@@ -392,6 +308,7 @@
       "firstSeenAt": "2026-07-02T21:36:04.800Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -418,24 +335,23 @@
       "title": "Dipl. Pflegefachperson HF",
       "titleByLocale": {
         "it": "Dipl. Professionista HF",
-        "en": "Dipl. Pflegefachperson HF",
+        "en": "Dipl. Care professional HF",
         "de": "Dipl. Pflegefachperson HF",
         "fr": "Dipl. Soins professionnels HF"
       },
       "description": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% \n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. September 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E- Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026__20260818-092751_1.pdf",
       "descriptionByLocale": {
         "it": "Designazione delle merci\n\nDipl. Specialista infermieristico HF. Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nIl Centro da Sandà Val Müstair è un piccolo centro sanitario nella bellissima Val Müstair. Sotto un tetto sono integrati un ospedale acuto con servizi di emergenza e soccorso, una casa di cura, un medico e lo Spitex. Per lo Spitex stiamo cercando un esperto dipl. infermieristica HF Arbeitsposum dal 60%\n\nCompiti\n\n- Il tuo profilo, diploma HF, Cura professionale e cura in ambiente di cura personale, Expressed responsabilità consapevolezza, grande flessibilità e resilienza, discrezione, guide pass Cat. B, conoscenza desiderata delle lingue romaniche\n\nOffriamo\n\n- Attività interessante e varia, Infrastrutture moderne, Ambiente di lavoro piacevole in un team competente, impegnato e dispiaciuto, Condizioni di lavoro e retribuzione adeguate al tempo, possibilità di partecipare alla formazione interna ed esterna, Cooperazione interdisciplinare\n\nContatto\n\nAbbiamo suscitato il vostro interesse? Allora attendiamo con ansia di ricevere la vostra domanda completa entro il 10 agosto 2026 al Centro da Sandà Val Müstair, la signora Angela Giacomelli, HR Service, Via Val Müstair 186, 7536 Sta. Maria o via email angela.giacomelli@csvm.ch.\n\nDescrizione del lavoro (PDF): https://www.csvm.ch/images/easyblog_articles/326/spitex-dipl.-specialist_Luglio-2026_d.pdf",
-        "en": "Dipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60% \n• Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht Unser Angebot  Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. September 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E- Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026__20260818-092751_1.pdf",
+        "en": "Dipl. Nurse HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nThe Center da Sandà Val Müstair is a small health centre located in the beautiful Val Müstair mountain valley. Under one roof, an acute hospital with emergency and emergency service, a nursing home, a doctor's office and the Spitex are integrated. For Spitex we are looking for a dipl by 1 October or by agreement. Care professional HF workload from 60%\n• Her profile Ė Diplom HF Ė Professional care and support in the personal care environment Ė Strong sense of responsibility, great flexibility and resilience Ė Discretion Ė Driver’s ID Cat. B ♦ Knowledge of Romanesque desirable Our offer ♦ Interesting and varied activity ♦ Modern infrastructure ♦ Pleasant working environment in a competent, committed and collegial team ♦ Timely working conditions and remuneration ♦ Possibility to participate in internal and external further education Interdisciplinary cooperation Have we aroused your interest? Then we look forward to your full application by 10. September 2026 to the Center da sandà Val Müstair, Ms Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria or by email to angela.giacomelli@csvm.ch.\n\nJob description (PDF): https://www.csvm.ch/images/easyblog articles/326/Spitex-dipl.-Expert Juli-2026 20260818-092751 1.pdf",
         "de": "Beschreibung\n\nDipl. Pflegefachperson HF — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines Gesundheitszentrum im wunderschönen Bergtal Val Müstair. Unter einem Dach sind ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis und die Spitex integriert. Für die Spitex suchen wir per 1. Oktober oder nach Vereinbarung eine dipl. Pflegefachperson HF Arbeitspensum ab 60%\n\nAufgaben\n\n- Ihr Profil  Diplom HF  Professionelle Pflege und Betreuung im persönlichen Pflegeumfeld  Ausgeprägtes Verantwortungsbewusstsein, grosse Flexibilität und Belastbarkeit  Diskretion  Führerausweis Kat. B  Romanischkenntnisse erwünscht\n\nWir bieten\n\n- Interessante und abwechslungsreiche Tätigkeit  Moderne Infrastruktur  Angenehmes Arbeitsklima in einem kompetenten, engagierten und kollegialen Team  Zeitgerechte Arbeitsbedingungen und Entlohnung  Möglichkeit an internen und externen Weiterbildungen teilzunehmen  Interdisziplinäre Zusammenarbeit\n\nKontakt\n\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 10. August 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/326/Spitex-dipl.-Fachperson_Juli-2026_d.pdf",
         "fr": "Désignation des marchandises\n\nSpécialiste des soins infirmiers HF — Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nLe Centre da Sandà Val Müstair est un petit centre de santé dans la belle vallée du Val Müstair. Sous un même toit sont intégrés un hôpital aigu avec des services d'urgence et de secours, une maison de soins, un cabinet de médecin et le Spitex. Pour le Spitex nous sommes à la recherche d'un dipl. spécialiste en soins infirmiers HF Arbeitsposum à partir de 60%\n\nTâches\n\n- Votre profil, diplôme HF, Soins et soins professionnels dans le milieu de soins personnels, Sensibilisation aux responsabilités, grande flexibilité et résilience, discrétion, guide pass Cat. B, connaissance souhaitée des langues romanes\n\nNous offrons\n\n- Activités intéressantes et variées, Infrastructures modernes, Environnement de travail agréable dans une équipe compétente, engagée et collégiale, Conditions de travail et rémunération adaptées au temps, possibilité de participer à une formation interne et externe, coopération interdisciplinaire\n\nPersonne à contacter\n\nNous avons suscité votre intérêt? Ensuite, nous attendons avec impatience de recevoir votre candidature complète au plus tard le 10 août 2026 au Centre da Sandà Val Müstair, Mme Angela Giacomelli, Service RH, Via Val Müstair 186, 7536 Sta. Maria ou par courriel à angela.giacomelli@csvm.ch.\n\nDescription de travail (PDF): https://www.csvm.ch/image/easyblog_articles/326/spitex-dipl.-spécialiste_juillet-2026_d.pdf"
       },
-      "needsRetranslation": true,
       "location": "Sta",
       "canton": "GR",
       "url": "https://www.csvm.ch/de/aktuelles/dipl-pflegefachperson-hf.html",
       "source": "CSVM Dedicated Parser (Joomla HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:21:22.782Z",
+      "crawledAt": "2026-09-03T23:21:07.976Z",
       "addressLocality": "Sta",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -454,25 +370,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "dipl-pflegefachperson-hf-csvm-mustair-mustair",
-          "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta"
+          "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ],
         "it": [
-          "dipl-pflegefachperson-hf-csvm-mustair-mustair",
-          "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
+          "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ],
         "fr": [
           "dipl-pflegefachperson-hf-csvm-mustair-mustair"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-csvm-mustair-mustair",
-        "dipl-care-professional-hf-center-da-sanda-val-mustair-csvm-sta",
-        "dipl-professionista-hf-center-da-sanda-val-mustair-csvm-sta"
+        "dipl-pflegefachperson-hf-csvm-mustair-mustair"
       ],
       "firstSeenAt": "2026-07-16T23:27:37.126Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -480,6 +393,83 @@
           "@type": "QuantitativeValue",
           "minValue": 81500,
           "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "csvm-mustair-ddc5bae0b998",
+      "slug": "medizinische-praxisassistentin-cfc-60-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+      "slugByLocale": {
+        "it": "medizinische-praxisassistentin-cfc-60-center-da-sanda-val-mustair-csvm-sta-maria-val-mustair",
+        "en": "medical-practice-assistant-efz-60-center-da-sanda-val-mustair-csvm-sta",
+        "de": "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair",
+        "fr": "assistant-de-medecine-efz-60-center-da-sanda-val-mustair-csvm-sta"
+      },
+      "company": "Center da Sanda Val Müstair (CSVM)",
+      "companyKey": "csvm-mustair",
+      "companyDomain": "csvm.ch",
+      "title": "Medizinische Praxisassistentin EFZ, 60%",
+      "titleByLocale": {
+        "it": "Medizinische Praxisassistentin CFC, 60%",
+        "en": "Medical practice assistant EFZ, 60 %",
+        "de": "Medizinische Praxisassistentin EFZ, 60%",
+        "fr": "Assistant de médecine EFZ, 60 %"
+      },
+      "description": "Medizinische Praxisassistentin EFZ, 60% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines, vielseitiges Gesundheitszentrum im Val Müstair. Unter einem Dach vereint es ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis sowie die Spitex. Für unseren vielseitigen und abwechslungsreichen Praxisbetrieb suchen wir zur Verstärkung eine Medizinische Praxisassistentin EFZ (60%) Aufgabengebiet  Betreuung und Assistenz während der Sprechstunden, Labor inkl. Immunhämatologie, Röntgen, Spirometrie, EKG, Telefontriage, Administration und Medikamentenabgabe  Mitarbeit in der Notfallversorgung  Vorbereitung und Assistenz bei kleineren Eingriffen sowie bei der Wundversorgung  Übernahme von Pikett- und Wochenenddiensten Kompetenzen  Abgeschlossene Ausbildung als Medizinische Praxisassistentin EFZ (Voraussetzung)  Flexible, belastbare und teamorientierte Arbeitsweise  Ausgeprägtes Organisationstalent und selbstständige Arbeitsweise  Freude am Kontakt und Umgang mit Menschen  Gute Deutschkenntnisse in Wort und Schrift Angebot  Eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem kollegialen, engagierten und wertschätzenden Team  Eine sorgfältige und strukturierte Einarbeitung sowie Schulung in den verschiedenen Fachbereichen  Ein moderner und gut ausgestatteter Arbeitsplatz  Vielfältige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung  5 Wochen Ferien Es wartet eine spannende Herausforderung auf Sie. Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 30. November 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/335/MPA-60_Aug.-2026_d.pdf",
+      "descriptionByLocale": {
+        "it": "Assistente medico EFZ, 60% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nIl Centro da Sandà Val Müstair è un piccolo e versatile centro benessere in Val Müstair. Sotto un tetto, combina un ospedale acuto con servizi di emergenza e di emergenza, una casa di cura, una pratica medica e la Spitex. Per il nostro versatile e variegato esercizio di pratica, stiamo cercando un assistente medico EFZ (60%) area di responsabilità per la cura e l'assistenza durante le ore di consultazione, laboratorio incl. Ematologia Immune, X-rays, Spirometry, ECG, triage telefonico, somministrazione e distribuzione di droga ▪ Collaborazione nell'assistenza di emergenza ▪ Preparazione e assistenza negli interventi minori nonché nella cura delle ferite ▪ Assunzione di pikett e servizi di fine settimana Competenze ▪ Formazione completa come assistente di pratica medica EFZ (prerequisito) Una sfida emozionante vi aspetta. Abbiamo suscitato il vostro interesse? Allora non vediamo l'ora della vostra applicazione completa di 30. Novembre 2026 al Center da sandà Val Müstair, Mrs. Angela Giacomelli, Personnel Service, Via Val Müstair 186, 7536 Sta. Maria o via email a angela.giacomelli@csvm.ch.\n\nDescrizione del lavoro: https://www.csvm.ch/images/easyblog article/335/MPA-60 Aug.-2026 d.pdf",
+        "en": "Medical practice assistant EFZ, 60% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nThe Center da Sandà Val Müstair is a small, versatile health center in Val Müstair. Under one roof, it combines an acute hospital with emergency and emergency services, a nursing home, a medical practice and the Spitex. For our versatile and varied practice operation, we are looking for a medical practice assistant EFZ (60%) area of responsibility for care and assistance during consultation hours, laboratory incl. Immune hematology, X-rays, spirometry, ECG, telephone triage, administration and drug delivery ▪ Collaboration in emergency care ▪ Preparation and assistance in minor interventions as well as in wound care ▪ Assumption of pikett and weekend services Competences ▪ Completed training as medical practice assistant EFZ (prerequisite) ▪ Flexible, resilient and team-oriented working method ▪ Strong organisational talent and independent working method ▪ Pleasure in contact and dealing with people ▪ Good German skills in word and writing Offer ▪ Responsible and varied work in a collegial, committed and appreciative team ▪ Careful and structured familiarisation as well as training in the various specialist areas ▪ A modern and well-equipped workplace sucht Various possibilities for professional and personal further development 5 weeks holiday An exciting challenge awaits you. Have we aroused your interest? Then we look forward to your full application by 30. November 2026 to the Center da sandà Val Müstair, Mrs. Angela Giacomelli, Personnel Service, Via Val Müstair 186, 7536 Sta. Maria or by email to angela.giacomelli@csvm.ch.\n\nJob description: https://www.csvm.ch/images/easyblog articles/335/MPA-60 Aug.-2026 d.pdf",
+        "de": "Medizinische Praxisassistentin EFZ, 60% — Center da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nDas Center da sandà Val Müstair ist ein kleines, vielseitiges Gesundheitszentrum im Val Müstair. Unter einem Dach vereint es ein Akutspital mit Notfall- und Rettungsdienst, ein Pflegeheim, eine Arztpraxis sowie die Spitex. Für unseren vielseitigen und abwechslungsreichen Praxisbetrieb suchen wir zur Verstärkung eine Medizinische Praxisassistentin EFZ (60%) Aufgabengebiet  Betreuung und Assistenz während der Sprechstunden, Labor inkl. Immunhämatologie, Röntgen, Spirometrie, EKG, Telefontriage, Administration und Medikamentenabgabe  Mitarbeit in der Notfallversorgung  Vorbereitung und Assistenz bei kleineren Eingriffen sowie bei der Wundversorgung  Übernahme von Pikett- und Wochenenddiensten Kompetenzen  Abgeschlossene Ausbildung als Medizinische Praxisassistentin EFZ (Voraussetzung)  Flexible, belastbare und teamorientierte Arbeitsweise  Ausgeprägtes Organisationstalent und selbstständige Arbeitsweise  Freude am Kontakt und Umgang mit Menschen  Gute Deutschkenntnisse in Wort und Schrift Angebot  Eine verantwortungsvolle und abwechslungsreiche Tätigkeit in einem kollegialen, engagierten und wertschätzenden Team  Eine sorgfältige und strukturierte Einarbeitung sowie Schulung in den verschiedenen Fachbereichen  Ein moderner und gut ausgestatteter Arbeitsplatz  Vielfältige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung  5 Wochen Ferien Es wartet eine spannende Herausforderung auf Sie. Haben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständige Bewerbung bis 30. November 2026 an das Center da sandà Val Müstair, Frau Angela Giacomelli, Personaldienst, Via Val Müstair 186, 7536 Sta. Maria oder per E-Mail an angela.giacomelli@csvm.ch.\n\nStellenbeschrieb (PDF): https://www.csvm.ch/images/easyblog_articles/335/MPA-60_Aug.-2026_d.pdf",
+        "fr": "Assistante médicale EFZ, 60% — Centre da Sanda Val Müstair (CSVM), Sta. Maria V.M. (GR).\n\nLe Centre da Sandà Val Müstair est un petit centre de santé polyvalent à Val Müstair. Sous un même toit, il combine un hôpital d'urgence avec des services d'urgence, une maison de soins infirmiers, une pratique médicale et le Spitex. Pour notre pratique polyvalente et variée, nous sommes à la recherche d'un assistant de pratique médicale EFZ (60%) domaine de responsabilité pour les soins et l'assistance pendant les heures de consultation, laboratoire incl. Hématologie immunitaire, rayons X, spirométrie, ECG, triage téléphonique, administration et distribution de médicaments ▪ Collaboration dans les soins d'urgence ▪ Préparation et assistance dans les interventions mineures ainsi que dans les soins des plaies ▪ Hypothèse de picett et services de fin de semaine Compétences ▪ Formation complète en tant qu'assistant à la pratique médicale EFZ (préalable) ▪ Méthode de travail souple, résiliente et axée sur l'équipe ▪ Forte capacité organisationnelle et méthode de travail indépendante ▪ Plaisir de contact et de traitement des personnes ▪ Bonnes compétences allemandes en matière de parole et d'écriture Offre ▪ Travail responsable et varié au sein d'une équipe collégiale, engagée et appréciatrice ▪ Familiarisation attentive et structurée ainsi que formation dans les différents domaines spécialisés ▪ Un lieu de travail moderne et bien équipé ainsi que diverses possibilités de perfectionnement professionnel et personnel 5 semaines vacances Un défi passionnant vous attend. Avons-nous suscité votre intérêt ? Ensuite, nous attendons avec impatience votre demande complète d'ici 30. Novembre 2026 au Centre da sandà Val Müstair, Mme Angela Giacomelli, Service du personnel, Via Val Müstair 186, 7536 Sta. Maria ou par courriel à angela.giacomelli@csvm.ch.\n\nDescription du travail : https://www.csvm.ch/images/easyblog articles/335/MPA-60 août 2026 d.pdf"
+      },
+      "location": "Sta",
+      "canton": "GR",
+      "url": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
+      "source": "CSVM Dedicated Parser (Joomla HTML)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:21:06.295Z",
+      "addressLocality": "Sta",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7536",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://www.csvm.ch/de/aktuelles/medizinische-praxisassistentin-efz-60.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-efz-60-csvm-mustair-mustair"
+        ]
+      },
+      "firstSeenAt": "2026-08-28T05:34:45.119Z",
+      "salaryMin": 48900,
+      "salaryMax": 68400,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48900,
+          "maxValue": 68400,
           "unitText": "YEAR"
         }
       }

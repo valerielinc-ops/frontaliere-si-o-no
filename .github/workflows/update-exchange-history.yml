@@ -27,27 +27,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
-        with:
-          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
-          sparse-checkout: |
-            /*
-            !/public/images/
-            !/data/jobs/
-            !/data/translation-cache/
-            !/packages/articles/content/
-            !/docs/
-            !/public/data/
-            !/data/related-search-candidates.json
-            !/data/cf-hot-404s.json
-            !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
-            !/data/url-first-seen.json
-            !/data/jobs-snapshots-history/
-            !/data/slug-registry.json
-            !/data/evidence-index.json
-            !/data/health-premiums/
-            !/data/jobs-crawler-summaries/
-          sparse-checkout-cone-mode: false
         # Tetto sullo step: senza, un Checkout impantanato consuma l'intero
         # budget del job e questo muore `cancelled` — stato invisibile agli
         # `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
@@ -76,6 +55,9 @@ jobs:
             echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret not set"
             exit 1
           fi
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Update exchange rate history
         run: node scripts/update-exchange-history.mjs

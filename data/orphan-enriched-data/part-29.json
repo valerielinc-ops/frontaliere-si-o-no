@@ -9658,10 +9658,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
-        "en": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
+        "it": "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-dietlikon",
+        "en": "elevator-installation-modernization-and-replacement-equipment-m-f-d-otis-sa-dietlikon",
         "de": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
-        "fr": "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon"
+        "fr": "materiel-de-modernisation-et-de-remplacement-de-l-installation-d-ascenseur-h-f-d-otis-sa-dietlikon"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-dietlikon",
@@ -9675,6 +9675,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -30224,6 +30225,69 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern/"
+      },
+      "queries": [
+        {
+          "query": "hotel bern jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "hotel schweizerhof bern jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "hotel bern jobs",
+      "title": "Front desk manager burgenstock hotels ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "en": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "de": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "fr": "front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "en": "/en/find-jobs-bern/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "de": "/de/jobs-im-bern/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern",
+        "fr": "/fr/trouver-emploi-berne/front-desk-manager-100-m-f-d-burgenstock-hotels-ag-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -63044,10 +63108,10 @@
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-bern/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
+        "it": "/cerca-lavoro-sciaffusa/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-schaffhausen/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
         "de": "/de/jobs-im-solothurn/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-berne/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen"
+        "fr": "/fr/trouver-emploi-schaffhouse/specialist-specialist-for-general-internal-medicine-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "googleStatus": "unknown",
@@ -67015,10 +67079,10 @@
         "fr": "stv-branch-manager-in-denner-emmenbrucke"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/stv-branch-manager-in-denner-emmenbrucke",
-        "en": "/en/find-jobs-ticino/stv-branch-manager-in-denner-emmenbrucke",
-        "de": "/de/jobs-im-tessin/stv-branch-manager-in-denner-emmenbrucke",
-        "fr": "/fr/trouver-emploi-tessin/stv-branch-manager-in-denner-emmenbrucke"
+        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-emmenbrucke",
+        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-emmenbrucke",
+        "de": "/de/jobs-in-appenzell/stv-branch-manager-in-denner-emmenbrucke",
+        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-emmenbrucke"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -70641,10 +70705,10 @@
         "fr": "ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
-        "en": "/en/find-jobs-ticino/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
-        "de": "/de/jobs-im-tessin/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
-        "fr": "/fr/trouver-emploi-tessin/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino"
+        "it": "/cerca-lavoro-zurigo/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
+        "en": "/en/find-jobs-zurich/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
+        "de": "/de/jobs-in-zurich/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino",
+        "fr": "/fr/trouver-emploi-zurich/ubs-card-center-ag-operations-business-analyste-80-100-w-m-d-ubs-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -72447,10 +72511,10 @@
         "fr": "vendeur-euse-food-coop-genossenschaft-bern-ace4ef"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
-        "en": "/en/find-jobs-ticino/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
-        "de": "/de/jobs-im-tessin/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
-        "fr": "/fr/trouver-emploi-tessin/vendeur-euse-food-coop-genossenschaft-bern-ace4ef"
+        "it": "/cerca-lavoro-berna/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
+        "en": "/en/find-jobs-bern/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
+        "de": "/de/jobs-in-bern/vendeur-euse-food-coop-genossenschaft-bern-ace4ef",
+        "fr": "/fr/trouver-emploi-berne/vendeur-euse-food-coop-genossenschaft-bern-ace4ef"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75125,10 +75189,10 @@
         "fr": "venditore-in-food-fresh-island-coop-genossenschaft-mels"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/venditore-in-food-fresh-island-coop-genossenschaft-mels",
-        "en": "/en/find-jobs-graubunden/venditore-in-food-fresh-island-coop-genossenschaft-mels",
+        "it": "/cerca-lavoro-argovia/venditore-in-food-fresh-island-coop-genossenschaft-mels",
+        "en": "/en/find-jobs-aargau/venditore-in-food-fresh-island-coop-genossenschaft-mels",
         "de": "/de/jobs-im-zurich/venditore-in-food-fresh-island-coop-genossenschaft-mels",
-        "fr": "/fr/trouver-emploi-grisons/venditore-in-food-fresh-island-coop-genossenschaft-mels"
+        "fr": "/fr/trouver-emploi-argovie/venditore-in-food-fresh-island-coop-genossenschaft-mels"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75988,10 +76052,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "de": "verkaufer-in-food-coop-genossenschaft-bern-2gmv2k",
-        "it": "venditore-in-food-coop-genossenschaft-bern-589c15",
-        "en": "seller-in-food-coop-genossenschaft-bern-589c15",
-        "fr": "vendeur-dans-la-nourriture-coop-genossenschaft-bern-589c15"
+        "de": "verkaufer-in-food-coop-genossenschaft-bern-t8dx7q",
+        "it": "venditore-venditrice-alimentari-coop-genossenschaft-bern",
+        "en": "food-sales-associate-coop-genossenschaft-bern",
+        "fr": "vendeur-vendeuse-alimentation-coop-genossenschaft-bern"
       },
       "localePaths": {
         "it": "/cerca-lavoro-berna/verkaufer-in-food-coop-genossenschaft-bern",

@@ -7,12 +7,13 @@
  *
  * This module exports:
  *   parseTplListingPage(html)  — extract job links from careers page
+ *   parseTplListingState(html) — distinguish a real zero from source drift
+ *   parseTplDetailPage(html)   — extract the source-owned vacancy block
  *   isTplJob(job)              — match TPL jobs in dataset
- *
- * Detail-page parsing is handled by the shared `runDedicatedBaseCrawler`
- * generic engine (see scripts/update-tpl-lugano-jobs.mjs), not by a
- * crawler-specific parser here.
  */
+
+const TPL_ORIGIN = 'https://www.tplsa.ch';
+const TPL_DETAIL_PATH = '/2/50/candidati/';
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
@@ -66,9 +67,25 @@ export function parseTplListingPage(html = '') {
     const rawTitle = normalizeSpace(stripHtml(match[3]));
     if (!rawTitle || rawTitle.length < 3) continue;
 
-    const url = rawUrl.startsWith('http')
-      ? rawUrl
-      : `https://www.tplsa.ch${rawUrl.startsWith('/') ? '' : '/'}${rawUrl}`;
+    let parsedUrl;
+    try {
+      parsedUrl = new URL(rawUrl, TPL_ORIGIN);
+    } catch {
+      continue;
+    }
+    // The listing is public HTML and therefore untrusted input. Only the exact
+    // TPL detail route may become a direct-fetch adapter seed; accepting an
+    // absolute off-domain href here would turn the crawler into an SSRF hop.
+    if (
+      parsedUrl.protocol !== 'https:' ||
+      parsedUrl.hostname.toLowerCase() !== 'www.tplsa.ch' ||
+      parsedUrl.pathname.replace(/\/+$/, '/') !== TPL_DETAIL_PATH ||
+      parsedUrl.searchParams.get('idhr') !== idhr
+    ) {
+      continue;
+    }
+    parsedUrl.hash = '';
+    const url = parsedUrl.href;
 
     if (seen.has(url)) continue;
     seen.add(url);
@@ -76,6 +93,72 @@ export function parseTplListingPage(html = '') {
   }
 
   return results;
+}
+
+/**
+ * Classify the authoritative careers listing without treating every empty
+ * parse as a legitimate zero. TPL renders these two sentences only when its
+ * vacancy query completed successfully and returned no rows.
+ *
+ * @param {string} html
+ * @returns {{ state: 'jobs'|'empty'|'invalid', jobs: {url: string, title: string}[] }}
+ */
+export function parseTplListingState(html = '') {
+  const jobs = parseTplListingPage(html);
+  if (jobs.length > 0) return { state: 'jobs', jobs };
+
+  const text = normalizeSpace(stripHtml(html));
+  const sourceProvenEmpty =
+    /non ci sono risultati nell['’]area selezionata\./i.test(text) &&
+    /vi consigliamo di riprovare prossimamente\./i.test(text);
+  if (sourceProvenEmpty) return { state: 'empty', jobs: [] };
+  return { state: 'invalid', jobs: [] };
+}
+
+/**
+ * Extract the authoritative vacancy block from a TPL application/detail page.
+ * The CMS has no JobPosting JSON-LD and puts the role between its vacancy H1
+ * and the generic `Menu2` company accordion. A blank H1 is the stale/closed
+ * ghost-page shape (still HTTP 200) and must fail closed.
+ *
+ * @param {string} html
+ * @param {string} [expectedTitle] title advertised by the careers listing
+ * @returns {{ title: string, body: string, location: string } | null}
+ */
+export function parseTplDetailPage(html = '', expectedTitle = '') {
+  const source = String(html || '');
+  if (!source) return null;
+
+  const menuIndex = source.search(/<div[^>]*class\s*=\s*["'][^"']*\bMenu2\b[^"']*["'][^>]*>/i);
+  if (menuIndex < 0) return null;
+  const vacancyBlock = source.slice(0, menuIndex);
+
+  const headings = [...vacancyBlock.matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1>/gi)];
+  const titleMatch = headings.find((match) => {
+    const candidate = normalizeSpace(stripHtml(match[1]));
+    return candidate.length >= 6 && !/^(lavora con noi|candidatura|candidati)$/i.test(candidate);
+  });
+  if (!titleMatch) return null;
+
+  const title = normalizeSpace(stripHtml(titleMatch[1]));
+  if (expectedTitle && normalizeSpace(expectedTitle).toLocaleLowerCase('it') !== title.toLocaleLowerCase('it')) {
+    return null;
+  }
+
+  const afterTitle = vacancyBlock.slice((titleMatch.index || 0) + titleMatch[0].length);
+  const body = stripHtml(afterTitle)
+    .split('\n')
+    .map((line) => normalizeSpace(line))
+    .filter(Boolean)
+    .join('\n');
+
+  // A real TPL vacancy exposes a role-specific capitolato link and a usable
+  // application block. The closed idhr=748 ghost now exposes only the latter;
+  // requiring both prevents it (and generic navigation) from becoming a job.
+  const hasCapitolato = /<a\b[^>]*(?:class\s*=\s*["'][^"']*btn-candidati|href\s*=\s*["'][^"']*\/repository\/pdf\/)[^>]*>/i.test(afterTitle);
+  if (!hasCapitolato || body.length < 80) return null;
+
+  return { title, body, location: 'Lugano' };
 }
 
 /**

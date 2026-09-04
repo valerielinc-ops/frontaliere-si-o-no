@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lalive",
-  "assembledAt": "2026-08-26T10:07:51.827Z",
+  "assembledAt": "2026-09-03T23:24:31.342Z",
   "jobs": [
     {
       "id": "lalive-5955fcade4d0",
@@ -33,7 +33,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2644016",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:07:48.729Z",
+      "crawledAt": "2026-09-03T23:24:27.681Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -67,9 +67,9 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:12:34.425Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 94500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -112,7 +112,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2585737",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T10:07:48.726Z",
+      "crawledAt": "2026-09-03T23:24:27.677Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -148,6 +148,86 @@
       "firstSeenAt": "2026-07-03T22:12:34.425Z",
       "salaryMin": 69000,
       "salaryMax": 118000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69000,
+          "maxValue": 118000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "lalive-b7a0d1f89ecf",
+      "slug": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
+      "slugByLocale": {
+        "it": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
+        "en": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
+        "de": "schweiz-qualifiziertes-internationales-schiedeverbindungsverbunden-geneva-zurich-lalive-ginevra",
+        "fr": "associat-international-d-arbitrage-suisse-geneve-zurich-lalive-ginevra"
+      },
+      "company": "LALIVE",
+      "companyKey": "lalive",
+      "companyDomain": "lalive.law",
+      "title": "SWISS-QUALIFIED INTERNATIONAL ARBITRATION ASSOCIATE - GENEVA/ZURICH",
+      "titleByLocale": {
+        "it": "ASSOCIATO INTERNAZIONALE DI ARBITRAZIONE SVILUPPO - GENEVA/ZURICH",
+        "en": "SWISS-QUALIFIED INTERNATIONAL ARBITRATION ASSOCIATE - GENEVA/ZURICH",
+        "de": "SCHWEIZ-QUALIFIZIERTES INTERNATIONALES SCHIEDEVERBINDUNGSVERBUNDEN - GENEVA/ZURICH",
+        "fr": "ASSOCIAT INTERNATIONAL D'ARBITRAGE SUISSE - GENÈVE/ZURICH"
+      },
+      "description": "We are currently looking for a highly committed Swiss-qualified associate to join our arbitration team, based in our Geneva or Zurich office.\n\nThis role requires technical excellence, rigour, motivation and a strong ability to work independently in a multi-jurisdictional environment.\n\nWhat we look for:\n• Trained and qualified in Switzerland;\n\n• Excellent academic credentials;\n\n• At least two years of prior experience in international arbitration;\n\n• Strong research, analytical and drafting skills;\n\n• Good interpersonal and communication skills;\n\n• Structured, precise and organised;\n\n• Strong written and oral French (native) and English; other language skills would be an asset;\n\n• Swiss work permit required.\n What we offer:\n\n• A stimulating international environment with a team of experienced arbitration lawyers;\n\n• Highly interesting work on cross-border mandates, including high-profile and high-value commercial and investment arbitration cases in a variety of industries;\n\n• Ample development support, including generous individual training and development budget;\n\n• Genuine opportunity to become involved in professional associations and build a profile;\n\n• Competitive salary.\n If you are interested in joining our dynamic international team, please submit your application documents (CV and cover letter) online here marked for the attention of Human Resources. For any questions regarding this role please email recruitment@lalive.law . Only direct applications considered.",
+      "descriptionByLocale": {
+        "it": "Siamo attualmente alla ricerca di un socio altamente qualificato svizzero per aderire al nostro team di arbitrato, con sede nel nostro ufficio di Ginevra o Zurigo. Questo ruolo richiede eccellenza tecnica, rigore, motivazione e una forte capacità di lavorare in modo indipendente in un ambiente multi-giurisdizionale. Cosa cerchiamo:\n• Allenato e qualificato in Svizzera;\n• Eccellente credenziali accademiche;\n• Almeno due anni di esperienza precedente in arbitrato internazionale;\n• Forte ricerca, capacità analitiche e di redazione;\n• Buone capacità interpersonali e di comunicazione;\n• Strutturato, preciso e organizzato;\n• Forte francese scritto e orale (nativo) e inglese; altre competenze linguistiche sarebbero un bene;\n• Permesso di lavoro svizzero richiesto. Cosa offriamo:\n• Un ambiente internazionale stimolante con un team di avvocati arbitrali esperti;\n• Lavoro altamente interessante su mandati transfrontalieri, tra cui ad alto profilo e casi di arbitrato commerciale e di investimento ad alto valore in una varietà di settori;\n• Ampio sostegno allo sviluppo, tra cui generoso bilancio individuale di formazione e sviluppo;\n• Genuina opportunità di diventare coinvolti in associazioni professionali e costruire un profilo;\n• Uno stipendio competitivo. Se siete interessati ad unire il nostro team internazionale dinamico, si prega di inviare i vostri documenti di applicazione (CV e lettera di copertura) online qui contrassegnati per l'attenzione delle risorse umane. Per qualsiasi domanda riguardante questo ruolo si prega di e-mail recruit@lalive.law . Solo applicazioni dirette considerate.",
+        "en": "We are currently looking for a highly committed Swiss-qualified associate to join our arbitration team, based in our Geneva or Zurich office.\n\nThis role requires technical excellence, rigour, motivation and a strong ability to work independently in a multi-jurisdictional environment.\n\nWhat we look for:\n• Trained and qualified in Switzerland;\n\n• Excellent academic credentials;\n\n• At least two years of prior experience in international arbitration;\n\n• Strong research, analytical and drafting skills;\n\n• Good interpersonal and communication skills;\n\n• Structured, precise and organised;\n\n• Strong written and oral French (native) and English; other language skills would be an asset;\n\n• Swiss work permit required.\nWhat we offer:\n\n• A stimulating international environment with a team of experienced arbitration lawyers;\n\n• Highly interesting work on cross-border mandates, including high-profile and high-value commercial and investment arbitration cases in a variety of industries;\n\n• Ample development support, including generous individual training and development budget;\n\n• Genuine opportunity to become involved in professional associations and build a profile;\n\n• Competitive salary.\nIf you are interested in joining our dynamic international team, please submit your application documents (CV and cover letter) online here marked for the attention of Human Resources. For any questions regarding this role please email recruitment@lalive.law . Only direct applications considered.",
+        "de": "Wir sind derzeit auf der Suche nach einem hoch engagierten schweizerisch qualifizierten Partner, der unserem Schiedsteam mit Sitz in unserem Büro in Genf oder Zürich beitritt. Diese Rolle erfordert technische Exzellenz, Strenge, Motivation und eine starke Fähigkeit, in einer Umgebung mit mehreren Gerichtsbarkeiten unabhängig zu arbeiten. Worauf wir achten:\n• Ausgebildet und qualifiziert in der Schweiz;\n• Ausgezeichnete akademische Qualifikationen;\n• Mindestens zwei Jahre Erfahrung in internationalen Schiedsverfahren;\n• Starke Forschungs-, Analyse- und Entwurfskompetenzen;\n• Gute zwischenmenschliche und kommunikative Fähigkeiten;\n• Strukturiert, präzise und organisiert;\n• Starkes schriftliches und mündliches Französisch (Muttersprache) und Englisch; andere Sprachkenntnisse wären ein Gewinn;\n• Schweizer Arbeitserlaubnis erforderlich. Was wir anbieten:\n• Ein anregendes internationales Umfeld mit einem Team erfahrener Schiedsanwälte;\n• Sehr interessante Arbeit an grenzüberschreitenden Mandaten, einschließlich hochkarätiger und hochwertiger Handels- und Investitionsschiedsfälle in einer Vielzahl von Branchen;\n• Ausreichende Entwicklungshilfe, einschließlich großzügiger individueller Ausbildungs- und Entwicklungsbudgets;\n• Echte Gelegenheit, sich in Berufsverbänden zu engagieren und ein Profil aufzubauen;\n• Wettbewerbsfähiges Gehalt. Wenn Sie daran interessiert sind, unserem dynamischen internationalen Team beizutreten, reichen Sie bitte Ihre Bewerbungsunterlagen (Lebenslauf und Anschreiben) hier online ein. Bei Fragen zu dieser Rolle senden Sie bitte eine E-Mail an recruiting@lalive.law . Nur direkte Anwendungen berücksichtigt.",
+        "fr": "Nous sommes actuellement à la recherche d'un associé hautement engagé et qualifié en Suisse pour rejoindre notre équipe d'arbitrage, basée dans notre bureau de Genève ou Zurich. Ce rôle exige l'excellence technique, la rigueur, la motivation et une forte capacité de travailler de façon indépendante dans un environnement multigouvernemental. Ce que nous cherchons:\n• Formation et qualification en Suisse;\n• Excellents diplômes;\n• Au moins deux années d ' expérience dans le domaine de l ' arbitrage international;\n• De solides compétences en recherche, en analyse et en rédaction;\n• Bonnes aptitudes interpersonnelles et en communication;\n• Structure, précision et organisation;\n• Un français écrit et oral fort et l'anglais; d'autres compétences linguistiques seraient un atout;\n• Permis de travail suisse requis. Ce que nous offrons:\n• Un environnement international stimulant avec une équipe d'avocats d'arbitrage expérimentés;\n• Travaux très intéressants sur les mandats transfrontaliers, y compris les affaires d ' arbitrage commercial et d ' investissement de grande envergure et de grande valeur dans diverses industries;\n• Un appui important au développement, y compris un budget généreux pour la formation individuelle et le développement;\n• Une véritable occasion de s'impliquer dans des associations professionnelles et de créer un profil;\n• Salaire compétitif. Si vous souhaitez rejoindre notre équipe internationale dynamique, veuillez soumettre vos documents de candidature (CV et lettre de motivation) en ligne ici marqués pour l'attention des Ressources humaines. Pour toute question concernant ce rôle, veuillez envoyer un courriel à recruitment@lalive.law . Seules les demandes directes examinées."
+      },
+      "location": "Ginevra",
+      "canton": "GE",
+      "url": "https://lalive-law.jobs.personio.com/job/2344646",
+      "source": "LALIVE Dedicated Parser (Personio JSON)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T23:24:27.674Z",
+      "addressLocality": "Ginevra",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1204",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Legale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-03",
+      "applyUrl": "https://lalive-law.jobs.personio.com/job/2344646",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
+        "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
+          "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
+        ],
+        "de": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        ],
+        "fr": [
+          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
+        ]
+      },
+      "firstSeenAt": "2026-07-03T22:12:34.423Z",
+      "salaryMin": 69000,
+      "salaryMax": 118000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -190,7 +270,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2412556",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:07:48.725Z",
+      "crawledAt": "2026-09-03T23:24:27.675Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -226,6 +306,7 @@
       "firstSeenAt": "2026-07-03T22:12:34.423Z",
       "salaryMin": 51100,
       "salaryMax": 94500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -233,84 +314,6 @@
           "@type": "QuantitativeValue",
           "minValue": 51100,
           "maxValue": 94500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "lalive-b7a0d1f89ecf",
-      "slug": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
-      "slugByLocale": {
-        "it": "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra",
-        "en": "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "de": "schweiz-qualifiziertes-internationales-schiedeverbindungsverbunden-geneva-zurich-lalive-ginevra",
-        "fr": "associat-international-d-arbitrage-suisse-geneve-zurich-lalive-ginevra"
-      },
-      "company": "LALIVE",
-      "companyKey": "lalive",
-      "companyDomain": "lalive.law",
-      "title": "SWISS-QUALIFIED INTERNATIONAL ARBITRATION ASSOCIATE - GENEVA/ZURICH",
-      "titleByLocale": {
-        "it": "ASSOCIATO INTERNAZIONALE DI ARBITRAZIONE SVILUPPO - GENEVA/ZURICH",
-        "en": "SWISS-QUALIFIED INTERNATIONAL ARBITRATION ASSOCIATE - GENEVA/ZURICH",
-        "de": "SCHWEIZ-QUALIFIZIERTES INTERNATIONALES SCHIEDEVERBINDUNGSVERBUNDEN - GENEVA/ZURICH",
-        "fr": "ASSOCIAT INTERNATIONAL D'ARBITRAGE SUISSE - GENÈVE/ZURICH"
-      },
-      "description": "We are currently looking for a highly committed Swiss-qualified associate to join our arbitration team, based in our Geneva or Zurich office.\n\nThis role requires technical excellence, rigour, motivation and a strong ability to work independently in a multi-jurisdictional environment.\n\nWhat we look for:\n• Trained and qualified in Switzerland;\n\n• Excellent academic credentials;\n\n• At least two years of prior experience in international arbitration;\n\n• Strong research, analytical and drafting skills;\n\n• Good interpersonal and communication skills;\n\n• Structured, precise and organised;\n\n• Strong written and oral French (native) and English; other language skills would be an asset;\n\n• Swiss work permit required.\n What we offer:\n\n• A stimulating international environment with a team of experienced arbitration lawyers;\n\n• Highly interesting work on cross-border mandates, including high-profile and high-value commercial and investment arbitration cases in a variety of industries;\n\n• Ample development support, including generous individual training and development budget;\n\n• Genuine opportunity to become involved in professional associations and build a profile;\n\n• Competitive salary.\n If you are interested in joining our dynamic international team, please submit your application documents (CV and cover letter) online here marked for the attention of Human Resources. For any questions regarding this role please email recruitment@lalive.law . Only direct applications considered.",
-      "descriptionByLocale": {
-        "it": "Siamo attualmente alla ricerca di un socio altamente qualificato svizzero per aderire al nostro team di arbitrato, con sede nel nostro ufficio di Ginevra o Zurigo. Questo ruolo richiede eccellenza tecnica, rigore, motivazione e una forte capacità di lavorare in modo indipendente in un ambiente multi-giurisdizionale. Cosa cerchiamo:\n• Allenato e qualificato in Svizzera;\n• Eccellente credenziali accademiche;\n• Almeno due anni di esperienza precedente in arbitrato internazionale;\n• Forte ricerca, capacità analitiche e di redazione;\n• Buone capacità interpersonali e di comunicazione;\n• Strutturato, preciso e organizzato;\n• Forte francese scritto e orale (nativo) e inglese; altre competenze linguistiche sarebbero un bene;\n• Permesso di lavoro svizzero richiesto. Cosa offriamo:\n• Un ambiente internazionale stimolante con un team di avvocati arbitrali esperti;\n• Lavoro altamente interessante su mandati transfrontalieri, tra cui ad alto profilo e casi di arbitrato commerciale e di investimento ad alto valore in una varietà di settori;\n• Ampio sostegno allo sviluppo, tra cui generoso bilancio individuale di formazione e sviluppo;\n• Genuina opportunità di diventare coinvolti in associazioni professionali e costruire un profilo;\n• Uno stipendio competitivo. Se siete interessati ad unire il nostro team internazionale dinamico, si prega di inviare i vostri documenti di applicazione (CV e lettera di copertura) online qui contrassegnati per l'attenzione delle risorse umane. Per qualsiasi domanda riguardante questo ruolo si prega di e-mail recruit@lalive.law . Solo applicazioni dirette considerate.",
-        "en": "We are currently looking for a highly committed Swiss-qualified associate to join our arbitration team, based in our Geneva or Zurich office.\n\nThis role requires technical excellence, rigour, motivation and a strong ability to work independently in a multi-jurisdictional environment.\n\nWhat we look for:\n• Trained and qualified in Switzerland;\n\n• Excellent academic credentials;\n\n• At least two years of prior experience in international arbitration;\n\n• Strong research, analytical and drafting skills;\n\n• Good interpersonal and communication skills;\n\n• Structured, precise and organised;\n\n• Strong written and oral French (native) and English; other language skills would be an asset;\n\n• Swiss work permit required.\nWhat we offer:\n\n• A stimulating international environment with a team of experienced arbitration lawyers;\n\n• Highly interesting work on cross-border mandates, including high-profile and high-value commercial and investment arbitration cases in a variety of industries;\n\n• Ample development support, including generous individual training and development budget;\n\n• Genuine opportunity to become involved in professional associations and build a profile;\n\n• Competitive salary.\nIf you are interested in joining our dynamic international team, please submit your application documents (CV and cover letter) online here marked for the attention of Human Resources. For any questions regarding this role please email recruitment@lalive.law . Only direct applications considered.",
-        "de": "Wir sind derzeit auf der Suche nach einem hoch engagierten schweizerisch qualifizierten Partner, der unserem Schiedsteam mit Sitz in unserem Büro in Genf oder Zürich beitritt. Diese Rolle erfordert technische Exzellenz, Strenge, Motivation und eine starke Fähigkeit, in einer Umgebung mit mehreren Gerichtsbarkeiten unabhängig zu arbeiten. Worauf wir achten:\n• Ausgebildet und qualifiziert in der Schweiz;\n• Ausgezeichnete akademische Qualifikationen;\n• Mindestens zwei Jahre Erfahrung in internationalen Schiedsverfahren;\n• Starke Forschungs-, Analyse- und Entwurfskompetenzen;\n• Gute zwischenmenschliche und kommunikative Fähigkeiten;\n• Strukturiert, präzise und organisiert;\n• Starkes schriftliches und mündliches Französisch (Muttersprache) und Englisch; andere Sprachkenntnisse wären ein Gewinn;\n• Schweizer Arbeitserlaubnis erforderlich. Was wir anbieten:\n• Ein anregendes internationales Umfeld mit einem Team erfahrener Schiedsanwälte;\n• Sehr interessante Arbeit an grenzüberschreitenden Mandaten, einschließlich hochkarätiger und hochwertiger Handels- und Investitionsschiedsfälle in einer Vielzahl von Branchen;\n• Ausreichende Entwicklungshilfe, einschließlich großzügiger individueller Ausbildungs- und Entwicklungsbudgets;\n• Echte Gelegenheit, sich in Berufsverbänden zu engagieren und ein Profil aufzubauen;\n• Wettbewerbsfähiges Gehalt. Wenn Sie daran interessiert sind, unserem dynamischen internationalen Team beizutreten, reichen Sie bitte Ihre Bewerbungsunterlagen (Lebenslauf und Anschreiben) hier online ein. Bei Fragen zu dieser Rolle senden Sie bitte eine E-Mail an recruiting@lalive.law . Nur direkte Anwendungen berücksichtigt.",
-        "fr": "Nous sommes actuellement à la recherche d'un associé hautement engagé et qualifié en Suisse pour rejoindre notre équipe d'arbitrage, basée dans notre bureau de Genève ou Zurich. Ce rôle exige l'excellence technique, la rigueur, la motivation et une forte capacité de travailler de façon indépendante dans un environnement multigouvernemental. Ce que nous cherchons:\n• Formation et qualification en Suisse;\n• Excellents diplômes;\n• Au moins deux années d ' expérience dans le domaine de l ' arbitrage international;\n• De solides compétences en recherche, en analyse et en rédaction;\n• Bonnes aptitudes interpersonnelles et en communication;\n• Structure, précision et organisation;\n• Un français écrit et oral fort et l'anglais; d'autres compétences linguistiques seraient un atout;\n• Permis de travail suisse requis. Ce que nous offrons:\n• Un environnement international stimulant avec une équipe d'avocats d'arbitrage expérimentés;\n• Travaux très intéressants sur les mandats transfrontaliers, y compris les affaires d ' arbitrage commercial et d ' investissement de grande envergure et de grande valeur dans diverses industries;\n• Un appui important au développement, y compris un budget généreux pour la formation individuelle et le développement;\n• Une véritable occasion de s'impliquer dans des associations professionnelles et de créer un profil;\n• Salaire compétitif. Si vous souhaitez rejoindre notre équipe internationale dynamique, veuillez soumettre vos documents de candidature (CV et lettre de motivation) en ligne ici marqués pour l'attention des Ressources humaines. Pour toute question concernant ce rôle, veuillez envoyer un courriel à recruitment@lalive.law . Seules les demandes directes examinées."
-      },
-      "location": "Ginevra",
-      "canton": "GE",
-      "url": "https://lalive-law.jobs.personio.com/job/2344646",
-      "source": "LALIVE Dedicated Parser (Personio JSON)",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:07:48.724Z",
-      "addressLocality": "Ginevra",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1204",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Legale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-03",
-      "applyUrl": "https://lalive-law.jobs.personio.com/job/2344646",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-        "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra",
-          "associato-internazionale-di-arbitrazione-sviluppo-geneva-zurich-lalive-ginevra"
-        ],
-        "de": [
-          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
-        ],
-        "fr": [
-          "swiss-qualified-international-arbitration-associate-geneva-zurich-lalive-ginevra"
-        ]
-      },
-      "firstSeenAt": "2026-07-03T22:12:34.423Z",
-      "salaryMin": 69000,
-      "salaryMax": 118000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69000,
-          "maxValue": 118000,
           "unitText": "YEAR"
         }
       }
@@ -331,7 +334,7 @@
       "titleByLocale": {
         "it": "LEGGI - GENEVA/ZURICH/LONDON",
         "en": "LAWYERS - GENEVA/ZURICH/LONDON",
-        "de": "LAWYERS - GENEVA/ZURICH/LONDON",
+        "de": "RECHTSRECHTE - GENEVA/ZURICH/LONDON",
         "fr": "LES LÉGISLATEURS - GENÈVE/ZURICH/LONDON"
       },
       "description": "We always welcome strong applications from talented individuals keen to join our dynamic and international team in Geneva, Zurich or London.Our roles in the Arbitration and Litigation Practice Groups require technical excellence, rigour, motivation and a strong ability to work independently as well as in a team.\n\nIf you are interested in joining our dynamic international team, please submit your application documents (CV and cover letter) online here marked for the attention of Human Resources. For any questions regarding this role please email recruitment@lalive.law . Only direct applications considered.",
@@ -346,7 +349,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158506",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:07:48.723Z",
+      "crawledAt": "2026-09-03T23:24:27.669Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -364,9 +367,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-03T22:12:34.422Z",
-      "needsRetranslation": true,
       "salaryMin": 69000,
       "salaryMax": 118000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -409,7 +412,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158502",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:07:48.722Z",
+      "crawledAt": "2026-09-03T23:24:27.669Z",
       "addressLocality": "Zurigo",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -443,9 +446,9 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:12:34.421Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 145000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -488,7 +491,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1155459",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:07:48.720Z",
+      "crawledAt": "2026-09-03T23:24:27.662Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -509,6 +512,7 @@
       "firstSeenAt": "2026-07-03T22:12:34.419Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

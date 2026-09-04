@@ -321,16 +321,16 @@ jobs:
 
           # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
-          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-opus-5
+          # su entrambi i tier (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6); i tier
           # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
@@ -387,6 +387,92 @@ jobs:
           n=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
 
+      # Contesto della PR + della review, deterministico e BOUNDED, prima di
+      # spendere un turno Claude. Stesso pattern del gemello `pr-redcheck-fixer.yml`
+      # ("Collect failing check context") e del prefetch di `tests.yml`
+      # (`review-ctx`), applicato qui: il prompt sotto rifaceva da sé, a OGNI
+      # round, `gh pr view` (due volte — Bootstrap step 2 e il primo dei "tre
+      # comandi" sotto Regole, stesso campo `body`), `gh api .../files`,
+      # `gh api .../reviews`, un `git fetch`+`git show` di main e un node
+      # one-liner per calcolare gli stati già dichiarati in `## Non implementato`.
+      # Tutto deterministico → si calcola qui a costo zero, Claude legge un
+      # bundle con una sola `Read`.
+      - name: Collect PR + review context (zero-Claude)
+        id: ctx
+        if: steps.guard.outputs.proceed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -uo pipefail
+          OUT="$RUNNER_TEMP/redflag"
+          mkdir -p "$OUT"
+
+          gh pr view "$PR_NUMBER" --repo "$REPO" --json title,body,headRefName \
+            > "$OUT/pr.json" 2>/dev/null || echo '{}' > "$OUT/pr.json"
+          # NON `--json files`: tronca a 100 in silenzio (stessa trappola di
+          # tests.yml/fetch-pr-files.mjs). La REST paginata sotto no.
+          gh api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+            > "$OUT/files.txt" 2>/dev/null || : > "$OUT/files.txt"
+          gh api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
+            --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body // empty' \
+            > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
+
+          # Stati già dichiarati in `## Non implementato`: la tassonomia va letta
+          # da main (non dalla head di questa PR, che può precedere #5916 e non
+          # esportare `bulletState`) — stessa ragione per cui il prompt lo faceva
+          # con `git fetch`+`git show FETCH_HEAD:...` invece di leggere il
+          # checkout locale.
+          # `pr-body-sections-check.mjs` importa `../ci/lib/false-positive-
+          # declaration.mjs` in modo RELATIVO (risolto da import.meta.url, non
+          # dalla cwd): appiattirlo in un file isolato rompe quell'import con
+          # ERR_MODULE_NOT_FOUND (bug preesistente nel one-liner che questo
+          # step sostituiva già in #6679, mai emerso perché il ramo "PR nata
+          # prima di #5916" è raro — misurato a mano riproducendo la catena
+          # d'import fuori dal repo). Preservare la STESSA struttura relativa
+          # (scripts/lib/ + scripts/ci/lib/) sotto $OUT lo risolve.
+          if git fetch --no-tags --depth=1 origin main >/dev/null 2>&1; then
+            mkdir -p "$OUT/scripts/lib" "$OUT/scripts/ci/lib"
+            git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs \
+              > "$OUT/scripts/lib/pr-body-sections-check.mjs" 2>/dev/null
+            git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs \
+              > "$OUT/scripts/ci/lib/false-positive-declaration.mjs" 2>/dev/null
+          fi
+          if [ -s "$OUT/scripts/lib/pr-body-sections-check.mjs" ]; then
+            printf '%s\n' \
+              'import { readFileSync, writeFileSync } from "node:fs";' \
+              'const [, , modPath, prJsonPath, outPath] = process.argv;' \
+              'const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file://" + modPath);' \
+              'const body = JSON.parse(readFileSync(prJsonPath, "utf8")).body ?? "";' \
+              'const sec = extractSection(body, NON_IMPL_ANCORA_RE) ?? "";' \
+              'const states = sectionBullets(sec).map((b) => ({ state: bulletState(b), bullet: b }));' \
+              'writeFileSync(outPath, JSON.stringify(states, null, 2));' \
+              > "$OUT/compute-states.mjs"
+            node "$OUT/compute-states.mjs" "$OUT/scripts/lib/pr-body-sections-check.mjs" "$OUT/pr.json" "$OUT/closing-states.json" \
+              2>/dev/null || echo '[]' > "$OUT/closing-states.json"
+          else
+            echo '[]' > "$OUT/closing-states.json"
+          fi
+
+          {
+            echo "# Redflag-fix bundle — PR #$PR_NUMBER"
+            echo
+            echo "## PR metadata (title, body, headRefName)"
+            cat "$OUT/pr.json"
+            echo
+            echo "## Changed file list"
+            cat "$OUT/files.txt"
+            echo
+            echo '## Ultima review Claude (🔴 findings)'
+            cat "$OUT/latest-review.md"
+            echo
+            echo '## Stati già dichiarati in "## Non implementato" (bulletState calcolato da main)'
+            cat "$OUT/closing-states.json"
+          } > "$OUT/redflag-bundle.md"
+          echo "Prefetched redflag context in $OUT:"
+          ls -la "$OUT"
+
       - name: Setup Headroom compression proxy
         if: steps.guard.outputs.proceed == 'true'
         uses: ./.github/actions/setup-headroom
@@ -438,22 +524,18 @@ jobs:
           # fix, evita drift tra copie duplicate).
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
-          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
 
             **Bootstrap:**
             1. Leggi `REVIEW.md` (severity/scopo) + `AGENTS.md` (non-negotiables + Privacy). VINCOLANTI.
-            2. Carica la PR + le review: `gh pr view $PR_NUMBER --json title,body,headRefName` + `gh api repos/$REPO/pulls/$PR_NUMBER/files --paginate --jq '.[].filename'` per l'elenco file (NON `--json files`: tronca a 100 in silenzio), `gh api repos/$REPO/pulls/$PR_NUMBER/reviews --jq '[.[] | select(.user.login|test("claude";"i"))] | last | .body'`. Il branch è già checkoutato sulla head della PR.
+            2. Il bundle deterministico è già pronto in `${{ runner.temp }}/redflag/redflag-bundle.md` (prefetch zero-Claude): PR metadata (title/body/headRefName), elenco file completo (REST paginata, non tronca a 100), ultima review Claude con i 🔴, e gli stati già dichiarati in `## Non implementato` (vedi Regole sotto). **Leggilo con `Read` come prima cosa; non rieseguire `gh pr view`, `gh api .../files` o `gh api .../reviews` per gli stessi dati** — solo se una sezione risulta vuota/mancante e ti serve davvero, ripeti la singola chiamata mancante. Il branch è già checkoutato sulla head della PR.
 
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
             **Regole:**
-            - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR.** Tre comandi, in quest'ordine:
-              1. `gh pr view $PR_NUMBER --json body -q .body > /tmp/pr-body.md`
-              2. `git fetch --no-tags --depth=1 origin main && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/sections-main.mjs` — **il modulo va risolto da `main`, MAI da questo checkout.** Il job è checkoutato sulla HEAD della PR sotto fix, che può essere un branch nato PRIMA di #5916: lì `bulletState` non è esportato (o il file non c'è affatto) e l'import muore a metà round con `SyntaxError` / `ERR_MODULE_NOT_FOUND`. La tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body.
-              3. `node --input-type=module -e 'import { readFileSync } from "node:fs"; const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file:///tmp/sections-main.mjs"); const sec = extractSection(readFileSync("/tmp/pr-body.md", "utf8"), NON_IMPL_ANCORA_RE) ?? ""; for (const b of sectionBullets(sec)) console.log(JSON.stringify({ state: bulletState(b), bullet: b }));'`
-              **NON scrivere un secondo parser** né una regex tua. Le quattro cose che ti servono sono tutte lì: `NON_IMPL_ANCORA_RE` (l'header canonico, che `extractSection` pretende come argomento e che riscritto a mano estrae una sezione diversa), `extractSection`, `sectionBullets` — è LUI che applica `stripNonContent`, e senza di lui gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati — e `bulletState`. `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
+            - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR — sono già calcolati nel bundle** (sezione "Stati già dichiarati...", `closing-states.json`): stessa logica `extractSection`/`sectionBullets`/`bulletState`/`NON_IMPL_ANCORA_RE` di `scripts/lib/pr-body-sections-check.mjs`, risolta da `main` (non dalla HEAD di questa PR, che può essere un branch nato PRIMA di #5916, dove `bulletState` non è esportato o il file non c'è affatto — la tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body). **NON ricalcolarli con un fetch/parse tuo, e NON scrivere un secondo parser** né una regex tua: se il bundle mostra `[]` ma il body ha davvero una sezione `## Non implementato` non vuota, quello è un segnale che il prefetch è fallito (fetch di `main` non riuscito) — solo in quel caso rifai a mano `gh pr view $PR_NUMBER --json body -q .body`, poi `git fetch --no-tags --depth=1 origin main` e recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` con `git show FETCH_HEAD:...` (`mkdir -p /tmp/scripts/lib /tmp/scripts/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/scripts/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/scripts/ci/lib/false-positive-declaration.mjs`), mantenendo la stessa struttura relativa (il primo importa il secondo con un percorso relativo, risolto dalla posizione del file — appiattirlo in un unico file isolato rompe l'import con `ERR_MODULE_NOT_FOUND`), e l'import delle stesse quattro funzioni (`extractSection`, `sectionBullets`, `bulletState`, `NON_IMPL_ANCORA_RE` — è `extractSection` che applica `stripNonContent`, senza il quale gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati). `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
             - **Quali stati CHIUDONO un finding e quali no — `blocked:` NON è monolitico.** Chiudono: `by-choice` (`per scelta`), `by-construction` (`by construction`) e `blocked-owner` (`blocked: decisione del proprietario` / `owner decision`), che è un NO di chi decide e non lavoro sospeso — sono i tre che stanno nei `CLOSING_STATES` di `scripts/ci/followup-has-candidates.mjs`. NON chiudono: `in-this-pr`, `chained-pr` e `blocked-technical`, cioè ogni altro `blocked: <causa>`, che è lavoro aperto su una causa esterna e il cui 🔴 va comunque fixato. Leggi la CAUSA, non il prefisso.
             - **Due controlli prima di onorare un veto.** `bulletState` vince sull'occorrenza più a SINISTRA, e questo si presta a un falso veto: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una NEGAZIONE — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato, non prima e non altrove. Se uno dei due controlli non regge, lo stato NON copre il finding: fixa il 🔴 normalmente e scrivi nel commento che il bullet è ambiguo. E il veto vale solo per il bullet che copre il TEMA del finding, mai per uno che gli somiglia.
             - **Quando il veto regge:** quel punto è chiuso per decisione, non rinviato — NON toccarlo, non implementarlo, non riscriverlo sotto `## Implementato`. Commenta sulla PR citando il bullet verbatim e lo stato letto (`🔴 non applicato: il body dichiara «<bullet>» → stato <per scelta|by construction|blocked: decisione del proprietario> con un motivo; lo stato dichiarato copre il finding`) e passa al finding successivo. Un fixer che riapre di iniziativa una voce chiusa contraddice una decisione già presa e ri-arma il round successivo su lavoro che nessuno vuole.

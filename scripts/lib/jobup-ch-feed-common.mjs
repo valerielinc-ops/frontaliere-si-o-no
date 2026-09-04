@@ -35,8 +35,14 @@ import { slugify } from './crawler-template.mjs';
 import { fetchWithRetry } from './transient-fetch.mjs';
 import { launchChromium } from './ensure-chromium.mjs';
 import { fetchHtmlViaJinaWithRetry } from './jina-proxy.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
+import { isSufficientVacancyDescription as hasPublishableJobupDetail } from './prospector/extract.mjs';
+import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { ALL_CANTON_CODES } from './crawler-location-config.mjs';
+import {
+  createSpecUrlPolicy,
+  fetchFollowingValidatedRedirects,
+} from './prospector/public-fetch-policy.mjs';
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -273,18 +279,33 @@ async function fetchFeed(url) {
   }
 }
 
+const CANTON_CODE_SET = new Set(ALL_CANTON_CODES);
+
+// Some jobup `lieu` values append the canton code after the city
+// ("6900 Lugano TI"). That trailing token belongs to the same slot as the
+// `postal` field, not the city name — left in `city`, it fails the exact-match
+// BFS lookup in `isKnownSwissMunicipalityInCanton` (e.g. "Lugano TI" is not a
+// registered municipality token, "Lugano" is), rejecting an otherwise valid
+// source location. See #7105.
+function stripTrailingCantonCode(city = '') {
+  const m = city.match(/^(.+?)\s+([A-Z]{2})$/);
+  if (m && CANTON_CODE_SET.has(m[2])) return m[1].trim();
+  return city;
+}
+
 /**
  * Parse the postal code + city from the jobup `lieu` field.
  * Examples:
  *   "1660 Château d'Oex" → { postal: "1660", city: "Château d'Oex" }
  *   "1400 Yverdon-les-Bains" → { postal: "1400", city: "Yverdon-les-Bains" }
  *   "Lausanne" → { postal: "", city: "Lausanne" }
+ *   "6900 Lugano TI" → { postal: "6900", city: "Lugano" }
  */
 export function parseJobupLieu(raw = '') {
   const decoded = decodeEntities(String(raw || ''));
   const m = decoded.match(/^\s*(\d{4})\s+(.+?)\s*$/);
-  if (m) return { postal: m[1], city: normalizeSpace(m[2]) };
-  return { postal: '', city: normalizeSpace(decoded) };
+  if (m) return { postal: m[1], city: stripTrailingCantonCode(normalizeSpace(m[2])) };
+  return { postal: '', city: stripTrailingCantonCode(normalizeSpace(decoded)) };
 }
 
 /**
@@ -346,10 +367,26 @@ export async function fetchJobupDetailDescription(detailUrl) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(detailUrl, {
-      headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
-      signal: controller.signal,
-      redirect: 'follow',
+    let initialUrl;
+    try {
+      initialUrl = new URL(detailUrl);
+    } catch {
+      return '';
+    }
+    if (
+      initialUrl.protocol !== 'https:'
+      || initialUrl.username
+      || initialUrl.password
+      || !['https://jobup.ch', 'https://www.jobup.ch'].includes(initialUrl.origin.toLowerCase())
+    ) return '';
+    const sourceUrlPolicy = createSpecUrlPolicy({ seedUrls: [initialUrl.href] });
+    const res = await fetchFollowingValidatedRedirects(initialUrl.href, {
+      validateUrl: sourceUrlPolicy,
+      requestOptions: {
+        headers: { Accept: 'text/html', 'User-Agent': USER_AGENT },
+        signal: controller.signal,
+        dispatcher: sourceUrlPolicy.dispatcher,
+      },
     });
     if (!res.ok) return '';
     const html = await res.text();
@@ -392,8 +429,8 @@ export async function fetchJobupDetailDescription(detailUrl) {
  * @param {string} config.companyDomain      Corporate domain (e.g. 'pspe.ch')
  * @param {string} config.jobupKey           jobup.ch mask key (e.g. 'hpe')
  * @param {string} config.defaultCanton      ISO canton code (e.g. 'VD')
- * @param {string} config.defaultCity        Fallback city
- * @param {string} config.defaultPostalCode  Fallback postal code
+ * @param {string} config.defaultCity        Legacy identity config; never used as a location fallback
+ * @param {string} config.defaultPostalCode  Legacy config; never used as a location fallback
  * @param {string} [config.publicCareerUrl]  Corporate career page URL
  * @param {string} [config.defaultSourceLang='fr']
  */
@@ -404,8 +441,6 @@ export function createJobupChFeedParser(config) {
     companyDomain,
     jobupKey,
     defaultCanton,
-    defaultCity,
-    defaultPostalCode,
     publicCareerUrl,
     defaultSourceLang = 'fr',
   } = config;
@@ -466,25 +501,40 @@ export function createJobupChFeedParser(config) {
       const title = normalizeSpace(decodeEntities(raw?.titre || ''));
       if (!title || title.length < 3) continue;
 
-      const lieu = parseJobupLieu(raw?.lieu || '');
-      const location = lieu.city || defaultCity;
-      const canton = inferSwissTargetCanton(location) || defaultCanton;
-      const postalCode = lieu.postal || defaultPostalCode;
+      const rawLieu = normalizeSpace(raw?.lieu || '');
+      const lieu = parseJobupLieu(rawLieu);
+      const hasUnsupportedPostalPrefix = /^\d+\b/.test(rawLieu) && !lieu.postal;
+      const location = lieu.city;
+      // Feed the already-parsed postal/city split as a structured candidate
+      // (addressLocality/postalCode) instead of the whole raw `lieu` string,
+      // matching the structured pattern used by the Coop/Cippà family. This
+      // grounds municipality→canton matching in the locality jobup itself
+      // separated from the postal prefix, instead of fuzzy-matching over the
+      // full "<postal> <city>" text.
+      const geography = hasUnsupportedPostalPrefix
+        ? null
+        : resolveSourceBackedSwissGeography({
+            location: rawLieu,
+            addressLocality: lieu.city,
+            postalCode: lieu.postal,
+          });
+      const canton = geography?.canton || '';
+      if (!location || !canton) {
+        console.log(`     ⚠ source location rejected for ${link}: missing, foreign or unresolved lieu`);
+        return [];
+      }
+      const postalCode = lieu.postal;
 
       // Fetch detail page for rich description (JSON-LD JobPosting)
       const detailDescription = await fetchJobupDetailDescription(link);
-      if (detailDescription) detailHits++;
       await new Promise((r) => setTimeout(r, 250));
+      if (!hasPublishableJobupDetail(detailDescription)) {
+        console.log(`     ⚠ detail content rejected for ${link}: missing or thin source description`);
+        return [];
+      }
+      detailHits++;
 
-      const description = detailDescription || normalizeSpace(
-        [
-          decodeEntities(raw?.ref || ''),
-          raw?.contrat ? `Contrat : ${decodeEntities(raw.contrat)}` : '',
-          raw?.occupationmin && raw?.occupationmax
-            ? `Taux : ${String(raw.occupationmin)}-${String(raw.occupationmax).replace(/[^\d]/g, '')}%`
-            : '',
-        ].filter(Boolean).join(' · '),
-      ) || `${title} — ${companyName}`;
+      const description = detailDescription;
 
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);

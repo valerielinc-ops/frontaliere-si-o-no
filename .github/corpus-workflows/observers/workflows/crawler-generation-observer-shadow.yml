@@ -1,0 +1,544 @@
+name: Crawler Generation Observer (shadow)
+run-name: >-
+  ${{ github.event_name == 'workflow_dispatch'
+      && format('crawler-generation-sentinel-{0}', inputs.generation_token)
+      || github.event_name == 'schedule'
+      && format('crawler-generation-observer-schedule-{0}', github.run_id)
+      || format('crawler-generation-observer-event-{0}', github.event.workflow_run.id) }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      generation_token:
+        description: Exact generation token (<orchestrator-run-id>-<run-attempt>)
+        required: true
+        type: string
+      site_code_commit:
+        description: Full immutable site commit containing this observer runtime
+        required: true
+        type: string
+      registry_json:
+        description: Canonical digest-bound 23-group sentinel envelope (max 32 KiB)
+        required: true
+        type: string
+  workflow_run:
+    workflows:
+      - Crawler Group 01 (sparse cross-repo execution)
+      - Crawler Group 02 (sparse cross-repo execution)
+      - Crawler Group 03 (sparse cross-repo execution)
+      - Crawler Group 04 (sparse cross-repo execution)
+      - Crawler Group 05 (sparse cross-repo execution)
+      - Crawler Group 06 (sparse cross-repo execution)
+      - Crawler Group 07 (sparse cross-repo execution)
+      - Crawler Group 08 (sparse cross-repo execution)
+      - Crawler Group 09 (sparse cross-repo execution)
+      - Crawler Group 10 (sparse cross-repo execution)
+      - Crawler Group 11 (sparse cross-repo execution)
+      - Crawler Group 12 (sparse cross-repo execution)
+      - Crawler Group 13 (sparse cross-repo execution)
+      - Crawler Group 14 (sparse cross-repo execution)
+      - Crawler Group 15 (sparse cross-repo execution)
+      - Crawler Group 16 (sparse cross-repo execution)
+      - Crawler Group 17 (sparse cross-repo execution)
+      - Crawler Group 18 (sparse cross-repo execution)
+      - Crawler Group 19 (sparse cross-repo execution)
+      - Crawler Group 20 (sparse cross-repo execution)
+      - Crawler Group 21 (sparse cross-repo execution)
+      - Crawler Group 22 (sparse cross-repo execution)
+      - Crawler Group 23 (sparse cross-repo execution)
+    types: [completed]
+    branches: ['crawler-generation-shadow-*']
+  schedule:
+    - cron: '23 2,8,14,20 * * *'
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  sentinel:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: crawler-generation-sentinel-${{ inputs.generation_token }}
+      cancel-in-progress: false
+    steps:
+      - name: Validate manual sentinel binding before checkout
+        env:
+          GENERATION_TOKEN: ${{ inputs.generation_token }}
+          SITE_CODE_COMMIT: ${{ inputs.site_code_commit }}
+          CORPUS_CODE_COMMIT: ${{ github.sha }}
+          REGISTRY_JSON: ${{ inputs.registry_json }}
+          REGISTRY_INPUT: ${{ runner.temp }}/crawler-generation-observer/registry-input.json
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const token = process.env.GENERATION_TOKEN || '';
+          const commit = process.env.SITE_CODE_COMMIT || '';
+          const registry = process.env.REGISTRY_JSON || '';
+          if (!/^[1-9][0-9]*-[1-9][0-9]*$/.test(token)) throw new Error('invalid generation token');
+          if (!/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(commit)) throw new Error('site code commit must be a full SHA');
+          if (Buffer.byteLength(registry) < 2 || Buffer.byteLength(registry) > 32 * 1024) {
+            throw new Error('sentinel envelope exceeds the 32 KiB dispatch cap');
+          }
+          const envelope = JSON.parse(registry);
+          if (!/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(process.env.CORPUS_CODE_COMMIT || '')
+              || envelope.corpusCodeCommit !== process.env.CORPUS_CODE_COMMIT) {
+            throw new Error('sentinel corpus commit does not match this workflow run');
+          }
+          fs.mkdirSync(path.dirname(process.env.REGISTRY_INPUT), { recursive: true });
+          fs.writeFileSync(process.env.REGISTRY_INPUT, registry, { encoding: 'utf8', mode: 0o600 });
+          NODE
+
+      - name: Checkout immutable site observer runtime
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: ${{ inputs.site_code_commit }}
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          path: site-observer
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |-
+            /scripts/crawler-generation-observer.mjs
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/crawler-generation-roster.json
+            /scripts/lib/atomic-write-json.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/crawler-generation-contract.mjs
+            /scripts/lib/crawler-generation-observer-report.mjs
+            /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
+            /scripts/lib/github-actions-read-client.mjs
+            /scripts/lib/job-match-key.mjs
+            /scripts/lib/job-url-key.mjs
+            /scripts/lib/slug-history-journal.mjs
+            /scripts/lib/slug-preservation-guard.mjs
+
+      - name: Validate and persist same-run sentinel
+        working-directory: site-observer
+        env:
+          EXPECTED_GENERATION_TOKEN: ${{ inputs.generation_token }}
+          EXPECTED_SITE_CODE_COMMIT: ${{ inputs.site_code_commit }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs prepare-sentinel
+          --input "${{ runner.temp }}/crawler-generation-observer/registry-input.json"
+          --expected-generation-token "$EXPECTED_GENERATION_TOKEN"
+          --expected-site-code-commit "$EXPECTED_SITE_CODE_COMMIT"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json"
+
+      - name: Upload same-run sentinel
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-sentinel-${{ inputs.generation_token }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Observe exact generation snapshot
+        id: observe
+        continue-on-error: true
+        working-directory: site-observer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs observe
+          --sentinel "${{ runner.temp }}/crawler-generation-observer/crawler-generation-sentinel.json"
+          --roster scripts/ci/crawler-generation-roster.json
+          --repository "$PWD"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json"
+
+      - name: Upload bounded observer report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-observer-${{ inputs.generation_token }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Surface observer infrastructure failure
+        if: steps.observe.outcome == 'failure'
+        run: exit 1
+
+  probe:
+    if: >-
+      github.event_name == 'workflow_run'
+      && github.event.workflow_run.event == 'workflow_dispatch'
+      && startsWith(github.event.workflow_run.head_branch, 'crawler-generation-shadow-')
+      && !startsWith(github.event.workflow_run.display_title, 'crawler-generation--group-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      observe: ${{ steps.probe.outputs.observe }}
+      generation_token: ${{ steps.probe.outputs.generation_token }}
+      site_code_commit: ${{ steps.probe.outputs.site_code_commit }}
+      sentinel_run_id: ${{ steps.probe.outputs.sentinel_run_id }}
+    steps:
+      - name: Probe bound generation without terminal artifact downloads
+        id: probe
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          TRIGGER_TITLE: ${{ github.event.workflow_run.display_title }}
+          TRIGGER_RUN_ID: ${{ github.event.workflow_run.id }}
+          TRIGGER_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          PROBE_ROOT: ${{ runner.temp }}/crawler-generation-probe
+        run: |
+          set -euo pipefail
+          printf '%s\n' "observe=false" > "$GITHUB_OUTPUT"
+          if [[ ! "$TRIGGER_TITLE" =~ ^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(0[1-9]|1[0-9]|2[0-3])$ ]]; then
+            echo "::notice::Malformed generation run-name; observer stays dormant."
+            exit 0
+          fi
+          token="${BASH_REMATCH[1]}"
+          group="${BASH_REMATCH[2]}"
+          if [[ ! "$TRIGGER_HEAD_SHA" =~ ^([a-f0-9]{40}|[a-f0-9]{64})$ ]]; then
+            echo "::notice::Generation head SHA is invalid; observer stays dormant."
+            exit 0
+          fi
+
+          mkdir -p "$PROBE_ROOT"
+          github_get_with_retry() {
+            local output_file="$1"
+            local endpoint="$2"
+            shift 2
+            local attempt
+            for attempt in 1 2 3; do
+              if gh api --method GET \
+                  -H "X-GitHub-Api-Version: 2026-03-10" \
+                  "$endpoint" "$@" > "$output_file"; then
+                return 0
+              fi
+              if [ "$attempt" -lt 3 ]; then
+                sleep 1
+              fi
+            done
+            return 1
+          }
+
+          trigger_run="$PROBE_ROOT/trigger-run-$TRIGGER_RUN_ID.json"
+          if ! github_get_with_retry "$trigger_run" \
+              "/repos/$REPOSITORY/actions/runs/$TRIGGER_RUN_ID"; then
+            echo "::notice::Trigger run is unavailable; observer stays dormant."
+            exit 0
+          fi
+          if ! jq -e \
+              --argjson runId "$TRIGGER_RUN_ID" \
+              --arg repository "$REPOSITORY" \
+              --arg workflowPath ".github/workflows/crawler-group-${group}.yml" \
+              --arg workflowName "Crawler Group ${group} (sparse cross-repo execution)" \
+              --arg workflowRef "crawler-generation-shadow-$token" \
+              --arg title "$TRIGGER_TITLE" \
+              --arg headSha "$TRIGGER_HEAD_SHA" '
+            .id == $runId
+            and .repository.full_name == $repository
+            and (.path == $workflowPath or .path == ($workflowPath + "@" + $workflowRef))
+            and (.name == $workflowName or .name == $title)
+            and .display_title == $title
+            and .event == "workflow_dispatch"
+            and .head_branch == $workflowRef
+            and .head_sha == $headSha
+            and (.run_attempt | type == "number" and floor == . and . >= 1)
+            and .status == "completed"
+            and (.conclusion | IN("success", "failure", "cancelled", "timed_out", "action_required", "neutral", "skipped", "stale", "startup_failure"))
+          ' "$trigger_run" >/dev/null; then
+            echo "::notice::Trigger run binding mismatch; observer stays dormant."
+            exit 0
+          fi
+
+          artifact_json="$PROBE_ROOT/artifacts.json"
+          artifact_name="crawler-generation-sentinel-$token"
+          if ! github_get_with_retry "$artifact_json" \
+              "/repos/$REPOSITORY/actions/artifacts?name=$artifact_name&per_page=100"; then
+            echo "::notice::Sentinel list is unavailable; observer stays dormant."
+            exit 0
+          fi
+          artifact_count=$(jq '[.artifacts[] | select(.name == $name and .expired == false and (.size_in_bytes > 0 and .size_in_bytes <= 65536) and (.id | type == "number") and (.workflow_run.id | type == "number") and .id >= 1 and .workflow_run.id >= 1)] | length' \
+            --arg name "$artifact_name" "$artifact_json")
+          if [ "$artifact_count" -lt 1 ] || [ "$artifact_count" -gt 16 ]; then
+            echo "::notice::No bounded sentinel set found; observer stays dormant."
+            exit 0
+          fi
+          sentinel=""
+          sentinel_run_id=""
+          while IFS=$'\t' read -r artifact_id candidate_run_id; do
+            sentinel_owner="$PROBE_ROOT/sentinel-run-$candidate_run_id.json"
+            if ! github_get_with_retry "$sentinel_owner" \
+                "/repos/$REPOSITORY/actions/runs/$candidate_run_id"; then
+              continue
+            fi
+            if ! jq -e \
+                --argjson runId "$candidate_run_id" \
+                --arg repository "$REPOSITORY" \
+                --arg workflowRef "crawler-generation-shadow-$token" \
+                --arg title "crawler-generation-sentinel-$token" '
+              .id == $runId
+              and .repository.full_name == $repository
+              and (.name == "Crawler Generation Observer (shadow)" or .name == $title)
+              and (.path == ".github/workflows/crawler-generation-observer-shadow.yml"
+                or .path == (".github/workflows/crawler-generation-observer-shadow.yml@" + $workflowRef))
+              and .display_title == $title
+              and .event == "workflow_dispatch"
+              and .head_branch == $workflowRef
+              and (.head_sha | type == "string" and test("^(?:[a-f0-9]{40}|[a-f0-9]{64})$"))
+              and (.run_attempt | type == "number" and floor == . and . >= 1)
+              and (.status | IN("requested", "queued", "pending", "waiting", "in_progress", "completed"))
+              and (if .status == "completed"
+                then (.conclusion | IN("success", "failure", "cancelled", "timed_out", "action_required", "neutral", "skipped", "stale", "startup_failure"))
+                else .conclusion == null
+              end)
+            ' "$sentinel_owner" >/dev/null; then
+              continue
+            fi
+            archive="$PROBE_ROOT/sentinel-$artifact_id.zip"
+            if ! github_get_with_retry "$archive" \
+                "/repos/$REPOSITORY/actions/artifacts/$artifact_id/zip"; then
+              continue
+            fi
+            [ "$(wc -c < "$archive")" -le 65536 ] || continue
+            [ "$(unzip -Z -1 "$archive")" = "crawler-generation-sentinel.json" ] || continue
+            details=$(unzip -Z -v "$archive") || continue
+            uncompressed_size=$(printf '%s\n' "$details" | sed -nE 's/.*uncompressed size: +([0-9]+) bytes.*/\1/p')
+            [ -n "$uncompressed_size" ] && [[ "$uncompressed_size" =~ ^[0-9]+$ ]] \
+              && [ "$uncompressed_size" -ge 1 ] && [ "$uncompressed_size" -le 32768 ] || continue
+            printf '%s\n' "$details" | grep -Eq 'Unix file attributes \(100[0-7]{3} octal\): +-' || continue
+            candidate="$PROBE_ROOT/crawler-generation-sentinel-$artifact_id.json"
+            (set +o pipefail; unzip -p "$archive" crawler-generation-sentinel.json | head -c 32769) > "$candidate"
+            [ "$(wc -c < "$candidate")" -le 32768 ] || continue
+            sentinel_owner_sha=$(jq -r '.head_sha // empty' "$sentinel_owner")
+            if jq -e \
+              --arg token "$token" \
+              --arg group "$group" \
+              --arg triggerRunId "$TRIGGER_RUN_ID" \
+              --arg triggerHeadSha "$TRIGGER_HEAD_SHA" \
+              --arg sentinelOwnerSha "$sentinel_owner_sha" '
+              .corpusCodeCommit as $corpusCommit
+              | .schemaVersion == 1
+              and .generationToken == $token
+              and (.siteCodeCommit | type == "string" and test("^(?:[a-f0-9]{40}|[a-f0-9]{64})$"))
+              and ($corpusCommit | type == "string" and test("^(?:[a-f0-9]{40}|[a-f0-9]{64})$"))
+              and $sentinelOwnerSha == $corpusCommit
+              and $triggerHeadSha == $corpusCommit
+              and (.groups | keys == ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"])
+              and ([.groups[].corpusCodeCommit] | all(. == $corpusCommit))
+              and ([.groups[].runId] | all(type == "string" and test("^[1-9][0-9]*$")))
+              and ([.groups[].runId] | unique | length == 23)
+              and .groups[$group].runId == $triggerRunId
+            ' "$candidate" >/dev/null; then
+              sentinel="$candidate"
+              sentinel_run_id="$candidate_run_id"
+              break
+            fi
+          done < <(jq -r '[.artifacts[] | select(.name == $name and .expired == false and (.size_in_bytes > 0 and .size_in_bytes <= 65536) and (.id | type == "number") and (.workflow_run.id | type == "number") and .id >= 1 and .workflow_run.id >= 1)] | sort_by(.workflow_run.id) | .[] | [.id, .workflow_run.id] | @tsv' \
+            --arg name "$artifact_name" "$artifact_json")
+          if [ -z "$sentinel" ]; then
+            echo "::notice::No sentinel binds the triggering run; observer stays dormant."
+            exit 0
+          fi
+
+          while IFS= read -r run_id; do
+            status_file="$PROBE_ROOT/status-$run_id.txt"
+            if ! github_get_with_retry "$status_file" \
+                "/repos/$REPOSITORY/actions/runs/$run_id" --jq '.status'; then
+              echo "::notice::Generation status is unavailable; observer stays dormant."
+              exit 0
+            fi
+            status=$(cat "$status_file")
+            if [ "$status" != "completed" ]; then
+              echo "::notice::Generation still waiting; no terminal artifact was downloaded."
+              exit 0
+            fi
+          done < <(jq -r '.groups | to_entries | sort_by(.key) | .[].value.runId' "$sentinel")
+
+          {
+            echo "generation_token=$token"
+            echo "site_code_commit=$(jq -r '.siteCodeCommit' "$sentinel")"
+            echo "sentinel_run_id=$sentinel_run_id"
+            echo "observe=true"
+          } >> "$GITHUB_OUTPUT"
+
+  observe_event:
+    needs: probe
+    if: needs.probe.outputs.observe == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    concurrency:
+      group: crawler-generation-observer-${{ needs.probe.outputs.generation_token }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout immutable site observer runtime
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: ${{ needs.probe.outputs.site_code_commit }}
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          path: site-observer
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |-
+            /scripts/crawler-generation-observer.mjs
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/crawler-generation-roster.json
+            /scripts/lib/atomic-write-json.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/crawler-generation-contract.mjs
+            /scripts/lib/crawler-generation-observer-report.mjs
+            /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
+            /scripts/lib/github-actions-read-client.mjs
+            /scripts/lib/job-match-key.mjs
+            /scripts/lib/job-url-key.mjs
+            /scripts/lib/slug-history-journal.mjs
+            /scripts/lib/slug-preservation-guard.mjs
+
+      - name: Observe coalesced exact generation snapshot
+        id: observe
+        continue-on-error: true
+        working-directory: site-observer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs observe-event
+          --generation-token "${{ needs.probe.outputs.generation_token }}"
+          --sentinel-run-id "${{ needs.probe.outputs.sentinel_run_id }}"
+          --roster scripts/ci/crawler-generation-roster.json
+          --repository "$PWD"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json"
+
+      - name: Upload bounded observer report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-observer-${{ needs.probe.outputs.generation_token }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Surface observer infrastructure failure
+        if: steps.observe.outcome == 'failure'
+        run: exit 1
+
+  reconcile_select:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.select.outputs.matrix }}
+      has_work: ${{ steps.select.outputs.has_work }}
+    steps:
+      - name: Checkout transported read-only selector
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |-
+            /scripts/ci/crawler-generation-observer-selector.mjs
+            /scripts/ci/lib/canonical-json-digest.mjs
+            /scripts/ci/lib/crawler-generation-observer-report.mjs
+            /scripts/ci/lib/crawler-generation-token.mjs
+            /scripts/ci/lib/github-actions-read-client.mjs
+
+      - name: Select at most two bounded reconciliation candidates
+        id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_API_URL: ${{ github.api_url }}
+          SELECTOR_OUTPUT: ${{ runner.temp }}/crawler-generation-selector/selection.json
+        run: |
+          set -euo pipefail
+          node scripts/ci/crawler-generation-observer-selector.mjs \
+            --runner-temp "${{ runner.temp }}" \
+            --output "$SELECTOR_OUTPUT"
+          matrix=$(jq -c '.matrix' "$SELECTOR_OUTPUT")
+          count=$(jq '.matrix | length' "$SELECTOR_OUTPUT")
+          {
+            echo "matrix=$matrix"
+            if [ "$count" -gt 0 ]; then echo 'has_work=true'; else echo 'has_work=false'; fi
+          } >> "$GITHUB_OUTPUT"
+
+  reconcile_scheduled:
+    needs: reconcile_select
+    if: needs.reconcile_select.outputs.has_work == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        generation: ${{ fromJSON(needs.reconcile_select.outputs.matrix) }}
+    concurrency:
+      group: crawler-generation-observer-${{ matrix.generation.generation_token }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout immutable site observer runtime
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: ${{ matrix.generation.site_code_commit }}
+          fetch-depth: 1
+          filter: blob:none
+          persist-credentials: false
+          path: site-observer
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |-
+            /scripts/crawler-generation-observer.mjs
+            /functions/src/githubApiHeaders.js
+            /scripts/ci/crawler-generation-roster.json
+            /scripts/lib/atomic-write-json.mjs
+            /scripts/lib/canonical-json-digest.mjs
+            /scripts/lib/crawler-generation-contract.mjs
+            /scripts/lib/crawler-generation-observer-report.mjs
+            /scripts/lib/crawler-generation-receipt.mjs
+            /scripts/lib/crawler-generation-token.mjs
+            /scripts/lib/github-actions-read-client.mjs
+            /scripts/lib/job-match-key.mjs
+            /scripts/lib/job-url-key.mjs
+            /scripts/lib/slug-history-journal.mjs
+            /scripts/lib/slug-preservation-guard.mjs
+
+      - name: Reconcile bounded exact generation snapshot
+        id: observe
+        continue-on-error: true
+        working-directory: site-observer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_API_URL: ${{ github.api_url }}
+        run: >-
+          node scripts/crawler-generation-observer.mjs observe-event
+          --generation-token "${{ matrix.generation.generation_token }}"
+          --sentinel-run-id "${{ matrix.generation.sentinel_run_id }}"
+          --timed-out "${{ matrix.generation.timed_out }}"
+          --roster scripts/ci/crawler-generation-roster.json
+          --repository "$PWD"
+          --runner-temp "${{ runner.temp }}"
+          --output "${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json"
+
+      - name: Upload canonical bounded observer report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: crawler-generation-observer-${{ matrix.generation.generation_token }}
+          path: ${{ runner.temp }}/crawler-generation-observer/crawler-generation-observer-report.json
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: Surface observer infrastructure failure
+        if: steps.observe.outcome == 'failure'
+        run: exit 1

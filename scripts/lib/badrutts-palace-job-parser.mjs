@@ -16,7 +16,7 @@
  *   - parseRssItems()               — Parse RSS XML into structured items (exported for testing)
  */
 import { createHash } from 'node:crypto';
-import { XMLParser } from 'fast-xml-parser';
+import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
@@ -29,6 +29,8 @@ export const BADRUTTS_PALACE_COMPANY_NAME = "Badrutt's Palace Hotel";
 export const BADRUTTS_PALACE_COMPANY_DOMAIN = 'badruttscareers.com';
 
 const CAREER_URL = 'https://jobs.badruttscareers.com/en-GB/jobs.rss';
+const MAX_ITEM_DROP_RATIO = 0.5;
+const RSS_ITEM_STATS = Symbol('badruttsPalaceRssItemStats');
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -129,6 +131,37 @@ function detectExperienceLevel(title = '') {
 
 /* ── RSS Parsing ──────────────────────────────────────────── */
 
+class BadruttsRssItemShapeError extends Error {}
+
+function readOptionalRssScalar(item, field, itemNumber) {
+  const value = item?.[field];
+  if (value == null) return '';
+  if (typeof value !== 'string') {
+    throw new BadruttsRssItemShapeError(
+      `Badrutt's Palace RSS item ${itemNumber} ${field} must be a single scalar string`,
+    );
+  }
+  return value;
+}
+
+function readRequiredRssScalar(item, field, itemNumber) {
+  const value = readOptionalRssScalar(item, field, itemNumber);
+  if (!normalizeSpace(value)) {
+    throw new BadruttsRssItemShapeError(
+      `Badrutt's Palace RSS item ${itemNumber} ${field} must be a non-empty scalar string`,
+    );
+  }
+  return value;
+}
+
+function assertDropRatioWithinLimit(total, dropped) {
+  if (!dropped || total <= 0 || dropped / total <= MAX_ITEM_DROP_RATIO) return;
+  const percentage = Math.round((dropped / total) * 100);
+  throw new Error(
+    `[badrutts-rss-drop-ratio] dropped ${dropped}/${total} items (${percentage}%, max 50%)`,
+  );
+}
+
 /**
  * Parse RSS XML into structured job items.
  * Exported for testing.
@@ -144,6 +177,15 @@ function detectExperienceLevel(title = '') {
  *   </channel></rss>
  */
 export function parseRssItems(xml = '') {
+  if (typeof xml !== 'string') {
+    throw new Error(`Badrutt's Palace RSS feed failed to parse as XML: expected a string`);
+  }
+  const validation = XMLValidator.validate(xml);
+  if (validation !== true) {
+    const detail = validation?.err?.msg || validation?.err?.code || 'invalid XML';
+    throw new Error(`Badrutt's Palace RSS feed failed to parse as XML: ${detail}`);
+  }
+
   const parser = new XMLParser({
     ignoreAttributes: false,
     attributeNamePrefix: '',
@@ -152,12 +194,6 @@ export function parseRssItems(xml = '') {
     processEntities: false,
   });
 
-  // Same unguarded-strict-XML-parse construct as parseAristonSitemapFeed
-  // (ariston-job-parser.mjs) — a parse-time throw (fast-xml-parser's strict
-  // XMLParser, e.g. "Maximum nested tags exceeded") means `xml` isn't the real
-  // Teamtailor RSS feed (WAF/error page, truncated body, etc). Surface a clear,
-  // low-drama error instead of the opaque library exception so it fails loudly
-  // and legibly (AGENTS.md #6 sibling-pattern fix alongside #4246).
   let parsed;
   try {
     parsed = parser.parse(xml);
@@ -166,14 +202,35 @@ export function parseRssItems(xml = '') {
   }
   const normalizedItems = assertRssChannelItems(parsed, { source: 'badrutts-palace' });
 
-  return normalizedItems
-    .map((item) => ({
-      title: normalizeSpace(item?.title || ''),
-      url: normalizeSpace(item?.link || ''),
-      descriptionHtml: String(item?.description || ''),
-      pubDate: normalizeSpace(item?.pubDate || ''),
-    }))
-    .filter((item) => item.title && item.url);
+  let malformedItems = 0;
+  const validItems = normalizedItems
+    .map((item, index) => {
+      const itemNumber = index + 1;
+      try {
+        return {
+          title: normalizeSpace(readRequiredRssScalar(item, 'title', itemNumber)),
+          url: normalizeSpace(readRequiredRssScalar(item, 'link', itemNumber)),
+          descriptionHtml: readOptionalRssScalar(item, 'description', itemNumber),
+          pubDate: normalizeSpace(readOptionalRssScalar(item, 'pubDate', itemNumber)),
+        };
+      } catch (err) {
+        // Recover only declared item-shape failures. Unexpected regressions
+        // must abort the feed rather than being converted into silent drops.
+        if (!(err instanceof BadruttsRssItemShapeError)) throw err;
+        malformedItems++;
+        // Per-item guard: one degenerate leaf (non-scalar/repeated field) must
+        // not zero out the whole feed. Feed-shape drift (malformed XML,
+        // missing envelope) still throws above, before this map.
+        console.warn(`⚠️ Badrutt's Palace RSS item ${itemNumber} skipped: ${err?.message || err}`);
+        return null;
+      }
+    })
+    .filter(Boolean);
+
+  Object.defineProperty(validItems, RSS_ITEM_STATS, {
+    value: { total: normalizedItems.length, dropped: malformedItems },
+  });
+  return validItems;
 }
 
 /**
@@ -225,6 +282,8 @@ export async function fetchAllBadruttsPalaceJobs() {
 
   const xml = await fetchRssFeed();
   const items = parseRssItems(xml);
+  const rssItemStats = items?.[RSS_ITEM_STATS];
+  if (rssItemStats) assertDropRatioWithinLimit(rssItemStats.total, rssItemStats.dropped);
 
   if (!items || items.length === 0) {
     console.warn('⚠️ No job items found in RSS feed.');

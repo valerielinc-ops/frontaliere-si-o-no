@@ -13,7 +13,10 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import {
+  resolveDetailOrListingSwissGeography,
+  schemaJobLocationCandidates,
+} from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -31,9 +34,7 @@ const ATS_ORIGIN = 'https://jobs.ikea.com';
 const CAREER_URL = 'https://jobs.ikea.com/en/location/switzerland-jobs/22908/2658434/2';
 
 const HQ_CITY = 'Spreitenbach';
-const HQ_CANTON = 'AG';
 const HQ_POSTAL = '8957';
-const HQ_REGION = 'Aargau';
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36';
@@ -141,13 +142,6 @@ function decodeEntities(s = '') {
     .replace(/&nbsp;|&#xA0;|&#x202F;/g, ' ');
 }
 
-/** A location string is Swiss if it mentions Switzerland or a known CH canton. */
-function isSwissLocation(loc = '') {
-  const t = String(loc || '');
-  if (/\b(switzerland|schweiz|suisse|svizzera)\b/i.test(t)) return true;
-  return Boolean(inferSwissTargetCanton(t));
-}
-
 /** Parse the rendered listing HTML into raw row objects. */
 function parseListingRows(html) {
   const rows = [];
@@ -220,9 +214,6 @@ async function fetchJobListings() {
   const pushRows = (parsed) => {
     for (const r of parsed) {
       if (seen.has(r.jobReqId)) continue;
-      // Defensive CH post-filter — the path landing is already CH-only, but
-      // jobs.ikea.com is the GLOBAL portal so we never trust an off-CH row.
-      if (r.location && !isSwissLocation(r.location)) continue;
       seen.add(r.jobReqId);
       rows.push(r);
     }
@@ -252,14 +243,7 @@ async function fetchJobListings() {
         row.description = posting.description || '';
         row.postedAt = normalizeDate(posting.datePosted);
         row.employmentTypeRaw = posting.employmentType || '';
-        const addr =
-          (Array.isArray(posting.jobLocation) ? posting.jobLocation[0] : posting.jobLocation)?.address ||
-          {};
-        row.addressLocality = addr.addressLocality || '';
-        row.addressRegion = addr.addressRegion || '';
-        // IKEA's feed puts the 4-digit Swiss postal code in streetAddress.
-        const postalCandidate = String(addr.postalCode || addr.streetAddress || '').trim();
-        row.postalCode = /^\d{4}$/.test(postalCandidate) ? postalCandidate : '';
+        row.locationCandidates = schemaJobLocationCandidates(posting.jobLocation);
       }
     } catch (err) {
       console.warn(`   ⚠️ detail fetch failed (${row.jobReqId}): ${err?.message || err}`);
@@ -299,6 +283,13 @@ export function resolveIkeaAddressRegion(feedAddressRegion, canton) {
   return /^[A-Z]{2}$/.test(feedRegion) && feedRegion === cantonCode ? feedRegion : '';
 }
 
+export function resolveIkeaListingGeography(listing = {}) {
+  return resolveDetailOrListingSwissGeography(
+    { locationCandidates: listing.locationCandidates || [] },
+    { location: listing.location || '' },
+  );
+}
+
 /**
  * Fetch all IKEA jobs.
  * Returns an array of ParsedJob objects (source-locale only).
@@ -323,11 +314,17 @@ export async function fetchAllIkeaJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const location = normalizeSpace(listing.location || '');
-    const canton = inferSwissTargetCanton(location) || HQ_CANTON;
-    const addressLocality = listing.addressLocality || location.split(',')[0].trim() || HQ_CITY;
-    const addressRegion = resolveIkeaAddressRegion(listing.addressRegion, canton);
-    const postalCode = listing.postalCode || (canton === HQ_CANTON ? HQ_POSTAL : '');
+    const decision = resolveIkeaListingGeography(listing);
+    const geography = decision.geography;
+    if (!geography) continue;
+    const { location, canton } = geography;
+    const evidence = decision.candidate;
+    const addressLocality = evidence.addressLocality || location.split(',')[0].trim();
+    const addressRegion = resolveIkeaAddressRegion(evidence.addressRegion, canton);
+    // IKEA sometimes places its 4-digit Swiss postal code in streetAddress.
+    const postalCandidate = String(evidence.postalCode || evidence.streetAddress || '').trim();
+    const postalCode = (/^\d{4}$/.test(postalCandidate) ? postalCandidate : '')
+      || (addressLocality === HQ_CITY ? HQ_POSTAL : '');
     const descriptionText = stripHtml(listing.description || '');
     const publicUrl = listing.url || CAREER_URL;
 
@@ -347,7 +344,7 @@ export async function fetchAllIkeaJobs() {
       titleByLocale: { [sourceLang]: title },
       description: descriptionText || `${title} — ${IKEA_COMPANY_NAME}`,
       descriptionByLocale: { [sourceLang]: descriptionText || `${title} — ${IKEA_COMPANY_NAME}` },
-      location: location || addressLocality,
+      location,
       canton,
       url: publicUrl,
       source: 'IKEA Dedicated Parser',
@@ -357,7 +354,7 @@ export async function fetchAllIkeaJobs() {
       // ── Recommended fields ──
       addressLocality,
       postalCode,
-      addressRegion: addressRegion || (canton === HQ_CANTON ? HQ_REGION : ''),
+      addressRegion: addressRegion || canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),

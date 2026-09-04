@@ -43,6 +43,7 @@ import {
   detectHealthcareEmploymentType,
 } from './hospital-custom-html-helpers.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { isCantonTicinoOscPosting } from './crawler-company-ownership.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -54,26 +55,13 @@ export const CANTON_TICINO_OSC_COMPANY_DOMAIN = 'concorsi.ti.ch';
 const LISTING_URL = 'https://www.concorsi.ti.ch/';
 const BASE_URL = 'https://www.concorsi.ti.ch';
 
-// Health-or-OSC topical filter. Either:
-//  - the body lists the Dipartimento della Sanità e della Socialità (DSS), OR
-//  - title/body references OSC, Mendrisio, CPC, EOC, ente ospedaliero, sanità etc.
-const HEALTH_DEPT_RE = /Dipartimento\s+della\s+sanit[àa]\s+e\s+della\s+socialit[àa]/i;
-const HEALTH_TOPIC_RE =
-  /(\bOSC\b|sociopsichi|Clinica\s+psichiatrica\s+cantonale|\bCPC\b|\bEOC\b|ente\s+ospedaliero|Mendrisio|Casvegno|sanitario|infermier|medico|psicolog|operator[ei]\s+social)/i;
-
 // Drop these entirely (placeholders / cross-dept).
 const SKIP_TITLE_RE = /Candidatur[ae]\s+spontane|spontanbewerb/i;
 
 /* ── Company matchers ──────────────────────────────────────── */
 
 export function isCantonTicinoOscJob(job) {
-  const key = String(job?.companyKey || '').toLowerCase();
-  const url = String(job?.url || '').toLowerCase();
-  return (
-    key === CANTON_TICINO_OSC_KEY ||
-    key.startsWith('canton-ticino-osc') ||
-    url.includes('concorsi.ti.ch')
-  );
+  return isCantonTicinoOscPosting(job);
 }
 
 export function isTrustedDomain(rawUrl = '') {
@@ -251,12 +239,11 @@ export async function fetchAllCantonTicinoOscJobs() {
       continue;
     }
 
-    // Apply DSS/OSC filter.
+    // Exact OSC ownership: generic DSS/health vacancies remain with the
+    // cantonal-administration crawler even though they share this board.
     const haystack = `${detail.dept} ${detail.title} ${detail.text}`;
-    const isHealthDept = HEALTH_DEPT_RE.test(detail.dept) || HEALTH_DEPT_RE.test(haystack);
-    const isHealthTopic = HEALTH_TOPIC_RE.test(detail.title) || HEALTH_TOPIC_RE.test(haystack);
-    if (!isHealthDept && !isHealthTopic) {
-      console.log(`  ⏭  yid=${cand.yid} skipped (non-health: ${detail.dept || 'no dept'})`);
+    if (!isCantonTicinoOscPosting(detail)) {
+      console.log(`  ⏭  yid=${cand.yid} skipped (not OSC: ${detail.dept || 'no dept'})`);
       continue;
     }
 

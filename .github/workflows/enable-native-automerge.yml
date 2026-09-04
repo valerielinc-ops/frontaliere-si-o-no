@@ -1,0 +1,74 @@
+name: Enable native auto-merge
+
+# GitHub's native auto-merge owns the waiting/merge decision. This workflow
+# only opts an eligible PR into that mechanism; required checks and reviews are
+# configured on the main branch ruleset, not reimplemented in Actions.
+# The required `vitest (unit + integration)` context is the complete `tests`
+# job, whose final review-gate step fails on a Claude `🔴 Important`; native
+# auto-merge therefore cannot bypass the Claude decision.
+on:
+  # This workflow only calls the GitHub API and never executes PR code.
+  # pull_request_target keeps the write permission available for fork PRs too.
+  pull_request_target:
+    # Native auto-merge persists across new commits, so re-running this job on
+    # every synchronize/push only repeats the API call and helper download.
+    types: [opened, reopened, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  enable:
+    # Guard explicitly against non-PR dispatches. This keeps a malformed or
+    # manually replayed push event from producing a failed empty run while
+    # dereferencing pull_request fields that do not exist.
+    if: github.event_name == 'pull_request_target' && github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    steps:
+      # This job needs only the Remote Config loader and its dependency-free
+      # JWT helper. A git checkout still has to fetch the repository's large
+      # tree before sparse checkout can select those files, so download the
+      # two raw files directly instead of initializing a repository.
+      - name: Download workflow helpers
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          helper_dir="${RUNNER_TEMP}/native-automerge-helpers"
+          mkdir -p "$helper_dir/lib"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/load-rc-env.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/load-rc-env.mjs"
+          gh api "repos/${GITHUB_REPOSITORY}/contents/scripts/lib/google-service-account-token.mjs?ref=main" \
+            --header 'Accept: application/vnd.github.raw+json' \
+            > "$helper_dir/lib/google-service-account-token.mjs"
+          echo "NATIVE_AUTOMERGE_HELPER_DIR=$helper_dir" >> "$GITHUB_ENV"
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_JSON is not configured" >&2
+            exit 1
+          fi
+          printf %s "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load PAT from Remote Config
+        run: node "$NATIVE_AUTOMERGE_HELPER_DIR/load-rc-env.mjs"
+
+      - name: Enable GitHub auto-merge
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          if [ -z "$GITHUB_PAT" ]; then
+            echo "GITHUB_PAT was not loaded from Remote Config" >&2
+            exit 1
+          fi
+          GH_TOKEN="$GITHUB_PAT" gh pr merge "$PR_NUMBER" --repo "$REPOSITORY" --auto --squash --delete-branch
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

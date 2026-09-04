@@ -197,7 +197,7 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
         if (u.startsWith('https://ohws.prospective.ch/public/v1/medium/1003280/jobs')) {
           return new Response(
             JSON.stringify({
-              total: 1,
+              total: 2,
               jobs: [
                 {
                   szas: {
@@ -206,6 +206,16 @@ describe('Luzerner Kantonsspital (LUKS) crawler parser', () => {
                   },
                   links: {
                     directlink: 'https://jobs.luks.ch/stellen-und-karriere/offene-stellen/pflege-hf-001',
+                  },
+                },
+                {
+                  szas: {
+                    sza_title: 'Leitung Spital Nidwalden',
+                    'sza_location.city': '6370 Stans',
+                  },
+                  attributes: { '40': ['KSNW'] },
+                  links: {
+                    directlink: 'https://jobs.luks.ch/offene-stellen/leitung-spital-nidwalden/ksnw-001',
                   },
                 },
               ],

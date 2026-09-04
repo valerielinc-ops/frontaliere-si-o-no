@@ -15,7 +15,9 @@ import {
   getAllPartners,
   buildGoPath,
   partnerRelAttr,
+  buildAffiliateUrl,
 } from '../services/affiliateService';
+import { WISE_REFERRAL_URL, EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
 
 describe('affiliateService config gates', () => {
   it('never surfaces disabled partners in any context', () => {
@@ -70,5 +72,21 @@ describe('affiliateService config gates', () => {
       expect(p.url.endsWith('/r/')).toBe(false);
       expect(p.url.endsWith('/referral/')).toBe(false);
     }
+  });
+
+  it('Wise /go/ destination is the Partnerize referral, not the invite link', () => {
+    const partnerize = 'https://wise.prf.hn/l/5mGYVAl/';
+    expect(WISE_REFERRAL_URL).toBe(partnerize);
+
+    const exchangeWise = EXCHANGE_REFERRAL_PARTNERS.find((p) => p.slug === 'wise');
+    expect(exchangeWise?.referralUrl).toBe(partnerize);
+
+    const wise = PARTNERS.find((p) => p.id === 'wise');
+    expect(wise).toBeDefined();
+    expect(wise!.url).toBe(partnerize);
+
+    const dest = buildAffiliateUrl(wise!, 'go-redirect');
+    expect(dest).toBe(partnerize);
+    expect(dest).not.toContain('wise.com/invite');
   });
 });

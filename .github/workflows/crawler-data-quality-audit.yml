@@ -1,6 +1,6 @@
-name: Crawler Data Quality Audit (weekly, Claude)
+name: Crawler Data Quality Audit (weekly, bounded)
 
-# Weekly LLM-driven audit mirroring the manual review that produced PR #3245
+# Weekly deterministic audit mirroring the manual review that produced PR #3245
 # (15-day git-history audit of `data/jobs/by-crawler/*.json` — slug stability,
 # translation system, crawling/merge system, slug regeneration, needsTranslation
 # staleness, housekeeping). That manual pass found 7-8 real defects (incl. the
@@ -9,22 +9,23 @@ name: Crawler Data Quality Audit (weekly, Claude)
 # UP/DOWN freshness (empty/stale runs), not semantic correctness of the JSON
 # content itself. This workflow fills that gap.
 #
-# Deliberately Claude, not a deterministic script: the defects found were subtle
-# (cross-job slug contamination, silent-drop-instead-of-redirect) and needed code
-# reading + git-history reasoning, not a fixed regex/threshold check.
+# Deterministic by construction: fleet-wide scanners build a bounded evidence
+# packet, pre-render at most five issue bodies and execute the planned mutations
+# serially with fail-fast semantics. There is no LLM exploration phase, so run
+# 33480042764's 81-turn checkout scan cannot recur.
 #
 # Deliberately NOT auto-routed to the IMMEDIATE crawler route (ISSUES.md
 # category `other` — no label/title pattern here matches issue-triage's
 # `crawler`/`parser-broken`/`priority:high`+crawler regex, see
-# scripts/lib/classify-issue.mjs): an LLM audit's findings are judgment calls,
-# not the production-critical/high-volume-proven case that justifies bypassing
+# scripts/lib/classify-issue.mjs): these findings are not the
+# production-critical/high-volume-proven case that justifies bypassing
 # the anti-starvation queue. They still enter the `agent:fix-queued` pipeline
 # like any other category (autofix, 2026-07-05 owner decision) and get a fix
 # attempt via followup-drainer — this workflow itself stays read-only except
 # `gh issue create/list/comment` — no self-fix.
 #
 # Zero-issue runs are silent (mirrors evergreen-refresh-audit.yml /
-# dmarc-monitor.yml): the agent creates an issue ONLY when it has real evidence.
+# dmarc-monitor.yml): the executor creates an issue ONLY with measured evidence.
 
 on:
   schedule:
@@ -39,7 +40,6 @@ on:
 permissions:
   contents: read
   issues: write
-  id-token: write
 
 concurrency:
   group: crawler-data-quality-audit
@@ -48,7 +48,7 @@ concurrency:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    # 25→30 (2026-07-17): headroom per il cap turni alzato 65→80.
+    # Preserve the historical 30-minute cap for the bounded history fetch.
     timeout-minutes: 30
     steps:
       - name: Checkout
@@ -60,7 +60,7 @@ jobs:
           # FULL blob content for every commit in the lookback window, not just
           # commit/tree metadata. Measured on run 32709774280 (2026-08-24): that
           # step alone took 21m30s of the 30min budget (09:10:57→09:32:27),
-          # leaving the actual Claude audit ~5min before cancellation — 100% of
+          # leaving the actual audit ~5min before cancellation — 100% of
           # this job's timeouts trace to this one fetch, none to the audit step
           # itself. `filter: blob:none` here is inherited by the plain `git
           # fetch` in "Deepen history" (git remembers the partial-clone filter
@@ -69,12 +69,9 @@ jobs:
           # that job's `scan-prev-slug-losses.mjs` reads the blob content of
           # EVERY commit in its window via `git cat-file --batch`, so blobless
           # would trade one big upfront fetch for hundreds of tiny lazy-fetch
-          # stalls. This audit's prompt explicitly does the opposite — samples
-          # a handful of commits (`git log --stat`, no full-diff walk) and
-          # treats deterministic scripts as the primary signal — so the few
-          # blobs it does touch (sampled `git show`/`git diff`) are cheap
-          # lazy-fetches, and the working tree at HEAD (which the audit's own
-          # scripts like decontaminate-prev-slugs.mjs read) is unaffected: it's
+          # stalls. This audit reads only the baseline blobs required by its
+          # deterministic scanners. The working tree at HEAD (which scripts
+          # such as decontaminate-prev-slugs.mjs read) is unaffected: it is
           # materialized in full by this same Checkout step regardless of the
           # filter.
           filter: blob:none
@@ -102,97 +99,46 @@ jobs:
         with:
           node-version: '22'
 
-      # Ensure the label exists BEFORE the Claude step — `gh issue create --label`
-      # on a non-existent label fails the call, which would otherwise burn a Claude
-      # turn on a retry loop for something a 1-line deterministic step prevents.
+      # Ensure the label exists before the bounded executor.
       - name: Ensure label exists
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh label create "crawler-data-quality" --color "5319E7" \
-            --description "Weekly Claude audit: semantic data-quality finding in data/jobs/by-crawler" \
+            --description "Weekly audit: semantic data-quality finding in data/jobs/by-crawler" \
             --force 2>/dev/null || true
 
-      - name: Setup Headroom compression proxy
-        uses: ./.github/actions/setup-headroom
-
-      - name: Run Claude data quality audit
-        id: audit
-        uses: anthropics/claude-code-action@v1
+      # Run every fleet-wide scan once. The script also snapshots
+      # open issues, plans marker/title-based dedup and materializes each body;
+      # the five-finding worst case exactly five gh mutations. Comments are
+      # included so a partial/retried run is a no-op for actions already
+      # persisted during the same weekly audit cycle.
+      - name: Build bounded data-quality action packet
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPO: ${{ github.repository }}
           WINDOW_DAYS: ${{ inputs.window_days || '15' }}
-        with:
-          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          # github_token required alongside claude_code_oauth_token: without it
-          # allowed_non_write_users is a silent no-op (post-merge-followup.yml,
-          # PR #3182 — every scheduled run failed "User does not have write
-          # access", zero turns, zero cost, until this line was added there).
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Schedule → triggering_actor is frontaliere-automation[bot] (same
-          # correction as post-merge-followup.yml, PR #3157). Whitelist mirrors
-          # every other scheduled Claude workflow. Never `*`.
-          allowed_bots: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          allowed_non_write_users: "github-actions[bot], claude[bot], frontaliere-automation[bot]"
-          show_full_output: true
-          # 2026-07-02: `--dangerously-skip-permissions` (+ `settings` JSON fallback,
-          # PR #3277) tried and failed across 3 live runs (28593412005, 28594828826,
-          # 28599900446) — permissionMode resolves to "default" every time on this
-          # workflow's schedule/workflow_dispatch trigger, blocking ~75% of Bash calls
-          # incl. the actual audit script ("requires approval", issue #3269). Confirmed
-          # NOT specific to this workflow: post-merge-followup.yml's own `schedule` run
-          # the same day (28594653701) hit the identical wall. workflow_run/issues-
-          # triggered siblings (pr-review-loop, issue-fix) get real bypassPermissions
-          # with the same config — the differentiator is event_name, not settings, not
-          # actor (confirmed with both a human and a bot actor on the broken side).
-          # Falling back to scoped --allowedTools (read-only audit: no Edit/Write
-          # needed) until the upstream root cause is understood.
-          # max-turns raised 40→65 after run 28790742227 hit error_max_turns
-          # without reaching a finding: 2 denied compound Bash calls (cd+redirect,
-          # xargs -I{} — Claude Code rejects compound patterns regardless of an
-          # allowlisted leading binary) plus a self-inflicted import error burned
-          # turns before any real audit work (issue #3679). Not a cost-cut lower,
-          # AGENTS.md permits raising turns for legitimate complexity.
-          # 65→80 (2026-07-17, owner): fleet-wide bump of every Claude max-turns cap.
-          claude_args: "--max-turns 80 --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Bash(git:*),Bash(node:*),Read,Grep,Glob'"
-          prompt: |
-            Audit qualità dati crawler, settimanale. Finestra lookback: ${{ env.WINDOW_DAYS }} giorni.
+          OPEN_ISSUES_LIMIT: '100'
+        run: |
+          set -euo pipefail
+          gh issue list --state open --label crawler-data-quality \
+            --json number,title,body,comments --limit "$OPEN_ISSUES_LIMIT" \
+            > /tmp/crawler-data-quality-open-issues.json
+          node scripts/ci/crawler-data-quality-candidates.mjs \
+            --data-dir data/jobs/by-crawler \
+            --open-issues /tmp/crawler-data-quality-open-issues.json \
+            --open-issues-limit "$OPEN_ISSUES_LIMIT" \
+            --output /tmp/crawler-data-quality-candidates.json \
+            --body-dir /tmp \
+            --window-days "$WINDOW_DAYS" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
-            **Contesto:** questo audit replica manualmente eseguito che ha prodotto la PR #3245 (7-8 difetti reali: contaminazione cross-job di `previousSlugs`, un bug che droppava invece di redirectare gli slug in un array flat, staleness di `needsTranslation`, regressioni di slug regeneration). Nessun check automatico esistente copre la correttezza SEMANTICA del contenuto JSON — `crawler-health-monitor.yml` verifica solo se un crawler produce output fresco/non-vuoto, non se il contenuto è corretto. Il tuo scopo è lo stesso identico audit, ripetuto.
-
-            **Bootstrap:**
-            1. Leggi `docs/CRAWLERS.md` (architettura crawler/translation/slug) e `AGENTS.md → ## Static SEO Pages` (contratto previousSlugs/bridge pages) SOLO per il contesto necessario — non serve tutto AGENTS.md.
-            2. `git log --since="${{ env.WINDOW_DAYS }} days ago" --oneline -- data/jobs/by-crawler/` per la finestra di commit da esaminare. Se il volume è enorme (centinaia di commit — normale coi crawler dedicati automatici), NON leggere ogni diff: campiona i commit più grandi (`git log --since="${{ env.WINDOW_DAYS }} days ago" --stat -- data/jobs/by-crawler/ | ...`) e usa gli script deterministici sotto come segnale primario invece di leggere diff a mano uno per uno.
-
-            **Verifiche (stesse 5 categorie dell'audit manuale):**
-
-            1. **Slug stability / previousSlugs correctness**: esegui `node scripts/decontaminate-prev-slugs.mjs` (SENZA `--apply`, dry-run) contro `data/jobs/by-crawler/*.json` corrente. Se riporta contaminazioni (`moved > 0`) → REGRESSIONE del bug fixato in #3245: è evidenza concreta, la decontaminazione post-merge dovrebbe aver riportato tutto a 0. Ispeziona anche a campione se `previousSlugs` flat e `previousSlugsByLocale` per-locale restano coerenti tra loro (stesso schema del bug flat-array fixato dopo #3245).
-            2. **Translation system**: campiona job con `needsTranslation: true` — quanti sono più vecchi di 72h (`crawledAt`/`updatedAt`) senza traduzione risolta? Un accumulo crescente indica una pipeline di traduzione bloccata (non copiato da nessun health-check esistente).
-            3. **Crawling / merge system**: verifica a campione la correttezza del merge by-stable-id (`extractStableJobId(job.url)`, import da `scripts/lib/job-match-key.mjs` — NON da `dedicated-crawler-common.mjs`) — job duplicati con lo stesso id-stabile ma slug diversi non collassati, o entries orfane dopo un merge.
-            4. **Slug regeneration correctness**: campiona slug troncati — verifica che `truncateSlugAtWordBoundary` non abbia prodotto tronconi a metà parola o slug regenerati senza motivo (title wording minore che NON dovrebbe produrre nuovo slug, vedi `docs/CRAWLERS.md` riga 32).
-            5. **Housekeeping**: `previousSlugs`/`previousSlugsByLocale` che puntano a target inesistenti nel dataset corrente, oggetti locale vuoti, `crawledAt` molto vecchio su un job ancora marcato attivo.
-
-            **Filtro evidenza (CRITICO — no rumore):** apri un finding SOLO con evidenza concreta e citabile (comando eseguito + output, o file:riga specifici) — mai un sospetto vago. Se una categoria non produce nulla di anomalo, salta silenziosamente: NON forzare un finding per "coprire" ogni categoria.
-
-            **Dedup (prima di creare qualsiasi issue):** `gh issue list --state open --label crawler-data-quality --json number,title,body --limit 50`. Se un'issue aperta copre già lo stesso pattern (stesso script/categoria, non necessariamente stesso job) → posta un commento `🔁 Ricorrenza rilevata nel run <link run>` su quella issue con la nuova evidenza invece di aprirne una nuova.
-
-            **Se trovi evidenza NUOVA (nessun match dedup):**
-            - `gh issue create --title "[data-quality] <categoria>: <sintesi breve>" --label crawler-data-quality --body "<evidenza + comando/output + file interessati + prossimo passo suggerito + link a questo run: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>"`.
-            - **NON** usare i label `crawler`, `parser-broken`, o `priority:high` insieme a un titolo che contiene "crawler"/"parser" — instraderebbero l'issue nella route `agent:fix` IMMEDIATA (`issue-triage.yml`), riservata al caso production-critical/alto-volume già provato sicuro. Un giudizio LLM come questo entra comunque in auto-fix, ma dalla coda anti-starvation (`agent:fix-queued` → `other`, drenata da `followup-drainer`), non dal bypass diretto.
-            - Massimo 5 issue per run (se trovi più pattern, aggrega i correlati in una singola issue invece di aprirne 5+).
-
-            **Se non trovi nulla:** non fare nulla, log pulito, nessuna issue. Non e' un errore.
-
-            **Constraint:**
-            - Read-only sul codice/dati: NIENTE `git commit`/`push`/edit di file. L'unica scrittura ammessa è `gh issue create`/`gh issue comment` (e la lettura via `gh issue list`).
-            - Non tentare fix — questo audit trova, non ripara.
-            - Incerto se qualcosa è un vero difetto → non aprire issue; se borderline ma degno di attenzione umana, apri comunque MA marca chiaramente "da verificare" nel body.
-            - Bash qui è allowlisted per binario ma NON accetta comandi composti: niente `cd ... && ...`/redirect (`> file`), niente `xargs -I{}`. Un comando per invocazione, output letto via tool separato — i pattern composti vengono negati a prescindere dal binario in testa e sprecano turni (causa di #3679).
-
-      - name: Claude usage metrics
-        if: always()
-        run: node scripts/ci/claude-usage-summary.mjs "${{ steps.audit.outputs.execution_file }}" "crawler-data-quality-audit"
+      - name: Execute bounded issue actions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/ci/crawler-data-quality-candidates.mjs \
+            --execute true \
+            --packet /tmp/crawler-data-quality-candidates.json
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -1616,6 +1616,7 @@
       "file": "update-jobs-apleona-schweiz-ag.yml",
       "jobKey": "update-apleona-schweiz-ag-jobs",
       "timeoutMinutes": 360,
+      "targetTimeoutMinutes": 60,
       "prepSteps": [
         {
           "name": "Install dependencies",
@@ -3754,136 +3755,6 @@
       ]
     },
     {
-      "slug": "bewerbermanagement-stellen",
-      "file": "update-jobs-bewerbermanagement-stellen.yml",
-      "jobKey": "update-bewerbermanagement-stellen-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Bewerbermanagement Stellen crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_BEWERBERMANAGEMENT_STELLEN_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-bewerbermanagement-stellen-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "bewerbermanagement-stellen",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/bewerbermanagement-stellen.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Bewerbermanagement Stellen jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "bewerbungsmanagement-spital-davos",
-      "file": "update-jobs-bewerbungsmanagement-spital-davos.yml",
-      "jobKey": "update-bewerbungsmanagement-spital-davos-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Bewerbungsmanagement Spital Davos crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_BEWERBUNGSMANAGEMENT_SPITAL_DAVOS_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-bewerbungsmanagement-spital-davos-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "bewerbungsmanagement-spital-davos",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/bewerbungsmanagement-spital-davos.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Bewerbungsmanagement Spital Davos jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
       "slug": "bitfinex",
       "file": "update-jobs-bitfinex.yml",
       "jobKey": "update-bitfinex-jobs",
@@ -4925,71 +4796,6 @@
         },
         {
           "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "burgenstock-collection",
-      "file": "update-jobs-burgenstock-collection.yml",
-      "jobKey": "update-burgenstock-collection-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Bürgenstock Collection crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_BURGENSTOCK_COLLECTION_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-burgenstock-collection-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "burgenstock-collection",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/burgenstock-collection.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Bürgenstock Collection jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
           "if": "failure()",
           "continue-on-error": true,
           "env": {
@@ -9241,71 +9047,6 @@
       ]
     },
     {
-      "slug": "de",
-      "file": "update-jobs-de.yml",
-      "jobKey": "update-de-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated MPI AGE crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_DE_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-de-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "de",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/de.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update MPI AGE jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
       "slug": "debiopharm",
       "file": "update-jobs-debiopharm.yml",
       "jobKey": "update-debiopharm-jobs",
@@ -9622,75 +9363,6 @@
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
           "run": "bash scripts/lib/git-commit-data.sh --slice-only \"🏪 Auto-update Denner jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "diakoniewerk-neumuenster",
-      "file": "update-jobs-diakoniewerk-neumuenster.yml",
-      "jobKey": "update-diakoniewerk-neumuenster-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Install Playwright browsers",
-          "run": "npx playwright install --with-deps chromium"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Diakoniewerk Neumünster crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_DIAKONIEWERK_NEUMUENSTER_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-diakoniewerk-neumuenster-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "diakoniewerk-neumuenster",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/diakoniewerk-neumuenster.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Diakoniewerk Neumünster jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
         },
         {
           "name": "Report failure to GitHub Issues",
@@ -13855,71 +13527,6 @@
         },
         {
           "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "gkb-jobservice",
-      "file": "update-jobs-gkb-jobservice.yml",
-      "jobKey": "update-gkb-jobservice-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated GKB JobService crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_GKB_JOBSERVICE_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-gkb-jobservice-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "gkb-jobservice",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/gkb-jobservice.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update GKB JobService jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
           "if": "failure()",
           "continue-on-error": true,
           "env": {
@@ -20839,71 +20446,6 @@
       ]
     },
     {
-      "slug": "kssg",
-      "file": "update-jobs-kssg.yml",
-      "jobKey": "update-kssg-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Kantonsspital St. Gallen (KSSG / HOCH) crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_KSSG_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-kssg-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "kssg",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/kssg.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Kantonsspital St. Gallen (KSSG / HOCH) jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
       "slug": "ksw",
       "file": "update-jobs-ksw.yml",
       "jobKey": "update-ksw-jobs",
@@ -21284,71 +20826,6 @@
         },
         {
           "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "kzu-recruiting",
-      "file": "update-jobs-kzu-recruiting.yml",
-      "jobKey": "update-kzu-recruiting-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated KZU Recruiting crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_KZU_RECRUITING_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-kzu-recruiting-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "kzu-recruiting",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/kzu-recruiting.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update KZU Recruiting jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issue",
           "if": "failure()",
           "continue-on-error": true,
           "env": {
@@ -31468,71 +30945,6 @@
       ]
     },
     {
-      "slug": "solothurner-spitaeler",
-      "file": "update-jobs-solothurner-spitaeler.yml",
-      "jobKey": "update-solothurner-spitaeler-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated Solothurner Spitäler (soH) crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_SOLOTHURNER_SPITAELER_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-solothurner-spitaeler-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "solothurner-spitaeler",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/solothurner-spitaeler.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Solothurner Spitäler (soH) jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
       "slug": "somedia",
       "file": "update-jobs-somedia.yml",
       "jobKey": "update-somedia-jobs",
@@ -33294,71 +32706,6 @@
       ]
     },
     {
-      "slug": "spz",
-      "file": "update-jobs-spz.yml",
-      "jobKey": "update-spz-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated SPZ crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_SPZ_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-spz-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "spz",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/spz.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update SPZ jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
       "slug": "srg-ssr",
       "file": "update-jobs-srg-ssr.yml",
       "jobKey": "update-srg-ssr-jobs",
@@ -33935,71 +33282,6 @@
             "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
           },
           "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update Stäubli jobs (dedicated crawler)\" data/jobs-crawler-adapters/"
-        },
-        {
-          "name": "Report failure to GitHub Issues",
-          "if": "failure()",
-          "continue-on-error": true,
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/lib/github-issue-creator.mjs \\\n  --title \"Crawler Failure: ${{ github.workflow }}\" \\\n  --description \"## Crawler fallito\n**Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}\n**Branch:** ${{ github.ref_name }}\n**Trigger:** ${{ github.event_name }}\" \\\n  --priority 2 \\\n  --label Bug \\\n  --workflow \"${{ github.workflow }}\"\n"
-        }
-      ]
-    },
-    {
-      "slug": "stgag",
-      "file": "update-jobs-stgag.yml",
-      "jobKey": "update-stgag-jobs",
-      "timeoutMinutes": 360,
-      "prepSteps": [
-        {
-          "name": "Install dependencies",
-          "run": "npm ci"
-        },
-        {
-          "name": "Prepare Firebase credentials (optional)",
-          "env": {
-            "FIREBASE_SERVICE_ACCOUNT_JSON": "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}"
-          },
-          "run": "if [ -n \"$FIREBASE_SERVICE_ACCOUNT_JSON\" ]; then\n  printf '%s' \"$FIREBASE_SERVICE_ACCOUNT_JSON\" > /tmp/firebase-sa.json\nelse\n  echo \"ℹ️ Firebase secrets not set — crawler will use file config only.\"\n  exit 0\nfi\necho \"GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json\" >> \"$GITHUB_ENV\"\n"
-        },
-        {
-          "name": "Load secrets from Remote Config",
-          "env": {
-            "GH_TOKEN": "${{ secrets.GITHUB_TOKEN }}"
-          },
-          "run": "node scripts/load-rc-env.mjs\necho \"GH_TOKEN=$GH_TOKEN\" >> \"$GITHUB_ENV\"\n"
-        }
-      ],
-      "runStep": {
-        "name": "Run dedicated STGAG (Umantis) crawler",
-        "env": {
-          "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
-          "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_STGAG_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
-          "CRAWLER_SLICE_ONLY": "1",
-          "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-        },
-        "run": "node scripts/update-stgag-jobs.mjs"
-      },
-      "postSteps": [
-        {
-          "name": "Housekeeping — remove expired job listings (scoped)",
-          "env": {
-            "JOBS_HOUSEKEEPING_SCOPE": "stgag",
-            "JOBS_SLICE_FILE": "data/jobs/by-crawler/stgag.json"
-          },
-          "run": "node scripts/cleanup-jobs.mjs",
-          "continue-on-error": true
-        },
-        {
-          "name": "Commit and push",
-          "id": "changes",
-          "env": {
-            "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
-          },
-          "run": "bash scripts/lib/git-commit-data.sh --slice-only \"💼 Auto-update STGAG jobs (dedicated Umantis crawler)\" data/jobs-crawler-adapters/"
         },
         {
           "name": "Report failure to GitHub Issues",
@@ -39441,7 +38723,7 @@
         "env": {
           "JOBS_CRAWLER_TIMEOUT_MS": "${{ github.event.inputs.timeout_ms || '' }}",
           "JOBS_CRAWLER_USE_FIRESTORE_CONFIG": "1",
-          "JOBS_ZURICH_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
+          "JOBS_ZURICH_INSURANCE_SEDE_TICINO_STRICT": "${{ github.event.inputs.strict_localization || '1' }}",
           "CRAWLER_SLICE_ONLY": "1",
           "SKIP_AI_TRANSLATION": "${{ github.event.inputs.skip_ai_translation || '0' }}"
         },

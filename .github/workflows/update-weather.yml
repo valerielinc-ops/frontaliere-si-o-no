@@ -44,7 +44,6 @@ jobs:
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -72,6 +71,20 @@ jobs:
       - name: Install dependencies (minimal — tsx + types only)
         run: npm ci --no-audit --no-fund --ignore-scripts
 
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Run weather snapshot updater
         run: npx tsx scripts/update-weather.ts
         env:
@@ -95,6 +108,7 @@ jobs:
           git commit -m "🌦️ Refresh weather snapshot (council)"
 
           # Rebase-retry loop (max 5 attempts)
+          bash scripts/lib/configure-main-push-auth.sh
           for attempt in 1 2 3 4 5; do
             if git push origin HEAD:main; then
               echo "push ok on attempt $attempt"

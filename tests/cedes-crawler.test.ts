@@ -1,7 +1,9 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import {
+  fetchCedesDetailPage,
   parseCedesListingHtml,
   parseCedesDetailHtml,
+  normalizeCedesJobUrl,
   slugify,
   stripHtml,
   inferEmploymentType,
@@ -38,6 +40,34 @@ const SAMPLE_DETAIL_HTML = `
 // ── tests ─────────────────────────────────────────────────────────────
 
 describe('CEDES job parser', () => {
+  describe('normalizeCedesJobUrl', () => {
+    it('allows only relative or same-origin HTTPS CEDES job routes', () => {
+      expect(normalizeCedesJobUrl('/en/career/jobs/embedded-engineer/'))
+        .toBe('https://www.cedes.com/en/career/jobs/embedded-engineer/');
+      expect(normalizeCedesJobUrl('https://www.cedes.com/en/openings/123'))
+        .toBe('https://www.cedes.com/en/openings/123');
+      expect(normalizeCedesJobUrl('https://attacker.example/en/career/jobs/embedded-engineer/')).toBeNull();
+      expect(normalizeCedesJobUrl('http://www.cedes.com/en/career/jobs/embedded-engineer/')).toBeNull();
+      expect(normalizeCedesJobUrl('https://www.cedes.com/en/news/embedded-engineer/')).toBeNull();
+    });
+
+    it('allows hyphenated regional locale prefixes like the site actually serves', () => {
+      expect(normalizeCedesJobUrl('/zh-hans/career/jobs/embedded-engineer/'))
+        .toBe('https://www.cedes.com/zh-hans/career/jobs/embedded-engineer/');
+    });
+
+    it('fails closed before fetch for an unsafe detail URL', async () => {
+      const fetchSpy = vi.spyOn(globalThis, 'fetch');
+      try {
+        await expect(fetchCedesDetailPage('https://attacker.example/en/career/jobs/embedded-engineer/'))
+          .resolves.toBeNull();
+        expect(fetchSpy).not.toHaveBeenCalled();
+      } finally {
+        fetchSpy.mockRestore();
+      }
+    });
+  });
+
   describe('parseCedesListingHtml', () => {
     it('extracts job links from HTML', () => {
       const jobs = parseCedesListingHtml(SAMPLE_LISTING_HTML);
@@ -57,6 +87,28 @@ describe('CEDES job parser', () => {
       const jobs = parseCedesListingHtml(SAMPLE_LISTING_HTML);
       const urls = jobs.map((j) => j.url);
       expect(new Set(urls).size).toBe(urls.length);
+    });
+
+    it("keeps an apostrophe inside a double-quoted job href", () => {
+      const [job] = parseCedesListingHtml(
+        `<a href="/en/career/jobs/chef-d'equipe">Chef d'équipe</a>`,
+      );
+      expect(job.url).toBe("https://www.cedes.com/en/career/jobs/chef-d'equipe");
+    });
+
+    it('preserves the generic fallback class substring matching', () => {
+      const [job] = parseCedesListingHtml(
+        '<a class="jobs-listing-link" href="/en/openings/123">Embedded Software Engineer</a>',
+      );
+      expect(job.url).toBe('https://www.cedes.com/en/openings/123');
+      expect(job.title).toBe('Embedded Software Engineer');
+    });
+
+    it('matches career URL paths case-insensitively', () => {
+      const [job] = parseCedesListingHtml(
+        '<a href="/EN/CAREER/JOBS/Embedded-Engineer">Embedded Software Engineer</a>',
+      );
+      expect(job.url).toBe('https://www.cedes.com/EN/CAREER/JOBS/Embedded-Engineer');
     });
 
     it('sets canton to GR', () => {

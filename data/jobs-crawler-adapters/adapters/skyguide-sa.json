@@ -11,8 +11,26 @@
     "https://jobs.skyguide.ch/search/?createNewAlert=false&q=&locationsearch=&optionsFacetsDD_department=&optionsFacetsDD_location=&startrow=0"
   ],
   "notes": "Dedicated Skyguide crawler parses the national SuccessFactors listing (all cantons, paginated) and extracts full detail pages; canton derived per-job.",
-  "updatedAt": "2026-08-26T10:05:52.626Z",
+  "updatedAt": "2026-09-01T10:55:26.843Z",
   "seedMetaByUrl": {
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-IT-Application-Solutions-Lead-%2880-100%29/1391456533/": {
+      "location": "Wangen b. Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-08-31"
+    },
+    "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Lernender-Informatik-EFZ-%28Plattformentwicklung%29/1421327633/": {
+      "location": "Dübendorf",
+      "canton": "ZH",
+      "company": "Skyguide",
+      "postedDate": "2026-08-29"
+    },
+    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCb_-&or-Geneva-Category-Leader-IT-Procurement-%28100%29/1431347833/": {
+      "location": "Wangen b. Düb. &/or Geneva",
+      "canton": "GE",
+      "company": "Skyguide",
+      "postedDate": "2026-08-28"
+    },
     "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-APS-&-ADC-Rated-%28ATCO%29-Instructor-%28100%29/1418247333/": {
       "location": "Wangen b. Dübendorf",
       "canton": "ZH",
@@ -31,15 +49,15 @@
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
-    "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Ausbildung-Flugverkehrsleiterin-Fluglotsin/1140795501/": {
-      "location": "Dübendorf",
-      "canton": "ZH",
+    "https://jobs.skyguide.ch/job/Sion-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Sion/1140869101/": {
+      "location": "Sion",
+      "canton": "VS",
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
-    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Gen%C3%A8ve/1140871001/": {
-      "location": "Genève",
-      "canton": "GE",
+    "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Ausbildung-Flugverkehrsleiterin-Fluglotsin/1140795501/": {
+      "location": "Dübendorf",
+      "canton": "ZH",
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
@@ -49,9 +67,9 @@
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
-    "https://jobs.skyguide.ch/job/Sion-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Sion/1140869101/": {
-      "location": "Sion",
-      "canton": "VS",
+    "https://jobs.skyguide.ch/job/Gen%C3%A8ve-Formation-contr%C3%B4leur%C2%B7euse-de-la-circulation-a%C3%A9rienne-Gen%C3%A8ve/1140871001/": {
+      "location": "Genève",
+      "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-18"
     },
@@ -72,18 +90,6 @@
       "canton": "GE",
       "company": "Skyguide",
       "postedDate": "2026-08-10"
-    },
-    "https://jobs.skyguide.ch/job/Wangen-b_-D%C3%BCbendorf-IT-Application-Solutions-Lead-%2880-100%29/1391456533/": {
-      "location": "Wangen b. Dübendorf",
-      "canton": "ZH",
-      "company": "Skyguide",
-      "postedDate": "2026-08-02"
-    },
-    "https://jobs.skyguide.ch/job/D%C3%BCbendorf-Lernender-Informatik-EFZ-%28Plattformentwicklung%29/1421327633/": {
-      "location": "Dübendorf",
-      "canton": "ZH",
-      "company": "Skyguide",
-      "postedDate": "2026-07-31"
     }
   }
 }

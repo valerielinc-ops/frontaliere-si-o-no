@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-08-26T10:14:24.483Z",
-  "total": 5,
+  "generatedAt": "2026-09-03T23:15:18.876Z",
+  "total": 6,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2659,
-  "avgDurationMs": 2659,
+  "durationMs": 2779,
+  "avgDurationMs": 2779,
   "durationHistory": [
-    2659
+    2779
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,6 +48,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-29T22:16:51.668Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -91,6 +92,7 @@
       "currency": "CHF",
       "streetAddress": "",
       "firstSeenAt": "2026-06-17T22:36:03.816Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -133,11 +135,55 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-06T11:39:42.712Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Senior Cloud Engineer",
+      "slug": "senior-cloud-engineer-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01",
+      "validThrough": "2026-11-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260901091645_YDCYF5YXO0AAW9Z6",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-119be04ae74f",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T10:25:33.079Z",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 21,
         "completeness": 22
       }
     },
@@ -175,6 +221,7 @@
       "salaryMax": 135000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-27T12:39:40.224Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -217,6 +264,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-17T10:15:30.690Z",
+      "salarySource": "estimated",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,

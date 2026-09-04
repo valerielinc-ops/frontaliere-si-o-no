@@ -11,8 +11,32 @@
     "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
   ],
   "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
-  "updatedAt": "2026-08-25T21:41:13.101Z",
+  "updatedAt": "2026-09-01T10:12:38.445Z",
   "seedMetaByUrl": {
+    "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-09-01"
+    },
+    "https://jobs.pwc.ch/job-vacancies/associate-senior-assosciate-interne-beratung-risikomanagement-qualitaet-compliance-80/27a4f32b-8d5a-481f-a5d7-386567fe0b18": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-31"
+    },
+    "https://jobs.pwc.ch/job-vacancies/regulatory-audit-specialist-banking/4b09702c-0387-43c5-b7d1-92e34845d1d7": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-27"
+    },
+    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-marketing-operations-specialist/2c9d80e6-b378-4007-bde7-d1a314aadeba": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "PwC Switzerland",
+      "postedDate": "2026-08-26"
+    },
     "https://jobs.pwc.ch/job-vacancies/senior-associate-u-s-tax-financial-services/c2987500-7158-4c80-bb43-a7a5590e8dd8": {
       "location": "Zurich",
       "canton": "ZH",
@@ -85,12 +109,6 @@
       "company": "PwC Switzerland",
       "postedDate": "2026-08-11"
     },
-    "https://jobs.pwc.ch/job-vacancies/associate-senior-associate-cloud-data-ai-data-engineering/54c4e9eb-43d9-4789-87b9-5f55b4eb88ef": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-08-11"
-    },
     "https://jobs.pwc.ch/job-vacancies/manager-senior-manager-sap-business-transformation-architecture/98495a25-14b4-43ac-92af-fd233db47d86": {
       "location": "Zürich",
       "canton": "ZH",
@@ -158,7 +176,7 @@
       "postedDate": "2026-08-03"
     },
     "https://jobs.pwc.ch/job-vacancies/lehrstelle-als-kaufmann-kauffrau-dienstleistung-administration-efz/ad8b1080-01a5-4221-87c9-469380d167d3": {
-      "location": "Luzern",
+      "location": "Lucerne",
       "canton": "LU",
       "company": "PwC Switzerland",
       "postedDate": "2026-08-03"
@@ -294,12 +312,6 @@
       "canton": "ZH",
       "company": "PwC Switzerland",
       "postedDate": "2026-06-25"
-    },
-    "https://jobs.pwc.ch/job-vacancies/intern-audit-trade-industries-and-services/5d6a07da-c8ad-429c-9674-5a042044f109": {
-      "location": "Geneva",
-      "canton": "GE",
-      "company": "PwC Switzerland",
-      "postedDate": "2026-06-17"
     },
     "https://jobs.pwc.ch/job-vacancies/manager-deals-tax-mergers-and-acquisitions/cd9d166c-5e2d-4a01-b166-9fa731c0ad8d": {
       "location": "Zurich",

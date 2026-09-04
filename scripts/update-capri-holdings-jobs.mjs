@@ -50,6 +50,7 @@ import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -123,7 +124,7 @@ function slugify(text = '', suffix = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 function isSwissLocation(locationText = '') {

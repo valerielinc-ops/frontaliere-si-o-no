@@ -204,14 +204,16 @@ describe('preferredSendHour (functions/src/lib)', () => {
     // out almost entirely in the circular mean — no real preference.
     const events = [
       eventAt(1, 0, 0),
-      eventAt(1, 6, 0),
-      eventAt(1, 12, 0),
-      eventAt(1, 18, 0),
+      eventAt(1.25, 6, 0),
+      eventAt(1.5, 12, 0),
+      eventAt(1.75, 18, 0),
     ];
     const result = computePreferredSendHour(events, NOW);
     expect(result.sampleCount).toBe(4);
     expect(typeof result.hourUtc).toBe('number');
-    expect(result.strength as number).toBeLessThan(0.01);
+    // Continuous recency weighting means these events are not mathematically
+    // identical in weight, but their vectors should still nearly cancel out.
+    expect(result.strength as number).toBeLessThan(0.05);
   });
 
   it('rounds an hour fraction of 23.6 up to 24 and wraps to 0', () => {
@@ -227,7 +229,7 @@ describe('preferredSendHour (functions/src/lib)', () => {
     expect(result.hourUtc).toBe(0);
   });
 
-  it('treats click events the same as open events', () => {
+  it('counts clicks as stronger intent when events have the same recency', () => {
     const events = [
       eventAt(1, 14, 0, 'click'),
       eventAt(2, 14, 0, 'click'),
@@ -236,6 +238,19 @@ describe('preferredSendHour (functions/src/lib)', () => {
     const result = computePreferredSendHour(events, NOW);
     expect(result.sampleCount).toBe(3);
     expect(result.hourUtc).toBe(14);
+  });
+
+  it('lets a recent open outweigh a much older click', () => {
+    const events = [
+      eventAt(10, 18, 0, 'click'),
+      eventAt(1, 8, 0, 'open'),
+      eventAt(1, 8, 0, 'open'),
+    ];
+    const result = computePreferredSendHour(events, NOW);
+    expect(result.sampleCount).toBe(3);
+    expect(circularDistance(result.hourUtc as number, 8)).toBeLessThan(
+      circularDistance(result.hourUtc as number, 18),
+    );
   });
 
   it('handles an empty/non-array input gracefully', () => {

@@ -12,10 +12,11 @@
 import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const DATA_DIR = join(import.meta.dirname, '..', 'data', 'jobs', 'by-crawler');
 
-const files = readdirSync(DATA_DIR).filter(f => f.endsWith('.json'));
+const files = readdirSync(DATA_DIR).filter(isSliceFile);
 
 let totalFiles = 0;
 let totalJobs = 0;

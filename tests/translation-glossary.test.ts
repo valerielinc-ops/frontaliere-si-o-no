@@ -351,4 +351,43 @@ describe('translation glossary — protected-term corrections', () => {
       fieldType: 'description',
     })).toBe('Cerchiamo una persona per la guardia notturna nel reparto.');
   });
+
+  it('fixes "frontalieri" → EN "border guards" false-friend mistranslation', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'I frontalieri lavorano in Svizzera e rientrano in Italia ogni sera.',
+      translatedText: 'The border guards work in Switzerland and return to Italy every evening.',
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe('The cross-border commuters work in Switzerland and return to Italy every evening.');
+    expect(applyGlossaryCorrections({
+      sourceText: 'Il frontaliere',
+      translatedText: 'The frontier guard',
+      targetLang: 'en',
+    })).toBe('The cross-border commuters');
+  });
+
+  it('fixes "frontalieri" → DE/FR border-guard false-friend mistranslation', () => {
+    expect(applyGlossaryCorrections({
+      sourceText: 'I frontalieri lavorano in Svizzera.',
+      translatedText: 'Die Grenzwächter arbeiten in der Schweiz.',
+      targetLang: 'de',
+      fieldType: 'description',
+    })).toBe('Die Grenzgänger arbeiten in der Schweiz.');
+    expect(applyGlossaryCorrections({
+      sourceText: 'I frontalieri lavorano in Svizzera.',
+      translatedText: 'Les gardes-frontières travaillent en Suisse.',
+      targetLang: 'fr',
+      fieldType: 'description',
+    })).toBe('Les travailleurs frontaliers travaillent en Suisse.');
+  });
+
+  it('does NOT fire the frontalieri fix when the source lacks the trigger', () => {
+    const translated = 'The border guards inspected every vehicle at the crossing.';
+    expect(applyGlossaryCorrections({
+      sourceText: 'Guardia di finanza al posto di confine.',
+      translatedText: translated,
+      targetLang: 'en',
+      fieldType: 'description',
+    })).toBe(translated);
+  });
 });

@@ -43,6 +43,8 @@ import { isTargetSwissLocation, inferAnyCanton } from './lib/target-swiss-locati
 import { isTargetCanton, getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readAttr } from './lib/html-attr.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -102,7 +104,7 @@ function slugify(text = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /**
@@ -164,13 +166,14 @@ async function fetchPage(url, timeoutMs = 15000) {
  *     Title Location , Country
  *   </a>
  */
-function parseJobLinks(html = '') {
+export function parseJobLinks(html = '') {
   const jobs = [];
   // Match all job-detail links — can be relative (/jobs/job-details?...) or absolute
-  const linkRe = /href=["']((?:https?:\/\/careers\.zegnagroup\.com)?\/jobs\/job-details\?[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const linkRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let match;
   while ((match = linkRe.exec(html)) !== null) {
-    let url = match[1].replace(/&amp;/g, '&');
+    let url = readAttr(match[1], 'href').replace(/&amp;/g, '&');
+    if (!/^(?:https?:\/\/careers\.zegnagroup\.com)?\/jobs\/job-details\?/i.test(url)) continue;
     // Normalize relative URLs to absolute
     if (url.startsWith('/')) {
       url = `https://careers.zegnagroup.com${url}`;
@@ -763,4 +766,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Zegna'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'Zegna'));
+}

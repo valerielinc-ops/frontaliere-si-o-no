@@ -1,6 +1,6 @@
 {
   "crawlerKey": "capri-holdings",
-  "assembledAt": "2026-08-26T10:12:38.258Z",
+  "assembledAt": "2026-09-03T23:40:09.313Z",
   "jobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Supervisor--30h-Michael-Kors-Landquart_R_785916",
@@ -67,10 +67,10 @@
       },
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -147,10 +147,10 @@
       },
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -187,7 +187,7 @@
         "it": "Senior General Ledger Contabile",
         "en": "Senior General Ledger Accountant",
         "de": "Senior General Ledger Buchhalter",
-        "fr": "Senior General Ledger Accountant"
+        "fr": "Directeur général principal comptable"
       },
       "slug": "senior-general-ledger-contabile-capri-holdings-michael-kors-versace-manno",
       "slugByLocale": {
@@ -224,10 +224,10 @@
       },
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -307,6 +307,7 @@
       "salaryMin": 59000,
       "salaryMax": 90500,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -386,6 +387,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -464,10 +466,10 @@
       },
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

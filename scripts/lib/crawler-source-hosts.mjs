@@ -27,6 +27,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { isSliceFile } from './crawler-slice-files.mjs';
+import { crawlerJobActivity } from './crawler-job-activity.mjs';
 
 export { isSliceFile };
 
@@ -36,6 +37,58 @@ const COMPANY_KEY_RE = /"companyKey"\s*:\s*"([^"]+)"/g;
 const URL_HOST_RE = /"url"\s*:\s*"https?:\/\/([^/"?#\\]+)/g;
 /** `"url": "https://host/path"` — origin + path, query and fragment dropped. */
 const URL_FULL_RE = /"url"\s*:\s*"(https?:\/\/[^"\\?#]+)/g;
+
+// Query-only job detail pages need one stable identifier to remain distinct,
+// but names such as `id`, `q`, `role` and `position` are not identities on
+// arbitrary hosts. They are also common tracking, search and session keys.
+// This host-scoped matrix is grounded in the checked-in corpus plus active
+// crawler parsers whose current slice can legitimately be empty.
+const JOB_IDENTITY_QUERY_PARAMS_BY_HOST = new Map([
+  ['apply5.lumessetalentlink.com', ['jobid']],
+  ['bellinz.pi-asp.de', ['id']],
+  ['boards.greenhouse.io', ['gh_jid']],
+  ['career012.successfactors.eu', ['career_job_req_id']],
+  ['career5.successfactors.eu', ['career_job_req_id', 'job', 'jobid']],
+  ['career55.sapsf.eu', ['career_job_req_id']],
+  ['career74.sapsf.eu', ['career_job_req_id']],
+  ['careers.marriott.com', ['id']],
+  ['careers.nagra.com', ['id']],
+  ['careers.pkb.ch', ['id']],
+  ['careers.theheinekencompany.com', ['jobid']],
+  ['careers.zegnagroup.com', ['jobid']],
+  ['cittamen.pi-asp.de', ['id']],
+  ['corporate.lastminute.com', ['id']],
+  ['dxt.com', ['panel']],
+  ['emea3.recruitmentplatform.com', ['jobid']],
+  ['emploi.lasource.ch', ['id']],
+  ['emploi.ophtalmique.ch', ['id']],
+  ['etavis.softgarden.io', ['jobdbpvid']],
+  ['foodiverse.com', ['id']],
+  ['fs-2662.my.salesforce-sites.com', ['vacancyno']],
+  ['joblink.allibo.com', ['id']],
+  ['jobs.hornbach.ch', ['offerapiid']],
+  ['jobs.ubs.com', ['jobid']],
+  ['karriere.hochgebirgsklinik.ch', ['offerapiid']],
+  ['lavoraconnoi.lugano-lis.ch', ['id']],
+  ['lombardi.group', ['id']],
+  ['mendrisio.ch', ['uuid']],
+  ['otb.apps.vs.ch', ['job']],
+  ['sygnumpeopleportal.my.salesforce-sites.com', ['vacancyno']],
+  ['vaudoise.softgarden.io', ['jobdbpvid']],
+  ['weissearena.com', ['jobid']],
+  ['concorsi.ti.ch', ['yid']],
+  ['coopers.ch', ['refcode']],
+  ['ksml.apps.be.ch', ['q']],
+  ['lafonte.ch', ['role']],
+  ['linnea.ch', ['position']],
+  ['lugano.ch', ['unid']],
+  ['rhne.ch', ['jobid']],
+  ['scandit.com', ['gh_jid']],
+  ['wagerenhof.ch', ['reference']],
+  ['e-lavoro.ch', ['id']],
+  ['zambon.com', ['id']],
+  ['www4.ti.ch', ['id']],
+]);
 
 /**
  * Lowercase a host and drop the `www.` and any port, so two spellings of the
@@ -59,6 +112,7 @@ export function normalizeSourceHost(raw = '') {
  * @property {Set<string>} companyKeys `companyKey` values found inside
  * @property {Set<string>} hosts      normalised source hosts found inside
  * @property {number} jobCount        `"url":` occurrences, i.e. jobs with a link
+ * @property {number|null} assembledAtMs top-level slice timestamp, when valid
  */
 
 /**
@@ -69,6 +123,9 @@ export function normalizeSourceHost(raw = '') {
  * @property {Set<string>} sharedHosts              hosts used by two or more keys
  * @property {Map<string, Set<string>>} sharedUrls  job URL -> keys, only where >=2
  * @property {Map<string, Set<string>>} urlsByKey   crawler key -> its job URLs
+ * @property {Map<string, Set<string>>} activeUrlsByKey crawler key -> URLs seen in
+ *   the latest crawl (`crawlerMissStreak` absent/zero), excluding grace-period carry-over
+ * @property {Map<string, number>} assembledAtByKey crawler key -> slice timestamp
  */
 
 /**
@@ -89,6 +146,10 @@ export function loadSourceHostOwnership(root, opts = {}) {
   const byUrl = new Map();
   /** @type {Map<string, Set<string>>} */
   const urlsByKey = new Map();
+  /** @type {Map<string, Set<string>>} */
+  const activeUrlsByKey = new Map();
+  /** @type {Map<string, number>} */
+  const assembledAtByKey = new Map();
 
   let files;
   try {
@@ -98,7 +159,7 @@ export function loadSourceHostOwnership(root, opts = {}) {
     // caller fall back to its other signals rather than assert a wrong answer.
     return {
       slices: [], byHost, dedicatedHosts: new Set(), sharedHosts: new Set(),
-      sharedUrls: new Map(), urlsByKey,
+      sharedUrls: new Map(), urlsByKey, activeUrlsByKey, assembledAtByKey,
     };
   }
 
@@ -122,17 +183,45 @@ export function loadSourceHostOwnership(root, opts = {}) {
     }
 
     let jobCount = 0;
+    let assembledAtMs = null;
     if (collectUrls) {
       const mine = new Set();
-      for (const m of text.matchAll(URL_FULL_RE)) {
-        jobCount += 1;
-        const u = m[1].toLowerCase().replace(/\/+$/, '');
-        mine.add(u);
-        let owners = byUrl.get(u);
-        if (!owners) byUrl.set(u, (owners = new Set()));
-        owners.add(key);
+      const activeMine = new Set();
+      try {
+        const payload = JSON.parse(text);
+        const jobs = Array.isArray(payload) ? payload : (Array.isArray(payload?.jobs) ? payload.jobs : []);
+        const assembledAt = Array.isArray(payload) ? '' : (payload?.assembledAt || payload?.generatedAt || '');
+        const parsedAt = Date.parse(String(assembledAt));
+        if (Number.isFinite(parsedAt)) {
+          assembledAtMs = parsedAt;
+          assembledAtByKey.set(key, parsedAt);
+        }
+        for (const job of jobs) {
+          const u = normalizeJobUrl(job?.url || '');
+          if (!u) continue;
+          jobCount += 1;
+          mine.add(u);
+          if (crawlerJobActivity(job) === 'active') activeMine.add(u);
+          let owners = byUrl.get(u);
+          if (!owners) byUrl.set(u, (owners = new Set()));
+          owners.add(key);
+        }
+      } catch {
+        // Preserve the old text-scan behaviour for a partially written or
+        // legacy slice. Without parsed miss metadata every URL is conservatively
+        // considered active, so the audit can over-report but never hide a gap.
+        for (const m of text.matchAll(URL_FULL_RE)) {
+          jobCount += 1;
+          const u = normalizeJobUrl(m[1]);
+          mine.add(u);
+          activeMine.add(u);
+          let owners = byUrl.get(u);
+          if (!owners) byUrl.set(u, (owners = new Set()));
+          owners.add(key);
+        }
       }
       urlsByKey.set(key, mine);
+      activeUrlsByKey.set(key, activeMine);
     } else {
       for (const _ of text.matchAll(URL_FULL_RE)) jobCount += 1;
     }
@@ -142,7 +231,7 @@ export function loadSourceHostOwnership(root, opts = {}) {
       if (!owners) byHost.set(h, (owners = new Set()));
       for (const k of companyKeys) owners.add(k);
     }
-    slices.push({ file, key, companyKeys, hosts, jobCount });
+    slices.push({ file, key, companyKeys, hosts, jobCount, assembledAtMs });
   }
 
   const dedicatedHosts = new Set();
@@ -152,20 +241,51 @@ export function loadSourceHostOwnership(root, opts = {}) {
   const sharedUrls = new Map();
   for (const [u, owners] of byUrl) if (owners.size > 1) sharedUrls.set(u, owners);
 
-  return { slices, byHost, dedicatedHosts, sharedHosts, sharedUrls, urlsByKey };
+  return {
+    slices, byHost, dedicatedHosts, sharedHosts, sharedUrls, urlsByKey,
+    activeUrlsByKey, assembledAtByKey,
+  };
 }
 
 /**
- * Normalise a job URL the way the overlap comparisons do: no scheme casing, no
- * query, no fragment, no trailing slash.
+ * Normalise a job URL the way the overlap comparisons do: lowercase scheme,
+ * host and path, no fragment/trailing slash, and only stable host-scoped
+ * job-identity query parameters. Identity values preserve their original case.
+ * Session/tracking parameters are removed, but query-only detail pages such as
+ * `concorsi.ti.ch/...?yid=4264&sid=...` retain `yid`; otherwise every cantonal
+ * vacancy collapses onto the same listing URL and becomes a false duplicate.
  *
  * @param {string} raw
  * @returns {string}
  */
 export function normalizeJobUrl(raw = '') {
-  const s = String(raw).trim().toLowerCase();
-  const cut = s.split('#')[0].split('?')[0];
-  return cut.replace(/\/+$/, '');
+  const s = String(raw).trim();
+  const [withoutFragment] = s.split('#');
+  const queryAt = withoutFragment.indexOf('?');
+  const base = (queryAt >= 0 ? withoutFragment.slice(0, queryAt) : withoutFragment)
+    .toLowerCase()
+    .replace(/\/+$/, '');
+  if (queryAt < 0) return base;
+
+  let sourceHost = '';
+  try {
+    sourceHost = normalizeSourceHost(new URL(withoutFragment).hostname);
+  } catch {
+    // A malformed/non-absolute URL has no trustworthy host identity. Keep its
+    // safely normalised base, but never retain a globally ambiguous query key.
+  }
+  const identityParams = JOB_IDENTITY_QUERY_PARAMS_BY_HOST.get(sourceHost) || [];
+  const kept = [];
+  for (const [key, value] of new URLSearchParams(withoutFragment.slice(queryAt + 1))) {
+    const normalizedKey = key.toLowerCase();
+    if (identityParams.includes(normalizedKey) && value) {
+      kept.push([normalizedKey, value]);
+    }
+  }
+  kept.sort(([keyA, valueA], [keyB, valueB]) =>
+    keyA.localeCompare(keyB) || valueA.localeCompare(valueB));
+  const identityQuery = new URLSearchParams(kept).toString();
+  return identityQuery ? `${base}?${identityQuery}` : base;
 }
 
 /**
@@ -232,8 +352,24 @@ export function matchExistingCrawler(urls, ownership, opts = {}) {
  * extractor — so text similarity would have missed it while the URL matched
  * exactly.
  *
+ * @typedef {Object} OverlapPair
+ * @property {[string, string]} keys
+ * @property {string[]} shared
+ * @property {string[]} onlyA
+ * @property {string[]} onlyB
+ * @property {string[]} activeShared
+ * @property {string[]} activeOnlyA
+ * @property {string[]} activeOnlyB
+ * @property {number|null} activeTotalA
+ * @property {number|null} activeTotalB
+ * @property {number|null} snapshotSkewMs
+ * @property {string|null} olderSnapshotKey
+ * @property {number|null} olderSnapshotAtMs
+ */
+
+/**
  * @param {SourceHostOwnership} ownership  from `loadSourceHostOwnership(root, { urls: true })`
- * @returns {{ keys: [string, string], shared: string[], onlyA: string[], onlyB: string[] }[]}
+ * @returns {OverlapPair[]}
  *   one entry per pair of keys sharing at least one vacancy URL, `onlyA`/`onlyB`
  *   being the vacancies each side has that the other does not — a coverage gap.
  */
@@ -256,15 +392,38 @@ export function findOverlappingCrawlers(ownership) {
     }
   }
 
+  /** @type {OverlapPair[]} */
   const out = [];
   for (const { keys: [a, b], urls: shared } of pairs.values()) {
     const urlsA = ownership.urlsByKey.get(a) || new Set();
     const urlsB = ownership.urlsByKey.get(b) || new Set();
+    const hasActiveMetadata = ownership.activeUrlsByKey?.has(a)
+      && ownership.activeUrlsByKey?.has(b);
+    const activeA = hasActiveMetadata ? ownership.activeUrlsByKey.get(a) : urlsA;
+    const activeB = hasActiveMetadata ? ownership.activeUrlsByKey.get(b) : urlsB;
+    const assembledAtA = ownership.assembledAtByKey?.get(a);
+    const assembledAtB = ownership.assembledAtByKey?.get(b);
     out.push({
       keys: [a, b],
       shared: [...shared].sort(),
       onlyA: [...urlsA].filter((u) => !urlsB.has(u)).sort(),
       onlyB: [...urlsB].filter((u) => !urlsA.has(u)).sort(),
+      activeShared: hasActiveMetadata
+        ? [...activeA].filter((u) => activeB.has(u)).sort()
+        : [...shared].sort(),
+      activeOnlyA: [...activeA].filter((u) => !urlsB.has(u)).sort(),
+      activeOnlyB: [...activeB].filter((u) => !urlsA.has(u)).sort(),
+      activeTotalA: hasActiveMetadata ? activeA.size : null,
+      activeTotalB: hasActiveMetadata ? activeB.size : null,
+      snapshotSkewMs: Number.isFinite(assembledAtA) && Number.isFinite(assembledAtB)
+        ? Math.abs(assembledAtA - assembledAtB)
+        : null,
+      olderSnapshotKey: Number.isFinite(assembledAtA) && Number.isFinite(assembledAtB)
+        ? (assembledAtA < assembledAtB ? a : (assembledAtB < assembledAtA ? b : null))
+        : null,
+      olderSnapshotAtMs: Number.isFinite(assembledAtA) && Number.isFinite(assembledAtB)
+        ? Math.min(assembledAtA, assembledAtB)
+        : null,
     });
   }
   // Loudest first: the more vacancies two keys share, the more certain the duplicate.

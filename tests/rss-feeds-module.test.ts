@@ -31,10 +31,10 @@ function makeFixture(): string {
     path.join(root, 'seo', section.seoFiles[0]),
     `export const BLOG_SEO_METADATA = {
   'blog-alpha': {
-    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale" },
+    structuredData: { "headline": "Alpha headline", "description": "Alpha description", "datePublished": "2026-03-02", "articleSection": "Fiscale", "author": { "@type": "Person", "@id": "https://frontaliereticino.ch/autori/guest-author/#person", "name": "Guest Author", "url": "https://frontaliereticino.ch/autori/guest-author/" } },
   },
   'blog-beta': {
-    structuredData: { "headline": "Beta headline", "description": "Beta description", "datePublished": "2026-03-01", "articleSection": "Pratico" },
+    structuredData: { "headline": "Beta headline", "description": "Beta description", "datePublished": "2026-03-01", "articleSection": "Pratico", "author": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Redazione Frontaliere Ticino" } },
   },
 };
 `,
@@ -478,5 +478,49 @@ describe('RSS <guid> — stabile ai rename e XML-escaped (#162, #182)', () => {
     // La CDATA va spezzata in due sezioni adiacenti (`]]]]><![CDATA[>`) cosi'
     // che il testo letterale "]]>" sopravviva senza chiudere la sezione.
     expect(description).toBe('<description><![CDATA[Testo con ]]]]><![CDATA[> dentro.]]></description>');
+  });
+
+  // Un feed reader non ha altro che il titolo del canale per attribuire un
+  // pezzo: senza <dc:creator> ogni articolo — anche quelli di un autore
+  // ospite — viene sindacato come scritto dalla Redazione. E' lo stesso
+  // difetto che `article:author` aveva in ogPagesPlugin.ts, sull'altra
+  // superficie di metadati.
+  it('emette <dc:creator> per articolo quando l\'autore e\' una Person', () => {
+    const root = makeFixture();
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+
+    // Il namespace deve essere dichiarato, altrimenti il prefisso dc: e' XML
+    // non valido e il parser del reader scarta l'intero feed.
+    expect(xml).toContain('xmlns:dc="http://purl.org/dc/elements/1.1/"');
+
+    const alphaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Alpha it'))!;
+    expect(alphaItem).toContain('<dc:creator><![CDATA[Guest Author]]></dc:creator>');
+  });
+
+  it('non ripete la Redazione in <dc:creator> quando l\'autore e\' l\'Organization', () => {
+    // Il canale gia' dichiara Frontaliere Ticino: ripeterlo per item non
+    // aggiunge informazione, e un dc:creator uguale al canale non distingue
+    // piu' un pezzo firmato da uno redazionale.
+    const root = makeFixture();
+    const [section] = buildAllRssFeeds({
+      repairSerpSnippet,
+      fs,
+      path,
+      rootDir: root,
+      registries: { frontaliere: REGISTRY },
+      layout: LAYOUT,
+    });
+    const xml = section.feeds.find(([name]) => name === 'rss-it.xml')![1];
+
+    const betaItem = xml.match(/<item>[\s\S]*?<\/item>/g)!.find((i) => i.includes('Beta it'))!;
+    expect(betaItem).not.toContain('<dc:creator>');
   });
 });

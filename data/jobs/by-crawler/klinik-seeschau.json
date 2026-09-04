@@ -1,6 +1,6 @@
 {
   "crawlerKey": "klinik-seeschau",
-  "assembledAt": "2026-08-26T10:18:46.750Z",
+  "assembledAt": "2026-09-03T23:34:38.350Z",
   "jobs": [
     {
       "id": "klinik-seeschau-00cb0e8ba1bb",
@@ -28,13 +28,12 @@
         "de": "Die Klinik Seeschau – Deine familiäre Privatklinik auf Spitzenniveau, wo wir uns noch Zeit für unsere Patienten und unsere Teams nehmen. Und wo wir uns wirklich auf Dich freuen.\n\nDu startest im September 2026 oder März 2027\n\n• 3-jährige und 2-jährige Vollzeitausbildung\n\n• Ausbildung in unserer Klinik und am BZGS in St.Gallen je zur Hälfte\n\nDu bringst mit\n\n• für die 3-jährige Ausbildung: abgeschlossene mind. 3-jährige Grundbildung EFZ, Fachmittelschulabschluss oder Matura\n\n• für die 2-jährige Ausbildung: abgeschlossene Grundbildung als Fachperson Gesundheit EFZ\n\n• viel Motivation, Teamfähigkeit, Organisationskompetenz, Einfühlungsvermögen – und den Willen, das Beste für unsere Patienten zu geben\n\nWir sind das Team Seeschau\n\n• Wir sind nicht nur eine der führenden Privatkliniken in der Schweiz, sondern auch ein persönlicher Familienbetrieb, in dem das Team wirklich zählt.\n\n• Gleichzeitig verbinden wir seit drei Generationen höchste Qualität und medizinische Spitzenleistungen mit echter Menschlichkeit – werde auch Du Teil unserer Erfolgsgeschichte!\n\nHast Du Lust? Na, dann los. Pack Deine Chance!\n\nUnd zwar jetzt: Sende Dein Bewerbungsschreiben mit Lebenslauf und Foto, Zeugnissen/Bildungsberichten und Arbeitszeugnissen oder Diplomen (falls vorhanden) an uns. Falls Du Deine Ausbildung im Ausland absolviert hast, sende uns eine vom BZGS in St.Gallen anerkannte Gleichwertigkeitsbescheinigung.\n\nDein Weg zur Dipl. Pflegefachperson HF startet hier! Wir freuen uns auf Deine Bewerbung per E-Mail:\n\nbewerbung@klinik-seeschau.ch\n\nHast Du Fragen? Fabienne Gilomen, Ausbildungsverantwortliche und Assistentin der Klinikleitung, ist telefonisch erreichbar unter 071 677 53 53\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nAusbildung Dipl. Pflegefachperson HF\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
         "fr": "Klinik Seeschau La Klinik Seeschau – Votre clinique privée familiale de haut niveau, où nous prenons encore le temps pour nos patients et nos équipes. Et où nous nous réjouissons vraiment de vous accueillir. Début Vous commencez en septembre 2026 ou mars 2027 Formation - Formation à temps plein de 3 et 2 ans - Formation répartie équitablement entre notre clinique et le BZGS à Saint-Gall\n• Exigences - Pour la formation de 3 ans : formation professionnelle initiale de 3 ans minimum (CFC), diplôme d'école spécialisée ou maturité - Pour la formation de 2 ans : formation professionnelle initiale d'assistant/e en soins et santé communautaire (ASSC/CFC) - Grande motivation, esprit d'équipe, compétences organisationnelles, empathie – et la volonté de donner le meilleur pour nos patients Nous sommes l'équipe Seeschau - Nous ne sommes pas seulement l'une des cliniques privées leaders en Suisse, mais aussi une entreprise familiale où l'équipe compte vraiment. - En même temps, depuis trois générations, nous allions la plus haute qualité et des prestations médicales de pointe à une humanité authentique – rejoignez notre histoire à succès ! Contact Votre parcours pour devenir infirmier/ère diplômé/e ES commence ici ! Nous attendons votre candidature par e-mail : bewerbung@klinik-seeschau.ch Vous avez des questions ? Fabienne Gilomen, responsable de la formation et assistante de la direction de la clinique, est joignable par téléphone au 071 677 53 53 Klinik Seeschau AG Bernrainstrasse 17 8280 Kreuzlingen Formation Infirmier/ère diplômé/e ES Postuler maintenant Klinik Seeschau — Hôpital de soins aigus, Kreuzlingen (TG), Suisse."
       },
-      "needsRetranslation": true,
       "location": "Kreuzlingen",
       "canton": "TG",
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-00cb0e8ba1bb",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:18:44.563Z",
+      "crawledAt": "2026-09-03T23:34:34.420Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -93,6 +92,7 @@
       "firstSeenAt": "2026-05-20T06:05:18.214Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -100,112 +100,6 @@
           "@type": "QuantitativeValue",
           "minValue": 81500,
           "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-seeschau-f918b222a1ed",
-      "slug": "tecnico-di-sala-operatoria-hf-klinik-seeschau-kreuzlingen",
-      "slugByLocale": {
-        "it": "tecnico-di-sala-operatoria-hf-klinik-seeschau-kreuzlingen",
-        "en": "dipl-specialist-surgical-technology-hf-from-50-klinik-seeschau-kreuzlingen",
-        "de": "dipl-fachperson-op-technik-hf-ab-50-klinik-seeschau-kreuzlingen",
-        "fr": "technicien-ne-en-techniques-chirurgicales-hf-klinik-seeschau-kreuzlingen"
-      },
-      "company": "Klinik Seeschau",
-      "companyKey": "klinik-seeschau",
-      "companyDomain": "klinik-seeschau.ch",
-      "title": "Dipl. Fachperson OP-Technik (HF) ab 50%",
-      "titleByLocale": {
-        "it": "Tecnico di sala operatoria diplomato (SSO) dal 50%",
-        "en": "Dipl. Specialist surgical technology (HF) from 50 %",
-        "de": "Dipl. Fachperson OP-Technik (HF) ab 50%",
-        "fr": "Technicien en salle d'opération diplômé (ES) dès 50%"
-      },
-      "description": "Ab 50% | per sofort oder nach Absprache\n\nDipl. Pflegefachfrau / Dipl. Fachmann OP-Technik (HF)\n\nSchätzen Sie die Vertrautheit eines kleinen Akutspitals mit 56 Betten und rund 110 Mitarbeitenden?\n\nMöchten Sie sich an wunderschöner Lage in der gut strukturierten Operationsabteilung engagieren und diesen Bereich aktiv mitgestalten? Dann heissen wir Sie vielleicht schon bald in Kreuzlingen willkommen.\n\nIhre Aufgaben\n\nSie sind Teil eines kleinen und motivierten Teams und arbeiten in einem modernen OP-Betrieb mit den Schwerpunkten Orthopädie, Gynäkologie, Chirurgie und Urologie. Gemeinsam mit der Anästhesie sind Sie mitverantwortlich für einen reibungslosen OP-Ablauf. Mit Engagement und manueller Geschicklichkeit instrumentieren Sie bei den unterschiedlichsten Operationen.\n\nIhr Profil\n\nSie haben eine Ausbildung als Dipl. Fachfrau/-mann mit Fachausweis in Operationspflege oder als Dipl. Fachfrau/-mann Operationstechnik HF mit Schweizer-Anerkennung. Sie sind belastbar und verfügen über Fachkompetenz, Teamfähigkeit, Flexibilität und eine hohe Sozialkompetenz. Sie schätzen die Zusammenarbeit mit Belegärzten in einem überschaubaren und persönlichen Arbeitsumfeld. Sie kommunizieren wertschätzend, haben ein gewinnendes Auftreten und arbeiten gerne schnittstellenübergreifend und denken langfristig. Ihr Fokus auf eine patientenbezogene und ganzheitliche Betreuung mit hoher Qualität rundet \n• Ihr Profil ab.\n\nUnser Angebot\n\nBei uns finden Sie eine familiäre Atmosphäre und kurze Entscheidungswege in einem sinnstiftenden Umfeld. Ihre Ideen und Inputs sind willkommen und Sie erhalten ein interessantes und vielseitiges Aufgabengebiet mit fortschrittlichen Arbeitsbedingungen (geregelte Normalarbeitszeit an Wochentagen, Bereitschaftsdienst von Zuhause aus). Unsere Infrastruktur ist auf dem neusten Stand und wir setzen uns für eine hohe Arbeitsqualität und ein gutes Miteinander ein.\n\nÜber uns\n\nDie Klinik Seeschau AG ist eine moderne Privatklinik im Belegarztsystem mit kantonalem Leistungsauftrag. Unsere Fachbereiche liegen in der Gynäkologie, Orthopädie, Viszeralchirurgie, Handchirurgie, der Plastischen, Rekonstruktiven und Ästhetischen Chirurgie, der Urologie sowie Anästhesiologie. Wir sind Mitglied der renommierten Vereinigung «SLH, The Swiss Leading Hospitals», unabhängig und in dritter Generation privat geführt.\n\nStossen Sie jetzt zum Team Seeschau!\n\nWir freuen uns auf Ihre Bewerbung per E-Mail.\n\nBei Fragen ist Fabienne Gilomen, Assistentin der Klinikleitung, Montag bis Freitag unter Telefon 071 677 53 53 erreichbar.\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nbewerbung@klinik-seeschau.ch\n\nDipl. Fachperson OP-Technik HF\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
-      "descriptionByLocale": {
-        "it": "Posizione Dal 50% | da subito o previo accordo Infermiere diplomato / Tecnico di sala operatoria diplomato (SSO) Descrizione Apprezza la familiarità di un piccolo ospedale per acuti con 56 posti letto e circa 110 collaboratori? Desidera impegnarsi in una splendida posizione all'interno di un reparto operatorio ben strutturato e contribuire attivamente alla sua gestione? Allora forse presto le daremo il benvenuto a Kreuzlingen. Mansioni - Fa parte di un team piccolo e motivato e lavora in una moderna sala operatoria con specializzazioni in ortopedia, ginecologia, chirurgia e urologia. - Insieme all'anestesia, è corresponsabile del regolare svolgimento delle operazioni. - Con impegno e destrezza manuale, si occupa della strumentazione durante le diverse tipologie di intervento.\n• Requisiti - Possiede una formazione come infermiere diplomato con specializzazione in sala operatoria o come tecnico di sala operatoria diplomato SSO con riconoscimento svizzero. - È una persona resiliente e dispone di competenza professionale, capacità di lavorare in team, flessibilità e spiccate competenze sociali. - Apprezza la collaborazione con i medici accreditati in un ambiente di lavoro gestibile e personale. - Comunica in modo rispettoso, ha un atteggiamento accattivante, ama lavorare in modo interdisciplinare e pensa a lungo termine. - Il suo focus su un'assistenza al paziente olistica e di alta qualità completa il suo profilo.\n• Cosa offriamo - Da noi troverà un'atmosfera familiare e brevi percorsi decisionali in un ambiente significativo. - Le sue idee e i suoi contributi sono benvenuti e riceverà un'area di responsabilità interessante e versatile con condizioni di lavoro all'avanguardia (orario di lavoro normale regolamentato nei giorni feriali, servizio di reperibilità da casa). - La nostra infrastruttura è all'avanguardia e ci impegniamo per un'elevata qualità del lavoro e una buona collaborazione. Chi siamo - La Klinik Seeschau AG è una moderna clinica privata con sistema di medici accreditati e mandato di prestazioni cantonale. - Le nostre aree di specializzazione includono ginecologia, ortopedia, chirurgia viscerale, chirurgia della mano, chirurgia plastica, ricostruttiva ed estetica, urologia e anestesiologia. - Siamo membri della rinomata associazione «SLH, The Swiss Leading Hospitals», indipendenti e gestiti privatamente dalla terza generazione. Contatto - Attendiamo la sua candidatura via e-mail. - Per domande, Fabienne Gilomen, assistente della direzione clinica, è raggiungibile dal lunedì al venerdì al numero 071 677 53 75. - Klinik Seeschau AG - Bernrainstrasse 17 - 8280 Kreuzlingen - bewerbung@klinik-seeschau.ch",
-        "en": "Position From 50% | immediately or by arrangement Registered Nurse / Operating Room Technician (HF) Description Do you appreciate the familiarity of a small acute hospital with 56 beds and around 110 employees? Would you like to get involved in a beautiful location in a well-structured operating department and actively help shape this area? Then we may soon welcome you to Kreuzlingen. Duties - You are part of a small and motivated team and work in a modern operating room facility with a focus on orthopedics, gynecology, surgery, and urology. - Together with the anesthesia department, you are jointly responsible for smooth operating room procedures. - With commitment and manual dexterity, you will assist with a wide variety of surgeries.\n• Requirements - You have completed training as a registered nurse with a specialization in operating room care or as a qualified Operating Room Technician (HF) with Swiss recognition. - You are resilient and possess professional competence, teamwork skills, flexibility, and high social competence. - You appreciate working with attending physicians in a manageable and personal work environment. - You communicate respectfully, have a winning personality, enjoy working across interfaces, and think long-term. - Your focus on patient-oriented and holistic care with high quality rounds off your profile.\n• What we offer - With us, you will find a family atmosphere and short decision-making paths in a meaningful environment. - Your ideas and input are welcome, and you will receive an interesting and varied area of responsibility with progressive working conditions (regulated normal working hours on weekdays, on-call duty from home). - Our infrastructure is state-of-the-art, and we are committed to high work quality and good cooperation. About us - Klinik Seeschau AG is a modern private clinic with an attending physician system and a cantonal service mandate. - Our specialist areas are gynecology, orthopedics, visceral surgery, hand surgery, plastic, reconstructive and aesthetic surgery, urology, and anesthesiology. - We are a member of the renowned association \"SLH, The Swiss Leading Hospitals,\" independent and privately managed in the third generation. Contact - We look forward to receiving your application via email. - If you have any questions, Fabienne Gilomen, Assistant to the Clinic Management, can be reached from Monday to Friday at 071 677 53 75. - Klinik Seeschau AG - Bernrainstrasse 17 - 8280 Kreuzlingen - bewerbung@klinik-seeschau.ch",
-        "de": "Ab 50% | per sofort oder nach Absprache\n\nDipl. Pflegefachfrau / Dipl. Fachmann OP-Technik (HF)\n\nSchätzen Sie die Vertrautheit eines kleinen Akutspitals mit 56 Betten und rund 110 Mitarbeitenden?\n\nMöchten Sie sich an wunderschöner Lage in der gut strukturierten Operationsabteilung engagieren und diesen Bereich aktiv mitgestalten? Dann heissen wir Sie vielleicht schon bald in Kreuzlingen willkommen.\n\nIhre Aufgaben\n\nSie sind Teil eines kleinen und motivierten Teams und arbeiten in einem modernen OP-Betrieb mit den Schwerpunkten Orthopädie, Gynäkologie, Chirurgie und Urologie. Gemeinsam mit der Anästhesie sind Sie mitverantwortlich für einen reibungslosen OP-Ablauf. Mit Engagement und manueller Geschicklichkeit instrumentieren Sie bei den unterschiedlichsten Operationen.\n\nIhr Profil\n\nSie haben eine Ausbildung als Dipl. Fachfrau/-mann mit Fachausweis in Operationspflege oder als Dipl. Fachfrau/-mann Operationstechnik HF mit Schweizer-Anerkennung. Sie sind belastbar und verfügen über Fachkompetenz, Teamfähigkeit, Flexibilität und eine hohe Sozialkompetenz. Sie schätzen die Zusammenarbeit mit Belegärzten in einem überschaubaren und persönlichen Arbeitsumfeld. Sie kommunizieren wertschätzend, haben ein gewinnendes Auftreten und arbeiten gerne schnittstellenübergreifend und denken langfristig. Ihr Fokus auf eine patientenbezogene und ganzheitliche Betreuung mit hoher Qualität rundet \n• Ihr Profil ab.\n\nUnser Angebot\n\nBei uns finden Sie eine familiäre Atmosphäre und kurze Entscheidungswege in einem sinnstiftenden Umfeld. Ihre Ideen und Inputs sind willkommen und Sie erhalten ein interessantes und vielseitiges Aufgabengebiet mit fortschrittlichen Arbeitsbedingungen (geregelte Normalarbeitszeit an Wochentagen, Bereitschaftsdienst von Zuhause aus). Unsere Infrastruktur ist auf dem neusten Stand und wir setzen uns für eine hohe Arbeitsqualität und ein gutes Miteinander ein.\n\nÜber uns\n\nDie Klinik Seeschau AG ist eine moderne Privatklinik im Belegarztsystem mit kantonalem Leistungsauftrag. Unsere Fachbereiche liegen in der Gynäkologie, Orthopädie, Viszeralchirurgie, Handchirurgie, der Plastischen, Rekonstruktiven und Ästhetischen Chirurgie, der Urologie sowie Anästhesiologie. Wir sind Mitglied der renommierten Vereinigung «SLH, The Swiss Leading Hospitals», unabhängig und in dritter Generation privat geführt.\n\nStossen Sie jetzt zum Team Seeschau!\n\nWir freuen uns auf Ihre Bewerbung per E-Mail.\n\nBei Fragen ist Fabienne Gilomen, Assistentin der Klinikleitung, Montag bis Freitag unter Telefon 071 677 53 53 erreichbar.\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nbewerbung@klinik-seeschau.ch\n\nDipl. Fachperson OP-Technik HF\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
-        "fr": "Poste Dès 50% | immédiatement ou selon accord Infirmier diplômé / Technicien en salle d'opération diplômé (ES) Description Appréciez-vous la convivialité d'un petit hôpital de soins aigus de 56 lits et d'environ 110 collaborateurs ? Souhaitez-vous vous investir dans un cadre magnifique au sein d'un bloc opératoire bien structuré et participer activement à son développement ? Alors, nous vous accueillerons peut-être bientôt à Kreuzlingen. Missions - Vous faites partie d'une équipe restreinte et motivée et travaillez dans un bloc opératoire moderne axé sur l'orthopédie, la gynécologie, la chirurgie et l'urologie. - En collaboration avec l'anesthésie, vous êtes coresponsable du bon déroulement des opérations. - Avec engagement et habileté manuelle, vous assurez l'instrumentation lors d'interventions chirurgicales variées.\n• Exigences - Vous possédez une formation d'infirmier diplômé avec spécialisation en soins opératoires ou de technicien en salle d'opération diplômé ES avec reconnaissance suisse. - Vous êtes résistant au stress et disposez de compétences professionnelles, d'un esprit d'équipe, de flexibilité et d'un excellent sens du relationnel. - Vous appréciez la collaboration avec les médecins accrédités dans un environnement de travail à taille humaine et personnel. - Vous communiquez avec respect, avez une personnalité avenante, aimez travailler de manière interdisciplinaire et avez une vision à long terme. - Votre souci d'une prise en charge holistique et de haute qualité des patients complète votre profil. Ce que nous offrons - Chez nous, vous trouverez une atmosphère familiale et des voies de décision courtes dans un environnement porteur de sens. - Vos idées et contributions sont les bienvenues et vous bénéficierez d'un domaine de responsabilité intéressant et varié avec des conditions de travail progressistes (horaires de travail normaux régulés en semaine, service de piquet à domicile). - Notre infrastructure est à la pointe de la technologie et nous nous engageons pour une qualité de travail élevée et une bonne collaboration. À propos de nous - La Klinik Seeschau AG est une clinique privée moderne fonctionnant avec un système de médecins accrédités et disposant d'un mandat de prestations cantonal. - Nos domaines de spécialisation sont la gynécologie, l'orthopédie, la chirurgie viscérale, la chirurgie de la main, la chirurgie plastique, reconstructive et esthétique, l'urologie ainsi que l'anesthésiologie. - Nous sommes membres de la prestigieuse association « SLH, The Swiss Leading Hospitals », indépendants et gérés par la troisième génération de propriétaires privés. Contact - Nous nous réjouissons de recevoir votre candidature par e-mail. - Pour toute question, Fabienne Gilomen, assistante de la direction de la clinique, est joignable du lundi au vendredi au 071 677 53 75. - Klinik Seeschau AG - Bernrainstrasse 17 - 8280 Kreuzlingen - bewerbung@klinik-seeschau.ch"
-      },
-      "needsRetranslation": true,
-      "location": "Kreuzlingen",
-      "canton": "TG",
-      "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-f918b222a1ed",
-      "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:18:44.562Z",
-      "addressLocality": "Kreuzlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8280",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Requisiti - Ha una formazione come dipl.",
-          "Diploma in cure infermieristiche con specializzazione in sala operatoria o diploma SSO",
-          "Riconoscimento svizzero del titolo di studio",
-          "Resilienza e competenza professionale",
-          "Spiccate capacità di lavoro in team e flessibilità",
-          "Eccellenti competenze sociali e comunicative",
-          "Orientamento alla qualità e al paziente",
-          "Capacità di pensiero interdisciplinare e a lungo termine"
-        ],
-        "en": [
-          "They are resilient and have professional competence, teamwork skills, flexibility and a high level of social competence.",
-          "Degree in nursing with OR specialization or HF OR technician diploma",
-          "Swiss recognition of qualifications",
-          "Resilience and professional expertise",
-          "Teamwork skills and flexibility",
-          "High level of social competence",
-          "Patient-oriented and holistic approach",
-          "Ability to work across interfaces"
-        ],
-        "fr": [
-          "Diplôme en soins infirmiers avec spécialisation au bloc ou diplôme ES",
-          "Reconnaissance suisse des titres",
-          "Résistance au stress et expertise professionnelle",
-          "Esprit d'équipe et flexibilité",
-          "Excellentes compétences sociales",
-          "Approche holistique centrée sur le patient",
-          "Capacité à travailler de manière interdisciplinaire"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-fachperson-op-technik-hf-ab-50-klinik-seeschau-kreuzlingen",
-        "tecnico-di-sala-operatoria-hf-klinik-seeschau-kreuzlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-fachperson-op-technik-hf-ab-50-klinik-seeschau-kreuzlingen",
-          "tecnico-di-sala-operatoria-hf-klinik-seeschau-kreuzlingen"
-        ],
-        "en": [
-          "dipl-fachperson-op-technik-hf-ab-50-klinik-seeschau-kreuzlingen"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T06:05:18.213Z",
-      "salaryMin": 33500,
-      "salaryMax": 51000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 33500,
-          "maxValue": 51000,
           "unitText": "YEAR"
         }
       }
@@ -224,7 +118,7 @@
       "companyDomain": "klinik-seeschau.ch",
       "title": "Dipl. Pflegefachfrau/-mann (HF) ab 50 %",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau/-mann (HF) ab 50 %",
+        "it": "Dipl. Infermieristica (HF) dal 50 %",
         "en": "Registered Nurse (HF) from 50%",
         "de": "Dipl. Pflegefachfrau/-mann (HF) ab 50 %",
         "fr": "Infirmier/ère diplômé(e) (ES) dès 50 %"
@@ -236,13 +130,12 @@
         "de": "Ab 50 % | per sofort oder nach Absprache\n\nDipl. Pflegefachfrau/-mann (HF)\n\nSchätzen Sie die Vertrautheit eines kleinen Akutspitals mit 56 Betten und rund 110 Mitarbeitenden?\n\nMöchten Sie sich an wunderschöner Lage aktiv in unserem Pflegeteam engagieren und diesen Bereich mitgestalten? Dann heissen wir Sie vielleicht schon bald in Kreuzlingen willkommen.\n\nIhre Aufgaben\n\nSie arbeiten auf einer interdisziplinären Pflegeabteilung und sind für die Planung, die Organisation und die Durchführung einer fachgerechten prä- und postoperativen Grund- und Behandlungspflege verantwortlich. Sie führen die Dokumentation in unserem elektronischen Klinik-Informations-System (KIS). Die Einhaltung der pflegerischen Qualitätsstandards und Richtlinien sind für Sie selbstverständlich.\n\nIhr Profil\n\nWir wünschen uns eine sozialkompetente, teamorientierte, aufgestellte Persönlichkeit, ideal mit Berufserfahrung in unseren Fachbereichen. Sie handeln verantwortungsbewusst und zuvorkommend zum Wohle unserer Patienten. Qualitätsbewusstsein, Flexibilität, Hilfsbereitschaft und teamorientiertes Arbeiten ergänzen \n• Ihr Profil.\n\nUnser Angebot\n\nBei uns finden Sie eine familiäre Atmosphäre in einem sinnstiftenden Umfeld. Sie erwartet ein sehr abwechslungsreiches und anspruchsvolles Wirkungsfeld mit einem eingespielten und motivierten Team sowie ein von Kollegialität und Teamwork geprägtes Arbeitsklima.\n\nÜber uns\n\nDie Klinik Seeschau AG ist eine moderne Privatklinik im Belegarztsystem mit kantonalem Leistungsauftrag. Unsere Fachbereiche liegen in der Gynäkologie, Orthopädie, Viszeralchirurgie, Handchirurgie, der Plastischen, Rekonstruktiven und Ästhetischen Chirurgie, der Urologie sowie Anästhesiologie/Schmerztherapie. Wir sind Mitglied der renommierten Vereinigung «SLH, The Swiss Leading Hospitals», unabhängig und in dritter Generation privat geführt.\n\nStossen Sie jetzt zum Team Seeschau!\n\nWir freuen uns auf Ihre Bewerbung per E-Mail.\n\nBei Fragen ist Fabienne Gilomen, Assistentin der Klinikleitung, Montag bis Freitag unter Telefon 071 677 53 53 erreichbar.\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nbewerbung@klinik-seeschau.ch\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
         "fr": "Offre d'emploi Dès 50 % | immédiatement ou selon accord Poste Infirmier/ère diplômé(e) (ES) Description Appréciez-vous la convivialité d'un petit hôpital de soins aigus de 56 lits et d'environ 110 collaborateurs ? Souhaitez-vous vous engager activement au sein de notre équipe soignante dans un cadre magnifique et contribuer à façonner ce domaine ? Alors nous aurons peut-être bientôt le plaisir de vous accueillir à Kreuzlingen. Missions - Vous travaillez dans un service de soins interdisciplinaire et êtes responsable de la planification, de l'organisation et de la réalisation de soins infirmiers de base et spécialisés, pré et post-opératoires, de manière professionnelle. - Vous gérez la documentation dans notre système d'information clinique électronique (KIS). - Le respect des normes de qualité et des directives en matière de soins est pour vous une évidence.\n• Exigences - Nous recherchons une personnalité dotée de compétences sociales, orientée vers le travail d'équipe et enthousiaste, idéalement avec une expérience professionnelle dans nos domaines de spécialisation. - Vous agissez de manière responsable et prévenante pour le bien-être de nos patients. - Le sens de la qualité, la flexibilité, l'esprit d'entraide et le travail en équipe complètent votre profil. Ce que nous offrons - Chez nous, vous trouverez une atmosphère familiale dans un environnement qui a du sens. - Un domaine d'activité très varié et exigeant vous attend, au sein d'une équipe soudée et motivée, ainsi qu'un climat de travail marqué par la collégialité et l'esprit d'équipe. À propos de nous - La Klinik Seeschau AG est une clinique privée moderne fonctionnant avec un système de médecins accrédités et disposant d'un mandat de prestations cantonal. - Nos domaines de spécialisation sont la gynécologie, l'orthopédie, la chirurgie viscérale, la chirurgie de la main, la chirurgie plastique, reconstructive et esthétique, l'urologie ainsi que l'anesthésiologie/thérapie de la douleur. - Nous sommes membres de la prestigieuse association « SLH, The Swiss Leading Hospitals », indépendants et gérés par la troisième génération de propriétaires privés. Contact - Nous nous réjouissons de recevoir votre candidature par e-mail. - Pour toute question, Fabienne Gilomen, assistante de la direction de la clinique, est joignable du lundi au vendredi au 071 677 53 53. - Klinik Seeschau AG - Bernrainstrasse 17 - 8280 Kreuzlingen - bewerbung@klinik-seeschau.ch"
       },
-      "needsRetranslation": true,
       "location": "Kreuzlingen",
       "canton": "TG",
       "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-8c5af93f2c34",
       "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:18:44.561Z",
+      "crawledAt": "2026-09-03T23:34:34.419Z",
       "addressLocality": "Kreuzlingen",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -303,6 +196,7 @@
       "firstSeenAt": "2026-05-20T06:05:18.210Z",
       "salaryMin": 40800,
       "salaryMax": 57000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -310,85 +204,6 @@
           "@type": "QuantitativeValue",
           "minValue": 40800,
           "maxValue": 57000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "klinik-seeschau-7d59c50b9ec5",
-      "slug": "linea-di-stazione-stv-dall-80-klinik-seeschau-kreuzlingen",
-      "slugByLocale": {
-        "it": "linea-di-stazione-stv-dall-80-klinik-seeschau-kreuzlingen",
-        "en": "stv-station-line-from-80-klinik-seeschau-kreuzlingen",
-        "de": "stv-stationsleitung-ab-80-klinik-seeschau-kreuzlingen",
-        "fr": "stv-ligne-de-station-a-partir-de-80-klinik-seeschau-kreuzlingen"
-      },
-      "company": "Klinik Seeschau",
-      "companyKey": "klinik-seeschau",
-      "companyDomain": "klinik-seeschau.ch",
-      "title": "Stv. Stationsleitung ab 80 %",
-      "titleByLocale": {
-        "it": "Linea di stazione Stv dall'80%",
-        "en": "Stv. station line from 80%",
-        "de": "Stv. Stationsleitung ab 80 %",
-        "fr": "Stv. ligne de station à partir de 80%"
-      },
-      "description": "Ab 80 % | per sofort oder nach Absprache\n\nStv. Stationsleitung\n\nSchätzen Sie die Vertrautheit eines kleinen Akutspitals mit 56 Betten und rund 120 Mitarbeitenden?\n\nMöchten Sie sich an wunderschöner Lage aktiv in unserem Pflegeteam engagieren und diesen Bereich mitgestalten? Dann heissen wir Sie vielleicht schon bald in Kreuzlingen willkommen.\n\nIhre Aufgaben\n\nSie sind auf einer interdisziplinären Pflegeabteilung tätig und als Teil des Pflegekaders mitverantwortlich bei der Organisation und Koordination der Arbeitsabläufe und der Personaleinsatzplanung. Sie führen ein Team von 10 Pflegehelfenden. Als kompetente Ansprechperson arbeiten Sie neben Ihren Führungsaufgaben direkt in der Pflege und führen eine fachgerechte prä- und postoperativen Grund- und Behandlungspflege durch.\n\nIhr Profil\n\nWir wünschen uns eine sozialkompetente, teamorientierte und aufgestellte Persönlichkeit mit Führungserfahrung und einer pflegerischen Ausbildung (HF) mit Berufserfahrung. Sie handeln verantwortungsbewusst und sind gewandt in der Kommunikation, führen geradlinig, wertschätzend und mit sozialer Kompetenz. Sie arbeiten gerne schnittstellenübergreifend, denken langfristig und sind offen für Veränderungsprozesse.\n\nUnser Angebot\n\nBei uns finden Sie eine familiäre Atmosphäre in einem sinnstiftenden Umfeld. Sie erwartet ein sehr abwechslungsreiches und anspruchsvolles Wirkungsfeld mit einem eingespielten und motivierten Team sowie ein von Kollegialität und Teamwork geprägtes Arbeitsklima.\n\nÜber uns\n\nDie Klinik Seeschau AG ist eine moderne Privatklinik im Belegarztsystem mit kantonalem Leistungsauftrag. Unsere Fachbereiche liegen in der Gynäkologie, Orthopädie, Viszeralchirurgie, Handchirurgie, der Plastischen, Rekonstruktiven und Ästhetischen Chirurgie, der Urologie sowie Anästhesiologie/Schmerztherapie. Wir sind Mitglied der renommierten Vereinigung «SLH, The Swiss Leading Hospitals», unabhängig und in dritter Generation privat geführt.\n\nStossen Sie jetzt zum Team Seeschau!\n\nWir freuen uns auf Ihre Bewerbung per E-Mail.\n\nBei Fragen ist Fabienne Gilomen, Assistentin der Klinikleitung, Montag bis Freitag unter Telefon 071 677 53 53 erreichbar.\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nbewerbung@klinik-seeschau.ch\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
-      "descriptionByLocale": {
-        "it": "Dal 80% | da subito o da accordo Stv. linea della stazione Apprezzi la riservatezza di un piccolo ospedale acuto con 56 posti letto e circa 120 dipendenti? Vuoi impegnarsi attivamente nel nostro team di assistenza in una bella posizione e modellare questa zona? Allora possiamo darvi il benvenuto a Kreuzlingen presto.\n• I tuoi compiti Essi sono attivi in un reparto di cura interdisciplinare e sono co-responsabili per l'organizzazione e il coordinamento dei flussi di lavoro e la pianificazione del personale. Gestiscono una squadra di 10 infermieri. Come persona di contatto competente, si lavora direttamente nella cura e svolgere professionale pre- e post-operativo di base e cura del trattamento. Il tuo profilo Auguriamo una personalità socialmente competente, orientata al team e consolidata con esperienza di leadership e una formazione infermieristica (HF) con esperienza professionale. Essi agiscono responsabilmente e sono desiderosi di comunicazione, piombo rettilineo, apprezzamento e con competenza sociale. A loro piace lavorare attraverso le interfacce, pensare a lungo termine e sono aperti a cambiare i processi. La nostra offerta Con noi troverete un'atmosfera familiare in un ambiente sensuale. Si aspetta un campo d'azione molto vario e impegnativo con un team ben consolidato e motivato e un ambiente di lavoro caratterizzato da collegialità e lavoro di squadra. Informazioni su di noi La Klinik Seeschau AG è una moderna clinica privata nel sistema medico del personale con ordine di servizio kantonalem. Le nostre aree specialistiche sono in ginecologia, ortopedia, chirurgia viscerale, chirurgia della mano, plastica, chirurgia ricostruttiva ed estetica, urologia e anestesiologia / terapia del dolore. Siamo membri della rinomata associazione \"SLH, The Swiss Leading Hospitals\", indipendente e gestita privatamente in terza generazione. Ora colpisci la squadra Seeschau! Attendiamo con ansia la vostra applicazione via e-mail. Se avete domande, Fabienne Gilomen, assistente della clinica, può essere raggiunto il lunedì al venerdì con telefono 071 677 53 53. Clinica Seeschau AG Bernrainstrasse 17 8280 Kreuzlingen bewerb@klinik-seeschau.ch Applicare ora Klinik Seeschau — Akutspital, Kreuzlingen (TG), Svizzera.",
-        "en": "From 80% | by immediately or by agreement Stv. station line Do you appreciate the confidentiality of a small acute hospital with 56 beds and around 120 employees? Do you want to actively engage in our care team in a beautiful location and shape this area? Then we may welcome you to Kreuzlingen soon.\n• Your tasks They are active in an interdisciplinary nursing department and are co-responsible for the organisation and coordination of workflows and personnel deployment planning. They run a team of 10 nurses. As a competent contact person, you work directly in the care and carry out professional pre- and post-operative basic and treatment care.\n• Your profile We wish a socially-competent, team-oriented and established personality with leadership experience and a nursing training (HF) with professional experience. They act responsibly and are eager in communication, lead rectilinear, appreciation and with social competence. They like to work across interfaces, think long-term and are open to change processes. Our offer With us you will find a family atmosphere in a sensuous environment. It expects a very varied and demanding field of action with a well-established and motivated team as well as a working environment characterized by collegiateness and teamwork. About us The Klinik Seeschau AG is a modern private clinic in the staff medical system with kantonalem service order. Our specialist areas are in gynecology, orthopaedics, visceral surgery, hand surgery, plastic, reconstructive and aesthetic surgery, urology and anaesthesiology/pain therapy. We are a member of the renowned association \"SLH, The Swiss Leading Hospitals\", independent and privately managed in third generation. Now hit the team Seeschau! We look forward to your application by e-mail. If you have any questions, Fabienne Gilomen, assistant to the clinic, can be reached on Monday to Friday under telephone 071 677 53 53. Clinic Seeschau AG Bernrainstrasse 17 8280 Kreuzlingen bewerb@klinik-seeschau.ch Apply now Klinik Seeschau — Akutspital, Kreuzlingen (TG), Switzerland.",
-        "de": "Ab 80 % | per sofort oder nach Absprache\n\nStv. Stationsleitung\n\nSchätzen Sie die Vertrautheit eines kleinen Akutspitals mit 56 Betten und rund 120 Mitarbeitenden?\n\nMöchten Sie sich an wunderschöner Lage aktiv in unserem Pflegeteam engagieren und diesen Bereich mitgestalten? Dann heissen wir Sie vielleicht schon bald in Kreuzlingen willkommen.\n\nIhre Aufgaben\n\nSie sind auf einer interdisziplinären Pflegeabteilung tätig und als Teil des Pflegekaders mitverantwortlich bei der Organisation und Koordination der Arbeitsabläufe und der Personaleinsatzplanung. Sie führen ein Team von 10 Pflegehelfenden. Als kompetente Ansprechperson arbeiten Sie neben Ihren Führungsaufgaben direkt in der Pflege und führen eine fachgerechte prä- und postoperativen Grund- und Behandlungspflege durch.\n\nIhr Profil\n\nWir wünschen uns eine sozialkompetente, teamorientierte und aufgestellte Persönlichkeit mit Führungserfahrung und einer pflegerischen Ausbildung (HF) mit Berufserfahrung. Sie handeln verantwortungsbewusst und sind gewandt in der Kommunikation, führen geradlinig, wertschätzend und mit sozialer Kompetenz. Sie arbeiten gerne schnittstellenübergreifend, denken langfristig und sind offen für Veränderungsprozesse.\n\nUnser Angebot\n\nBei uns finden Sie eine familiäre Atmosphäre in einem sinnstiftenden Umfeld. Sie erwartet ein sehr abwechslungsreiches und anspruchsvolles Wirkungsfeld mit einem eingespielten und motivierten Team sowie ein von Kollegialität und Teamwork geprägtes Arbeitsklima.\n\nÜber uns\n\nDie Klinik Seeschau AG ist eine moderne Privatklinik im Belegarztsystem mit kantonalem Leistungsauftrag. Unsere Fachbereiche liegen in der Gynäkologie, Orthopädie, Viszeralchirurgie, Handchirurgie, der Plastischen, Rekonstruktiven und Ästhetischen Chirurgie, der Urologie sowie Anästhesiologie/Schmerztherapie. Wir sind Mitglied der renommierten Vereinigung «SLH, The Swiss Leading Hospitals», unabhängig und in dritter Generation privat geführt.\n\nStossen Sie jetzt zum Team Seeschau!\n\nWir freuen uns auf Ihre Bewerbung per E-Mail.\n\nBei Fragen ist Fabienne Gilomen, Assistentin der Klinikleitung, Montag bis Freitag unter Telefon 071 677 53 53 erreichbar.\n\nKlinik Seeschau AG\n\nBernrainstrasse 17\n\n8280 Kreuzlingen\n\nbewerbung@klinik-seeschau.ch\n\nJetzt Bewerben\n\nKlinik Seeschau — Akutspital, Kreuzlingen (TG), Schweiz.",
-        "fr": "A partir de 80% par immédiatement ou par accord Ligne de station Stv. Appréciez-vous la confidentialité d'un petit hôpital de 56 lits et d'environ 120 employés? Voulez-vous vous engager activement dans notre équipe de soins dans un endroit magnifique et façonner cette région? Alors nous vous accueillerons bientôt à Kreuzlingen.\n• Vos tâches Ils sont actifs dans un département de soins infirmiers interdisciplinaire et co-responsables de l'organisation et de la coordination des flux de travail et de la planification du déploiement du personnel. Ils dirigent une équipe de 10 infirmières. En tant que personne-ressource compétente, vous travaillez directement dans les soins et effectuez des soins de base et de traitement pré- et post-opératoires professionnels.\n• Votre profil Nous souhaitons une personnalité socialement compétente, axée sur l'équipe et établie avec une expérience de leadership et une formation en soins infirmiers (HF) avec une expérience professionnelle. Ils agissent de façon responsable et sont avides de communication, de leadership rectiligne, d'appréciation et de compétence sociale. Ils aiment travailler à travers les interfaces, penser à long terme et sont ouverts au changement des processus. Notre offre Avec nous vous trouverez une ambiance familiale dans un environnement sensuel. Il s'attend à un champ d'action très varié et exigeant avec une équipe bien établie et motivée ainsi qu'un environnement de travail caractérisé par la collégialité et le travail d'équipe. Sur nous La Klinik Seeschau AG est une clinique privée moderne dans le système médical du personnel avec ordre de service kantonalem. Nos domaines spécialisés sont la gynécologie, l'orthopédie, la chirurgie viscérale, la chirurgie des mains, la chirurgie plastique, la chirurgie reconstructive et esthétique, l'urologie et l'anesthésiologie/la thérapie de la douleur. Nous sommes membres de la célèbre association « SLH, The Swiss Leading Hospitals », indépendante et privée de troisième génération. Maintenant frappez l'équipe Seeschau ! Nous nous réjouissons de votre candidature par courriel. Si vous avez des questions, Fabienne Gilomen, assistante de la clinique, peut être contactée du lundi au vendredi par téléphone 071 677 53 53. Clinique Seeschau AG Bernrainstrasse 17 8280 Kreuzlingen bwerb@klinik-seeschau.ch Appliquer maintenant Klinik Seeschau — Akutspital, Kreuzlingen (TG), Suisse."
-      },
-      "needsRetranslation": true,
-      "location": "Kreuzlingen",
-      "canton": "TG",
-      "url": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59#job-7d59c50b9ec5",
-      "source": "Klinik Seeschau Dedicated Parser (Joomla SPB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:18:44.559Z",
-      "addressLocality": "Kreuzlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8280",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-20",
-      "applyUrl": "https://www.klinik-seeschau.ch/karriere/offene-stellen.html/59",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "stv-stationsleitung-ab-80-klinik-seeschau-kreuzlingen",
-        "linea-di-stazione-stv-dall-80-klinik-seeschau-kreuzlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-stationsleitung-ab-80-klinik-seeschau-kreuzlingen",
-          "linea-di-stazione-stv-dall-80-klinik-seeschau-kreuzlingen"
-        ],
-        "en": [
-          "stv-stationsleitung-ab-80-klinik-seeschau-kreuzlingen"
-        ],
-        "fr": [
-          "stv-stationsleitung-ab-80-klinik-seeschau-kreuzlingen"
-        ]
-      },
-      "firstSeenAt": "2026-05-20T06:05:18.210Z",
-      "salaryMin": 65200,
-      "salaryMax": 91200,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65200,
-          "maxValue": 91200,
           "unitText": "YEAR"
         }
       }

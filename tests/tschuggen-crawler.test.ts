@@ -6,7 +6,7 @@
  * isTrustedDomain() using HTML fixtures mirroring the real
  * Umantis ATS page structure at tenant 2904.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   TSCHUGGEN_KEY,
@@ -17,6 +17,7 @@ import {
   parseTschuggenDetailPage,
   extractLocation,
   lookupPostalCode,
+  mergeTschuggenListing,
 } from '../scripts/lib/tschuggen-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -121,6 +122,27 @@ const FIXTURE_DETAIL_PAGE = `<!DOCTYPE html>
 // ─── Tests ────────────────────────────────────────────────────────────────
 
 describe('Tschuggen Collection crawler parser', () => {
+  it('keeps richer metadata when the alternate Umantis view repeats a sparse row', () => {
+    expect(mergeTschuggenListing(
+      { vacancyId: '1325', title: 'Reservation Agent', department: 'Rooms Division' },
+      { vacancyId: '1325', title: 'Reservation Agent', department: '', location: 'Ascona' },
+    )).toMatchObject({
+      vacancyId: '1325',
+      department: 'Rooms Division',
+      location: 'Ascona',
+    });
+  });
+  it('warns when the two Umantis views disagree on a populated field', () => {
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    mergeTschuggenListing(
+      { vacancyId: '1325', title: 'First title' },
+      { vacancyId: '1325', title: 'Second title' },
+    );
+    expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+      'Tschuggen vacancy 1325: conflicting title',
+    ));
+    warn.mockRestore();
+  });
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(TSCHUGGEN_KEY).toBe('tschuggen');
@@ -187,6 +209,15 @@ describe('Tschuggen Collection crawler parser', () => {
   // ── parseTschuggenListingPage ──
   describe('parseTschuggenListingPage', () => {
     const listings = parseTschuggenListingPage(FIXTURE_LISTING_HTML);
+
+    it('parses the alternate /Jobs/1 element ids used by the wider catalogue', () => {
+      const alternate = FIXTURE_LISTING_HTML
+        .replaceAll('1152488', '3473')
+        .replaceAll('1152493', '1151426')
+        .replaceAll('1152494', '1151427')
+        .replaceAll('1152495', '26475');
+      expect(parseTschuggenListingPage(alternate)).toHaveLength(3);
+    });
 
     it('parses correct number of listings', () => {
       expect(listings).toHaveLength(3);

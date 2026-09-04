@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
 import {
   GEMEINDE_ST_MORITZ_KEY,
@@ -85,6 +86,11 @@ const SAMPLE_DETAIL_POLICE_HTML = `
 </body></html>
 `;
 
+const DETAIL_WITH_SIDEBAR_HTML = readFileSync(
+  new URL('./fixtures/gemeinde-st-moritz/detail-with-sidebar.html', import.meta.url),
+  'utf8'
+);
+
 // ── Tests ─────────────────────────────────────────────────────────────
 
 describe('Gemeinde St. Moritz crawler parser', () => {
@@ -142,6 +148,15 @@ describe('Gemeinde St. Moritz crawler parser', () => {
       expect(jobs[1].url).toBe('https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1');
     });
 
+    it("keeps an apostrophe inside a double-quoted detail href", () => {
+      const [job] = parseListingHtml(`
+        <a href="/aktuelles/offene-stellen/detail/d'Oberengadin">
+          <h3>Chef d'équipe</h3>
+        </a>
+      `);
+      expect(job.url).toBe("https://www.gemeinde-stmoritz.ch/aktuelles/offene-stellen/detail/d'Oberengadin");
+    });
+
     it('extracts dates from card content', () => {
       const jobs = parseListingHtml(SAMPLE_LISTING_HTML);
       expect(jobs[0].date).toBe('2026-04-07');
@@ -177,6 +192,18 @@ describe('Gemeinde St. Moritz crawler parser', () => {
       expect(result.title).toBe('Mitarbeiter Wasserversorgung 100% (m/w)');
     });
 
+    it('scopes the live TYPO3 detail to the vacancy instead of sidebar H1s', () => {
+      const result = parseDetailHtml(DETAIL_WITH_SIDEBAR_HTML);
+
+      expect(result.title).toBe('Bistromitarbeiter 60 % (m/w/d) unbefristet');
+      expect(result.date).toBe('2026-06-15');
+      expect(result.description).toContain('OVAVERVA Bistro');
+      expect(result.description).toContain('Selbstbedienungs-Restaurant');
+      expect(result.description).not.toContain('Wichtige Kontakte');
+      expect(result.description).not.toContain('Gemeindewahlen 2026');
+      expect(result.pdfUrl).toBe('https://www.gemeinde-stmoritz.ch/fileadmin/jobs/Bistromitarbeiter.pdf');
+    });
+
     it('extracts date from page content', () => {
       const result = parseDetailHtml(SAMPLE_DETAIL_HTML);
       expect(result.date).toBe('2026-04-07');
@@ -193,6 +220,15 @@ describe('Gemeinde St. Moritz crawler parser', () => {
     it('extracts PDF download URL', () => {
       const result = parseDetailHtml(SAMPLE_DETAIL_HTML);
       expect(result.pdfUrl).toBe('https://www.gemeinde-stmoritz.ch/fileadmin/user_upload/dokumente/pdf/stellenausschreibungen/Mitarbeiter_Wasserversorgung.pdf');
+    });
+
+    it("keeps an apostrophe inside a double-quoted PDF href", () => {
+      const result = parseDetailHtml(`
+        <h1>Chef d'équipe</h1>
+        <p>Descrizione sufficientemente lunga per mantenere la pagina valida durante il parsing.</p>
+        <a href="/fileadmin/jobs/d'Oberengadin.pdf">PDF</a>
+      `);
+      expect(result.pdfUrl).toBe("https://www.gemeinde-stmoritz.ch/fileadmin/jobs/d'Oberengadin.pdf");
     });
 
     it('parses police job detail correctly', () => {

@@ -81,6 +81,7 @@ jobs:
             echo "No evidence changes to commit"
             exit 0
           fi
+          bash scripts/lib/configure-main-push-auth.sh
           git commit -m "chore(evidence): refresh $(date -u +%Y-%m-%d)"
           # Retry-on-rebase loop — same pattern as #794/#804/#805/#806.
           # Concurrent producers on main (crawlers + scheduled refreshers
@@ -147,7 +148,6 @@ jobs:
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -159,6 +159,20 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Pull latest evidence commit from build-evidence job
         run: git pull --rebase --autostash origin main
@@ -177,6 +191,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore(tune): quota update $(date -u +%Y-%m-%d)"
+          bash scripts/lib/configure-main-push-auth.sh
           # Retry-on-rebase loop — same as the build-evidence job above.
           MAX_ATTEMPTS=5
           BACKOFF_BASE=3

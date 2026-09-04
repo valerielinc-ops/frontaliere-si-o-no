@@ -71,17 +71,42 @@ export const blogSeoShardSourcePath = (id: BlogSeoShardId): string =>
  * the behaviour this replaces.
  */
 export function extractTopLevelSeoKeys(src: string): string[] {
-  const keys: string[] = [];
+  return scanTopLevelSeoEntries(src).map((e) => e.key);
+}
+
+/** One depth-1 record entry: its key plus the source span of its value object. */
+export interface TopLevelSeoEntry {
+  /** The `blog-<id>` section key. */
+  key: string;
+  /** Offset of the value's opening `{`. */
+  start: number;
+  /** Offset just past the value's closing `}`. */
+  end: number;
+}
+
+/**
+ * The scanner behind {@link extractTopLevelSeoKeys}, exposed with the value spans.
+ *
+ * A caller that needs a FIELD of an entry (rather than just the key) must know where
+ * that entry begins and ends: `"author"` appears once per record, so without the span
+ * there is no way to attribute one to its article. Same walk, same guarantees — kept
+ * as one implementation because a second copy of the string/template/comment stepping
+ * is exactly the drift this file's header warns about.
+ */
+export function scanTopLevelSeoEntries(src: string): TopLevelSeoEntry[] {
+  const entries: TopLevelSeoEntry[] = [];
   const n = src.length;
 
   // Anchor on the record declaration rather than the first `= {` in the file, so a
   // future `const BASE_URL = {…}`-style preamble can't capture the scan.
   const decl = /:\s*Record<string,\s*SEOMetadata>\s*=\s*\{/.exec(src);
   let i = decl ? decl.index + decl[0].length - 1 : src.indexOf('= {') + 2;
-  if (i < 1) return keys;
+  if (i < 1) return entries;
 
   let depth = 0;
   let started = false;
+  let pendingKey: string | null = null;
+  let entryStart = -1;
 
   const skipTemplate = (pos: number): number => {
     // pos points at the opening backtick.
@@ -141,20 +166,79 @@ export function extractTopLevelSeoKeys(src: string): string[] {
         // A depth-1 string immediately followed by `:` is an entry key.
         let j = i + 1;
         while (j < n && /\s/.test(src[j])) j++;
-        if (src[j] === ':') keys.push(src.slice(start, i));
+        if (src[j] === ':') pendingKey = src.slice(start, i);
       }
       continue;
     }
 
-    if (c === '{' || c === '[') { depth++; started = true; continue; }
+    if (c === '{' || c === '[') {
+      if (depth === 1 && pendingKey !== null && c === '{') entryStart = i;
+      depth++;
+      started = true;
+      continue;
+    }
     if (c === '}' || c === ']') {
       depth--;
+      if (depth === 1 && pendingKey !== null) {
+        if (entryStart >= 0) entries.push({ key: pendingKey, start: entryStart, end: i + 1 });
+        pendingKey = null;
+        entryStart = -1;
+      }
       if (started && depth === 0) break;
       continue;
     }
   }
 
-  return keys;
+  return entries;
+}
+
+/** The `structuredData.author` node of one shard entry, as written in the source. */
+export interface SeoShardAuthorRef {
+  /** `Person` for a real byline; absent on the `{"@id": …#organization}` reference form. */
+  type?: string;
+  /** Author page URL — what `article:author` resolves to on the SPA/RSS side. */
+  url?: string;
+}
+
+/**
+ * Read `structuredData.author` for every entry of a shard source.
+ *
+ * `services/seoService.ts` derives `article:author` from this node, while the SSG
+ * (`packages/articles/engine/ogPagesPlugin.ts`) derives the same tag from
+ * `authorSlug` + the authors registry — two independent sources for one fact.
+ * `tests/article-author-source-parity.test.ts` compares them per article; this is
+ * the reader for the blob half, so the comparison never needs to import ~11 MB of
+ * generated TypeScript into the test runtime.
+ *
+ * The author node is a flat JSON object in the generated output (both the one-line
+ * and the pretty-printed form), so the fields are read with plain string scanning
+ * over its balanced span rather than `JSON.parse` — the surrounding entry is TS,
+ * not JSON (template literals, unquoted keys elsewhere).
+ */
+export function extractSeoAuthorRefs(src: string): Map<string, SeoShardAuthorRef> {
+  const refs = new Map<string, SeoShardAuthorRef>();
+  for (const entry of scanTopLevelSeoEntries(src)) {
+    const body = src.slice(entry.start, entry.end);
+    const at = /"author"\s*:\s*\{/.exec(body);
+    if (!at) continue;
+    // Balance the author object's braces; it has no nested object in practice, but
+    // balancing keeps a future `worksFor: {…}` from truncating the span.
+    let depth = 0;
+    let end = at.index + at[0].length - 1;
+    for (let p = end; p < body.length; p++) {
+      if (body[p] === '{') depth++;
+      else if (body[p] === '}') {
+        depth--;
+        if (depth === 0) { end = p + 1; break; }
+      }
+    }
+    const node = body.slice(at.index + at[0].length - 1, end);
+    refs.set(entry.key, {
+      type: /"@type"\s*:\s*"([^"]*)"/.exec(node)?.[1],
+      url: /"url"\s*:\s*"([^"]*)"/.exec(node)?.[1],
+    });
+  }
+  return refs;
 }
 
 /**

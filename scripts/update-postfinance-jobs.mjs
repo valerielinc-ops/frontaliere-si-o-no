@@ -74,6 +74,8 @@ import { normalizeCantonCode } from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readAttr, readMetaContent } from './lib/html-attr.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -133,7 +135,7 @@ function slugify(text = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 const delay = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -329,18 +331,7 @@ function extractReqId(url) {
 // ──────────────────────────────────────────────────────────────
 
 function extractMeta(html, name) {
-  const re = new RegExp(
-    `<meta[^>]+(?:name|property)\\s*=\\s*["']${name}["'][^>]+content\\s*=\\s*["']([^"']*)["']`,
-    'i',
-  );
-  const match = html.match(re);
-  if (match) return match[1].trim();
-  const re2 = new RegExp(
-    `<meta[^>]+content\\s*=\\s*["']([^"']*)["'][^>]+(?:name|property)\\s*=\\s*["']${name}["']`,
-    'i',
-  );
-  const match2 = html.match(re2);
-  return match2 ? match2[1].trim() : '';
+  return readMetaContent(html, name).trim();
 }
 
 function extractHtmlTitle(html) {
@@ -349,10 +340,10 @@ function extractHtmlTitle(html) {
 }
 
 function extractCanonical(html) {
-  const match = html.match(/<link[^>]+rel\s*=\s*["']canonical["'][^>]+href\s*=\s*["']([^"']*)["']/i);
-  if (match) return match[1].trim();
-  const match2 = html.match(/<link[^>]+href\s*=\s*["']([^"']*)["'][^>]+rel\s*=\s*["']canonical["']/i);
-  return match2 ? match2[1].trim() : '';
+  const canonicalTag = [...String(html || '').matchAll(/<link\b[^>]*>/gi)]
+    .map((match) => match[0])
+    .find((tag) => readAttr(tag, 'rel').toLowerCase() === 'canonical');
+  return canonicalTag ? readAttr(canonicalTag, 'href').trim() : '';
 }
 
 /**

@@ -4,10 +4,10 @@
   "companyHost": "fachkraft.ch",
   "platform": "",
   "mode": "template",
-  "seedUrls": [
-    "https://www.fachkraft.ch/stellen/"
-  ],
+  "seedUrls": ["https://www.fachkraft.ch/stellen/"],
   "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
   "sampleVacancyCount": 3440,
   "sampleTitles": [
     "Allrounder/in Ausbaugewerbe für einen 5 Tage Einsatz im Raum Sursee",

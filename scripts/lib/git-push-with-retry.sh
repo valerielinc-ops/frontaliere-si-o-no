@@ -139,6 +139,14 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+# Direct pushes to this repo's `main` must authenticate as GITHUB_PAT or
+# APP_TOKEN (ruleset bypass identities). Falling back to the ambient
+# GITHUB_TOKEN is how GH013 still landed after the opt-in rewrite: a mint
+# with continue-on-error left APP_TOKEN unset and the push retried as
+# github-actions[bot]. Fail closed instead. Origin URLs that are not
+# github.com (local helper tests) are left alone by the configure script.
+bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
+
 # --no-verify: skip the .githooks/pre-push sibling-patterns gate. Every caller
 # of this helper is a data-refresh workflow pushing generated content to main —
 # not a pre-PR dev push, which is what the gate exists for (issue #3809).

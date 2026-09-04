@@ -11,9 +11,11 @@ immediate send) when there isn't enough personal signal yet.
    Resend, Mailjet, Mailgun, Mailtrap, Maileroo) calls
    `refreshPreferredSendHour` (`functions/src/lib/preferredSendHour.js`)
    after updating the engagement score. It re-reads the subscriber's
-   `events` subcollection (last 300 events) and computes a **recency-weighted
-   circular mean** of the hour-of-day (UTC) at which they open/click —
-   same 7/14/30/60/90-day recency windows and weights as `engagementScore.js`
+   `events` subcollection (last 300 events) and computes an **intent- and
+   recency-weighted circular mean** of the hour-of-day (UTC) at which they
+   open/click. Clicks have 2.5x the weight of opens, while event influence
+   decays continuously with a 4-day half-life; the 90-day lookback window
+   remains in place.
    (circular, not arithmetic: an hour-of-day wraps at midnight, so opens at
    23:00 and 01:00 average to ~00:00, not noon).
 2. **Cold-start guard** — below `PREFERRED_SEND_MIN_EVENTS` (3) qualifying

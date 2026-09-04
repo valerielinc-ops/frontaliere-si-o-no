@@ -364,6 +364,15 @@ jobs:
       ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP: ${{ vars.ARTICOLIFRONTALIERE_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
       ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
     steps:
+      # #7106 — anchors the CDN gate's job-deadline safety margin (see "WHY A
+      # THIRD CLOCK" in scripts/lib/wait-cdn-build-id.sh) to this leg's REAL
+      # start, not the "Wait for IT CDN push" step's start. That is what lets
+      # the gate self-adjust for however long Build+shard-push (T1) actually
+      # took on THIS run instead of assuming a fixed T1. First step so no
+      # earlier step's variance is left out of the clock.
+      - name: Record job start (#7106 CDN gate job-deadline safety margin)
+        run: echo "CDN_JOB_START_EPOCH=$(date +%s)" >> "$GITHUB_ENV"
+
       - name: Free disk space (remove unused toolchains)
         shell: bash
         run: |
@@ -710,6 +719,7 @@ jobs:
           git config user.email "build-history-bot@frontaliereticino.ch"
           git add data/build-history/memory-peaks.jsonl
           git commit -m "chore(build-history): append ${ROW_LOCALE} leg run ${ROW_RUN_ID}"
+          bash scripts/lib/configure-main-push-auth.sh
           # Stesso retry-con-rebase di "Commit dist-size-history row" sopra
           # (5 tentativi, backoff 5/10/15/25/40s): 4 leg concorrenti + gli
           # altri produttori su main (crawlers/thin-promotions/fuel/weather)
@@ -1389,7 +1399,18 @@ jobs:
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
-          retention-days: 1
+          # 8 giorni, non 1 come il resto degli artifact di questo workflow.
+          # `cathedral-seo-gates-check.yml` gira col cron `47 4 * * 1` e non
+          # costruisce piu' il proprio dist (#5169): replica QUESTO artifact.
+          # Con la retention a 1 giorno bastava una giornata senza deploy
+          # riuscito perche' il gate del lunedi' non trovasse nulla e morisse
+          # su «No successful deploy.yml run on main still has a
+          # 'github-pages' artifact» — motivo per cui e' rimasto rosso dal
+          # 2026-08-31. La finestra deve coprire la cadenza del gate.
+          # Il costo e' trascurabile e non vale per gli altri: questo tar e' il
+          # TRONCO (49 MB), mentre gli shard-batch dello stesso run pesano fino
+          # a 1,5 GB l'uno e restano a 1 giorno.
+          retention-days: 8
           if-no-files-found: error
           # Level 9 = max deflate compression on the zip envelope. Pages
           # backend extracts the zip first, so our content gets the best
@@ -1512,6 +1533,7 @@ jobs:
             'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
           git add data/dist-size-history.jsonl data/url-first-seen.json
           git commit -m "chore(dist-history): append run ${GITHUB_RUN_ID} (${GITHUB_SHA::8})"
+          bash scripts/lib/configure-main-push-auth.sh
           # The build job leaves dist/ and other generated files dirty
           # in the working tree. `git pull --rebase` refuses to run
           # while unstaged changes exist (`cannot pull with rebase: You
@@ -2183,6 +2205,14 @@ jobs:
           # is what makes a shrinking margin visible before it becomes a
           # timeout. The gate still exits the instant the marker matches, so the
           # budget is a ceiling, not a fixed wait.
+          #
+          # #7049 — this budget starts ONLY when the IT leg reaches the exact
+          # early-CDN step above. Run 33520063656 proved why the two clocks must
+          # be separate: IT legitimately spent ~2h22 in Build, while the three
+          # non-IT legs reached this guard after ~65–69m and exhausted all 2700s
+          # before IT was ready to publish the marker. Phase 1 observes the IT
+          # step with its own bounded deadline; phase 2 then receives this full,
+          # unchanged marker budget. Neither deadline permits a shard push.
           CDN_WAIT_TIMEOUT_S: 2700
           # Matching inside this many seconds of the budget still publishes the
           # shard (exit 0) but emits a ::warning:: + a job-summary row. Without
@@ -2208,9 +2238,29 @@ jobs:
           # quietly disarm the abort. And a wrong name only ever disarms it: the
           # gate then waits the full budget exactly as it does today.
           CDN_IT_JOB_NAME: build-locale (it)
+          # Exact step title, pinned by the observer to the real IT-only step.
+          # Seeing it in_progress/completed is the only event that starts the
+          # 2700s marker clock. API uncertainty, job death or this deadline all
+          # fail closed before marker polling and therefore before shard push.
+          CDN_IT_READY_STEP_NAME: Push generated assets to CDN (early — ahead of the shard pushes)
+          CDN_IT_READY_TIMEOUT_S: 10800
+          CDN_IT_READY_INTERVAL_S: 30
           # Read-only jobs API call, sampled every 4th poll (~60s) so the whole
           # matrix costs ~135 calls per run rather than ~540.
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # #7106 — job-deadline safety margin (full rationale: "WHY A THIRD
+          # CLOCK" in wait-cdn-build-id.sh). timeout-minutes: 360 above is
+          # already at GitHub's hard per-job ceiling for hosted runners (6h,
+          # fixed platform-wide — it cannot be raised further, so "is it big
+          # enough" has to be answered by shrinking THIS gate, not by growing
+          # the job). 19800 = (360 - 30) * 60: 30 minutes held back for the
+          # finish steps after this gate (push shard, purge, report) plus
+          # runner/provisioning overhead. Anchored to CDN_JOB_START_EPOCH (set
+          # by the very first step of this job), so it absorbs however long
+          # Build+shard-push actually took on THIS run before shrinking either
+          # phase's budget.
+          CDN_JOB_START_EPOCH: ${{ env.CDN_JOB_START_EPOCH }}
+          CDN_JOB_DEADLINE_S: 19800
         run: bash scripts/lib/wait-cdn-build-id.sh "${DEPLOY_BUILD_ID}"
 
       - name: Push locale shard
@@ -2333,10 +2383,17 @@ jobs:
           # how #5224/#5225/#5227 were misfiled.
           CDN_WAIT_RESULT: ${{ steps.cdn-gate.outputs.cdn_wait_result }}
           CDN_IT_CONCLUSION: ${{ steps.cdn-gate.outputs.cdn_it_conclusion }}
+          CDN_READY_RESULT: ${{ steps.cdn-gate.outputs.cdn_ready_result }}
+          CDN_READY_WAITED_S: ${{ steps.cdn-gate.outputs.cdn_ready_waited_s }}
+          CDN_READY_TIMEOUT_S: ${{ steps.cdn-gate.outputs.cdn_ready_timeout_s }}
+          CDN_READY_API_FAILURES: ${{ steps.cdn-gate.outputs.cdn_ready_api_failures }}
         run: |
           if [ -n "${CDN_IT_CONCLUSION:-}" ]; then
             CAUSE_LINE="the IT leg (\`build-locale (it)\`) of this run ended **${CDN_IT_CONCLUSION}**, so CDN build id \`${CDN_EXPECTED}\` was never published and never could be. The gate stopped after \`${CDN_WAITED_S}s\` instead of spending the whole \`${CDN_TIMEOUT_S}s\` budget."
             ANNOT="The ${LOCALE} shard was NOT pushed: the IT leg of this run ended ${CDN_IT_CONCLUSION}, so CDN build id ${CDN_EXPECTED} was never published (gate aborted after ${CDN_WAITED_S}s rather than waiting out the ${CDN_TIMEOUT_S}s budget). Fix the IT leg — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
+          elif [ -n "${CDN_READY_RESULT:-}" ] && [ "${CDN_READY_RESULT}" != 'ready' ]; then
+            CAUSE_LINE="the #7049 readiness phase ended **${CDN_READY_RESULT}** after \`${CDN_READY_WAITED_S}s\` of its separate \`${CDN_READY_TIMEOUT_S}s\` budget (jobs API failures: \`${CDN_READY_API_FAILURES:-0}\`). The IT early-CDN step was not authoritatively ready, so the \`${CDN_TIMEOUT_S}s\` marker budget was never started."
+            ANNOT="The ${LOCALE} shard was NOT pushed: the #7049 readiness phase ended ${CDN_READY_RESULT} after ${CDN_READY_WAITED_S}s/${CDN_READY_TIMEOUT_S}s (jobs API failures ${CDN_READY_API_FAILURES:-0}). The IT early-CDN step was not authoritatively ready; marker polling never started. Fix the IT leg or jobs-API observability — this is NOT a ${LOCALE} shard-repo or deploy-key problem."
           else
             CAUSE_LINE="the gate spent its full \`${CDN_TIMEOUT_S}s\` budget waiting for the IT leg to publish CDN build id \`${CDN_EXPECTED}\` (last seen \`${CDN_LAST_SEEN:-<nessuno>}\`), and the IT leg's own conclusion could not be read."
             ANNOT="The ${LOCALE} shard was NOT pushed: the #2569 CDN ordering gate timed out after ${CDN_WAITED_S}s of a ${CDN_TIMEOUT_S}s budget waiting for the IT leg to publish CDN build id ${CDN_EXPECTED} (last seen '${CDN_LAST_SEEN}'). Live ${LOCALE} pages serve STALE content until the next deploy. Look at the IT leg of this run, not at the ${LOCALE} shard repo."
@@ -2347,6 +2404,7 @@ jobs:
             echo ""
             echo "- cause: ${CAUSE_LINE}"
             echo "- waited: \`${CDN_WAITED_S}s\` of \`${CDN_TIMEOUT_S}s\`"
+            echo "- IT readiness: \`${CDN_READY_RESULT:-legacy}\` after \`${CDN_READY_WAITED_S:-0}s\` of \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`)"
             echo "- expected CDN build id: \`${CDN_EXPECTED}\`"
             echo "- last seen on the CDN: \`${CDN_LAST_SEEN:-<none>}\`"
             echo "- the live \`${LOCALE}\` pages stay STALE until the next successful deploy"
@@ -2362,6 +2420,7 @@ jobs:
           | | |
           |---|---|
           | esito del guard | \`${CDN_WAIT_RESULT:-failure}\` |
+          | readiness IT | \`${CDN_READY_RESULT:-legacy}\` dopo \`${CDN_READY_WAITED_S:-0}s\` / \`${CDN_READY_TIMEOUT_S:-0}s\` (API failures: \`${CDN_READY_API_FAILURES:-0}\`) |
           | conclusione del leg IT | \`${CDN_IT_CONCLUSION:-non letta}\` |
           | atteso | \`${CDN_WAITED_S}s\` su un budget di \`${CDN_TIMEOUT_S}s\` |
           | build id CDN atteso | \`${CDN_EXPECTED}\` |

@@ -4648,10 +4648,10 @@
         "fr": "apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-argovia/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
-        "en": "/en/find-jobs-aargau/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
+        "it": "/cerca-lavoro-soletta/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
+        "en": "/en/find-jobs-solothurn/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
         "de": "/de/jobs-im-graubunden/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis",
-        "fr": "/fr/trouver-emploi-argovie/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis"
+        "fr": "/fr/trouver-emploi-soleure/apprenticeship-kaufmann-kauffrau-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-cazis"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -13000,10 +13000,10 @@
         "fr": "chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
-        "en": "/en/find-jobs-st-gallen/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
+        "it": "/cerca-lavoro-zurigo/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
+        "en": "/en/find-jobs-zurich/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
         "de": "/de/jobs-im-st-gallen/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs",
-        "fr": "/fr/trouver-emploi-saint-gall/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs"
+        "fr": "/fr/trouver-emploi-zurich/chauffeur-cat-ce-regione-di-zurigo-m-f-d-planzer-buchs"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24300,16 +24300,16 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "elektroinstallateur-alle-bkw-biberist",
+        "de": "elektroinstallateur-alle-bkw-ch",
+        "it": "installatore-trice-elettrico-a-alle-bkw-biberist",
         "en": "elektroinstallateur-alle-bkw-biberist",
-        "de": "elektroinstallateur-alle-bkw-biberist",
         "fr": "elektroinstallateur-alle-bkw-biberist"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-turgovia/elektroinstallateur-alle-bkw-biberist",
-        "en": "/en/find-jobs-thurgau/elektroinstallateur-alle-bkw-biberist",
-        "de": "/de/jobs-im-thurgau/elektroinstallateur-alle-bkw-biberist",
-        "fr": "/fr/trouver-emploi-thurgovie/elektroinstallateur-alle-bkw-biberist"
+        "it": "/cerca-lavoro-soletta/elektroinstallateur-alle-bkw-biberist",
+        "en": "/en/find-jobs-solothurn/elektroinstallateur-alle-bkw-biberist",
+        "de": "/de/jobs-in-solothurn/elektroinstallateur-alle-bkw-biberist",
+        "fr": "/fr/trouver-emploi-soleure/elektroinstallateur-alle-bkw-biberist"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -24317,6 +24317,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -31274,7 +31275,7 @@
         {
           "query": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
           "clicks": 0,
-          "impressions": 65
+          "impressions": 73
         },
         {
           "query": "i want care assistant jobs in switzerland in nursing homes around bern with german level b1 and weekend shifts and employers that help with integration.",
@@ -31357,7 +31358,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 137,
+      "totalImpressions": 145,
       "totalClicks": 0,
       "topQuery": "i am seeking part time work in bern at 60 to 80 percent in healthcare support like caregiver medical receptionist or pharmacy assistant and i need employers open to training.",
       "title": "Healthcare assistants",
@@ -39283,15 +39284,15 @@
         {
           "query": "emploi maison de retraite suisse",
           "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "offre d emploi maison de retraite",
-          "clicks": 0,
-          "impressions": 2
+          "impressions": 9
         },
         {
           "query": "maison de retraite suisse recrutement",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offre d emploi maison de retraite",
           "clicks": 0,
           "impressions": 2
         },
@@ -39311,7 +39312,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 13,
+      "totalImpressions": 19,
       "totalClicks": 0,
       "topQuery": "emploi maison de retraite suisse",
       "title": "Maisons retraite",
@@ -53856,6 +53857,69 @@
       ]
     },
     {
+      "slug": "responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/responsabile-di-progetto-bauherr-die-schweizerische-post-bern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/responsabile-di-progetto-bauherr-die-schweizerische-post-bern/"
+      },
+      "queries": [
+        {
+          "query": "impresa edile",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "klinik südhang",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "impresa edile",
+      "title": "Responsabile di progetto bauherr die schweizerische post",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "en": "responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "de": "responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "fr": "responsabile-di-progetto-bauherr-die-schweizerische-post-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "en": "/en/find-jobs-bern/responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "de": "/de/jobs-im-bern/responsabile-di-progetto-bauherr-die-schweizerische-post-bern",
+        "fr": "/fr/trouver-emploi-berne/responsabile-di-progetto-bauherr-die-schweizerische-post-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "responsabile-di-progetto-del-laboratorio-di-sviluppo-farmaceutico-esperto-di-formulazione-sito-di-mendrisio-ticino-sinte",
       "locale": "de",
       "path": "/de/jobs-im-tessin/responsabile-di-progetto-del-laboratorio-di-sviluppo-farmaceutico-esperto-di-formulazione-sito-di-mendrisio-ticino-sinte",
@@ -62078,10 +62142,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "social-worker-in-kantonale-verwaltung-graubunden-chur",
+        "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur",
         "en": "social-worker-in-kantonale-verwaltung-graubunden-chur",
-        "de": "social-worker-in-kantonale-verwaltung-graubunden-chur",
-        "fr": "social-worker-in-kantonale-verwaltung-graubunden-chur"
+        "de": "sozialarbeiter-in-kanton-gr-ch",
+        "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur"
       },
       "localePaths": {
         "it": "/cerca-lavoro-grigioni/social-worker-in-kantonale-verwaltung-graubunden-chur",
@@ -62089,12 +62153,13 @@
         "de": "/de/jobs-im-graubunden/social-worker-in-kantonale-verwaltung-graubunden-chur",
         "fr": "/fr/trouver-emploi-grisons/social-worker-in-kantonale-verwaltung-graubunden-chur"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/514915/2821/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -62621,10 +62686,10 @@
         "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-san-gallo/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun",
-        "en": "/en/find-jobs-st-gallen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun",
+        "it": "/cerca-lavoro-berna/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun",
+        "en": "/en/find-jobs-bern/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun",
         "de": "/de/jobs-im-st-gallen/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun",
-        "fr": "/fr/trouver-emploi-saint-gall/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun"
+        "fr": "/fr/trouver-emploi-berne/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscoun"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -62672,10 +62737,10 @@
         "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
-        "en": "/en/find-jobs-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
-        "de": "/de/jobs-im-tessin/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
-        "fr": "/fr/trouver-emploi-tessin/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf"
+        "it": "/cerca-lavoro-berna/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
+        "en": "/en/find-jobs-bern/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
+        "de": "/de/jobs-in-bern/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf",
+        "fr": "/fr/trouver-emploi-berne/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -75406,10 +75471,10 @@
         "fr": "verkaufer-in-denner-4"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/verkaufer-in-denner-4",
-        "en": "/en/find-jobs-bern/verkaufer-in-denner-4",
-        "de": "/de/jobs-in-bern/verkaufer-in-denner-4",
-        "fr": "/fr/trouver-emploi-berne/verkaufer-in-denner-4"
+        "it": "/cerca-lavoro-san-gallo/verkaufer-in-denner-4",
+        "en": "/en/find-jobs-st-gallen/verkaufer-in-denner-4",
+        "de": "/de/jobs-in-st-gallen/verkaufer-in-denner-4",
+        "fr": "/fr/trouver-emploi-saint-gall/verkaufer-in-denner-4"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

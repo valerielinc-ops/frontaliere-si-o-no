@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * AGIE Charmilles SA — HTML job parser
  *
@@ -39,19 +40,18 @@ export function cleanAgieCharmillesCity(rawLocation = '') {
   // real cities starting with "Ch" (Chur, Chiasso, Cham, Chêne) are NOT mangled.
   let s = String(rawLocation || '').replace(/\bCH[-\s]+/i, '').trim();
   s = s.split(/,| or /i)[0].trim(); // first city only
-  s = s.replace(/^\d{4}\s+/, '').trim(); // strip leading 4-digit PLZ
+  s = s.replace(/^\d{4}(?:\s+|-(?=\p{L}))(?=\p{L})/u, '').trim(); // strip leading 4-digit PLZ
   return s;
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  return truncateSlugAtWordBoundary(String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-'), 180);
 }
 
 function decodeHtmlEntities(str = '') {

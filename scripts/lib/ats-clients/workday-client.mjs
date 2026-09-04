@@ -24,6 +24,7 @@
 import { fetchWithRetry, RETRYABLE_STATUS, isTransientFetchError } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
 import { normalizeDescriptionBullets } from '../crawler-template.mjs';
+import { truncateSlugAtWordBoundary } from '../slug-truncate.mjs';
 
 /* ── Errors ────────────────────────────────────────────────────────────── */
 
@@ -565,7 +566,7 @@ function slugifyTitle(text = '', suffix = '') {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 function firstLocationSegment(locText = '') {

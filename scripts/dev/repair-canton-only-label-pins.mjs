@@ -57,6 +57,7 @@ import { fileURLToPath } from 'url';
 import { buildStableJobIdentity } from '../lib/job-identity.mjs';
 import { isCantonOnlyLabel, normalizeCantonCode, isKnownSwissCity, inferAnyCanton } from '../lib/target-swiss-locations.mjs';
 import { isSwissPostalCode } from '../assemble-jobs-dataset.mjs';
+import { isSliceFile } from '../lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..', '..');
@@ -77,7 +78,10 @@ function hasCorroboratingAddress(haystack, targetCanton) {
   while ((match = PLZ_CITY_RE.exec(haystack))) {
     const [, plz, city] = match;
     if (!isSwissPostalCode(plz)) continue;
-    if (!isKnownSwissCity(city)) continue;
+    // #6147: targetCanton is already known here, so pass it as the hint —
+    // a bare "<City> (XX)"-only BFS entry (e.g. Küsnacht) would otherwise
+    // fail isKnownSwissCity and this corroboration was silently skipped.
+    if (!isKnownSwissCity(city, targetCanton)) continue;
     if (inferAnyCanton(city) === targetCanton) return true;
   }
   return false;
@@ -92,7 +96,7 @@ const EXCLUDED_CRAWLER_FILES = new Set(['zurich-insurance-sede-ticino.json']);
 const pins = JSON.parse(fs.readFileSync(PINS_PATH, 'utf-8'));
 const files = fs
   .readdirSync(CRAWLER_DIR)
-  .filter((f) => f.endsWith('.json') && !EXCLUDED_CRAWLER_FILES.has(f));
+  .filter((f) => isSliceFile(f) && !EXCLUDED_CRAWLER_FILES.has(f));
 
 let repaired = 0;
 const byCrawler = new Map();

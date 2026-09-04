@@ -7,7 +7,7 @@
  * per-locale slug even after its title is re-translated into a different form,
  * with the drifted slug demoted to previousSlugs so the legacy URL keeps
  * resolving. Uses a real registry entry (picked dynamically so the test survives
- * registry churn) to avoid mocking the immutable registry file.
+ * registry churn) by injecting a small immutable registry fixture.
  */
 import fs from 'node:fs';
 import os from 'node:os';
@@ -15,39 +15,37 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import {
   hardenJobLocaleFields,
-  loadSlugRegistry,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const tmpFiles: string[] = [];
+const previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
 afterEach(() => {
   for (const f of tmpFiles.splice(0)) {
     try { fs.unlinkSync(f); } catch { /* already gone */ }
   }
+  if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+  else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
 });
-
-function pickUmantisEntry() {
-  const reg = loadSlugRegistry();
-  for (const key of Object.keys(reg)) {
-    // Post umantis-fingerprint fix: keys are per-tenant
-    // (`id|recruitingapp-<tenant>.umantis.com|<vid>`); the old
-    // `id|umantis.com|<vid>` form only survives as inert orphans.
-    const m = key.match(/^id\|recruitingapp-(\d+)\.umantis\.com\|(\d+)$/);
-    if (!m) continue;
-    const sbl = reg[key]?.slugByLocale || {};
-    // Need a real EN translation distinct from IT (source) and DE so the
-    // source-copy guard does not skip it.
-    if (sbl.en && sbl.it && sbl.de && sbl.en !== sbl.it && sbl.en !== sbl.de) {
-      return { tenant: m[1], id: m[2], registry: reg[key] };
-    }
-  }
-  return null;
-}
 
 describe('hardenJobLocaleFields registry pin', () => {
   it('restores a drifted EN slug to the immutable registry value and demotes the drift', () => {
-    const entry = pickUmantisEntry();
-    expect(entry, 'expected at least one umantis entry with a real EN translation').toBeTruthy();
-    const { tenant, id, registry } = entry!;
+    const tenant = '9999';
+    const id = '12345';
+    const registry = {
+      canonicalSlug: 'informatico-a',
+      slugByLocale: {
+        it: 'informatico-a',
+        en: 'computer-scientist',
+        de: 'informatiker-in',
+        fr: 'informaticien-ne',
+      },
+    };
+    const registryPath = path.join(os.tmpdir(), `harden-registry-fixture-${process.pid}-${id}.json`);
+    tmpFiles.push(registryPath);
+    fs.writeFileSync(registryPath, JSON.stringify({
+      [`id|recruitingapp-${tenant}.umantis.com|${id}`]: registry,
+    }), 'utf-8');
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = registryPath;
     const lockedEn = registry.slugByLocale.en as string;
     const driftEn = 'totally-different-ai-retranslation-slug-upd';
 

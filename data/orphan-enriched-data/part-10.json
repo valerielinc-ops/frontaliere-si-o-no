@@ -28418,6 +28418,63 @@
       ]
     },
     {
+      "slug": "feusisberg",
+      "locale": "it",
+      "path": "/cerca-lavoro-svitto/feusisberg/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-svitto/feusisberg/"
+      },
+      "queries": [
+        {
+          "query": "coiffure suisse lavoro",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ],
+      "totalImpressions": 2,
+      "totalClicks": 0,
+      "topQuery": "coiffure suisse lavoro",
+      "title": "Feusisberg",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "feusisberg",
+        "en": "feusisberg",
+        "de": "feusisberg",
+        "fr": "feusisberg"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-svitto/feusisberg",
+        "en": "/en/find-jobs-schwyz/feusisberg",
+        "de": "/de/jobs-im-schwyz/feusisberg",
+        "fr": "/fr/trouver-emploi-schwytz/feusisberg"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "field-engineering-specialista-albuquerque-nm-roche-albuquerque",
       "locale": "en",
       "path": "/en/find-jobs-basel/field-engineering-specialista-albuquerque-nm-roche-albuquerque",
@@ -57370,10 +57427,10 @@
         "fr": "sales-assistant-food-coop-genossenschaft-koniz-jukoxa"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
-        "en": "/en/find-jobs-ticino/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
-        "de": "/de/jobs-im-tessin/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
-        "fr": "/fr/trouver-emploi-tessin/sales-assistant-food-coop-genossenschaft-koniz-jukoxa"
+        "it": "/cerca-lavoro-berna/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
+        "en": "/en/find-jobs-bern/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
+        "de": "/de/jobs-in-bern/sales-assistant-food-coop-genossenschaft-koniz-jukoxa",
+        "fr": "/fr/trouver-emploi-berne/sales-assistant-food-coop-genossenschaft-koniz-jukoxa"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -65003,10 +65060,10 @@
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-berna/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "en": "/en/find-jobs-bern/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "de": "/de/jobs-in-bern/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
-        "fr": "/fr/trouver-emploi-berne/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
+        "it": "/cerca-lavoro-sciaffusa/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "en": "/en/find-jobs-schaffhausen/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "de": "/de/jobs-in-schaffhausen/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen",
+        "fr": "/fr/trouver-emploi-schaffhouse/specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-egerkingen"
       },
       "sourceUrl": "https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136025409-facharztin-facharzt-fur-allgemeine-innere-medizin",
       "googleStatus": "unknown",
@@ -66968,10 +67025,10 @@
         "fr": "stv-branch-manager-in-denner-riehen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/stv-branch-manager-in-denner-riehen",
-        "en": "/en/find-jobs-zug/stv-branch-manager-in-denner-riehen",
+        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-riehen",
+        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-riehen",
         "de": "/de/jobs-im-basel/stv-branch-manager-in-denner-riehen",
-        "fr": "/fr/trouver-emploi-zoug/stv-branch-manager-in-denner-riehen"
+        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-riehen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -73390,9 +73447,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich",
-        "en": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich",
-        "de": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich",
+        "de": "verkaufer-in-food-coop-city-zurich-fix6o0",
+        "it": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
+        "en": "food-sales-associate-coop-genossenschaft-zurich-42e898",
         "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
       },
       "localePaths": {
@@ -73407,6 +73464,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]

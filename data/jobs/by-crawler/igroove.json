@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-08-26T10:10:58.600Z",
+  "assembledAt": "2026-09-03T23:39:25.270Z",
   "jobs": [
     {
       "id": "igroove-c5d93def086a",
@@ -33,7 +33,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:10:53.369Z",
+      "crawledAt": "2026-09-03T23:39:21.109Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -71,6 +71,7 @@
       "firstSeenAt": "2026-07-03T21:58:03.200Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

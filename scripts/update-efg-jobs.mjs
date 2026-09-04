@@ -18,6 +18,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -252,51 +253,84 @@ async function fetchRequisitionDetails(requisitionId) {
  * Returns an array of requisition objects: { Id, Title, PostedDate,
  * PrimaryLocation, ShortDescriptionStr, PrimaryLocationCountry, ... }
  */
-async function fetchEfgRequisitions() {
+export async function fetchEfgRequisitions(options = {}) {
   console.log('🔍 Querying Oracle HCM REST API for EFG jobs...');
   const allRequisitions = [];
+  const seenIds = new Set();
+  const fetchJsonImpl = options.fetchJsonImpl || fetchJson;
+  const delayMs = options.delayMs ?? 300;
   let offset = 0;
   let totalCount = null;
+  let duplicateIdentity = 0;
 
   for (let page = 1; page <= MAX_PAGES; page++) {
     const apiUrl = `${ORACLE_BASE}/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.secondaryLocations&finder=findReqs;siteNumber=${SITE_NUMBER},facetsList=LOCATIONS,locationId=${LOCATION_ID_CH},limit=${ITEMS_PER_PAGE},offset=${offset}`;
 
-    const data = await fetchJson(apiUrl);
-    if (!data || !data.items || data.items.length === 0) {
-      console.warn(`⚠️ Page ${page}: empty API response — stopping pagination.`);
-      break;
+    const data = await fetchJsonImpl(apiUrl);
+    if (!data || !Array.isArray(data.items) || data.items.length !== 1) {
+      throw new Error(`EFG discovery failed: Oracle page ${page} did not expose one search envelope.`);
     }
 
     const searchItem = data.items[0];
+    const reportedTotal = Number(searchItem?.TotalJobsCount);
+    if (!Number.isInteger(reportedTotal) || reportedTotal < 0
+        || (totalCount !== null && reportedTotal !== totalCount)) {
+      throw new Error(`EFG discovery envelope invalid: total=${searchItem?.TotalJobsCount ?? '?'}, expected=${totalCount ?? reportedTotal}.`);
+    }
     if (totalCount === null) {
-      totalCount = searchItem.TotalJobsCount || 0;
+      totalCount = reportedTotal;
       console.log(`  📊 Total jobs reported by API: ${totalCount}`);
     }
 
-    const requisitions = searchItem.requisitionList || [];
+    const requisitions = searchItem.requisitionList;
+    if (!Array.isArray(requisitions)) {
+      throw new Error(`EFG discovery failed: Oracle page ${page} omitted requisitionList.`);
+    }
     if (requisitions.length === 0) {
-      console.log(`  📄 Page ${page}: 0 requisitions — end of listing.`);
+      if (offset !== totalCount) throw new Error(`EFG discovery incomplete: fetched ${offset}/${totalCount} requisitions.`);
       break;
     }
 
     for (const req of requisitions) {
+      const id = String(req?.Id || '').trim();
+      if (!id || !/^\d+$/.test(id)) {
+        throw new Error(`EFG discovery invariant failed: requisition without a numeric Id on page ${page}.`);
+      }
+      if (seenIds.has(id)) {
+        duplicateIdentity += 1;
+        continue;
+      }
+      seenIds.add(id);
       allRequisitions.push(req);
     }
     console.log(`  📄 Page ${page}: ${requisitions.length} requisitions (offset=${offset})`);
 
     // Check if we've fetched all
     offset += requisitions.length;
-    if (offset >= totalCount) {
+    if (offset === totalCount) {
       console.log(`  ✅ All ${totalCount} jobs fetched.`);
       break;
     }
+    if (offset > totalCount) {
+      throw new Error(`EFG discovery invariant failed: fetched ${offset} rows beyond reported total ${totalCount}.`);
+    }
 
     // Polite delay between API pages
-    await new Promise((r) => setTimeout(r, 300));
+    if (delayMs > 0) await new Promise((resolve) => setTimeout(resolve, delayMs));
   }
 
+  if (totalCount === null || offset !== totalCount
+      || allRequisitions.length + duplicateIdentity !== totalCount) {
+    throw new Error(`EFG discovery incomplete: fetched=${offset}/${totalCount ?? '?'}, canonical=${allRequisitions.length}, duplicates=${duplicateIdentity}.`);
+  }
   console.log(`✅ Total EFG requisitions discovered: ${allRequisitions.length}`);
-  return allRequisitions;
+  return {
+    requisitions: allRequisitions,
+    totalCount,
+    fetched: offset,
+    duplicateIdentity,
+    sourceZero: totalCount === 0,
+  };
 }
 
 /**
@@ -408,43 +442,46 @@ async function fetchDetailDescriptions(requisitions) {
  * Ensure the EFG adapter JSON has the correct seed URLs
  * (detail page URLs discovered from the Oracle HCM REST API).
  */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${EFG_KEY}.json`);
+export function buildEfgAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: EFG_COMPANY_HOST,
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set(['generic_ats', ...(baseAdapter?.crawlerModes || []), 'html', 'jsonld'])),
+    notes: `Oracle HCM Cloud at ${ORACLE_BASE} — EFG International career portal, site ${SITE_NUMBER}.`,
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${EFG_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertEfgAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)) {
+    throw new Error('EFG adapter parity failed: persisted seeds differ from the complete Oracle requisition feed.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${EFG_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: EFG_KEY,
       companyName: EFG_COMPANY_NAME,
       companyHost: EFG_COMPANY_HOST,
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
-      notes: `Oracle HCM Cloud at ${ORACLE_BASE} — EFG International career portal, site ${SITE_NUMBER}.`,
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = EFG_COMPANY_HOST;
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = `Oracle HCM Cloud at ${ORACLE_BASE} — EFG International career portal, site ${SITE_NUMBER}.`;
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${EFG_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildEfgAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertEfgAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${EFG_KEY} updated with ${seedUrls.length} seed URLs (Oracle parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1008,11 +1045,12 @@ async function main() {
   let detailMetadata = new Map();
 
   // 1. Query Oracle HCM REST API for all Swiss job requisitions
-  const requisitions = await fetchEfgRequisitions();
+  const discovery = await fetchEfgRequisitions();
+  const requisitions = discovery.requisitions;
 
-  if (requisitions.length === 0) {
-    console.log('⚠️ No EFG job requisitions discovered from Oracle HCM API.');
-    console.log('   The portal may be down. Falling back to existing adapter seed URLs...');
+  if (discovery.sourceZero) {
+    console.log('ℹ️ Oracle returned a verified empty EFG requisition snapshot. Exiting without changing the adapter.');
+    return;
   } else {
     // 2. Fetch full descriptions and structured metadata from detail API
     const detailResult = await fetchDetailDescriptions(requisitions);
@@ -1083,4 +1121,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'EFG'));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'EFG'));
+}

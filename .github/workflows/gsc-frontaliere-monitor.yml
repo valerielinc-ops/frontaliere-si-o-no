@@ -43,12 +43,10 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -74,6 +72,9 @@ jobs:
           else
             echo "::warning::No FIREBASE_SERVICE_ACCOUNT_JSON secret — monitor will gracefully skip and exit 0"
           fi
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Run brand dilution monitor
         id: monitor
@@ -127,6 +128,7 @@ jobs:
           MAX_ATTEMPTS=5
           BACKOFF_BASE=3
           attempt=1
+          bash scripts/lib/configure-main-push-auth.sh
           while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
             if git push origin HEAD:main; then
               echo "✅ Pushed gsc baseline refresh."

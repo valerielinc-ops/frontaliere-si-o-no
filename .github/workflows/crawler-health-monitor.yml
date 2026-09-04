@@ -41,8 +41,8 @@ jobs:
           # (still needed by the rebase-retry loop below) while deferring
           # blob content download until a file is actually touched.
           filter: blob:none
-          # Use the default GITHUB_TOKEN; the `contents: write` permission above
-          # is enough to push back to `main` from this workflow.
+          # persist-credentials leaves GITHUB_TOKEN on extraheader; the commit
+          # step rewrites origin via configure-main-push-auth.sh (GITHUB_PAT).
           persist-credentials: true
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
@@ -58,7 +58,6 @@ jobs:
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -81,6 +80,21 @@ jobs:
 
       # No `npm ci` — the script uses only the Node stdlib.
       # If a future version needs deps, switch to `npm ci --omit=dev`.
+      # load-rc-env.mjs uses the REST path (no firebase-admin).
+
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Run health check
         id: health
@@ -101,6 +115,7 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "github-actions[bot]@users.noreply.github.com"
             git add data/crawler-health.json
+            bash scripts/lib/configure-main-push-auth.sh
 
             MAX_ATTEMPTS=5
             attempt=0

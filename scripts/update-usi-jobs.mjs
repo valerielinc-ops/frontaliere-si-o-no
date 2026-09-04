@@ -53,6 +53,8 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { readAttr } from './lib/html-attr.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -187,7 +189,7 @@ function slugify(text = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 
@@ -361,7 +363,7 @@ function extractContentSection(html = '') {
  * Returns an array of raw parsed job objects:
  *   { organization, department, title, pdfUrl, linkText, rawHtml }
  */
-function parseJobBlocks(html = '', locale = 'it') {
+export function parseJobBlocks(html = '', locale = 'it') {
   const content = extractContentSection(html);
   const jobs = [];
 
@@ -397,8 +399,9 @@ function parseJobBlocks(html = '', locale = 'it') {
 
     // Parse title and link from the content after </strong>
     // The title is the text before the <a> tag
-    const linkMatch = afterStrong.match(/<a\s+[^>]*href=['"]([^'"]+)['"][^>]*>([\s\S]*?)<\/a>/i);
-    const linkUrl = linkMatch ? linkMatch[1].trim() : '';
+    const linkMatch = [...afterStrong.matchAll(/(<a\b[^>]*>)([\s\S]*?)<\/a>/gi)]
+      .find((match) => readAttr(match[1], 'href'));
+    const linkUrl = linkMatch ? readAttr(linkMatch[1], 'href').trim() : '';
     const linkText = linkMatch ? linkMatch[2].replace(/<[^>]+>/g, '').trim() : '';
 
     // Title: everything before the <a> tag, cleaned of HTML
@@ -1318,4 +1321,8 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'USI'));
+const isDirectRun = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  main().catch((err) => exitCrawlerOnError(err, 'USI'));
+}

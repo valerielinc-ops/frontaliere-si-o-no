@@ -32,6 +32,22 @@ export const BRAND_CANONICAL_MAP = {
     canonical: 'migros',
     aliases: ['migros-ticino', 'gruppo-migros'],
   },
+  'soh-solothurner-spitaeler': {
+    canonical: 'soh-solothurner-spitaeler',
+    aliases: ['solothurner-spitaeler'],
+  },
+  'hoch-health': { canonical: 'hoch-health', aliases: ['kssg'] },
+  paraplegie: { canonical: 'paraplegie', aliases: ['spz'] },
+  'spital-thurgau': { canonical: 'spital-thurgau', aliases: ['stgag'] },
+  tschuggen: { canonical: 'tschuggen', aliases: ['bewerbermanagement-stellen'] },
+  'buergenstock-hotels': { canonical: 'buergenstock-hotels', aliases: ['burgenstock-collection'] },
+  gkb: { canonical: 'gkb', aliases: ['gkb-jobservice'] },
+  'spital-davos': { canonical: 'spital-davos', aliases: ['bewerbungsmanagement-spital-davos'] },
+  kzu: { canonical: 'kzu', aliases: ['kzu-recruiting'] },
+  'spital-zollikerberg': {
+    canonical: 'spital-zollikerberg',
+    aliases: ['diakoniewerk-neumuenster'],
+  },
 };
 
 /** aliasSlug → canonical slug, built once with the same fail-fast validation. */

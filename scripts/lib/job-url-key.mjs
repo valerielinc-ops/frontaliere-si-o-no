@@ -85,6 +85,15 @@ export const UMANTIS_HOST_RE = /(?:^|\/\/)recruitingapp-\d+\.umantis\.com(?:[:/]
 // digits today (1910, 5105, …) — far below NUM_ID_RE's ≥6-digit floor.
 export const UMANTIS_VACANCY_PATH_RE = /\/vacancies\/(\d+)(?:\/|$)/;
 
+// PageExecutive detail urls encode two numeric tokens in the leaf:
+//   /ref/jn-<MMYYYY>-<requisition>
+// The date-like publication tag is shared by every posting created that month,
+// so generic Rule B used to collapse siblings onto `num:082026`. The final
+// requisition is the stable per-job token. Both host and full path shape are
+// required so no other Michael Page property or generic jn-* URL is re-keyed.
+const PAGEEXECUTIVE_HOST_RE = /^https?:\/\/(?:www\.)?pageexecutive\.com(?:[:/]|$)/;
+const PAGEEXECUTIVE_DETAIL_REF_RE = /\/job-detail\/[^/?#]+\/ref\/jn-(?:0[1-9]|1[0-2])\d{4}-(\d{6,})\/?$/;
+
 // Bank Cler job urls: cler.ch/…/<any-path>/offene-stellen/<title-slug>-<reqId>.
 // Cler's own requisition id is only 3-4 digits — below the generic
 // \b\d{6,}\b threshold — so the leaf carries no extractable token and every
@@ -283,6 +292,8 @@ export function lowerStripTrailingSlash(url) {
  *      Workday key). See workdayReqFromLeaf for the format-agnostic extraction;
  *      host-gated so no other crawler's key changes, re-posting suffixes
  *      (`-N`/`_N`) KEPT.
+ *   P. PageExecutive `/ref/jn-MMYYYY-<req>` detail → final requisition; the
+ *      leading date token is shared by every posting opened in that month.
  *   A. generic-index / document-file leaf + numeric/hex legacy token → per-job
  *      query id if present (`…/index.html?id=NNN`), else full URL (the only token
  *      is a shared folder/company id or a `%20`+year artifact).
@@ -320,6 +331,15 @@ export function mergeUrlKey(url) {
       const host = u.match(/^https?:\/\/([^/]+)/)?.[1] || '';
       return `req:${host}:${req}`;
     }
+  }
+
+  // Rule P — PageExecutive's final requisition outranks the shared MMYYYY tag.
+  // This must run before generic Rule B, whose leftmost numeric match is the
+  // publication month rather than the vacancy identity (#6785).
+  if (PAGEEXECUTIVE_HOST_RE.test(u)) {
+    const pathOnly = u.split(/[?#]/)[0];
+    const ref = pathOnly.match(PAGEEXECUTIVE_DETAIL_REF_RE);
+    if (ref) return `num:${ref[1]}`;
   }
 
   // Rule A — generic-page / document-file leaf whose only PATH token is a shared

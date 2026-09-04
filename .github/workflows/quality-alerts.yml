@@ -22,12 +22,10 @@ jobs:
             !/data/translation-cache/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -39,6 +37,20 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Run quality alerts
         id: alerts
         run: |
@@ -76,6 +88,7 @@ jobs:
           # without surfacing in the workflow log. Mirror the pattern
           # from refresh-thin-promotions.yml (#794), dist-history
           # (#804), and gsc-frontaliere-monitor (#805).
+          bash scripts/lib/configure-main-push-auth.sh
           MAX_ATTEMPTS=5
           BACKOFF_BASE=3
           attempt=1

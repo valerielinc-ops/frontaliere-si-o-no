@@ -5,6 +5,7 @@ import {
   isMature,
   decideGoalAction,
   runCampaignGoalCheck,
+  isJobIntentBrandQuery,
 } from '../scripts/campaign-goal-check.mjs';
 
 // Maturation must gate on real elapsed time (14/30/90-day windows), so
@@ -59,6 +60,38 @@ describe('decideGoalAction', () => {
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'failing' })).toBe('evaluate');
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'error' })).toBe('evaluate');
     expect(decideGoalAction({ matureAt: isoDaysAgo(1), now: NOW, priorState: 'observing' })).toBe('evaluate');
+  });
+});
+
+describe('isJobIntentBrandQuery', () => {
+  // #5953: the brand_query_ctr goal (#4306) must only aggregate queries the
+  // site can actually act on — a brand mention paired with job intent — not
+  // retail/consumer brand queries (store promos, plain brand name) that no
+  // job listing can ever win a click on regardless of content.
+  it('matches a tracked brand paired with a job-intent term, any locale', () => {
+    expect(isJobIntentBrandQuery('coop lavoro ticino')).toBe(true);
+    expect(isJobIntentBrandQuery('jysk jobs')).toBe(true);
+    expect(isJobIntentBrandQuery('coop emploi valais')).toBe(true);
+    expect(isJobIntentBrandQuery('interdiscount stellen')).toBe(true);
+    expect(isJobIntentBrandQuery('fielmann karriere')).toBe(true);
+    expect(isJobIntentBrandQuery('coop praktikum')).toBe(true);
+  });
+
+  it('rejects a bare or retail-intent brand query with no job signal', () => {
+    expect(isJobIntentBrandQuery('interdiscount')).toBe(false);
+    expect(isJobIntentBrandQuery('fielmann promozione')).toBe(false);
+    expect(isJobIntentBrandQuery('jysk schlieren')).toBe(false);
+    expect(isJobIntentBrandQuery('offerta fielmann')).toBe(false);
+    expect(isJobIntentBrandQuery('coop')).toBe(false);
+  });
+
+  it('rejects a job-intent term with no tracked brand', () => {
+    expect(isJobIntentBrandQuery('offerte di lavoro ticino')).toBe(false);
+  });
+
+  it('handles missing/empty input without throwing', () => {
+    expect(isJobIntentBrandQuery('')).toBe(false);
+    expect(isJobIntentBrandQuery(undefined)).toBe(false);
   });
 });
 
@@ -199,6 +232,36 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(createIssueImpl).not.toHaveBeenCalled();
     // A dead PostHog must not blind the goals sourced from somewhere else.
     expect(results.find((r) => r.id === 'gsc1')?.state).toBe('passed');
+  });
+
+  it('routes to ga4Fallback instead of unmeasurable when the goal declares one and PostHog is dead', async () => {
+    // Issue #6463 (owner decision 2026-08-25): a goal with a real GA4
+    // equivalent must keep evaluating through the outage, not sit
+    // `unmeasurable` for its whole duration like the regression covered
+    // above (goals with no ga4Fallback keep that exact behaviour).
+    const evaluate = vi.fn();
+    const ga4Fallback = vi.fn().mockResolvedValue({ passed: true, value: { x: 1 }, targetDescription: 't', detail: 'd [GA4 fallback]' });
+    const goals = [
+      { id: 'ph2', title: 'PH2', source: 'posthog', windowDays: 14, matureAfterDays: 14, issueRef: '#1', evaluate, ga4Fallback },
+    ];
+    const createIssueImpl = vi.fn();
+    const { results } = await runCampaignGoalCheck({
+      goals,
+      now: NOW,
+      campaignStart: isoDaysAgo(20),
+      loadStateImpl: () => ({ goals: {} }),
+      saveStateImpl: vi.fn(),
+      createIssueImpl,
+      checkLivenessImpl: async () => ({
+        alive: false, reason: 'posthog ingested < 500 events/day on 14 of 14 complete day(s)',
+        windowDays: 30, floor: 500, daysEvaluated: [], deadDays: [], totalEvents: 70,
+        source: 'posthog', dailyCounts: new Map(),
+      }),
+    });
+
+    expect(evaluate).not.toHaveBeenCalled();
+    expect(ga4Fallback).toHaveBeenCalledTimes(1);
+    expect(results.find((r) => r.id === 'ph2')?.state).toBe('passed');
   });
 
   it('flags a source as dead when every attempted goal for it errors this run', async () => {

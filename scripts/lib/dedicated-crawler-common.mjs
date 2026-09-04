@@ -4272,7 +4272,23 @@ export function validateDedicatedLocaleCoverage({
       String(job?.titleByLocale?.[sourceLang] || baseTitle),
       sourceLang,
     );
-    if (typeof isTrustedDomain === 'function' && !isTrustedDomain(String(job?.url || ''))) {
+    // A job carrying an active crawlerMissStreak (mergePreserveLocaleData's
+    // grace-period retention, dedicated-crawler-common.mjs) was NOT matched
+    // by this run's fresh fetch — it's a carry-over already scheduled to be
+    // dropped after GRACE_PERIOD_MAX_MISSES, not new/verified data. Hard-
+    // failing on its (possibly now-untrusted) URL creates a deadlock for any
+    // crawler that migrates its source ATS to a new domain: the commit step
+    // only runs on crawler_exit==0, so a validation failure here means the
+    // miss streak painted onto `job` in-memory this run is never persisted,
+    // the stale record never ages out, and the crawler fails forever on the
+    // exact same retained entry (observed: cham-swiss-properties after its
+    // jobs.ch → Dualoo portal migration, issue #6598).
+    const isGracePeriodRetained = Number(job?.crawlerMissStreak) > 0;
+    if (
+      !isGracePeriodRetained
+      && typeof isTrustedDomain === 'function'
+      && !isTrustedDomain(String(job?.url || ''))
+    ) {
       blockingIssues.push({
         slug: job.slug,
         locale: 'all',
@@ -6021,7 +6037,8 @@ export function isLocationExplicitlyForeign(locationField) {
     'napoli', 'naples', 'torino', 'turin', 'bologna', 'genova', 'palermo',
     'venezia', 'venice', 'forte dei marmi', 'toscana', 'lombardia',
     // Western Europe
-    'paris', 'lyon', 'marseille', 'london', 'berlin', 'munich', 'münchen',
+    'paris', 'lyon', 'marseille', 'london', 'birmingham', 'sutton coldfield',
+    'berlin', 'munich', 'münchen',
     'frankfurt', 'hamburg', 'köln', 'koeln', 'cologne', 'vienna', 'wien', 'madrid', 'barcelona',
     'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
     'lisbon', 'dublin', 'helsinki', 'athens',
@@ -6433,6 +6450,7 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
  * @param {object[]} freshJobs     – Newly parsed jobs (may only have one locale filled)
  * @param {object}   [opts]
  * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
+ * @param {boolean}  [opts.retainMissingJobs=true] – Keep unmatched jobs under the grace-period policy
  * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
  */
 export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
@@ -6723,6 +6741,11 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     return fresh;
   });
 
+  // A crawler may bypass the miss grace only after its own source-specific
+  // completeness validator has proved this run is an authoritative snapshot.
+  // The default remains unchanged for every other dedicated crawler.
+  if (opts.retainMissingJobs === false) return mergedFresh;
+
   // Grace period: a job present in `existingJobs` but absent from this
   // run's `freshJobs` isn't necessarily gone — pagination fail-soft
   // (anti-bot block, nav timeout, transient fetch error) on the source
@@ -6840,10 +6863,64 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
   return lost;
 }
 
+/**
+ * Replace one active slug through the shared history-preserving boundary.
+ *
+ * A normal replacement retires an indexed URL, so its former value is
+ * captured immediately. Callers handling a known duplicate may opt out only
+ * when that old value remains active on the collision keeper and therefore
+ * must not become a redirect for both identities.
+ */
+export function replaceActiveSlug(job, nextSlug, {
+  locale = null,
+  capturePrevious = true,
+} = {}) {
+  if (!job) return false;
+  const normalizedNext = normalizeSpace(String(nextSlug || ''));
+  if (!normalizedNext) return false;
+
+  const beforeSlug = normalizeSpace(String(job.slug || ''));
+  const beforeSlugByLocale = { ...(job.slugByLocale || {}) };
+  const current = locale
+    ? normalizeSpace(String(job.slugByLocale?.[locale] || ''))
+    : beforeSlug;
+  if (current === normalizedNext) return false;
+
+  if (locale) {
+    if (!job.slugByLocale || typeof job.slugByLocale !== 'object') job.slugByLocale = {};
+    job.slugByLocale[locale] = normalizedNext;
+  } else {
+    job.slug = normalizedNext;
+  }
+
+  if (capturePrevious) captureLostSlugs(job, beforeSlugByLocale, beforeSlug);
+  return true;
+}
+
 // ── previousSlugsByLocale helpers ─────────────────────────────────────────
 // These helpers abstract locale-aware slug history so bridge pages are
 // generated under the correct locale prefix (e.g. /fr/trouver-emploi-tessin/old-slug)
 // instead of blindly across all locales.
+
+/** Remove locale-history keys that cannot represent a redirect route. */
+export function pruneEmptyPreviousSlugLocaleBuckets(job) {
+  const locales = job?.previousSlugsByLocale;
+  if (!locales || typeof locales !== 'object') return 0;
+
+  let pruned = 0;
+  for (const [locale, slugs] of Object.entries(locales)) {
+    if (!Array.isArray(slugs) || slugs.length > 0) continue;
+    delete locales[locale];
+    pruned++;
+  }
+  if (Object.keys(locales).length === 0) {
+    delete job.previousSlugsByLocale;
+    // An already-empty container has no locale key to count, but deleting it
+    // is still a material cleanup that the caller must persist.
+    if (pruned === 0) pruned = 1;
+  }
+  return pruned;
+}
 
 /**
  * Record a previous slug for a specific locale.
@@ -6891,6 +6968,53 @@ export function addPreviousSlugForLocale(job, locale, slug, cap = DEFAULT_PREV_S
 
   // Sync legacy flat array
   syncLegacyPreviousSlugs(job, cap);
+}
+
+/**
+ * Preserve a previous slug whose locale provenance is unknown.
+ *
+ * Locale-aware bridge generation intentionally treats a flat-only slug as a
+ * route under every locale prefix. Remove the value from locale buckets first
+ * (locale-aware entries take precedence) and keep it in the wider legacy
+ * union without silently evicting another indexed route.
+ */
+export function promotePreviousSlugToLegacy(
+  job,
+  slug,
+  cap = LEGACY_PREV_SLUGS_CAP,
+  _source = 'promotePreviousSlugToLegacy',
+) {
+  if (!job || !slug) return false;
+  const norm = normalizeSpace(String(slug));
+  if (!norm) return false;
+
+  if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
+    for (const locale of LOCALES) {
+      const bucket = job.previousSlugsByLocale[locale];
+      if (!Array.isArray(bucket)) continue;
+      job.previousSlugsByLocale[locale] = bucket.filter((entry) => entry !== norm);
+      if (job.previousSlugsByLocale[locale].length === 0) delete job.previousSlugsByLocale[locale];
+    }
+  }
+
+  const flat = new Set(Array.isArray(job.previousSlugs) ? job.previousSlugs : []);
+  const added = !flat.has(norm);
+  flat.add(norm);
+  if (flat.size > cap) {
+    throw new Error(`Cannot preserve ${flat.size} legacy routes for ${job.id}; cap is ${cap}`);
+  }
+  job.previousSlugs = [...flat];
+  if (added) {
+    recordSlugMutation({
+      jobId: job.id,
+      locale: 'legacy',
+      slug: norm,
+      action: 'capture',
+      source: `dedicated-crawler-common.${_source}`,
+      reason: 'locale-provenance-unknown',
+    });
+  }
+  return added;
 }
 
 /**
@@ -7224,7 +7348,14 @@ export function getMergeExclusionReasons(job, qualityCfg) {
   // signal is strong enough to exclude regardless of seed trust. Seed scope
   // still rescues the URL-shape check and the ambiguous "no explicit signal
   // either way" cases (non_detail_url, not_target_relevant) below.
-  if (isLocationExplicitlyForeign(job.location)) reasons.push('location_explicitly_foreign');
+  // Some ATS pages expose a useless/blank location field and the crawler then
+  // falls back to the Swiss seed location. Their canonical URL still contains
+  // the actual posting location (e.g. Zurich's `.../job/Birmingham-...`).
+  // Inspect only the pathname: the employer hostname may itself contain a
+  // place name (e.g. careers.zurich.com).
+  if (isLocationExplicitlyForeign(job.location) || isForeignAtsUrlLocation(job.url)) {
+    reasons.push('location_explicitly_foreign');
+  }
   // Structured ATS job-location block names a non-Swiss country: authoritative
   // (overrides Swiss-HQ boilerplate and any seed scope) — see
   // jobLocationBlockCountryIsForeign.
@@ -7243,6 +7374,29 @@ export function getMergeExclusionReasons(job, qualityCfg) {
     reasons.push(...quality.reasons);
   }
   return reasons;
+}
+
+// Zurich's career URLs put the posting location at the start of the slug,
+// before the job title. Inspect that location prefix only: checking the full
+// slug can mistake title/company words for Swiss municipalities and cancel a
+// genuine foreign-location signal.
+export function isForeignAtsUrlLocation(rawUrl = '') {
+  let parsed;
+  try {
+    parsed = new URL(String(rawUrl));
+  } catch {
+    return false;
+  }
+  // This is the location-prefixed SuccessFactors shape used by Zurich. Do
+  // not apply it to the shared ATS pipeline indiscriminately: other vendors
+  // commonly put only the title in the same path segment.
+  if (!/^(?:www\.)?careers\.zurich\.com$/i.test(parsed.hostname)) return false;
+  const match = parsed.pathname.match(/^\/job\/([^/]+)\/[^/]+\/?$/i);
+  const slug = match?.[1] || '';
+  if (!slug) return false;
+  const decoded = decodeURIComponent(slug).replace(/[-_]+/g, ' ');
+  const locationPrefix = decoded.split(/\s+/).slice(0, 8).join(' ');
+  return isLocationExplicitlyForeign(locationPrefix);
 }
 
 // Pick the sourced posting date for a merged duplicate pair (#3843 item 3).
@@ -7306,6 +7460,10 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
+  // This merge-stage scope only partitions records that already expose an
+  // explicit companyKey/company value. It has no legacy-alias reassignment
+  // fallback, so the single-key ambiguity guarded in pruneStaleCrawlerJobs
+  // does not apply here.
   let duplicateExisting = 0;
 
   for (const job of existingJobs) {

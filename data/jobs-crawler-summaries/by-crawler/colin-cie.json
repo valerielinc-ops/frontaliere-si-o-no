@@ -1,16 +1,16 @@
 {
   "key": "colin-cie",
   "label": "colin-cie",
-  "generatedAt": "2026-08-26T10:00:37.610Z",
+  "generatedAt": "2026-09-03T23:20:21.525Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8377,
-  "avgDurationMs": 8377,
+  "durationMs": 7864,
+  "avgDurationMs": 7864,
   "durationHistory": [
-    8377
+    7864
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 89200,
       "currency": "CHF",
       "firstSeenAt": "2026-08-11T22:15:03.774Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -79,6 +80,7 @@
       "postalCode": "8001",
       "id": "colin-cie-fb2e46c97d69",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -117,6 +119,7 @@
       "postalCode": "8200",
       "id": "colin-cie-adcd3df17efa",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
+      "salarySource": "reported",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -156,7 +159,7 @@
       "id": "colin-cie-39bced82bc8b",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -194,6 +197,7 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,6 +235,7 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -268,6 +273,7 @@
       "streetAddress": "",
       "postalCode": "",
       "firstSeenAt": "2026-05-17T09:57:04.753Z",
+      "salarySource": "estimated",
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -306,7 +312,7 @@
       "id": "colin-cie-235463b5b28f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -345,7 +351,7 @@
       "id": "colin-cie-5ba65fe9e9a3",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -384,7 +390,7 @@
       "id": "colin-cie-e1022f4d588f",
       "firstSeenAt": "2026-04-13T21:24:59.848Z",
       "retranslationAttempts": 0,
-      "needsRetranslation": true,
+      "salarySource": "reported",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,

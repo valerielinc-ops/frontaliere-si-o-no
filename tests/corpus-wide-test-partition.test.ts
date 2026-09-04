@@ -222,12 +222,11 @@ describe('registro dei gate corpus-wide (split del cammino bloccante)', () => {
     });
 
     it('la decisione è mirata: un diff sui job non risveglia i gate articoli', () => {
-      // Il caso più frequente del repo — i crawler committano slice decine di
-      // volte al giorno. Un flag unico «tocca il corpus» rimetterebbe in gioco
-      // 201s per un gate che ne vale 16,7.
-      expect(blockingTestsFor(['data/jobs/by-crawler/coop.json'])).toEqual([
-        'tests/job-locale-consistency.test.ts',
-      ]);
+      // I crawler committano slice decine di volte al giorno. I controlli di
+      // qualita' sui dati live hanno workflow di audit dedicati e non sono
+      // gate deterministici del PR: un diff sul dataset non deve risvegliare
+      // nessun test corpus-wide.
+      expect(blockingTestsFor(['data/jobs/by-crawler/coop.json'])).toEqual([]);
     });
 
     it('modificare un gate lo rende bloccante sulla sua stessa PR', () => {

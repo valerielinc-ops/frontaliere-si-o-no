@@ -151,7 +151,10 @@ const RE = {
   heading: /<h[1-3][^>]*>/gi,
   paragraph: /<(p|li)[^>]*>/gi,
   mainLike: /<(main|article)[^>]*>/gi,
-  noindex: /<meta[^>]+name=["']robots["'][^>]+content=["'][^"']*noindex/i,
+  // Quote-flexible (issue #6558): the site's minifier drops attribute quotes
+  // when the value needs none (`name=robots content=noindex,follow`), so a
+  // quote-mandatory regex never matches a served/emitted page.
+  noindex: /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i,
 };
 
 const THIN_TEXT_CHARS = 900;

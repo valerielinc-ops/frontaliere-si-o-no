@@ -16,6 +16,7 @@ import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
 import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
+import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
 import { buildJobPostingSchema, type JobInput } from '../build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type BuildJobPostingFaqOptions } from '../build-plugins/shared/jobPostingFaq';
@@ -1681,6 +1682,12 @@ export async function updateMetaTags(section: string): Promise<void> {
  ? await resolveJobSeoBySlug(route.jobSlug, locale, canonicalLocalePath)
  : null;
  if (window.location.pathname !== pathnameSnapshot) return;
+ // Awaited here, with the other pre-write loads, so the article:author derivation
+ // below stays synchronous (see services/seo/articleAuthorUrl.ts).
+ const articleAuthorRegistry: ArticleAuthorRegistry | undefined = isBlogArticle
+ ? await loadArticleAuthorRegistry()
+ : undefined;
+ if (window.location.pathname !== pathnameSnapshot) return;
 
  // FRO: Expired job soft-landing pages — preserve static HTML metadata.
  // When the SPA loads on an expired job URL, the build plugin already injected
@@ -1889,7 +1896,22 @@ export async function updateMetaTags(section: string): Promise<void> {
  if (sd.datePublished) updateOrCreateMetaTag('property', 'article:published_time', sd.datePublished);
  if (sd.dateModified) updateOrCreateMetaTag('property', 'article:modified_time', sd.dateModified);
  if (sd.articleSection) updateOrCreateMetaTag('property', 'article:section', sd.articleSection);
- updateOrCreateMetaTag('property', 'article:author', `${BASE_URL}/chi-siamo/`);
+ // Same Person the byline and the JSON-LD declare — see the twin tag in
+ // packages/articles/engine/ogPagesPlugin.ts. Hardcoding the team page here
+ // made every OG consumer attribute guest-authored articles to the Redazione
+ // (#7227). Falls back to that page only when the article has no Person
+ // author, which is the same URL the Organization JSON-LD branch emits.
+ // Issue #7241 item 1: the blob is no longer a second source of truth for this
+ // tag. `sd.author` is read from content/seo/**, which for 1712 of the 3692 articles
+ // still holds the legacy `{"@id": …#organization}` node while the article carries
+ // a real `authorSlug` — so this line used to overwrite the correct static tag
+ // with the team page URL the moment the SPA hydrated, reproducing the
+ // bug #7227 fixed on the client-rendered surface. resolveArticleAuthorUrl
+ // derives from `authorSlug` + data/authors.ts (what ogPagesPlugin.ts uses) and
+ // keeps `sd.author` only as the fallback for articles without a resolvable slug.
+ const sdAuthor = sd.author as { '@type'?: string; url?: string } | undefined;
+ const articleAuthorUrl = resolveArticleAuthorUrl(articleAuthorRegistry?.get(blogArticleId), sdAuthor);
+ updateOrCreateMetaTag('property', 'article:author', articleAuthorUrl);
  } else {
  // Remove article OG tags for non-article pages
  ['article:published_time', 'article:modified_time', 'article:section', 'article:author'].forEach(prop => {

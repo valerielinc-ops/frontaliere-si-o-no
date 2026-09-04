@@ -1,6 +1,6 @@
 {
   "crawlerKey": "felfel",
-  "assembledAt": "2026-08-26T09:53:08.371Z",
+  "assembledAt": "2026-09-03T23:14:55.778Z",
   "jobs": [
     {
       "id": "felfel-6aedbb00839b",
@@ -33,7 +33,7 @@
       "url": "https://felfel.jobs.personio.de/job/2740018",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.243Z",
+      "crawledAt": "2026-09-03T23:14:52.211Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -72,6 +72,7 @@
       "firstSeenAt": "2026-08-04T11:31:50.175Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -100,7 +101,7 @@
         "it": "Tecnico di servizio* in FELFEL",
         "en": "Service technician* in FELFEL",
         "de": "Servicetechniker*in FELFEL",
-        "fr": "Servicetechniker*in FELFEL"
+        "fr": "Technicien de service* en FELFEL"
       },
       "description": "## IN KÜRZE\n\nDer Mix aus Software und Technik ist genau dein Ding und du liebst es, selbstständig in der ganzen Schweiz unterwegs zu sein? Als Servicetechniker*in (ab sofort oder nach Vereinbarung, 80-100%) in Zürich Wiedikon bringst du frischen Wind in die Büros der Schweiz und wirst Teil unseres engagierten Hardware Teams.\n\n## DEINE VERANTWORTUNGEN\n\n• Unterstütze dein Team bei der Erfüllung aller Hardware-Aufgaben unter der Woche – ohne Picket- oder Wochenendeinsätze.\n\n• Installiere unsere FELFEL Kühlschränke und Gavetti Kaffeemaschinen direkt beim Kunden vor Ort.\n\n• Koordiniere deine Einsätze eng mit dem Implementation Team, um reibungslose Installationen zu garantieren.\n\n• Führe regelmässige Wartungs- und Unterhaltsarbeiten an unseren Systemen in der ganzen Schweiz durch.\n\n• Übernimm Reparaturarbeiten beim Kunden und gestalte deinen Tagesablauf flexibel.\n\n• Führe vielseitige Montagearbeiten in unserer Werkstatt in Zürich aus.\n\n• Arbeite flexibel im Zweierteam, in der Werkstatt oder eigenverantwortlich \"on the road\".\n Die Montage und Wartung von FELFEL und Gavetti ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit, Software und Technik. Entsprechend ist die Rolle sehr abwechslungsreich und das Team interdisziplinär, mit der Möglichkeit sich in verschiedenen Bereichen weiter zu entwickeln.\n\n## WAS DU MITBRINGST\n\nDas Hardware-Team ist sehr interdisziplinär und es gibt viele interne Schulungen. Folgende Hintergründe sind von Vorteil:\n\n• Mechaniker, Schreiner oder in einem vergleichbaren technischen Beruf.\n\n• Vielseitige Begabung an der Schnittstelle von Elektronik, Mechanik, Schreinerarbeit und Software.\n\n• Hohe Flexibilität, Selbstständigkeit und Freude am Reisen innerhalb der Schweiz.\n\n• Grosse Leidenschaft sowohl für die praktische, hands-on Arbeit an der Werkbank als auch für das präzise Verfassen von technischen Standards.\n\n• Fliessende Deutschkenntnisse und sehr gutes Englisch.\n\n• Pflicht: Gültiger Schweizer Führerausweis (Kategorie B).\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst, weder bei der Arbeit noch bei Kundenmeetings. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr, und die Möglichkeit, eine extra Woche zu erwerben\n\n• Wir denken an deine Zukunft und bieten eine überobligatorische Pensionskassenlösung\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\n• Bleib in Bewegung und gesund mit unseren wöchentlichen Sportkursen\n\nKlingt das nach dem perfekten Job für dich? Wir können es kaum erwarten, mehr über dich zu erfahren! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch.",
       "descriptionByLocale": {
@@ -114,7 +115,7 @@
       "url": "https://felfel.jobs.personio.de/job/2763000",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.240Z",
+      "crawledAt": "2026-09-03T23:14:52.209Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -158,6 +159,83 @@
       "firstSeenAt": "2026-08-21T09:45:22.228Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "felfel-99f717d90b77",
+      "slug": "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+      "slugByLocale": {
+        "it": "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+        "en": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+        "de": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+        "fr": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+      },
+      "company": "FELFEL",
+      "companyKey": "felfel",
+      "companyDomain": "felfel.ch",
+      "title": "Montage-Mitarbeiter*in Kühlschränke (befristet - 3 Monate, 100%)",
+      "titleByLocale": {
+        "it": "Montage-Collaboratore/trice*in Kühlschränke (befristet - 3 Monate, 100%)",
+        "en": "Montage-Mitarbeiter*in Kühlschränke (befristet - 3 Monate, 100%)",
+        "de": "Montage-Mitarbeiter*in Kühlschränke (befristet - 3 Monate, 100%)",
+        "fr": "Montage-Mitarbeiter*in Kühlschränke (befristet - 3 Monate, 100%)"
+      },
+      "description": "## IN KÜRZE\n\nDu packst gerne mit an, arbeitest strukturiert und möchtest in einem eingespielten Team an einem klaren Ziel arbeiten? Für die nächsten 3 Monate (100%, ab sofort oder nach Vereinbarung) suchen wir eine Verstärkung für unser Hardware-Team in Zürich Wiedikon. Deine Aufgabe: Gemeinsam mit dem Team baust du einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf, damit wir Kunden künftig ohne Wartezeit beliefern können.\n\n## DEINE VERANTWORTUNGEN\n\n• Baue gemeinsam mit dem Hardware-Team einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf.\n\n• Montiere und verkable die Kühlschränke gemäss unseren internen Qualitätsstandards in unserer Werkstatt in Zürich Wiedikon.\n\n• Prüfe jedes Gerät sorgfältig auf Funktionsfähigkeit, bevor es ins Lager geht.\n\n• Dokumentiere, etikettiere und organisiere die fertigen Geräte für eine reibungslose spätere Auslieferung.\n\n• Stimme dich eng mit dem Implementation Team ab, damit der Lagerbestand dem prognostizierten Bedarf neuer Kunden entspricht.\n\n• Unterstütze das Team bei weiteren Montage- und Vorbereitungsarbeiten in der Werkstatt.\n\n• Halte Werkstatt und Materiallager übersichtlich und einsatzbereit.\n Die Montage von FELFEL Kühlschränken ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit und Präzisionsarbeit. Du arbeitest in unserer Werkstatt in Zürich Wiedikon, eng eingebunden in unser interdisziplinäres Hardware-Team.\n\n## WAS DU MITBRINGST\n\n• Du stehst kurz vor dem Abschluss deiner Ausbildung als Mechaniker*in, Schreiner*in, Elektriker*in oder in einem vergleichbaren technischen Beruf, hast sie bereits abgeschlossen – oder bringst entsprechende praktische Erfahrung mit.\n\n• Handwerkliches Geschick und Freude an konzentrierter, strukturierter Arbeit an der Werkbank.\n\n• Zuverlässige, effiziente Arbeitsweise – du hältst dich an Qualitätsstandards und Zeitpläne.\n\n• Teamfähigkeit, sowie Freude daran, im Zweierteam als auch eigenständig zu arbeiten.\n\n• Gute Deutschkenntnisse, Englisch von Vorteil.\n\n• Führerausweis Kategorie B von Vorteil – so kannst du bei Bedarf auch bei Installationen vor Ort unterstützen.\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• CHF 25.– pro Stunde.\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Arbeitsplatz entfernt.\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer Gavetti Kaffeemaschine.\n\n• Bleib in Bewegung mit unseren wöchentlichen Sportkursen.\n Klingt das nach dem perfekten Zwischenspurt für dich? Wir freuen uns auf deine Bewerbung! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch.",
+      "descriptionByLocale": {
+        "it": "## IN KÜRZE\n\nDu packst gerne mit an, arbeitest strukturiert und möchtest in einem eingespielten Team an einem klaren Ziel arbeiten? Für die nächsten 3 Monate (100%, ab sofort oder nach Vereinbarung) suchen wir eine Verstärkung für unser Hardware-Team in Zürich Wiedikon. Deine Aufgabe: Gemeinsam mit dem Team baust du einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf, damit wir Kunden künftig ohne Wartezeit beliefern können.\n\n## DEINE VERANTWORTUNGEN\n\n• Baue gemeinsam mit dem Hardware-Team einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf.\n\n• Montiere und verkable die Kühlschränke gemäss unseren internen Qualitätsstandards in unserer Werkstatt in Zürich Wiedikon.\n\n• Prüfe jedes Gerät sorgfältig auf Funktionsfähigkeit, bevor es ins Lager geht.\n\n• Dokumentiere, etikettiere und organisiere die fertigen Geräte für eine reibungslose spätere Auslieferung.\n\n• Stimme dich eng mit dem Implementation Team ab, damit der Lagerbestand dem prognostizierten Bedarf neuer Kunden entspricht.\n\n• Unterstütze das Team bei weiteren Montage- und Vorbereitungsarbeiten in der Werkstatt.\n\n• Halte Werkstatt und Materiallager übersichtlich und einsatzbereit.\nDie Montage von FELFEL Kühlschränken ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit und Präzisionsarbeit. Du arbeitest in unserer Werkstatt in Zürich Wiedikon, eng eingebunden in unser interdisziplinäres Hardware-Team.\n\n## WAS DU MITBRINGST\n\n• Du stehst kurz vor dem Abschluss deiner Ausbildung als Mechaniker*in, Schreiner*in, Elektriker*in oder in einem vergleichbaren technischen Beruf, hast sie bereits abgeschlossen – oder bringst entsprechende praktische Erfahrung mit.\n\n• Handwerkliches Geschick und Freude an konzentrierter, strukturierter Arbeit an der Werkbank.\n\n• Zuverlässige, effiziente Arbeitsweise – du hältst dich an Qualitätsstandards und Zeitpläne.\n\n• Teamfähigkeit, sowie Freude daran, im Zweierteam als auch eigenständig zu arbeiten.\n\n• Gute Deutschkenntnisse, Englisch von Vorteil.\n\n• Führerausweis Kategorie B von Vorteil – so kannst du bei Bedarf auch bei Installationen vor Ort unterstützen.\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• CHF 25.– pro Stunde.\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Arbeitsplatz entfernt.\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer Gavetti Kaffeemaschine.\n\n• Bleib in Bewegung mit unseren wöchentlichen Sportkursen.\nKlingt das nach dem perfekten Zwischenspurt für dich? Wir freuen uns auf deine Bewerbung! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch.",
+        "en": "## IN KÜRZE\n\nDu packst gerne mit an, arbeitest strukturiert und möchtest in einem eingespielten Team an einem klaren Ziel arbeiten? Für die nächsten 3 Monate (100%, ab sofort oder nach Vereinbarung) suchen wir eine Verstärkung für unser Hardware-Team in Zürich Wiedikon. Deine Aufgabe: Gemeinsam mit dem Team baust du einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf, damit wir Kunden künftig ohne Wartezeit beliefern können.\n\n## DEINE VERANTWORTUNGEN\n\n• Baue gemeinsam mit dem Hardware-Team einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf.\n\n• Montiere und verkable die Kühlschränke gemäss unseren internen Qualitätsstandards in unserer Werkstatt in Zürich Wiedikon.\n\n• Prüfe jedes Gerät sorgfältig auf Funktionsfähigkeit, bevor es ins Lager geht.\n\n• Dokumentiere, etikettiere und organisiere die fertigen Geräte für eine reibungslose spätere Auslieferung.\n\n• Stimme dich eng mit dem Implementation Team ab, damit der Lagerbestand dem prognostizierten Bedarf neuer Kunden entspricht.\n\n• Unterstütze das Team bei weiteren Montage- und Vorbereitungsarbeiten in der Werkstatt.\n\n• Halte Werkstatt und Materiallager übersichtlich und einsatzbereit.\nDie Montage von FELFEL Kühlschränken ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit und Präzisionsarbeit. Du arbeitest in unserer Werkstatt in Zürich Wiedikon, eng eingebunden in unser interdisziplinäres Hardware-Team.\n\n## WAS DU MITBRINGST\n\n• Du stehst kurz vor dem Abschluss deiner Ausbildung als Mechaniker*in, Schreiner*in, Elektriker*in oder in einem vergleichbaren technischen Beruf, hast sie bereits abgeschlossen – oder bringst entsprechende praktische Erfahrung mit.\n\n• Handwerkliches Geschick und Freude an konzentrierter, strukturierter Arbeit an der Werkbank.\n\n• Zuverlässige, effiziente Arbeitsweise – du hältst dich an Qualitätsstandards und Zeitpläne.\n\n• Teamfähigkeit, sowie Freude daran, im Zweierteam als auch eigenständig zu arbeiten.\n\n• Gute Deutschkenntnisse, Englisch von Vorteil.\n\n• Führerausweis Kategorie B von Vorteil – so kannst du bei Bedarf auch bei Installationen vor Ort unterstützen.\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• CHF 25.– pro Stunde.\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Arbeitsplatz entfernt.\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer Gavetti Kaffeemaschine.\n\n• Bleib in Bewegung mit unseren wöchentlichen Sportkursen.\nKlingt das nach dem perfekten Zwischenspurt für dich? Wir freuen uns auf deine Bewerbung! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch.",
+        "de": "## IN KÜRZE\n\nDu packst gerne mit an, arbeitest strukturiert und möchtest in einem eingespielten Team an einem klaren Ziel arbeiten? Für die nächsten 3 Monate (100%, ab sofort oder nach Vereinbarung) suchen wir eine Verstärkung für unser Hardware-Team in Zürich Wiedikon. Deine Aufgabe: Gemeinsam mit dem Team baust du einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf, damit wir Kunden künftig ohne Wartezeit beliefern können.\n\n## DEINE VERANTWORTUNGEN\n\n• Baue gemeinsam mit dem Hardware-Team einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf.\n\n• Montiere und verkable die Kühlschränke gemäss unseren internen Qualitätsstandards in unserer Werkstatt in Zürich Wiedikon.\n\n• Prüfe jedes Gerät sorgfältig auf Funktionsfähigkeit, bevor es ins Lager geht.\n\n• Dokumentiere, etikettiere und organisiere die fertigen Geräte für eine reibungslose spätere Auslieferung.\n\n• Stimme dich eng mit dem Implementation Team ab, damit der Lagerbestand dem prognostizierten Bedarf neuer Kunden entspricht.\n\n• Unterstütze das Team bei weiteren Montage- und Vorbereitungsarbeiten in der Werkstatt.\n\n• Halte Werkstatt und Materiallager übersichtlich und einsatzbereit.\nDie Montage von FELFEL Kühlschränken ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit und Präzisionsarbeit. Du arbeitest in unserer Werkstatt in Zürich Wiedikon, eng eingebunden in unser interdisziplinäres Hardware-Team.\n\n## WAS DU MITBRINGST\n\n• Du stehst kurz vor dem Abschluss deiner Ausbildung als Mechaniker*in, Schreiner*in, Elektriker*in oder in einem vergleichbaren technischen Beruf, hast sie bereits abgeschlossen – oder bringst entsprechende praktische Erfahrung mit.\n\n• Handwerkliches Geschick und Freude an konzentrierter, strukturierter Arbeit an der Werkbank.\n\n• Zuverlässige, effiziente Arbeitsweise – du hältst dich an Qualitätsstandards und Zeitpläne.\n\n• Teamfähigkeit, sowie Freude daran, im Zweierteam als auch eigenständig zu arbeiten.\n\n• Gute Deutschkenntnisse, Englisch von Vorteil.\n\n• Führerausweis Kategorie B von Vorteil – so kannst du bei Bedarf auch bei Installationen vor Ort unterstützen.\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• CHF 25.– pro Stunde.\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Arbeitsplatz entfernt.\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer Gavetti Kaffeemaschine.\n\n• Bleib in Bewegung mit unseren wöchentlichen Sportkursen.\nKlingt das nach dem perfekten Zwischenspurt für dich? Wir freuen uns auf deine Bewerbung! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch.",
+        "fr": "## IN KÜRZE\n\nDu packst gerne mit an, arbeitest strukturiert und möchtest in einem eingespielten Team an einem klaren Ziel arbeiten? Für die nächsten 3 Monate (100%, ab sofort oder nach Vereinbarung) suchen wir eine Verstärkung für unser Hardware-Team in Zürich Wiedikon. Deine Aufgabe: Gemeinsam mit dem Team baust du einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf, damit wir Kunden künftig ohne Wartezeit beliefern können.\n\n## DEINE VERANTWORTUNGEN\n\n• Baue gemeinsam mit dem Hardware-Team einen Sicherheitsbestand an einsatzbereiten FELFEL Kühlschränken auf.\n\n• Montiere und verkable die Kühlschränke gemäss unseren internen Qualitätsstandards in unserer Werkstatt in Zürich Wiedikon.\n\n• Prüfe jedes Gerät sorgfältig auf Funktionsfähigkeit, bevor es ins Lager geht.\n\n• Dokumentiere, etikettiere und organisiere die fertigen Geräte für eine reibungslose spätere Auslieferung.\n\n• Stimme dich eng mit dem Implementation Team ab, damit der Lagerbestand dem prognostizierten Bedarf neuer Kunden entspricht.\n\n• Unterstütze das Team bei weiteren Montage- und Vorbereitungsarbeiten in der Werkstatt.\n\n• Halte Werkstatt und Materiallager übersichtlich und einsatzbereit.\nDie Montage von FELFEL Kühlschränken ist eine spannende Mischung aus Elektronik, Mechanik, Schreinerarbeit und Präzisionsarbeit. Du arbeitest in unserer Werkstatt in Zürich Wiedikon, eng eingebunden in unser interdisziplinäres Hardware-Team.\n\n## WAS DU MITBRINGST\n\n• Du stehst kurz vor dem Abschluss deiner Ausbildung als Mechaniker*in, Schreiner*in, Elektriker*in oder in einem vergleichbaren technischen Beruf, hast sie bereits abgeschlossen – oder bringst entsprechende praktische Erfahrung mit.\n\n• Handwerkliches Geschick und Freude an konzentrierter, strukturierter Arbeit an der Werkbank.\n\n• Zuverlässige, effiziente Arbeitsweise – du hältst dich an Qualitätsstandards und Zeitpläne.\n\n• Teamfähigkeit, sowie Freude daran, im Zweierteam als auch eigenständig zu arbeiten.\n\n• Gute Deutschkenntnisse, Englisch von Vorteil.\n\n• Führerausweis Kategorie B von Vorteil – so kannst du bei Bedarf auch bei Installationen vor Ort unterstützen.\n\n• Nichtraucher*in – wir möchten nicht, dass du nach Zigaretten riechst. Schliesslich dreht sich bei FELFEL alles um gutes Essen.\n\n• Gültige Arbeitsbewilligung für die Schweiz oder Schweizer Pass.\n\n## WAS WIR BIETEN\n\n• CHF 25.– pro Stunde.\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Arbeitsplatz entfernt.\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer Gavetti Kaffeemaschine.\n\n• Bleib in Bewegung mit unseren wöchentlichen Sportkursen.\nKlingt das nach dem perfekten Zwischenspurt für dich? Wir freuen uns auf deine Bewerbung! BEWIRB DICH JETZT mit deinen vollständigen Unterlagen auf Deutsch oder Englisch."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://felfel.jobs.personio.de/job/2780456",
+      "source": "FELFEL Dedicated Parser (Personio)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:14:52.204Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Räffelstrasse 24",
+      "postalCode": "8045",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Operazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "sector": "Foodtech / Catering aziendale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://felfel.jobs.personio.de/job/2780456",
+      "jobReqId": "2780456",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+        "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+          "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:30:32.984Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -200,7 +278,7 @@
       "url": "https://felfel.jobs.personio.de/job/2703147",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.225Z",
+      "crawledAt": "2026-09-03T23:14:52.202Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -223,6 +301,7 @@
       "firstSeenAt": "2026-07-07T22:11:59.671Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -265,7 +344,7 @@
       "url": "https://felfel.jobs.personio.de/job/2687300",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.219Z",
+      "crawledAt": "2026-09-03T23:14:52.200Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -301,9 +380,9 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.723Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -346,7 +425,7 @@
       "url": "https://felfel.jobs.personio.de/job/2685922",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.214Z",
+      "crawledAt": "2026-09-03T23:14:52.197Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -388,9 +467,9 @@
         "edge-platform-ingegnere-felfel-zurich"
       ],
       "firstSeenAt": "2026-07-03T21:45:10.720Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -433,7 +512,7 @@
       "url": "https://felfel.jobs.personio.de/job/2740216",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.204Z",
+      "crawledAt": "2026-09-03T23:14:52.195Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -456,6 +535,7 @@
       "firstSeenAt": "2026-08-04T11:31:50.145Z",
       "salaryMin": 36300,
       "salaryMax": 54900,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -498,7 +578,7 @@
       "url": "https://felfel.jobs.personio.de/job/2697640",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.200Z",
+      "crawledAt": "2026-09-03T23:14:52.193Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -559,6 +639,7 @@
       "firstSeenAt": "2026-07-06T14:46:18.541Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -566,6 +647,85 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "felfel-c40b3c8cbba2",
+      "slug": "servizio-clienti-manager-60-felfel-zurich",
+      "slugByLocale": {
+        "it": "servizio-clienti-manager-60-felfel-zurich",
+        "en": "customer-service-manager-80-felfel-zurich",
+        "de": "customer-service-manager-60-felfel-zurich",
+        "fr": "service-client-manager-60-felfel-zurich"
+      },
+      "company": "FELFEL",
+      "companyKey": "felfel",
+      "companyDomain": "felfel.ch",
+      "title": "Customer Service Manager (80%)",
+      "titleByLocale": {
+        "it": "Servizio Clienti Manager (80%)",
+        "en": "Customer Service Manager (80%)",
+        "de": "Kundendienst Manager (80%)",
+        "fr": "Service Client Manager (80%)"
+      },
+      "description": "## IN KÜRZE\n\nAls unsere neue/ unser neuer Customer Service Manager (80%) in Zürich steht für dich die Kundenzufriedenheit im Zentrum unserer Werte. Du bist die wichtigste Ansprechperson für unsere Kunden und sorgst dafür, dass sie sich bei jeder Interaktion bestens betreut fühlen. Durch unseren Service und unsere Technologie streben wir stetig Exzellenz an. Einfach gesagt: Du bist stolz darauf, unsere Kunden glücklich zu machen – mit leckerem Essen am Arbeitsplatz!\n\n## DEINE VERANTWORTUNGEN\n\n• Kundensupport: Du bist die erste Anlaufstelle für unsere Kunden, bearbeitest eingehende E-Mails, Feedback und Anrufe professionell und effizient. Dabei lebst Du unser Motto: „Es gibt immer eine Lösung, niemals ein Problem.“\n\n• Ticket-Management: Lerne, Kundenanfragen strukturiert zu bearbeiten und zu lösen. Mit proaktiven Lösungen trägst Du zur nachhaltigen Qualitätssteigerung bei.\n\n• Prozessoptimierung: Hilf aktiv dabei, unsere Kundenservice-Prozesse kontinuierlich zu verbessern und FELFEL auf das nächste Serviceniveau zu heben.\n\n• Wissensaustausch & Teamzusammenarbeit: Tausche Dich mit Teammitgliedern aus und sorge für einen konsistenten, hochwertigen Kundenservice durch den Austausch von Know-how und Best Practices.\n\n• Cross-Team-Insights: Gewinne Einblicke in verschiedene FELFEL-Bereiche (z. B. Hardware, Operations, Quality Control) und erweitere Dein Verständnis für unsere Abläufe.\n\n## WAS DU MITBRINGST\n\n• Ausbildung oder praktische Erfahrung im Bereich Kundendienst, Kommunikation, Hospitality, Tourismus oder einer vergleichbaren Richtung\n\n• Du liebst es, Probleme zu lösen und Menschen zu begeistern.\n\n• Du hast Leidenschaft für gutes Essen und die Fähigkeit, andere dafür zu begeistern.\n\n• Du bist motiviert zu lernen, zu wachsen und versteckte Talente zu entdecken.\n\n• Du bist begeistert von gutem Essen und sprichst leidenschaftlich über unser Angebot!\n\n• Fliessende Deutsch-, Französisch und Englischkenntnisse (weitere Sprachkenntnisse sind willkommen).\n\n• Nichtraucher: FELFEL ist ein raucherfreies Unternehmen, das sich den ganzen Tag auf gutes Essen konzentriert!\n\n• EU/EFTA oder Schweizer Arbeitsbewilligung erforderlich.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr\n\n• Pro Jahr gewähren wir zwei ganze Wochen \"Work from anywhere\" und sorgen damit für Abwechslung im Arbeitsalltag\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\nWenn das der richtige Job für dich ist, dann BEWIRB DICH JETZT, wir freuen uns auf dich!",
+      "descriptionByLocale": {
+        "it": "## IN KÜRZE\n\nAls unsere neue/ unser neuer Customer Service Manager (80%) in Zürich steht für dich die Kundenzufriedenheit im Zentrum unserer Werte. Du bist die wichtigste Ansprechperson für unsere Kunden und sorgst dafür, dass sie sich bei jeder Interaktion bestens betreut fühlen. Durch unseren Service und unsere Technologie streben wir stetig Exzellenz an. Einfach gesagt: Du bist stolz darauf, unsere Kunden glücklich zu machen – mit leckerem Essen am Arbeitsplatz!\n\n## DEINE VERANTWORTUNGEN\n\n• Kundensupport: Du bist die erste Anlaufstelle für unsere Kunden, bearbeitest eingehende E-Mails, Feedback und Anrufe professionell und effizient. Dabei lebst Du unser Motto: „Es gibt immer eine Lösung, niemals ein Problem.“\n\n• Ticket-Management: Lerne, Kundenanfragen strukturiert zu bearbeiten und zu lösen. Mit proaktiven Lösungen trägst Du zur nachhaltigen Qualitätssteigerung bei.\n\n• Prozessoptimierung: Hilf aktiv dabei, unsere Kundenservice-Prozesse kontinuierlich zu verbessern und FELFEL auf das nächste Serviceniveau zu heben.\n\n• Wissensaustausch & Teamzusammenarbeit: Tausche Dich mit Teammitgliedern aus und sorge für einen konsistenten, hochwertigen Kundenservice durch den Austausch von Know-how und Best Practices.\n\n• Cross-Team-Insights: Gewinne Einblicke in verschiedene FELFEL-Bereiche (z. B. Hardware, Operations, Quality Control) und erweitere Dein Verständnis für unsere Abläufe.\n\n## WAS DU MITBRINGST\n\n• Ausbildung oder praktische Erfahrung im Bereich Kundendienst, Kommunikation, Hospitality, Tourismus oder einer vergleichbaren Richtung\n\n• Du liebst es, Probleme zu lösen und Menschen zu begeistern.\n\n• Du hast Leidenschaft für gutes Essen und die Fähigkeit, andere dafür zu begeistern.\n\n• Du bist motiviert zu lernen, zu wachsen und versteckte Talente zu entdecken.\n\n• Du bist begeistert von gutem Essen und sprichst leidenschaftlich über unser Angebot!\n\n• Fliessende Deutsch-, Französisch und Englischkenntnisse (weitere Sprachkenntnisse sind willkommen).\n\n• Nichtraucher: FELFEL ist ein raucherfreies Unternehmen, das sich den ganzen Tag auf gutes Essen konzentriert!\n\n• EU/EFTA oder Schweizer Arbeitsbewilligung erforderlich.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr\n\n• Pro Jahr gewähren wir zwei ganze Wochen \"Work from anywhere\" und sorgen damit für Abwechslung im Arbeitsalltag\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\nWenn das der richtige Job für dich ist, dann BEWIRB DICH JETZT, wir freuen uns auf dich!",
+        "en": "## IN KÜRZE\n\nAls unsere neue/ unser neuer Customer Service Manager (80%) in Zürich steht für dich die Kundenzufriedenheit im Zentrum unserer Werte. Du bist die wichtigste Ansprechperson für unsere Kunden und sorgst dafür, dass sie sich bei jeder Interaktion bestens betreut fühlen. Durch unseren Service und unsere Technologie streben wir stetig Exzellenz an. Einfach gesagt: Du bist stolz darauf, unsere Kunden glücklich zu machen – mit leckerem Essen am Arbeitsplatz!\n\n## DEINE VERANTWORTUNGEN\n\n• Kundensupport: Du bist die erste Anlaufstelle für unsere Kunden, bearbeitest eingehende E-Mails, Feedback und Anrufe professionell und effizient. Dabei lebst Du unser Motto: „Es gibt immer eine Lösung, niemals ein Problem.“\n\n• Ticket-Management: Lerne, Kundenanfragen strukturiert zu bearbeiten und zu lösen. Mit proaktiven Lösungen trägst Du zur nachhaltigen Qualitätssteigerung bei.\n\n• Prozessoptimierung: Hilf aktiv dabei, unsere Kundenservice-Prozesse kontinuierlich zu verbessern und FELFEL auf das nächste Serviceniveau zu heben.\n\n• Wissensaustausch & Teamzusammenarbeit: Tausche Dich mit Teammitgliedern aus und sorge für einen konsistenten, hochwertigen Kundenservice durch den Austausch von Know-how und Best Practices.\n\n• Cross-Team-Insights: Gewinne Einblicke in verschiedene FELFEL-Bereiche (z. B. Hardware, Operations, Quality Control) und erweitere Dein Verständnis für unsere Abläufe.\n\n## WAS DU MITBRINGST\n\n• Ausbildung oder praktische Erfahrung im Bereich Kundendienst, Kommunikation, Hospitality, Tourismus oder einer vergleichbaren Richtung\n\n• Du liebst es, Probleme zu lösen und Menschen zu begeistern.\n\n• Du hast Leidenschaft für gutes Essen und die Fähigkeit, andere dafür zu begeistern.\n\n• Du bist motiviert zu lernen, zu wachsen und versteckte Talente zu entdecken.\n\n• Du bist begeistert von gutem Essen und sprichst leidenschaftlich über unser Angebot!\n\n• Fliessende Deutsch-, Französisch und Englischkenntnisse (weitere Sprachkenntnisse sind willkommen).\n\n• Nichtraucher: FELFEL ist ein raucherfreies Unternehmen, das sich den ganzen Tag auf gutes Essen konzentriert!\n\n• EU/EFTA oder Schweizer Arbeitsbewilligung erforderlich.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr\n\n• Pro Jahr gewähren wir zwei ganze Wochen \"Work from anywhere\" und sorgen damit für Abwechslung im Arbeitsalltag\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\nWenn das der richtige Job für dich ist, dann BEWIRB DICH JETZT, wir freuen uns auf dich!",
+        "de": "## IN KÜRZE\n\nAls unsere neue/ unser neuer Customer Service Manager (80%) in Zürich steht für dich die Kundenzufriedenheit im Zentrum unserer Werte. Du bist die wichtigste Ansprechperson für unsere Kunden und sorgst dafür, dass sie sich bei jeder Interaktion bestens betreut fühlen. Durch unseren Service und unsere Technologie streben wir stetig Exzellenz an. Einfach gesagt: Du bist stolz darauf, unsere Kunden glücklich zu machen – mit leckerem Essen am Arbeitsplatz!\n\n## DEINE VERANTWORTUNGEN\n\n• Kundensupport: Du bist die erste Anlaufstelle für unsere Kunden, bearbeitest eingehende E-Mails, Feedback und Anrufe professionell und effizient. Dabei lebst Du unser Motto: „Es gibt immer eine Lösung, niemals ein Problem.“\n\n• Ticket-Management: Lerne, Kundenanfragen strukturiert zu bearbeiten und zu lösen. Mit proaktiven Lösungen trägst Du zur nachhaltigen Qualitätssteigerung bei.\n\n• Prozessoptimierung: Hilf aktiv dabei, unsere Kundenservice-Prozesse kontinuierlich zu verbessern und FELFEL auf das nächste Serviceniveau zu heben.\n\n• Wissensaustausch & Teamzusammenarbeit: Tausche Dich mit Teammitgliedern aus und sorge für einen konsistenten, hochwertigen Kundenservice durch den Austausch von Know-how und Best Practices.\n\n• Cross-Team-Insights: Gewinne Einblicke in verschiedene FELFEL-Bereiche (z. B. Hardware, Operations, Quality Control) und erweitere Dein Verständnis für unsere Abläufe.\n\n## WAS DU MITBRINGST\n\n• Ausbildung oder praktische Erfahrung im Bereich Kundendienst, Kommunikation, Hospitality, Tourismus oder einer vergleichbaren Richtung\n\n• Du liebst es, Probleme zu lösen und Menschen zu begeistern.\n\n• Du hast Leidenschaft für gutes Essen und die Fähigkeit, andere dafür zu begeistern.\n\n• Du bist motiviert zu lernen, zu wachsen und versteckte Talente zu entdecken.\n\n• Du bist begeistert von gutem Essen und sprichst leidenschaftlich über unser Angebot!\n\n• Fliessende Deutsch-, Französisch und Englischkenntnisse (weitere Sprachkenntnisse sind willkommen).\n\n• Nichtraucher: FELFEL ist ein raucherfreies Unternehmen, das sich den ganzen Tag auf gutes Essen konzentriert!\n\n• EU/EFTA oder Schweizer Arbeitsbewilligung erforderlich.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr\n\n• Pro Jahr gewähren wir zwei ganze Wochen \"Work from anywhere\" und sorgen damit für Abwechslung im Arbeitsalltag\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\nWenn das der richtige Job für dich ist, dann BEWIRB DICH JETZT, wir freuen uns auf dich!",
+        "fr": "## IN KÜRZE\n\nAls unsere neue/ unser neuer Customer Service Manager (80%) in Zürich steht für dich die Kundenzufriedenheit im Zentrum unserer Werte. Du bist die wichtigste Ansprechperson für unsere Kunden und sorgst dafür, dass sie sich bei jeder Interaktion bestens betreut fühlen. Durch unseren Service und unsere Technologie streben wir stetig Exzellenz an. Einfach gesagt: Du bist stolz darauf, unsere Kunden glücklich zu machen – mit leckerem Essen am Arbeitsplatz!\n\n## DEINE VERANTWORTUNGEN\n\n• Kundensupport: Du bist die erste Anlaufstelle für unsere Kunden, bearbeitest eingehende E-Mails, Feedback und Anrufe professionell und effizient. Dabei lebst Du unser Motto: „Es gibt immer eine Lösung, niemals ein Problem.“\n\n• Ticket-Management: Lerne, Kundenanfragen strukturiert zu bearbeiten und zu lösen. Mit proaktiven Lösungen trägst Du zur nachhaltigen Qualitätssteigerung bei.\n\n• Prozessoptimierung: Hilf aktiv dabei, unsere Kundenservice-Prozesse kontinuierlich zu verbessern und FELFEL auf das nächste Serviceniveau zu heben.\n\n• Wissensaustausch & Teamzusammenarbeit: Tausche Dich mit Teammitgliedern aus und sorge für einen konsistenten, hochwertigen Kundenservice durch den Austausch von Know-how und Best Practices.\n\n• Cross-Team-Insights: Gewinne Einblicke in verschiedene FELFEL-Bereiche (z. B. Hardware, Operations, Quality Control) und erweitere Dein Verständnis für unsere Abläufe.\n\n## WAS DU MITBRINGST\n\n• Ausbildung oder praktische Erfahrung im Bereich Kundendienst, Kommunikation, Hospitality, Tourismus oder einer vergleichbaren Richtung\n\n• Du liebst es, Probleme zu lösen und Menschen zu begeistern.\n\n• Du hast Leidenschaft für gutes Essen und die Fähigkeit, andere dafür zu begeistern.\n\n• Du bist motiviert zu lernen, zu wachsen und versteckte Talente zu entdecken.\n\n• Du bist begeistert von gutem Essen und sprichst leidenschaftlich über unser Angebot!\n\n• Fliessende Deutsch-, Französisch und Englischkenntnisse (weitere Sprachkenntnisse sind willkommen).\n\n• Nichtraucher: FELFEL ist ein raucherfreies Unternehmen, das sich den ganzen Tag auf gutes Essen konzentriert!\n\n• EU/EFTA oder Schweizer Arbeitsbewilligung erforderlich.\n\n## WAS WIR BIETEN\n\n• Jede Menge leckeres Essen, nur wenige Schritte von deinem Schreibtisch entfernt - wir erfüllen all deine kulinarischen Wünsche...\n\n• Bester Barista-Kaffee und Tee für das ganze Team dank unserer innovativen Gavetti Kaffeemaschine\n\n• 5 Wochen Urlaub pro Jahr\n\n• Pro Jahr gewähren wir zwei ganze Wochen \"Work from anywhere\" und sorgen damit für Abwechslung im Arbeitsalltag\n\n• Wir finanzieren dein Halbtax-Abo, und unterstützen so unsere Mitarbeitenden bei der Nutzung des ÖV\n\n• Frisch gebackene Eltern erhalten von uns 16 bzw. 3 Wochen voll bezahlte Elternzeit. Wir unterstützen zudem die Rückkehr in den Beruf, indem wir einen grosszügigen finanziellen Beitrag an die Kinderbetreuung bis zum Erreichen des Kindergartenalters leisten\n\n• Tolle Team-Events, wie z.B. unsere bekannten FELFEL Summer-Outings\n\nWenn das der richtige Job für dich ist, dann BEWIRB DICH JETZT, wir freuen uns auf dich!"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://felfel.jobs.personio.de/job/2692840",
+      "source": "FELFEL Dedicated Parser (Personio)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:14:52.191Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "streetAddress": "Räffelstrasse 24",
+      "postalCode": "8045",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Operazioni",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "junior",
+      "sector": "Foodtech / Catering aziendale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-30",
+      "applyUrl": "https://felfel.jobs.personio.de/job/2692840",
+      "jobReqId": "2692840",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "customer-service-manager-80-felfel-zurich",
+        "servizio-clienti-manager-60-felfel-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-service-manager-80-felfel-zurich",
+          "servizio-clienti-manager-60-felfel-zurich"
+        ],
+        "de": [
+          "customer-service-manager-80-felfel-zurich"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:30:32.961Z",
+      "salaryMin": 81200,
+      "salaryMax": 123200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81200,
+          "maxValue": 123200,
           "unitText": "YEAR"
         }
       }
@@ -601,7 +761,7 @@
       "url": "https://felfel.jobs.personio.de/job/2656265",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.196Z",
+      "crawledAt": "2026-09-03T23:14:52.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -637,6 +797,7 @@
       "firstSeenAt": "2026-07-03T21:45:10.712Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -679,7 +840,7 @@
       "url": "https://felfel.jobs.personio.de/job/2737061",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.191Z",
+      "crawledAt": "2026-09-03T23:14:52.185Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -717,6 +878,7 @@
       "firstSeenAt": "2026-07-31T22:07:05.788Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -759,7 +921,7 @@
       "url": "https://felfel.jobs.personio.de/job/2633164",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:53:04.180Z",
+      "crawledAt": "2026-09-03T23:14:52.182Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -807,6 +969,7 @@
       "firstSeenAt": "2026-07-05T10:51:07.062Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -849,7 +1012,7 @@
       "url": "https://felfel.jobs.personio.de/job/2668071",
       "source": "FELFEL Dedicated Parser (Personio)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:53:04.134Z",
+      "crawledAt": "2026-09-03T23:14:52.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Räffelstrasse 24",
@@ -885,6 +1048,7 @@
       "firstSeenAt": "2026-07-03T21:45:10.682Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

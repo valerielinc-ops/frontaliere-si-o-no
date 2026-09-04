@@ -1,6 +1,6 @@
 {
   "crawlerKey": "villa-im-park",
-  "assembledAt": "2026-08-26T09:56:58.258Z",
+  "assembledAt": "2026-09-03T23:12:07.224Z",
   "jobs": [
     {
       "id": "villa-im-park-2e1ad74d807b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000124593045-lehrstelle-fachperson-gesundheit-fur-sommer-2027?oga=true",
       "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:56:55.960Z",
+      "crawledAt": "2026-09-03T23:12:01.559Z",
       "addressLocality": "Rothrist",
       "addressRegion": "AG",
       "streetAddress": "Bernstrasse 84",
@@ -65,6 +65,7 @@
       "firstSeenAt": "2026-05-20T06:03:29.059Z",
       "salaryMin": 52000,
       "salaryMax": 78500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -72,6 +73,89 @@
           "@type": "QuantitativeValue",
           "minValue": 52000,
           "maxValue": 78500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "villa-im-park-46eee8e83558",
+      "slug": "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
+      "slugByLocale": {
+        "it": "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist",
+        "en": "employee-in-bistro-privatklinik-villa-im-park-rothrist",
+        "de": "mitarbeiter-in-bistro-villa-im-park-rothrist",
+        "fr": "employe-in-bistro-privatklinik-villa-im-park-rothrist"
+      },
+      "company": "Privatklinik Villa im Park",
+      "companyKey": "villa-im-park",
+      "companyDomain": "swissmedical.net",
+      "title": "Mitarbeiter/-in Bistro",
+      "titleByLocale": {
+        "it": "Collaboratore/trice/-in Bistro",
+        "en": "Employee/in Bistro",
+        "de": "Mitarbeiter/-in Bistro",
+        "fr": "Employé/in Bistro"
+      },
+      "description": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'300 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Die Anstellung ist vorläufig bis Ende März 2027 befristet\n\n• Freundliche und professionelle Bedienung der Gäste im Bistro sowie Funktion als Anlaufstelle für interne und externe Anspruchsgruppen\n\n• Sicherstellung eines ordnungsgemässen und reibungslosen Bistrobetriebs inklusive Bewirtschaftung der Vitrine, Auffüllen von Materialien, Bedienung der Abwaschmaschine sowie Sauberhalten der gesamten Infrastruktur\n\n• Verantwortung für die korrekte Kassenbewirtschaftung und -abrechnung mit dem Kassensystem iKentoo\n\n• Administrative Unterstützung der Küchenleitung im Tagesgeschäft\n\n• Bewirtschaftung des Personalraums in Zusammenarbeit mit dem Hilfspersonal der Küche\n\n• Unterstützung des Küchenteams beim Mittagsservice\n\n• Veranstaltungen und weitere Einsätze\n\n• Mithilfe bei der Planung, Organisation und Durchführung von internen Veranstaltungen\n\nQualifikationen\n\n• Erfahrung im Service und/oder Gastronomie oder Event-Bereich\n\n• PC-Anwenderkenntnisse\n\n• Administrative Kenntnisse\n\n• Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freundliche, kunden- und dienstleistungsorientierte Persönlichkeit\n\nZusätzliche Informationen",
+      "descriptionByLocale": {
+        "it": "Descrizione aziendale\n\nNella clinica privata Villa im Park, il cui carattere è caratterizzato dalla proprietà storica, storica, circa 40 medici osservanti svolgono più di 1.300 procedure all'anno. Le tre sale operative integrate e completamente digitalizzate della clinica sono tra le più tecnicamente attrezzate del loro genere. Le principali specialità mediche includono chirurgia generale, anestesiologia, chirurgia ortopedica e traumatologia del sistema muscoloscheletrico e ginecologia. Come Listespital, la clinica privata Villa im Park nel cantone di Aargau ha un mandato di servizio pubblico e tratta i pazienti di tutte le classi di assicurazione.\n\nDescrizione del lavoro\n\n• L'occupazione è temporanea fino alla fine del marzo 2027\n\n• Servizio amichevole e professionale degli ospiti nel bistro così come la funzione come punto di contatto per gli stakeholder interni ed esterni\n\n• Garantire un corretto e regolare funzionamento bistrot tra cui la gestione della vetrina, il riempimento di materiali, il funzionamento della lavastoviglie e mantenere pulita l'intera infrastruttura\n\n• Responsabilità per la corretta gestione dei contanti e insediamento con il sistema di cassa iKentoo\n\n• Supporto amministrativo per la gestione della cucina nelle attività quotidiane\n\n• Gestione della sala personale in collaborazione con il personale di supporto cucina\n\n• Supporto del team di cucina durante il pranzo\n\n• Eventi e altre missioni\n\n• Assistenza nella pianificazione, organizzazione e realizzazione di eventi interni\n\nQualifiche\n\n• Esperienza in servizio e/o gastronomia o area eventi\n\n• Conoscenza dell'utente del PC\n\n• Conoscenza amministrativa\n\n• Responsabilità e affidabilità\n\n• personalità amichevole, orientata al cliente e al servizio\n\nUlteriori informazioni",
+        "en": "Business description\n\nIn the private clinic Villa im Park, whose character is characterized by the stately, historic property, around 40 observing physicians perform more than 1,300 procedures per year. The clinic’s three integrated, fully digitized operating rooms are among the most technically equipped of their kind. Major medical specialties include general surgery, anesthesiology, orthopaedic surgery and traumatology of the musculoskeletal system and gynecology. As a Listespital, the private clinic Villa im Park in the canton of Aargau has a public service mandate and treats patients from all insurance classes.\n\nJob description\n\n• The employment is temporary until the end of March 2027\n\n• Friendly and professional service of the guests in the bistro as well as function as a contact point for internal and external stakeholders\n\n• Ensuring proper and smooth bistro operation including management of the display case, filling of materials, operation of the dishwasher and keeping the entire infrastructure clean\n\n• Responsibility for the correct cash management and settlement with the iKentoo cash system\n\n• Administrative support for kitchen management in day-to-day business\n\n• Management of the staff room in cooperation with kitchen support staff\n\n• Support of the kitchen team during lunch service\n\n• Events and other missions\n\n• Assistance in the planning, organisation and implementation of internal events\n\nQualifications\n\n• Experience in service and/or gastronomy or event area\n\n• PC user knowledge\n\n• Administrative knowledge\n\n• Responsibility and reliability\n\n• Friendly, customer- and service-oriented personality\n\nAdditional information",
+        "de": "Unternehmensbeschreibung\n\nIn der Privatklinik Villa im Park, deren Charakter durch das herrschaftliche, historische Anwesen geprägt wird, führen rund 40 Belegärzte über 1'300 Eingriffe pro Jahr durch. Die drei integrativen, volldigitalisierten Operationssäle der Klinik gehören zu den technisch am besten ausgerüsteten ihrer Art. Zu den wichtigsten medizinischen Fachgebieten gehören Allgemeine Chirurgie, Anästhesiologie, Orthopädische Chirurgie und Traumatologie des Bewegungsapparates und Gynäkologie. Als Listenspital hat die Privatklinik Villa im Park im Kanton Aargau einen öffentlichen Leistungsauftrag und behandelt Patienten aus allen Versicherungsklassen .\n\nStellenbeschreibung\n\n• Die Anstellung ist vorläufig bis Ende März 2027 befristet\n\n• Freundliche und professionelle Bedienung der Gäste im Bistro sowie Funktion als Anlaufstelle für interne und externe Anspruchsgruppen\n\n• Sicherstellung eines ordnungsgemässen und reibungslosen Bistrobetriebs inklusive Bewirtschaftung der Vitrine, Auffüllen von Materialien, Bedienung der Abwaschmaschine sowie Sauberhalten der gesamten Infrastruktur\n\n• Verantwortung für die korrekte Kassenbewirtschaftung und -abrechnung mit dem Kassensystem iKentoo\n\n• Administrative Unterstützung der Küchenleitung im Tagesgeschäft\n\n• Bewirtschaftung des Personalraums in Zusammenarbeit mit dem Hilfspersonal der Küche\n\n• Unterstützung des Küchenteams beim Mittagsservice\n\n• Veranstaltungen und weitere Einsätze\n\n• Mithilfe bei der Planung, Organisation und Durchführung von internen Veranstaltungen\n\nQualifikationen\n\n• Erfahrung im Service und/oder Gastronomie oder Event-Bereich\n\n• PC-Anwenderkenntnisse\n\n• Administrative Kenntnisse\n\n• Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freundliche, kunden- und dienstleistungsorientierte Persönlichkeit\n\nZusätzliche Informationen",
+        "fr": "Description de l'entreprise\n\nDans la clinique privée Villa im Park, dont le caractère est caractérisé par la propriété majestueuse et historique, environ 40 médecins d'observation effectuent plus de 1300 interventions par an. Les trois salles d'opération intégrées et entièrement numérisées sont parmi les plus techniquement équipées de leur genre. Les principales spécialités médicales comprennent la chirurgie générale, l'anesthésiologie, la chirurgie orthopédique et la traumatologie du système musculo-squelettique et la gynécologie. En tant que Listespital, la clinique privée Villa im Park du canton d'Argovie a un mandat de service public et traite les patients de toutes les classes d'assurance.\n\nDescription du poste\n\n• L'emploi est temporaire jusqu'à fin mars 2027\n\n• Service amical et professionnel des invités dans le bistrot ainsi qu'un point de contact pour les intervenants internes et externes\n\n• Assurer le bon fonctionnement du bistrot, y compris la gestion de la vitrine, le remplissage des matériaux, le fonctionnement du lave-vaisselle et la propreté de toute l'infrastructure\n\n• Responsabilité de la bonne gestion de la trésorerie et règlement avec le système de trésorerie iKentoo\n\n• Appui administratif à la gestion des cuisines dans les activités quotidiennes\n\n• Gestion de la salle du personnel en coopération avec le personnel d ' appui à la cuisine\n\n• Soutien de l'équipe de cuisine pendant le service de déjeuner\n\n• Manifestations et autres missions\n\n• Assistance à la planification, à l'organisation et à la mise en œuvre d'événements internes\n\nCompétences\n\n• Expérience de service et/ou de gastronomie ou d'événement\n\n• Connaissance des utilisateurs du PC\n\n• Connaissances administratives\n\n• Responsabilité et fiabilité\n\n• Personnalité amicale, orientée client et service\n\nInformations complémentaires"
+      },
+      "location": "Rothrist",
+      "canton": "AG",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
+      "source": "Privatklinik Villa im Park Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:12:01.171Z",
+      "addressLocality": "Rothrist",
+      "addressRegion": "AG",
+      "streetAddress": "Rothrist 4852",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4852",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-02",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146906639-mitarbeiter-in-bistro?oga=true",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "mitarbeiter-in-bistro-villa-im-park-rothrist",
+        "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b",
+        "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-bistro-villa-im-park-rothrist",
+          "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist-3uci6b",
+          "collaboratore-trice-in-bistro-privatklinik-villa-im-park-rothrist"
+        ],
+        "en": [
+          "mitarbeiter-in-bistro-villa-im-park-rothrist"
+        ],
+        "fr": [
+          "mitarbeiter-in-bistro-villa-im-park-rothrist"
+        ]
+      },
+      "firstSeenAt": "2026-09-02T13:36:12.223Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }

@@ -83,7 +83,6 @@ jobs:
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -106,9 +105,8 @@ jobs:
       # Canonical secret hydration for a Google API caller in this repo (same
       # step as sync-gsc-orphans.yml / build-evidence-and-tune.yml): the
       # project's Firebase service account doubles as the Search Console
-      # credential. scripts/load-rc-env.mjs is deliberately NOT run — it is the
-      # Remote Config → env bridge, and this script needs no RC parameter at
-      # all; the site URL and the lookback window are constants in the script.
+      # credential. Direct main push also needs GITHUB_PAT from Remote Config
+      # (GH013 ruleset bypass); load-rc-env.mjs is the only bridge.
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -119,6 +117,9 @@ jobs:
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       # Exits 0 even when it degrades, and — since #5012's follow-up — writes
       # NOTHING when it does, so a bad read can never replace a good demand
@@ -151,6 +152,7 @@ jobs:
           MAX_ATTEMPTS=5
           BACKOFF_BASE=3
           attempt=1
+          bash scripts/lib/configure-main-push-auth.sh
           while [ "$attempt" -le "$MAX_ATTEMPTS" ]; do
             if git push origin HEAD:main; then
               echo "✅ Pushed marquee demand table."

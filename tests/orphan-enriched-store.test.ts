@@ -469,6 +469,19 @@ describe('orphan-enriched store — shard layout', () => {
     expect(after).toEqual(before);
   });
 
+  it('re-writing an unchanged ledger does not touch any shard file on disk (issue #6384)', () => {
+    // Byte-identical content isn't enough — a naive writer still calls
+    // writeFileSync on all 32 shards every persist, which is the actual git
+    // churn issue #6384 fixes. Assert no shard's mtime changes.
+    const root = mkTmp();
+    writeOrphanEnriched(sampleLedger(300), root);
+    const files = listOrphanEnrichedShardFiles(root);
+    const mtimesBefore = files.map((f) => fs.statSync(f).mtimeMs);
+    writeOrphanEnriched(readOrphanEnriched(root), root);
+    const mtimesAfter = files.map((f) => fs.statSync(f).mtimeMs);
+    expect(mtimesAfter).toEqual(mtimesBefore);
+  });
+
   it('a changed impression count does NOT move a record between shards', () => {
     // The on-disk sort key is content-independent on purpose: if it were
     // signal-ranked, every run would re-sort ~32 multi-MB blobs and the commit
@@ -498,6 +511,15 @@ describe('orphan-enriched store — shard layout', () => {
     expect(manifest.totalRecords).toBe(123);
     expect(manifest.totalSlugs).toBe(123);
     expect(manifest.shardCount).toBe(ORPHAN_ENRICHED_SHARD_COUNT);
+  });
+
+  it('propagates a non-ENOENT error reading a shard instead of silently forcing a write (issue #6696)', () => {
+    // A directory where a shard file is expected makes readFileSync throw
+    // EISDIR, not ENOENT — the write-skip comparison used to swallow any
+    // error here, masking a real disk condition as "shard doesn't exist yet".
+    const root = mkTmp();
+    fs.mkdirSync(orphanEnrichedShardFile(0, root), { recursive: true });
+    expect(() => writeOrphanEnriched(sampleLedger(5), root)).toThrow();
   });
 });
 

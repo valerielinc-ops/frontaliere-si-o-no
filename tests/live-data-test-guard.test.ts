@@ -23,7 +23,9 @@ import {
   stripComments,
   segmentSequenceRegex,
   KNOWN_LIVE_DATA_TESTS,
+  LIVE_DATA_SCAN_EXEMPTIONS,
   LIVE_DATA_ROOTS,
+  listLiveDataTestsForCi,
 } from '../scripts/ci/live-data-test-guard.mjs';
 
 describe('nessun test NUOVO puo` leggere dati vivi', () => {
@@ -94,5 +96,21 @@ describe('il rilevatore', () => {
     // Una baseline cambia solo quando qualcuno decide di cambiarla: e' dato
     // pinnato, e vietarlo renderebbe il guard rumoroso e quindi ignorato.
     expect(LIVE_DATA_ROOTS.some((r) => r.includes('baseline'))).toBe(false);
+  });
+
+  it('mantiene il test meta e rimuove i gate di qualita live dalla PR', () => {
+    expect(listLiveDataTestsForCi()).not.toContain('tests/corpus-wide-test-partition.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/evergreen-pool-consumption.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/article-body-wordcount.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/job-locale-consistency.test.ts');
+    expect(listLiveDataTestsForCi(), 'la suite Gardenia deterministica deve restare nel gate PR')
+      .not.toContain('tests/albergo-gardenia-crawler.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/albergo-gardenia-live-regression.test.ts');
+    expect(listLiveDataTestsForCi(), 'la fixture causale iPersonal deve restare nel gate PR')
+      .not.toContain('tests/ipersonal-route-recovery-7045.test.ts');
+    expect(listLiveDataTestsForCi()).toContain('tests/ipersonal-route-recovery-7045-live.test.ts');
+    for (const { file } of LIVE_DATA_SCAN_EXEMPTIONS) {
+      expect(listLiveDataTestsForCi(), `${file} deve restare nel gate PR`).not.toContain(file);
+    }
   });
 });

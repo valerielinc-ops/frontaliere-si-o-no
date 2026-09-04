@@ -19,7 +19,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCandidates, saveCandidates, setStatus, byStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
+import { loadCandidates, saveCandidates, setStatus, statusCounts } from './lib/prospector/candidate-store.mjs';
 import { runSpec } from './lib/prospector/synthesize.mjs';
 import { gradeExtraction } from './lib/prospector/validate.mjs';
 import { probeCompanyLogo } from './lib/prospector/logo-probe.mjs';
@@ -37,16 +37,9 @@ const dryRun = flag('dry-run');
 const SPEC_DIR = path.join(PROSPECTOR_DIR, 'crawlers');
 
 const store = loadCandidates();
-/** @type {Map<string, any>} candidate key by crawler key */
+/** @type {Map<string, any>} candidate key by crawler key, ogni stato */
 const byCrawlerKey = new Map();
-// Deve includere `promoted` e `production`, non solo i due stati iniziali: il
-// gate di promozione decide sulla STABILITA' fra giorni, e un candidato gia'
-// graduato "promoted" veniva rigraduato senza che il suo storico si
-// aggiornasse. Il secondo giorno non arrivava mai e il loop non avrebbe
-// promosso nulla, senza alcun errore visibile.
-for (const c of byStatus(store, ['synthesized', 'validated', 'promoted', 'production'])) {
-  if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
-}
+for (const c of Object.values(store.candidates)) if (c.crawlerKey) byCrawlerKey.set(c.crawlerKey, c);
 
 let specs = [];
 try {
@@ -58,6 +51,24 @@ try {
   process.exit(0);
 }
 if (onlyKey) specs = specs.filter((s) => s.companyKey === onlyKey);
+
+// Il budget giornaliero e' fisso (`limit`, 40 nel workflow) e la selezione e'
+// l'ordine alfabetico di `readdir`: senza questo filtro i candidati gia'
+// `production`/`promoting` (che non possono piu' avanzare: `setStatus` e'
+// forward-only, vedi candidate-store.mjs) e i `rejected`/`dead` (terminali)
+// restano nel file indefinitamente e occupano ogni giorno gli slot
+// alfabeticamente precoci — misurato su #6303: nel run del 2026-08-29,
+// 24 dei 40 slot andavano a candidati che non potevano piu' beneficiare di
+// una rivalidazione, mentre 43 spec restavano fuori dal giro per sempre,
+// alcuni bloccati per giorni a "1 giorno su 2" di stabilita' o senza
+// logo/jobLike mai misurati. Chi non puo' piu' avanzare non deve competere
+// per lo slot con chi puo'.
+const DONE_STATUSES = new Set(['production', 'promoting', 'rejected', 'dead']);
+specs = specs.filter((s) => {
+  const c = byCrawlerKey.get(s.companyKey);
+  return !c || !DONE_STATUSES.has(c.status);
+});
+
 specs = specs.slice(0, limit);
 
 console.log('═══ Prospector · VALIDATE ═══');
@@ -138,7 +149,7 @@ for (const spec of specs) {
   tally[report.verdict]++;
 
   const mark = { good: '✓', weak: '~', bad: '✗', insufficient: '?' }[report.verdict];
-  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
+  console.log(`  ${mark} ${String(spec.companyName).slice(0, 30).padEnd(32)} score ${report.score.toFixed(2)}  ${String(report.vacancyCount).padStart(3)} ann  url ${(report.reachableRate * 100).toFixed(0)}%  titoli ${(report.titleMatchRate * 100).toFixed(0)}%  localita' ${(report.locationSourceRate * 100).toFixed(0)}%  logo ${logo.found ? '✓' : '✗'}  ${report.problems[0] || ''}`);
 
   const candidate = byCrawlerKey.get(spec.companyKey);
   if (candidate) {
@@ -158,6 +169,7 @@ for (const spec of specs) {
       reachableRate: report.reachableRate,
       titleMatchRate: report.titleMatchRate,
       contentfulRate: report.contentfulRate,
+      locationSourceRate: report.locationSourceRate,
       distinctRate: report.distinctRate,
       // The promotion gate reads this key and treats ABSENT as "never
       // measured" (blocking) while `null` means "measured, unreadable bytes"
@@ -166,6 +178,7 @@ for (const spec of specs) {
       logoFound: report.logoFound,
     });
     setStatus(store, candidate.key, next, {
+      detailEnrichment: spec.detailEnrichment === true,
       qualityScore: report.score,
       qualityVerdict: report.verdict,
       qualityProblems: report.problems,

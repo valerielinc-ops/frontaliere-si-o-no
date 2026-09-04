@@ -33,6 +33,33 @@ describe('Confronti tab — homepage mid-display slot', () => {
   });
 });
 
+describe('Homepage calculator — result-first monetization', () => {
+  it('places the compact post-result slot after the net-advantage summary and before the detailed comparison', () => {
+    const source = read('components/calculator/ResultsView.tsx');
+    const summary = source.indexOf('data-testid="results-advantage-banner"');
+    const postResultSlot = source.indexOf('AD_SLOTS.CALCULATOR_POST_RESULT');
+    const comparison = source.indexOf('Comparison Grid:');
+
+    expect(summary).toBeGreaterThanOrEqual(0);
+    expect(postResultSlot).toBeGreaterThan(summary);
+    expect(postResultSlot).toBeLessThan(comparison);
+  });
+
+  it('does not render the deep 1100px homepage slot in addition to the result slot', () => {
+    const source = read('components/tabs/CalcolatoreTabContent.tsx');
+    expect(source).not.toMatch(/AD_SLOTS\.HOMEPAGE_MID_DISPLAY\b/);
+  });
+
+  it('reserves the responsive desktop height at the new post-result position', () => {
+    const source = read('components/calculator/ResultsView.tsx');
+    const postResultSlot = source.indexOf('AD_SLOTS.CALCULATOR_POST_RESULT');
+    const comparison = source.indexOf('Comparison Grid:');
+    const postResultBlock = source.slice(postResultSlot, comparison);
+
+    expect(postResultBlock).toContain('xl:min-h-[600px]');
+  });
+});
+
 describe('Inline-ad registry invariants', () => {
   it('ARTICLE_INLINE_MOBILE uses the fluid in-article layout', async () => {
     const { AD_SLOTS } = await import('@/services/adsenseSlots');
@@ -43,5 +70,10 @@ describe('Inline-ad registry invariants', () => {
   it('HOMEPAGE_MID_DISPLAY is present and non-empty', async () => {
     const { AD_SLOTS } = await import('@/services/adsenseSlots');
     expect(AD_SLOTS.HOMEPAGE_MID_DISPLAY.slot).toMatch(/^\d+$/);
+  });
+
+  it('CALCULATOR_POST_RESULT keeps a compact stable-height reserve', async () => {
+    const { AD_SLOTS } = await import('@/services/adsenseSlots');
+    expect(AD_SLOTS.CALCULATOR_POST_RESULT.placeholderMinHeight).toBe(400);
   });
 });

@@ -25,6 +25,8 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
+import { hasUsableJobId } from './lib/job-match-key.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -173,7 +175,7 @@ function extractJobsArray(payload) {
 
 function jobIdentityKey(job) {
   if (!job || typeof job !== 'object') return '';
-  if (job.id) return `id:${job.id}`;
+  if (hasUsableJobId(job)) return `id:${job.id}`;
   if (job.url) return `url:${job.url}`;
   if (job.slug && job.title) return `slugtitle:${job.slug}|${job.title}`;
   return '';
@@ -666,8 +668,8 @@ export function dedupAgainstExisting(proposedByCrawler, loadExisting) {
       const prior = bySlug.get(k);
       if (prior) {
         droppedDuplicates += 1;
-        // Keep the entry with the most recent expiredAt (lexicographic ISO).
-        if (String(entry.expiredAt || '').localeCompare(String(prior.expiredAt || '')) > 0) {
+        // Keep the entry with the most recent expiredAt.
+        if (compareExpiredAt(entry.expiredAt, prior.expiredAt) > 0) {
           bySlug.set(k, entry);
         }
         continue;
@@ -710,7 +712,7 @@ function applyToDisk(filtered) {
     const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
     const existing = loadExpiredSliceFromDisk(crawlerKey);
     const merged = [...existing, ...proposals].sort((a, b) =>
-      String(b.expiredAt || '').localeCompare(String(a.expiredAt || '')),
+      compareExpiredAt(b.expiredAt, a.expiredAt),
     );
     writeJsonAtomic(slicePath, merged);
     summary.push({ crawlerKey, added: proposals.length, total: merged.length });

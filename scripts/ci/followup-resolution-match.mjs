@@ -156,7 +156,23 @@ export function citedTokens(body) {
 // truth: `closedIssueRefs` (the grandchild-suppression gate) and `closingMergedPr`
 // (the already-resolved gate) MUST agree byte-for-byte on what a "closing ref" is
 // (AGENTS.md #6 — a regex duplicated literally in ≥2 files → ONE shared module).
-const CLOSE_KW_LIST = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?)\b\s*:?\s*((?:#\d+(?:[\s,&]+(?:and\s+)?)?)+)/ig;
+//
+// Italian closure declarations (issue #567): this repo's own PR bodies state
+// closure in Italian prose ("Chiude anche la issue #402", PR #418) — a form
+// GitHub itself never honors (see scripts/lib/pr-body-closes-check.mjs, which
+// flags exactly that as an ineffective keyword and tells the author to write
+// `Closes #N` instead), but which IS a real, unambiguous author declaration
+// this gate must read. `chiud[eo]`/`risolv[eo]`/`super[ae]` cover the
+// present-tense forms observed in the corpus (chiude/chiudo, risolve/risolvo,
+// supera); `IT_BRIDGE` absorbs the optional filler words ("anche", "la"/"le",
+// "issue") Italian prose puts between the verb and the `#N`, bounded to that
+// fixed word list so a real sentence boundary still breaks the run exactly
+// like the English case above.
+const IT_BRIDGE = '(?:anche\\s+)?(?:l[ae]\\s+)?(?:issue\\s+)?';
+const CLOSE_KW_LIST = new RegExp(
+  `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|supersede[sd]?|chiud[eo]|risolv[eo]|super[ae])\\b\\s*:?\\s*${IT_BRIDGE}((?:#\\d+(?:[\\s,&]+(?:and\\s+)?)?)+)`,
+  'ig',
+);
 
 /**
  * Every issue number declared closed/superseded by a closing-keyword list in `text`

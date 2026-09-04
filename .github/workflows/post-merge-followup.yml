@@ -157,6 +157,91 @@ jobs:
           echo "::error::post-merge-followup: quota Claude esaurita (reset epoch ${{ steps.quota.outputs.resets_at }}) — salto la chiamata Claude, che morirebbe su HTTP 429 a turno 1. Il watermark NON avanza: la prossima run schedulata (≤3h) ri-copre l'intera finestra, nessuna PR persa."
           exit 1
 
+      # Il follow-up puo' trovare un file che appartiene al producer del corpus,
+      # anche quando la PR sorgente e' nel sito. In quel caso l'issue deve nascere
+      # su nanako: il GITHUB_TOKEN del sito e' scoped al solo repo corrente.
+      # Carichiamo il PAT Valerie cross-repo solo quando esiste davvero un batch, cosi'
+      # una finestra vuota non paga ne' Firebase ne' il caricamento RC.
+
+      - name: Prepare Firebase credentials for follow-up routing
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente: routing verso nanako non disponibile"
+          fi
+
+      - name: Load cross-repo follow-up credentials
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Prefetch zero-Claude (token-lever, stesso bundle di tests.yml/pr-review-loop):
+      # il prompt sotto rifà, per OGNI PR del batch, `gh pr view N --json ...` + `gh api
+      # .../reviews`, e il check "In-flight PR overlap" rifà `gh pr list --state open` +
+      # `gh pr diff <n> --name-only` per ciascuna PR aperta. Con `batch_count` PR per run
+      # è il moltiplicatore più alto del repo: ogni PR extra nel batch è un turno in più
+      # di puro setup, che qui è già zero-Claude perché `batch_prs` è noto PRIMA che
+      # Claude parta. Fail-open: un fetch fallito lascia la sezione vuota/`{}` e il
+      # prompt sa rifare la chiamata diretta se il bundle risulta incompleto.
+      - name: Prefetch follow-up batch context (zero-Claude)
+        id: batchctx
+        if: steps.quota.outputs.quota_blocked != 'true' && steps.collect.outputs.batch_count != '0' && steps.collect.outputs.batch_count != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
+          CTX_DIR: ${{ runner.temp }}/followup-ctx
+        run: |
+          set -uo pipefail
+          mkdir -p "$CTX_DIR"
+          : > "$CTX_DIR/prs.md"
+          IFS=',' read -ra NUMS <<< "$BATCH_PRS"
+          for n in "${NUMS[@]}"; do
+            [ -z "$n" ] && continue
+            {
+              echo "### PR #$n"
+              echo '```json'
+              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,url,author 2>/dev/null || echo '{}'
+              echo '```'
+              echo "Reviews:"
+              echo '```json'
+              gh api "repos/$REPO/pulls/$n/reviews" 2>/dev/null || echo '[]'
+              echo '```'
+              echo
+            } >> "$CTX_DIR/prs.md"
+          done
+
+          # In-flight PR overlap (line "In-flight PR overlap" sotto): elenco PR aperte +
+          # i loro file, condiviso da TUTTE le PR del batch (non per-PR).
+          gh pr list --repo "$REPO" --state open --limit 100 --json number,title,headRefName \
+            > "$CTX_DIR/open-prs.json" 2>/dev/null || echo '[]' > "$CTX_DIR/open-prs.json"
+          : > "$CTX_DIR/open-pr-files.txt"
+          for n in $(jq -r '.[].number' "$CTX_DIR/open-prs.json" 2>/dev/null || true); do
+            echo "### PR #$n" >> "$CTX_DIR/open-pr-files.txt"
+            gh pr diff "$n" --repo "$REPO" --name-only 2>/dev/null >> "$CTX_DIR/open-pr-files.txt" || true
+            echo >> "$CTX_DIR/open-pr-files.txt"
+          done
+
+          {
+            echo "# Post-merge follow-up batch bundle"
+            echo
+            echo "## Per-PR metadata + reviews (batch: $BATCH_PRS)"
+            cat "$CTX_DIR/prs.md"
+            echo
+            echo "## Open PRs (per il check 'In-flight PR overlap')"
+            cat "$CTX_DIR/open-prs.json"
+            echo
+            echo "## Open PR changed files"
+            cat "$CTX_DIR/open-pr-files.txt"
+          } > "$CTX_DIR/followup-bundle.md"
+          echo "Prefetched follow-up batch context in $CTX_DIR:"
+          ls -la "$CTX_DIR"
+
       - name: Run Claude follow-up triage (batch)
         id: followup
         # Gira SOLO se il batch ha almeno una PR. Per le altre run (finestra vuota /
@@ -171,6 +256,7 @@ jobs:
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           BATCH_COUNT: ${{ steps.collect.outputs.batch_count }}
           REPO: ${{ github.repository }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
           EVENT_NAME: ${{ github.event_name }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -211,7 +297,7 @@ jobs:
           # ABBASSARE i turni di post-merge-followup (15→20
           # fu un fix di `error_max_turns` su PR perse); qui processiamo N PR in una
           # sessione → vanno ALZATI in proporzione, mai sotto il floor. Modello →
-          # claude-sonnet-5 (owner 2026-07-17: mai claude-sonnet-4-6).
+          # claude-opus-5 (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6).
           # Se una sessione satura il cap (batch grande) → error_max_turns → run NON
           # success → watermark non avanza → la prossima run schedulata ri-copre la
           # finestra; l'idempotenza salta le PR già commentate, riprende le restanti.
@@ -227,7 +313,7 @@ jobs:
           # anche con actor umano), non con settings/claude_args. Torniamo allo
           # scoped `--allowedTools` precedente (problema noto ma minore: rifiuta
           # a volte sintassi shell non staticamente analizzabile, non blocca TUTTO).
-          claude_args: "--max-turns ${{ steps.collect.outputs.max_turns }} --model claude-sonnet-5 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
+          claude_args: "--effort medium --max-turns ${{ steps.collect.outputs.max_turns }} --model claude-opus-5 --allowedTools 'Bash(gh:*),Read,Grep,Glob'"
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}
@@ -240,6 +326,7 @@ jobs:
             1. Leggi `FOLLOWUP.md` — contratto operativo completo (parse rules, filtro scopo, dedup, issue format, closing comment).
             2. Leggi `REVIEW.md → "Scopo progetto"` per il filtro funnel.
             3. `gh issue list --label follow-up --state all --json number,title --limit 50` (SOLO `number,title`: il bulk overview serve per la vista d'insieme/titoli; il dedup vero è item-level scoped via `--search`. MAI aggiungere `,body`: con ~170 issue follow-up il dump arriva a ~170KB emoji-heavy, troncato a un boundary di surrogate UTF-16 → lone surrogate → `400 no low surrogate in string`, ogni run fallisce.) Riusa questa lista per il dedup su tutte le PR del batch.
+            4. Il contesto per-PR del batch è già prefetchato (zero-Claude, token-lever) in `${{ runner.temp }}/followup-ctx/followup-bundle.md`: leggilo con `Read` — contiene, per ciascuna PR #N del batch, `gh pr view` (number/title/body/mergedAt/mergeCommit/url/author) + le review, e l'elenco delle PR aperte con i rispettivi file (per l'In-flight PR overlap sotto). Non ripetere queste chiamate per-PR a meno che la sezione della PR risulti vuota/incompleta nel bundle.
 
             **Per OGNI PR #N del batch (CSV sopra):**
             - **Backfill check (SOLO se `EVENT_NAME=workflow_dispatch`):** ri-verifica che
@@ -247,7 +334,30 @@ jobs:
               - `gh pr view N --json author --jq '.author.login'` ∈ {`valerielinc-ops`, `frontaliere-automation` (o `app/frontaliere-automation`)} (same-owner / internal-app gate)
               - Se uno dei due fallisce → posta su #N `## Post-merge follow-up triage (backfill skipped): PR not eligible (not merged or different author)` e passa alla PR successiva.
               (Sul path `schedule` l'eleggibilità è già garantita da collect-followup-batch.mjs → salta questo check.)
-            - Carica: `gh pr view N --json number,title,body,mergedAt,mergeCommit,url` + `gh api repos/$REPO/pulls/N/reviews`.
+            - Metadata + review della PR: già nel bundle (`## Per-PR metadata + reviews`, punto 4 del Bootstrap sopra). Non rifare `gh pr view`/`gh api .../reviews` a meno che la sezione di questa PR risulti vuota.
+            - **Risolvi il repository PRIMA di creare qualunque issue.** Il repo della PR
+              sorgente NON decide il repo dell'issue: lo decide il primo file realmente
+              modificabile indicato dall'item. Usa questa mappa fissa:
+              - `nanakokyobashi-rgb/frontaliere-articles`: `generator/**`,
+                `generator/tests/**`, `generator/scripts/**`, `content/**`,
+                `data/blog-articles/**`, `data/article-source-urls.json`,
+                `data/batch-faq-progress.json` e i workflow del corpus che generano/pubblicano articoli
+                (`generate-article.yml`, `batch-faq-articles.yml`,
+                `publish-journalist-articles.yml`, `publish-api.yml`). Anche il twin
+                `scripts/create-article.mjs` appartiene qui quando l'item riguarda la
+                generazione live: il producer del sito e' disattivato dal cutover.
+              - `valerielinc-ops/frontaliere-si-o-no`: tutto il resto, inclusi i file
+                del sito, i workflow di deploy/sync/validation e i mirror che leggono
+                il corpus senza generarlo.
+              Se un item cita piu' file, scegli il repo del file che richiede la modifica
+              comportamentale; se cita solo un sintomo, individua prima il file sorgente
+              reale. Scrivi sempre nell'issue `Target repository:` e `Target file:`.
+              Per Nanako usa SEMPRE il comando esplicito:
+              `GH_TOKEN="$GITHUB_PAT" gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
+              Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
+              Se `GITHUB_PAT` manca o e' vuoto, NON creare una issue su Valerie
+              come ripiego: posta sulla PR il blocco di routing e lascia l'item da
+              ritentare nella prossima passata.
             - Parse PR body `## Non implementato (ancora)`. **Il routing lo decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8; `scripts/ci/followup-has-candidates.mjs` applica esattamente questa regola a monte, e sono la stessa tassonomia — non inventarne una terza):
               - `in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario` → **NON creare issue**: la voce è già chiusa o già tracciata altrove.
               - `blocked: <causa tecnica>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item.
@@ -260,7 +370,7 @@ jobs:
             - **Hard-exclude live-verification-only (FOLLOWUP.md → "Hard-exclude: live-verification-only item"):** NON mintare issue (reason `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte**, ogni item la cui UNICA azione è ispezionare il sito già deployato (nessun file da editare): "verify live / verifica live / post-deploy / (post-merge, live) / (live)", "curl la URL prod / live-200", "render at NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` `- [ ]` etichettata `(post-merge, live)` non spuntata. **Routing:** raccoglili in una UNICA checklist `Live-verification` batchata nel summary commento di QUELLA PR, NON come issue. **Eccezione:** un item che MESCOLA live-verify con un'edit concreta resta actionable.
             - Filtro scopo (`REVIEW.md`): item passa SOLO se è funnel-critico (monetizzazione / traffico / correttezza) **E** azionabile (cambiamento di comportamento concreto). Nel dubbio churn-vs-funnel → drop.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
-            - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando (`gh pr list --state open` + `gh pr diff <n> --name-only`) → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
+            - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando — usa `## Open PRs` + `## Open PR changed files` già nel bundle (punto 4 del Bootstrap), non rifare `gh pr list`/`gh pr diff --name-only` → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
             - Crea issue per candidate validi, **max 10 per PR**. Label: `follow-up` + UNO funnel-* se inferibile.
             - **OBBLIGATORIO:** posta `## Post-merge follow-up triage` summary commento su QUELLA PR (#N) — SEMPRE, anche con zero candidate (`## Post-merge follow-up triage: zero outstanding items.`). Questo commento è il MARKER DI IDEMPOTENZA del batch: senza, la prossima run schedulata ri-triagia la stessa PR. Include la sezione `Live-verification` (checklist `- [ ]` batchata) se ce ne sono; vedi FOLLOWUP.md § Closing comment.
 
@@ -268,6 +378,7 @@ jobs:
             - Read-only eccetto `gh issue create`, `gh pr comment`.
             - Mai modificare PR label/state/title. Mai chiudere/riaprire issue.
             - Incerto sul filtro → crea con rationale "needs triage".
+            - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - NB: la supersede detection NON è scope di questo prompt — la fa già `followup-reconcile.yml` deterministico daily (zero-Claude).
 
       # NB: niente self-retry step (era richiesto dal modello per-PR, dove un run fallito
@@ -282,3 +393,7 @@ jobs:
         # Exact token/cost for this run (replaces estimates). Writes a table to the run
         # Step Summary + a grep-able CLAUDE_USAGE line to the log. Best-effort: never fails.
         run: node scripts/ci/claude-usage-summary.mjs "${{ steps.followup.outputs.execution_file }}" "post-merge-followup"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json

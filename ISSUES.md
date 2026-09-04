@@ -75,8 +75,8 @@ Trigger: label `agent:fix` aggiunta = il consenso. La mette l'owner (manuale) o 
 
 | Tier | Trigger | Model / max-turns |
 |---|---|---|
-| high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | claude-sonnet-5, 70 |
-| normal | resto | claude-sonnet-5, 55 |
+| high | issue tocca `crawler`/`parser`/`scripts/`/`build-plugin`/`.github/workflows/`/test gate | claude-opus-5 (`--effort medium`), 70 |
+| normal | resto | claude-opus-5 (`--effort medium`), 55 |
 
 ### CODE vs DATA (no scroll dei blob — frugalità token, mirror del guard reviewer #1096)
 
@@ -155,6 +155,56 @@ opt-in perché il bypass della coda è documentato sopra come l'unica eccezione.
 
 Il contesto completo (rilevatore, calibrazione, audit settimanale) sta in
 `docs/CRAWLERS.md` → "Job-Content Plausibility".
+
+## Contratto minimo per issue auto-generate (`## Segnali`, opt-in)
+
+2026-08-30: il fixer perde turni quando una issue apre col solo sintomo ("X è
+rosso") e nessun dato deterministico — deve ricostruirsi da sé cosa è fallito,
+come riprodurlo, dove sta l'evidenza, prima ancora di iniziare la diagnosi
+vera. `issue-decompose.yml` risolve lo stesso problema per le sue sub-issue
+con `## Scheda` (CAUSA/FIX/METRICA/OSSERVATORE) — ma quella è un'ANALISI
+Claude-authored, non riproducibile dai ~24 reporter zero-Claude (monitor/
+crawler-health/audit) che aprono la stragrande maggioranza delle issue.
+
+Per quelli c'è `signals` in `createGithubIssue()` (`scripts/lib/
+github-issue-creator.mjs`, funzione `formatSignalsBlock`) — NON una diagnosi
+(nessun campo CAUSA: un reporter deterministico non ha il giudizio per
+formularla), solo i fatti che il reporter ha già in mano:
+
+```js
+await createGithubIssue({
+  title, description, priority, labels, workflow,
+  signals: {
+    cosa: 'audit:foo sopra soglia',              // opzionale
+    metrica: { osservato: 12, atteso: 5 },        // opzionale
+    comando: 'npm run audit:foo',                 // opzionale, il comando ESATTO che riproduce
+    evidenza: ['run 123', 'file.ts:42'],           // opzionale, array di riferimenti
+  },
+});
+```
+
+Da CLI (reporter che invocano `github-issue-creator.mjs` come subprocess):
+`--signal-cosa "..." --signal-osservato N --signal-atteso N --signal-comando "..." --signal-evidenza "..."` (ripetibile).
+
+Renderizza come `## Segnali (raccolti automaticamente)` PRIMA della
+`description` libera — stesso ordine di `## Scheda` sui figli di decompose.
+Ogni campo è opzionale e l'intero parametro è opt-in: un reporter che non lo
+passa ha lo stesso body di sempre (25 test in `tests/format-signals-block.
+test.ts` fissano il contratto, incluso il caso "nessun signals → nessun
+blocco"). `issue-fix.yml` (Bootstrap) legge `## Segnali` quando presente e
+salta la ri-scoperta di cosa/come-riprodurre/evidenza che altrimenti farebbe
+da sé nei primi turni.
+
+**Non retrofittato ovunque in questa sessione** — i ~24 caller di
+`createGithubIssue` non condividono tutti lo stesso gap: diversi (es.
+`report-validate-dist-failure.mjs`, `send-job-alerts.mjs`) hanno già body
+ricchi su misura (log estratto, comando di replay, `## Suggested action`)
+che `## Segnali` non migliorerebbe. Applicato qui a un caso genuinamente
+sottile (`reconcile-here-usage.mjs`, prima un'unica riga senza comando di
+riproduzione né evidenza) come riferimento. Gli altri caller vanno valutati
+uno per uno con lo stesso criterio — "il body attuale lascia al fixer una
+ricostruzione che i dati del reporter già risolvono?" — non convertiti in
+blocco.
 
 ## Kill-switch
 

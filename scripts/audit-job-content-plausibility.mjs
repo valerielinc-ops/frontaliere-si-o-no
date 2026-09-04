@@ -33,6 +33,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scanSlice } from './lib/job-content-plausibility.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -71,7 +72,7 @@ export function runAudit(opts = {}) {
 
   let files = [];
   try {
-    files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')).sort();
+    files = fs.readdirSync(dir).filter(isSliceFile).sort();
   } catch (err) {
     // Worktree sparse: `data/` puo' non essere materializzato. Non e' la prova
     // che i dati non esistano (memoria «Un fixture in worktree sparse mente») —

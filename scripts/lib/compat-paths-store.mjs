@@ -36,6 +36,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
+import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const COMPAT_LEGACY_FILE = 'data/seo-404-compat-paths.json';
@@ -140,7 +141,17 @@ export function readCompatPaths(rootDir = process.cwd()) {
  * `data` is `{ ...meta, paths }`; `paths` is de-duped, distributed by
  * `compatShardIndex`, each shard sorted for a stable diff. Meta (everything
  * except `paths`) goes to the manifest. The legacy monolith is removed if
- * present (it cannot be pushed). Returns `{ totalPaths, shardCount }`.
+ * present (it cannot be pushed). Returns `{ totalPaths, shardCount,
+ * shardsWritten }`.
+ *
+ * Only shards whose serialized content actually differs from what's on disk
+ * are written (2026-08-30, issue #6384): with 146 commits/30d touching this
+ * directory and most persists changing a handful of paths, unconditionally
+ * rewriting all 16 shards every call inflated every commit's diff (and the
+ * repo's git history weight) 16x beyond the real change. Comparing the
+ * about-to-be-written bytes against the existing file before writing keeps
+ * the shard set byte-identical run to run wherever nothing changed, with no
+ * change to the logical read/write contract.
  */
 export function writeCompatPaths(data, rootDir = process.cwd()) {
   const { paths: rawPaths, ...meta } = data || {};
@@ -153,14 +164,16 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
 
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   fs.mkdirSync(dir, { recursive: true });
+  let shardsWritten = 0;
   for (let i = 0; i < COMPAT_SHARD_COUNT; i++) {
     buckets[i].sort();
-    fs.writeFileSync(compatShardFile(i, rootDir), JSON.stringify({ paths: buckets[i] }, null, 2) + '\n', 'utf-8');
+    const content = JSON.stringify({ paths: buckets[i] }, null, 2) + '\n';
+    const file = compatShardFile(i, rootDir);
+    if (writeShardFileIfChanged(file, content)) shardsWritten++;
   }
-  fs.writeFileSync(
+  writeFileAtomic(
     compatManifestFile(rootDir),
     JSON.stringify({ ...meta, shardCount: COMPAT_SHARD_COUNT, totalPaths: uniq.length }, null, 2) + '\n',
-    'utf-8',
   );
 
   // The monolith is unpushable (>100 MB) and now superseded — drop it.
@@ -171,5 +184,5 @@ export function writeCompatPaths(data, rootDir = process.cwd()) {
     /* best-effort */
   }
 
-  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT };
+  return { totalPaths: uniq.length, shardCount: COMPAT_SHARD_COUNT, shardsWritten };
 }

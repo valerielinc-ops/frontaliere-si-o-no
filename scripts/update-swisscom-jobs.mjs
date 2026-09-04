@@ -44,6 +44,7 @@ import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, isTargetSwissLocation  } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -358,9 +359,9 @@ export function buildSwisscomRegeneratedSlug(job, city) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   if (!baseSlug) return '';
-  if (!suffix) return baseSlug.slice(0, 200);
+  if (!suffix) return truncateSlugAtWordBoundary(baseSlug, 200);
   const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
-  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
   return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
 }
 

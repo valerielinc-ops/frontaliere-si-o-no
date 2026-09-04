@@ -313,12 +313,14 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}
-        # Tier high (claude-sonnet-5, max-turns alti): issue funnel-critical — crawler/parser/
+          CTX_DIR: ${{ runner.temp }}/issue-fix-ctx
+          APP_TOKEN_WORKFLOWS: ${{ env.APP_TOKEN_WORKFLOWS }}
+        # Tier high (claude-opus-5, max-turns alti): issue funnel-critical — crawler/parser/
         # build-plugin/workflow CI/test gate, o uno script che MUTA/emette dati
         # indicizzati (backfill/migrate/assemble/sitemap/canonical/slug/
         # structured-data/seo). Bug lì = rischio propagato su ogni merge → probing
-        # rigoroso paga. Tier normal per il resto (stesso modello claude-sonnet-5,
-        # unificato owner 2026-07-17 — mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
+        # rigoroso paga. Tier normal per il resto (stesso modello claude-opus-5,
+        # unificato owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6; cambiano solo i turni). Mirror ESATTO di
         # pr-review-loop: il bare `scripts/` NON escala più (mandava ogni menzione
         # di script — inclusi helper `scripts/{ci,dev,evals}/` e audit/report
         # read-only — a opus@40; osservato 2026-06-04 come tier-breadth waste). Gli
@@ -339,12 +341,44 @@ jobs:
         # stesso principio anti-tier-breadth-waste della nota sopra.
         run: |
           set -euo pipefail
-          body=$(gh issue view "$ISSUE_NUMBER" --json title,body,labels --jq '.title + "\n" + .body + "\n" + (.labels[].name)')
+          # Prefetch bundle (token-lever, stesso pattern di tests.yml/pr-review-loop
+          # "review-ctx"): questa issue serve qui per il tier E al prompt Claude
+          # (step 3, "Carica la issue") come sua prima azione a pagamento — un solo
+          # `gh issue view` invece di due, zero costo qui, un turno risparmiato là.
+          mkdir -p "$CTX_DIR"
+          gh issue view "$ISSUE_NUMBER" --json number,title,body,labels,comments > "$CTX_DIR/issue.json"
+          body=$(jq -r '.title + "\n" + .body + "\n" + (.labels[].name)' "$CTX_DIR/issue.json")
+          # Capability guard text (spostato qui da un ternario inline nel
+          # prompt, #6688-followup 2026-08-30): lo stesso ternario espanso in YAML
+          # gonfiava lo scalar `prompt:` di ~2000 char, e quel singolo step scalar
+          # ha un tetto reale imposto da GitHub Actions — misurato empiricamente
+          # tra 21.253 e 21.514 char (actionlint/PyYAML lo leggono come valido,
+          # GitHub lo rifiuta come "workflow file issue" con ZERO job schedulati,
+          # niente annotazione, solo il banner generico). Stesso testo, calcolato
+          # in bash invece che nell'espressione: il prompt lo legge da un output.
+          if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+            GUARD_TEXT='il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.'
+          else
+            GUARD_TEXT='il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.'
+          fi
+          {
+            echo "capability_guard<<CAPABILITY_GUARD_EOF"
+            echo "$GUARD_TEXT"
+            echo "CAPABILITY_GUARD_EOF"
+          } >> "$GITHUB_OUTPUT"
+          # Stessa mossa, testo statico (nessun ternario): anche questo pezzo
+          # viveva inline nel prompt e contribuiva al totale del blocco.
+          SECRETS_NOTE='**I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'\''è ma il permesso è un'\''altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».'
+          {
+            echo "secrets_note<<SECRETS_NOTE_EOF"
+            echo "$SECRETS_NOTE"
+            echo "SECRETS_NOTE_EOF"
+          } >> "$GITHUB_OUTPUT"
           if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
              || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
              || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
             echo "tier=high" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
             # 40->50 (misurato 06-12): 44 run/7gg morti error_max_turns a
             # num_turns=41 (es. run 27386343034) = run opus intera bruciata,
             # 0 PR, issue ri-accodata -> retry = doppio burn. Il cap esiste
@@ -356,7 +390,7 @@ jobs:
             echo "max_turns=70" >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
             # 30->40 (misurato 2026-06-12 post-#1919): 3 run tier=normal morti
             # error_max_turns al cap nella sola finestra 06:00-07:30Z (run
             # 27397873962/27399888568/27400421268, follow-up #1918/#1931) —
@@ -575,7 +609,7 @@ jobs:
           # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
           # (rationale completo: post-merge-followup.yml claude_args comment, stesso
           # fix, evita drift tra copie duplicate).
-          claude_args: "--max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns ${{ steps.tier.outputs.max_turns }} --model ${{ steps.tier.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Sei l'agent di fix autonomo per la issue #${{ github.event.issue.number }} ("${{ github.event.issue.title }}"). Tier: ${{ steps.tier.outputs.tier }}.
 
@@ -583,17 +617,17 @@ jobs:
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Leggi `AGENTS.md` — non-negotiables + Privacy + architettura. VINCOLANTE.
             2b. Leggi `VISION.md` — driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. La sezione «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario): nessuna categoria di business — LPD, denaro, invii massivi, ritiro editoriale, scope, infra irreversibile inclusi — richiede più un'approvazione preventiva. Scala a `needs-human` SOLO un blocco di capacità reale (credenziale davvero assente, scope insufficiente, causa non trovata dopo indagine) — mai più per una decisione che il ciclo può prendere da sé. Il registro delle decisioni del proprietario già prese è lì: non ri-chiedere ciò che è già deciso.
-            3. Carica la issue: `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
+            3. Carica la issue con `Read` da `${{ runner.temp }}/issue-fix-ctx/issue.json` (prefetchata dallo step "Determine fix tier", stessi campi). Solo se manca/è vuoto: fallback `gh issue view $ISSUE_NUMBER --json number,title,body,labels,comments`.
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
             - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può riscrivere quel file rendendo il fix moot o conflittuale (es. #934 hardening vs #943 rewrite di `submit-indexnow-batch.yml`). Nel dubbio (issue non file-specifica) → procedi.
-            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ env.APP_TOKEN_WORKFLOWS == 'true' && 'il push di questo run usa il token della GitHub App, e la risposta API del conio ha CONFERMATO `permissions.workflows == write` (letto, non dedotto dalla presenza del token): modificare file in `.github/workflows/**` è consentito e il `git push` passa. Trattali come qualunque altro file — non auto-bloccarti su quel path.' || 'il push di questo run NON ha lo scope `workflows`: o non esiste un token App, o il token è stato coniato ma il permesso `workflows` non risulta concesso sulla installazione (verificato leggendo `permissions` dalla risposta API). Dai path target estratti dal body: se il fix richiederebbe di modificare file in `.github/workflows/**` → il `git push` fallirebbe sempre (push di workflow rifiutato senza scope `workflows`) → niente PR. Allora NON implementare: posta un commento col diff/azione proposta + "blocco scope `workflows`: serve la GitHub App abilitata o mano umana" e TERMINA SUBITO.' }} **I SEGRETI CI SONO** (decisione del proprietario del 2026-08-24, registro in VISION.md): questo run carica Remote Config prima di partire, quindi `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` e gli altri ~90 parametri sono in `process.env`. Un fix che richiede una credenziale va IMPLEMENTATO, non documentato: `blocked-secrets` non è più un verdetto strutturale e va usato SOLO se leggi la variabile e la trovi davvero vuota — in quel caso dillo con il nome esatto della variabile mancante, perché è un difetto della mappa `RC_TO_ENV`, non un limite di capacità. Resta valido il freno sulle **repo-setting/branch-protection/admin-API** (es. `gh api .../branches/main/protection` → 403): là il PAT c'è ma il permesso è un'altra cosa, e vale ancora `blocked-admin-settings`. Razionale invariato: fare il fix completo per poi scoprire il blocco al push spreca ~1M token/run (vedi #983), quindi le capability si valutano a turno 1 — solo che ora la risposta sui segreti è «sì».
+            - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ steps.tier.outputs.capability_guard }} ${{ steps.tier.outputs.secrets_note }}
 
-            - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se questa issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o una qualunque PR citata come origine), leggi il body di quella PR e classificane i residui. Tre comandi, in quest'ordine:
+            - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se questa issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o una qualunque PR citata come origine), leggi il body di quella PR e classificane i residui. In quest'ordine:
               1. `gh pr view <N> --json body -q .body > /tmp/pr-body.md`
-              2. `git fetch --no-tags --depth=1 origin main && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/sections-main.mjs` — **il modulo va risolto da `main`, MAI dal checkout corrente.** Col `resume=true` del passo 1 questo container è checkoutato su un branch `fix/issue-*` lasciato da un run precedente, che può essere nato PRIMA di #5916: lì `bulletState` non è esportato (o il file non c'è) e l'import muore con `SyntaxError` / `ERR_MODULE_NOT_FOUND` dopo che hai già speso i turni di diagnosi. La tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body.
-              3. `node --input-type=module -e 'import { readFileSync } from "node:fs"; const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file:///tmp/sections-main.mjs"); const sec = extractSection(readFileSync("/tmp/pr-body.md", "utf8"), NON_IMPL_ANCORA_RE) ?? ""; for (const b of sectionBullets(sec)) console.log(JSON.stringify({ state: bulletState(b), bullet: b }));'`
+              2. `git fetch --no-tags --depth=1 origin main`, poi recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs`, mantenendo la STESSA struttura relativa (es. `mkdir -p /tmp/scripts/lib /tmp/scripts/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/scripts/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/scripts/ci/lib/false-positive-declaration.mjs`) — **il primo importa il secondo con un percorso relativo** (`../ci/lib/false-positive-declaration.mjs`, risolto dalla posizione del file, non dalla cwd): appiattirlo in un unico file isolato rompe quell'import con `ERR_MODULE_NOT_FOUND`. **Il modulo va risolto da `main`, MAI dal checkout corrente.** Col `resume=true` del passo 1 questo container è checkoutato su un branch `fix/issue-*` lasciato da un run precedente, che può essere nato PRIMA di #5916: lì `bulletState` non è esportato (o il file non c'è) e l'import muore con `SyntaxError` / `ERR_MODULE_NOT_FOUND` dopo che hai già speso i turni di diagnosi. La tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body.
+              3. `node --input-type=module -e 'import { readFileSync } from "node:fs"; const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file:///tmp/scripts/lib/pr-body-sections-check.mjs"); const sec = extractSection(readFileSync("/tmp/pr-body.md", "utf8"), NON_IMPL_ANCORA_RE) ?? ""; for (const b of sectionBullets(sec)) console.log(JSON.stringify({ state: bulletState(b), bullet: b }));'`
               **NON scrivere un secondo parser** né una regex tua. Servono tutte e quattro: `NON_IMPL_ANCORA_RE` (l'header canonico che `extractSection` pretende come argomento — riscritto a mano estrae una sezione diversa), `extractSection`, `sectionBullets` — è LUI che applica `stripNonContent`, e senza di lui gli ESEMPI di tassonomia dentro un blocco fenced del body (questo prompt ne insegna cinque, poco più sotto) vengono letti come stati dichiarati — e `bulletState`. `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni ed è il modulo che definisce la tassonomia: riscriverla a mano la fa divergere in silenzio.
               **Quali stati CHIUDONO un item e quali no — `blocked:` NON è monolitico.** Chiudono: `by-choice` (`per scelta`), `by-construction` (`by construction`) e `blocked-owner` (`blocked: decisione del proprietario` / `owner decision`), che è un NO di chi decide e non lavoro sospeso — sono i tre nei `CLOSING_STATES` di `followup-has-candidates.mjs`, cioè quelli che quel gate NON riaccoda. NON chiudono: `in-this-pr`, `chained-pr` e `blocked-technical`, cioè ogni altro `blocked: <causa>`, che resta lavoro dovuto e va trattato normalmente. Leggi la CAUSA, non il prefisso.
               **Due controlli prima di onorare il veto.** `bulletState` vince sull'occorrenza più a SINISTRA: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una NEGAZIONE — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato. Se uno dei due non regge, lo stato non copre l'item: implementalo normalmente e dillo nel commento. Il veto vale solo per il bullet che copre il TEMA dell'item, mai per uno che gli somiglia.
@@ -604,7 +638,7 @@ jobs:
             **Fix flow (vedi ISSUES.md):**
             1. Branch isolato — **resume-aware** (`resume=${{ steps.resume.outputs.resume }}`): se `resume=false`, `git checkout -b fix/issue-$ISSUE_NUMBER` (fresh, come sempre). Se `resume=true` esiste già un branch `fix/issue-$ISSUE_NUMBER` su origin (lasciato da un run precedente morto per max-turns DOPO il checkpoint WIP, vedi step 4) — fai `git fetch origin fix/issue-$ISSUE_NUMBER && git checkout fix/issue-$ISSUE_NUMBER` invece di ricreare da zero. Ispeziona cosa c'è già (`git log --oneline origin/main..HEAD --stat`): se il diff è pertinente alla issue corrente, CONTINUA da lì (non ridiagnosticare/rifare il lavoro già presente). Se il diff sembra stale/scollegato dal body della issue attuale → `git reset --hard origin/main` e riparti pulito — usa giudizio, non è un automatismo cieco.
                **Questo container CI è GIÀ un checkout isolato monouso** (step `Checkout` in cima al workflow, `actions/checkout@v5` fresh a ogni run). **NON creare un worktree interno `.claude/worktrees/**` qui**: la regola "worktree-first" di `AGENTS.md`/`CLAUDE.md` esiste per sessioni interattive locali con un `main` condiviso — non si applica in un container CI già isolato, e crearne uno dentro non aggiunge isolamento, brucia solo turni rifacendo la meccanica del checkout (osservato #4263: ~6 turni finali sprecati su un ciclo `git diff` → patch → fetch → `.claude/worktrees/... add` → apply mai completato, 0 PR). Lavora direttamente nella root del checkout.
-            2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l'OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
+            2. Diagnosi root cause della issue (NON sintomo). **Scorciatoia scheda (issue da decomposizione):** se il body o un commento contiene una sezione `## Scheda` (issue nata dallo stadio `issue-decompose`, tipicamente label `from-decompose`), la scheda È la diagnosi già fatta — verifica la CAUSA in ≤3 turni col COMANDO della METRICA; se regge, salta direttamente al passo 3 e usa la METRICA come criterio di verifica del fix e l'OSSERVATORE come test da aggiungere. Se la verifica smentisce la CAUSA, prosegui con la diagnosi normale e dichiaralo nel commento finale. **Scorciatoia segnali (issue da reporter zero-Claude, ISSUES.md → "Contratto minimo"):** se il body contiene `## Segnali (raccolti automaticamente)`, NON è una diagnosi (nessuna CAUSA) — ma il `Comando di riproduzione` verifica lo stato attuale in un turno invece di ricostruirlo, `Metrica` dà osservato/atteso come criterio di successo, `Evidenza` punta a dove guardare. Usali per saltare la scoperta iniziale, poi diagnostica la CAUSA normalmente. Per categoria `crawler`: il selector è driftato → rigenera/aggiusta il parser; preferisci `node scripts/generate-company-parser.mjs` o l'edit mirato del parser/config citato nel body. **Turn-budget:** se dopo ~15 turni di esplorazione non emerge una root cause chiara, NON continuare a scavare sullo stesso vicolo cieco — restringi lo scope (issue aggregate: scegli un item più semplice, vedi circuit-breaker sopra) o termina pulito con l'outcome `no-root-cause` (già definito in fondo al prompt) invece di bruciare il resto del budget senza convergere.
             3. Applica fix CHIRURGICO alla **CLASSE del bug, NON al singolo file** (AGENTS.md non-negotiable #6): no drive-by refactor / no speculative abstraction, MA per un fix di pattern (regex/replace/guard/floor/threshold/selector/bullet-idiom) `rg`/`grep` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`) per lo STESSO costrutto → sweepa l'intera classe nella STESSA PR, oppure giustifica OGNI sibling non toccato in `## Non implementato`. Toccare i file gemelli con lo stesso antipattern NON è drive-by: è il fix completo. Pre-empt del 🔴 reviewer "stesso antipattern nel file gemello" (osservato #1083/#1073 il 2026-06-02: PR mono-file → 🔴 sibling → 2 cicli review+fix sprecati sulla quota Max condivisa).
             4. **Checkpoint WIP — commit+push IMMEDIATO (anti-100%-loss, #4337):** appena il fix del passo 3 è applicato (anche se non ancora testato dal gate del passo 6), committa tutto con `git add -A && git commit -m "wip(issue-$ISSUE_NUMBER): checkpoint pre-test"` e pusha SUBITO: `git push -u origin fix/issue-$ISSUE_NUMBER`. **Perché ORA:** prima di questo cambio commit+push+PR accadevano SOLO a fine flusso — un run morto per `--max-turns` prima di arrivarci perdeva il 100% del diff col container (#4337: 71 turni, $6.58, edit reali a `build-plugins/staticPagesPlugin.ts`, branch mai pushato, 404 su GitHub). Con questo checkpoint, se il run muore DOPO questo punto il branch sopravvive su GitHub col diff reale — recuperabile dal prossimo retry via la resume-logic del passo 1, invece di una perdita totale.
             5. Mai abbassare quality gate/test/validation per "far passare" (non-negotiable #1).

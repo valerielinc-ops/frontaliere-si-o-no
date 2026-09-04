@@ -8,9 +8,9 @@
  * `missing_filters`. These tests pin the round-trip end to end plus the ONE
  * company-slug normalisation the whole feature depends on.
  */
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { baseCompanySlug, canonicalCompanyProfileSlug, rawCompanySlug } from '../build-plugins/shared/companyProfileSlug.mjs';
 import { canonicalEmployerBrandKey } from '@/services/employerBrands';
 import { canonicalCompanySlug } from '../build-plugins/weeklyEmployersData';
@@ -56,6 +56,13 @@ import {
   COMPANY_ALERT_STRINGS,
   COMPANY_ALERT_TEMPLATE_ID,
 } from '@/services/companyAlertEmail.mjs';
+import { formatSalary, resolveLogoUrl } from '@/services/newsletter-content.mjs';
+import {
+  NEWSLETTER_AFFILIATE_ENTRIES,
+  NEWSLETTER_SPONSORS,
+  renderRecommendedBlock,
+} from '@/services/newsletter/recommendedBlock.mjs';
+import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIdentity.js';
 import { isImmediateCompanyAlert } from '../scripts/lib/company-alert-routing.mjs';
 import { companyFollowMountPlaceholder } from '../build-plugins/shared/companyFollowMountPlaceholder';
 import {
@@ -529,6 +536,190 @@ describe('company_alert template — the dedicated email the issue asks for (#50
     const digest = readRepoFile('scripts/send-job-alerts.mjs');
     expect(digest).toContain('if (alert.specificCompanyKey) {');
     expect(digest).toContain('filterParts.push(pinnedCompanyName);');
+  });
+});
+
+describe('company_alert template — job-alert card, footer chrome, sponsored slot', () => {
+  const NOW = Date.UTC(2026, 8, 2, 12, 0, 0);
+  const richJob = {
+    id: 'j-rich',
+    title: 'Sviluppatore Full Stack',
+    company: 'Board International SA',
+    companyKey: 'board-international',
+    location: 'Lugano',
+    canton: 'TI',
+    contract: 'full-time',
+    salaryMin: 80000,
+    salaryMax: 100000,
+    currency: 'CHF',
+    baseSalary: { value: { unitText: 'YEAR' } },
+    firstSeenAt: new Date(NOW - 3 * 3600 * 1000).toISOString(),
+    url: 'https://frontaliereticino.ch/lavoro/sviluppatore-full-stack/',
+  };
+  const build = (overrides: Record<string, unknown> = {}) => buildCompanyAlertEmail({
+    companyName: 'Board International SA',
+    companySlug: 'board-international',
+    jobs: [richJob],
+    email: 'a@b.ch',
+    locale: 'it',
+    manageUrl: 'https://frontaliereticino.ch/preferenze-newsletter/',
+    unsubscribeUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?x=1',
+    unsubscribeAllUrl: 'https://frontaliereticino.ch/disiscrivi-alert/?all=1',
+    now: NOW,
+    ...overrides,
+  });
+
+  afterEach(() => {
+    NEWSLETTER_SPONSORS.length = 0;
+  });
+
+  it('renders title, location, salary chip from the shared formatter, and contract chip', () => {
+    const { html } = build();
+    expect(html).toContain('Sviluppatore Full Stack');
+    expect(html).toContain('Lugano');
+    const salaryLabel = formatSalary(richJob, 'it');
+    expect(salaryLabel).toBeTruthy();
+    expect(html).toContain(salaryLabel as string);
+    expect(html).toContain('Tempo pieno');
+  });
+
+  it('omits the salary chip entirely when salaryMin/salaryMax are absent — no empty CHF hole', () => {
+    const { html } = build({
+      jobs: [{ ...richJob, salaryMin: 0, salaryMax: 0, currency: undefined, baseSalary: undefined }],
+    });
+    expect(html).not.toMatch(/CHF\s+\d/);
+  });
+
+  it('renders a CDN brand <img> when companyKey hits the logo manifest, else the initial-letter fallback and no broken image', () => {
+    const manifestPath = path.join(repoRoot, 'data/company-logos-manifest.json');
+    const withLogo = build();
+    const expectedLogo = resolveLogoUrl({ companyKey: 'board-international', company: 'Board International SA' });
+    if (existsSync(manifestPath)) {
+      expect(expectedLogo, 'board-international is in the committed logo manifest').toBeTruthy();
+      expect(expectedLogo).toMatch(/^https:\/\/cdn\.frontaliereticino\.ch\/images\/brands\//);
+      expect(withLogo.html).toContain(`<img src="${expectedLogo}"`);
+      expect(withLogo.html).toContain('width="44" height="44"');
+    } else {
+      expect(expectedLogo).toBeNull();
+      expect(withLogo.html).toMatch(/font-size:18px;font-weight:800;color:#f97316;">B<\/div>/);
+    }
+    expect(withLogo.html).not.toMatch(/google\.com\/s2\/favicons/);
+
+    const { html: fallbackHtml } = build({
+      companyName: 'Nonsense Long Tail Employer XYZ',
+      companySlug: 'nonsense-long-tail-employer-xyz',
+      jobs: [{
+        ...richJob,
+        company: 'Nonsense Long Tail Employer XYZ',
+        companyKey: 'nonsense-long-tail-employer-xyz',
+      }],
+    });
+    expect(fallbackHtml).not.toContain('<img');
+    expect(fallbackHtml).not.toMatch(/google\.com\/s2\/favicons/);
+    expect(fallbackHtml).toMatch(/font-size:18px;font-weight:800;color:#f97316;">N<\/div>/);
+  });
+
+  it('shows the NEW chip when firstSeenAt is within 48h of the caller-supplied now, and omits it otherwise', () => {
+    const fresh = build();
+    expect(fresh.html).toContain(COMPANY_ALERT_STRINGS.it.newBadge);
+
+    const stale = build({
+      jobs: [{ ...richJob, firstSeenAt: new Date(NOW - 5 * 86400 * 1000).toISOString() }],
+    });
+    expect(stale.html).not.toContain(COMPANY_ALERT_STRINGS.it.newBadge);
+
+    const missing = build({ jobs: [{ ...richJob, firstSeenAt: undefined }] });
+    expect(missing.html).not.toContain(COMPANY_ALERT_STRINGS.it.newBadge);
+  });
+
+  it('omits location and contract chips when those fields are missing — no empty hole', () => {
+    const { html } = build({
+      jobs: [{
+        ...richJob,
+        location: '',
+        canton: '',
+        addressLocality: '',
+        contract: '',
+        contractType: '',
+        salaryMin: 0,
+        salaryMax: 0,
+        currency: undefined,
+        baseSalary: undefined,
+        firstSeenAt: undefined,
+      }],
+    });
+    expect(html).toContain('Sviluppatore Full Stack');
+    expect(html).not.toContain('Lugano');
+    expect(html).not.toContain('Tempo pieno');
+    expect(html).not.toMatch(/CHF\s+\d/);
+    expect(html).not.toContain(COMPANY_ALERT_STRINGS.it.newBadge);
+  });
+
+  it('footer chrome matches job-alert: closer card, social row, copyright/spam, data-controller, unsub links', () => {
+    const { html } = build();
+    expect(html).toContain('segui questa azienda');
+    expect(html).toContain(COMPANY_ALERT_STRINGS.it.closerSign);
+    expect(html).toContain('facebook.com');
+    expect(html).toContain('linkedin.com/company/frontaliere-ticino');
+    expect(html).toContain('0% spam, 100% frontaliere');
+    expect(html).toContain(dataControllerFooterLine('it'));
+    expect(html).toContain('#94a3b8');
+    expect(html).toContain('Smetti di seguire Board International SA');
+    expect(html).toContain('Disattiva tutti gli avvisi');
+    expect(html).toContain('https://frontaliereticino.ch/disiscrivi-alert/?x=1');
+    expect(html).toContain('https://frontaliereticino.ch/disiscrivi-alert/?all=1');
+    expect(html).not.toContain('Disiscriviti da questa alert');
+  });
+
+  it('interpolates the shared recommended-block renderer as a sibling <tr> after the job cards', () => {
+    const src = readRepoFile('services/companyAlertEmail.mjs');
+    expect(src).toMatch(/interest:\s*'jobs'/);
+    expect(src).toMatch(/campaign:\s*COMPANY_ALERT_TEMPLATE_ID/);
+    expect(src).toMatch(/\$\{recommendedBlockHtml\}/);
+    expect(src).toMatch(/\$\{body\}\$\{monoCta\}[\s\S]*\$\{recommendedBlockHtml\}[\s\S]*closerSign/);
+  });
+
+  it('includes the sponsored-block disclosure when a partner is active, interpolating the shared renderer output', () => {
+    NEWSLETTER_SPONSORS.push({
+      id: 'acme-company-alert',
+      name: 'Acme',
+      emoji: '🏷️',
+      url: 'https://acme.example/offer/',
+      active: true,
+      weight: 1,
+      copy: {
+        it: { title: 'Offerta Acme', body: 'Corpo IT', cta: 'Vai →' },
+        en: { title: 'Acme offer', body: 'Body EN', cta: 'Go →' },
+        de: { title: 'Acme Angebot', body: 'Body DE', cta: 'Los →' },
+        fr: { title: 'Offre Acme', body: 'Body FR', cta: 'Aller →' },
+      },
+    });
+    const block = renderRecommendedBlock({
+      locale: 'it',
+      interest: 'jobs',
+      campaign: COMPANY_ALERT_TEMPLATE_ID,
+    });
+    expect(block.trim().startsWith('<tr>')).toBe(true);
+    expect(block).toContain('Contenuto sponsorizzato');
+    const { html } = build();
+    expect(html).toContain(block.trim());
+    expect(html).toContain('Contenuto sponsorizzato');
+    expect(html).toContain('Offerta Acme');
+  });
+
+  it('keeps a balanced table when the recommended renderer returns the empty string', () => {
+    const savedEntries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+    try {
+      expect(renderRecommendedBlock({ locale: 'it', interest: 'jobs', campaign: COMPANY_ALERT_TEMPLATE_ID })).toBe('');
+      const { html } = build();
+      expect(html).not.toContain('Contenuto sponsorizzato');
+      expect(html).not.toContain('Consigliato per te');
+      expect((html.match(/<tr/g) || []).length).toBe((html.match(/<\/tr>/g) || []).length);
+      expect((html.match(/<table/g) || []).length).toBe((html.match(/<\/table>/g) || []).length);
+      expect(html).toContain('0% spam, 100% frontaliere');
+    } finally {
+      NEWSLETTER_AFFILIATE_ENTRIES.push(...savedEntries);
+    }
   });
 });
 

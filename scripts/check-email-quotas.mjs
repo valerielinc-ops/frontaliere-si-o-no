@@ -12,10 +12,10 @@
  * best-effort — falls back to "unverified" if the sending key lacks the
  * statistics.read scope, sending is unaffected either way.
  *
- * It also watches Resend's billing-cycle burn rate (cycle anchored on the 6th
+ * It also watches Resend's quota-cycle burn rate (cycle anchored on the 6th
  * of each month, same as the cascade's own dynamic daily cap) and opens a
  * GitHub issue if usage is running ahead of the pace needed to land at/under
- * the 50k/mo quota by renewal — a signal the dynamic cap alone can't surface,
+ * the free plan's 3000/mo quota — a signal the dynamic cap alone can't surface,
  * since it only throttles FUTURE sends, it doesn't tell a human the burn rate
  * looks wrong (e.g. verification blind spot, cap bypassed, real demand spike).
  *
@@ -42,13 +42,13 @@ import {
 
 // 15% slack over the expected pace before alerting — daily sends are lumpy
 // (newsletter days vs quiet days), so a small overshoot is normal noise, not
-// a real risk to the 50k/mo cap. Below 20% of the monthly quota consumed we
+// a real risk to the 3000/mo cap. Below 20% of the monthly quota consumed we
 // skip the check entirely: early in the cycle a handful of transactional
 // sends can look like a huge overshoot in ratio terms while being a
 // negligible absolute risk (e.g. 3 sent vs 1 expected = "300% of pace").
 const RESEND_PACE_BUFFER = 1.15;
 const RESEND_PACE_MIN_USAGE_RATIO = 0.2;
-const RESEND_PACING_ISSUE_TITLE = 'Resend: burn rate ahead of pace for 50k/mo renewal';
+const RESEND_PACING_ISSUE_TITLE = 'Resend: burn rate ahead of pace for 3k/mo free quota';
 const WORKFLOW_NAME = 'Email Quota Check';
 
 function todayUTC() {
@@ -97,7 +97,7 @@ async function checkResendPacing() {
   }
 
   const signal = computePacingSignal({ count, monthlyLimit: provider.monthlyLimit, cycleStart, cycleEnd, now: Date.now() });
-  console.log(`\n📈 Resend cycle pacing: used ${signal.count}/${signal.monthlyLimit} (${pct(signal.actualRatio)}), expected pace ${pct(signal.expectedRatio)}, ${signal.daysRemaining}d remaining until renewal (${cycleEnd.toISOString().slice(0, 10)}).`);
+  console.log(`\n📈 Resend cycle pacing: used ${signal.count}/${signal.monthlyLimit} (${pct(signal.actualRatio)}), expected pace ${pct(signal.expectedRatio)}, ${signal.daysRemaining}d remaining in quota cycle (${cycleEnd.toISOString().slice(0, 10)}).`);
 
   return signal.aheadOfPace ? signal : null;
 }
@@ -106,10 +106,10 @@ export function buildPacingIssueBody(signal) {
   return [
     '## 📈 Resend: burn rate ahead of pace',
     '',
-    `Ciclo di fatturazione **${signal.cycleStart.toISOString().slice(0, 10)} → ${signal.cycleEnd.toISOString().slice(0, 10)}** (rinnovo il 6 del mese).`,
+    `Ciclo quota **${signal.cycleStart.toISOString().slice(0, 10)} → ${signal.cycleEnd.toISOString().slice(0, 10)}** (reset il 6 del mese).`,
     '',
     `Usati **${signal.count} / ${signal.monthlyLimit}** (**${pct(signal.actualRatio)}**) contro un ritmo atteso del **${pct(signal.expectedRatio)}**.`,
-    `Giorni rimanenti al rinnovo: **${signal.daysRemaining}**.`,
+    `Giorni rimanenti nel ciclo quota: **${signal.daysRemaining}**.`,
     '',
     'Il cap dinamico su Resend (`computeResendDynamicDailyLimit` in `functions/src/emailCascade.js`)',
     'rallenta automaticamente gli invii FUTURI in base a questo stesso calcolo, ma non segnala a un',

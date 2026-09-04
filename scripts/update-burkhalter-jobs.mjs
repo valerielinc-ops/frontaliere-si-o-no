@@ -53,6 +53,8 @@ import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { repairBurkhalterBoundarySlugs } from './lib/burkhalter-slug-boundary-repair.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -115,13 +117,13 @@ function jobMatchKey(job) {
 }
 
 function slugify(text = '') {
-  return text
+  const slug = text
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 120);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 120);
 }
 
 /* ── Fetch & Parse ─────────────────────────────────────────── */
@@ -274,6 +276,7 @@ function mergeJobs(discoveredJobs) {
 
   let added = 0;
   let updated = 0;
+  let repairedSlugs = 0;
   const mergedTarget = discoveredJobs.map((job) => {
     const prev = existingByKey.get(jobMatchKey(job));
     if (!prev) {
@@ -289,6 +292,7 @@ function mergeJobs(discoveredJobs) {
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
     };
     captureLostSlugs(merged, prev.slugByLocale, prev.slug, 20);
+    repairedSlugs += repairBurkhalterBoundarySlugs(merged);
     return merged;
   });
 
@@ -303,7 +307,7 @@ function mergeJobs(discoveredJobs) {
   printCrawlChangeSummary(diff, COMPANY_NAME);
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
 
-  return { total: mergedTarget.length, added, updated, diff };
+  return { total: mergedTarget.length, added, updated, repairedSlugs, diff };
 }
 
 /* ── Stats & Validation ────────────────────────────────────── */
@@ -391,8 +395,9 @@ async function main() {
   console.log(`✅ Built ${jobs.length} job objects`);
 
   // Step 6: Merge into jobs.json
-  const { total, added, updated, diff} = mergeJobs(jobs);
+  const { total, added, updated, repairedSlugs, diff} = mergeJobs(jobs);
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
+  if (repairedSlugs > 0) console.log(`   🔗 Repaired ${repairedSlugs} legacy boundary-truncated slug fields`);
 
   // Step 7: Translate missing locales
   await translateMissingJobLocales({

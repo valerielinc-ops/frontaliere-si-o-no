@@ -116,8 +116,9 @@ const AGGREGATE_SECTIONS: ReadonlySet<string> = new Set(
 // families we gate the self-map on membership in this Set, precomputed ONCE at
 // module load from data/employer-profiles.json — keeps the per-URL check O(1)
 // for tests/search-console-compat.test.ts (150k+ paths). A /aziende/<slug>/ URL
-// whose slug is NOT emitted falls through to the section fallbacks (correct:
-// it genuinely has no live target).
+// whose slug is NOT emitted falls through to the aziende/ SECTION_FALLBACKS
+// entry below (the locale's weekly-employers hub) — the company itself may be
+// gone from the corpus, but the /aziende/ family always has a live landing.
 const EMPLOYER_PROFILE_SLUGS: ReadonlySet<string> = (() => {
  const s = new Set<string>();
  const ds = employerProfilesFile as {
@@ -311,6 +312,22 @@ const SECTION_FALLBACKS: Array<{ pattern: RegExp; canonical: string; locale: Sup
  { pattern: /^\/en\/companies-hiring\//, canonical: '/en/companies-hiring/', locale: 'en' },
  { pattern: /^\/de\/unternehmen-einstellen\//, canonical: '/de/unternehmen-einstellen/', locale: 'de' },
  { pattern: /^\/fr\/entreprises-recrutent\//, canonical: '/fr/entreprises-recrutent/', locale: 'fr' },
+ // Evergreen employer-profile leaves (/aziende/<slug>/, isEmployerProfilePath
+ // above) whose slug is NOT in data/employer-profiles.json today: the company
+ // dropped below BRIDGE_FLOOR (build-employer-profiles.mjs — "singletons: no
+ // page, no bridge") since GSC captured the 404, so the profile genuinely has
+ // no live page at that exact path anymore. That is NOT the same as "no live
+ // target at all": route to the locale's weekly-employers top hub, the same
+ // fallback employerProfilePagesPlugin's own below-floor bridge points to
+ // ("Prevents silent 404 → canton / weekly-employers hubs"). Must be its own
+ // entry (not folded into the aziende-che-assumono block above) because the
+ // path shape is a different literal segment (`aziende` vs
+ // `aziende-che-assumono`), so no earlier pattern in this array ever matches it
+ // — before this entry the path fell through to `return null` (issue #6325).
+ { pattern: /^\/aziende\//, canonical: '/aziende-che-assumono/', locale: 'it' },
+ { pattern: /^\/en\/aziende\//, canonical: '/en/companies-hiring/', locale: 'en' },
+ { pattern: /^\/de\/aziende\//, canonical: '/de/unternehmen-einstellen/', locale: 'de' },
+ { pattern: /^\/fr\/aziende\//, canonical: '/fr/entreprises-recrutent/', locale: 'fr' },
  // Legacy flat `/lavoro/` job-detail prefix (pre per-canton structure). Route to the
  // localized job-board listing root.
  { pattern: /^\/lavoro\//, canonical: '/cerca-lavoro-ticino/', locale: 'it' },

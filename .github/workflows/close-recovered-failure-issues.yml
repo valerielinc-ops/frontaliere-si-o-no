@@ -6,6 +6,20 @@ name: Close Recovered Failure Issues
 # step centrally so EVERY scheduled workflow — present and future — gets its failure
 # issue closed on recovery, without wiring a per-workflow step into ~300 YAML files.
 # See scripts/ci/close-recovered-failure-issues.mjs.
+#
+# NOT `workflow_run` (reverted #6656, 2026-08-30): GitHub Actions rejects a
+# `workflow_run` trigger with no `workflows:` list as an INVALID workflow file
+# — not just "unfiltered", the whole file stops parsing. Every trigger in this
+# file (including this hourly cron and workflow_dispatch) was silently dead
+# from 2026-08-28 09:17 until this revert, because a broken workflow file
+# can't fire on ANY event. actionlint flags the exact construct:
+# "no workflow is configured for 'workflow_run' event [events]". Listing all
+# ~220 workflow display names in `workflows:` would "work" but defeats the
+# entire point (present-and-future coverage with zero per-file maintenance)
+# and silently stops covering any workflow added later — the same trap #6656
+# was trying to avoid. The hourly cron below is the only mechanism GitHub
+# actually lets us use for "any workflow, present and future" without a
+# per-file allowlist; it's a safety net, not an optimization to route around.
 
 on:
   schedule:
@@ -66,11 +80,32 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Prepare Firebase credentials for cross-repo reads
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON assente — impossibile caricare il token di lettura del corpus."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load cross-repo token from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Close recovered failure issues
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+          # Le definizioni dei gruppi restano qui, ma le run sono ospitate nel
+          # corpus dopo la migrazione cross-repo.
+          CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles
         run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "::error::GITHUB_PAT_NANAKO non caricato — il GITHUB_TOKEN del sito non puo' leggere le run del corpus."
+            exit 1
+          fi
           ARGS=""
           if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
             ARGS="--dry-run"

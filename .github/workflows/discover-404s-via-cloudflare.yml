@@ -148,10 +148,115 @@ jobs:
           # The sharded data/seo-404-compat/ store is shared with discover-404s.yml
           # and sync-gsc-orphans.yml; the rebase-retry helper 3-way set-merges each
           # shard's `paths` array so concurrent appends never clobber each other.
-          bash scripts/lib/git-push-with-retry.sh \
-            --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A"
+          #
+          # --soft-fail-exhausted (issue #6965, same shape as refresh-thin-
+          # promotions.yml's #5568 and publisher-jobs-sync.yml's #6259): run
+          # 33489387355 exhausted all 40 attempts over ~16min — every rebase
+          # succeeded cleanly (no shard conflicts; the in-place resolver above
+          # never even fired), the push was still rejected every time because
+          # a new commit kept landing on main between rebase and push (the
+          # same crawler-dispatch convoy git-push-with-retry.sh's own header
+          # already documents). Both files this step writes are rolling
+          # recomputations from Cloudflare's own edge analytics — seo-404-compat
+          # re-sweeps a rolling lookback window for recurring 404 paths,
+          # cf-hot-404s.json is a full daily "Refresh" of the hit-ranked list,
+          # not an append — so a missed commit just delays this run's delta by
+          # ~1 day; tomorrow's overlapping window recaptures it. Treating
+          # exhaustion as job-fatal only produced a same-titled "Workflow
+          # Failure" issue for an expected, self-healing contention blip
+          # (#2990, #6965). Capture the helper's own exhaustion message (exit
+          # code is 0 in both the "pushed fine" and "soft-failed" cases) so
+          # has_changes below reflects whether main actually moved, and the
+          # next step can debounce an alert on 2 consecutive occurrences.
+          set +e
+          PUSH_LOG=$(bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted \
+            --in-place-resolver-cmd "node scripts/lib/resolve-404-compat-conflict.mjs && git add -A" 2>&1)
+          rc=$?
+          set -e
+          echo "$PUSH_LOG"
+          if echo "$PUSH_LOG" | grep -q '::warning::Failed to push after'; then
+            echo "push_exhausted=true" >> "$GITHUB_OUTPUT"
+            # Nothing landed on main this run — the commit only exists on this
+            # ephemeral runner. Don't trigger a deploy for a change that isn't
+            # actually live on main.
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "push_exhausted=false" >> "$GITHUB_OUTPUT"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+          exit "$rc"
 
-          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+      # Debounced alert (same pattern as refresh-thin-promotions.yml /
+      # publisher-jobs-sync.yml): a single soft-fail is expected self-healing
+      # contention noise (see comment above), but 2 CONSECUTIVE exhaustions
+      # mean the ~1 day recapture assumption isn't holding.
+      - name: Debounce push-retry-exhausted alert
+        if: steps.commit.outputs.push_exhausted == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh label create "discover-404s-cf-push-exhausted" --color "D93F0B" \
+            --description "discover-404s-via-cloudflare push retries exhausted on consecutive runs" --force 2>/dev/null || true
+          gh label create "discover-404s-cf-push-exhausted-pending" --color "FBCA04" \
+            --description "discover-404s-via-cloudflare push retries exhausted once — debouncing" --force 2>/dev/null || true
+
+          RUN_URL="https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+          # "At most one open issue per label" is only guaranteed by this
+          # workflow's own `concurrency: group: discover-404s-cloudflare` (a
+          # manual relabel or a race from outside that group could break it
+          # silently). Fetch the full set once and warn — loudly, in the run
+          # log — if the invariant doesn't hold, instead of picking .[0] silently.
+          CONFIRMED_JSON=$(gh issue list --label "discover-404s-cf-push-exhausted" --state open --json number)
+          CONFIRMED_COUNT=$(echo "$CONFIRMED_JSON" | jq 'length')
+          if [ "$CONFIRMED_COUNT" -gt 1 ]; then
+            echo "::warning::${CONFIRMED_COUNT} open issues share label 'discover-404s-cf-push-exhausted' — this ≤1 invariant is only guaranteed by this workflow's own concurrency group, not enforced elsewhere. Updating only the first."
+          fi
+          CONFIRMED=$(echo "$CONFIRMED_JSON" | jq -r '.[0].number // empty')
+          if [ -n "$CONFIRMED" ]; then
+            gh issue comment "$CONFIRMED" --body "Still exhausting push retries as of $(date -u +%FT%TZ) — ${RUN_URL}."
+            echo "Updated existing confirmed issue #$CONFIRMED"
+            exit 0
+          fi
+
+          PENDING_JSON=$(gh issue list --label "discover-404s-cf-push-exhausted-pending" --state open --json number)
+          PENDING_COUNT=$(echo "$PENDING_JSON" | jq 'length')
+          if [ "$PENDING_COUNT" -gt 1 ]; then
+            echo "::warning::${PENDING_COUNT} open issues share label 'discover-404s-cf-push-exhausted-pending' — this ≤1 invariant is only guaranteed by this workflow's own concurrency group, not enforced elsewhere. Promoting only the first."
+          fi
+          PENDING=$(echo "$PENDING_JSON" | jq -r '.[0].number // empty')
+          if [ -n "$PENDING" ]; then
+            gh issue edit "$PENDING" \
+              --add-label "discover-404s-cf-push-exhausted" --add-label "bug" \
+              --remove-label "discover-404s-cf-push-exhausted-pending" \
+              --title "discover-404s-via-cloudflare: push retries exhausted on consecutive runs"
+            gh issue comment "$PENDING" --body "Confirmed: 2 consecutive runs exhausted push retries (--soft-fail-exhausted). seo-404-compat/cf-hot-404s.json may be stale beyond the ~1 day recapture window this flag assumes. ${RUN_URL}."
+            echo "Promoted pending issue #$PENDING to confirmed"
+            exit 0
+          fi
+
+          gh issue create \
+            --title "[pending] discover-404s-via-cloudflare: push retries exhausted — 1st occurrence" \
+            --body "Push retries exhausted (--soft-fail-exhausted) at $(date -u +%FT%TZ). ${RUN_URL}. Expected occasional contention noise that self-heals via tomorrow's overlapping sweep window — this issue auto-closes on recovery, or promotes to confirmed if the very next run exhausts retries again." \
+            --label "discover-404s-cf-push-exhausted-pending"
+          echo "Opened pending issue"
+
+      # Mirrors the auto-close half of refresh-thin-promotions.yml /
+      # publisher-jobs-sync.yml's debounce: a run that actually pushed
+      # (has_changes) without exhausting retries means the contention
+      # cleared — retire any open pending/confirmed alert.
+      - name: Auto-close push-retry-exhausted issues on recovery
+        if: steps.commit.outputs.has_changes == 'true' && steps.commit.outputs.push_exhausted == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for LABEL in "discover-404s-cf-push-exhausted" "discover-404s-cf-push-exhausted-pending"; do
+            for NUM in $(gh issue list --label "$LABEL" --state open --json number --jq '.[].number'); do
+              gh issue comment "$NUM" --body "Push succeeded on the next run. Auto-closing."
+              gh issue close "$NUM" --reason completed
+              echo "Closed issue #$NUM (label=$LABEL)"
+            done
+          done
 
       - name: Trigger deploy if compat changed
         if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true
@@ -163,6 +268,10 @@ jobs:
           # trigger-deploy.sh runs with an empty token and no deploy fires (#878).
           GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           GITHUB_REPOSITORY: ${{ github.repository }}
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: bash scripts/lib/trigger-deploy.sh
 
       - name: Report failure to GitHub Issues

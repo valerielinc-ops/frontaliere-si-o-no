@@ -1,0 +1,22 @@
+{
+  "companyKey": "pontresina",
+  "companyName": "Chalet Sans Souci",
+  "companyHost": "engadintourismus.ch",
+  "platform": "engadintourismus.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.engadintourismus.ch/ueber-uns/jobs"
+  ],
+  "detailTemplate": "/ueber-uns/jobs/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Guest Experience Specialist m/w/d, 70% Tourist Information Sils",
+    "Product Manager 80 – 100% m/w/d, St. Moritz",
+    "Lehrstelle Kauffrau / Kaufmann EFZ Hotel-Gastro-Tourismus (HGT)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:35.830Z"
+}

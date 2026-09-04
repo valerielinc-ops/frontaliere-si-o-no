@@ -19249,10 +19249,10 @@
         "fr": "deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach",
-        "en": "/en/find-jobs-basel/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach",
+        "it": "/cerca-lavoro-svitto/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach",
+        "en": "/en/find-jobs-schwyz/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach",
         "de": "/de/jobs-im-basel/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach",
-        "fr": "/fr/trouver-emploi-bale/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach"
+        "fr": "/fr/trouver-emploi-schwytz/deco-sales-consultant-jumbo-division-der-coop-genossenschaft-sissach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -22067,10 +22067,10 @@
         "fr": "directeur-de-succursale-stv-in-denner-zurich"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/directeur-de-succursale-stv-in-denner-zurich",
-        "en": "/en/find-jobs-zurich/directeur-de-succursale-stv-in-denner-zurich",
+        "it": "/cerca-lavoro-appenzello/directeur-de-succursale-stv-in-denner-zurich",
+        "en": "/en/find-jobs-appenzell/directeur-de-succursale-stv-in-denner-zurich",
         "de": "/de/jobs-im-zurich/directeur-de-succursale-stv-in-denner-zurich",
-        "fr": "/fr/trouver-emploi-zurich/directeur-de-succursale-stv-in-denner-zurich"
+        "fr": "/fr/trouver-emploi-appenzell/directeur-de-succursale-stv-in-denner-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23187,7 +23187,7 @@
         {
           "query": "je veux au tessin un job de chauffeur poids lourd avec permis valide et tournées régionales du lundi au vendredi",
           "clicks": 0,
-          "impressions": 6
+          "impressions": 7
         },
         {
           "query": "offerte lavoro briga svizzera",
@@ -23206,6 +23206,11 @@
         },
         {
           "query": "canton ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "cercano personale?",
           "clicks": 0,
           "impressions": 1
         },
@@ -23250,32 +23255,27 @@
           "impressions": 1
         },
         {
+          "query": "kierowca",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
           "query": "kierowca ciężarówki",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "montano",
+          "query": "locuri de munca ticino elvetia",
           "clicks": 0,
           "impressions": 1
         },
         {
-          "query": "netto sarebbe",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "ofertas",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "ofertas activas",
+          "query": "lugano",
           "clicks": 0,
           "impressions": 1
         }
       ],
-      "totalImpressions": 57,
+      "totalImpressions": 64,
       "totalClicks": 2,
       "topQuery": "corporate driver in zurich",
       "title": "Drivers",
@@ -25782,6 +25782,84 @@
         "en": "/en/find-jobs-bern/experten-fur-den-au-endienst-agie-charmilles-sa-biel-bienne",
         "de": "/de/jobs-im-bern/experten-fur-den-au-endienst-agie-charmilles-sa-biel-bienne",
         "fr": "/fr/trouver-emploi-berne/experten-fur-den-au-endienst-agie-charmilles-sa-biel-bienne"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+      "locale": "de",
+      "path": "/de/jobs-in-zurich/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster/",
+      "observedPaths": {
+        "de": "/de/jobs-in-zurich/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster/"
+      },
+      "queries": [
+        {
+          "query": "jobs uster teilzeit",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "teilzeit jobs uster",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "job uster teilzeit",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "nsn jobs",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "zio jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "topQuery": "jobs uster teilzeit",
+      "title": "Facharztin facharzt hamatologie fmh zio uster nsn medical group",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Uster",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "en": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "de": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "fr": "facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "en": "/en/find-jobs-zurich/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "de": "/de/jobs-im-zurich/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster",
+        "fr": "/fr/trouver-emploi-zurich/facharztin-facharzt-hamatologie-fmh-zio-uster-60-100-nsn-medical-group-uster"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -42506,6 +42584,134 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano/"
+      },
+      "queries": [
+        {
+          "query": "offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 51
+        },
+        {
+          "query": "offerte lavoro svizzera per italiani",
+          "clicks": 0,
+          "impressions": 16
+        },
+        {
+          "query": "posti di lavoro ticino",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "aziende svizzere che assumono",
+          "clicks": 2,
+          "impressions": 13
+        },
+        {
+          "query": "offerte lavoro ticino",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "annunci di lavoro ticino",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "messebauer lugano",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "offerte di lavoro in ticino",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "offerte di lavoro ticino nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "annunci di lavoro in ticino",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "lavoro ticino svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "messebauer jobs",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro in canton ticino svizzera",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte di lavoro nell'ultima settimana",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "offerte lavoro lugano per italiani",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 120,
+      "totalClicks": 2,
+      "topQuery": "offerte di lavoro ticino",
+      "title": "Metallbauer in messebau fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "en": "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "de": "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "fr": "metallbauer-in-messebau-fachkraft-ch-gmbh-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "en": "/en/find-jobs-ticino/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "de": "/de/jobs-im-tessin/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano",
+        "fr": "/fr/trouver-emploi-tessin/metallbauer-in-messebau-fachkraft-ch-gmbh-lugano"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -74016,10 +74222,10 @@
         "fr": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zurigo/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
-        "en": "/en/find-jobs-zurich/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
-        "de": "/de/jobs-in-zurich/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
-        "fr": "/fr/trouver-emploi-zurich/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar"
+        "it": "/cerca-lavoro-san-gallo/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
+        "en": "/en/find-jobs-st-gallen/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
+        "de": "/de/jobs-in-st-gallen/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar",
+        "fr": "/fr/trouver-emploi-saint-gall/venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-baar"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

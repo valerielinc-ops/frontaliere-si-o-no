@@ -58,6 +58,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
+import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const KNOWN_SLUGS_LEGACY_FILE = 'data/all-known-job-slugs.json';
@@ -207,13 +208,14 @@ export function writeAllKnownJobSlugs(registry, rootDir = process.cwd()) {
     const slugs = {};
     for (const slug of buckets[i]) slugs[slug] = src[slug];
     total += buckets[i].length;
-    fs.writeFileSync(knownSlugsShardFile(i, rootDir), JSON.stringify({ slugs }, null, 2) + '\n', 'utf-8');
+    const content = JSON.stringify({ slugs }, null, 2) + '\n';
+    const file = knownSlugsShardFile(i, rootDir);
+    writeShardFileIfChanged(file, content);
   }
 
-  fs.writeFileSync(
+  writeFileAtomic(
     knownSlugsManifestFile(rootDir),
     JSON.stringify({ shardCount: KNOWN_SLUGS_SHARD_COUNT, totalSlugs: total }, null, 2) + '\n',
-    'utf-8',
   );
 
   // The monolith is unpushable (>100 MB) and now superseded — drop it.

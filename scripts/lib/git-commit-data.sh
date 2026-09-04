@@ -94,18 +94,24 @@ if [ -f ".git/index.lock" ]; then
   rm -f ".git/index.lock"
 fi
 
-# ── Parse --slice-only flag ──────────────────────────────────────────────────
+# ── Parse commit mode ────────────────────────────────────────────────────────
 SLICE_ONLY=false
+GROUP_BATCH=false
 # Set to true (below) only for grouped crawler-group invocations, which share
 # one working copy across ~25 concurrent sibling crawlers and therefore must
 # never mutate the shared worktree/index while committing.
 GROUPED_ISOLATED=false
-if [ "${1:-}" = "--slice-only" ]; then
+if [ "${1:-}" = "--group-batch" ]; then
+  GROUP_BATCH=true
+  SLICE_ONLY=true
+  GROUPED_ISOLATED=true
+  shift
+elif [ "${1:-}" = "--slice-only" ]; then
   SLICE_ONLY=true
   shift
 fi
 
-COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only] 'commit message' [extra-paths...]}"
+COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only|--group-batch] 'commit message' [extra-paths...]}"
 shift
 EXTRA_PATHS=("$@")
 
@@ -136,7 +142,13 @@ ${SLUG_HISTORY_BODY}"
 fi
 
 # ── Standard data files committed by every crawler ──────────────────────────
-if [ "$SLICE_ONLY" = true ]; then
+if [ "$GROUP_BATCH" = true ]; then
+  # Paths are loaded below from the successful crawlers' immutable descriptors.
+  # Keeping this list empty is load-bearing: the batch must never sweep a
+  # failed sibling's partial files merely because they remain dirty in the
+  # shared worktree.
+  STANDARD_FILES=()
+elif [ "$SLICE_ONLY" = true ]; then
   # Slice-only mode: only commit per-crawler slice files + ai-cache.
   # Shared monolithic files are assembled during deploy, not per-crawler.
   #
@@ -226,12 +238,133 @@ if [ "${#EXTRA_PATHS[@]}" -gt 0 ]; then
   ALL_FILES+=("${EXTRA_PATHS[@]}")
 fi
 
+# A grouped crawler shares its checkout with every sibling. Directory-valued
+# extras (most commonly data/jobs-crawler-adapters/) therefore describe the
+# union of every concurrent writer, not this crawler's ownership: recording
+# that live directory diff in one successful descriptor could sweep a failed
+# sibling's partial output into the group commit. Defer mode keeps only the
+# exact per-crawler standard files plus explicit file extras. The shared AI
+# cache is deliberately excluded for the same reason; it is not attributable
+# to one crawler in the shared worktree and heals through sequential writers.
+#
+# This exclusion is safe by construction, not a data-loss gap: no crawler
+# group run writes data/jobs-crawler-adapters/registry.json or _meta.json.
+# Those two files have their own dedicated commit paths, neither of which
+# runs inside a grouped-batch worktree: scripts/manage-company-adapter.mjs is
+# committed by the standalone "Commit and push" step in
+# .github/workflows/manage-company-adapter.yml, and
+# scripts/generate-company-adapter-stubs.mjs is invoked manually via
+# scripts/scaffold-crawler.mjs, landing in an ordinary scaffolding PR.
+if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
+  ALL_FILES=()
+  for path_item in "${STANDARD_FILES[@]}"; do
+    [ "$path_item" = "data/jobs-ai-cache.json" ] || ALL_FILES+=("$path_item")
+  done
+  for path_item in "${EXTRA_PATHS[@]}"; do
+    normalized_path="${path_item%/}"
+    if [[ "$path_item" == */ ]] || [[ -d "$normalized_path" ]]; then
+      continue
+    fi
+    ALL_FILES+=("$path_item")
+  done
+fi
+
 # Resolve input paths to concrete files for snapshot/rebase-merge logic.
 # Extra paths may include directories (e.g. data/jobs-crawler-adapters/).
 # Directory paths are valid for `git add`, but not for `git show "$sha:$path"`
 # where a tree object would break redirection.
 declare -A _SEEN_RESOLVED_FILES=()
 RESOLVED_FILES=()
+declare -A _BATCH_SNAPSHOT_OPERATION=()
+declare -A _BATCH_SNAPSHOT_STATE=()
+declare -A _BATCH_SNAPSHOT_MODE=()
+declare -A _BATCH_SNAPSHOT_BASE_BLOB=()
+declare -A _BATCH_SNAPSHOT_BLOB=()
+
+# Remote absence is not proof that a primary slice was retired. The generated
+# roster is the positive registry: only paths absent from primarySlices may use
+# the established delete-wins behavior below.
+#
+# Cached per roster_file for the lifetime of this script process (issue #7151
+# item 3): the sequential path calls this once per data/jobs/by-crawler/*.json
+# file whose remote_blob came back empty, and every one of those calls was
+# re-spawning a fresh `node` process to re-read and re-validate (schema +
+# digest rebuild) the SAME roster file — unchanged across the whole run, since
+# nothing in this script writes to it. Parse+validate once per roster_file,
+# then answer membership from the cached path list with a plain `grep`
+# (sub-millisecond, no process spawn). A validation failure is cached too, so
+# a corrupt/unreadable roster still fails closed on every call (exit 2)
+# without re-attempting the parse.
+declare -A _PRIMARY_SLICE_ROSTER_STATUS=()
+declare -A _PRIMARY_SLICE_ROSTER_PATHS=()
+
+is_registered_primary_slice() {
+  local slice_path="$1"
+  local roster_file contract_file roster_paths
+  roster_file="${CRAWLER_GENERATION_ROSTER_FILE:-$(dirname "$0")/../ci/crawler-generation-roster.json}"
+  contract_file="$(dirname "$0")/crawler-generation-contract.mjs"
+
+  if [ -z "${_PRIMARY_SLICE_ROSTER_STATUS[$roster_file]:-}" ]; then
+    if roster_paths="$(node --input-type=module - "$roster_file" "$contract_file" <<'NODE'
+import fs from 'node:fs';
+import path from 'node:path';
+import { pathToFileURL } from 'node:url';
+
+const [rosterFile, contractFile] = process.argv.slice(2);
+try {
+  const roster = JSON.parse(fs.readFileSync(rosterFile, 'utf8'));
+  const { validateCrawlerGenerationRoster } = await import(pathToFileURL(path.resolve(contractFile)).href);
+  const validation = validateCrawlerGenerationRoster(roster);
+  if (!validation.valid) throw new Error(validation.errors.join(', '));
+  process.stdout.write(Object.values(roster.primarySlices).join('\n'));
+} catch (error) {
+  console.error(`❌ grouped-isolated: cannot validate primary slice registry ${rosterFile}: ${error.message}`);
+  process.exit(2);
+}
+NODE
+    )"; then
+      _PRIMARY_SLICE_ROSTER_STATUS[$roster_file]="ok"
+      _PRIMARY_SLICE_ROSTER_PATHS[$roster_file]="$roster_paths"
+    else
+      _PRIMARY_SLICE_ROSTER_STATUS[$roster_file]="error"
+    fi
+  fi
+
+  if [ "${_PRIMARY_SLICE_ROSTER_STATUS[$roster_file]}" = "error" ]; then
+    return 2
+  fi
+
+  printf '%s\n' "${_PRIMARY_SLICE_ROSTER_PATHS[$roster_file]}" | grep -Fxq -- "$slice_path"
+}
+
+# Crawler-group workflows checkout with `fetch-depth: 50` (e.g.
+# .github/workflows/crawler-group-01-logic.yml:72), so `git log` only sees
+# the last 50 reachable commits. Beyond that boundary git truncates silently
+# — exit 0, empty output — indistinguishable from a path that never existed.
+# The retirement-vs-first-run disambiguation below depends on `git log`
+# telling the truth, so unshallow once (cached per process, mirroring the
+# roster cache above) before trusting an empty result. If the unshallow
+# itself fails, callers must fail closed instead of guessing: an empty `git
+# log` at that point could mean "never existed" (safe to create) or "retired
+# 51+ commits ago" (must stay dropped), and picking wrong either resurrects
+# retired data or permanently blocks a genuinely new slice.
+_SHALLOW_CHECKOUT_STATUS=""
+
+ensure_full_history() {
+  if [ -z "$_SHALLOW_CHECKOUT_STATUS" ]; then
+    if [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" = "true" ]; then
+      if git fetch --unshallow origin main >/dev/null 2>&1 \
+        && [ "$(git rev-parse --is-shallow-repository 2>/dev/null)" != "true" ]; then
+        _SHALLOW_CHECKOUT_STATUS="unshallowed"
+      else
+        _SHALLOW_CHECKOUT_STATUS="shallow"
+      fi
+    else
+      _SHALLOW_CHECKOUT_STATUS="complete"
+    fi
+  fi
+  [ "$_SHALLOW_CHECKOUT_STATUS" != "shallow" ]
+}
 
 append_resolved_file() {
   local file_path="$1"
@@ -279,6 +412,143 @@ expand_path_to_files() {
 for path_item in "${ALL_FILES[@]}"; do
   expand_path_to_files "$path_item"
 done
+
+# Single source of truth for the job-slice path globs (#7167). Bash case
+# statements can't alternate patterns through a `|`-joined variable
+# expansion (the literal `|` becomes part of the glob instead of splitting
+# into alternatives), so the delete-vs-stale-modify guard exemption below
+# and its siblings match through this loop instead of repeating the
+# case-pattern literal at each call site.
+JOBS_SLICE_PATH_GLOBS=("data/jobs/by-crawler/*.json" "data/jobs/expired/by-crawler/*.json")
+
+is_job_slice_path() {
+  local path="$1" glob
+  for glob in "${JOBS_SLICE_PATH_GLOBS[@]}"; do
+    if [[ "$path" == $glob ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+# Path-class classifier for the batch snapshot fail-closed contract (#7054).
+# Reviewer follow-up #7060 flagged two open questions: whether the fail-closed
+# abort's blast radius on non-job paths (summary/translation-cache/adapter) is
+# frequent enough in production to outweigh its resurrection protection, and
+# whether these paths ever actually reach a create/modify snapshot in a real
+# run at all (unverified — covered only by unit tests before this change).
+# Neither is answerable from the repo alone; both need queryable production
+# signal. This classifier feeds that signal into the existing abort message
+# (commit_isolated_from_worktree, "snapshot conflicts with a newer remote
+# deletion") and into the per-run summary log below, so a real crawler-group
+# run's Actions log now states, by class, which paths reached a non-unchanged
+# operation and which class triggered any abort — greppable without a new
+# dashboard.
+classify_batch_snapshot_path() {
+  local file_path="$1"
+  if is_job_slice_path "$file_path"; then
+    echo "job-slice"
+    return
+  fi
+  case "$file_path" in
+    data/jobs-crawler-summaries/by-crawler/*.json)
+      echo "summary" ;;
+    data/translation-cache/*.json)
+      echo "translation-cache" ;;
+    data/jobs-crawler-adapters/*)
+      echo "adapter" ;;
+    *)
+      echo "other" ;;
+  esac
+}
+
+if [ "$GROUP_BATCH" = true ]; then
+  _batch_snapshots_file="$(mktemp /tmp/crawler-group-batch-snapshots.XXXXXX)"
+  trap 'rm -f "${_batch_snapshots_file:-}"' EXIT
+  if ! node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-snapshots > "$_batch_snapshots_file"; then
+    echo "❌ crawler group batch: invalid or unreadable commit descriptors"
+    exit 1
+  fi
+  while IFS= read -r -d '' path_item; do
+    IFS= read -r -d '' snapshot_operation || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_state || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_mode || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_base_blob || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    IFS= read -r -d '' snapshot_blob || { echo "❌ crawler group batch: truncated snapshot record"; exit 1; }
+    append_resolved_file "$path_item"
+    _BATCH_SNAPSHOT_OPERATION["$path_item"]="$snapshot_operation"
+    _BATCH_SNAPSHOT_STATE["$path_item"]="$snapshot_state"
+    _BATCH_SNAPSHOT_MODE["$path_item"]="$snapshot_mode"
+    _BATCH_SNAPSHOT_BASE_BLOB["$path_item"]="$snapshot_base_blob"
+    _BATCH_SNAPSHOT_BLOB["$path_item"]="$snapshot_blob"
+  done < "$_batch_snapshots_file"
+  # Observability for #7060: report, per path class, how many descriptors in
+  # THIS run reached each non-"unchanged" snapshot operation. "unchanged" is
+  # excluded — it is the expected steady state and not signal for either open
+  # question above.
+  declare -A _CLASS_OPERATION_COUNTS=()
+  for path_item in "${!_BATCH_SNAPSHOT_OPERATION[@]}"; do
+    snapshot_operation="${_BATCH_SNAPSHOT_OPERATION[$path_item]}"
+    [ "$snapshot_operation" = "unchanged" ] && continue
+    class_key="$(classify_batch_snapshot_path "$path_item"):${snapshot_operation}"
+    _CLASS_OPERATION_COUNTS["$class_key"]=$(( ${_CLASS_OPERATION_COUNTS[$class_key]:-0} + 1 ))
+  done
+  if [ "${#_CLASS_OPERATION_COUNTS[@]}" -gt 0 ]; then
+    _class_summary=""
+    for class_key in "${!_CLASS_OPERATION_COUNTS[@]}"; do
+      _class_summary="${_class_summary}${_class_summary:+, }${class_key}=${_CLASS_OPERATION_COUNTS[$class_key]}"
+    done
+    echo "ℹ️ crawler group batch: snapshot operations by class (excludes unchanged): ${_class_summary}"
+  fi
+  if [ "${#RESOLVED_FILES[@]}" -eq 0 ]; then
+    echo "ℹ️ crawler group batch: no successful crawler produced a commit descriptor"
+    [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
+    exit 0
+  fi
+  if ! COMMIT_MSG="$(node "$(dirname "$0")/crawler-generation-receipt.mjs" --batch-message "$COMMIT_MSG")"; then
+    echo "❌ crawler group batch: could not assemble deterministic commit attribution"
+    exit 1
+  fi
+fi
+
+# Optional shadow-only generation receipt. Disabled callers execute only the
+# empty-env guard below; enabled callers receive a best-effort observation of
+# the exact private-index tree. Receipt failure must never change this helper's
+# push, stdout contract or exit code: the group finalizer treats a missing or
+# corrupt receipt as invalid instead.
+emit_crawler_generation_receipt() {
+  local outcome="${1:-}"
+  local commit_sha="${2:-}"
+  local remote_base_sha="${3:-}"
+  [ -n "${CRAWLER_GENERATION_RECEIPT_DIR:-}" ] || return 0
+
+  local receipt_args=("${RESOLVED_FILES[@]}")
+  if [ "$GROUP_BATCH" = true ]; then
+    receipt_args=(--batch-receipts)
+  fi
+  if ! CRAWLER_GENERATION_RECEIPT_OUTCOME="$outcome" \
+    CRAWLER_GENERATION_RECEIPT_COMMIT="$commit_sha" \
+    CRAWLER_GENERATION_RECEIPT_REMOTE_BASE="$remote_base_sha" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" "${receipt_args[@]}"; then
+    echo "::warning::crawler generation receipt failed (shadow only); push outcome remains unchanged"
+  fi
+  return 0
+}
+
+if [ "${CRAWLER_GROUP_DEFER_COMMIT:-0}" = "1" ]; then
+  if [ "$GROUP_BATCH" = true ] || [ "$GROUPED_ISOLATED" != true ]; then
+    echo "❌ crawler group defer mode requires one --slice-only crawler invocation"
+    exit 1
+  fi
+  if ! CRAWLER_GROUP_COMMIT_MESSAGE="$COMMIT_MSG" \
+    node "$(dirname "$0")/crawler-generation-receipt.mjs" --defer-group-commit "${RESOLVED_FILES[@]}"; then
+    echo "❌ crawler group defer mode could not persist its commit descriptor"
+    exit 1
+  fi
+  echo "ℹ️ Deferred ${JOBS_HOUSEKEEPING_SCOPE} data for the atomic crawler-group commit"
+  [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+  exit 0
+fi
 
 create_rebase_snapshot() {
   local base_sha="$1"
@@ -338,20 +608,21 @@ restore_stashed_changes_with_safe_merge() {
       fi
 
       key_hint=""
-      case "$f" in
-        data/jobs.json|public/data/jobs.json)
-          key_hint="url"
-          ;;
-        data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
-          key_hint="url"
-          ;;
-        data/jobs-crawler-summaries.json)
-          key_hint="key"
-          ;;
-        data/ticino-companies-extra.json)
-          key_hint="website"
-          ;;
-      esac
+      if is_job_slice_path "$f"; then
+        key_hint="url"
+      else
+        case "$f" in
+          data/jobs.json|public/data/jobs.json)
+            key_hint="url"
+            ;;
+          data/jobs-crawler-summaries.json)
+            key_hint="key"
+            ;;
+          data/ticino-companies-extra.json)
+            key_hint="website"
+            ;;
+        esac
+      fi
 
       merge_json_3way \
         "$snapshot_dir/base/$f" \
@@ -1051,24 +1322,14 @@ git config user.name  "github-actions[bot]"
 git config user.email "github-actions[bot]@users.noreply.github.com"
 
 # ── 2b. Keep Git auth explicit across retry/rebase paths ───────────────────
-# actions/checkout normally persists an HTTP extraheader, but the crawler
-# commit loop does several fetch/pull/push retries after long-running jobs. Make
-# the token source explicit so retries do not depend on checkout's implicit
-# credential state.
-CHECKOUT_GIT_EXTRAHEADER="$(git config --local --get http.https://github.com/.extraheader 2>/dev/null || true)"
+# Direct pushes to this repo's `main` must use GITHUB_PAT or APP_TOKEN
+# (ruleset bypass identities). The ambient GITHUB_TOKEN / GH_TOKEN extraheader
+# that actions/checkout persists is rejected with GH013; restoring it on
+# retry was the old helper's fallback and is now forbidden. Origin URLs that
+# are not github.com (local helper tests) are left alone by the configure
+# script so in-repo merge/push tests keep their temp remotes.
 ensure_git_auth() {
-  local token="${GH_TOKEN:-${GITHUB_TOKEN:-}}"
-  local encoded
-
-  if [ -n "$token" ]; then
-    encoded="$(printf 'x-access-token:%s' "$token" | base64 | tr -d '\n')"
-    git config --local http.https://github.com/.extraheader "AUTHORIZATION: basic ${encoded}"
-    return 0
-  fi
-
-  if [ -n "$CHECKOUT_GIT_EXTRAHEADER" ]; then
-    git config --local http.https://github.com/.extraheader "$CHECKOUT_GIT_EXTRAHEADER"
-  fi
+  bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/configure-main-push-auth.sh"
 }
 
 # `git fetch` inside the retry loop below is otherwise unguarded under
@@ -1142,7 +1403,8 @@ is_push_contention_output() {
 commit_isolated_from_worktree() {
   local base_sha remote_sha remote_tree new_tree new_commit
   local tmp_index merge_dir
-  local f local_blob remote_blob base_blob blob_to_stage key_hint
+  local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
+  local snapshot_operation snapshot_state registry_status
   local delay
 
   base_sha="$(git rev-parse HEAD)"
@@ -1155,8 +1417,18 @@ commit_isolated_from_worktree() {
   # (the staged-diff variant can't be used: nothing is ever staged in the
   # shared index on this path).
   for f in "${RESOLVED_FILES[@]}"; do
-    [ -f "$f" ] || continue
-    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$f" 2>/dev/null; then
+    if [ "$GROUP_BATCH" = true ]; then
+      [ "${_BATCH_SNAPSHOT_STATE[$f]}" = "present" ] || continue
+      if ! git cat-file blob "${_BATCH_SNAPSHOT_BLOB[$f]}" > "$merge_dir/conflict-scan"; then
+        echo "❌ crawler group batch: snapshot blob disappeared before commit for $f"
+        return 1
+      fi
+      conflict_scan_path="$merge_dir/conflict-scan"
+    else
+      [ -f "$f" ] || continue
+      conflict_scan_path="$f"
+    fi
+    if grep -qE '^(<<<<<<< |======= ?$|>>>>>>> )' "$conflict_scan_path" 2>/dev/null; then
       echo "❌ grouped-isolated: refusing to commit — unresolved merge conflict markers in $f"
       echo "   For job slice files specifically: node scripts/recover-conflict-marker-slices.mjs"
       return 1
@@ -1175,17 +1447,137 @@ commit_isolated_from_worktree() {
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
 
     for f in "${RESOLVED_FILES[@]}"; do
-      # Known limitation: a deleted tracked file is NOT committed as a
-      # deletion here (the remote blob stays in the private index). Grouped
-      # crawlers never delete their files — they write [] — so this is
-      # intentionally unhandled; retirements go through a manual commit.
-      [ -f "$f" ] || continue
-      if git check-ignore -q "$f" 2>/dev/null; then
-        continue
-      fi
-      local_blob="$(git hash-object -w -- "$f")"
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
-      base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      local_merge_path="$f"
+      mode_to_stage="100644"
+
+      if [ "$GROUP_BATCH" = true ]; then
+        snapshot_operation="${_BATCH_SNAPSHOT_OPERATION[$f]}"
+        snapshot_state="${_BATCH_SNAPSHOT_STATE[$f]}"
+        base_blob="${_BATCH_SNAPSHOT_BASE_BLOB[$f]}"
+
+        # An unchanged path is attribution-only. Leaving the freshly-seeded
+        # remote entry untouched preserves any newer remote writer without
+        # manufacturing a change from this crawler's old base snapshot.
+        if [ "$snapshot_operation" = "unchanged" ]; then
+          continue
+        fi
+
+        if [ "$snapshot_state" = "absent" ]; then
+          if [ -z "$remote_blob" ]; then
+            continue
+          fi
+          if [ "$remote_blob" != "$base_blob" ]; then
+            echo "❌ crawler group batch: delete conflicts with a newer remote blob for $f"
+            return 1
+          fi
+          GIT_INDEX_FILE="$tmp_index" git update-index --force-remove -- "$f"
+          continue
+        fi
+
+        local_blob="${_BATCH_SNAPSHOT_BLOB[$f]}"
+        mode_to_stage="${_BATCH_SNAPSHOT_MODE[$f]}"
+        mkdir -p "$merge_dir/local/$(dirname "$f")"
+        if ! git cat-file blob "$local_blob" > "$merge_dir/local/$f"; then
+          echo "❌ crawler group batch: snapshot blob disappeared during retry for $f"
+          return 1
+        fi
+        local_merge_path="$merge_dir/local/$f"
+        if git check-ignore -q "$f" 2>/dev/null; then
+          echo "❌ crawler group batch: descriptor path is ignored and cannot be committed: $f"
+          return 1
+        fi
+      else
+        # The legacy isolated path still reads its caller's current worktree.
+        # Only --group-batch is snapshot-bound by the deferred descriptors.
+        [ -f "$f" ] || continue
+        if git check-ignore -q "$f" 2>/dev/null; then
+          continue
+        fi
+        local_blob="$(git hash-object -w -- "$f")"
+        base_blob="$(git rev-parse -q --verify "${base_sha}:${f}" 2>/dev/null || true)"
+      fi
+
+      # A missing remote path is not automatically a writable empty slot.
+      # Snapshot-bound batches and shared group workers keep their established
+      # base-aware rules. Sequential primary-slice writers additionally consult
+      # the positive roster, so a post-retirement checkout cannot mistake an
+      # unregistered slice for a first-run create.
+      if [ -z "$remote_blob" ]; then
+        if [ "$GROUP_BATCH" = true ]; then
+          if [ -n "$base_blob" ]; then
+            echo "❌ crawler group batch: snapshot conflicts with a newer remote deletion for $f (class=$(classify_batch_snapshot_path "$f"))"
+            return 1
+          fi
+        elif [ -n "${JOBS_SLICE_FILE:-}" ]; then
+          # Shared crawler-group workers retain their established base-aware
+          # policy. Their generated descriptors and final batch provide the
+          # separate retirement boundary; the registry fix here is scoped to
+          # sequential directory-wide writers.
+          if [ -n "$base_blob" ] && is_job_slice_path "$f"; then
+            echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+            continue
+          fi
+        else
+          case "$f" in
+            data/jobs/by-crawler/*.json)
+              if is_registered_primary_slice "$f"; then
+                if [ -n "$base_blob" ]; then
+                  echo "⚠️ grouped-isolated: $f disappeared upstream but remains in crawler-generation-roster.json — refusing to infer retirement, skipping this slice only (rest of batch continues)"
+                  continue
+                fi
+                # A registered path absent from both base and remote is a
+                # genuine first-run create, not a resurrection.
+              else
+                registry_status=$?
+                if [ "$registry_status" -ne 1 ]; then
+                  # Roster validation error (exit 2, e.g. corrupt/unreadable
+                  # roster): fail closed on THIS slice only. A `return 1` here
+                  # would propagate out of commit_isolated_from_worktree and
+                  # abort every other file already queued in this invocation
+                  # (issue #7222) — a transient roster read failure has no
+                  # bearing on files that don't need registry lookups.
+                  echo "⚠️ grouped-isolated: cannot validate primary slice registry for $f — skipping this slice only (rest of batch continues)"
+                  continue
+                fi
+                # `base_blob` only reflects the CURRENT tree at this writer's
+                # checkout, which every CI job starts fresh from origin/main —
+                # so it is empty just as often for a path that was already
+                # retired before checkout as for one that has genuinely never
+                # existed. Distinguish the two with reachable history instead:
+                # a path that was ever committed still shows up in `git log`
+                # even after being removed from the tree, while a brand-new
+                # slice (issue #7151 item 1: pre-registration ordering between
+                # the roster-regeneration step and a crawler's first data
+                # commit isn't asserted anywhere else) has no history at all.
+                # `git log` only tells the truth about that if the checkout
+                # isn't shallow (issue #7221 review follow-up): crawler-group
+                # workflows pin fetch-depth 50, so a retirement more than 50
+                # commits before this checkout would otherwise be misread as
+                # first-run create and silently resurrected.
+                if ! ensure_full_history; then
+                  echo "❌ grouped-isolated: cannot verify retirement history for $f — checkout remains shallow after an unshallow attempt, refusing to guess between first-run create and resurrection"
+                  return 1
+                fi
+                history_blob="$(git log -1 --format=%H -- "$f" 2>/dev/null || true)"
+                if [ -z "$history_blob" ]; then
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry and has no prior history — treating as an unregistered first-run create instead of dropping (roster may not be pre-registered yet)"
+                else
+                  echo "⚠️ grouped-isolated: $f is absent from the primary slice registry — preserving retirement and dropping local content"
+                  continue
+                fi
+              fi
+              ;;
+            data/jobs/expired/by-crawler/*.json)
+              if [ -n "$base_blob" ]; then
+                echo "⚠️ grouped-isolated: $f was deleted upstream after checkout — preserving remote deletion and dropping stale local modification"
+                continue
+              fi
+              ;;
+          esac
+        fi
+      fi
+
       blob_to_stage="$local_blob"
 
       # Remote moved for this file since our checkout AND disagrees with our
@@ -1196,9 +1588,7 @@ commit_isolated_from_worktree() {
         && [ "$remote_blob" != "$base_blob" ] \
         && [ "$remote_blob" != "$local_blob" ]; then
         key_hint=""
-        case "$f" in
-          data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json) key_hint="url" ;;
-        esac
+        is_job_slice_path "$f" && key_hint="url"
         mkdir -p "$merge_dir/base/$(dirname "$f")" "$merge_dir/remote/$(dirname "$f")" "$merge_dir/out/$(dirname "$f")"
         if [ -n "$base_blob" ]; then
           git cat-file blob "$base_blob" > "$merge_dir/base/$f"
@@ -1209,24 +1599,27 @@ commit_isolated_from_worktree() {
         if merge_json_3way \
           "$merge_dir/base/$f" \
           "$merge_dir/remote/$f" \
-          "$f" \
+          "$local_merge_path" \
           "$merge_dir/out/$f" \
           "$key_hint" \
           "$f"; then
           blob_to_stage="$(git hash-object -w -- "$merge_dir/out/$f")"
         else
-          # Merge policy elsewhere in this script is "keep local" on
-          # unresolvable conflicts; do the same rather than aborting the
-          # whole commit (which would lose this crawler's entire run).
+          if [ "$GROUP_BATCH" = true ]; then
+            echo "❌ crawler group batch: snapshot merge failed for $f — refusing a partial commit"
+            return 1
+          fi
+          # Preserve the established non-batch policy for sequential callers.
           echo "⚠️ grouped-isolated: 3-way merge failed for $f — keeping local content"
         fi
       fi
 
-      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "100644,${blob_to_stage},${f}"
+      GIT_INDEX_FILE="$tmp_index" git update-index --add --cacheinfo "${mode_to_stage},${blob_to_stage},${f}"
     done
 
     new_tree="$(GIT_INDEX_FILE="$tmp_index" git write-tree)"
     if [ "$new_tree" = "$remote_tree" ]; then
+      emit_crawler_generation_receipt "noop" "$remote_sha" "$remote_sha"
       echo "ℹ️ No effective changes for this crawler's files vs origin/main — nothing to commit"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=false" >> "$GITHUB_OUTPUT"
       return 0
@@ -1241,8 +1634,10 @@ commit_isolated_from_worktree() {
     push_out=""
     if push_out="$(git push origin "${new_commit}:refs/heads/main" 2>&1)"; then
       printf '%s\n' "$push_out"
+      emit_crawler_generation_receipt "pushed" "$new_commit" "$remote_sha"
       echo "✅ Pushed successfully (grouped-isolated commit ${new_commit})"
       [ -n "${GITHUB_OUTPUT:-}" ] && echo "has_changes=true" >> "$GITHUB_OUTPUT"
+      [ -n "${GITHUB_OUTPUT:-}" ] && echo "final_commit=$new_commit" >> "$GITHUB_OUTPUT"
       # Deliberately do NOT fast-forward refs/heads/main after the push:
       # base_sha (the job's original checkout, resolved from HEAD at entry)
       # must remain the 3-way merge base for EVERY sibling of this run.
@@ -1262,6 +1657,7 @@ commit_isolated_from_worktree() {
 
     if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
       if is_push_contention_output "$push_out"; then
+        emit_crawler_generation_receipt "push_contention" "$new_commit" "$remote_sha"
         echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts (contention loss — crawl data was fine, the ref race was lost)"
         # 42 = PUSH_CONTENTION_EXHAUSTED: distinct from generic failure (1) so the
         # grouped failure-report can skip the per-crawler issue for this systemic
@@ -1269,6 +1665,7 @@ commit_isolated_from_worktree() {
         # surfaces via the crawler-health staleness monitor).
         return 42
       fi
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
       echo "❌ Push failed after $MAX_PUSH_ATTEMPTS attempts and the LAST failure is NOT a ref rejection/race (outage/auth/hook?) — exiting 1 so it surfaces as a real failure."
       return 1
     fi
@@ -1295,7 +1692,7 @@ if [ "$GROUPED_ISOLATED" = true ]; then
   # not cascade-fail subsequent steps (translations, slug-regen) or create a
   # spurious failure issue. Grouped crawlers (JOBS_SLICE_FILE set) keep exit 42
   # so their per-crawler failure-report step can skip the issue for this class.
-  if [ "$_commit_result" -eq 42 ] && [ -z "${JOBS_SLICE_FILE:-}" ]; then
+  if [ "$_commit_result" -eq 42 ] && [ -z "${JOBS_SLICE_FILE:-}" ] && [ "$GROUP_BATCH" != true ]; then
     echo "⚠️ Sequential push: contention exhausted after $MAX_PUSH_ATTEMPTS attempts — soft success (data self-heals on the next scheduled run)"
     exit 0
   fi

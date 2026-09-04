@@ -12,50 +12,14 @@
     "https://careers.aristongroup.com/search/?createNewAlert=false&q=&optionsFacetsDD_country=CH&optionsFacetsDD_department=&optionsFacetsDD_shifttype=&optionsFacetsDD_customfield2=",
     "https://careers.aristongroup.com/sitemap_index.xml"
   ],
-  "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only Ticino/Grigioni jobs via shared Swiss target-location matching.",
-  "updatedAt": "2026-08-26T10:19:19.835Z",
+  "notes": "Dedicated Ariston Group crawler parses the careers RSS feed and SuccessFactors job detail pages, then keeps only jobs carrying the authoritative CH country marker and a source-backed Swiss location.",
+  "updatedAt": "2026-09-01T10:19:17.923Z",
   "seedMetaByUrl": {
-    "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-FREIBURG-UND-UMGEBUNG-Hech-72379/1281305901/": {
-      "location": "Hechingen, DE, 72379",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-22"
-    },
-    "https://careers.aristongroup.com/job/Brig-VERKAUFSBERATERIN-AUSSENDIENST-%28WM%29-REGION-OBERWALLIS-Brig-1070/1187004201/": {
-      "location": "Brig, CH, 1070",
-      "canton": "VS",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Langenfeld-KEY-ACCOUNT-MANAGEMENT-VENTILATION-%28MWD%29-IM-GEBIET-BADEN-W%C3%9CRTTEMBERG-Lang-40764/1224230001/": {
-      "location": "Langenfeld (Rheinland), DE, 40764",
-      "canton": "",
+    "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
+      "location": "Rothenburg, CH, 6023",
+      "canton": "LU",
       "company": "Ariston Group",
       "postedDate": "2026-08-13"
-    },
-    "https://careers.aristongroup.com/job/Frankfurt-%28Oder%29-TECHNISCHER-KUNDENBERATER-HEIZUNG-IM-RAUM-HANNOVER%2C-DRESDEN%2C-FRANKFURT-ODER-KOBLENZ-%28MWD%29-Hann-x/1412682133/": {
-      "location": "Hannover, Dresden, Frankfurt, Koblenz, DE, x",
-      "canton": "AG",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-06"
-    },
-    "https://careers.aristongroup.com/job/Mainburg-TECHNISCHER-VERKAUFSBERATER-IM-INNENDIENST-%28MWD%29-RAUM-KOBLENZ-PROJEKTGESCH%C3%84FT-HEIZTECHNIK-Main-84048/1284635001/": {
-      "location": "Mainburg, DE, 84048",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-23"
-    },
-    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
-      "location": "Biel, CH, 2502",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
-      "location": "Thun, CH, 3600",
-      "canton": "BE",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-19"
     },
     "https://careers.aristongroup.com/job/Gerlafingen-SERVICETECHNIKER-GAS-%28MW%29-Gerl-4563/1405660433/": {
       "location": "Gerlafingen, CH, 4563",
@@ -63,53 +27,41 @@
       "company": "Ariston Group",
       "postedDate": "2026-08-14"
     },
-    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
-      "location": "Fontaines, CH, 2046",
-      "canton": "",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-07"
-    },
     "https://careers.aristongroup.com/job/Bern-SERVICETECHNIKER-W%C3%84RMEPUMPEN-%28MW%29-Bern-3004/1402868933/": {
       "location": "Bern, CH, 3004",
       "canton": "BE",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
     },
-    "https://careers.aristongroup.com/job/Norderstedt-SERVICETECHNIKER-%28MWD%29-GEBIET-SCHLESWIG-HOLSTEIN-UND-UMGEBUNG-Nord-22844/1425648733/": {
-      "location": "Norderstedt, DE, 22844",
-      "canton": "",
+    "https://careers.aristongroup.com/job/Thun-SERVICETECHNIKER-GAS-Thun-3600/1151381101/": {
+      "location": "Thun, CH, 3600",
+      "canton": "BE",
       "company": "Ariston Group",
-      "postedDate": "2026-08-12"
+      "postedDate": "2026-08-19"
     },
-    "https://careers.aristongroup.com/job/Maerstetten-SERVICETECHNIKERIN-%C3%96L-OBERWALLIS-Brig-3902/1185843001/": {
-      "location": "Brig-Glis, CH, 3902",
-      "canton": "VS",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-29"
-    },
-    "https://careers.aristongroup.com/job/Hechingen-SERVICETECHNIKER-%28MWD%29-GEBIET-FREIBURG-UND-UMGEBUNG-Hech-72379/1424284533/": {
-      "location": "Hechingen, DE, 72379",
-      "canton": "",
+    "https://careers.aristongroup.com/job/Grosses-Fontaines-TECHNICIENNE-DE-SERVICE-MAZOUT-R%C3%89GION-NEUCH%C3%82TEL-Font-2046/1403021733/": {
+      "location": "Fontaines, CH, 2046",
+      "canton": "NE",
       "company": "Ariston Group",
       "postedDate": "2026-08-07"
-    },
-    "https://careers.aristongroup.com/job/Rothenburg-SERVICETECHNIKER-%C3%96LGAS-ATMO-%28MW%29-Roth-6023/1365907133/": {
-      "location": "Rothenburg, CH, 6023",
-      "canton": "LU",
-      "company": "Ariston Group",
-      "postedDate": "2026-08-13"
-    },
-    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
-      "location": "Bedano, CH, 6930",
-      "canton": "TI",
-      "company": "Ariston Group",
-      "postedDate": "2026-07-30"
     },
     "https://careers.aristongroup.com/job/Gerlafingen-TEAMLEITER-SERVICE-GAS-%28MW%29-Gerl-4563/1383520233/": {
       "location": "Gerlafingen, CH, 4563",
       "canton": "SO",
       "company": "Ariston Group",
       "postedDate": "2026-08-08"
+    },
+    "https://careers.aristongroup.com/job/Biel-SERVICETECHNIKER-GAS-%28MW%29-Biel-2502/1405657733/": {
+      "location": "Biel, CH, 2502",
+      "canton": "BE",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-14"
+    },
+    "https://careers.aristongroup.com/job/Maerstetten-TECNICO-DI-SERVIZIO-PER-IMPIANTI-DI-RISCALDAMENTO-A-GASOLIO-Beda-6930/1420717933/": {
+      "location": "Bedano, CH, 6930",
+      "canton": "TI",
+      "company": "Ariston Group",
+      "postedDate": "2026-08-28"
     }
   }
 }

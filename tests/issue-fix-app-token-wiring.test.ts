@@ -94,18 +94,38 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(git).toMatch(/if \[ -n "\$\{APP_TOKEN:-\}" \]/);
   });
 
+  // 2026-08-30: the capability-guard and secrets-note text used to sit inline
+  // in the "Run Claude fix" prompt as a `${{ cond && 'A' || 'B' }}` GitHub
+  // Actions ternary. That pushed the `prompt:` scalar's total size (it also
+  // holds ~9 other expressions across ~300 lines) past a real, undocumented
+  // GitHub Actions limit — somewhere between 21,253 and 21,514 characters,
+  // measured empirically by bisecting a push against a real branch (no
+  // annotation, no actionlint/YAML.parse error, just a `failure` run with
+  // ZERO jobs scheduled: "workflow file issue"). It had been silently broken
+  // since 2026-08-30 08:45 UTC (PR #6678) — `agent:fix` never fired a single
+  // real run in that window despite issues being labeled. Both texts moved to
+  // the "Determine fix tier" step's bash script (id: `tier`), computed once
+  // and exposed via `$GITHUB_OUTPUT` (`capability_guard`, `secrets_note`);
+  // the prompt now references them as short `${{ steps.tier.outputs.* }}`
+  // expressions instead of carrying the literal text itself.
+  const tierStep = steps.find((s) => /Determine fix tier/.test(String(s.name || '')))!;
+  const tierScript = String(tierStep.run);
+
   it('tells the agent the truth about its own capability, in both states', () => {
     // A correctly-wired token is wasted if the prompt still declares the scope missing:
     // the agent reads that line at turn 1 and terminates on its own.
-    const claude = steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!;
-    const prompt = JSON.stringify(claude);
-    expect(prompt).toContain('CONFERMATO `permissions.workflows == write`');
-    expect(prompt).toContain('NON ha lo scope `workflows`');
+    expect(tierScript).toContain('CONFERMATO `permissions.workflows == write`');
+    expect(tierScript).toContain('NON ha lo scope `workflows`');
     // #5288: la frase che l'agente legge deve dipendere dalla capacità verificata. Sul
     // solo `APP_TOKEN != ''` il prompt affermava il falso — «hai lo scope, procedi» — e
     // l'agente implementava tutto prima di scoprire il rifiuto al push.
-    expect(prompt).toContain("env.APP_TOKEN_WORKFLOWS == 'true'");
-    expect(prompt).not.toContain("env.APP_TOKEN != ''");
+    expect(tierScript).toMatch(/APP_TOKEN_WORKFLOWS:-\}"\s*=\s*"true"/);
+    expect(tierScript).not.toContain('APP_TOKEN:-} != ');
+
+    // The prompt itself must actually read what the tier step computed.
+    const claude = steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!;
+    const prompt = JSON.stringify(claude);
+    expect(prompt).toContain('${{ steps.tier.outputs.capability_guard }}');
   });
 
   it('has the secret it once lacked (decision 2026-08-24): Remote Config is loaded before the run', () => {
@@ -132,21 +152,22 @@ describe('issue-fix.yml — App token wiring', () => {
     expect(saIdx).toBeLessThan(claudeIdx);
     expect(rcIdx).toBeLessThan(claudeIdx);
 
-    const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
-    expect(prompt).toContain('I SEGRETI CI SONO');
-    expect(prompt).toContain('CF_API_TOKEN');
+    expect(tierScript).toContain('I SEGRETI CI SONO');
+    expect(tierScript).toContain('CF_API_TOKEN');
     // The sentence this test used to require must be GONE, not just unrequired: its
     // presence today would mean the prompt lies about a capability the run actually has.
-    expect(prompt).not.toContain('NON hai PAT/Firebase SA');
+    expect(tierScript).not.toContain('NON hai PAT/Firebase SA');
+
+    const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
+    expect(prompt).toContain('${{ steps.tier.outputs.secrets_note }}');
   });
 
   it('still distinguishes workflows-scope from repo-setting/admin-API access', () => {
     // Secrets and the App token grant real capabilities, but neither grants GitHub's
     // repo-settings/branch-protection admin API — that gap is real and stays real, and the
     // prompt must not paper over it now that the secrets sentence changed.
-    const prompt = JSON.stringify(steps.find((s) => /Run Claude fix/.test(String(s.name || '')))!);
-    expect(prompt).toContain('repo-setting/branch-protection/admin-API');
-    expect(prompt).toContain('blocked-admin-settings');
+    expect(tierScript).toContain('repo-setting/branch-protection/admin-API');
+    expect(tierScript).toContain('blocked-admin-settings');
   });
 });
 
@@ -259,7 +280,16 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     // Ma la presenza di APP_TOKEN non è la capability (#5288), e qui sbagliava nel verso
     // peggiore: SBLOCCAVA la promozione di follow-up che il push avrebbe rifiutato,
     // mandandole a bruciare ~1M token ciascuna per morire al `git push`.
-    expect(drainer).toMatch(/const issueFixCanPushWorkflows = process\.env\.APP_TOKEN_WORKFLOWS === 'true'/);
+    // Dal 2026-09-04 la capacità arriva da `canPushWorkflows()` e non piu' da una
+    // singola env: `APP_TOKEN_WORKFLOWS` descrive la sola GitHub App del sito, e il
+    // corpus — che pusha con un PAT classico con scope `workflow` — otteneva `false`
+    // PER COSTRUZIONE, parcheggiando come terminali fix perfettamente pushabili
+    // (corpus #758 #754 #714 #659). Il guard gemello `isCapabilityScoped` era gia'
+    // passato a `canPushWorkflows()` il 2026-08-24: questo call-site era rimasto
+    // indietro. Il fail-closed non cambia — `canPushWorkflows()` e' l'OR di due
+    // letture, entrambe `!== 'true'` quando non scritte.
+    expect(drainer).toMatch(/const issueFixCanPushWorkflows = canPushWorkflows\(\);/);
+    expect(drainer).not.toMatch(/const issueFixCanPushWorkflows = process\.env\./);
     expect(drainer).toMatch(/if \(!issueFixCanPushWorkflows && body && detectWorkflowScoped/);
   });
 });

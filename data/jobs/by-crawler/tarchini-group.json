@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tarchini-group",
-  "assembledAt": "2026-08-26T10:10:12.190Z",
+  "assembledAt": "2026-09-03T23:16:58.671Z",
   "jobs": [
     {
       "title": "Sekretär/in - Swiss Energy Program",
@@ -58,6 +58,7 @@
         }
       },
       "firstSeenAt": "2026-08-19T21:34:24.989Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "sekretar-in-swiss-energy-program-tarchini-group-manno"
@@ -126,6 +127,7 @@
         }
       },
       "firstSeenAt": "2026-07-31T11:36:03.527Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "technisch-kaufmannische-fachperson-projekt-swiss-energy-program-tarchini-group-manno"
@@ -222,7 +224,8 @@
           "junior-facility-manager-tarchini-group-mendrisio"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:32:13.614Z"
+      "firstSeenAt": "2026-04-13T22:32:13.614Z",
+      "salarySource": "reported"
     },
     {
       "title": "Sales Manager",
@@ -307,7 +310,8 @@
           "sales-manager-tarchini-group-lugano"
         ]
       },
-      "firstSeenAt": "2026-04-13T22:32:13.614Z"
+      "firstSeenAt": "2026-04-13T22:32:13.614Z",
+      "salarySource": "reported"
     }
   ]
 }

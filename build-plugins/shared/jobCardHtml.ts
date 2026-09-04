@@ -212,7 +212,7 @@ const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentCo
  * Per-locale suffix appended to the salary range when `salarySource` is
  * `'estimated'` — declares the band as a sector estimate, not a real offer.
  */
-const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
+export const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
   it: '(stima)',
   en: '(est.)',
   de: '(Schätzung)',
@@ -409,6 +409,12 @@ export interface JobCardListOptions {
   /** When the list renders as a multi-column grid, make each ad item span every
    *  column so the ad keeps full width. Default `false` (single-column lists). */
   adSpanFullGrid?: boolean;
+  /** Absolute number of cards rendered before this block. Keeps shared in-feed
+   *  cadence stable when one logical result list is split by editorial content. */
+  positionOffset?: number;
+  /** Treat the final card in this block as non-final because another result
+   *  block follows. Default `false`, preserving the no-ad-after-list rule. */
+  hasFollowingItems?: boolean;
 }
 
 const DEFAULT_UL_CLASS = 'list-none p-0 m-0 grid gap-3';
@@ -424,6 +430,7 @@ export function renderJobCardListHtml(
   if (items.length === 0) return opts.emptyStateHtml ?? '';
   const ulClass = opts.ulClassName ?? DEFAULT_UL_CLASS;
   const interleave = opts.interleaveInfeedAds ?? true;
+  const positionOffset = opts.positionOffset ?? 0;
   const cards = items
     .map(({ job, href }, i) => {
       const card = `<li>${renderJobCardHtml(job, {
@@ -432,9 +439,13 @@ export function renderJobCardListHtml(
         linkifyLocation: opts.linkifyLocation,
       })}</li>`;
       // In-feed ad after every Nth card, never after the last one (the
-      // end-of-list multiplex already sits there).
+      // end-of-list multiplex already sits there). A split logical list can
+      // declare that more cards follow in a later block and retain the same
+      // absolute cadence through `positionOffset`.
+      const position = positionOffset + i + 1;
+      const hasLaterItem = i + 1 < items.length || !!opts.hasFollowingItems;
       const ad =
-        interleave && i + 1 < items.length && shouldPlaceInfeedAd(i + 1)
+        interleave && hasLaterItem && shouldPlaceInfeedAd(position)
           ? infeedAdListItemHtml({ spanFull: opts.adSpanFullGrid })
           : '';
       return card + ad;

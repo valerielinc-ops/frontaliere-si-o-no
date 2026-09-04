@@ -1,79 +1,30 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-08-26T10:15:02.999Z",
+  "assembledAt": "2026-09-03T23:30:19.482Z",
   "jobs": [
-    {
-      "id": "alpiq-2337a63af6bb",
-      "slug": "gas-operator-alpiq-olten",
-      "slugByLocale": {
-        "it": "gas-operator-alpiq-olten"
-      },
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Gas Operator",
-      "titleByLocale": {
-        "it": "Gas Operator"
-      },
-      "description": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You&hellip;\n\nOlten - 100%\nPermanent",
-      "descriptionByLocale": {
-        "it": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You…\n\nOlten - 100%\nPermanent"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Olten",
-      "canton": "",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-25",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
-      "firstSeenAt": "2026-08-25T22:03:37.699Z",
-      "salaryMin": 68000,
-      "salaryMax": 104000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68000,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
-    },
     {
       "id": "alpiq-183e0087fef4",
       "slug": "enterprise-architect-etrm-alpiq-olten",
       "slugByLocale": {
-        "it": "enterprise-architect-etrm-alpiq-olten"
+        "it": "enterprise-architect-etrm-alpiq-olten",
+        "fr": "architecte-d-entreprise-etrm-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
       "title": "Enterprise Architect - ETRM",
       "titleByLocale": {
-        "it": "Enterprise Architect - ETRM"
+        "it": "Enterprise Architect",
+        "fr": "Architecte d'entreprise - ETRM"
       },
       "description": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq&rsquo;s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an&hellip;\n\nOlten - 100%\nPermanent"
+        "it": "Enterprise Architect - ETRM\n\nD&C Technology is a functional unit that supports Alpiq’s Business Area Digital & Commerce with management systems for the trading, origination and energy sales businesses, including the delivery of digital solutions for customers from the industrial, commerce and energy sectors.We are hiring an…\n\nOlten - 100%\nPermanent",
+        "de": "Enterprise Architect - ETRM\n\nD&C Technology ist eine funktionale Einheit, die Alpiq&rsquo;s Business Area Digital & Commerce mit Managementsystemen für den Handel, die Entstehung und den Energievertrieb unterstützt, einschließlich der Bereitstellung digitaler Lösungen für Kunden aus Industrie, Handel und Energiesektor. Wir stellen an&hellip ein;\n\nOlten - 100%\nDauerhaft",
+        "fr": "Architecte d'entreprise - ETRM\n\nD&C La technologie est une unité fonctionnelle qui soutient Alpiq&rsquo;s Business Area Digital & Commerce avec des systèmes de gestion pour les entreprises de commerce, d'origine et de vente d'énergie, y compris la fourniture de solutions numériques pour les clients des secteurs industriel, commercial et énergétique. Nous embauchons un ethellip;\n\nOlten - 100%\nPermanent"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "location": "Olten",
       "canton": "",
       "postalCode": "4600",
@@ -91,9 +42,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
+      "crawledAt": "2026-09-03T23:30:17.107Z",
+      "firstSeenAt": "2026-08-26T10:14:57.161Z",
       "salaryMin": 68000,
       "salaryMax": 104000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -103,25 +56,28 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-08-26T10:14:57.161Z"
+      }
     },
     {
       "id": "alpiq-32ea120ec164",
       "slug": "senior-asset-trader-alpiq-lausanne",
       "slugByLocale": {
-        "it": "senior-asset-trader-alpiq-lausanne"
+        "it": "senior-asset-trader-alpiq-lausanne",
+        "fr": "trafic-principal-d-actifs-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
       "title": "Senior Asset Trader",
       "titleByLocale": {
-        "it": "Senior Asset Trader"
+        "it": "Commerciante di asset senior",
+        "fr": "Trafic principal d'actifs"
       },
       "description": "Senior Asset Trader\n\nIn this role, you help bring our value &ldquo;We learn and grow together&rdquo; into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and&hellip;\n\nLausanne - 100%\nPermanent",
       "descriptionByLocale": {
-        "it": "Senior Asset Trader\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and…\n\nLausanne - 100%\nPermanent"
+        "it": "Senior Asset Trader\n\nIn this role, you help bring our value “We learn and grow together” into everyday practice by continuously challenging trading approaches, strengthening risk capabilities, and learning from outcomes. By sharing the steering wheel with Assets and taking clear ownership of risk, performance, and…\n\nLausanne - 100%\nPermanent",
+        "de": "Senior Asset Trader\n\nIn dieser Rolle tragen Sie dazu bei, unseren Wert &ldquo; Wir lernen und wachsen zusammen &rdquo; in die tägliche Praxis zu bringen, indem Sie ständig herausfordernde Handelsansätze, die Stärkung der Risikofähigkeiten und das Lernen aus den Ergebnissen herausfordern. Indem Sie das Lenkrad mit Assets teilen und klares Eigentum an Risiko, Leistung und & Hellip übernehmen;\n\nLausanne - 100%\nDauerhaft",
+        "fr": "Trafic principal d'actifs\n\nDans ce rôle, vous aidez à mettre en pratique notre valeur et notre valeur;Nous apprenons et nous développons ensemble et ensemble; dans la pratique quotidienne en défiant continuellement les approches commerciales, en renforçant les capacités de risque et en apprenant des résultats. En partageant le volant avec les actifs et en prenant clairement en main les risques, les performances et les avantages;\n\nLausanne - 100%\nPermanent"
       },
       "requirements": [],
       "requirementsByLocale": {},
@@ -142,10 +98,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.159Z",
+      "crawledAt": "2026-09-03T23:30:17.106Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -153,6 +110,64 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "alpiq-2337a63af6bb",
+      "slug": "gas-operator-alpiq-olten",
+      "slugByLocale": {
+        "it": "operatore-di-gas-alpiq-olten",
+        "de": "gasbetreiber-alpiq-olten",
+        "fr": "operateur-de-gaz-alpiq-olten"
+      },
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Gas Operator",
+      "titleByLocale": {
+        "it": "Operatore di gas",
+        "de": "Gasbetreiber",
+        "fr": "Opérateur de gaz"
+      },
+      "description": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You&hellip;\n\nOlten - 100%\nPermanent",
+      "descriptionByLocale": {
+        "it": "Gas Operator\n\nTo support the expansion of our gas portfolio, we are looking for a dynamic and highly motivated Gas Scheduler to join our team in Olten, Switzerland. In this role, you will contribute to our European gas scheduling activities and work in a diverse, international, and fast-paced environment.You…\n\nOlten - 100%\nPermanent",
+        "de": "Gasbetreiber\n\nUm den Ausbau unseres Gasportfolios zu unterstützen, suchen wir einen dynamischen und hochmotivierten Gasplaner, der unser Team in Olten, Schweiz, unterstützt. In dieser Rolle werden Sie zu unseren europäischen Gasplanungsaktivitäten beitragen und in einem vielfältigen, internationalen und schnelllebigen Umfeld arbeiten. Sie & hellip;\n\nOlten - 100%\nDauerhaft",
+        "fr": "Opérateur de gaz\n\nPour soutenir l'expansion de notre portefeuille de gaz, nous recherchons un programmeur de gaz dynamique et très motivé pour rejoindre notre équipe à Olten, en Suisse. Dans ce rôle, vous contribuerez à nos activités européennes de programmation du gaz et travaillerez dans un environnement diversifié, international et accéléré. Vous et Hellip;\n\nOlten - 100%\nPermanent"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Olten",
+      "canton": "",
+      "postalCode": "4600",
+      "streetAddress": "",
+      "addressLocality": "Olten",
+      "addressRegion": "",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-25",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/9632",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9632&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-03T23:30:17.105Z",
+      "firstSeenAt": "2026-08-25T22:03:37.699Z",
+      "salaryMin": 68000,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68000,
+          "maxValue": 104000,
           "unitText": "YEAR"
         }
       }
@@ -173,8 +188,8 @@
       "titleByLocale": {
         "it": "Product Manager - Trading e Origination (100%)",
         "en": "Product Manager - Trading and Origination (all) 100%",
-        "de": "Product Manager - Trading und Origination (100%)",
-        "fr": "Product Manager - Trading et Origination (100%)"
+        "de": "Produktmanager - Handel und Herkunft (alle) 100%",
+        "fr": "Gestionnaire de produits - Trading et origine (tous) 100%"
       },
       "description": "Product Manager - Trading and Origination (all) 100%\n\nAt Alpiq, we are looking for a Product Manager &ndash; Trading and Origination to join the New Product Implementation team. In this role, you will manage product life cycle activities with a strong focus on new product design, accurate deal representation, and implementation. You will ensure a structured&hellip;\n\nOlten - 100%\nPermanent",
       "descriptionByLocale": {
@@ -202,10 +217,11 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:14:57.161Z",
+      "crawledAt": "2026-09-03T23:30:17.106Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "salaryMin": 96000,
       "salaryMax": 146500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

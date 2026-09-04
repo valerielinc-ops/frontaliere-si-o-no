@@ -20,12 +20,42 @@
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 
 const HQ = getCompanyDefaults('citta-di-locarno');
 
 const CAREERS_URL = 'https://www.locarno.ch/it/albo-comunale/assunzioni-personale';
 const CAREERS_BASE = 'https://www.locarno.ch';
+const APPLICATION_BASE = 'https://locarno.pi-asp.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizeLocarnoPdfUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim().replace(/&amp;/gi, '&'), CAREERS_BASE);
+    const isPdfPath = /^\/files\/documenti\/[^/]+\.pdf$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isPdfPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
+
+export function normalizeLocarnoApplicationUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim().replace(/&amp;/gi, '&'), CAREERS_BASE);
+    const isApplicationPath = /^\/bewerber-web\/?$/i.test(url.pathname);
+    const isMunicipalTenant = url.searchParams.get('company') === '100-FIRMA-ID';
+    if (url.protocol !== 'https:' || url.origin !== APPLICATION_BASE || url.username || url.password
+      || !isApplicationPath || !isMunicipalTenant) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -82,9 +112,9 @@ export function slugify(value = '', suffix = '') {
     // Reserve room for the suffix so the combined slug fits MAX_LEN.
     const reserved = suffix.length + 1; // +1 for joining '-'
     const headroom = Math.max(1, MAX_LEN - reserved);
-    s = `${s.slice(0, headroom).replace(/-+$/, '')}-${suffix}`.replace(/--+/g, '-');
+    s = `${truncateSlugAtWordBoundary(s, headroom)}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, MAX_LEN);
+  return truncateSlugAtWordBoundary(s, MAX_LEN);
 }
 
 /**
@@ -167,15 +197,12 @@ export function parseLocarnoListingHtml(html) {
     if (isTitleTooGeneric(title)) continue;
 
     // Build full PDF URL
-    const pdfUrl = pdfHref.startsWith('http')
-      ? pdfHref
-      : new URL(pdfHref, CAREERS_BASE).href;
+    const pdfUrl = normalizeLocarnoPdfUrl(pdfHref);
+    if (!pdfUrl) continue;
 
     // Extract application URL (Candidatura online)
     const applyMatch = block.match(/<a\s+[^>]*href="([^"]*)"[^>]*>[^<]*[Cc]andidatura[^<]*<\/a>/i);
-    const applyUrl = applyMatch
-      ? (applyMatch[1].startsWith('http') ? applyMatch[1] : new URL(applyMatch[1], CAREERS_BASE).href)
-      : null;
+    const applyUrl = applyMatch ? normalizeLocarnoApplicationUrl(applyMatch[1]) : null;
 
     const slug = slugify(title, 'locarno');
     const id = `citta-di-locarno-${slug}`;

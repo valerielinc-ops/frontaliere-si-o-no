@@ -74,8 +74,9 @@ export const RATE_LIMITED_OUTCOME = 'rate-limited';
 
 /**
  * Beacon della finestra di quota. Deliberatamente un commento HTML SEPARATO dal
- * marker `<!-- FIX_OUTCOME: ... -->`: quest'ultimo è parsato da
- * `followup-drainer.mjs` con `/<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i`, che
+ * marker `<!-- FIX_OUTCOME: ... -->`: quest'ultimo è parsato con
+ * `FIX_OUTCOME_RE` (definita in `close-recovered-failure-issues.mjs`, importata
+ * da `followup-drainer.mjs` e dagli altri consumer), che
  * non ammette attributi extra dentro lo stesso commento. Tenerli separati evita
  * di dover toccare quella regex (e di romperla per tutti gli altri codici).
  */
@@ -139,7 +140,11 @@ export function detectClaudeRateLimit(raw) {
 
     if (m.type === 'rate_limit_event' && m.rate_limit_info && typeof m.rate_limit_info === 'object') {
       const info = /** @type {Record<string, unknown>} */ (m.rate_limit_info);
-      if (info.status === 'rejected' || info.overageStatus === 'rejected') {
+      // `status` descrive la richiesta corrente; `overageStatus` dice soltanto
+      // se sarebbe possibile comprare capacità extra. Una run autorizzata può
+      // quindi avere status=allowed e overageStatus=rejected e proseguire fino
+      // a un result success: non è un 429 terminale.
+      if (info.status === 'rejected') {
         rateLimited = true;
         const r = Number(info.resetsAt);
         // Il payload usa epoch in SECONDI; accetta anche millisecondi per

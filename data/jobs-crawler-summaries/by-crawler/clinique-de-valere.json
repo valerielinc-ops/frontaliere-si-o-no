@@ -1,21 +1,59 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-08-26T09:57:24.482Z",
-  "total": 2,
+  "generatedAt": "2026-09-03T23:12:21.781Z",
+  "total": 3,
   "discovered": null,
-  "written": 2,
+  "written": 3,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6048,
-  "avgDurationMs": 6048,
+  "unchangedCount": 1,
+  "durationMs": 7138,
+  "avgDurationMs": 7138,
   "durationHistory": [
-    6048
+    7138
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "clinique-de-valere-54dc562b182d",
+      "slug": "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere",
+      "company": "Clinique de Valère",
+      "companyKey": "clinique-de-valere",
+      "companyDomain": "swissmedical.net",
+      "title": "Assistant(e) médicale en policlinique à 70 %",
+      "needsRetranslation": false,
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146683320-assistant-e-medicale-en-policlinique-a-70-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146683320-assistant-e-medicale-en-policlinique-a-70-",
+      "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:12:15.513Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "streetAddress": "Rue Pré-Fleuri 16, 1950 Sion",
+      "category": "Sanità / Ospedali",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "datePosted": "2026-09-01",
+      "firstSeenAt": "2026-09-01T14:10:38.439Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 20
+      }
+    },
     {
       "id": "clinique-de-valere-27349865066c",
       "slug": "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-clinique-de-valere",
@@ -30,7 +68,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144287819-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:19.411Z",
+      "crawledAt": "2026-09-03T23:12:15.514Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -53,22 +91,24 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "clinique-de-valere-1a3f60eca57b",
-      "slug": "technicien-ne-en-radiologie-medicale-80-100-clinique-de-valere",
+      "slug": "radiologia-medica-tecnico-80-100-clinique-de-valere-sion",
       "company": "Clinique de Valère",
       "companyKey": "clinique-de-valere",
       "companyDomain": "swissmedical.net",
       "title": "Technicien(ne) en radiologie médicale 80-100%",
-      "needsRetranslation": false,
       "location": "Sion",
       "canton": "VS",
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134436784-technicien-ne-en-radiologie-medicale-80-100-",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000134436784-technicien-ne-en-radiologie-medicale-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-08-26T09:57:19.413Z",
+      "crawledAt": "2026-09-02T23:10:12.281Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,15 +124,18 @@
       "postedDate": "2026-06-26",
       "datePosted": "2026-06-26",
       "firstSeenAt": "2026-07-10T10:52:39.224Z",
-      "_qualityScore": 83,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

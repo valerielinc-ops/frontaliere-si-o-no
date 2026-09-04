@@ -35,8 +35,25 @@
  * resto resta dov'è. Una famiglia nuova di monitor non viene drenata da questo
  * script finché qualcuno non la aggiunge qui — che è il modo giusto di
  * sbagliare, perché il run Claude la prende comunque.
+ *
+ * ## Il verdetto batte il riconoscimento di famiglia (fix #5608)
+ *
+ * Un'issue di famiglia monitor può arrivare in `needs-human` già passata per lo
+ * stadio VERDICT-EXIT di `followup-drainer.mjs`, che la escala lì apposta come
+ * uscita TERMINALE per un verdetto `NON_RETRYABLE` (es. `no-root-cause`) — con
+ * lo sweep settimanale di `needs-human-sweep.yml` come «sola porta di rientro»
+ * dichiarata in `verdictExitDecision`. Prima di questa fix, questo pre-pass
+ * GIORNALIERO ignorava il verdetto per ogni titolo di famiglia riconosciuto e
+ * la re-accodava comunque ad `agent:fix-queued` — riproducendo lo stesso
+ * verdetto allo stesso costo prima ancora che lo sweep settimanale la vedesse.
+ * Misurato su #5608 (`PostHog Exception:`): no-root-cause confermato tre volte
+ * in tre run separate, ognuna preceduta da un re-accodo di questo script nel
+ * giorno precedente. Ora un verdetto `NON_RETRYABLE` vince sul riconoscimento
+ * di famiglia e la issue resta `keep` per il giudizio dello sweep.
  */
 import { execFileSync } from 'node:child_process';
+import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
+import { NON_RETRYABLE } from './followup-drainer.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
@@ -81,7 +98,6 @@ export const AGGREGATE_TITLE_RE = /\b(\d+)\s+item\s+deferred\b/i;
  */
 export const STALE_BLOCK_VERDICTS = new Set(['blocked-secrets']);
 
-const FIX_OUTCOME_RE = /<!--\s*FIX_OUTCOME:\s*([a-z0-9-]+)\s*-->/i;
 
 /** Ultimo verdetto da una lista di commenti (forma REST o GraphQL). Pura. */
 export function latestVerdict(comments) {
@@ -124,6 +140,19 @@ export function prepassDecision({ title = '', labels = [], verdict = null } = {}
     return { action: 'requeue', reason: `verdetto \`${verdict}\` superato dalla decisione del 2026-08-24 sui secret` };
   }
 
+  // Una issue di famiglia monitor può arrivare qui via VERDICT-EXIT
+  // (followup-drainer.mjs) proprio perché il fixer ha già raggiunto un
+  // verdetto NON_RETRYABLE: quello stadio la manda in `needs-human` come
+  // uscita TERMINALE, con lo sweep settimanale come «sola porta di rientro»
+  // (commento in `verdictExitDecision`). Ri-accodarla qui a `agent:fix-queued`
+  // prima che lo sweep la veda riproduce lo stesso verdetto allo stesso costo —
+  // esattamente il loop misurato su #5608 (no-root-cause → escalate →
+  // re-accodata dal pre-pass del giorno dopo → stesso no-root-cause, da capo).
+  // Il verdetto vince sul riconoscimento di famiglia: resta in `keep`.
+  if (verdict && NON_RETRYABLE.has(verdict)) {
+    return { action: 'keep', reason: `verdetto \`${verdict}\` non-ri-tentabile: resta per il giudizio dello sweep settimanale` };
+  }
+
   const monitor = MONITOR_TITLE_PATTERNS.find((re) => re.test(title));
   if (!monitor) return { action: 'keep', reason: 'famiglia non riconosciuta: la valuta il run Claude' };
 
@@ -161,15 +190,15 @@ function main() {
   let acted = 0;
   for (const iss of ordered) {
     const labels = (iss.labels || []).map((l) => l.name);
-    // Il verdetto costa una lettura: si paga SOLO quando il titolo non basta,
-    // cioè quando la famiglia non è riconosciuta e la issue finirebbe in `keep`.
+    // Il verdetto si legge sempre (anche per un titolo di famiglia monitor
+    // riconosciuto): un verdetto NON_RETRYABLE vince sul riconoscimento di
+    // famiglia (vedi `prepassDecision`), quindi non può più essere saltato solo
+    // perché il titolo basterebbe a decidere `requeue` da solo.
     let verdict = null;
-    if (!MONITOR_TITLE_PATTERNS.some((re) => re.test(iss.title))) {
-      try {
-        const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate']);
-        verdict = latestVerdict(Array.isArray(cs) ? cs : []);
-      } catch { verdict = null; }
-    }
+    try {
+      const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate']);
+      verdict = latestVerdict(Array.isArray(cs) ? cs : []);
+    } catch { verdict = null; }
     const d = prepassDecision({ title: iss.title, labels, verdict });
     counts[d.action]++;
     if (d.action === 'keep') continue;

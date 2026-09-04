@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Hilcona AG (Bell Food Group) job parser.
  *
@@ -13,6 +14,19 @@ import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
 const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizeHilconaJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/de\/stelle\/[^/]+-\d+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
 
 // ── shared utilities ──────────────────────────────────────────────────
 
@@ -31,8 +45,8 @@ export function stripHtml(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
+  return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {
@@ -62,9 +76,8 @@ export function parseHilconaSitemapXml(xml) {
   const locPattern = /<loc>([^<]+)<\/loc>/gi;
   let m;
   while ((m = locPattern.exec(xml)) !== null) {
-    const url = m[1].trim();
-    // Only keep German (/de/stelle/) URLs to get one entry per job
-    if (!url.includes('/de/stelle/')) continue;
+    const url = normalizeHilconaJobUrl(m[1]);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -166,13 +179,30 @@ export function parseHilconaDetailHtml(html) {
   let description = parts.join(' ').trim();
   if (description.length < 30 && metaDesc) description = metaDesc;
 
-  // Extract location from address (postal code + city)
+  // Extract source-backed geography from the address and the portal's own
+  // Google Maps route. The sitemap spans several countries; a four-digit
+  // postal code alone is not Swiss evidence (Liechtenstein uses it too).
   let location = '';
+  let postalCode = '';
   if (addressRaw) {
     // Address format: "Hauptstrasse 80 5223 Pfaffstätt" or "Landquart"
     const postalCityMatch = addressRaw.match(/(\d{4,5})\s+(\S+(?:\s+\S+)?)/);
+    postalCode = postalCityMatch ? postalCityMatch[1] : '';
     location = postalCityMatch ? postalCityMatch[2] : addressRaw.split('\n').pop().trim();
   }
+  const mapRouteMatch = html.match(/google\.com\/maps\/dir\/\/([^"']+?)(?:\/@|["'])/i);
+  const mapRoute = mapRouteMatch
+    ? decodeURIComponent(mapRouteMatch[1]).replace(/\+/g, ' ')
+    : '';
+  const addressCountry = /\b(?:Schweiz|Switzerland|Suisse|Svizzera)\b/i.test(mapRoute)
+    ? 'CH'
+    : /\bLiechtenstein\b/i.test(mapRoute)
+      ? 'LI'
+      : /\bDeutschland\b/i.test(mapRoute)
+        ? 'DE'
+        : /\bÖsterreich\b/i.test(mapRoute)
+          ? 'AT'
+          : '';
 
   if (!description || description.length < 30) return null;
 
@@ -181,6 +211,8 @@ export function parseHilconaDetailHtml(html) {
     description,
     company: company || brandName || '',
     location,
+    postalCode,
+    addressCountry,
     contractType,
     pensum,
     language,
@@ -216,11 +248,12 @@ export async function fetchHilconaJobUrls(timeoutMs = 15000) {
  * Fetch and parse a single Bell Food Group job detail page.
  */
 export async function fetchHilconaDetailPage(url, timeoutMs = 15000) {
-  if (!url) return null;
+  const safeUrl = normalizeHilconaJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA, Accept: 'text/html' },
       signal: controller.signal,
     });

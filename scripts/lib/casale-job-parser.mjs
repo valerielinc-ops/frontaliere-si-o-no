@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Casale SA — Recruitee API parser
  *
@@ -108,7 +109,7 @@ export function slugify(value = '', suffix = '') {
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-');
   if (suffix) s = `${s}-${suffix}`.replace(/--+/g, '-');
-  return s.slice(0, 180);
+  return truncateSlugAtWordBoundary(s, 180);
 }
 
 /** Minimum description length to consider a description "full". */

@@ -14,7 +14,10 @@
  * jobs (ratio unchanged) must NOT trigger CRITICAL either.
  */
 
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, it, expect, vi } from 'vitest';
 import {
   applyNoStructureRatchet,
   applyDuplicateDescriptionRatchet,
@@ -23,7 +26,34 @@ import {
   countDuplicates,
   largestDuplicateBucket,
   effectiveDescription,
+  sourceLocationMatches,
+  extractSourceLocationObservation,
+  classifySourceLocationEvidence,
+  compareSourceDetail,
+  checkSourceDetailsBatch,
+  applySourceDetailResults,
+  sourceDetailSeverity,
+  finalizeSourceDetailEvidence,
+  runSourceDetailChecks,
+  finishAudit,
+  filledLocaleCount,
+  getSourceDetailImplementationVersions,
+  SOURCE_DETAIL_EXTRACTOR_VERSION_FILES,
+  SOURCE_DETAIL_NORMALIZER_VERSION_FILES,
 } from '../../scripts/audit-parser-quality.mjs';
+import {
+  SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+  createSourceDetailEvidence,
+  createSourceDetailEvidenceBundle,
+  replaySourceDetailEvidence,
+  replaySourceDetailEvidenceBatch,
+  replaySourceDetailEvidenceBundle,
+  replaySourceDetailEvidenceBundleAsResults,
+} from '../../scripts/lib/parser-quality-source-detail-replay.mjs';
+import {
+  crawlerJobActivity,
+  partitionCrawlerJobsForActiveMetrics,
+} from '../../scripts/lib/crawler-job-activity.mjs';
 
 type Issue = {
   type: string;
@@ -39,6 +69,47 @@ type Entry = {
   severity: 'CRITICAL' | 'WARNING' | 'OK';
   action?: string;
 };
+
+describe('active parser-quality population', () => {
+  it('keeps live records and reports grace/expired exclusions separately', () => {
+    const activeRich = {
+      id: 'active-rich',
+      description: 'Responsibility '.repeat(60),
+      crawlerMissStreak: 0,
+    };
+    const graceThin = {
+      id: 'grace-thin',
+      description: 'thin',
+      crawlerMissStreak: '1',
+    };
+    const expired = {
+      id: 'expired',
+      description: 'thin',
+      expiredAt: '2026-08-31T00:00:00.000Z',
+    };
+
+    expect(crawlerJobActivity(activeRich)).toBe('active');
+    expect(crawlerJobActivity(graceThin)).toBe('grace');
+    expect(crawlerJobActivity(expired)).toBe('expired');
+    expect(partitionCrawlerJobsForActiveMetrics([activeRich, graceThin, expired])).toEqual({
+      activeJobs: [activeRich],
+      excluded: { grace: 1, expired: 1, total: 2 },
+    });
+  });
+
+  it('does not hide live records with malformed or non-positive grace metadata', () => {
+    const records = [
+      { id: 'missing' },
+      { id: 'zero', crawlerMissStreak: 0 },
+      { id: 'negative', crawlerMissStreak: -1 },
+      { id: 'malformed', crawlerMissStreak: 'unknown' },
+    ];
+
+    const result = partitionCrawlerJobsForActiveMetrics(records);
+    expect(result.activeJobs).toEqual(records);
+    expect(result.excluded).toEqual({ grace: 0, expired: 0, total: 0 });
+  });
+});
 
 function makeEntry(noStructCount: number, total: number, severity: Entry['severity'] = 'WARNING'): Entry {
   return {
@@ -189,6 +260,726 @@ describe('applyNoStructureRatchet', () => {
 
     expect(report['borderline'].severity).toBe('WARNING');
     expect(regressions).toHaveLength(0);
+  });
+});
+
+describe('source-detail fidelity checks', () => {
+  it('accepts equivalent locality forms without accepting a canton-only overlap', () => {
+    expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Visp', 'CH - Visp')).toBe(true);
+    expect(sourceLocationMatches('St. Moritz', 'Sankt Moritz')).toBe(true);
+    expect(sourceLocationMatches('Ginevra', 'Geneva (GVA)')).toBe(true);
+    expect(sourceLocationMatches('Zürich', 'Klinik Lengg AG | Bleulerstrasse 60 | 8008 Zürich, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Kriens', 'Kreuzstrasse 34 6010 Kriens')).toBe(true);
+    expect(sourceLocationMatches('Pfäffikon', 'Pfäffikon Zürich')).toBe(true);
+    expect(sourceLocationMatches('Lengghalde 2, Zürich', 'Zürich, Zürich')).toBe(true);
+    expect(sourceLocationMatches('Sede Stabio Svizzera', 'Stabio, 2106')).toBe(true);
+    expect(sourceLocationMatches('Bern', 'CHE-BE Bern')).toBe(true);
+    expect(sourceLocationMatches('Zürich', 'Winterthur, Zürich')).toBe(false);
+    expect(sourceLocationMatches('Bern', 'Lyss, Bern Grossraum')).toBe(false);
+    expect(sourceLocationMatches('Lugano', 'Pfäffikon, Zürich')).toBe(false);
+    expect(sourceLocationMatches('Basel', 'Basel-Landschaft')).toBe(false);
+    expect(sourceLocationMatches('Appenzell', 'Appenzell Ausserrhoden')).toBe(false);
+  });
+
+  it('matches certain Swiss multilingual locality aliases bidirectionally', () => {
+    for (const aliases of [
+      ['Genève', 'Genf', 'Ginevra', 'Geneva'],
+      ['Fribourg', 'Freiburg', 'Friburgo'],
+      ['Biel', 'Bienne', 'Bienne-Biel'],
+      ['Chur', 'Coira', 'Cuira'],
+    ]) {
+      for (const left of aliases) {
+        for (const right of aliases) expect(sourceLocationMatches(left, right), `${left} ↔ ${right}`).toBe(true);
+      }
+    }
+    expect(sourceLocationMatches('Fribourg', 'Freiburg im Breisgau')).toBe(false);
+    expect(sourceLocationMatches('Biel', 'Biel-Benken')).toBe(false);
+    expect(sourceLocationMatches('Chur', 'Churwalden')).toBe(false);
+  });
+
+  it('distinguishes authoritative location markup from generic page chrome', () => {
+    const jsonLd = '<script type="application/ld+json">{"@type":"JobPosting","title":"Role","jobLocation":{"address":{"addressLocality":"Lugano","addressRegion":"Ticino"}}}</script>';
+    expect(classifySourceLocationEvidence(jsonLd, 'https://example.test/job')).toBe('jsonld');
+    for (const className of [
+      'job-location', 'job_location', 'job-detail-location', 'job_detail_location',
+      'job-region', 'job_region', 'job-detail-region', 'job_detail_region',
+      'vacancy-location', 'vacancy_location', 'vacancy-detail-location', 'vacancy_detail_location',
+      'vacancy-region', 'vacancy_region', 'vacancy-detail-region', 'vacancy_detail_region',
+    ]) {
+      expect(classifySourceLocationEvidence(`<div class="${className}">Lugano</div>`), className).toBe('strong-markup');
+    }
+    expect(classifySourceLocationEvidence('<article class="job-detail"><span itemprop="addressLocality">Geneva</span></article>')).toBe('strong-markup');
+    expect(classifySourceLocationEvidence('<footer><span itemprop="addressLocality">Zürich</span></footer>')).toBe('generic');
+    expect(classifySourceLocationEvidence('<div role="region"><span class="aria-jobDescRegionHeader-hidden">Stellenbeschreibung</span></div>')).toBe('generic');
+    expect(classifySourceLocationEvidence('<nav><div class="location">Search by Location</div></nav>')).toBe('generic');
+  });
+
+  it('binds addressLocality to its job-scoped container instead of a footer', () => {
+    const html = [
+      '<footer><span itemprop="addressLocality">Zürich</span></footer>',
+      '<article class="job-detail"><span itemprop="addressLocality">Geneva</span></article>',
+    ].join('');
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Geneva',
+      evidence: 'strong-markup',
+    });
+    expect(extractSourceLocationObservation('<div class="job-detail-location">Lugano</div>')).toEqual({
+      location: 'Lugano',
+      evidence: 'strong-markup',
+    });
+  });
+
+  it('does not promote related cards or search results as the current vacancy location', () => {
+    for (const html of [
+      '<section class="job-search-results"><article><span class="job-location">Zürich</span></article></section>',
+      '<aside class="related-card"><span class="job-detail-location">Zürich</span></aside>',
+      '<div class="job-recommendations"><span itemprop="addressLocality">Zürich</span></div>',
+    ]) {
+      expect(extractSourceLocationObservation(html)).toEqual({ location: '', evidence: 'generic' });
+      const result = compareSourceDetail(
+        { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+        { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+        { locationEvidence: classifySourceLocationEvidence(html) },
+      );
+      expect(result.locationMismatch).toBe(false);
+      expect(result.locationInconclusive).toBe(true);
+    }
+  });
+
+  it('does not turn generic page labels into location contradictions', () => {
+    const result = compareSourceDetail(
+      { location: 'Lausanne', sourceLang: 'fr', description: 'Description complète '.repeat(20) },
+      { location: 'Rechercher par lieu', description: 'Description complète '.repeat(20) },
+      { locationEvidence: 'generic' },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(true);
+  });
+
+  it('keeps authoritative organization-labelled locations as contradictions', () => {
+    for (const [publishedLocation, sourceLocation] of [
+      ['Geneva', 'Kantonsspital Aarau, Aarau'],
+      ['Lugano', 'HFR Fribourg / HFR Freiburg'],
+    ]) {
+      const result = compareSourceDetail(
+        { location: publishedLocation, sourceLang: 'de', description: 'Ausführliche Stellenbeschreibung '.repeat(20) },
+        { location: sourceLocation, description: 'Ausführliche Stellenbeschreibung '.repeat(20) },
+        { locationEvidence: 'jsonld' },
+      );
+      expect(result.locationMismatch, sourceLocation).toBe(true);
+      expect(result.locationInconclusive, sourceLocation).toBe(false);
+    }
+  });
+
+  it('prefers a corroborated Kanton Zürich listing workplace over administrative JSON-LD', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Dietikon',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Dietikon',
+        location: 'Horgen',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        locationEvidence: 'jsonld',
+        locationPolicy: 'listing-workplace-over-admin-jsonld',
+      },
+    );
+
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationAuthority).toBe('listing-workplace');
+  });
+
+  it('keeps a Kanton Zürich mismatch when the detail title does not corroborate the listing', () => {
+    const result = compareSourceDetail(
+      {
+        addressLocality: 'Dietikon',
+        sourceLang: 'de',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        title: 'Sozialarbeiter/in im kjz Horgen',
+        location: 'Horgen',
+        description: 'Ausführliche Stellenbeschreibung '.repeat(20),
+      },
+      {
+        locationEvidence: 'jsonld',
+        locationPolicy: 'listing-workplace-over-admin-jsonld',
+      },
+    );
+
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationAuthority).toBe('source-detail');
+  });
+
+  it('applies the listing-workplace contract only to kanton-zuerich source checks', async () => {
+    const html = fs.readFileSync(
+      path.join(process.cwd(), 'tests/fixtures/kanton-zuerich-source-detail-admin-location.html'),
+      'utf8',
+    );
+    const description = 'Ausführliche Stellenbeschreibung '.repeat(20);
+    const items = ['kanton-zuerich', 'another-solique-crawler'].map((crawlerKey) => ({
+      crawlerKey,
+      url: `https://example.test/${crawlerKey}`,
+      job: { addressLocality: 'Dietikon', sourceLang: 'de', description },
+    }));
+    const results = await checkSourceDetailsBatch(items, 2, {
+      fetchPage: async (url: string) => ({
+        ok: true,
+        status: 200,
+        url,
+        body: html,
+        host: 'example.test',
+      }),
+    });
+
+    expect(results[0]).toMatchObject({
+      crawlerKey: 'kanton-zuerich',
+      sourceLocation: 'Horgen, ZH',
+      locationMismatch: false,
+      locationAuthority: 'listing-workplace',
+    });
+    expect(results[1]).toMatchObject({
+      crawlerKey: 'another-solique-crawler',
+      sourceLocation: 'Horgen, ZH',
+      locationMismatch: true,
+      locationAuthority: 'source-detail',
+    });
+  });
+
+  it('flags a wrong published location and a thin published description', () => {
+    const result = compareSourceDetail(
+      { location: 'Lugano', sourceLang: 'de', description: 'Polymechaniker in Lugano' },
+      { location: 'Pfäffikon, Zürich', description: 'Aufgaben Installation, Inbetriebnahme und Wartung von Maschinen. '.repeat(5) },
+      { locationEvidence: 'jsonld' },
+    );
+    expect(result.locationMismatch).toBe(true);
+    expect(result.locationInconclusive).toBe(false);
+    expect(result.descriptionMismatch).toBe(true);
+  });
+
+  it('does not flag a sufficiently faithful source description', () => {
+    const description = 'Installation, Inbetriebnahme und Wartung von Maschinen. '.repeat(8);
+    const result = compareSourceDetail(
+      { location: 'Pfäffikon', sourceLang: 'de', description },
+      { location: 'Pfäffikon, Zürich', description },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.descriptionMismatch).toBe(false);
+  });
+
+  it('captures one privacy-safe immutable observation from the existing fetch and replays it', async () => {
+    const body = [
+      '<script type="application/ld+json">',
+      '{"@type":"JobPosting","title":"Role","jobLocation":{"address":{"addressLocality":"Zürich"}},',
+      '"description":"Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen."}',
+      '</script>',
+    ].join('');
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: '2026-09-01T15:59:18Z' },
+    };
+    const versions = getSourceDetailImplementationVersions();
+    let fetches = 0;
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'helsana',
+      url: 'https://example.test/job?signed=private-value',
+      job: { location: 'Lugano', description: 'Ausführliche Stellenbeschreibung mit Aufgaben und Anforderungen.' },
+    }], 1, {
+      fetchPage: async (url: string) => {
+        fetches++;
+        return { ok: true, status: 200, url, body, host: 'example.test' };
+      },
+      evidenceContext: { provenance, versions },
+    });
+
+    expect(fetches).toBe(1);
+    expect(versions.extractor).toMatch(/^[a-f0-9]{64}$/);
+    expect(versions.normalizer).toMatch(/^[a-f0-9]{64}$/);
+    expect(result.sourceDetailEvidence).toMatchObject({
+      crawlerKey: 'helsana',
+      provenance: { repoHeadSha: provenance.repoHeadSha, datasetCommitSha: provenance.datasetLastCommit.sha },
+      versions,
+    });
+    const serialized = JSON.stringify(result.sourceDetailEvidence);
+    expect(serialized).not.toContain(body);
+    expect(serialized).not.toContain('signed=private-value');
+    expect(serialized).not.toContain('Ausführliche Stellenbeschreibung');
+    expect(replaySourceDetailEvidence(result.sourceDetailEvidence, { provenance, versions })).toMatchObject({
+      crawlerKey: 'helsana',
+      replayed: true,
+      locationMismatch: true,
+      evidenceProvenance: { repoHeadSha: provenance.repoHeadSha, datasetCommitSha: provenance.datasetLastCommit.sha },
+    });
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-evidence-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const evidenceContext = {
+        provenance,
+        versions,
+        requestedCount: 1,
+        requestedSamples: [{ crawlerKey: 'helsana', url: 'https://example.test/job?signed=private-value' }],
+      };
+      const evidenceBundle = createSourceDetailEvidenceBundle([result], evidenceContext);
+      const report = { helsana: { total: 1, issues: [], severity: 'OK' } };
+      const sourceDetailSummary = applySourceDetailResults(report, [result], 1);
+      report.helsana.severity = sourceDetailSeverity(report.helsana) || report.helsana.severity;
+      finishAudit(report, {
+        outPath,
+        provenance,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary,
+        sourceDetailEvidence: evidenceBundle,
+      });
+      const persisted = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(persisted.sourceDetailEvidence).toEqual(evidenceBundle);
+      expect(JSON.stringify(persisted)).not.toContain('signed=private-value');
+      expect(persisted.crawlers.helsana.severity).toBe('CRITICAL');
+      expect(replaySourceDetailEvidenceBundle(evidenceBundle, evidenceContext)).toHaveLength(1);
+    } finally {
+      consoleSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('binds the bundle to the complete ordered request set and rejects omissions, additions and duplicates', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const requestedSamples = [
+      { crawlerKey: 'one', url: 'https://example.test/one' },
+      { crawlerKey: 'two', url: 'https://example.test/two' },
+    ];
+    const context = { provenance, versions, requestedCount: 2, requestedSamples };
+    const results = requestedSamples.map((sample) => ({ ...sample, fetchFailed: true, status: 429 }));
+    const bundle = createSourceDetailEvidenceBundle(results, context);
+
+    expect(bundle).toMatchObject({ requestedCount: 2, replayableCount: 0 });
+    expect(replaySourceDetailEvidenceBundle(bundle, context)).toEqual([
+      expect.objectContaining({ crawlerKey: 'one', fetchFailed: true, status: 429 }),
+      expect.objectContaining({ crawlerKey: 'two', fetchFailed: true, status: 429 }),
+    ]);
+    expect(() => createSourceDetailEvidenceBundle([], context)).toThrow(/results are required/);
+    expect(() => createSourceDetailEvidenceBundle(results.slice(0, 1), context)).toThrow(/count/);
+    expect(() => createSourceDetailEvidenceBundle([...results, results[0]], context)).toThrow(/count/);
+    expect(() => createSourceDetailEvidenceBundle([results[0], results[0]], context)).toThrow(/duplicate/);
+    expect(() => createSourceDetailEvidenceBundle([
+      { ...results[0], processingFailed: true },
+      results[1],
+    ], context)).toThrow(/exactly one outcome/);
+    expect(() => createSourceDetailEvidenceBundle([
+      results[0],
+      { ...results[1], url: 'https://example.test/replacement' },
+    ], context)).toThrow(/identity/);
+    expect(() => createSourceDetailEvidenceBundle(results, {
+      ...context,
+      requestedSamples: [requestedSamples[0], requestedSamples[0]],
+    })).toThrow(/duplicate/);
+  });
+
+  it('orchestrates an enabled empty source-detail audit into a serialized CRITICAL failure', async () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const checkBatch = vi.fn(async () => []);
+    const report: Record<string, Entry> = {};
+    const { sourceDetailSummary, sourceDetailEvidence } = await runSourceDetailChecks(
+      report,
+      [],
+      { provenance, versions, checkBatch },
+    );
+
+    expect(checkBatch).toHaveBeenCalledWith([], 3, {
+      evidenceContext: {
+        provenance,
+        versions,
+        requestedCount: 0,
+        requestedSamples: [],
+      },
+    });
+    expect(sourceDetailSummary).toMatchObject({
+      requested: 0,
+      fetched: 0,
+      fetchFailed: 0,
+      processingFailed: 0,
+    });
+    expect(sourceDetailEvidence).toMatchObject({
+      format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+      status: 'invalid',
+      requestedCount: 0,
+      errorCode: 'missing-evidence',
+    });
+    expect(report['source-detail-evidence']).toMatchObject({ severity: 'CRITICAL' });
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-empty-source-detail-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(finishAudit(report, {
+        strict: true,
+        outPath,
+        provenance,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary,
+        sourceDetailEvidence,
+      })).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: { requested: 0 },
+        sourceDetailEvidence: { status: 'invalid', errorCode: 'missing-evidence' },
+        crawlers: { 'source-detail-evidence': { severity: 'CRITICAL' } },
+        summary: { critical: 1 },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('changes each implementation fingerprint when any real closure input changes', () => {
+    const readFixture = (changedPath = '') => (absolutePath: string) => {
+      const relativePath = path.relative(process.cwd(), absolutePath);
+      return Buffer.from(`${relativePath}:${relativePath === changedPath ? 'changed' : 'base'}`);
+    };
+    const baseline = getSourceDetailImplementationVersions({ readFile: readFixture() });
+
+    expect(SOURCE_DETAIL_EXTRACTOR_VERSION_FILES).toEqual([
+      'scripts/lib/prospector/extract.mjs',
+      'scripts/lib/prospector/registrable.mjs',
+      'scripts/lib/prospector/entities.mjs',
+      'scripts/lib/decode-html-entities.mjs',
+      'scripts/lib/html-attr.mjs',
+      'scripts/lib/prospector/location-evidence.mjs',
+      'scripts/lib/target-swiss-locations.mjs',
+      'scripts/lib/crawler-location-config.mjs',
+      'scripts/lib/prospector/country-inventory.mjs',
+      'scripts/lib/prospector/subdivision-inventory.mjs',
+      'data/canton-municipalities.json',
+    ]);
+    expect(SOURCE_DETAIL_NORMALIZER_VERSION_FILES).toEqual([
+      'scripts/audit-parser-quality.mjs',
+      'scripts/lib/parser-quality-source-detail-replay.mjs',
+      'scripts/lib/stable-stringify.mjs',
+    ]);
+    for (const input of SOURCE_DETAIL_EXTRACTOR_VERSION_FILES) {
+      const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
+      expect(changed.extractor, input).not.toBe(baseline.extractor);
+      expect(changed.normalizer, input).toBe(baseline.normalizer);
+    }
+    for (const input of SOURCE_DETAIL_NORMALIZER_VERSION_FILES) {
+      const changed = getSourceDetailImplementationVersions({ readFile: readFixture(input) });
+      expect(changed.normalizer, input).not.toBe(baseline.normalizer);
+      expect(changed.extractor, input).toBe(baseline.extractor);
+    }
+  });
+
+  it('fails closed for missing, tampered, provenance-mismatched or version-mismatched evidence', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-fixture-v1', normalizer: 'normalizer-fixture-v1' };
+    const comparison = compareSourceDetail(
+      { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+      { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+      { locationEvidence: 'jsonld' },
+    );
+    const valid = createSourceDetailEvidence({
+      crawlerKey: 'ardian',
+      sourceUrl: 'https://example.test/ardian',
+      body: '<main>source detail fixture</main>',
+      observation: comparison.replayObservation,
+      provenance,
+      versions,
+    });
+    const tampered = { ...valid, bodySha256: '0'.repeat(64) };
+    const wrongProvenance = {
+      provenance: { ...provenance, datasetLastCommit: { ...provenance.datasetLastCommit, sha: 'c'.repeat(40) } },
+      versions,
+    };
+    const wrongVersion = { provenance, versions: { ...versions, normalizer: 'normalizer-fixture-v2' } };
+    const bundleContext = {
+      provenance,
+      versions,
+      requestedCount: 1,
+      requestedSamples: [{ crawlerKey: 'ardian', url: 'https://example.test/ardian' }],
+    };
+    const validResult = {
+      crawlerKey: 'ardian',
+      url: 'https://example.test/ardian',
+      sourceDetailEvidence: valid,
+    };
+    const bundle = createSourceDetailEvidenceBundle([validResult], bundleContext);
+    const missingMember = { ...bundle, samples: [] };
+    const tamperedBundle = { ...bundle, samplesSha256: '0'.repeat(64) };
+
+    expect(() => replaySourceDetailEvidence(null, { provenance, versions })).toThrow(/evidence is required/);
+    expect(() => replaySourceDetailEvidence(tampered, { provenance, versions })).toThrow(/digest does not match/);
+    expect(() => replaySourceDetailEvidence(valid, wrongProvenance)).toThrow(/commit or dataset/);
+    expect(() => replaySourceDetailEvidence(valid, wrongVersion)).toThrow(/version/);
+    expect(() => replaySourceDetailEvidenceBundle(null, bundleContext)).toThrow(/bundle is required/);
+    expect(() => replaySourceDetailEvidenceBundle(missingMember, bundleContext)).toThrow(/sample count/);
+    expect(() => replaySourceDetailEvidenceBundle(tamperedBundle, bundleContext)).toThrow(/digest/);
+
+    const rejected = [
+      ...replaySourceDetailEvidenceBatch([null, tampered], { provenance, versions }),
+      ...replaySourceDetailEvidenceBatch([valid], wrongProvenance),
+      ...replaySourceDetailEvidenceBatch([valid], wrongVersion),
+      ...replaySourceDetailEvidenceBundleAsResults(null, bundleContext),
+      ...replaySourceDetailEvidenceBundleAsResults(missingMember, bundleContext),
+      ...replaySourceDetailEvidenceBundleAsResults(tamperedBundle, bundleContext),
+    ];
+    const report: Record<string, Entry> = {};
+    for (const result of rejected) {
+      if (!report[result.crawlerKey]) report[result.crawlerKey] = { total: 1, issues: [], severity: 'OK' };
+    }
+    applySourceDetailResults(report, rejected, rejected.length);
+    expect(rejected.every((result) => result.processingFailed)).toBe(true);
+    expect(Object.values(report).every((entry) => entry.severity === 'CRITICAL')).toBe(true);
+    expect(JSON.stringify(rejected)).not.toMatch(/private-value|source detail fixture/);
+  });
+
+  it('finalizes tampered or version-mismatched live evidence as an invalid CRITICAL artifact', () => {
+    const provenance = {
+      repoHeadSha: 'a'.repeat(40),
+      datasetLastCommit: { sha: 'b'.repeat(40), committedAt: null },
+    };
+    const versions = { extractor: 'extractor-v1', normalizer: 'normalizer-v1' };
+    const requestedSamples = [{ crawlerKey: 'medbase', url: 'https://example.test/medbase' }];
+    const comparison = compareSourceDetail(
+      { location: 'Lugano', description: 'Descrizione completa '.repeat(20) },
+      { location: 'Zürich', description: 'Descrizione completa '.repeat(20) },
+      { locationEvidence: 'jsonld' },
+    );
+    const valid = createSourceDetailEvidence({
+      crawlerKey: 'medbase',
+      sourceUrl: requestedSamples[0].url,
+      body: '<main>source detail fixture</main>',
+      observation: comparison.replayObservation,
+      provenance,
+      versions,
+    });
+    const cases = [
+      {
+        result: { ...requestedSamples[0], sourceDetailEvidence: { ...valid, bodySha256: '0'.repeat(64) } },
+        context: { provenance, versions, requestedCount: 1, requestedSamples },
+        errorCode: 'tampered-evidence',
+      },
+      {
+        result: { ...requestedSamples[0], sourceDetailEvidence: valid },
+        context: {
+          provenance,
+          versions: { ...versions, normalizer: 'normalizer-v2' },
+          requestedCount: 1,
+          requestedSamples,
+        },
+        errorCode: 'version-mismatch',
+      },
+    ];
+
+    for (const testCase of cases) {
+      const report: Record<string, Entry> = {
+        medbase: { total: 1, issues: [], severity: 'OK' },
+      };
+      const evidenceBundle = finalizeSourceDetailEvidence(report, [testCase.result], testCase.context);
+      expect(evidenceBundle).toMatchObject({
+        format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+        status: 'invalid',
+        requestedCount: 1,
+        errorCode: testCase.errorCode,
+      });
+      expect(report.medbase).toMatchObject({ severity: 'CRITICAL' });
+      expect(replaySourceDetailEvidenceBundleAsResults(evidenceBundle, testCase.context)[0])
+        .toMatchObject({ processingFailed: true });
+    }
+  });
+
+  it('serializes missing live provenance as a fail-closed report instead of aborting before the writer', async () => {
+    const evidenceContext = {
+      provenance: { repoHeadSha: null, datasetLastCommit: { sha: null, committedAt: null } },
+      versions: { extractor: 'extractor-v1', normalizer: 'normalizer-v1' },
+      requestedCount: 1,
+      requestedSamples: [{ crawlerKey: 'swiss-life', url: 'https://example.test/job' }],
+    };
+    const [result] = await checkSourceDetailsBatch([{
+      crawlerKey: 'swiss-life',
+      url: 'https://example.test/job',
+      job: { location: 'Sion', description: 'Descrizione completa '.repeat(20) },
+    }], 1, {
+      fetchPage: async (url: string) => ({
+        ok: true,
+        status: 200,
+        url,
+        body: '<div class="job-detail-location">Zürich</div>',
+        host: 'example.test',
+      }),
+      evidenceContext,
+    });
+
+    expect(result).toMatchObject({ crawlerKey: 'swiss-life', processingFailed: true });
+    expect(result.sourceDetailEvidence).toBeUndefined();
+
+    const report = { 'swiss-life': { total: 1, issues: [], severity: 'OK' as const } };
+    const summary = applySourceDetailResults(report, [result], 1);
+    const evidenceBundle = finalizeSourceDetailEvidence(report, [result], evidenceContext);
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-missing-provenance-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(evidenceBundle).toMatchObject({
+        format: SOURCE_DETAIL_EVIDENCE_FAILURE_FORMAT,
+        status: 'invalid',
+        requestedCount: 1,
+        errorCode: 'invalid-provenance',
+      });
+      expect(finishAudit(report, {
+        strict: true,
+        outPath,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: summary,
+        sourceDetailEvidence: evidenceBundle,
+      })).toBe(1);
+      const persisted = JSON.parse(fs.readFileSync(outPath, 'utf8'));
+      expect(persisted.sourceDetailEvidence).toEqual(evidenceBundle);
+      expect(persisted.crawlers['swiss-life']).toMatchObject({ severity: 'CRITICAL' });
+      expect(replaySourceDetailEvidenceBundleAsResults(evidenceBundle, evidenceContext)[0])
+        .toMatchObject({ processingFailed: true });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('accounts for worker exceptions separately from network failures and makes strict fail', async () => {
+    const items = [
+      { crawlerKey: 'fixture', url: 'https://example.test/network', job: { location: 'Lugano' } },
+      { crawlerKey: 'fixture', url: 'https://example.test/processing', job: { location: 'Lugano' } },
+    ];
+    const results = await checkSourceDetailsBatch(items, 2, {
+      fetchPage: async (url: string) => {
+        if (url.endsWith('/network')) throw new TypeError('network unavailable');
+        return { ok: true, status: 200, url, body: '<main>fixture</main>', host: 'example.test' };
+      },
+      extractDetail: () => {
+        throw new Error('parser exploded at /sensitive/source/file and https://internal.invalid/token');
+      },
+    });
+
+    expect(results).toHaveLength(items.length);
+    expect(results[0]).toMatchObject({ crawlerKey: 'fixture', fetchFailed: true, status: 0 });
+    expect(results[0].processingFailed).not.toBe(true);
+    expect(results[1]).toMatchObject({ crawlerKey: 'fixture', processingFailed: true });
+    expect(results[1].fetchFailed).not.toBe(true);
+    expect(results[1].processingError).not.toMatch(/sensitive|internal\.invalid/);
+
+    const report = { fixture: { total: 2, issues: [], severity: 'OK' } };
+    const summary = applySourceDetailResults(report, results, items.length);
+    expect(summary.requested).toBe(summary.fetched + summary.fetchFailed + summary.processingFailed);
+    expect(summary).toMatchObject({ requested: 2, fetched: 0, fetchFailed: 1, processingFailed: 1 });
+    expect(report.fixture.severity).toBe('CRITICAL');
+    expect(report.fixture.issues).toEqual(expect.arrayContaining([
+      expect.objectContaining({ type: 'parse-error', count: 1, processingFailed: 1 }),
+    ]));
+
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-processing-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      expect(finishAudit(report, { strict: true, outPath, sourceDetailSummary: summary })).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        summary: { critical: 1 },
+        sourceDetailSummary: { requested: 2, fetchFailed: 1, processingFailed: 1 },
+        crawlers: { fixture: { severity: 'CRITICAL' } },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('writes the complete JSON report before returning a strict failure', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'parser-quality-report-'));
+    const outPath = path.join(dir, 'report.json');
+    const consoleSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    try {
+      const report = {
+        broken: {
+          total: 1,
+          severity: 'CRITICAL',
+          issues: [{ type: 'parse-error', message: 'broken fixture' }],
+        },
+      };
+      const exitCode = finishAudit(report, {
+        strict: true,
+        outPath,
+        provenance: { repoHeadSha: 'fixture', datasetLastCommit: { sha: 'fixture', committedAt: null } },
+        urlChecksEnabled: false,
+        sourceDetailChecksEnabled: true,
+        sourceDetailSummary: {
+          requested: 1,
+          fetched: 1,
+          fetchFailed: 0,
+          authoritativeLocationChecks: 1,
+          locationMatches: 0,
+          locationMismatches: 1,
+          inconclusiveLocationObservations: 0,
+          descriptionMismatches: 0,
+        },
+      });
+
+      expect(exitCode).toBe(1);
+      expect(JSON.parse(fs.readFileSync(outPath, 'utf8'))).toMatchObject({
+        crawlersChecked: 1,
+        sourceDetailSummary: { locationMismatches: 1 },
+        summary: { critical: 1, warning: 0, ok: 0 },
+        crawlers: { broken: { severity: 'CRITICAL' } },
+      });
+    } finally {
+      consoleSpy.mockRestore();
+      errorSpy.mockRestore();
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('filledLocaleCount', () => {
+  it('counts valid localized titles of ten characters or fewer', () => {
+    expect(filledLocaleCount({
+      it: 'Avvocato',
+      en: 'Lawyer',
+      de: 'Jurist/in',
+      fr: 'Avocat',
+    }, { minLength: 1 })).toBe(4);
+  });
+
+  it('does not count explicit placeholders as localized titles', () => {
+    expect(filledLocaleCount({
+      it: '-',
+      en: 'N/A',
+      de: 'TBD',
+      fr: 'Avocat',
+    }, { minLength: 1 })).toBe(1);
+  });
+
+  it('keeps the substantial-content threshold for localized descriptions', () => {
+    expect(filledLocaleCount({ it: 'Avvocato', de: 'Descrizione completa' })).toBe(1);
   });
 });
 

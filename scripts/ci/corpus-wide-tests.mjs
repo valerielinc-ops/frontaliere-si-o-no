@@ -130,14 +130,6 @@ const REGISTRY = [
     watch: ["packages/articles/content/", "services/locales/"],
   },
   {
-    file: "tests/job-locale-consistency.test.ts",
-    seconds: 16.7,
-    // Unico del gruppo a NON riguardare gli articoli: ratchet a tasso sul
-    // dataset job assemblato. La radice dati è la slice committata, non
-    // `data/jobs.json` che è un artefatto gitignored derivato da quella.
-    watch: ["data/jobs/", "data/jobs-crawler-summaries/"],
-  },
-  {
     file: "tests/blog-body-typescript-syntax.test.ts",
     seconds: 15.5,
     // esbuild su ENTRAMBI i corpora body (l'apostrofo non escapato del

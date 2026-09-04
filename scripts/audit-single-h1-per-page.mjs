@@ -82,7 +82,19 @@ export function createAuditor(opts = {}) {
   // being empty is exactly what let the mismatch with the mirror survive
   // review: an exemption nobody can exercise is an exemption nobody can check.
   const allowlist = opts.allowlist ?? ALLOWLIST_PATHS;
+  // Counter + bounded sample, same shape and same reason as the sibling fold
+  // auditors' accumulators (`audit-link-anchor-text.mjs`'s `nonDescriptiveTotal`
+  // / `nonDescriptiveSample`): the known failure mode here is a shared SPA
+  // component that emits a mobile + desktop <h1> variant, which is
+  // PER-TEMPLATE — one offender per page it renders on, so a wide family can
+  // hit O(pages) offenders. At ~950k pages scanned under 25% sampling that is
+  // ~285 MB of offender objects in the exact process this migration exists to
+  // keep under 4096 MB. An unbounded `offenders.push()` was the accumulator
+  // shape `audit-link-anchor-text.mjs` was written to avoid; this file just
+  // hadn't been given the same treatment yet (issue #5943).
+  let offendersTotal = 0;
   const offenders = [];
+  const OFFENDER_SAMPLE_CAP = 100;
   let filesScanned = 0;
 
   return {
@@ -95,22 +107,37 @@ export function createAuditor(opts = {}) {
       const url = toDistRelPath(file);
       if (allowlist.includes(url)) return;
       const count = countH1Tags(html);
-      // `path` stays slash-less for report readability (every sibling auditor
-      // reports that shape); `url` is the allowlist's shape. Two names because
-      // they are two different things, which is what went wrong before.
-      if (count > 1) offenders.push({ path: url.slice(1), url, metric: count });
+      if (count > 1) {
+        offendersTotal += 1;
+        // `path` stays slash-less for report readability (every sibling
+        // auditor reports that shape); `url` is the allowlist's shape. Two
+        // names because they are two different things, which is what went
+        // wrong before.
+        if (offenders.length < OFFENDER_SAMPLE_CAP) {
+          offenders.push({ path: url.slice(1), url, metric: count });
+        }
+      }
     },
     report() {
-      const passed = offenders.length === 0;
+      const passed = offendersTotal === 0;
       return {
         passed,
-        offendersTotal: offenders.length,
+        offendersTotal,
         offenders,
         threshold: { metric: 'count', value: 0, comparator: '<=' },
-        extra: { limit, filesScanned },
+        extra: {
+          limit,
+          filesScanned,
+          // The writer (`writeAuditReport`) derives ITS OWN `offendersTotal`
+          // from `offenders.length`, so in the artifact that field is the
+          // sample size once the cap bites, not the true count. This is the
+          // real number, and it is the one the verdict was taken on.
+          offendersTotalTrue: offendersTotal,
+          offendersListTruncated: offendersTotal > offenders.length,
+        },
         humanSummary: passed
           ? `single-H1 gate: 0 offenders across ${filesScanned} page(s)`
-          : `${offenders.length} page(s) with more than one <h1> (of ${filesScanned} scanned)`,
+          : `${offendersTotal} page(s) with more than one <h1> (of ${filesScanned} scanned)`,
       };
     },
   };

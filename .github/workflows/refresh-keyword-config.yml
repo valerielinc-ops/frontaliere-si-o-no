@@ -30,6 +30,20 @@ jobs:
         # the App-token mint succeeding, with no visible failure otherwise.
         run: npm ci --no-audit --no-fund
 
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       - name: Generate keyword pages config
         run: node scripts/generate-keyword-pages-config.mjs
 
@@ -102,6 +116,10 @@ jobs:
         # deploy.yml's `push` event (GitHub anti-recursion) — same class of
         # gap fixed for sync-gsc-orphans.yml (#2861 item 1).
         if: steps.commit.outputs.has_changes == 'true'
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
         run: bash scripts/lib/trigger-deploy.sh
         env:
           # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override

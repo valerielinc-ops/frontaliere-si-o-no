@@ -75,7 +75,7 @@ function pickLocation(job, defaultCity) {
   const szas = job?.szas || {};
   const cityRaw = String(szas['sza_location.city'] || '').trim();
   if (cityRaw) {
-    const m = cityRaw.match(/\b(\d{4})\s+([^\n,]+)/);
+    const m = cityRaw.match(/\b(\d{4})(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)/u);
     if (m) return normalizeSpace(m[2]);
     return normalizeSpace(cityRaw);
   }
@@ -88,7 +88,7 @@ function pickLocation(job, defaultCity) {
   // key above — parse the trailing "ZIP City" segment when present.
   const flatLocation = String(szas['sza_location'] || '').trim();
   if (flatLocation) {
-    const flatMatch = flatLocation.match(/\b\d{4}\s+([^\n,]+)$/);
+    const flatMatch = flatLocation.match(/\b\d{4}(?:\s+|-(?=\p{L}))(\p{L}[^\n,]*)$/u);
     if (flatMatch) return normalizeSpace(flatMatch[1]);
   }
   // Sometimes the site label is in attributes[10] (legacy fallback). Skip it
@@ -131,7 +131,7 @@ function pickPostalCode(job, defaultPostal, location, defaultCity) {
   // Some tenants (e.g. Stadt Bern, medium 1840) expose a flat `sza_location`
   // string "Street Number, ZIP City" instead of the dotted keys above.
   const flatLocation = String(job?.szas?.['sza_location'] || '').trim();
-  const m4 = flatLocation.match(/\b(\d{4})\s+[^\n,]+$/);
+  const m4 = flatLocation.match(/\b(\d{4})(?:\s+|-(?=\p{L}))\p{L}[^\n,]*$/u);
   if (m4) return m4[1];
   return isHqCity(location, defaultCity) ? defaultPostal : '';
 }

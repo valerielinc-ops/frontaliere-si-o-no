@@ -503,8 +503,18 @@ jobs:
             npm run validate:crawler-summaries & pids+=("$!")
           run_validator validate:third-party-secrets      /tmp/v12.log \
             npm run validate:third-party-secrets & pids+=("$!")
+          # --maxWorkers=2: unrestrained, vitest's own thread pool (pool:
+          # 'threads', isolate: true) opens up to nCPU worker threads on TOP of
+          # the three sibling validators above, all racing for the same 4 vCPU.
+          # That oversubscription is what turned "slow" into "past the global
+          # 15s testTimeout" on issue #7192's two recurrences — a DIFFERENT
+          # test timed out each time (cathedral-previous-slug-canton.test.ts,
+          # then cathedral-expired-tracking-canton.test.ts), the signature of
+          # scheduling contention, not a defect in either test. Same lever
+          # already proven in tests.yml (VITEST_MAX_WORKERS=2) for the
+          # identical shape: two CPU-bound processes contending for 4 vCPU.
           run_validator gate:seo-source                   /tmp/v27.log \
-            npm run gate:seo-source & pids+=("$!")
+            npm run gate:seo-source -- --maxWorkers=2 & pids+=("$!")
           for p in "${pids[@]}"; do wait "$p" || true; done
 
           # Merge the per-validator result files into the single results file the
@@ -1615,11 +1625,19 @@ jobs:
           # Grep it out here, same "no failure branch by construction"
           # pattern as the Discover/job-title-locale/meta-description reports
           # right below.
+          #
+          # vitest's `--reporter=dot` prefixes captured console.log lines
+          # with ANSI reset codes (\x1b[22m\x1b[39m) even when stdout is
+          # redirected to a file — the `[related-search-clusters]` text is
+          # no longer the first byte on the line, so an anchored grep
+          # matches nothing (0 lines on every real CI run, verified on run
+          # 33323140437 job 99288522527 despite dist:quality-tests rc=0).
+          # Strip ANSI escapes before grepping.
           echo ""
           echo "══════════════════════════════════════════════════════════════════════"
           echo "related-search-clusters rate — dist:quality-tests, printed every run"
           echo "══════════════════════════════════════════════════════════════════════"
-          grep '^\[related-search-clusters\]' /tmp/g-dist-quality.log 2>/dev/null || true
+          sed -E 's/\x1b\[[0-9;]*m//g' /tmp/g-dist-quality.log 2>/dev/null | grep '^\[related-search-clusters\]' || true
           echo "══════════════════════════════════════════════════════════════════════"
 
           # The Discover report's own output. spawn_capped-style logs are only
@@ -2484,7 +2502,6 @@ jobs:
             !/packages/articles/content/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
-            !/docs/
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json

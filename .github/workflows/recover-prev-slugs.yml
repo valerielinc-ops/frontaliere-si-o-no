@@ -159,6 +159,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
       # #5348 residuo genuino: due record con lo STESSO `.id` (dedicated-crawler
       # stable id) possono coesistere in una slice — es. banca-cler.json teneva
       # sia la variante URL /de/bank-cler/... sia /it/banca-cler/... per la
@@ -223,6 +237,7 @@ jobs:
             --since "$SCAN_SINCE" \
             --out /tmp/prev-slug-recovery/recoverable.json \
             --events-out /tmp/prev-slug-recovery/events.jsonl \
+            --safe-events-out /tmp/prev-slug-recovery/safe-cross-job-events.jsonl \
             | tee /tmp/prev-slug-recovery/scan-report.txt
           # Extract counts for downstream steps. sed already isolates the bare
           # number from the "totalLost": N, line — piping that through
@@ -230,9 +245,11 @@ jobs:
           # number and silently falls back to total_lost=0 via the `||`,
           # which permanently disabled the tripwire below.
           total_lost=$(grep -E '^\s*"totalLost"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || total_lost=0
+          safe_cross_job=$(grep -E '^\s*"safeCrossJobDecontaminations"' /tmp/prev-slug-recovery/scan-report.txt | head -1 | sed 's/.*: //;s/,//') || safe_cross_job=0
           recoverable_jobs=$(jq 'length' /tmp/prev-slug-recovery/recoverable.json)
           recoverable_slugs=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable.json)
           echo "total_lost=${total_lost}" >> "$GITHUB_OUTPUT"
+          echo "safe_cross_job=${safe_cross_job}" >> "$GITHUB_OUTPUT"
           echo "recoverable_jobs=${recoverable_jobs}" >> "$GITHUB_OUTPUT"
           echo "recoverable_slugs=${recoverable_slugs}" >> "$GITHUB_OUTPUT"
           {
@@ -240,6 +257,7 @@ jobs:
             echo ""
             echo "Window: \`${SCAN_SINCE}\`"
             echo "- total lost (in window): **${total_lost}**"
+            echo "- proven safe cross-job decontaminations: **${safe_cross_job}**"
             echo "- recoverable jobs: **${recoverable_jobs}**"
             echo "- recoverable slugs: **${recoverable_slugs}**"
           } >> "$GITHUB_STEP_SUMMARY"
@@ -320,6 +338,7 @@ jobs:
             --since "$SCAN_SINCE" \
             --out /tmp/prev-slug-recovery/recoverable-post.json \
             --events-out /tmp/prev-slug-recovery/events-post.jsonl \
+            --safe-events-out /tmp/prev-slug-recovery/safe-cross-job-events-post.jsonl \
             | tee /tmp/prev-slug-recovery/rescan-report.txt
           still_lost=$(jq '[.[].slugs|length]|add // 0' /tmp/prev-slug-recovery/recoverable-post.json)
           echo "still_lost=${still_lost}" >> "$GITHUB_OUTPUT"

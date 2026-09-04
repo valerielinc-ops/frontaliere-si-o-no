@@ -1003,10 +1003,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufer-in-food-coop-genossenschaft-zurich-xk4x58",
         "it": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "en": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "de": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
-        "fr": "addetto-a-alle-vendite-food-coop-genossenschaft-zurich"
+        "en": "food-sales-associate-coop-genossenschaft-zurich",
+        "fr": "vendeur-euse-food-coop-genossenschaft-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/addetto-a-alle-vendite-food-coop-genossenschaft-zurich",
@@ -1020,6 +1020,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -9129,6 +9130,11 @@
       },
       "queries": [
         {
+          "query": "autista moritz",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "offerte di lavoro ticino",
           "clicks": 0,
           "impressions": 6
@@ -9160,6 +9166,11 @@
         },
         {
           "query": "autista offerte di lavoro",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "autista ticino",
           "clicks": 0,
           "impressions": 2
         },
@@ -9217,21 +9228,11 @@
           "query": "posto di lavoro ticino",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "lavoro autista",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "offerte di lavoro autista",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 59,
+      "totalImpressions": 66,
       "totalClicks": 5,
-      "topQuery": "offerte di lavoro ticino",
+      "topQuery": "autista moritz",
       "title": "Autisti",
       "titleByLocale": {
         "it": "",
@@ -16768,6 +16769,83 @@
       ]
     },
     {
+      "slug": "conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-valais/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-valais/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz/"
+      },
+      "queries": [
+        {
+          "query": "emploi coop valais",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "coop valais emploi",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "coop emploi valais",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "emploi vente valais",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "jumbo emploi",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "topQuery": "emploi coop valais",
+      "title": "Conseiller de vente do it jumbo division der coop genossenschaft eyholz",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "en": "conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "de": "conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "fr": "conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-vallese/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "en": "/en/find-jobs-valais/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "de": "/de/jobs-im-wallis/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz",
+        "fr": "/fr/trouver-emploi-valais/conseiller-de-vente-do-it-jumbo-division-der-coop-genossenschaft-eyholz"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "conseiller-de-vente-textile-et-maison-coop-genossenschaft-st-gallen",
       "locale": "it",
       "path": "/fr/trouver-emploi-soleure/conseiller-de-vente-textile-et-maison-coop-genossenschaft-st-gallen",
@@ -21509,6 +21587,64 @@
       ]
     },
     {
+      "slug": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+      "locale": "it",
+      "path": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern/"
+      },
+      "queries": [
+        {
+          "query": "lavoro lucerna",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "lavoro lucerna",
+      "title": "Datenbank ingegnere css versicherung",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Luzern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "en": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "de": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "fr": "datenbank-ingegnere-w-m-80-100-css-versicherung-luzern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "en": "/en/find-jobs-lucerne/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "de": "/de/jobs-im-luzern/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern",
+        "fr": "/fr/trouver-emploi-lucerne/datenbank-ingegnere-w-m-80-100-css-versicherung-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "datenzentrumstechniker-schweiz-gland-on-site-reboot-monkey-gland",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/datenzentrumstechniker-schweiz-gland-on-site-reboot-monkey-gland/",
@@ -25738,17 +25874,17 @@
         {
           "query": "i am searching for caregiver jobs in ticino for elderly support.",
           "clicks": 0,
-          "impressions": 185
+          "impressions": 197
         },
         {
           "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
           "clicks": 0,
-          "impressions": 126
+          "impressions": 135
         },
         {
           "query": "politica sanitaria canton ticino anziani",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 13
         },
         {
           "query": "elderly care jobs in switzerland",
@@ -25836,7 +25972,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 362,
+      "totalImpressions": 384,
       "totalClicks": 5,
       "topQuery": "i am searching for caregiver jobs in ticino for elderly support.",
       "title": "Elderly care",
@@ -35622,6 +35758,74 @@
       ]
     },
     {
+      "slug": "installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur/"
+      },
+      "queries": [
+        {
+          "query": "pfister elektro",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "elektro pfister",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "elektroinstallateur jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 4,
+      "totalClicks": 0,
+      "topQuery": "pfister elektro",
+      "title": "Installatore trice elettrico in per moderne elektrotechnikprojekte fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Winterthur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "en": "installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "de": "installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "fr": "installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "en": "/en/find-jobs-zurich/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "de": "/de/jobs-im-zurich/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur",
+        "fr": "/fr/trouver-emploi-zurich/installatore-trice-elettrico-a-in-per-moderne-elektrotechnikprojekte-fachkraft-ch-gmbh-winterthur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "instructor-process-technology-buhler-group-uzwil",
       "locale": "it",
       "path": "/en/find-jobs-uri/instructor-process-technology-buhler-group-uzwil",
@@ -36320,6 +36524,64 @@
       ]
     },
     {
+      "slug": "it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich/"
+      },
+      "queries": [
+        {
+          "query": "zurich jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "zurich jobs",
+      "title": "It service desk administrator",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "en": "it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "de": "it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "fr": "it-service-desk-administrator-zurich-insurance-sede-ticino-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "en": "/en/find-jobs-zurich/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "de": "/de/jobs-im-zurich/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich",
+        "fr": "/fr/trouver-emploi-zurich/it-service-desk-administrator-zurich-insurance-sede-ticino-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "it-specialist-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedaliera-gl",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/it-specialist-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-ospedaliera-gl",
@@ -36951,10 +37213,10 @@
         "fr": "Junior Process Ingénieur 80 – 100% (f/m/d)"
       },
       "descriptionByLocale": {
-        "it": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation, experience in robot handling is advantageous Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis, and production statistics is a plus Proficiency in English, German highly beneficial More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
-        "en": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation, experience in robot handling is advantageous Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis, and production statistics is a plus Proficiency in English, German highly beneficial More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
-        "de": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation, experience in robot handling is advantageous Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis, and production statistics is a plus Proficiency in English, German highly beneficial More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
-        "fr": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation, experience in robot handling is advantageous Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis, and production statistics is a plus Proficiency in English, German highly beneficial More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow."
+        "it": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation and experience in robot handling Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis and production statistics Proficiency in English and German More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
+        "en": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation and experience in robot handling Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis and production statistics Proficiency in English and German More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
+        "de": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation and experience in robot handling Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis and production statistics Proficiency in English and German More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow.",
+        "fr": "The opportunity As a global leader in power semiconductor technology, we offer one of the most diverse product portfolios in the industry. Our products include thyristors, diodes, gate turn-off thyristors, integrated gate-commutated thyristors, insulated-gate bipolar transistors, and metal–oxide–semiconductor field-effect transistors. These components are trusted across sectors such as power transmission and distribution, mobility, and renewable energy for their exceptional quality and reliability. In the role of Process Engineer for BiMOS Backend, you will contribute to the advancement of our automated power module production. You'll have the opportunity to improve existing manufacturing processes and lead innovative development projects, with a particular focus on automated module assembly processes. How you'll make an impact Improve the process capability of module assembly processes, by applying statistical tools, designed experiments and gemba principles Analyse production data to optimize performance, identify long-term trends, and prevent potential failures Support troubleshooting and root cause analysis to maintain and improve production throughput Collaborate to new product development by shaping the production process landscape and enabling volume manufacturing Your background A master's degree in industrial or mechanical Good understanding of automation and experience in robot handling Strong analytical and problem-solving skills, a quality-focused mindset, and a proactive, hands-on approach Familiarity with DoE, data analysis and production statistics Proficiency in English and German More about us Our flexible working practices help you optimize personal and business performance while creating an environment where all employees can develop their skills and grow."
       },
       "company": "Hitachi Energy",
       "companyKey": "hitachi-energy",
@@ -36964,9 +37226,9 @@
       "salaryCurrency": "CHF",
       "slugByLocale": {
         "it": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "en": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "de": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
-        "fr": "junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg"
+        "en": "junior-process-engineer-80-100-f-m-d-hitachi-energy-lenzburg-switzerland",
+        "de": "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg",
+        "fr": "junior-process-ingenieur-80-100-f-m-d-hitachi-energy-lenzburg"
       },
       "localePaths": {
         "it": "/cerca-lavoro-argovia/junior-process-ingegnere-80-100-f-m-d-hitachi-energy-lenzburg",
@@ -36981,6 +37243,7 @@
       "source": [
         "gsc",
         "translation-cache",
+        "slug-registry",
         "all-known-slugs"
       ]
     },
@@ -39572,19 +39835,19 @@
           "impressions": 14
         },
         {
-          "query": "offerte lavoro svizzera per italiani",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
           "query": "logistica ticino lavoro",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 14
         },
         {
           "query": "offerte lavoro logistica ticino",
           "clicks": 3,
-          "impressions": 11
+          "impressions": 13
+        },
+        {
+          "query": "offerte lavoro svizzera per italiani",
+          "clicks": 0,
+          "impressions": 13
         },
         {
           "query": "lavoro frontaliere svizzera",
@@ -39607,6 +39870,11 @@
           "impressions": 5
         },
         {
+          "query": "lavoro logistica ticino",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
           "query": "logistica ticino",
           "clicks": 0,
           "impressions": 5
@@ -39617,9 +39885,9 @@
           "impressions": 5
         },
         {
-          "query": "lavoro logistica ticino",
+          "query": "site:frontaliereticino.ch",
           "clicks": 0,
-          "impressions": 4
+          "impressions": 5
         },
         {
           "query": "lavorare in svizzera frontaliere",
@@ -39642,11 +39910,6 @@
           "impressions": 3
         },
         {
-          "query": "site:frontaliereticino.ch",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
           "query": "tessin",
           "clicks": 0,
           "impressions": 3
@@ -39662,7 +39925,7 @@
           "impressions": 2
         }
       ],
-      "totalImpressions": 179,
+      "totalImpressions": 189,
       "totalClicks": 7,
       "topQuery": "offerte lavoro frontaliere svizzera",
       "title": "Logistica",
@@ -45455,10 +45718,10 @@
         "fr": "oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "en": "/en/find-jobs-ticino/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "de": "/de/jobs-im-tessin/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
-        "fr": "/fr/trouver-emploi-tessin/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
+        "it": "/cerca-lavoro-berna/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "en": "/en/find-jobs-bern/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "de": "/de/jobs-in-bern/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne",
+        "fr": "/fr/trouver-emploi-berne/oberarztin-oder-oberarzt-neurochirurgie-80-100-szb-chb-biel-bienne"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66524,10 +66787,10 @@
         "fr": "stv-branch-manager-in-denner-ibach"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/stv-branch-manager-in-denner-ibach",
-        "en": "/en/find-jobs-ticino/stv-branch-manager-in-denner-ibach",
-        "de": "/de/jobs-im-tessin/stv-branch-manager-in-denner-ibach",
-        "fr": "/fr/trouver-emploi-tessin/stv-branch-manager-in-denner-ibach"
+        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-ibach",
+        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-ibach",
+        "de": "/de/jobs-in-appenzell/stv-branch-manager-in-denner-ibach",
+        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-ibach"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -66590,10 +66853,10 @@
         "fr": "stv-branch-manager-in-denner-menzingen"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-zugo/stv-branch-manager-in-denner-menzingen",
-        "en": "/en/find-jobs-zug/stv-branch-manager-in-denner-menzingen",
+        "it": "/cerca-lavoro-appenzello/stv-branch-manager-in-denner-menzingen",
+        "en": "/en/find-jobs-appenzell/stv-branch-manager-in-denner-menzingen",
         "de": "/de/jobs-im-zug/stv-branch-manager-in-denner-menzingen",
-        "fr": "/fr/trouver-emploi-zoug/stv-branch-manager-in-denner-menzingen"
+        "fr": "/fr/trouver-emploi-appenzell/stv-branch-manager-in-denner-menzingen"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -74457,6 +74720,68 @@
       ]
     },
     {
+      "slug": "venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+      "locale": "it",
+      "path": "/cerca-lavoro-turgovia/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-turgovia/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon/"
+      },
+      "queries": [
+        {
+          "query": "jumbo arbon jobs",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "teilzeit jobs arbon",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "topQuery": "jumbo arbon jobs",
+      "title": "Venditore do it jumbo division der coop genossenschaft arbon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "en": "venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "de": "venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "fr": "venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-turgovia/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "en": "/en/find-jobs-thurgau/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "de": "/de/jobs-im-thurgau/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon",
+        "fr": "/fr/trouver-emploi-thurgovie/venditore-a-do-it-jumbo-division-der-coop-genossenschaft-arbon"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "venditore-a-h-f-d-volg-vissoie",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/venditore-a-h-f-d-volg-vissoie/",
@@ -76712,10 +77037,10 @@
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-uri/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "en": "/en/find-jobs-uri/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "de": "/de/jobs-in-uri/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
-        "fr": "/fr/trouver-emploi-uri/verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
+        "it": "/cerca-lavoro-zurigo/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "en": "/en/find-jobs-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "de": "/de/jobs-in-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt",
+        "fr": "/fr/trouver-emploi-zurich/verkaufer-in-kassen-services-coop-genossenschaft-andermatt"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

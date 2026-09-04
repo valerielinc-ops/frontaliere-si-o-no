@@ -103,12 +103,15 @@ export function isJumboJob(job) {
   const company = normalize(job?.company || '');
   const url = normalize(job?.url || '');
 
+  // On the shared Coop board, the scraped employer name is authoritative.
+  // A stale/static companyKey must not turn a Coop vacancy into JUMBO.
+  if (company) return company.includes('jumbo');
+
   return (
     key === JUMBO_KEY ||
     key.startsWith('jumbo') ||
-    company.includes('jumbo') ||
     url.includes('jumbo.ch') ||
-    (url.includes('coopjobs.ch') && company.includes('jumbo'))
+    url.includes('/jumbo/')
   );
 }
 

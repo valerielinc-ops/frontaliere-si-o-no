@@ -45,7 +45,6 @@ jobs:
             !/data/jobs/
             !/data/translation-cache/
             !/packages/articles/content/
-            !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
             !/data/dist-size-history.jsonl
@@ -77,6 +76,9 @@ jobs:
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
 
       - name: Fetch job popularity from Firestore
         run: node scripts/fetch-job-popularity.mjs

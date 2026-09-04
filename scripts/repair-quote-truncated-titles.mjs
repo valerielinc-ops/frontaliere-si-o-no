@@ -36,8 +36,9 @@
  * belongs to the redirect machinery (`previousSlugsByLocale`), not to a title
  * repair.
  */
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const JOB_SLICE_DIR = 'data/jobs/by-crawler';
 /**
@@ -51,7 +52,7 @@ const JOB_SLICE_DIR = 'data/jobs/by-crawler';
  * be invisible to this detector.
  */
 const QUOTE_AT_CUT_RX =
-  /^(?:["'‘’“”]|&(?:quot|apos|[lr]squo|[lr]dquo|#0*3[49]|#x0*2[27]);)/i;
+  /^(?:["'‘’“”]|&(?:quot|apos|[lr]squo|[lr]dquo|#0*3[49]|#x0*2[27]|#0*(?:8216|8217|8220|8221)|#x0*201[89cCdD]);)/i;
 
 /**
  * The corrupted-title detector.
@@ -82,7 +83,7 @@ function main() {
     return 0;
   }
 
-  const files = readdirSync(JOB_SLICE_DIR).filter((f) => f.endsWith('.json'));
+  const files = listSliceFileNames(JOB_SLICE_DIR);
   let scanned = 0;
   const hits = [];
 

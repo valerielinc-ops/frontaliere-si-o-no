@@ -1,6 +1,6 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-08-26T10:00:16.683Z",
+  "assembledAt": "2026-09-03T23:20:10.673Z",
   "jobs": [
     {
       "id": "localsearch-4fe13b918f05",
@@ -33,7 +33,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:13.218Z",
+      "crawledAt": "2026-09-03T23:20:07.098Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -75,6 +75,7 @@
       "firstSeenAt": "2026-05-17T10:38:19.787Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -118,7 +119,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:12.284Z",
+      "crawledAt": "2026-09-03T23:20:06.190Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -164,6 +165,7 @@
       "firstSeenAt": "2026-05-17T10:38:18.107Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -191,7 +193,7 @@
       "title": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
       "titleByLocale": {
         "it": "Prestazioni e strategia d'incentivazione per senior manager 80-100 %",
-        "en": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
+        "en": "Senior Manager Sales Performance & Incentive Strategy 80-100 %",
         "de": "Senior Manager Sales Performance & Incentive Strategy 80-100%",
         "fr": "Directeur principal Performance commerciale et stratégie incitative 80-100 %"
       },
@@ -207,7 +209,7 @@
       "url": "https://emp.jobylon.com/jobs/371446-localsearch-senior-manager-sales-performance-incentive-strategy-80-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:11.412Z",
+      "crawledAt": "2026-09-03T23:20:05.134Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,6 +241,7 @@
       "firstSeenAt": "2026-07-21T11:16:48.350Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -282,7 +285,7 @@
       "url": "https://emp.jobylon.com/jobs/376664-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:10.535Z",
+      "crawledAt": "2026-09-03T23:20:04.301Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -319,6 +322,7 @@
       "firstSeenAt": "2026-08-18T09:51:44.762Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -362,7 +366,7 @@
       "url": "https://emp.jobylon.com/jobs/376665-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:09.238Z",
+      "crawledAt": "2026-09-03T23:20:03.459Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -401,6 +405,7 @@
       "firstSeenAt": "2026-08-18T09:51:43.770Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -444,7 +449,7 @@
       "url": "https://emp.jobylon.com/jobs/376668-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:08.101Z",
+      "crawledAt": "2026-09-03T23:20:01.842Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,6 +488,7 @@
       "firstSeenAt": "2026-08-18T09:51:42.757Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -526,7 +532,7 @@
       "url": "https://emp.jobylon.com/jobs/376669-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:07.171Z",
+      "crawledAt": "2026-09-03T23:20:00.892Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -565,6 +571,7 @@
       "firstSeenAt": "2026-08-18T09:51:41.718Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -608,7 +615,7 @@
       "url": "https://emp.jobylon.com/jobs/376670-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:06.181Z",
+      "crawledAt": "2026-09-03T23:19:59.410Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -649,6 +656,7 @@
       "firstSeenAt": "2026-08-18T09:51:40.660Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -692,7 +700,7 @@
       "url": "https://emp.jobylon.com/jobs/376671-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:05.215Z",
+      "crawledAt": "2026-09-03T23:19:58.544Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -731,6 +739,7 @@
       "firstSeenAt": "2026-08-18T09:51:39.707Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -774,7 +783,7 @@
       "url": "https://emp.jobylon.com/jobs/376672-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:04.250Z",
+      "crawledAt": "2026-09-03T23:19:57.668Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -813,6 +822,7 @@
       "firstSeenAt": "2026-08-18T09:51:38.581Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -856,7 +866,7 @@
       "url": "https://emp.jobylon.com/jobs/376674-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:03.181Z",
+      "crawledAt": "2026-09-03T23:19:56.733Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -895,6 +905,7 @@
       "firstSeenAt": "2026-08-18T09:51:37.551Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -938,7 +949,7 @@
       "url": "https://emp.jobylon.com/jobs/376675-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:02.187Z",
+      "crawledAt": "2026-09-03T23:19:55.911Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -977,6 +988,7 @@
       "firstSeenAt": "2026-08-18T09:51:36.622Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1020,7 +1032,7 @@
       "url": "https://emp.jobylon.com/jobs/376676-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:01.095Z",
+      "crawledAt": "2026-09-03T23:19:55.039Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -1059,6 +1071,7 @@
       "firstSeenAt": "2026-08-18T09:51:35.628Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1090,11 +1103,11 @@
         "de": "Verkäufer/in im Aussendienst",
         "fr": "Vendeur/sur le terrain"
       },
-      "description": "Region: Langenthal / Burgdorf / Sursee\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir:\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Christian Macculi wenden: +41 79 446 63 68\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+      "description": "Region: Langenthal / Burgdorf / Sursee\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als   Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität:  Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität:  Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir:\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork:  Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen:  Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten:  Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung:  Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell:  Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale:  Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Almedin Hasanic wenden: +41 79 919 78 94\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
       "descriptionByLocale": {
         "it": "Regione: Langenthal / Burgdorf / Sursee\n\nlocalsearch è il principale partner commerciale e pubblicitario per le PMI svizzere.\nFacciamo i clienti di successo nel mondo digitale.\n\nVende la tua passione? Il tuo cuore batte per il marketing digitale? Ti piace viaggiare e immergerti nel mondo delle PMI? Vuoi influenzare i tuoi guadagni? Allora sei proprio qui!\n\nSiamo alla ricerca di voi come un talento di vendita nel servizio di campo\n\nVisiterai sia i clienti delle PMI esistenti che i potenziali nuovi clienti e li presenterai con soluzioni di marketing digitale personalizzate. Il vostro obiettivo è quello di creare un valore aggiunto sostenibile e quindi rendere le PMI digitalmente di successo.\n\nCompetenze e requisiti\n\nQuesto è ciò che porti con te per avere successo con noi:\n\n• Il piacere della vendita e della consulenza: Lei brucia per il contatto personale e telefonico del cliente e attribuisce grande importanza per comprendere veramente i nostri clienti.\n\n• L'orientamento del cliente: si costruisce relazioni di fiducia con i vostri clienti e spiegare con successo i vantaggi delle nostre soluzioni di marketing online.\n\n• L'orientamento di successo: la vostra auto-motivazione e l'ambizione sono i vostri fattori di successo. Anche in tempi turbolenti, rimani concentrato e mirato.\n\n• Comunicare: Lei parla fluentemente tedesco e padroneggia i mezzi comuni di comunicazione.\n\n• Radiance: Hai umorismo e ti piace mostrare la tua personalità.\n\n• Mobilità: Hai una patente valida (cat. B) e la tua auto, in modo da poter visitare i nostri clienti in modo affidabile sul sito.\n\n• Azione responsabile: Il tuo aspetto è professionale e la tua reputazione è impeccabile (reputable)\n\n• Flessibilità: Il lavoro a tempo parziale è possibile in linea di principio, ma solo dal secondo mese di occupazione. Nel primo mese è richiesta la partecipazione alla formazione di base presso la nostra sede di Zurigo.\n\nQuesto è ciò che vi offriamo:\n\nQuesto è il motivo per cui si desidera entrare a far parte della ricerca locale:\n\n• Lavoro di squadra: Sei integrato in un team vivace che si sostiene e si riunisce per incontri regolari.\n\n• Zona di vendita: Vi verrà assegnato un'area con i clienti PMI esistenti e potenziali nuovi clienti.\n\n• Soluzioni di marketing: hai a disposizione una vasta gamma di prodotti dal marketing digitale.\n\n• Lavorare indipendentemente: Si assume la responsabilità per i vostri compiti, pianificare i vostri appuntamenti del cliente in modo indipendente e agire con un alto grado di iniziativa.\n\n• Formazione completa e ulteriore sviluppo: si inizia con diverse settimane di formazione e ricevere regolarmente supporto e formazione nel settore delle vendite e dei prodotti.\n\n• Un attraente modello di provisioning: il vostro successo è immediatamente ricompensato – ogni buon consiglio che porta ad un incarico determina il vostro reddito.\n\n• Spese a tasso piatto: il tuo veicolo ti porterà in modo sicuro all'appuntamento del cliente e ti compenseremo in modo tempestivo.\n\nContatto e applicazione\n\nPer domande professionali è possibile contattare il nostro Sales Manager Christian Macculi direttamente: +41 79 446 63 68\n\nNon vediamo l'ora di incontrarvi!\n\nUlteriori informazioni sul lavoro e localsearch possono essere trovate qui.",
         "en": "Region: Langenthal / Burgdorf / Sursee\n\nlocalsearch is the leading marketing and advertising partner for Swiss SMEs.\nWe make customers successful in the digital world.\n\nIs selling your passion? Is your heart beating for digital marketing? Do you like to travel and immerse yourself in the SME world? Do you want to influence your own earnings? Then you are exactly right here!\n\nWe are looking for you as a sales talent in the field service\n\nYou will visit both existing SME customers and potential new customers and present them with customized digital marketing solutions. Your goal is to create sustainable added value and thus make SMEs digitally successful.\n\nSkills and requirements\n\nThis is what you bring with you to be successful with us:\n\n• The pleasure of selling and consulting: You burn for personal and telephone customer contact and attach great importance to really understanding our customers.\n\n• Customer orientation: You build trusting relationships with your customers and successfully explain the benefits of our online marketing solutions.\n\n• Success orientation: Your self-motivation and ambition are your success factors. Even in turbulent times, you remain focused and purposeful.\n\n• Communicative : You speak fluent German and master the common means of communication.\n\n• Radiance: You have humor and like to show your personality.\n\n• Mobility: You have a valid driver’s license (cat. B) and your own car, so you can visit our customers reliably on site.\n\n• Responsible action: Your appearance is professional and your reputation is impeccable (reputable)\n\n• Flexibility: Part-time work is possible in principle, but only from the second month of employment. In the first month, participation in the basic training at our headquarters in Zurich is required.\n\nThis is what we offer you:\n\nThis is why you want to become part of localsearch:\n\n• Teamwork: You are integrated into a lively team that supports each other and meets for regular meetings.\n\n• Own sales area: You will be assigned an area with existing SME customers and potential new customers.\n\n• Marketing solutions: You have a varied range of products from digital marketing at your disposal.\n\n• Working independently: You take responsibility for your tasks, plan your customer appointments independently and act with a high degree of initiative.\n\n• Comprehensive training and further development: You start with several weeks of training and receive regular support and training in the area of sales and products.\n\n• An attractive provisioning model: Your success is immediately rewarded – every good advice that leads to an assignment determines your income.\n\n• Flat-rate expenses: Your own vehicle will bring you safely to the customer appointment and we will compensate you for this in a timely manner.\n\nContact and Application\n\nFor professional questions you can contact our Sales Manager Christian Macculi directly: +41 79 446 63 68\n\nWe look forward to meeting you!\n\nAdditional information about the job and localsearch can be found here.",
-        "de": "Region: Langenthal / Burgdorf / Sursee\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir:\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Christian Macculi wenden: +41 79 446 63 68\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
+        "de": "Region: Langenthal / Burgdorf / Sursee\n\nlocalsearch ist der führende Marketing- und Werbepartner für Schweizer KMU.\nWir machen Kunden erfolgreich in der digitalen Welt.\n\nVerkaufen ist deine Passion? Schlägt dein Herz für digitales Marketing? Bist du gerne unterwegs und möchtest in die KMU-Welt eintauchen? Und willst du deinen Verdienst selbst beeinflussen? Dann bist du hier genau richtig!\n\nWir suchen dich als Verkaufstalent im Aussendienst\n\nDu besuchst sowohl bestehende KMU-Kunden als auch potenzielle Neukunden und präsentierst ihnen massgeschneiderte digitale Marketinglösungen. Dein Ziel ist es, nachhaltige Mehrwerte zu schaffen und so KMU digital erfolgreich zu machen.\n\nSkills und Anforderungen\n\nDas bringst du mit, um bei uns erfolgreich zu sein:\n\n• Freude am Verkaufen und Beraten: Du brennst für den persönlichen und telefonischen Kundenkontakt und legst grossen Wert darauf, unsere Kunden wirklich zu verstehen.\n\n• Kundenorientierung : Du baust vertrauensvolle Beziehungen zu deinen Kunden auf und erklärst erfolgreich den Nutzen unserer Online-Marketing-Lösungen.\n\n• Erfolgsorientierung : Deine Eigenmotivation und dein Ehrgeiz sind deine Erfolgsfaktoren. Auch in turbulenten Zeiten bleibst du fokussiert und zielstrebig.\n\n• Kommunikativ : Du sprichst fliessend Deutsch und beherrschst die gängigen Kommunikationsmittel.\n\n• Ausstrahlung : Du hast Humor und zeigst gerne deine Persönlichkeit.\n\n• Mobilität: Du besitzt einen gültigen Führerausweis (Kat. B) und ein eigenes Auto, sodass du unsere Kunden zuverlässig vor Ort besuchen kannst.\n\n• Verantwortungsvolles Handeln : Dein Auftritt ist professionell und dein Ruf einwandfrei (Leumund)\n\n• Flexibilität: Teilzeitarbeit ist grundsätzlich möglich, jedoch erst ab dem zweiten Anstellungsmonat. Im ersten Monat ist die Teilnahme an der Grundausbildung an unserem Hauptsitz in Zürich erforderlich.\n\nDas bieten wir dir:\n\nDarum willst du Teil von localsearch werden:\n\n• Teamwork: Du bist integriert in einem lebhaften Team, das sich gegenseitig unterstützt und sich zu regelmässigen Meetings trifft.\n\n• Eigenes Verkaufsgebiet: Dir wird ein Gebiet mit bestehenden KMU-Kunden und potenziellen Neukunden zugeteilt.\n\n• Marketinglösungen: Dir steht eine abwechslungsreiche Produktepalette aus dem digitalen Marketing zur Verfügung.\n\n• Selbstständiges Arbeiten: Du übernimmst Verantwortung für deine Aufgaben, planst deine Kundentermine eigenverantwortlich und handelst mit einem hohen Mass an Eigeninitiative.\n\n• Umfassende Schulungen und Weiterentwicklung: Du startest mit einer mehrwöchigen Ausbildung und erhältst regelmässig Begleitungen und Schulungen im Bereich Verkauf und Produkte.\n\n• Ein attraktives Provisionierungsmodell: Dein Erfolg wird unmittelbar belohnt – jede gute Beratung, die zu einem Auftrag führt, bestimmt dein Einkommen.\n\n• Auslagenpauschale: Dein eigenes Fahrzeug bringt dich sicher zum Kundentermin und wir entschädigen dich hierfür zeitgemäss.\n\nKontakt & Bewerbung\n\nBei fachlichen Fragen zur Stelle kannst du dich direkt an unseren Sales Manager Almedin Hasanic wenden: +41 79 919 78 94\n\nWir freuen uns darauf, dich kennenzulernen!\n\nZusätzliche Informationen über die Stelle und localsearch findest du hier .",
         "fr": "Région: Langenthal / Burgdorf / Sursee\n\nlocalsearch est le principal partenaire commercial et publicitaire des PME suisses.\nNous faisons des clients un succès dans le monde numérique.\n\nTu vends ta passion ? Votre cœur bat pour le marketing numérique ? Vous aimez voyager et vous immerger dans le monde des PME ? Voulez-vous influencer vos propres gains? Alors vous êtes exactement là !\n\nNous vous recherchons comme un talent de vente dans le service sur le terrain\n\nVous visiterez les PME existantes et les nouveaux clients potentiels et les présenterez avec des solutions de marketing numérique personnalisées. Votre objectif est de créer une valeur ajoutée durable et donc de faire des PME un succès numérique.\n\nCompétences et exigences\n\nC'est ce que vous apportez avec vous pour réussir avec nous:\n\n• Le plaisir de vendre et de consulter: Vous brûlez pour le contact client personnel et téléphonique et attachez une grande importance à vraiment comprendre nos clients.\n\n• Orientation client: Vous créez des relations de confiance avec vos clients et expliquez avec succès les avantages de nos solutions marketing en ligne.\n\n• Orientation du succès : Votre motivation et votre ambition sont vos facteurs de réussite. Même dans les temps agités, vous restez concentré et objectif.\n\n• Communicative : Vous parlez couramment allemand et maîtrisez les moyens de communication communs.\n\n• Radiance : Vous avez de l'humour et aimez montrer votre personnalité.\n\n• Mobilité: Vous avez un permis de conduire valide (cat. B) et votre propre voiture, de sorte que vous pouvez visiter nos clients de manière fiable sur le site.\n\n• Action responsable: Votre apparence est professionnelle et votre réputation est impeccable (réputable)\n\n• Flexibilité: le travail à temps partiel est possible en principe, mais seulement à partir du deuxième mois d'emploi. Dans le premier mois, la participation à la formation de base de notre siège à Zurich est requise.\n\nVoici ce que nous vous proposons :\n\nC'est pourquoi vous voulez faire partie de la recherche locale:\n\n• Travail d'équipe: Vous êtes intégré dans une équipe animée qui se soutient mutuellement et se réunit régulièrement.\n\n• Espace de vente propre: Un espace vous sera attribué avec des clients PME existants et de nouveaux clients potentiels.\n\n• Solutions marketing : Vous disposez d'une gamme variée de produits du marketing numérique.\n\n• Travailler de façon indépendante : Vous assumez la responsabilité de vos tâches, planifiez vos rendez-vous de façon indépendante et agissez avec un degré élevé d'initiative.\n\n• Formation complète et perfectionnement: Vous commencez par plusieurs semaines de formation et recevez régulièrement un soutien et une formation dans le domaine des ventes et des produits.\n\n• Un modèle de provisionnement attrayant : Votre succès est immédiatement récompensé – chaque bon conseil qui mène à une affectation détermine votre revenu.\n\n• Frais à taux fixe: Votre propre véhicule vous amènera en toute sécurité au rendez-vous client et nous vous indemniserons en temps opportun.\n\nContact et demande\n\nPour toute question professionnelle, veuillez contacter notre responsable commercial Christian Macculi directement: +41 79 446 63 68\n\nNous sommes impatients de vous rencontrer!\n\nDes informations supplémentaires sur le travail et la recherche locale peuvent être trouvées ici."
       },
       "location": "Langenthal",
@@ -1102,7 +1115,7 @@
       "url": "https://emp.jobylon.com/jobs/376679-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:00:00.188Z",
+      "crawledAt": "2026-09-03T23:19:54.095Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -1141,6 +1154,7 @@
       "firstSeenAt": "2026-08-18T09:51:34.654Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1184,7 +1198,7 @@
       "url": "https://emp.jobylon.com/jobs/376681-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:59.237Z",
+      "crawledAt": "2026-09-03T23:19:53.233Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1225,6 +1239,7 @@
       "firstSeenAt": "2026-08-18T09:51:32.075Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1268,7 +1283,7 @@
       "url": "https://emp.jobylon.com/jobs/376682-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:58.282Z",
+      "crawledAt": "2026-09-03T23:19:52.365Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1307,6 +1322,7 @@
       "firstSeenAt": "2026-08-18T09:51:31.000Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1350,7 +1366,7 @@
       "url": "https://emp.jobylon.com/jobs/376683-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:56.418Z",
+      "crawledAt": "2026-09-03T23:19:50.805Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1389,6 +1405,7 @@
       "firstSeenAt": "2026-08-18T09:51:30.010Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1432,7 +1449,7 @@
       "url": "https://emp.jobylon.com/jobs/376689-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:55.446Z",
+      "crawledAt": "2026-09-03T23:19:49.980Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1471,6 +1488,7 @@
       "firstSeenAt": "2026-08-18T09:51:29.066Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1514,7 +1532,7 @@
       "url": "https://emp.jobylon.com/jobs/376693-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:53.826Z",
+      "crawledAt": "2026-09-03T23:19:48.781Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1553,6 +1571,7 @@
       "firstSeenAt": "2026-08-18T09:51:28.073Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1596,7 +1615,7 @@
       "url": "https://emp.jobylon.com/jobs/376694-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:51.699Z",
+      "crawledAt": "2026-09-03T23:19:47.874Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1635,6 +1654,7 @@
       "firstSeenAt": "2026-08-18T09:51:27.050Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1678,7 +1698,7 @@
       "url": "https://emp.jobylon.com/jobs/376697-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:50.791Z",
+      "crawledAt": "2026-09-03T23:19:46.973Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1717,6 +1737,7 @@
       "firstSeenAt": "2026-08-18T09:51:25.156Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1760,7 +1781,7 @@
       "url": "https://emp.jobylon.com/jobs/376738-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:49.842Z",
+      "crawledAt": "2026-09-03T23:19:46.051Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1799,6 +1820,7 @@
       "firstSeenAt": "2026-08-19T09:48:05.126Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1842,7 +1864,7 @@
       "url": "https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:48.919Z",
+      "crawledAt": "2026-09-03T23:19:45.111Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1881,6 +1903,7 @@
       "firstSeenAt": "2026-08-19T09:48:04.229Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1894,80 +1917,134 @@
       "addressRegion": "ZH"
     },
     {
-      "id": "localsearch-f0ffab3a472e",
-      "slug": "internship-digital-business-ai-12-mesi-localsearch-zurich",
+      "id": "localsearch-0455b80ecfb8",
+      "slug": "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-per-3-monate-localsearch-zurich",
       "slugByLocale": {
-        "it": "internship-digital-business-ai-12-mesi-localsearch-zurich",
-        "en": "internship-digital-business-ai-12-months-localsearch-zurich",
-        "de": "praktikum-digital-business-ai-12-monate-localsearch-ch",
-        "fr": "stage-digital-business-ai-12-mois-localsearch-zurich"
+        "it": "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-per-3-monate-localsearch-zurich",
+        "en": "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-fur-3-monate",
+        "de": "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-fur-3-monate",
+        "fr": "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-fur-3-monate"
       },
       "company": "localsearch",
       "companyKey": "localsearch",
       "companyDomain": "localsearch.ch",
-      "title": "Praktikum Digital Business & AI (12 Monate)",
+      "title": "PraktikantIn / WerkstudentIn Legal, Procurement & Data Protection (30–60%, befristet für 3 Monate)",
       "titleByLocale": {
-        "it": "Praktikum Digital Business & AI (12 Monate)",
-        "en": "Internship Digital Business & AI (12 months)",
-        "de": "Praktikum Digital Business & AI (12 Monate)",
-        "fr": "Stage Digital Business & AI (12 mois)"
+        "it": "PraktikantIn / WerkstudentIn Legal, Procurement & Data Protection (30–60%, befristet per 3 Monate)",
+        "en": "PraktikantIn / WerkstudentIn Legal, Procurement & Data Protection (30–60%, befristet für 3 Monate)",
+        "de": "PraktikantIn / WerkstudentIn Legal, Procurement & Data Protection (30–60%, befristet für 3 Monate)",
+        "fr": "PraktikantIn / WerkstudentIn Legal, Procurement & Data Protection (30–60%, befristet für 3 Monate)"
       },
-      "description": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nMit renovero , der führenden Plattform für Handwerksdienstleistungen in der Schweiz, verbinden wir jährlich tausende Personen und Unternehmen mit den passenden Handwerkern. Hinter jeder Renovation, jeder Reparatur und jedem Umbau in der Schweiz steht die Frage: Wer macht das eigentlich? renovero beantwortet sie. Wir bringen Auftraggeber und qualifizierte Handwerker zusammen, und zwar so einfach, schnell und verlässlich wie möglich. Damit das gelingt, suchen wir eine digitale Person, die unseren Marktplatz mit uns weiterdenkt und mitbaut.\n\nDein vielseitiger Arbeitsalltag:\n\n• Du arbeitest an der Weiterentwicklung von renovero mit, an der Schnittstelle von Product Management, New Business und Customer Experience\n\n• Du betreust unsere Feedback-Kanäle auf beiden Marktseiten, hörst genau hin und leitest daraus Optimierungspotenziale ab\n\n• Du bringst Konzepte, Anforderungsbriefings und Tickets für neue Features, Prozessoptimierungen und Bedarfsanalysen mit auf den Weg\n\n• Du führst Markt-, Wettbewerbs- und KPI-Analysen durch, die als Grundlage für strategische Entscheidungen dienen\n\n• Du unterstützt das Customer-Care-Team bei komplexeren Anliegen von Handwerkern und Auftraggebern und hilfst mit, die Qualität der Supportprozesse zu sichern\n\n• Du wirkst bei KI- und Automatisierungsthemen mit, die uns effizienter und besser machen\n\nDu begeisterst uns mit:\n\n• einer selbstständigen, strukturierten und proaktiven Arbeitsweise\n\n• fliessenden Deutsch- und Englischkenntnissen\n\n• einem analytischen und lösungsorientierten Kopf, der gerne hinter die Zahlen schaut\n\n• echtem Interesse an digitalen Plattformen, Marktplätzen, Product Management, Business Development und KI\n\n• einer Hands-on-Mentalität, hoher Eigenmotivation und Lust, Verantwortung zu übernehmen\n\n• Freude daran, neue Tools kennenzulernen, Prozesse zu verbessern und mit ganz unterschiedlichen Stakeholdern zusammenzuarbeiten\n\n• einem Studium oder einer Ausbildung in BWL, Marketing, Kommunikation, Wirtschaftsinformatik, Digital Business o. Ä.\n\nDas bieten wir dir:\n\n• Ein umfassendes 12-monatiges Praktikum (100% Pensum)\n\n• Einblicke in alle Bereiche des digitalen SaaS- und Dienstleistungsgeschäfts\n\n• Direkte Zusammenarbeit mit verschiedenen, erfahrenen Stakeholdern und Business Units\n\n• Flexible Arbeitszeiten inkl. 2 Tage Home-Office\n\n• Ein modernes Büro in zentraler Lage in Zürich\n\n• Ein dynamisches und innovatives Arbeitsumfeld\n\n• Wertvolle praktische Erfahrung für deinen Karrierestart\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nBist du bereit, deine Karriere im digitalen Business zu starten? Dann freut sich Florian Laudahn und das ganze Team auf deine Online-Bewerbung!",
+      "description": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nFür ein befristetes Projekt an der Schnittstelle zwischen Legal, Procurement und Data Protection suchen wir eine zuverlässige und strukturierte Unterstützung. Im Zentrum steht die Überprüfung und Aktualisierung unserer datenschutzrechtlichen Vereinbarungen mit bestehenden Lieferanten und Dienstleistern.\n\nDu erhältst dabei Einblick in die praktische Zusammenarbeit zwischen Einkauf, Legal, Datenschutz und den Fachbereichen und übernimmst ein klar abgegrenztes Projekt mit eigener Verantwortung.\n\nWir bieten dir folgende spannende Aufgaben:\n\n• Mitarbeit in einem bereichsübergreifenden Projekt an der Schnittstelle von Legal, Procurement und Data Protection\n\n• Unterstützung bei der Überprüfung und Aktualisierung bestehender Vendor- und Datenschutzdokumentationen\n\n• Vorbereitung und Koordination von vertraglichen Unterlagen auf Basis bestehender Templates\n\n• Nachverfolgung offener Punkte sowie strukturierte Dokumentation des Projektfortschritts\n\n• Je nach Interesse und Kapazität Unterstützung bei weiteren Themen in Legal, Compliance, Procurement, Communication oder angrenzenden Bereichen\n\nDein Profil:\n\n• Du studierst aktuell Rechtswissenschaften, Betriebswirtschaft, Wirtschaftsinformatik, Informationstechnologie oder eine vergleichbare Fachrichtung oder befindest dich zwischen Bachelor und Master.\n\n• Du arbeitest gerne strukturiert, sorgfältig und selbständig und behältst auch bei einer grösseren Anzahl paralleler Vorgänge den Überblick.\n\n• Du hast Interesse an den Themen Datenschutz, Vertragsmanagement und Procurement .\n\n• Du bist sicher im Umgang mit MS Office und arbeitest dich schnell in neue Tools und Prozesse ein.\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse runden dein Profil ab.\n\n• Vorkenntnisse im Datenschutzrecht sind von Vorteil, aber keine Voraussetzung.\n\nWas dich erwartet:\n\nDu arbeitest an einem konkreten Projekt mit sichtbarem Ergebnis und erhältst gleichzeitig einen praxisnahen Einblick in die Tätigkeit eines Inhouse Legal & Compliance Teams sowie in die Zusammenarbeit mit Procurement und verschiedenen Fachbereichen.Die Tätigkeit eignet sich insbesondere für Studierende, die neben dem Studium erste praktische Erfahrung in einem Unternehmensumfeld sammeln und verstehen möchten, wie rechtliche und datenschutzrechtliche Anforderungen im Tagesgeschäft umgesetzt werden.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nYari Iannelli und Lisa Mary freuen sich auf deine Online-Bewerbung!",
       "descriptionByLocale": {
-        "it": "localsearch è il principale partner commerciale e pubblicitario per le PMI svizzere. Facciamo i clienti di successo nel mondo digitale.\n\nCon Renovero, la piattaforma leader per i servizi artigianali in Svizzera, colleghiamo migliaia di persone e aziende con i giusti artigiani ogni anno. Dietro ogni ristrutturazione, riparazione e ristrutturazione in Svizzera è la domanda: chi lo fa veramente? renovero le risponde. Raccogliamo clienti e artigiani qualificati il più facilmente, rapidamente e in modo affidabile possibile. Per questo per avere successo, stiamo cercando una persona digitale che continuerà a pensare e costruire il nostro mercato con noi.\n\nLa tua versatile giornata di lavoro:\n\n• Si lavora sull'ulteriore sviluppo di renovero, all'interfaccia di gestione del prodotto, nuova business e customer experience\n\n• Monitorare i nostri canali di feedback su entrambi i lati del mercato, ascoltare attentamente e derivare il potenziale di ottimizzazione da loro\n\n• Porti concetti, requisiti di briefing e biglietti per nuove funzionalità, ottimizzazioni di processo e analisi delle esigenze.\n\n• Condurrai analisi di mercato, concorrenza e KPI che servono come base per decisioni strategiche\n\n• Supporti il team di assistenza clienti con problemi più complessi di artigiani e clienti e aiuti a garantire la qualità dei processi di supporto\n\n• Contribuisci a temi di AI e automazione che ci rendono più efficienti e migliori\n\nCi ispirate con:\n\n• un modo di lavoro indipendente, strutturato e proattivo\n\n• conoscenza fluente di tedesco e inglese\n\n• una testa analitica e orientata alla soluzione che ama guardare dietro i numeri\n\n• Real interesse per piattaforme digitali, mercati, gestione dei prodotti, sviluppo aziendale e AI\n\n• una mentalità hands-on, alta auto-motivazione e il desiderio di assumersi la responsabilità\n\n• Goditi di conoscere nuovi strumenti, migliorare i processi e lavorare con le parti interessate molto diverse\n\n• studi o formazione in amministrazione aziendale, marketing, comunicazione, informatica aziendale, business digitale o simili\n\nQuesto è ciò che vi offriamo:\n\n• Un tirocinio completo di 12 mesi (100% di importo)\n\n• Insights in tutte le aree del digitale SaaS e servizi business\n\n• Cooperazione diretta con vari stakeholder e business unit esperti\n\n• Orari di lavoro flessibili inclusi. 2 giorni di ufficio\n\n• Un moderno ufficio in una posizione centrale a Zurigo\n\n• Un ambiente di lavoro dinamico e innovativo\n\n• Valutabile esperienza pratica per il tuo inizio di carriera\n\nContatto e applicazione\n\nUlteriori informazioni su localsearch come datore di lavoro possono essere trovate qui.\n\nSei pronto a iniziare la tua carriera nel business digitale? Florian Laudahn e l'intero team sono lieti della vostra applicazione online!",
-        "en": "localsearch is the leading marketing and advertising partner for Swiss SMEs. We make customers successful in the digital world.\n\nWith renovero, the leading platform for craft services in Switzerland, we connect thousands of people and companies with the right craftsmen every year. Behind every renovation, repair and renovation in Switzerland is the question: who actually does it? renovero answers them. We bring together clients and qualified craftsmen as easily, quickly and reliably as possible. For this to succeed, we are looking for a digital person who will continue to think and build our marketplace with us.\n\nYour versatile work day:\n\n• You work on the further development of renovero, at the interface of product management, new business and customer experience\n\n• You monitor our feedback channels on both market sides, listen carefully and derive optimization potential from them\n\n• You bring concepts, requirements briefings and tickets for new features, process optimizations and needs analysis.\n\n• You will conduct market, competition and KPI analyses that serve as the basis for strategic decisions\n\n• You support the customer care team with more complex concerns of craftsmen and clients and help to ensure the quality of the support processes\n\n• You contribute to AI and automation topics that make us more efficient and better\n\nYou inspire us with:\n\n• an independent, structured and proactive way of working\n\n• fluent knowledge of German and English\n\n• an analytical and solution-oriented head who likes to look behind the numbers\n\n• Real interest in digital platforms, marketplaces, product management, business development and AI\n\n• a hands-on mentality, high self-motivation and desire to take on responsibility\n\n• Enjoy getting to know new tools, improving processes and working with very different stakeholders\n\n• studies or training in business administration, marketing, communication, business informatics, digital business or the like\n\nThis is what we offer you:\n\n• A comprehensive 12-month internship (100% amount)\n\n• Insights into all areas of the digital SaaS and services business\n\n• Direct cooperation with various experienced stakeholders and business units\n\n• Flexible working hours included. 2 days home office\n\n• A modern office in a central location in Zurich\n\n• A dynamic and innovative working environment\n\n• Valuable practical experience for your career start\n\nContact and Application\n\nMore information about localsearch as an employer can be found here.\n\nAre you ready to start your career in digital business? Florian Laudahn and the whole team are looking forward to your online application!",
-        "de": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nMit renovero , der führenden Plattform für Handwerksdienstleistungen in der Schweiz, verbinden wir jährlich tausende Personen und Unternehmen mit den passenden Handwerkern. Hinter jeder Renovation, jeder Reparatur und jedem Umbau in der Schweiz steht die Frage: Wer macht das eigentlich? renovero beantwortet sie. Wir bringen Auftraggeber und qualifizierte Handwerker zusammen, und zwar so einfach, schnell und verlässlich wie möglich. Damit das gelingt, suchen wir eine digitale Person, die unseren Marktplatz mit uns weiterdenkt und mitbaut.\n\nDein vielseitiger Arbeitsalltag:\n\n• Du arbeitest an der Weiterentwicklung von renovero mit, an der Schnittstelle von Product Management, New Business und Customer Experience\n\n• Du betreust unsere Feedback-Kanäle auf beiden Marktseiten, hörst genau hin und leitest daraus Optimierungspotenziale ab\n\n• Du bringst Konzepte, Anforderungsbriefings und Tickets für neue Features, Prozessoptimierungen und Bedarfsanalysen mit auf den Weg\n\n• Du führst Markt-, Wettbewerbs- und KPI-Analysen durch, die als Grundlage für strategische Entscheidungen dienen\n\n• Du unterstützt das Customer-Care-Team bei komplexeren Anliegen von Handwerkern und Auftraggebern und hilfst mit, die Qualität der Supportprozesse zu sichern\n\n• Du wirkst bei KI- und Automatisierungsthemen mit, die uns effizienter und besser machen\n\nDu begeisterst uns mit:\n\n• einer selbstständigen, strukturierten und proaktiven Arbeitsweise\n\n• fliessenden Deutsch- und Englischkenntnissen\n\n• einem analytischen und lösungsorientierten Kopf, der gerne hinter die Zahlen schaut\n\n• echtem Interesse an digitalen Plattformen, Marktplätzen, Product Management, Business Development und KI\n\n• einer Hands-on-Mentalität, hoher Eigenmotivation und Lust, Verantwortung zu übernehmen\n\n• Freude daran, neue Tools kennenzulernen, Prozesse zu verbessern und mit ganz unterschiedlichen Stakeholdern zusammenzuarbeiten\n\n• einem Studium oder einer Ausbildung in BWL, Marketing, Kommunikation, Wirtschaftsinformatik, Digital Business o. Ä.\n\nDas bieten wir dir:\n\n• Ein umfassendes 12-monatiges Praktikum (100% Pensum)\n\n• Einblicke in alle Bereiche des digitalen SaaS- und Dienstleistungsgeschäfts\n\n• Direkte Zusammenarbeit mit verschiedenen, erfahrenen Stakeholdern und Business Units\n\n• Flexible Arbeitszeiten inkl. 2 Tage Home-Office\n\n• Ein modernes Büro in zentraler Lage in Zürich\n\n• Ein dynamisches und innovatives Arbeitsumfeld\n\n• Wertvolle praktische Erfahrung für deinen Karrierestart\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nBist du bereit, deine Karriere im digitalen Business zu starten? Dann freut sich Florian Laudahn und das ganze Team auf deine Online-Bewerbung!",
-        "fr": "localsearch est le principal partenaire commercial et publicitaire des PME suisses. Nous faisons des clients un succès dans le monde numérique.\n\nAvec Renovero, la plateforme leader des services artisanaux en Suisse, nous mettons en relation des milliers de personnes et d'entreprises avec les artisans appropriés chaque année. Derrière chaque rénovation, réparation et rénovation en Suisse se pose la question : qui le fait réellement ? Rénovero leur répond. Nous rassemblons des clients et des artisans qualifiés aussi facilement, rapidement et de manière fiable que possible. Pour que cela réussisse, nous cherchons une personne numérique qui continuera à penser et à construire notre marché avec nous.\n\nVotre journée de travail polyvalente:\n\n• Vous travaillez sur le développement ultérieur de renovero, à l'interface de la gestion de produits, nouvelle entreprise et expérience client\n\n• Vous surveillez nos canaux de rétroaction des deux côtés du marché, écoutez attentivement et tirez de leur potentiel d'optimisation\n\n• Vous apportez des concepts, des informations sur les exigences et des tickets pour de nouvelles fonctionnalités, des optimisations de processus et l'analyse des besoins.\n\n• Vous effectuerez des analyses de marché, de concurrence et de KPI qui serviront de base aux décisions stratégiques\n\n• Vous accompagnez l'équipe client avec des préoccupations plus complexes des artisans et des clients et aidez à assurer la qualité des processus de support\n\n• Vous contribuez à des sujets d'IA et d'automatisation qui nous rendent plus efficaces et meilleurs\n\nVous nous inspirez avec :\n\n• un mode de travail indépendant, structuré et proactif\n\n• Connaissance de l'allemand et de l'anglais\n\n• une tête analytique et orientée solution qui aime regarder derrière les chiffres\n\n• Intérêt réel pour les plateformes numériques, les marchés, la gestion des produits, le développement des entreprises et l'IA\n\n• une mentalité pratique, une forte motivation personnelle et le désir d'assumer la responsabilité\n\n• Profitez d'apprendre à connaître de nouveaux outils, améliorer les processus et travailler avec des intervenants très différents\n\n• études ou formation en administration des affaires, marketing, communication, informatique des affaires, entreprises numériques ou similaires\n\nVoici ce que nous vous proposons :\n\n• Un stage complet de 12 mois (100% du montant)\n\n• Regards sur tous les domaines de l'activité numérique SaaS et services\n\n• Coopération directe avec diverses parties prenantes et unités opérationnelles expérimentées\n\n• Heures de travail flexibles incluses. 2 jours à domicile\n\n• Un bureau moderne dans un emplacement central à Zurich\n\n• Un environnement de travail dynamique et innovant\n\n• Expérience pratique précieuse pour votre début de carrière\n\nContact et demande\n\nVous trouverez plus d'informations sur la recherche locale en tant qu'employeur ici.\n\nÊtes-vous prêt à commencer votre carrière dans le numérique? Florian Laudahn et toute l'équipe attendent avec impatience votre candidature en ligne!"
+        "it": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nFür ein befristetes Projekt an der Schnittstelle zwischen Legal, Procurement und Data Protection suchen wir eine zuverlässige und strukturierte Unterstützung. Im Zentrum steht die Überprüfung und Aktualisierung unserer datenschutzrechtlichen Vereinbarungen mit bestehenden Lieferanten und Dienstleistern.\n\nDu erhältst dabei Einblick in die praktische Zusammenarbeit zwischen Einkauf, Legal, Datenschutz und den Fachbereichen und übernimmst ein klar abgegrenztes Projekt mit eigener Verantwortung.\n\nWir bieten dir folgende spannende Aufgaben:\n\n• Mitarbeit in einem bereichsübergreifenden Projekt an der Schnittstelle von Legal, Procurement und Data Protection\n\n• Unterstützung bei der Überprüfung und Aktualisierung bestehender Vendor- und Datenschutzdokumentationen\n\n• Vorbereitung und Koordination von vertraglichen Unterlagen auf Basis bestehender Templates\n\n• Nachverfolgung offener Punkte sowie strukturierte Dokumentation des Projektfortschritts\n\n• Je nach Interesse und Kapazität Unterstützung bei weiteren Themen in Legal, Compliance, Procurement, Communication oder angrenzenden Bereichen\n\nDein Profil:\n\n• Du studierst aktuell Rechtswissenschaften, Betriebswirtschaft, Wirtschaftsinformatik, Informationstechnologie oder eine vergleichbare Fachrichtung oder befindest dich zwischen Bachelor und Master.\n\n• Du arbeitest gerne strukturiert, sorgfältig und selbständig und behältst auch bei einer grösseren Anzahl paralleler Vorgänge den Überblick.\n\n• Du hast Interesse an den Themen Datenschutz, Vertragsmanagement und Procurement .\n\n• Du bist sicher im Umgang mit MS Office und arbeitest dich schnell in neue Tools und Prozesse ein.\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse runden dein Profil ab.\n\n• Vorkenntnisse im Datenschutzrecht sind von Vorteil, aber keine Voraussetzung.\n\nWas dich erwartet:\n\nDu arbeitest an einem konkreten Projekt mit sichtbarem Ergebnis und erhältst gleichzeitig einen praxisnahen Einblick in die Tätigkeit eines Inhouse Legal & Compliance Teams sowie in die Zusammenarbeit mit Procurement und verschiedenen Fachbereichen.Die Tätigkeit eignet sich insbesondere für Studierende, die neben dem Studium erste praktische Erfahrung in einem Unternehmensumfeld sammeln und verstehen möchten, wie rechtliche und datenschutzrechtliche Anforderungen im Tagesgeschäft umgesetzt werden.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nYari Iannelli und Lisa Mary freuen sich auf deine Online-Bewerbung!",
+        "en": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nFür ein befristetes Projekt an der Schnittstelle zwischen Legal, Procurement und Data Protection suchen wir eine zuverlässige und strukturierte Unterstützung. Im Zentrum steht die Überprüfung und Aktualisierung unserer datenschutzrechtlichen Vereinbarungen mit bestehenden Lieferanten und Dienstleistern.\n\nDu erhältst dabei Einblick in die praktische Zusammenarbeit zwischen Einkauf, Legal, Datenschutz und den Fachbereichen und übernimmst ein klar abgegrenztes Projekt mit eigener Verantwortung.\n\nWir bieten dir folgende spannende Aufgaben:\n\n• Mitarbeit in einem bereichsübergreifenden Projekt an der Schnittstelle von Legal, Procurement und Data Protection\n\n• Unterstützung bei der Überprüfung und Aktualisierung bestehender Vendor- und Datenschutzdokumentationen\n\n• Vorbereitung und Koordination von vertraglichen Unterlagen auf Basis bestehender Templates\n\n• Nachverfolgung offener Punkte sowie strukturierte Dokumentation des Projektfortschritts\n\n• Je nach Interesse und Kapazität Unterstützung bei weiteren Themen in Legal, Compliance, Procurement, Communication oder angrenzenden Bereichen\n\nDein Profil:\n\n• Du studierst aktuell Rechtswissenschaften, Betriebswirtschaft, Wirtschaftsinformatik, Informationstechnologie oder eine vergleichbare Fachrichtung oder befindest dich zwischen Bachelor und Master.\n\n• Du arbeitest gerne strukturiert, sorgfältig und selbständig und behältst auch bei einer grösseren Anzahl paralleler Vorgänge den Überblick.\n\n• Du hast Interesse an den Themen Datenschutz, Vertragsmanagement und Procurement .\n\n• Du bist sicher im Umgang mit MS Office und arbeitest dich schnell in neue Tools und Prozesse ein.\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse runden dein Profil ab.\n\n• Vorkenntnisse im Datenschutzrecht sind von Vorteil, aber keine Voraussetzung.\n\nWas dich erwartet:\n\nDu arbeitest an einem konkreten Projekt mit sichtbarem Ergebnis und erhältst gleichzeitig einen praxisnahen Einblick in die Tätigkeit eines Inhouse Legal & Compliance Teams sowie in die Zusammenarbeit mit Procurement und verschiedenen Fachbereichen.Die Tätigkeit eignet sich insbesondere für Studierende, die neben dem Studium erste praktische Erfahrung in einem Unternehmensumfeld sammeln und verstehen möchten, wie rechtliche und datenschutzrechtliche Anforderungen im Tagesgeschäft umgesetzt werden.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nYari Iannelli und Lisa Mary freuen sich auf deine Online-Bewerbung!",
+        "de": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nFür ein befristetes Projekt an der Schnittstelle zwischen Legal, Procurement und Data Protection suchen wir eine zuverlässige und strukturierte Unterstützung. Im Zentrum steht die Überprüfung und Aktualisierung unserer datenschutzrechtlichen Vereinbarungen mit bestehenden Lieferanten und Dienstleistern.\n\nDu erhältst dabei Einblick in die praktische Zusammenarbeit zwischen Einkauf, Legal, Datenschutz und den Fachbereichen und übernimmst ein klar abgegrenztes Projekt mit eigener Verantwortung.\n\nWir bieten dir folgende spannende Aufgaben:\n\n• Mitarbeit in einem bereichsübergreifenden Projekt an der Schnittstelle von Legal, Procurement und Data Protection\n\n• Unterstützung bei der Überprüfung und Aktualisierung bestehender Vendor- und Datenschutzdokumentationen\n\n• Vorbereitung und Koordination von vertraglichen Unterlagen auf Basis bestehender Templates\n\n• Nachverfolgung offener Punkte sowie strukturierte Dokumentation des Projektfortschritts\n\n• Je nach Interesse und Kapazität Unterstützung bei weiteren Themen in Legal, Compliance, Procurement, Communication oder angrenzenden Bereichen\n\nDein Profil:\n\n• Du studierst aktuell Rechtswissenschaften, Betriebswirtschaft, Wirtschaftsinformatik, Informationstechnologie oder eine vergleichbare Fachrichtung oder befindest dich zwischen Bachelor und Master.\n\n• Du arbeitest gerne strukturiert, sorgfältig und selbständig und behältst auch bei einer grösseren Anzahl paralleler Vorgänge den Überblick.\n\n• Du hast Interesse an den Themen Datenschutz, Vertragsmanagement und Procurement .\n\n• Du bist sicher im Umgang mit MS Office und arbeitest dich schnell in neue Tools und Prozesse ein.\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse runden dein Profil ab.\n\n• Vorkenntnisse im Datenschutzrecht sind von Vorteil, aber keine Voraussetzung.\n\nWas dich erwartet:\n\nDu arbeitest an einem konkreten Projekt mit sichtbarem Ergebnis und erhältst gleichzeitig einen praxisnahen Einblick in die Tätigkeit eines Inhouse Legal & Compliance Teams sowie in die Zusammenarbeit mit Procurement und verschiedenen Fachbereichen.Die Tätigkeit eignet sich insbesondere für Studierende, die neben dem Studium erste praktische Erfahrung in einem Unternehmensumfeld sammeln und verstehen möchten, wie rechtliche und datenschutzrechtliche Anforderungen im Tagesgeschäft umgesetzt werden.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nYari Iannelli und Lisa Mary freuen sich auf deine Online-Bewerbung!",
+        "fr": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nFür ein befristetes Projekt an der Schnittstelle zwischen Legal, Procurement und Data Protection suchen wir eine zuverlässige und strukturierte Unterstützung. Im Zentrum steht die Überprüfung und Aktualisierung unserer datenschutzrechtlichen Vereinbarungen mit bestehenden Lieferanten und Dienstleistern.\n\nDu erhältst dabei Einblick in die praktische Zusammenarbeit zwischen Einkauf, Legal, Datenschutz und den Fachbereichen und übernimmst ein klar abgegrenztes Projekt mit eigener Verantwortung.\n\nWir bieten dir folgende spannende Aufgaben:\n\n• Mitarbeit in einem bereichsübergreifenden Projekt an der Schnittstelle von Legal, Procurement und Data Protection\n\n• Unterstützung bei der Überprüfung und Aktualisierung bestehender Vendor- und Datenschutzdokumentationen\n\n• Vorbereitung und Koordination von vertraglichen Unterlagen auf Basis bestehender Templates\n\n• Nachverfolgung offener Punkte sowie strukturierte Dokumentation des Projektfortschritts\n\n• Je nach Interesse und Kapazität Unterstützung bei weiteren Themen in Legal, Compliance, Procurement, Communication oder angrenzenden Bereichen\n\nDein Profil:\n\n• Du studierst aktuell Rechtswissenschaften, Betriebswirtschaft, Wirtschaftsinformatik, Informationstechnologie oder eine vergleichbare Fachrichtung oder befindest dich zwischen Bachelor und Master.\n\n• Du arbeitest gerne strukturiert, sorgfältig und selbständig und behältst auch bei einer grösseren Anzahl paralleler Vorgänge den Überblick.\n\n• Du hast Interesse an den Themen Datenschutz, Vertragsmanagement und Procurement .\n\n• Du bist sicher im Umgang mit MS Office und arbeitest dich schnell in neue Tools und Prozesse ein.\n\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse runden dein Profil ab.\n\n• Vorkenntnisse im Datenschutzrecht sind von Vorteil, aber keine Voraussetzung.\n\nWas dich erwartet:\n\nDu arbeitest an einem konkreten Projekt mit sichtbarem Ergebnis und erhältst gleichzeitig einen praxisnahen Einblick in die Tätigkeit eines Inhouse Legal & Compliance Teams sowie in die Zusammenarbeit mit Procurement und verschiedenen Fachbereichen.Die Tätigkeit eignet sich insbesondere für Studierende, die neben dem Studium erste praktische Erfahrung in einem Unternehmensumfeld sammeln und verstehen möchten, wie rechtliche und datenschutzrechtliche Anforderungen im Tagesgeschäft umgesetzt werden.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nYari Iannelli und Lisa Mary freuen sich auf deine Online-Bewerbung!"
       },
       "location": "Zürich",
       "canton": "ZH",
-      "url": "https://emp.jobylon.com/jobs/369442-localsearch-praktikum-digital-business-ai-12-monate/",
+      "url": "https://emp.jobylon.com/jobs/379079-localsearch-praktikantin-werkstudentin-legal-procurement-data-protection-3060-befristet-fur-3-monate/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T09:59:47.410Z",
+      "crawledAt": "2026-09-03T23:19:44.210Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Marketing",
+      "category": "IT",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "INTERN",
       "experienceLevel": "intern",
       "sector": "Marketing digitale / Tecnologia",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://emp.jobylon.com/jobs/369442-localsearch-praktikum-digital-business-ai-12-monate/",
+      "postedDate": "2026-08-28",
+      "applyUrl": "https://emp.jobylon.com/jobs/379079-localsearch-praktikantin-werkstudentin-legal-procurement-data-protection-3060-befristet-fur-3-monate/",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikum-digital-business-ai-12-monate-localsearch-zurich",
-        "praktikum-digital-business-ai-12-monate-localsearch-ch",
-        "internship-digital-business-ai-12-mesi-localsearch-zurich"
+        "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-fur-3-monate"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikum-digital-business-ai-12-monate-localsearch-zurich",
-          "praktikum-digital-business-ai-12-monate-localsearch-ch",
-          "internship-digital-business-ai-12-mesi-localsearch-zurich"
-        ],
-        "en": [
-          "praktikum-digital-business-ai-12-monate-localsearch-ch"
-        ],
-        "fr": [
-          "praktikum-digital-business-ai-12-monate-localsearch-ch"
+          "praktikantin-werkstudentin-legal-procurement-data-protection-30-60-befristet-fur-3-monate"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T21:37:07.673Z",
-      "salaryMin": 77000,
-      "salaryMax": 136000,
+      "firstSeenAt": "2026-08-31T17:07:05.113Z",
+      "salaryMin": 47400,
+      "salaryMax": 80700,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 136000,
+          "minValue": 47400,
+          "maxValue": 80700,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "localsearch-8b374400cc3a",
+      "slug": "teamleader-customer-success-sales-css-telesales-100-localsearch-ch",
+      "slugByLocale": {
+        "it": "teamleader-customer-success-sales-css-telesales-100-localsearch-ch",
+        "en": "teamleader-customer-success-sales-css-telesales-100-localsearch-ch",
+        "de": "teamleader-customer-success-sales-css-telesales-100-localsearch-ch",
+        "fr": "teamleader-customer-success-sales-css-telesales-100-localsearch-ch"
+      },
+      "company": "localsearch",
+      "companyKey": "localsearch",
+      "companyDomain": "localsearch.ch",
+      "title": "Teamleader Customer Success Sales (CSS) – Telesales 100%",
+      "titleByLocale": {
+        "it": "Teamleader Customer Success Sales (CSS) – Telesales 100%",
+        "en": "Teamleader Customer Success Sales (CSS) – Telesales 100%",
+        "de": "Teamleader Customer Success Sales (CSS) – Telesales 100%",
+        "fr": "Teamleader Customer Success Sales (CSS) – Telesales 100%"
+      },
+      "description": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nWir sind Vertriebsexperten, Unternehmerversteher und Digitalisierungspioniere. Bei uns arbeitest du in einem leistungsorientierten Sales Umfeld, in dem Beratung, unternehmerisches Denken und starke Abschlüsse im Mittelpunkt stehen.\n\nUnser Customer Success Sales (CSS) Team unterstützt Schweizer KMU dabei, ihre Online Sichtbarkeit zu verbessern und neue Kunden zu gewinnen. Mit digitalen Marketinglösungen von localsearch begleiten wir Unternehmen auf ihrem Weg in die digitale Zukunft.\n\nFür die Führung und Weiterentwicklung unseres Teams suchen wir keine reine Verwaltungskraft, sondern eine erfahrene Führungspersönlichkeit, die Menschen begeistert, Leistung einfordert und Potenzial fördert, Verantwortung übernimmt und im operativen Alltag selbst mit anpackt.\n\nDeine Mission\n\nDu entwickelst ein engagiertes Sales Team zu einer leistungsstarken Einheit und verbindest klare Ziele und konsequente Performance Steuerung mit echter Nähe zu den Menschen. Du bist im Tagesgeschäft präsent, coachst anhand realer Kundengespräche und schaffst ein Umfeld, in dem sich Mitarbeitende entwickeln, Verantwortung übernehmen und gemeinsam Erfolge erzielen.\n\nDu wartest bei Herausforderungen nicht auf fertige Lösungen. Du analysierst die Ursachen, entwickelst konkrete Massnahmen und setzt diese gemeinsam mit deinem Team um.\n\nDeine Verantwortung:\n\n• Du führst und entwickelst ein Team von Sales Agents im telefonischen B2B Vertrieb und bist im operativen Alltag sichtbar, ansprechbar und nah am Team.\n\n• Du coachst im Daily Business, hörst regelmässig bei Kundengesprächen mit, gibst direktes Feedback und übersetzt deine Beobachtungen in konkrete Entwicklungsziele.\n\n• Du etablierst klare Führungsrhythmen: tägliche Steuerungsformate, Einzelgespräche, Teamcoachings und Performance Reviews.\n\n• Du steuerst Sales Kampagnen für Cross Selling, Upselling und Neukunden Akquise.\n\n• Du überwachst Umsatz, Produktivität, Conversion und Qualität anhand definierter KPIs, sorgst für verlässliche Planung und Prognose und leitest bei Abweichungen frühzeitig gezielte Massnahmen ein.\n\n• Du führst regelmässige Einzelgespräche, erkennst Stärken und Entwicklungsfelder und erarbeitest gemeinsam mit deinen Mitarbeitenden konkrete Entwicklungspläne.\n\n• Du gehst Leistungsprobleme frühzeitig, fair und konsequent an, förderst Eigenverantwortung und entwickelst Leistungsträger sowie zukünftige Führungskräfte.\n\n• Du begleitest Rekrutierung, Onboarding und nachhaltige Integration neuer Teammitglieder.\n\n• Du arbeitest eng mit Marketing, Produktmanagement, Aussendienst und Personalabteilung zusammen.\n\n• Du sorgst für hohe Qualität der Kundengespräche und professionelle Sales Prozesse und nutzt Salesforce zur Steuerung und Performanceanalyse.\n\nSkills und Anforderungen\n\nDu bist:\n\n• Eine erfahrene Führungspersönlichkeit mit echter Freude an Menschen und am Vertrieb. Du kannst Leistung einfordern, ohne den Menschen aus den Augen zu verlieren.\n\n• Mehrjährig und nachweisbar erfahren in der Führung leistungsorientierter Sales oder Contact Center Teams, idealerweise im B2B oder KMU Geschäft, mit belegten Erfolgen bei Umsatz und Performance Zielen.\n\n• Stark in Coaching, Motivation und Feedback, mit hoher emotionaler und sozialer Kompetenz. Du begegnest deinen Mitarbeitenden wertschätzend und bist gleichzeitig klar und konsequent.\n\n• Energiegeladen und operativ präsent. Du packst selbst mit an und führst nicht ausschliesslich über Meetings, Reportings und Kennzahlen.\n\n• Ergebnisorientiert und vertraut mit der Steuerung von Sales Teams anhand klarer KPIs, analytisch, strukturiert und lösungsorientiert, auch in anspruchsvollen Situationen handlungsfähig.\n\n• Erfahren im Umgang mit Top Performern, Mitarbeitenden mit Entwicklungsbedarf und anspruchsvollen personellen Situationen, und kannst Veränderungen erfolgreich vermitteln.\n\n• Digital affin, unternehmerisch denkend und interessiert an Marketinglösungen für Schweizer KMU.\n\n• Stilsicher im Deutschen mit sehr gutem Verständnis von Schweizerdeutsch. Französisch oder Italienisch sind ein Plus, Erfahrung mit Salesforce von Vorteil.\n\nDas bieten wir dir:\n\n• Vergütung mit direktem Bezug zu deinem Erfolg: Neben deinem Fixgehalt profitierst du von einem variablen Anteil, der sich an den Resultaten deines Teams bemisst. wie du dein Team führst und entwickelst, zeigt sich direkt in deiner Vergütung.\n\n• Spannende Karrierechance: eine zentrale Rolle bei einem Marktführer im digitalen Marketing für Schweizer KMU, mit Gestaltungsspielraum für Führungsrhythmen, Coachings, Performance Massnahmen und operative Abläufe.\n\n• Modernes Büro in Zürich:\nhauptsächlich vor Ort mit deinem Team, zwei Home Office Tage pro Woche möglich. Persönliche Präsenz ist ein wichtiger Bestandteil dieser Führungsrolle.\n\n• Verantwortung: für Resultate, Führungsqualität, Mitarbeiterentwicklung und starke Zusammenarbeit in einem engagierten Sales Team.\n\n• Dynamisches Team: offene Unternehmenskultur, starker Teamspirit, klare Performance Mentalität. Menschlichkeit und Leistungsorientierung sind für uns kein Widerspruch.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\n\nRobert Peters und das ganze Team freut sich auf deine Online-Bewerbung!",
+      "descriptionByLocale": {
+        "it": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nWir sind Vertriebsexperten, Unternehmerversteher und Digitalisierungspioniere. Bei uns arbeitest du in einem leistungsorientierten Sales Umfeld, in dem Beratung, unternehmerisches Denken und starke Abschlüsse im Mittelpunkt stehen.\n\nUnser Customer Success Sales (CSS) Team unterstützt Schweizer KMU dabei, ihre Online Sichtbarkeit zu verbessern und neue Kunden zu gewinnen. Mit digitalen Marketinglösungen von localsearch begleiten wir Unternehmen auf ihrem Weg in die digitale Zukunft.\n\nFür die Führung und Weiterentwicklung unseres Teams suchen wir keine reine Verwaltungskraft, sondern eine erfahrene Führungspersönlichkeit, die Menschen begeistert, Leistung einfordert und Potenzial fördert, Verantwortung übernimmt und im operativen Alltag selbst mit anpackt.\n\nDeine Mission\n\nDu entwickelst ein engagiertes Sales Team zu einer leistungsstarken Einheit und verbindest klare Ziele und konsequente Performance Steuerung mit echter Nähe zu den Menschen. Du bist im Tagesgeschäft präsent, coachst anhand realer Kundengespräche und schaffst ein Umfeld, in dem sich Mitarbeitende entwickeln, Verantwortung übernehmen und gemeinsam Erfolge erzielen.\n\nDu wartest bei Herausforderungen nicht auf fertige Lösungen. Du analysierst die Ursachen, entwickelst konkrete Massnahmen und setzt diese gemeinsam mit deinem Team um.\n\nDeine Verantwortung:\n\n• Du führst und entwickelst ein Team von Sales Agents im telefonischen B2B Vertrieb und bist im operativen Alltag sichtbar, ansprechbar und nah am Team.\n\n• Du coachst im Daily Business, hörst regelmässig bei Kundengesprächen mit, gibst direktes Feedback und übersetzt deine Beobachtungen in konkrete Entwicklungsziele.\n\n• Du etablierst klare Führungsrhythmen: tägliche Steuerungsformate, Einzelgespräche, Teamcoachings und Performance Reviews.\n\n• Du steuerst Sales Kampagnen für Cross Selling, Upselling und Neukunden Akquise.\n\n• Du überwachst Umsatz, Produktivität, Conversion und Qualität anhand definierter KPIs, sorgst für verlässliche Planung und Prognose und leitest bei Abweichungen frühzeitig gezielte Massnahmen ein.\n\n• Du führst regelmässige Einzelgespräche, erkennst Stärken und Entwicklungsfelder und erarbeitest gemeinsam mit deinen Mitarbeitenden konkrete Entwicklungspläne.\n\n• Du gehst Leistungsprobleme frühzeitig, fair und konsequent an, förderst Eigenverantwortung und entwickelst Leistungsträger sowie zukünftige Führungskräfte.\n\n• Du begleitest Rekrutierung, Onboarding und nachhaltige Integration neuer Teammitglieder.\n\n• Du arbeitest eng mit Marketing, Produktmanagement, Aussendienst und Personalabteilung zusammen.\n\n• Du sorgst für hohe Qualität der Kundengespräche und professionelle Sales Prozesse und nutzt Salesforce zur Steuerung und Performanceanalyse.\n\nSkills und Anforderungen\n\nDu bist:\n\n• Eine erfahrene Führungspersönlichkeit mit echter Freude an Menschen und am Vertrieb. Du kannst Leistung einfordern, ohne den Menschen aus den Augen zu verlieren.\n\n• Mehrjährig und nachweisbar erfahren in der Führung leistungsorientierter Sales oder Contact Center Teams, idealerweise im B2B oder KMU Geschäft, mit belegten Erfolgen bei Umsatz und Performance Zielen.\n\n• Stark in Coaching, Motivation und Feedback, mit hoher emotionaler und sozialer Kompetenz. Du begegnest deinen Mitarbeitenden wertschätzend und bist gleichzeitig klar und konsequent.\n\n• Energiegeladen und operativ präsent. Du packst selbst mit an und führst nicht ausschliesslich über Meetings, Reportings und Kennzahlen.\n\n• Ergebnisorientiert und vertraut mit der Steuerung von Sales Teams anhand klarer KPIs, analytisch, strukturiert und lösungsorientiert, auch in anspruchsvollen Situationen handlungsfähig.\n\n• Erfahren im Umgang mit Top Performern, Mitarbeitenden mit Entwicklungsbedarf und anspruchsvollen personellen Situationen, und kannst Veränderungen erfolgreich vermitteln.\n\n• Digital affin, unternehmerisch denkend und interessiert an Marketinglösungen für Schweizer KMU.\n\n• Stilsicher im Deutschen mit sehr gutem Verständnis von Schweizerdeutsch. Französisch oder Italienisch sind ein Plus, Erfahrung mit Salesforce von Vorteil.\n\nDas bieten wir dir:\n\n• Vergütung mit direktem Bezug zu deinem Erfolg: Neben deinem Fixgehalt profitierst du von einem variablen Anteil, der sich an den Resultaten deines Teams bemisst. wie du dein Team führst und entwickelst, zeigt sich direkt in deiner Vergütung.\n\n• Spannende Karrierechance: eine zentrale Rolle bei einem Marktführer im digitalen Marketing für Schweizer KMU, mit Gestaltungsspielraum für Führungsrhythmen, Coachings, Performance Massnahmen und operative Abläufe.\n\n• Modernes Büro in Zürich:\nhauptsächlich vor Ort mit deinem Team, zwei Home Office Tage pro Woche möglich. Persönliche Präsenz ist ein wichtiger Bestandteil dieser Führungsrolle.\n\n• Verantwortung: für Resultate, Führungsqualität, Mitarbeiterentwicklung und starke Zusammenarbeit in einem engagierten Sales Team.\n\n• Dynamisches Team: offene Unternehmenskultur, starker Teamspirit, klare Performance Mentalität. Menschlichkeit und Leistungsorientierung sind für uns kein Widerspruch.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\n\nRobert Peters und das ganze Team freut sich auf deine Online-Bewerbung!",
+        "en": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nWir sind Vertriebsexperten, Unternehmerversteher und Digitalisierungspioniere. Bei uns arbeitest du in einem leistungsorientierten Sales Umfeld, in dem Beratung, unternehmerisches Denken und starke Abschlüsse im Mittelpunkt stehen.\n\nUnser Customer Success Sales (CSS) Team unterstützt Schweizer KMU dabei, ihre Online Sichtbarkeit zu verbessern und neue Kunden zu gewinnen. Mit digitalen Marketinglösungen von localsearch begleiten wir Unternehmen auf ihrem Weg in die digitale Zukunft.\n\nFür die Führung und Weiterentwicklung unseres Teams suchen wir keine reine Verwaltungskraft, sondern eine erfahrene Führungspersönlichkeit, die Menschen begeistert, Leistung einfordert und Potenzial fördert, Verantwortung übernimmt und im operativen Alltag selbst mit anpackt.\n\nDeine Mission\n\nDu entwickelst ein engagiertes Sales Team zu einer leistungsstarken Einheit und verbindest klare Ziele und konsequente Performance Steuerung mit echter Nähe zu den Menschen. Du bist im Tagesgeschäft präsent, coachst anhand realer Kundengespräche und schaffst ein Umfeld, in dem sich Mitarbeitende entwickeln, Verantwortung übernehmen und gemeinsam Erfolge erzielen.\n\nDu wartest bei Herausforderungen nicht auf fertige Lösungen. Du analysierst die Ursachen, entwickelst konkrete Massnahmen und setzt diese gemeinsam mit deinem Team um.\n\nDeine Verantwortung:\n\n• Du führst und entwickelst ein Team von Sales Agents im telefonischen B2B Vertrieb und bist im operativen Alltag sichtbar, ansprechbar und nah am Team.\n\n• Du coachst im Daily Business, hörst regelmässig bei Kundengesprächen mit, gibst direktes Feedback und übersetzt deine Beobachtungen in konkrete Entwicklungsziele.\n\n• Du etablierst klare Führungsrhythmen: tägliche Steuerungsformate, Einzelgespräche, Teamcoachings und Performance Reviews.\n\n• Du steuerst Sales Kampagnen für Cross Selling, Upselling und Neukunden Akquise.\n\n• Du überwachst Umsatz, Produktivität, Conversion und Qualität anhand definierter KPIs, sorgst für verlässliche Planung und Prognose und leitest bei Abweichungen frühzeitig gezielte Massnahmen ein.\n\n• Du führst regelmässige Einzelgespräche, erkennst Stärken und Entwicklungsfelder und erarbeitest gemeinsam mit deinen Mitarbeitenden konkrete Entwicklungspläne.\n\n• Du gehst Leistungsprobleme frühzeitig, fair und konsequent an, förderst Eigenverantwortung und entwickelst Leistungsträger sowie zukünftige Führungskräfte.\n\n• Du begleitest Rekrutierung, Onboarding und nachhaltige Integration neuer Teammitglieder.\n\n• Du arbeitest eng mit Marketing, Produktmanagement, Aussendienst und Personalabteilung zusammen.\n\n• Du sorgst für hohe Qualität der Kundengespräche und professionelle Sales Prozesse und nutzt Salesforce zur Steuerung und Performanceanalyse.\n\nSkills und Anforderungen\n\nDu bist:\n\n• Eine erfahrene Führungspersönlichkeit mit echter Freude an Menschen und am Vertrieb. Du kannst Leistung einfordern, ohne den Menschen aus den Augen zu verlieren.\n\n• Mehrjährig und nachweisbar erfahren in der Führung leistungsorientierter Sales oder Contact Center Teams, idealerweise im B2B oder KMU Geschäft, mit belegten Erfolgen bei Umsatz und Performance Zielen.\n\n• Stark in Coaching, Motivation und Feedback, mit hoher emotionaler und sozialer Kompetenz. Du begegnest deinen Mitarbeitenden wertschätzend und bist gleichzeitig klar und konsequent.\n\n• Energiegeladen und operativ präsent. Du packst selbst mit an und führst nicht ausschliesslich über Meetings, Reportings und Kennzahlen.\n\n• Ergebnisorientiert und vertraut mit der Steuerung von Sales Teams anhand klarer KPIs, analytisch, strukturiert und lösungsorientiert, auch in anspruchsvollen Situationen handlungsfähig.\n\n• Erfahren im Umgang mit Top Performern, Mitarbeitenden mit Entwicklungsbedarf und anspruchsvollen personellen Situationen, und kannst Veränderungen erfolgreich vermitteln.\n\n• Digital affin, unternehmerisch denkend und interessiert an Marketinglösungen für Schweizer KMU.\n\n• Stilsicher im Deutschen mit sehr gutem Verständnis von Schweizerdeutsch. Französisch oder Italienisch sind ein Plus, Erfahrung mit Salesforce von Vorteil.\n\nDas bieten wir dir:\n\n• Vergütung mit direktem Bezug zu deinem Erfolg: Neben deinem Fixgehalt profitierst du von einem variablen Anteil, der sich an den Resultaten deines Teams bemisst. wie du dein Team führst und entwickelst, zeigt sich direkt in deiner Vergütung.\n\n• Spannende Karrierechance: eine zentrale Rolle bei einem Marktführer im digitalen Marketing für Schweizer KMU, mit Gestaltungsspielraum für Führungsrhythmen, Coachings, Performance Massnahmen und operative Abläufe.\n\n• Modernes Büro in Zürich:\nhauptsächlich vor Ort mit deinem Team, zwei Home Office Tage pro Woche möglich. Persönliche Präsenz ist ein wichtiger Bestandteil dieser Führungsrolle.\n\n• Verantwortung: für Resultate, Führungsqualität, Mitarbeiterentwicklung und starke Zusammenarbeit in einem engagierten Sales Team.\n\n• Dynamisches Team: offene Unternehmenskultur, starker Teamspirit, klare Performance Mentalität. Menschlichkeit und Leistungsorientierung sind für uns kein Widerspruch.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\n\nRobert Peters und das ganze Team freut sich auf deine Online-Bewerbung!",
+        "de": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nWir sind Vertriebsexperten, Unternehmerversteher und Digitalisierungspioniere. Bei uns arbeitest du in einem leistungsorientierten Sales Umfeld, in dem Beratung, unternehmerisches Denken und starke Abschlüsse im Mittelpunkt stehen.\n\nUnser Customer Success Sales (CSS) Team unterstützt Schweizer KMU dabei, ihre Online Sichtbarkeit zu verbessern und neue Kunden zu gewinnen. Mit digitalen Marketinglösungen von localsearch begleiten wir Unternehmen auf ihrem Weg in die digitale Zukunft.\n\nFür die Führung und Weiterentwicklung unseres Teams suchen wir keine reine Verwaltungskraft, sondern eine erfahrene Führungspersönlichkeit, die Menschen begeistert, Leistung einfordert und Potenzial fördert, Verantwortung übernimmt und im operativen Alltag selbst mit anpackt.\n\nDeine Mission\n\nDu entwickelst ein engagiertes Sales Team zu einer leistungsstarken Einheit und verbindest klare Ziele und konsequente Performance Steuerung mit echter Nähe zu den Menschen. Du bist im Tagesgeschäft präsent, coachst anhand realer Kundengespräche und schaffst ein Umfeld, in dem sich Mitarbeitende entwickeln, Verantwortung übernehmen und gemeinsam Erfolge erzielen.\n\nDu wartest bei Herausforderungen nicht auf fertige Lösungen. Du analysierst die Ursachen, entwickelst konkrete Massnahmen und setzt diese gemeinsam mit deinem Team um.\n\nDeine Verantwortung:\n\n• Du führst und entwickelst ein Team von Sales Agents im telefonischen B2B Vertrieb und bist im operativen Alltag sichtbar, ansprechbar und nah am Team.\n\n• Du coachst im Daily Business, hörst regelmässig bei Kundengesprächen mit, gibst direktes Feedback und übersetzt deine Beobachtungen in konkrete Entwicklungsziele.\n\n• Du etablierst klare Führungsrhythmen: tägliche Steuerungsformate, Einzelgespräche, Teamcoachings und Performance Reviews.\n\n• Du steuerst Sales Kampagnen für Cross Selling, Upselling und Neukunden Akquise.\n\n• Du überwachst Umsatz, Produktivität, Conversion und Qualität anhand definierter KPIs, sorgst für verlässliche Planung und Prognose und leitest bei Abweichungen frühzeitig gezielte Massnahmen ein.\n\n• Du führst regelmässige Einzelgespräche, erkennst Stärken und Entwicklungsfelder und erarbeitest gemeinsam mit deinen Mitarbeitenden konkrete Entwicklungspläne.\n\n• Du gehst Leistungsprobleme frühzeitig, fair und konsequent an, förderst Eigenverantwortung und entwickelst Leistungsträger sowie zukünftige Führungskräfte.\n\n• Du begleitest Rekrutierung, Onboarding und nachhaltige Integration neuer Teammitglieder.\n\n• Du arbeitest eng mit Marketing, Produktmanagement, Aussendienst und Personalabteilung zusammen.\n\n• Du sorgst für hohe Qualität der Kundengespräche und professionelle Sales Prozesse und nutzt Salesforce zur Steuerung und Performanceanalyse.\n\nSkills und Anforderungen\n\nDu bist:\n\n• Eine erfahrene Führungspersönlichkeit mit echter Freude an Menschen und am Vertrieb. Du kannst Leistung einfordern, ohne den Menschen aus den Augen zu verlieren.\n\n• Mehrjährig und nachweisbar erfahren in der Führung leistungsorientierter Sales oder Contact Center Teams, idealerweise im B2B oder KMU Geschäft, mit belegten Erfolgen bei Umsatz und Performance Zielen.\n\n• Stark in Coaching, Motivation und Feedback, mit hoher emotionaler und sozialer Kompetenz. Du begegnest deinen Mitarbeitenden wertschätzend und bist gleichzeitig klar und konsequent.\n\n• Energiegeladen und operativ präsent. Du packst selbst mit an und führst nicht ausschliesslich über Meetings, Reportings und Kennzahlen.\n\n• Ergebnisorientiert und vertraut mit der Steuerung von Sales Teams anhand klarer KPIs, analytisch, strukturiert und lösungsorientiert, auch in anspruchsvollen Situationen handlungsfähig.\n\n• Erfahren im Umgang mit Top Performern, Mitarbeitenden mit Entwicklungsbedarf und anspruchsvollen personellen Situationen, und kannst Veränderungen erfolgreich vermitteln.\n\n• Digital affin, unternehmerisch denkend und interessiert an Marketinglösungen für Schweizer KMU.\n\n• Stilsicher im Deutschen mit sehr gutem Verständnis von Schweizerdeutsch. Französisch oder Italienisch sind ein Plus, Erfahrung mit Salesforce von Vorteil.\n\nDas bieten wir dir:\n\n• Vergütung mit direktem Bezug zu deinem Erfolg: Neben deinem Fixgehalt profitierst du von einem variablen Anteil, der sich an den Resultaten deines Teams bemisst. wie du dein Team führst und entwickelst, zeigt sich direkt in deiner Vergütung.\n\n• Spannende Karrierechance: eine zentrale Rolle bei einem Marktführer im digitalen Marketing für Schweizer KMU, mit Gestaltungsspielraum für Führungsrhythmen, Coachings, Performance Massnahmen und operative Abläufe.\n\n• Modernes Büro in Zürich:\nhauptsächlich vor Ort mit deinem Team, zwei Home Office Tage pro Woche möglich. Persönliche Präsenz ist ein wichtiger Bestandteil dieser Führungsrolle.\n\n• Verantwortung: für Resultate, Führungsqualität, Mitarbeiterentwicklung und starke Zusammenarbeit in einem engagierten Sales Team.\n\n• Dynamisches Team: offene Unternehmenskultur, starker Teamspirit, klare Performance Mentalität. Menschlichkeit und Leistungsorientierung sind für uns kein Widerspruch.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\n\nRobert Peters und das ganze Team freut sich auf deine Online-Bewerbung!",
+        "fr": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n\nWir sind Vertriebsexperten, Unternehmerversteher und Digitalisierungspioniere. Bei uns arbeitest du in einem leistungsorientierten Sales Umfeld, in dem Beratung, unternehmerisches Denken und starke Abschlüsse im Mittelpunkt stehen.\n\nUnser Customer Success Sales (CSS) Team unterstützt Schweizer KMU dabei, ihre Online Sichtbarkeit zu verbessern und neue Kunden zu gewinnen. Mit digitalen Marketinglösungen von localsearch begleiten wir Unternehmen auf ihrem Weg in die digitale Zukunft.\n\nFür die Führung und Weiterentwicklung unseres Teams suchen wir keine reine Verwaltungskraft, sondern eine erfahrene Führungspersönlichkeit, die Menschen begeistert, Leistung einfordert und Potenzial fördert, Verantwortung übernimmt und im operativen Alltag selbst mit anpackt.\n\nDeine Mission\n\nDu entwickelst ein engagiertes Sales Team zu einer leistungsstarken Einheit und verbindest klare Ziele und konsequente Performance Steuerung mit echter Nähe zu den Menschen. Du bist im Tagesgeschäft präsent, coachst anhand realer Kundengespräche und schaffst ein Umfeld, in dem sich Mitarbeitende entwickeln, Verantwortung übernehmen und gemeinsam Erfolge erzielen.\n\nDu wartest bei Herausforderungen nicht auf fertige Lösungen. Du analysierst die Ursachen, entwickelst konkrete Massnahmen und setzt diese gemeinsam mit deinem Team um.\n\nDeine Verantwortung:\n\n• Du führst und entwickelst ein Team von Sales Agents im telefonischen B2B Vertrieb und bist im operativen Alltag sichtbar, ansprechbar und nah am Team.\n\n• Du coachst im Daily Business, hörst regelmässig bei Kundengesprächen mit, gibst direktes Feedback und übersetzt deine Beobachtungen in konkrete Entwicklungsziele.\n\n• Du etablierst klare Führungsrhythmen: tägliche Steuerungsformate, Einzelgespräche, Teamcoachings und Performance Reviews.\n\n• Du steuerst Sales Kampagnen für Cross Selling, Upselling und Neukunden Akquise.\n\n• Du überwachst Umsatz, Produktivität, Conversion und Qualität anhand definierter KPIs, sorgst für verlässliche Planung und Prognose und leitest bei Abweichungen frühzeitig gezielte Massnahmen ein.\n\n• Du führst regelmässige Einzelgespräche, erkennst Stärken und Entwicklungsfelder und erarbeitest gemeinsam mit deinen Mitarbeitenden konkrete Entwicklungspläne.\n\n• Du gehst Leistungsprobleme frühzeitig, fair und konsequent an, förderst Eigenverantwortung und entwickelst Leistungsträger sowie zukünftige Führungskräfte.\n\n• Du begleitest Rekrutierung, Onboarding und nachhaltige Integration neuer Teammitglieder.\n\n• Du arbeitest eng mit Marketing, Produktmanagement, Aussendienst und Personalabteilung zusammen.\n\n• Du sorgst für hohe Qualität der Kundengespräche und professionelle Sales Prozesse und nutzt Salesforce zur Steuerung und Performanceanalyse.\n\nSkills und Anforderungen\n\nDu bist:\n\n• Eine erfahrene Führungspersönlichkeit mit echter Freude an Menschen und am Vertrieb. Du kannst Leistung einfordern, ohne den Menschen aus den Augen zu verlieren.\n\n• Mehrjährig und nachweisbar erfahren in der Führung leistungsorientierter Sales oder Contact Center Teams, idealerweise im B2B oder KMU Geschäft, mit belegten Erfolgen bei Umsatz und Performance Zielen.\n\n• Stark in Coaching, Motivation und Feedback, mit hoher emotionaler und sozialer Kompetenz. Du begegnest deinen Mitarbeitenden wertschätzend und bist gleichzeitig klar und konsequent.\n\n• Energiegeladen und operativ präsent. Du packst selbst mit an und führst nicht ausschliesslich über Meetings, Reportings und Kennzahlen.\n\n• Ergebnisorientiert und vertraut mit der Steuerung von Sales Teams anhand klarer KPIs, analytisch, strukturiert und lösungsorientiert, auch in anspruchsvollen Situationen handlungsfähig.\n\n• Erfahren im Umgang mit Top Performern, Mitarbeitenden mit Entwicklungsbedarf und anspruchsvollen personellen Situationen, und kannst Veränderungen erfolgreich vermitteln.\n\n• Digital affin, unternehmerisch denkend und interessiert an Marketinglösungen für Schweizer KMU.\n\n• Stilsicher im Deutschen mit sehr gutem Verständnis von Schweizerdeutsch. Französisch oder Italienisch sind ein Plus, Erfahrung mit Salesforce von Vorteil.\n\nDas bieten wir dir:\n\n• Vergütung mit direktem Bezug zu deinem Erfolg: Neben deinem Fixgehalt profitierst du von einem variablen Anteil, der sich an den Resultaten deines Teams bemisst. wie du dein Team führst und entwickelst, zeigt sich direkt in deiner Vergütung.\n\n• Spannende Karrierechance: eine zentrale Rolle bei einem Marktführer im digitalen Marketing für Schweizer KMU, mit Gestaltungsspielraum für Führungsrhythmen, Coachings, Performance Massnahmen und operative Abläufe.\n\n• Modernes Büro in Zürich:\nhauptsächlich vor Ort mit deinem Team, zwei Home Office Tage pro Woche möglich. Persönliche Präsenz ist ein wichtiger Bestandteil dieser Führungsrolle.\n\n• Verantwortung: für Resultate, Führungsqualität, Mitarbeiterentwicklung und starke Zusammenarbeit in einem engagierten Sales Team.\n\n• Dynamisches Team: offene Unternehmenskultur, starker Teamspirit, klare Performance Mentalität. Menschlichkeit und Leistungsorientierung sind für uns kein Widerspruch.\n\nKontakt & Bewerbung\n\nWeitere Informationen zu localsearch als Arbeitgeber findest du hier .\n\nHast du Lust, die Erfolgsgeschichte von localsearch mitzugestalten?\n\nRobert Peters und das ganze Team freut sich auf deine Online-Bewerbung!"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://emp.jobylon.com/jobs/379081-localsearch-teamleader-customer-success-sales-css-telesales-100/",
+      "source": "localsearch Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:19:43.406Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Marketing digitale / Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://emp.jobylon.com/jobs/379081-localsearch-teamleader-customer-success-sales-css-telesales-100/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-31T17:07:04.371Z",
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83000,
+          "maxValue": 127500,
           "unitText": "YEAR"
         }
       },

@@ -1,0 +1,23 @@
+{
+  "companyKey": "picks",
+  "companyName": "picks",
+  "companyHost": "picks.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://picks.ch/de/jobs"
+  ],
+  "detailTemplate": "/de/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Details zu ICU Nurse bei Universitätsspital Zürich ansehen",
+    "Details zu Warehouse Worker bei Swiss Logistics Center ansehen",
+    "Details zu Project Manager bei BuildRight AG ansehen",
+    "Details zu Receptionist bei Grand Hotel Montreux ansehen",
+    "Details zu Data Science Intern bei Swiss Data Labs ansehen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:57.093Z"
+}

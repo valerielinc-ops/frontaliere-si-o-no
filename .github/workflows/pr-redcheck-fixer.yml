@@ -374,16 +374,16 @@ jobs:
 
           # Tier (mirror di pr-review-loop / issue-fix): high se la PR
           # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
-          # services/seo*), normal altrimenti. Modello UNIFICATO claude-sonnet-5
-          # su entrambi i tier (owner 2026-07-17: mai claude-sonnet-4-6); i tier
+          # services/seo*), normal altrimenti. Modello UNIFICATO claude-opus-5
+          # su entrambi i tier (owner 2026-09-03: opus a effort medium, mai claude-sonnet-4-6); i tier
           # restano distinti solo per telemetria/prompt.
           crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
           if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
             echo "tier=high"   >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5"   >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5"   >> "$GITHUB_OUTPUT"
           else
             echo "tier=normal" >> "$GITHUB_OUTPUT"
-            echo "model=claude-sonnet-5" >> "$GITHUB_OUTPUT"
+            echo "model=claude-opus-5" >> "$GITHUB_OUTPUT"
           fi
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
@@ -541,7 +541,7 @@ jobs:
           # fix, evita drift tra copie duplicate).
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
-          claude_args: "--max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
+          claude_args: "--effort medium --max-turns 60 --model ${{ steps.guard.outputs.model }} --dangerously-skip-permissions"
           prompt: |
             Il branch è già checkoutato sulla head della PR #${{ needs.preflight.outputs.pr_number }}, che ha un **check required ROSSO**.
 
@@ -576,6 +576,7 @@ jobs:
             **Constraint:**
             - SOLO il check rosso. Non rifare la PR, non drive-by, non "già che ci sono".
             - Se non è fixabile con confidenza (root cause non chiara, serve giudizio umano, o l'unica via sarebbe indebolire un gate) → commenta «❌ check non auto-fixabile: <motivo>» e TERMINA senza commit. Il round cap porta a `needs-human` da solo: è l'esito giusto, non una sconfitta.
+            - **Token-lever:** chiamate `gh`/lettura indipendenti vanno emesse in parallelo nello stesso messaggio, mai una per turno — un messaggio con più tool-call resta 1 turno.
             - Una sola passata: diagnostica, fixa, valida, committa, pusha, aggiorna il body, STOP.
       - name: Claude usage metrics
         if: always() && steps.guard.outputs.proceed == 'true'

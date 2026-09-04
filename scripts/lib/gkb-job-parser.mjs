@@ -32,8 +32,16 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
+import {
+  RETRYABLE_STATUS,
+  fetchWithRetry,
+  slugify,
+  stripHtml,
+  normalizeSpace,
+  stripScriptsAndStyles,
+} from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { mergeUmantisListing } from './umantis-listing-merge.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -42,15 +50,25 @@ export const GKB_COMPANY_NAME = 'Graubündner Kantonalbank';
 export const GKB_COMPANY_DOMAIN = 'gkb.ch';
 
 const BASE_URL = 'https://recruitingapp-2607.umantis.com';
-const LISTING_URL = `${BASE_URL}/Jobs/All?lang=ger`;
+export const LISTING_URLS = [
+  `${BASE_URL}/Jobs/All?lang=ger`,
+  `${BASE_URL}/Jobs/1?lang=ger&ContentOnly=&message=`,
+];
 
 const USER_AGENT = process.env.JOBS_CRAWLER_USER_AGENT
   || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export const MIN_GKB_DETAIL_DESCRIPTION_CHARS = 300;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
+}
+
+/** Merge duplicate Umantis rows without letting a sparse view erase metadata. */
+export function mergeGkbListing(existing = {}, incoming = {}) {
+  return mergeUmantisListing(existing, incoming, 'GKB');
 }
 
 /**
@@ -231,9 +249,10 @@ export function parseGkbListingPage(html = '') {
   while ((rowMatch = rowRegex.exec(html)) !== null) {
     const rowHtml = rowMatch[1];
 
-    // Extract title + link from element 1152488
+    // The same tenant exposes different element ids on /Jobs/All and /Jobs/1;
+    // the vacancy href is the stable contract across both views.
     const titleMatch = rowHtml.match(
-      /tableaslist_element_1152488[\s\S]*?<a\s+href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/
+      /<a\s+[^>]*href="\/Vacancies\/(\d+)\/Description\/\d+"[^>]*>([^<]+)<\/a>/i,
     );
     if (!titleMatch) continue;
 
@@ -248,12 +267,12 @@ export function parseGkbListingPage(html = '') {
     if (/^(initiativbewerbung|spontanbewerbung)$/i.test(title.trim())) continue;
 
     // Extract other fields using element class IDs
-    const locationRaw = extractSpanText(rowHtml, '1152495');
+    const locationRaw = extractSpanText(rowHtml, '1152495') || extractSpanText(rowHtml, '26475');
     const department = extractSpanText(rowHtml, '1152494');
-    const artText = extractSpanText(rowHtml, '1152491');
+    const artText = extractSpanText(rowHtml, '1152491') || extractSpanText(rowHtml, '3474');
     const division = extractSpanText(rowHtml, '1152496');
     const entryLevel = extractSpanText(rowHtml, '1152493');
-    const postedRaw = extractSpanText(rowHtml, '1152487');
+    const postedRaw = extractSpanText(rowHtml, '1152487') || extractSpanText(rowHtml, '3472');
 
     // Clean the prefix labels
     const location = extractLocation(locationRaw);
@@ -333,25 +352,68 @@ export function parseGkbDetailPage(html = '', fallbackTitle = '') {
 
 /* ── HTTP Fetch ───────────────────────────────────────────── */
 
-async function fetchPage(url) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
+/**
+ * Fetch one GKB page with bounded retry. `validateHtml` runs inside the retry
+ * attempt so a transient 200 response containing only Umantis chrome is retried
+ * just like a transient network failure. Persistent incomplete content is
+ * rethrown as a non-transient snapshot error so the pipeline fails before any
+ * partial slice can be written.
+ * @param {string} url
+ * @param {{fetchImpl?: Function, retries?: number, retryBaseMs?: number, timeoutMs?: number}} runtime
+ * @param {(html: string) => void} [validateHtml]
+ */
+async function fetchPage(url, runtime = {}, validateHtml) {
+  const timeoutMs = Number(runtime.timeoutMs ?? process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20_000;
+  const fetchImpl = runtime.fetchImpl || fetch;
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'text/html,application/xhtml+xml',
-        'User-Agent': USER_AGENT,
-        'Accept-Language': 'de-CH,de;q=0.9',
-      },
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetchImpl(url, {
+          signal: controller.signal,
+          headers: {
+            Accept: 'text/html,application/xhtml+xml',
+            'User-Agent': USER_AGENT,
+            'Accept-Language': 'de-CH,de;q=0.9',
+          },
+        });
+        if (!res.ok) {
+          const err = /** @type {Error & {status: number, retryable: boolean}} */ (
+            new Error(`HTTP ${res.status} from ${url}`)
+          );
+          err.status = res.status;
+          err.retryable = RETRYABLE_STATUS.has(res.status);
+          throw err;
+        }
+        const html = await res.text();
+        validateHtml?.(html);
+        return html;
+      } finally {
+        clearTimeout(timer);
+      }
+    }, {
+      retries: runtime.retries,
+      retryBaseMs: runtime.retryBaseMs,
+      label: `gkb ${url}`,
     });
-    if (!res.ok) throw new Error(`HTTP ${res.status} from ${url}`);
-    return await res.text();
-  } finally {
-    clearTimeout(timer);
+  } catch (error) {
+    const err = /** @type {any} */ (error);
+    if (err?.code !== 'ERR_GKB_INCOMPLETE_RESPONSE') throw error;
+    const terminal = /** @type {Error & {code: string}} */ (
+      new Error(`Incomplete GKB source response after retries: ${err.message}`)
+    );
+    terminal.code = 'ERR_GKB_INCOMPLETE_SNAPSHOT';
+    throw terminal;
   }
+}
+
+/** @param {string} message */
+function incompleteResponse(message) {
+  const err = /** @type {Error & {code: string, retryable: boolean}} */ (new Error(message));
+  err.code = 'ERR_GKB_INCOMPLETE_RESPONSE';
+  err.retryable = true;
+  return err;
 }
 
 /* ── Main Fetch Function ──────────────────────────────────── */
@@ -365,13 +427,30 @@ async function fetchPage(url) {
  *   2. For each job, fetch detail page → extract description
  *   3. Build ParsedJob objects
  */
-export async function fetchAllGkbJobs() {
+export async function fetchAllGkbJobs(runtime = {}) {
   console.log(`🏦 Fetching Graubündner Kantonalbank jobs`);
-  console.log(`   Source: ${LISTING_URL}\n`);
+  console.log(`   Sources: ${LISTING_URLS.join(', ')}\n`);
 
-  // Step 1: Fetch and parse listing page
-  const listingHtml = await fetchPage(LISTING_URL);
-  const listings = parseGkbListingPage(listingHtml);
+  // Umantis exposes two listing routes with partially different catalogues.
+  // Union both by vacancy id: /Jobs/All alone missed 15 live listings.
+  // Sequential (no Promise.all) by design: mergeGkbListing relies on `existing`
+  // being the first-seen view, and this loop is what guarantees that order.
+  const listingsById = new Map();
+  for (const listingUrl of LISTING_URLS) {
+    const listingHtml = await fetchPage(listingUrl, runtime, (html) => {
+      if (parseGkbListingPage(html).length === 0) {
+        throw incompleteResponse(`no vacancy rows at ${listingUrl}`);
+      }
+    });
+    for (const listing of parseGkbListingPage(listingHtml)) {
+      const existing = listingsById.get(listing.vacancyId);
+      listingsById.set(
+        listing.vacancyId,
+        existing ? mergeGkbListing(existing, listing) : listing,
+      );
+    }
+  }
+  const listings = [...listingsById.values()];
 
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings found on the page.');
@@ -383,26 +462,22 @@ export async function fetchAllGkbJobs() {
   // Step 2: Fetch detail pages and build jobs
   const jobs = [];
   for (const listing of listings) {
-    let descriptionText = '';
-    let detailTitle = listing.title;
-
-    try {
-      const detailHtml = await fetchPage(listing.fetchUrl || listing.detailUrl);
-      const detail = parseGkbDetailPage(detailHtml, listing.title);
-      descriptionText = detail.description;
-      if (detail.title) detailTitle = detail.title;
-      if (!descriptionText) {
-        console.warn(`  ⚠️ Empty description parsed for ${listing.vacancyId} (${listing.title}). Umantis may have changed the detail template — investigate before shipping.`);
+    const detailUrl = listing.fetchUrl || listing.detailUrl;
+    const detailHtml = await fetchPage(detailUrl, runtime, (html) => {
+      const parsed = parseGkbDetailPage(html, listing.title);
+      if (parsed.description.length < MIN_GKB_DETAIL_DESCRIPTION_CHARS) {
+        throw incompleteResponse(
+          `detail ${listing.vacancyId} has ${parsed.description.length} chars at ${detailUrl}`,
+        );
       }
-    } catch (err) {
-      console.warn(`  ⚠️ Failed to fetch detail for ${listing.vacancyId}: ${err?.message}`);
-    }
+    });
+    const detail = parseGkbDetailPage(detailHtml, listing.title);
+    const descriptionText = detail.description;
+    const detailTitle = detail.title || listing.title;
 
     const title = detailTitle;
     const location = listing.location || 'Chur';
     const canton = inferAnyCanton(location) || 'GR';
-
-    const fallbackDesc = `${title} — Graubündner Kantonalbank, ${location}`;
 
     const sourceLang = 'de';
     const jobSlug = slugify(`${title} gkb ch`);
@@ -425,8 +500,8 @@ export async function fetchAllGkbJobs() {
       companyDomain: GKB_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
-      description: descriptionText || fallbackDesc,
-      descriptionByLocale: { [sourceLang]: descriptionText || fallbackDesc },
+      description: descriptionText,
+      descriptionByLocale: { [sourceLang]: descriptionText },
       location,
       canton,
       url: listing.detailUrl,
@@ -468,7 +543,8 @@ export async function fetchAllGkbJobs() {
     console.log(`  ✅ ${title.substring(0, 65)} — ${location} (${listing.department || 'N/A'})`);
 
     // Rate limiting between detail page fetches
-    await new Promise((r) => setTimeout(r, 400));
+    if (typeof runtime.sleepImpl === 'function') await runtime.sleepImpl(400);
+    else await new Promise((r) => setTimeout(r, 400));
   }
 
   console.log(`\n📋 Total GKB jobs discovered: ${jobs.length}`);

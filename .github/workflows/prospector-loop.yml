@@ -79,6 +79,38 @@ jobs:
         with:
           node-version: 22
 
+      # Queue commit below is a direct push to this repo's main (bare `git push`
+      # on the scheduled ref). The ambient GITHUB_TOKEN extraheader is rejected
+      # with GH013; load the long-lived PAT (this job can run for hours, so an
+      # App installation token minted here would be the wrong identity).
+      # load-rc-env.mjs uses the stdlib REST path — no npm ci.
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # L'install stava piu' in basso, subito prima di PROMOTE, perche' i cinque
+      # stadi precedenti giravano su builtin Node e `fetch`. Non e' piu' vero:
+      # `scripts/lib/prospector/public-fetch-policy.mjs` importa `Agent` da
+      # `undici` per vincolare il lookup DNS alla connessione (#6807), ed e'
+      # sulla catena di import di `polite-fetch.mjs`, che TUTTI gli stadi usano.
+      # Dal 2026-09-01 il loop moriva ogni notte su
+      #   Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'undici'
+      # in TRACE (DISCOVER falliva uguale, mascherato dal suo continue-on-error).
+      # Installare qui costa ~1 minuto e toglie di mezzo l'invariante implicita
+      # "questi script non importano dipendenze", che nessun gate verificava.
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       - name: Discover
         # continue-on-error: DISCOVER esce con exit-code 1 se TUTTE le fonti
         # esterne richieste (SECO+OSM+WEB) sono fallite nello stesso giro — un
@@ -118,6 +150,7 @@ jobs:
             exit 0
           fi
           git commit -m 'prospector: aggiorna coda candidati, registro piattaforme e report qualita'
+          bash scripts/lib/configure-main-push-auth.sh
           for attempt in 1 2 3; do
             if git push; then
               echo "push riuscito al tentativo $attempt"
@@ -133,15 +166,10 @@ jobs:
       # Ship dei crawler che hanno superato il gate: nessun passo umano. Gira
       # DOPO il commit dello stato, cosi' la PR di promozione parte da un main
       # che gia' contiene lo storico di validazione su cui il gate ha deciso.
-      # Le dipendenze servono SOLO qui. I cinque stadi precedenti girano su
-      # builtin Node e `fetch`, e installare per loro sarebbe minuti sprecati
-      # ogni notte; `scaffold-crawler.mjs` invece importa `yaml`, e senza
-      # install fallisce con ERR_MODULE_NOT_FOUND — misurato: il primo giro
-      # autonomo ha aperto il gate per 10 crawler e ne ha scaffoldati zero.
-      #
-      # `--ignore-scripts`: il postinstall del repo non serve a generare un
-      # parser, e in questo job sarebbe solo altro tempo e altra superficie.
-      # Identita' per il push della PR di promozione.
+      # `scaffold-crawler.mjs` importa `yaml`: senza install fallisce con
+      # ERR_MODULE_NOT_FOUND — misurato, il primo giro autonomo ha aperto il
+      # gate per 10 crawler e ne ha scaffoldati zero. L'install ora e' in cima
+      # al job, non piu' qui, perche' anche gli stadi 1-5 hanno dipendenze.
       #
       # `GITHUB_TOKEN` NON basta: GitHub rifiuta per progetto che una GitHub App
       # crei o aggiorni file sotto `.github/workflows/` senza il permesso
@@ -161,9 +189,6 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
-      - name: Install dependencies (solo per lo scaffolding)
-        run: npm ci --ignore-scripts --no-audit --no-fund
-
       - name: Promote validated crawlers
         env:
           # APP_TOKEN e' esportato in GITHUB_ENV dallo step di conio; se il conio
@@ -171,11 +196,10 @@ jobs:
           # file di workflow — e il gate APP_TOKEN_WORKFLOWS lo sa gia', quindi
           # in quel caso i gruppi non vengono nemmeno rigenerati.
           #
-          # Niente fallback a GITHUB_PAT: questo job non carica Remote Config,
-          # quindi quella variabile sarebbe sempre vuota. Un fallback morto che
-          # sembra vivo e' peggio di nessun fallback — nasconde quale identita'
-          # stia davvero pushando, che e' esattamente l'errore diagnostico che
-          # questa PR corregge.
+          # Niente fallback a GITHUB_PAT qui: lo step di commit della coda ha
+          # gia' caricato Remote Config per il push a main. La promozione tocca
+          # `.github/workflows/**` e vuole lo scope `workflows` del token App,
+          # non il PAT.
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '10' }}

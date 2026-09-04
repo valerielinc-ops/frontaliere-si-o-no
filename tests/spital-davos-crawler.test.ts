@@ -5,13 +5,15 @@
  * isSpitalDavosJob(), isTrustedDomain() using HTML fixtures mirroring
  * the real Umantis ATS 2023 UI page structure at tenant 2966.
  */
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 
 import {
   SPITAL_DAVOS_KEY,
   SPITAL_DAVOS_COMPANY_NAME,
+  LISTING_URLS,
   isSpitalDavosJob,
   isTrustedDomain,
+  mergeSpitalDavosListing,
   parseSpitalDavosListingPage,
   parseSpitalDavosDetailPage,
 } from '../scripts/lib/spital-davos-job-parser.mjs';
@@ -218,6 +220,13 @@ describe('Spital Davos crawler parser', () => {
   describe('parseSpitalDavosListingPage', () => {
     const listings = parseSpitalDavosListingPage(FIXTURE_LISTING_HTML);
 
+    it('covers both Umantis listing views', () => {
+      expect(LISTING_URLS).toEqual([
+        'https://recruitingapp-2966.umantis.com/Jobs/All?lang=ger',
+        'https://recruitingapp-2966.umantis.com/Jobs/1?lang=ger&ContentOnly=&message=',
+      ]);
+    });
+
     it('parses correct number of listings', () => {
       expect(listings).toHaveLength(3);
     });
@@ -265,6 +274,62 @@ describe('Spital Davos crawler parser', () => {
 
     it('builds correct apply URLs', () => {
       expect(listings[0].applyUrl).toBe('https://recruitingapp-2966.umantis.com/Vacancies/699/Application/CheckLogin/1');
+    });
+
+    it('parses the alternate view without depending on its numeric title id', () => {
+      const alternateViewHtml = `<table>
+        <tr class="table-as-list__contentrow1" role="row"><td><div>
+          <h3 class="table-as-list__subtitle tableaslist_element_3473">
+            <a class="HSTableLinkSubTitle" href="/Vacancies/723/Description/1">Projektmanagement (80-100%)</a>
+          </h3>
+          <p class="table-as-list__subtitle tableaslist_element_1184171">Projektleitung im Spital.</p>
+          <li class="tableaslist_element_1184174"><span class="column-value">Vollzeit</span></li>
+          <li class="tableaslist_element_1184175"><span class="column-value">Unbefristet</span></li>
+          <li class="tableaslist_element_1184177"><span class="column-value">Unternehmensentwicklung</span></li>
+        </div></td></tr>
+      </table>`;
+
+      expect(parseSpitalDavosListingPage(alternateViewHtml)).toEqual([
+        expect.objectContaining({
+          vacancyId: '723',
+          title: 'Projektmanagement (80-100%)',
+          snippet: 'Projektleitung im Spital.',
+          artText: 'Vollzeit',
+          befristung: 'Unbefristet',
+          department: 'Unternehmensentwicklung',
+        }),
+      ]);
+    });
+
+    it('merges duplicate view rows without erasing richer metadata', () => {
+      expect(mergeSpitalDavosListing(
+        { vacancyId: '723', title: 'Projektmanagement', snippet: 'Rich text', artText: '' },
+        { vacancyId: '723', title: 'Projektmanagement', snippet: '', artText: 'Vollzeit' },
+      )).toEqual({
+        vacancyId: '723',
+        title: 'Projektmanagement',
+        snippet: 'Rich text',
+        artText: 'Vollzeit',
+      });
+    });
+
+    it('warns on non-empty field conflicts while keeping the first view', () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      expect(mergeSpitalDavosListing(
+        { vacancyId: '723', title: 'First title', department: 'Pflege' },
+        { vacancyId: '723', title: 'Second title', department: 'Medizin' },
+      )).toEqual({
+        vacancyId: '723',
+        title: 'First title',
+        department: 'Pflege',
+      });
+      expect(warn).toHaveBeenCalledTimes(2);
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining(
+        'Spital Davos vacancy 723: conflicting title',
+      ));
+
+      warn.mockRestore();
     });
 
     it('deduplicates by vacancy ID', () => {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fincons-group",
-  "assembledAt": "2026-08-26T10:14:24.480Z",
+  "assembledAt": "2026-09-03T23:15:18.873Z",
   "jobs": [
     {
       "title": "Accounts Payable & Accounting Specialist",
@@ -65,6 +65,7 @@
         }
       },
       "firstSeenAt": "2026-07-29T22:16:51.668Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "accounts-payable-accounting-specialist-fincons-group-lugano-ticino-switzerland"
@@ -144,6 +145,7 @@
       },
       "streetAddress": "",
       "firstSeenAt": "2026-06-17T22:36:03.816Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "corporate-pmo-business-operations-expert-fincons-group-lugano-lugano-switzerland"
@@ -245,6 +247,86 @@
         "senior-engineer-fincons-group-lugano",
         "senior-net-ingenieur-fincons-group-lugano",
         "senior-c-net-engineer-fincons-group-lugano-switzerland"
+      ],
+      "salarySource": "estimated"
+    },
+    {
+      "title": "Senior Cloud Engineer",
+      "slug": "senior-cloud-ingegnere-fincons-group-lugano",
+      "url": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "applyUrl": "https://fincons.applytojob.com/apply/hVXCAD4anv/Senior-Cloud-Engineer",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-09-01",
+      "validThrough": "2026-11-30",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies on international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. For our Lugano office, we are seeking a talented and experienced Senior Cloud Engineer with strong hands-on expertise in implementing, automating, and maintaining secure, scalable cloud-native infrastructure on Google Cloud Platform (GCP) , with a strong focus on Terraform, Google Kubernetes Engine (GKE), Python/Bash/Ansible automation, CI/CD pipelines, platform security, and Agile collaboration with internal and external engineering teams . Roles and Responsibilities\n\n- Manage and automate cloud infrastructure on Google Cloud Platform (GCP) using Terraform.\n- Deploy, maintain, and troubleshoot workloads on Google Kubernetes Engine (GKE).\n- Develop automation scripts with Python, Bash, and Ansible.\n- Build and support CI/CD pipelines and deployment processes.\n- Manage GCP IAM, security policies, certificates, and secrets.\n- Monitor platform performance, resolve incidents, and perform root-cause analysis.\n- Collaborate within Agile/Scrum teams and contribute to Git-based development workflows.\n\nQualifications and Technical Skills\n\nRequired\n\n- 5+ years of experience in Cloud Engineering, DevOps, or Systems Engineering.\n- Strong expertise in GCP (GKE, IAM, VPC, Compute Engine).\n- Proven experience with Terraform, Git, Docker, and Kubernetes.\n- Strong scripting skills in Python and Bash.\n- Experience working in Agile/Scrum environments.\n\nPreferred\n\n- Experience with Jenkins and Ansible.\n- Exposure to Microsoft Azure.\n- Knowledge of Splunk, Prometheus, or Grafana.\n- Experience in banking, financial services, or other regulated industries.\n\nLocation Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland) or Italian Border Towns (such as Como, Varese etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nIf interested, please apply here ! Our personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+      "titleByLocale": {
+        "it": "Senior Cloud Ingegnere",
+        "en": "Senior Cloud Engineer",
+        "de": "Senior Cloud Ingenieur",
+        "fr": "Senior Cloud Ingénieur"
+      },
+      "descriptionByLocale": {
+        "it": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies on international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. For our Lugano office, we are seeking a talented and experienced Senior Cloud Engineer with strong hands-on expertise in implementing, automating, and maintaining secure, scalable cloud-native infrastructure on Google Cloud Platform (GCP) , with a strong focus on Terraform, Google Kubernetes Engine (GKE), Python/Bash/Ansible automation, CI/CD pipelines, platform security, and Agile collaboration with internal and external engineering teams . Roles and Responsibilities\n\n- Manage and automate cloud infrastructure on Google Cloud Platform (GCP) using Terraform.\n- Deploy, maintain, and troubleshoot workloads on Google Kubernetes Engine (GKE).\n- Develop automation scripts with Python, Bash, and Ansible.\n- Build and support CI/CD pipelines and deployment processes.\n- Manage GCP IAM, security policies, certificates, and secrets.\n- Monitor platform performance, resolve incidents, and perform root-cause analysis.\n- Collaborate within Agile/Scrum teams and contribute to Git-based development workflows.\n\nQualifications and Technical Skills\n\nRequired\n\n- 5+ years of experience in Cloud Engineering, DevOps, or Systems Engineering.\n- Strong expertise in GCP (GKE, IAM, VPC, Compute Engine).\n- Proven experience with Terraform, Git, Docker, and Kubernetes.\n- Strong scripting skills in Python and Bash.\n- Experience working in Agile/Scrum environments.\n\nPreferred\n\n- Experience with Jenkins and Ansible.\n- Exposure to Microsoft Azure.\n- Knowledge of Splunk, Prometheus, or Grafana.\n- Experience in banking, financial services, or other regulated industries.\n\nLocation Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland) or Italian Border Towns (such as Como, Varese etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nIf interested, please apply here ! Our personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "en": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies on international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. For our Lugano office, we are seeking a talented and experienced Senior Cloud Engineer with strong hands-on expertise in implementing, automating, and maintaining secure, scalable cloud-native infrastructure on Google Cloud Platform (GCP) , with a strong focus on Terraform, Google Kubernetes Engine (GKE), Python/Bash/Ansible automation, CI/CD pipelines, platform security, and Agile collaboration with internal and external engineering teams . Roles and Responsibilities\n\n- Manage and automate cloud infrastructure on Google Cloud Platform (GCP) using Terraform.\n- Deploy, maintain, and troubleshoot workloads on Google Kubernetes Engine (GKE).\n- Develop automation scripts with Python, Bash, and Ansible.\n- Build and support CI/CD pipelines and deployment processes.\n- Manage GCP IAM, security policies, certificates, and secrets.\n- Monitor platform performance, resolve incidents, and perform root-cause analysis.\n- Collaborate within Agile/Scrum teams and contribute to Git-based development workflows.\n\nQualifications and Technical Skills\n\nRequired\n\n- 5+ years of experience in Cloud Engineering, DevOps, or Systems Engineering.\n- Strong expertise in GCP (GKE, IAM, VPC, Compute Engine).\n- Proven experience with Terraform, Git, Docker, and Kubernetes.\n- Strong scripting skills in Python and Bash.\n- Experience working in Agile/Scrum environments.\n\nPreferred\n\n- Experience with Jenkins and Ansible.\n- Exposure to Microsoft Azure.\n- Knowledge of Splunk, Prometheus, or Grafana.\n- Experience in banking, financial services, or other regulated industries.\n\nLocation Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland) or Italian Border Towns (such as Como, Varese etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nIf interested, please apply here ! Our personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "de": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies on international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. For our Lugano office, we are seeking a talented and experienced Senior Cloud Engineer with strong hands-on expertise in implementing, automating, and maintaining secure, scalable cloud-native infrastructure on Google Cloud Platform (GCP) , with a strong focus on Terraform, Google Kubernetes Engine (GKE), Python/Bash/Ansible automation, CI/CD pipelines, platform security, and Agile collaboration with internal and external engineering teams . Roles and Responsibilities\n\n- Manage and automate cloud infrastructure on Google Cloud Platform (GCP) using Terraform.\n- Deploy, maintain, and troubleshoot workloads on Google Kubernetes Engine (GKE).\n- Develop automation scripts with Python, Bash, and Ansible.\n- Build and support CI/CD pipelines and deployment processes.\n- Manage GCP IAM, security policies, certificates, and secrets.\n- Monitor platform performance, resolve incidents, and perform root-cause analysis.\n- Collaborate within Agile/Scrum teams and contribute to Git-based development workflows.\n\nQualifications and Technical Skills\n\nRequired\n\n- 5+ years of experience in Cloud Engineering, DevOps, or Systems Engineering.\n- Strong expertise in GCP (GKE, IAM, VPC, Compute Engine).\n- Proven experience with Terraform, Git, Docker, and Kubernetes.\n- Strong scripting skills in Python and Bash.\n- Experience working in Agile/Scrum environments.\n\nPreferred\n\n- Experience with Jenkins and Ansible.\n- Exposure to Microsoft Azure.\n- Knowledge of Splunk, Prometheus, or Grafana.\n- Experience in banking, financial services, or other regulated industries.\n\nLocation Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland) or Italian Border Towns (such as Como, Varese etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nIf interested, please apply here ! Our personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR).",
+        "fr": "Fincons Group is an IT business consulting company that has been designing the digital future of leading companies on international markets for 40 years. Fincons Group built its reputation on foreseeing and interpreting new business models and the rapid evolution of IT systems by building a complete range of services: from research and consulting to design and development, from system integration of leading vendor software solutions right up to application management, supporting clients step by step along their digital transformation journey. Fincons is a multinational with over 2,600 people and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a Family Company where the founders play a strategic role with commitment and passion, grounding the company in the same principles of a united and caring family. We firmly believe in the value of cooperation and in the contribution that every idea and intuition can bring. We believe that everyone’s effort can make a difference. Transforming knowledge into a strategic resource is our company mission, and we pursue it with the help of our most strategic asset: our people. For our Lugano office, we are seeking a talented and experienced Senior Cloud Engineer with strong hands-on expertise in implementing, automating, and maintaining secure, scalable cloud-native infrastructure on Google Cloud Platform (GCP) , with a strong focus on Terraform, Google Kubernetes Engine (GKE), Python/Bash/Ansible automation, CI/CD pipelines, platform security, and Agile collaboration with internal and external engineering teams . Roles and Responsibilities\n\n- Manage and automate cloud infrastructure on Google Cloud Platform (GCP) using Terraform.\n- Deploy, maintain, and troubleshoot workloads on Google Kubernetes Engine (GKE).\n- Develop automation scripts with Python, Bash, and Ansible.\n- Build and support CI/CD pipelines and deployment processes.\n- Manage GCP IAM, security policies, certificates, and secrets.\n- Monitor platform performance, resolve incidents, and perform root-cause analysis.\n- Collaborate within Agile/Scrum teams and contribute to Git-based development workflows.\n\nQualifications and Technical Skills\n\nRequired\n\n- 5+ years of experience in Cloud Engineering, DevOps, or Systems Engineering.\n- Strong expertise in GCP (GKE, IAM, VPC, Compute Engine).\n- Proven experience with Terraform, Git, Docker, and Kubernetes.\n- Strong scripting skills in Python and Bash.\n- Experience working in Agile/Scrum environments.\n\nPreferred\n\n- Experience with Jenkins and Ansible.\n- Exposure to Microsoft Azure.\n- Knowledge of Splunk, Prometheus, or Grafana.\n- Experience in banking, financial services, or other regulated industries.\n\nLocation Requirement\n\n- We do not offer a fully remote work policy\n- Candidates should be prepared to relocate to Canton Ticino (Switzerland) or Italian Border Towns (such as Como, Varese etc.)\n- Work-from-home days may be possible according to the Client's policy\n\nIf interested, please apply here ! Our personnel search is addressed to candidates of all genders. The data will be processed and stored exclusively for the purposes of this or future selections, in compliance with the Federal Data Protection Law (LPD) and guaranteeing the rights referred to in art. 13 Legislative Decree 196/03 and EU regulation 679/2016 (GDPR)."
+      },
+      "slugByLocale": {
+        "it": "senior-cloud-ingegnere-fincons-group-lugano",
+        "en": "senior-cloud-engineer-fincons-group-lugano-switzerland",
+        "de": "senior-cloud-ingenieur-fincons-group-lugano",
+        "fr": "senior-cloud-ingenieur-fincons-group-lugano"
+      },
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260901091645_YDCYF5YXO0AAW9Z6",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-119be04ae74f",
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79500,
+          "maxValue": 135000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T10:25:33.079Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-cloud-engineer-fincons-group-lugano-switzerland"
+        ],
+        "de": [
+          "senior-cloud-engineer-fincons-group-lugano-switzerland"
+        ],
+        "fr": [
+          "senior-cloud-engineer-fincons-group-lugano-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "senior-cloud-engineer-fincons-group-lugano-switzerland"
       ]
     },
     {
@@ -341,7 +423,8 @@
         "ingenieur-qa-test-automation-fincons-group-lugano",
         "ingenieur-qa-test-automatisation-fincons-group-lugano",
         "senior-test-engineer-fincons-group-lugano-ticino-switzerland"
-      ]
+      ],
+      "salarySource": "estimated"
     },
     {
       "title": "Test Engineer (MicroFocus QC)",
@@ -406,6 +489,7 @@
         }
       },
       "firstSeenAt": "2026-08-17T10:15:30.690Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "test-engineer-microfocus-qc-fincons-group-lugano-ticino-switzerland"

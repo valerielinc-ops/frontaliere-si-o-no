@@ -28,7 +28,7 @@ export function slugify(text) {
 }
 
 export function shortJobHash(jobId) {
-  return crypto.createHash('sha1').update(String(jobId || '')).digest('hex').slice(0, 6);
+  return crypto.createHash('sha1').update(String(jobId ?? '')).digest('hex').slice(0, 6);
 }
 
 export function appendDisambiguatorTail(slug, tail) {

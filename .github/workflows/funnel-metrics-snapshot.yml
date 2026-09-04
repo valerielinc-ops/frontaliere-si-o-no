@@ -56,7 +56,6 @@ jobs:
             !/data/cf-hot-404s.json
             !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
-            !/data/jobs-stats-history.json
             !/data/url-first-seen.json
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
@@ -120,6 +119,7 @@ jobs:
             git commit -m "📊 Funnel metrics snapshot $(date -u +%Y-%m-%d)"
             # Abort any conflicting rebase before retrying, otherwise the loop
             # wedges on "unmerged files" until the job is canceled.
+            bash scripts/lib/configure-main-push-auth.sh
             for i in 1 2 3; do
               git pull --rebase origin main && git push && { echo "pushed=true" >> "$GITHUB_OUTPUT"; exit 0; }
               git rebase --abort 2>/dev/null || true

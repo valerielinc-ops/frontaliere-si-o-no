@@ -37,7 +37,11 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, fetchHtml } from './crawler-template.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
+import {
+  hasSuccessFactorsMoreLocationsInRow,
+  isSuccessFactorsWidgetText,
+  sanitizeSuccessFactorsField,
+} from './successfactors-jobs2web-widget-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -199,7 +203,14 @@ export function parseSearchPage(html = '') {
       href: hrefM[1],
       locationText: locM ? normalizeSpace(locM[1]) : '',
       facility: facM ? normalizeSpace(facM[1]) : '',
-      hasMoreLocations: /\+\s*\d+\s*more/i.test(block.replace(/&hellip;/g, '…')),
+      // Scope the marker probe to the row's location-like nodes: the shared
+      // matcher spans de/en/fr/it, so probing the WHOLE row would let a
+      // "+2 altri"-shaped title or href flip the flag and keep a non-Swiss
+      // row. Scoping it to `td.colLocation` ALONE would fail closed instead —
+      // a skin rendering the `<small>` outside that cell would drop a Swiss
+      // multi-office row below — so the shared helper probes every
+      // location-like node and only then gives up on the whole row.
+      hasMoreLocations: hasSuccessFactorsMoreLocationsInRow(block),
     });
   }
   const totalM = html.match(/Results\s+\d+\s+to\s+\d+\s+of\s+(\d+)/i);

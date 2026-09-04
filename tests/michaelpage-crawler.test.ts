@@ -6,6 +6,7 @@ import {
   isTrustedDomain,
 } from '../scripts/lib/michaelpage-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { mergePreserveLocaleData } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 describe('Michael Page crawler parser', () => {
   // ── Constants ──
@@ -125,5 +126,34 @@ describe('Michael Page crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+
+  it('preserves distinct IDs, slugs and history for postings sharing the same month tag', () => {
+    const urls = [
+      'https://www.pageexecutive.com/job-detail/head-legal/ref/jn-082026-7087025',
+      'https://www.pageexecutive.com/job-detail/chief-operating-officer/ref/jn-082026-7089682',
+    ];
+    const existing = urls.map((url, index) => ({
+      id: `legacy-${index + 1}`,
+      url,
+      sourceLang: 'en',
+      title: `Role ${index + 1}`,
+      titleByLocale: { en: `Role ${index + 1}` },
+      description: `Authoritative description for role ${index + 1} with enough stable words for the merge.`,
+      descriptionByLocale: { en: `Authoritative description for role ${index + 1} with enough stable words for the merge.` },
+      slug: `published-role-${index + 1}`,
+      slugByLocale: { en: `published-role-${index + 1}` },
+      previousSlugs: [`older-role-${index + 1}`],
+    }));
+    const fresh = existing.map((job, index) => ({
+      ...structuredClone(job),
+      id: `fresh-${index + 1}`,
+      previousSlugs: [],
+    }));
+
+    const merged = mergePreserveLocaleData(existing, fresh);
+    expect(merged.map((job) => job.id)).toEqual(['legacy-1', 'legacy-2']);
+    expect(merged.map((job) => job.slug)).toEqual(['published-role-1', 'published-role-2']);
+    expect(merged.map((job) => job.previousSlugs)).toEqual([['older-role-1'], ['older-role-2']]);
   });
 });

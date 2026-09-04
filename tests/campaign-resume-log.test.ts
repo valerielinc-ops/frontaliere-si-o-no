@@ -15,6 +15,7 @@ import {
   markSent,
   resumeChunkState,
 } from '@/scripts/lib/campaignResumeLog.mjs';
+import { filterUnsentSubscribers } from '@/scripts/send-newsletter.mjs';
 
 /** Minimal Firestore double: document-id range reads and arrayUnion merges. */
 function fakeDb(seed: Record<string, Record<string, unknown>> = {}) {
@@ -97,6 +98,27 @@ describe('reading the log back', () => {
     const { sent, chunkSizes } = await fetchAlreadySent(fakeDb(), OPTS);
     expect(sent.size).toBe(0);
     expect(chunkSizes).toEqual([]);
+  });
+});
+
+describe('newsletter pre-filter', () => {
+  it('removes already-sent recipients before per-recipient work, case-insensitively', () => {
+    const subscribers = [
+      { email: 'Keep@x.it' },
+      { email: 'sent@x.it' },
+      { email: 'new@x.it' },
+    ];
+
+    expect(filterUnsentSubscribers(subscribers, new Set(['SENT@X.IT']))).toEqual([
+      { email: 'Keep@x.it' },
+      { email: 'new@x.it' },
+    ]);
+  });
+
+  it('does not mutate the subscriber list or treat an empty resume as a filter', () => {
+    const subscribers = [{ email: 'a@x.it' }];
+    expect(filterUnsentSubscribers(subscribers, new Set())).toEqual(subscribers);
+    expect(subscribers).toEqual([{ email: 'a@x.it' }]);
   });
 });
 

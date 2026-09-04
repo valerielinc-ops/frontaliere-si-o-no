@@ -1,21 +1,64 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-08-26T10:07:19.649Z",
+  "generatedAt": "2026-09-03T23:24:28.388Z",
   "total": 5,
   "discovered": null,
   "written": 5,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9214,
-  "avgDurationMs": 9214,
+  "unchangedCount": 0,
+  "durationMs": 9948,
+  "avgDurationMs": 9948,
   "durationHistory": [
-    9214
+    9948
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "somedia-ab12f68befed",
+      "slug": "redaktor-in-video-40-somedia-ch",
+      "company": "Somedia AG",
+      "companyKey": "somedia",
+      "companyDomain": "somedia.ch",
+      "title": "Redaktor/in Video (40%)",
+      "location": "Glarus",
+      "canton": "GL",
+      "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
+      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:24:21.678Z",
+      "addressLocality": "Glarus",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8750",
+      "streetAddress": "Rathausgasse 22",
+      "category": "Media / Giornalismo",
+      "sector": "Media / Editoria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-01",
+      "validThrough": "2027-03-01",
+      "applyUrl": "https://jobs.somedia.ch/Redaktorin-Video-40-de-f415.html",
+      "_somediaMeta": {
+        "rexxId": "415",
+        "identifier": "",
+        "hiringOrganization": "Südostschweiz TV AG"
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-01T14:17:28.751Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 18,
+        "completeness": 20
+      }
+    },
     {
       "id": "somedia-b7be37f17198",
       "slug": "verlagsleiter-in-80-100-somedia-ch",
@@ -28,7 +71,7 @@
       "url": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-j412.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:07:12.265Z",
+      "crawledAt": "2026-09-03T23:24:20.590Z",
       "addressLocality": "Chur, Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -42,13 +85,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-08-14",
-      "validThrough": "2027-02-01",
+      "validThrough": "2027-03-01",
       "applyUrl": "https://jobs.somedia.ch/Verlagsleiterin-80-100-de-f412.html",
       "_somediaMeta": {
         "rexxId": "412",
         "identifier": "",
         "hiringOrganization": "Somedia Production AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-14T21:32:05.410Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -70,7 +114,7 @@
       "url": "https://jobs.somedia.ch/Fachperson-Personalentwicklung-Kultur-100-de-j407.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:07:15.197Z",
+      "crawledAt": "2026-09-03T23:24:24.468Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -84,13 +128,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-07-28",
-      "validThrough": "2027-02-01",
+      "validThrough": "2027-03-01",
       "applyUrl": "https://jobs.somedia.ch/Fachperson-Personalentwicklung-Kultur-100-de-f407.html",
       "_somediaMeta": {
         "rexxId": "407",
         "identifier": "",
         "hiringOrganization": "Somedia AG"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-28T11:44:33.146Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -112,7 +157,7 @@
       "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:07:13.137Z",
+      "crawledAt": "2026-09-03T23:24:22.532Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -126,13 +171,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-09",
-      "validThrough": "2027-02-01",
+      "validThrough": "2027-03-01",
       "applyUrl": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-f398.html",
       "_somediaMeta": {
         "rexxId": "398",
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-09T23:08:48.087Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -154,7 +200,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:07:14.013Z",
+      "crawledAt": "2026-09-03T23:24:23.360Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -168,13 +214,14 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-05-11",
-      "validThrough": "2027-02-01",
+      "validThrough": "2027-03-01",
       "applyUrl": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-f390.html",
       "_somediaMeta": {
         "rexxId": "390",
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -186,53 +233,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "somedia-01b42934610c",
-      "slug": "fachspezialist-in-finanz-e-rechnungswesen-con-klarer-perspektive-zur-teamleitung-100-somedia-ag-chur",
-      "company": "Somedia AG",
-      "companyKey": "somedia",
-      "companyDomain": "somedia.ch",
-      "title": "Fachspezialist/in Finanz- und Rechnungswesen – mit klarer Perspektive zur Teamleitung (100%)",
-      "location": "Chur",
-      "canton": "GR",
-      "url": "https://jobs.somedia.ch/Fachspezialistin-Finanz-und-Rechnungswesen-mit-klarer-Pers-de-j406.html",
-      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-25T21:46:07.117Z",
-      "addressLocality": "Chur",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7007",
-      "streetAddress": "Sommeraustrasse 32",
-      "category": "Ingegneria",
-      "sector": "Media / Editoria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-29",
-      "validThrough": "2027-02-01",
-      "applyUrl": "https://jobs.somedia.ch/Fachspezialistin-Finanz-und-Rechnungswesen-mit-klarer-Pers-de-f406.html",
-      "_somediaMeta": {
-        "rexxId": "406",
-        "identifier": "",
-        "hiringOrganization": "Somedia AG"
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T11:38:25.921Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

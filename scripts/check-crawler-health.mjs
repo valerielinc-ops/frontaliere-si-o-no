@@ -74,6 +74,7 @@
 import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -88,6 +89,21 @@ const SUMMARIES_DIR = path.join(
 );
 const HEALTH_STATE_PATH = path.join(ROOT, 'data', 'crawler-health.json');
 const HEALTH_ISSUES_PATH = path.join(ROOT, 'data', 'crawler-health-issues.json');
+
+// The site remains the canonical job-data repository. During the cross-repo
+// crawler migration, however, issue #6712 caused some valid crawler commits to
+// land in the corpus repository because the caller's GITHUB_REPOSITORY
+// clobbered an explicitly configured site origin. Those observations are
+// useful recovery evidence, but never a preferred source by themselves: the
+// monitor only uses one when its self-reported timestamp is strictly newer
+// than the local site observation. A newer site zero therefore still wins over
+// an older corpus non-zero and remains visible to the broken-run gate.
+const CORPUS_RECOVERY_DATA_BASE_URL =
+  process.env.CRAWLER_HEALTH_CORPUS_RECOVERY_DATA_BASE_URL ??
+  'https://raw.githubusercontent.com/nanakokyobashi-rgb/frontaliere-articles/main/data';
+const CORPUS_RECOVERY_TIMEOUT_MS = 10_000;
+const CORPUS_RECOVERY_DEADLINE_MS = 8_000;
+const CORPUS_RECOVERY_CONCURRENCY = 6;
 
 const STALE_AFTER_DAYS = 7;
 const BROKEN_AFTER_EMPTY_RUNS = 3;
@@ -789,7 +805,7 @@ async function listJsonSlugs(dir) {
   try {
     const entries = await fs.readdir(dir);
     return entries
-      .filter((name) => name.endsWith('.json'))
+      .filter(isSliceFile)
       .map((name) => name.replace(/\.json$/, ''));
   } catch (err) {
     console.error(`[health] Cannot read ${dir}: ${err.message}`);
@@ -931,6 +947,198 @@ async function inspectCrawler(slug) {
   };
 }
 
+async function fetchJsonSafe(
+  url,
+  fetchImpl = globalThis.fetch,
+  signal = AbortSignal.timeout(CORPUS_RECOVERY_TIMEOUT_MS),
+) {
+  try {
+    const response = await fetchImpl(url, {
+      headers: { accept: 'application/json' },
+      signal,
+    });
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+/** Build recovery evidence from the corpus slice + summary payloads. */
+function corpusObservationFromPayloads(slug, data, summary) {
+  if (!summary || typeof summary !== 'object' || typeof summary.generatedAt !== 'string') {
+    return null;
+  }
+  if (summary.key !== slug) return null;
+  if (data && typeof data === 'object' && typeof data.crawlerKey === 'string' && data.crawlerKey !== slug) {
+    return null;
+  }
+
+  let activeJobCount = 0;
+  if (Array.isArray(data)) {
+    activeJobCount = data.length;
+  } else if (data && Array.isArray(data.jobs)) {
+    activeJobCount = data.jobs.length;
+  } else if (data && Array.isArray(data.entries)) {
+    activeJobCount = data.entries.length;
+  } else if (data && typeof data === 'object') {
+    for (const value of Object.values(data)) {
+      if (Array.isArray(value) && value.length > activeJobCount) activeJobCount = value.length;
+    }
+  }
+
+  const generatedAt = summary.generatedAt;
+  if (!Number.isFinite(Date.parse(generatedAt))) return null;
+  const summaryTotal = summary.total;
+  if (
+    typeof summaryTotal !== 'number' ||
+    !Number.isSafeInteger(summaryTotal) ||
+    summaryTotal < 0
+  ) {
+    return null;
+  }
+  const assembledAt =
+    data && typeof data === 'object' && typeof data.assembledAt === 'string'
+      ? data.assembledAt
+      : null;
+  const discovered =
+    typeof summary.discovered === 'number' &&
+    Number.isSafeInteger(summary.discovered) &&
+    summary.discovered >= 0
+      ? summary.discovered
+      : null;
+  const written =
+    typeof summary.written === 'number' &&
+    Number.isSafeInteger(summary.written) &&
+    summary.written >= 0
+      ? summary.written
+      : null;
+
+  return {
+    slug,
+    freshnessAt: generatedAt,
+    freshnessSource: 'corpus-summary',
+    assembledAt,
+    generatedAt,
+    jobCount: summaryTotal,
+    activeJobCount,
+    discovered,
+    written,
+  };
+}
+
+/**
+ * Read the recovery-only observation from the corpus over the public HTTP
+ * boundary. A missing or malformed summary is not authoritative enough to
+ * override the site.
+ */
+async function inspectCorpusRecoveryCrawler(
+  slug,
+  {
+    baseUrl = CORPUS_RECOVERY_DATA_BASE_URL,
+    fetchImpl = globalThis.fetch,
+    signal,
+  } = {},
+) {
+  if (!/^[a-z0-9][a-z0-9-]*$/.test(slug) || !baseUrl) return null;
+  const base = baseUrl.replace(/\/+$/, '');
+  const encodedSlug = encodeURIComponent(slug);
+  const [data, summary] = await Promise.all([
+    fetchJsonSafe(
+      `${base}/jobs/by-crawler/${encodedSlug}.json`,
+      fetchImpl,
+      signal,
+    ),
+    fetchJsonSafe(
+      `${base}/jobs-crawler-summaries/by-crawler/${encodedSlug}.json`,
+      fetchImpl,
+      signal,
+    ),
+  ]);
+  return corpusObservationFromPayloads(slug, data, summary);
+}
+
+/**
+ * Resolve recovery candidates under one short global deadline. Remote evidence
+ * is optional: when the deadline expires, unresolved crawlers retain their
+ * site observation and therefore still emit the original alert.
+ */
+async function inspectCorpusRecoveryBatch(
+  slugs,
+  {
+    baseUrl = CORPUS_RECOVERY_DATA_BASE_URL,
+    fetchImpl = globalThis.fetch,
+    concurrency = CORPUS_RECOVERY_CONCURRENCY,
+    deadlineMs = CORPUS_RECOVERY_DEADLINE_MS,
+  } = {},
+) {
+  const candidates = [...new Set(slugs)];
+  const results = new Map();
+  if (candidates.length === 0 || deadlineMs <= 0) return results;
+
+  const controller = new AbortController();
+  let cursor = 0;
+  let deadlineTimer;
+  const deadline = new Promise((resolve) => {
+    deadlineTimer = setTimeout(() => {
+      controller.abort();
+      resolve();
+    }, deadlineMs);
+  });
+
+  const worker = async () => {
+    while (!controller.signal.aborted) {
+      const index = cursor;
+      cursor += 1;
+      if (index >= candidates.length) return;
+      const slug = candidates[index];
+      const observation = await inspectCorpusRecoveryCrawler(slug, {
+        baseUrl,
+        fetchImpl,
+        signal: controller.signal,
+      });
+      if (observation) results.set(slug, observation);
+    }
+  };
+
+  const workerCount = Math.min(
+    candidates.length,
+    Math.max(1, Math.floor(concurrency)),
+  );
+  try {
+    await Promise.race([
+      Promise.all(Array.from({ length: workerCount }, () => worker())),
+      deadline,
+    ]);
+  } finally {
+    clearTimeout(deadlineTimer);
+    controller.abort();
+  }
+  return results;
+}
+
+/**
+ * Prefer recovery evidence only when it is strictly newer than the canonical
+ * site observation. Counts are deliberately not part of the choice: a newer
+ * corpus zero is a real empty run and must remain visible.
+ */
+function selectNewestCrawlerObservation(
+  siteObservation,
+  corpusObservation,
+  nowMs = Date.now(),
+) {
+  if (!corpusObservation) return siteObservation;
+  const siteAt = Date.parse(siteObservation?.freshnessAt ?? '');
+  const corpusAt = Date.parse(corpusObservation.freshnessAt ?? '');
+  if (!Number.isFinite(corpusAt)) return siteObservation;
+  // A future-dated remote payload could otherwise suppress health alerts
+  // indefinitely. Five minutes tolerates ordinary clock skew without trusting
+  // an impossible observation.
+  if (corpusAt > nowMs + 5 * 60 * 1000) return siteObservation;
+  if (Number.isFinite(siteAt) && siteAt >= corpusAt) return siteObservation;
+  return corpusObservation;
+}
+
 /**
  * Compose new state for a crawler, given previous state + new observation.
  *
@@ -963,15 +1171,68 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     hasDiscoveredSignal && observation.discovered > 0 && lastObservedJobs === 0;
 
   const emptyOk = EMPTY_OK_CRAWLERS.has(observation.slug) || autoFilteredEmpty;
-  const consecutiveEmptyRuns =
-    lastObservedJobs > 0 || emptyOk ? 0 : (previous.consecutiveEmptyRuns ?? 0) + 1;
+
+  // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
+  // directly. Resolve a freshness timestamp from whichever field is present.
+  const freshnessAt =
+    observation.freshnessAt !== undefined
+      ? observation.freshnessAt
+      : (observation.assembledAt ?? null);
+  const freshnessSource = observation.freshnessSource ?? 'by-crawler';
+
+  // The monitor's own cadence (daily cron + manual workflow_dispatch) can run
+  // MORE often than a given crawler actually re-crawls (crawler workflows
+  // vary: cross-repo dispatch, disabled/migrated groups, backlog delays). If
+  // this tick's freshness timestamp is IDENTICAL to the one already counted
+  // on the previous tick, no new crawl happened between checks — it is the
+  // same run being observed twice, not a second empty attempt. Without this
+  // guard, N stale re-observations of a SINGLE genuine empty run inflate
+  // `consecutiveEmptyRuns` to the `broken` threshold in N ticks instead of N
+  // actual crawl attempts (#6694: giardino crawled once on 2026-08-27,
+  // returned 0 jobs, then its crawl workflow stopped running entirely for
+  // days — 3 unrelated daily health-check ticks over that same frozen
+  // summary still counted "3 consecutive runs returned 0 jobs"). A crawl
+  // that has genuinely stopped running is still caught by the `stale` gate
+  // above once `freshnessAt` ages past `STALE_AFTER_DAYS` — that is the
+  // correct signal for "the workflow stopped", not a fabricated empty streak.
+  // `freshnessAt` alone is not a complete run identity: some producers use
+  // day-granularity timestamps. Treat the observation as a repeat only when
+  // its count and empty classification also agree. With no upstream run id,
+  // equal freshness + count + classification is the same observable run by
+  // construction; a distinct same-day run must change at least one of those
+  // signals. Missing classification fields remain migration-compatible.
+  const previousEmptyOk =
+    typeof previous._lastObservedEmptyOk === 'boolean'
+      ? previous._lastObservedEmptyOk
+      : EMPTY_OK_CRAWLERS.has(observation.slug) || previous._autoFilteredEmpty === true;
+  const isRepeatObservation =
+    hadPriorState &&
+    freshnessAt !== null &&
+    freshnessAt !== undefined &&
+    previous._lastObservedFreshnessAt !== null &&
+    previous._lastObservedFreshnessAt !== undefined &&
+    freshnessAt === previous._lastObservedFreshnessAt &&
+    previous._lastObservedJobs !== null &&
+    previous._lastObservedJobs !== undefined &&
+    lastObservedJobs === previous._lastObservedJobs &&
+    emptyOk === previousEmptyOk;
+
+  const consecutiveEmptyRuns = isRepeatObservation
+    ? (previous.consecutiveEmptyRuns ?? 0)
+    : lastObservedJobs > 0 || emptyOk
+      ? 0
+      : (previous.consecutiveEmptyRuns ?? 0) + 1;
 
   // Unlike `consecutiveEmptyRuns` above, this counts EVERY empty observation
   // — emptyOk included — resetting only when jobs actually come back. It is
   // the only thing that keeps growing while emptyOk masks a source that has
-  // gone from "legitimate lull" to "dead" (#6496).
-  const consecutiveEmptyOkRuns =
-    lastObservedJobs > 0 ? 0 : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
+  // gone from "legitimate lull" to "dead" (#6496). Same repeat-observation
+  // guard applies: a re-observed stale summary is not a new empty-ok run.
+  const consecutiveEmptyOkRuns = isRepeatObservation
+    ? (previous.consecutiveEmptyOkRuns ?? 0)
+    : lastObservedJobs > 0
+      ? 0
+      : (previous.consecutiveEmptyOkRuns ?? 0) + 1;
   const advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
@@ -982,14 +1243,6 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   const lastNonZeroJobs =
     lastObservedJobs > 0 ? lastObservedJobs : (previous.lastNonZeroJobs ?? 0);
-
-  // Back-compat: legacy callers (older tests) pass `{ assembledAt, jobCount }`
-  // directly. Resolve a freshness timestamp from whichever field is present.
-  const freshnessAt =
-    observation.freshnessAt !== undefined
-      ? observation.freshnessAt
-      : (observation.assembledAt ?? null);
-  const freshnessSource = observation.freshnessSource ?? 'by-crawler';
 
   // "Successful" = slice carries non-zero jobs. We use the freshness timestamp
   // (summary preferred, by-crawler fallback) so the value survives CI
@@ -1042,6 +1295,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
       status,
       _lastObservedAt: nowIso,
       _lastObservedJobs: lastObservedJobs,
+      _lastObservedEmptyOk: emptyOk,
       _lastObservedFreshnessAt: freshnessAt,
       _lastObservedFreshnessSource: freshnessSource,
       _lastObservedAssembledAt: observation.assembledAt ?? null,
@@ -1071,17 +1325,60 @@ async function main() {
 
   const nextCrawlers = {};
   const issues = [];
+  const siteObservations = [];
 
   for (const slug of slugs) {
-    const observation = await inspectCrawler(slug);
-    if (!observation) continue; // Skipped — already logged.
+    const siteObservation = await inspectCrawler(slug);
+    if (!siteObservation) continue; // Skipped — already logged.
+    siteObservations.push(siteObservation);
+  }
 
-    const { state, status, reason } = nextCrawlerState(
+  const recoveryCandidates = siteObservations
+    .filter((observation) => {
+      const { status } = nextCrawlerState(
+        prevCrawlers[observation.slug],
+        observation,
+        nowIso,
+        nowMs,
+      );
+      return status === 'stale' || status === 'broken';
+    })
+    .map(({ slug }) => slug);
+  const corpusObservations = await inspectCorpusRecoveryBatch(
+    recoveryCandidates,
+  );
+
+  for (const siteObservation of siteObservations) {
+    const { slug } = siteObservation;
+    let observation = siteObservation;
+    let evaluation = nextCrawlerState(
       prevCrawlers[slug],
       observation,
       nowIso,
       nowMs,
     );
+    if (evaluation.status === 'stale' || evaluation.status === 'broken') {
+      const corpusObservation = corpusObservations.get(slug);
+      observation = selectNewestCrawlerObservation(
+        siteObservation,
+        corpusObservation,
+        nowMs,
+      );
+      if (observation !== siteObservation) {
+        console.warn(
+          `[health] ${slug}: using newer corpus recovery observation ` +
+          `(${observation.freshnessAt}) over site (${siteObservation.freshnessAt ?? 'unknown'})`,
+        );
+        evaluation = nextCrawlerState(
+          prevCrawlers[slug],
+          observation,
+          nowIso,
+          nowMs,
+        );
+      }
+    }
+
+    const { state, status, reason } = evaluation;
     nextCrawlers[slug] = state;
 
     if (status === 'stale' || status === 'broken' || state.advisory) {
@@ -1135,7 +1432,15 @@ async function main() {
 }
 
 // Exported for tests. `main()` only runs when the script is invoked directly.
-export { nextCrawlerState, inspectCrawler, listCrawlerSlugs };
+export {
+  corpusObservationFromPayloads,
+  inspectCorpusRecoveryBatch,
+  inspectCorpusRecoveryCrawler,
+  inspectCrawler,
+  listCrawlerSlugs,
+  nextCrawlerState,
+  selectNewestCrawlerObservation,
+};
 
 const isMain = (() => {
   try {

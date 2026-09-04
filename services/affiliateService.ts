@@ -10,8 +10,8 @@
  * - Contextual recommendations based on active comparator
  * 
  * Active partner referral programs: canonical referral URLs live in
- * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise bonus:
- * free card or zero fees up to CHF 600 · Fineco: codice AA8381747, bonus 50€ ·
+ * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise: Partnerize
+ * affiliate deeplink, NO signup bonus for the user · Fineco: codice AA8381747, bonus 50€ ·
  * Crédit Agricole: buono Amazon 50€.
  */
 
@@ -137,8 +137,13 @@ export function partnerRelAttr(partner: Pick<AffiliatePartner, 'sponsored'>): st
 export function buildAffiliateUrl(partner: AffiliatePartner, source: string): string {
  try {
  const url = new URL(partner.url);
- // Add UTM tracking only to regular URLs (not invite/referral links that would break)
- if (!partner.url.includes('invite') && !partner.url.includes('referral')) {
+ // Add UTM tracking only to regular URLs (not invite/referral/Partnerize
+ // tracking links — extra query params rewrite the paid destination).
+ if (
+   !partner.url.includes('invite') &&
+   !partner.url.includes('referral') &&
+   !partner.url.includes('prf.hn')
+ ) {
  url.searchParams.set('utm_source', 'frontaliereticino');
  url.searchParams.set('utm_medium', 'partner');
  url.searchParams.set('utm_campaign', source);

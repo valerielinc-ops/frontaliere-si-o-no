@@ -1,22 +1,24 @@
 {
   "companyKey": "jobs",
-  "companyName": "Adecco",
-  "companyHost": "app.jobconvo.com",
-  "platform": "jobconvo.com",
-  "mode": "template",
+  "companyName": "Socar",
+  "companyHost": "jobs.hangl.ch",
+  "platform": "hangl.ch",
+  "mode": "jsonld",
   "seedUrls": [
-    "https://app.jobconvo.com/pt-br/careers/Adecco/7b3711ce-e38f-4f76-ab5c-1fbef972c147/"
+    "https://jobs.hangl.ch/"
   ],
-  "detailTemplate": "/job/*/*/",
-  "sampleVacancyCount": 48,
+  "detailTemplate": "/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 29,
   "sampleTitles": [
-    "Adecco Recoloca 2026 (22131436863238) São Paulo , Brasil N - Normal",
-    "Agente Comercial - Leitura (60004) Sananduva , Brasil N - Normal </",
-    "Agente Comercial - Leitura (60556) Garibaldi , Brasil N - Normal </",
-    "Agente Comercial - Leitura (60553) São Marcos , Brasil N - Normal <",
-    "Agente Comercial - Leitura (60555) Frederico Westphalen , Brasil N - Normal"
+    "Verkäufer in unserer Brillenabteilung (m/w/d)",
+    "Verkäufer Sport-& Freizeitmode (m/w/d)",
+    "Direktionsassistent (m/w/d)",
+    "Skilehrer/in (m/w/d)                                                                                     ",
+    "Funpark-Skilehrer/in (m/w/d)"
   ],
-  "canton": "TI",
-  "sourceLang": "it",
-  "learnedAt": "2026-08-21T09:11:29.127Z"
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:32.044Z"
 }

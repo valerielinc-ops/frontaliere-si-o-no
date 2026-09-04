@@ -49,6 +49,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createGithubIssue } from './lib/github-issue-creator.mjs';
 import { scanSlice } from './lib/job-content-plausibility.mjs';
+import { isSliceFile } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -71,7 +72,7 @@ export function resolveCrawlerKey(input, dir = SLICES_DIR) {
 
   let files = [];
   try {
-    files = fs.readdirSync(dir).filter((f) => f.endsWith('.json'));
+    files = fs.readdirSync(dir).filter(isSliceFile);
   } catch {
     // Worktree sparse senza `data/`: la key diretta resta utilizzabile, l'URL no.
     return /^https?:/i.test(raw)

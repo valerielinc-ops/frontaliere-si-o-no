@@ -1,16 +1,16 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-08-26T10:33:08.961Z",
+  "generatedAt": "2026-09-03T23:23:32.220Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1435,
-  "avgDurationMs": 1435,
+  "durationMs": 1987,
+  "avgDurationMs": 1987,
   "durationHistory": [
-    1435
+    1987
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
+      "salarySource": "estimated",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -79,6 +80,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-07T22:06:14.144Z",
+      "salarySource": "estimated",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

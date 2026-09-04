@@ -71,6 +71,18 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
 const MIN_TITLE_CHARS = 3;
 
+/**
+ * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
+ * 16). Default OFF, and OFF does not mean blind: the arm still runs and still
+ * counts, it only withholds the write, so a production run can be READ before
+ * it is allowed to act. Same repo-variable idiom as
+ * TITLE_MISTRANSLATION_QUEUE_CEILING in
+ * .github/corpus-workflows/translate-pending.yml, which means flipping it is a
+ * one-line PR on the site that reaches the corpus through the `identical`
+ * mirror — no admin rights on the corpus repo, and the same one line reverts it.
+ */
+const LANG_AWARE_OVERWRITE = String(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE || '0') === '1';
+
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
 const STATIC_TIME_BUDGET_MS = Number(process.env.LOCAL_MT_TIME_BUDGET_MS) || 280 * 60 * 1000;
@@ -120,7 +132,7 @@ function readJson(filePath) {
  * in scope when it is flagged for retranslation OR has incomplete locale
  * coverage, and is NOT currently suppressed.
  */
-function needsWork(job) {
+export function needsWork(job) {
   if (job.localeMismatchSuppressed) return false;
   if (job.needsRetranslation) return true;
   return isIncomplete(job);
@@ -244,6 +256,135 @@ export function finalizeMopupTranslation({
   }).trim();
 }
 
+/**
+ * The write loop's REJECTION CHAIN, in one place, so the thing that decides
+ * whether an Argos output reaches the corpus is a single callable instead of a
+ * sequence of inline `continue`s only main() can reach.
+ *
+ * Extracted for the reject audit (workspace issue 13): the pipeline drops ~96%
+ * of the Argos outputs it successfully produces and no caller could observe
+ * WHICH guard did it — the drops are silent and un-instrumented. An audit that
+ * re-implemented this chain would be measuring a gate that does not exist, so
+ * both main() below and scripts/research/argos-reject-audit.mjs call this.
+ *
+ * Order and semantics are byte-faithful to the previous inline chain, except
+ * for the language-aware arm of the existing-value guard — see below.
+ *
+ * @returns {{decision: string, incoming: string, sourceText: string,
+ *   existing: string, languageDriven: boolean}}
+ *   decision is 'write' or one of 'skip:source-locale' | 'skip:empty-raw' |
+ *   'skip:finalize-empty' | 'skip:source-copy' | 'skip:existing-good' |
+ *   'skip:candidate-untranslated'. languageDriven marks the decisions the
+ *   language arm made, the ones the rollout switch gates.
+ */
+export function classifyMopupWrite({
+  job,
+  locale,
+  field,
+  rawText,
+  protectedTokens = [],
+  langAware = true,
+}) {
+  const srcLang = job.sourceLang || 'it';
+  const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
+  const sourceText = field === 'title'
+    ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
+    : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
+  const existing = String(job[bag]?.[locale] || '').trim();
+  const base = { incoming: '', sourceText, existing };
+
+  if (locale === srcLang) return { ...base, decision: 'skip:source-locale' };
+
+  const raw = String(rawText || '').trim();
+  if (!raw) return { ...base, decision: 'skip:empty-raw' };
+
+  const incoming = finalizeMopupTranslation({
+    sourceText,
+    rawText: raw,
+    targetLang: locale,
+    fieldType: field,
+    protectedTokens,
+  });
+  if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
+
+  // Never write a value that is just a copy of the source (would re-flag).
+  if (incoming.toLowerCase() === sourceText.toLowerCase()) {
+    return { ...base, incoming, decision: 'skip:source-copy' };
+  }
+
+  // Don't overwrite an already-good translation (one that isn't a source copy
+  // and meets the min length). Only fill genuinely-missing/bad slots.
+  const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
+    || existing.toLowerCase() === sourceText.toLowerCase();
+  if (existing && !existingIsBad) {
+    // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
+    // only ways an existing value can be bad: it can be the wrong LANGUAGE.
+    // missingSlots() one screen up already knows that — it queues a title when
+    // titleLooksUntranslated() says the slot is still in the source language —
+    // and this guard used to not ask. So a German title in the IT slot was long
+    // enough and not byte-identical to the source: the queue asked for a
+    // repair, and the repair was thrown away unread, every run, forever.
+    // Measured on origin/main: this guard blocks 18'606 title slots (54,3% of
+    // all queued title slots) and 100% of them were queued by the language
+    // detector — 303/303 in the sampled audit, and by construction over the
+    // whole corpus. The two predicates did not disagree occasionally; they
+    // disagreed on the entire blocked set.
+    //
+    // The CANDIDATE side is not optional. fix-untranslated-titles.mjs:78
+    // objects that widening the verdict "would hand the same input to the same
+    // cascade and overwrite a half-good title with, at best, the same half-good
+    // title" — and it is right about any guard that re-enables the write by
+    // looking only at `existing`. So the arm asks the SAME question of the
+    // candidate with the SAME predicate: 49,6% of candidates fail it (binnen-i,
+    // compound residue, source function words) and stay rejected. Of the ones
+    // that pass, an A/B judgement against the stored text scored 83,1% an
+    // improvement and 12,3% a regression, ~7:1.
+    //
+    // Measured and deliberately NOT added, both net-negative on the same judged
+    // sample: a detectJobTitleLocaleDetails() check on the candidate (net +102
+    // vs +109) and a minimum length ratio against the existing text (+109, a
+    // wash). The minimum guard is also the best-measured one.
+    //
+    // Descriptions never reach here: missingSlots() queues a description on
+    // exactly this same length-or-copy test, so the two predicates already
+    // agree and the blocked set is empty (0 of 14'989 description slots).
+    if (!langAware || field !== 'title') {
+      return { ...base, incoming, decision: 'skip:existing-good' };
+    }
+    const ask = (title) => titleLooksUntranslated({
+      title,
+      sourceTitle: sourceText,
+      sourceLang: srcLang,
+      targetLocale: locale,
+      company: job.company || '',
+      location: job.location || '',
+    });
+    const existingVerdict = ask(existing);
+    if (!existingVerdict.untranslated) {
+      return { ...base, incoming, decision: 'skip:existing-good' };
+    }
+    const candidateVerdict = ask(incoming);
+    if (candidateVerdict.untranslated) {
+      return {
+        ...base,
+        incoming,
+        decision: 'skip:candidate-untranslated',
+        reason: candidateVerdict.reason,
+        languageDriven: true,
+      };
+    }
+    return {
+      ...base,
+      incoming,
+      decision: 'write',
+      reason: existingVerdict.reason,
+      languageDriven: true,
+    };
+  }
+
+  return { ...base, incoming, decision: 'write' };
+}
+
 function normalizeCompanyKey(value = '') {
   return String(value || '')
     .trim()
@@ -318,7 +459,17 @@ async function main() {
     console.warn(`⚠️  [local-mt] ${TRAFFIC_SOURCE_PATH} missing/unreadable — ordering this pass oldest-first instead (still fair, just not traffic-weighted).`);
     popularity = {};
   }
-  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity);
+  // `freshFirst` è ACCESO qui e solo qui. Questo è il percorso gratuito —
+  // Argos locale, cap 6.000 job per esecuzione, cinque esecuzioni al giorno —
+  // cioè l'unico che abbia la capacità per il vincolo delle 24 ore: contro un
+  // ingresso di ~1.421 annunci al giorno, la coorte fresca sta comodamente
+  // dentro un singolo passaggio e non affama le altre due corsie.
+  //
+  // Il cascade AI (`relocalize-pending-jobs.mjs`) lo lascia spento apposta:
+  // processa 53 job in 90 minuti per deadline, quindi una testa fresca da
+  // 1.308 job gli mangerebbe tutti gli slot di ogni run senza nemmeno
+  // smaltirla.
+  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity, { freshFirst: true });
   for (const line of formatPriorityReport(stats)) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
@@ -446,6 +597,16 @@ async function main() {
   let filesWritten = 0;
   let fieldsFilled = 0;
   let flagsCleared = 0;
+  // Observability for the language arm. Every slot that reached the guard chain
+  // is counted under the decision that disposed of it, and the language-driven
+  // ones are counted per detector reason, so a run can be read off the log
+  // without re-running the audit. This is what makes "observe one run first"
+  // mean something: with the switch OFF the shadow counters say exactly how
+  // many fields the flip would rewrite, on the real production queue.
+  const decisionTally = {};
+  const langWriteReasons = {};
+  const langSkipReasons = {};
+  let shadowWithheld = 0;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -468,15 +629,6 @@ async function main() {
       const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
       if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
 
-      const raw = String(text || '').trim();
-      if (!raw) continue; // never write empty (safety guard)
-
-      // Source text for the copy guards — computed BEFORE glossary so corrections
-      // compare against the true source.
-      const sourceText = field === 'title'
-        ? (job.title || job.titleByLocale?.[srcLang] || '').trim()
-        : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
-
       // Quality parity with the other two entry points: the SAME shared exit
       // transform (`finalizeTranslatedText`, via finalizeMopupTranslation) —
       // balance markdown markers, restore the masked gender trigraphs in the
@@ -487,25 +639,25 @@ async function main() {
       // markers, meaning-inverted MT (e.g. DE "Nachtwache" → IT "orologio
       // notturno") never corrected, a German "(m/w/d)" surviving verbatim into an
       // Italian title, and a leaked "(ORGANIZZAZIONE)" reaching the dataset.
-      // Returns '' when nothing meaningful survives, which the guard below skips.
-      const incoming = finalizeMopupTranslation({
-        sourceText,
-        rawText: raw,
-        targetLang: locale,
-        fieldType: field,
-        protectedTokens,
+      // Returns '' when nothing meaningful survives, which the guard chain skips.
+      // The whole chain (empty-raw → finalize-empty → source-copy →
+      // existing-good → language arm) lives in classifyMopupWrite() so the
+      // reject audit can observe it.
+      const { decision, incoming, reason, languageDriven } = classifyMopupWrite({
+        job, locale, field, rawText: text, protectedTokens,
       });
-      if (!incoming) continue;
-
-      // Never write a value that is just a copy of the source (would re-flag).
-      if (incoming.toLowerCase() === sourceText.toLowerCase()) continue;
-
-      const existing = String(job[bag][locale] || '').trim();
-      // Don't overwrite an already-good translation (one that isn't a source copy
-      // and meets the min length). Only fill genuinely-missing/bad slots.
-      const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-        || existing.toLowerCase() === sourceText.toLowerCase();
-      if (existing && !existingIsBad) continue;
+      decisionTally[decision] = (decisionTally[decision] || 0) + 1;
+      if (languageDriven) {
+        const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
+        bucket[reason] = (bucket[reason] || 0) + 1;
+      }
+      if (decision !== 'write') continue;
+      // Shadow arm: with the switch off, a language-driven write is counted and
+      // withheld. The corpus is untouched and the log still reports the volume.
+      if (languageDriven && !LANG_AWARE_OVERWRITE) {
+        shadowWithheld++;
+        continue;
+      }
 
       job[bag][locale] = incoming;
       fileChanged = true;
@@ -543,6 +695,27 @@ async function main() {
   console.log(`\n📈 [local-mt] Mop-up results:`);
   console.log(`   ${fieldsFilled} locale fields filled across ${filesWritten} slice files`);
   console.log(`   ${flagsCleared} needsRetranslation flags cleared (now complete)`);
+
+  // Guard-chain report. Printed unconditionally: the point of the switch is to
+  // be able to read a run before flipping it, which needs the numbers to be
+  // there when it is still off.
+  const sorted = (o) => Object.entries(o).sort((a, b) => b[1] - a[1]);
+  const totalDecisions = Object.values(decisionTally).reduce((a, b) => a + b, 0);
+  console.log(`\n🚦 [local-mt] Write-guard decisions (${totalDecisions} slots reached the chain):`);
+  for (const [decision, n] of sorted(decisionTally)) {
+    const pct = totalDecisions ? ((100 * n) / totalDecisions).toFixed(1) : '0.0';
+    console.log(`   ${decision.padEnd(28)} ${String(n).padStart(6)}  ${pct}%`);
+  }
+  const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
+  const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
+  console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
+  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ' → overwritten' : ` → WITHHELD (${shadowWithheld} not written)`}`);
+  for (const [reason, n] of sorted(langWriteReasons)) console.log(`      existing was ${reason.padEnd(22)} ${String(n).padStart(6)}`);
+  console.log(`   ${langSkips} wrong-language slots whose candidate was ALSO wrong-language → still rejected`);
+  for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);
+  if (!LANG_AWARE_OVERWRITE && langWrites > 0) {
+    console.log(`   ℹ️  Set repo variable LOCAL_MT_LANG_AWARE_OVERWRITE=1 to apply these ${langWrites} writes.`);
+  }
   console.log('✅ [local-mt] Local MT mop-up complete.');
 }
 

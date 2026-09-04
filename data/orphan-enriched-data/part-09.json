@@ -1243,10 +1243,10 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
+        "de": "verkaufer-in-food-coop-city-zurich-fix6o0",
         "it": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "en": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "de": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
-        "fr": "addetto-a-vendite-alimentari-coop-genossenschaft-zurich"
+        "en": "food-sales-associate-coop-genossenschaft-zurich-42e898",
+        "fr": "vendeur-vendeuse-alimentaire-coop-genossenschaft-zurich"
       },
       "localePaths": {
         "it": "/cerca-lavoro-zurigo/addetto-a-vendite-alimentari-coop-genossenschaft-zurich",
@@ -1260,6 +1260,7 @@
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -10172,17 +10173,17 @@
         {
           "query": "jobs bellinzona",
           "clicks": 0,
-          "impressions": 38
+          "impressions": 40
         },
         {
           "query": "nebenjobs bellinzona",
           "clicks": 0,
-          "impressions": 19
+          "impressions": 21
         },
         {
           "query": "bestbezahlte jobs bellinzona",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 19
         },
         {
           "query": "lehrstellen bellinzona",
@@ -10220,7 +10221,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 90,
+      "totalImpressions": 96,
       "totalClicks": 0,
       "topQuery": "jobs bellinzona",
       "title": "bellinzona",
@@ -10267,7 +10268,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 121
+          "impressions": 152
         },
         {
           "query": "homeoffice jobs bellinzona",
@@ -10277,12 +10278,17 @@
         {
           "query": "part time jobs near me",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "cerco lavoro bellinzona",
           "clicks": 0,
           "impressions": 4
+        },
+        {
+          "query": "jobs near me",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "nebenjobs bellinzona",
@@ -10296,11 +10302,6 @@
         },
         {
           "query": "cep bellinzona",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "jobs near me",
           "clicks": 0,
           "impressions": 2
         },
@@ -10365,7 +10366,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 161,
+      "totalImpressions": 194,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "bellinzona",
@@ -10471,32 +10472,37 @@
         {
           "query": "offerte di lavoro bellinzona",
           "clicks": 2,
-          "impressions": 26
+          "impressions": 27
         },
         {
           "query": "offerte lavoro bellinzona",
           "clicks": 1,
-          "impressions": 19
+          "impressions": 21
         },
         {
           "query": "lavoro bellinzona",
           "clicks": 0,
-          "impressions": 17
+          "impressions": 18
         },
         {
           "query": "bellinzona lavoro",
           "clicks": 0,
-          "impressions": 11
+          "impressions": 14
         },
         {
           "query": "bellinzona offerte di lavoro",
           "clicks": 0,
-          "impressions": 10
+          "impressions": 11
         },
         {
           "query": "cerco lavoro a bellinzona",
           "clicks": 0,
           "impressions": 7
+        },
+        {
+          "query": "bellinzona lavora con noi",
+          "clicks": 0,
+          "impressions": 6
         },
         {
           "query": "cerco lavoro bellinzona",
@@ -10510,11 +10516,6 @@
         },
         {
           "query": "agenzie lavoro bellinzona",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "bellinzona lavora con noi",
           "clicks": 0,
           "impressions": 5
         },
@@ -10537,6 +10538,11 @@
           "query": "lavori bellinzona",
           "clicks": 0,
           "impressions": 4
+        },
+        {
+          "query": "posti di lavoro bellinzona",
+          "clicks": 0,
+          "impressions": 3
         },
         {
           "query": "posti vacanti bellinzona",
@@ -10562,14 +10568,9 @@
           "query": "lavoro bellinzona svizzera",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "lavoro part-time bellinzona",
-          "clicks": 0,
-          "impressions": 2
         }
       ],
-      "totalImpressions": 154,
+      "totalImpressions": 164,
       "totalClicks": 3,
       "topQuery": "offerte di lavoro bellinzona",
       "title": "bellinzona",
@@ -18210,10 +18211,10 @@
         "it": "consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-basilea/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
-        "en": "/en/find-jobs-basel/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
+        "it": "/cerca-lavoro-lucerna/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
+        "en": "/en/find-jobs-lucerne/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
         "de": "/de/jobs-im-bern/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern",
-        "fr": "/fr/trouver-emploi-bale/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
+        "fr": "/fr/trouver-emploi-lucerne/consulente-di-vendita-cosmetici-coop-genossenschaft-luzern"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -28074,10 +28075,10 @@
         "fr": "food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-ticino/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "en": "/en/find-jobs-ticino/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "de": "/de/jobs-im-tessin/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
-        "fr": "/fr/trouver-emploi-tessin/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
+        "it": "/cerca-lavoro-berna/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "en": "/en/find-jobs-bern/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "de": "/de/jobs-in-bern/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc",
+        "fr": "/fr/trouver-emploi-berne/food-sales-assistant-coop-genossenschaft-koniz-6d0bbc"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -37201,6 +37202,74 @@
       ]
     },
     {
+      "slug": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-lucerne/logistiker-dans-efz-eba-100-manor-ag-hochdorf/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-lucerne/logistiker-dans-efz-eba-100-manor-ag-hochdorf/"
+      },
+      "queries": [
+        {
+          "query": "manor jobs hochdorf",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "manor jobs emmen",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "manor hochdorf jobs",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "topQuery": "manor jobs hochdorf",
+      "title": "Logistiker dans efz eba hochdorf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Manor AG",
+      "companyKey": "manor-ag",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "en": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "de": "logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "fr": "logistiker-dans-efz-eba-100-manor-ag-hochdorf"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "en": "/en/find-jobs-lucerne/logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "de": "/de/jobs-im-luzern/logistiker-dans-efz-eba-100-manor-ag-hochdorf",
+        "fr": "/fr/trouver-emploi-lucerne/logistiker-dans-efz-eba-100-manor-ag-hochdorf"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "logistique-100-hoch-health-ostschweiz-uznach",
       "locale": "fr",
       "path": "/fr/trouver-emploi-saint-gall/logistique-100-hoch-health-ostschweiz-uznach/",
@@ -40341,7 +40410,7 @@
         {
           "query": "full time jobs near me",
           "clicks": 0,
-          "impressions": 46
+          "impressions": 57
         },
         {
           "query": "job mendrisio",
@@ -40414,7 +40483,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 73,
+      "totalImpressions": 84,
       "totalClicks": 0,
       "topQuery": "full time jobs near me",
       "title": "mendrisio",
@@ -40518,22 +40587,27 @@
         {
           "query": "lavoro mendrisio",
           "clicks": 0,
-          "impressions": 24
+          "impressions": 26
         },
         {
           "query": "offerte di lavoro mendrisio negli ultimi 3 giorni",
           "clicks": 0,
-          "impressions": 15
+          "impressions": 19
         },
         {
           "query": "offerte di lavoro mendrisio",
           "clicks": 0,
-          "impressions": 9
+          "impressions": 10
         },
         {
           "query": "offerte lavoro mendrisio",
           "clicks": 0,
           "impressions": 7
+        },
+        {
+          "query": "aziende mendrisio che assumono",
+          "clicks": 0,
+          "impressions": 4
         },
         {
           "query": "lavoro in svizzera mendrisio",
@@ -40549,11 +40623,6 @@
           "query": "offerte di lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 4
-        },
-        {
-          "query": "aziende mendrisio che assumono",
-          "clicks": 0,
-          "impressions": 3
         },
         {
           "query": "fabbriche mendrisio offerta lavoro",
@@ -40616,7 +40685,7 @@
           "impressions": 1
         }
       ],
-      "totalImpressions": 115,
+      "totalImpressions": 127,
       "totalClicks": 1,
       "topQuery": "lavoro mendrisio",
       "title": "mendrisio",
@@ -60314,6 +60383,65 @@
       ]
     },
     {
+      "slug": "sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano/",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano/"
+      },
+      "queries": [
+        {
+          "query": "axa agenzie",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "axa agenzie",
+      "title": "Sottoscrittore istituzioni finanziarie",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance (sede Ticino)",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "Lugano",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "en": "underwriter-financial-institutions-zurich-insurance-sede-ticino-lugano-spl2p7",
+        "it": "sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano",
+        "de": "underwriter-finanzinstitute-zurich-insurance-sede-ticino-lugano",
+        "fr": "souscripteur-institutions-financieres-zurich-insurance-sede-ticino-lugano"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano",
+        "en": "/en/find-jobs-ticino/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano",
+        "de": "/de/jobs-im-tessin/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano",
+        "fr": "/fr/trouver-emploi-tessin/sottoscrittore-istituzioni-finanziarie-zurich-insurance-sede-ticino-lugano"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "slug-registry",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "soudeur-de-tuyaux-pemsa-lugano",
       "locale": "fr",
       "path": "/fr/trouver-emploi-tessin/soudeur-de-tuyaux-pemsa-lugano/",
@@ -68104,9 +68232,9 @@
       "salaryMin": 0,
       "salaryCurrency": "CHF",
       "slugByLocale": {
-        "it": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur",
-        "en": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur",
-        "de": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur",
+        "it": "lavoratore-sociale-kantonale-verwaltung-graubunden-chur",
+        "en": "social-worker-in-kantonale-verwaltung-graubunden-chur",
+        "de": "sozialarbeiter-in-kanton-gr-ch",
         "fr": "travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur"
       },
       "localePaths": {
@@ -68115,12 +68243,13 @@
         "de": "/de/jobs-in-graubunden/travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur",
         "fr": "/fr/trouver-emploi-grisons/travailleurs-sociaux-in-kantonale-verwaltung-graubunden-chur"
       },
-      "sourceUrl": "",
+      "sourceUrl": "https://apply.refline.ch/514915/2821/pub/1/index.html",
       "googleStatus": "unknown",
       "googleCanonical": "",
       "lastCrawlTime": "",
       "source": [
         "gsc",
+        "slug-registry",
         "all-known-slugs",
         "slug-parsing"
       ]
@@ -73548,10 +73677,10 @@
         "fr": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus"
       },
       "localePaths": {
-        "it": "/cerca-lavoro-grigioni/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
-        "en": "/en/find-jobs-graubunden/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
-        "de": "/de/jobs-in-graubunden/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
-        "fr": "/fr/trouver-emploi-grisons/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus"
+        "it": "/cerca-lavoro-berna/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
+        "en": "/en/find-jobs-bern/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
+        "de": "/de/jobs-in-bern/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus",
+        "fr": "/fr/trouver-emploi-berne/verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-klosters-serneus"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",

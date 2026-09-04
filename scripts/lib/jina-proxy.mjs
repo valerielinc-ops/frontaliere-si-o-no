@@ -266,6 +266,11 @@ export function detectJinaErrorBody(body, { minLength = 200 } = {}) {
     // (over the too-short floor) is still flagged → fetchViaJinaWithRetry rotates
     // to a fresh Jina IP instead of silently parsing the challenge as 0 jobs.
     'sgcaptcha',
+    // BotGuard-style JS fingerprint checkpoint (ergolz.cardiance.com, #6693):
+    // an HTTP 200 "One moment, please..." page that self-reloads after a
+    // webdriver/plugin/mimeType fingerprint check — no cf/incapsula marker,
+    // so it needs its own signature.
+    'please wait while your request is being verified',
   ];
   const hit = ERROR_MARKERS.find((m) => lower.includes(m));
   return hit ? `error/challenge marker: "${hit}"` : null;
@@ -376,6 +381,8 @@ const ANTI_BOT_CHALLENGE_MARKERS = [
   'cf-browser-verification',
   'cf_chl_',
   '_incapsula_resource',
+  // BotGuard-style JS fingerprint checkpoint (ergolz.cardiance.com, #6693).
+  'please wait while your request is being verified',
 ];
 
 /**

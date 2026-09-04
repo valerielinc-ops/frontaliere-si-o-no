@@ -1,7 +1,220 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-08-18T22:19:04.569Z",
+  "assembledAt": "2026-09-03T23:34:51.042Z",
   "jobs": [
+    {
+      "title": "Kaufmännische Praktikumsstelle (HMS 3+1)",
+      "slug": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+      "url": "https://jobs.chur.ch/Kaufmaennische-Praktikumsstelle-HMS-31-de-j1709.html",
+      "applyUrl": "https://jobs.chur.ch/Kaufmaennische-Praktikumsstelle-HMS-31-de-j1709.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "Kaufm. Berufe / Kundendienst / Verwaltung, Polizei / Sicherheit / Rettung",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-31",
+      "validThrough": "",
+      "employmentType": "internship",
+      "contractType": "stage",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ...",
+      "titleByLocale": {
+        "it": "Kaufmännische Praktikumsstelle (HMS 3+1)",
+        "en": "Kaufmännische Praktikumsstelle (HMS 3+1)",
+        "de": "Kaufmännische Praktikumsstelle (HMS 3+1)",
+        "fr": "Kaufmännische Praktikumsstelle (HMS 3+1)"
+      },
+      "descriptionByLocale": {
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ...",
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. „Wir engagieren uns für ein sicheres und lebenswertes Chur“Sicherheit ..."
+      },
+      "slugByLocale": {
+        "it": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+        "en": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+        "de": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
+        "fr": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
+      },
+      "crawledAt": "2026-09-03T23:29:16.971Z",
+      "id": "stadt-chur-c0496a08b9e2",
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-01T00:58:37.556Z"
+    },
+    {
+      "title": "Stellvertretung Klassenlehrperson, zweisprachiger Klassenzug, 3./4. Klasse, Italienisch (93%)",
+      "slug": "professore-di-classe-aggiunto-bilingue-3a-4a-classe-italiano-93-stadt-chur-chur",
+      "url": "https://jobs.chur.ch/Stellvertretung-Klassenlehrperson-zweisprachiger-Klassenzu-de-j1712.html",
+      "applyUrl": "https://jobs.chur.ch/Stellvertretung-Klassenlehrperson-zweisprachiger-Klassenzu-de-j1712.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "education",
+      "sector": "Pubblica Amministrazione",
+      "department": "Bildung / Soziale Berufe / Sport",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-18",
+      "validThrough": "",
+      "employmentType": "part_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Grau...",
+      "titleByLocale": {
+        "it": "Professore di classe aggiunto, bilingue, 3a 4a classe, italiano (93%)",
+        "en": "Deputy class teacher, bilingual class train, 3rd/4th class, Italian (93%)",
+        "de": "Stellvertretung Klassenlehrperson, zweisprachiger Klassenzug, 3./4. Klasse, Italienisch (93%)",
+        "fr": "Professeur adjoint, formation bilingue, 3e/4e classe, Italien (93%)"
+      },
+      "descriptionByLocale": {
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Grau...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Grau...",
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Grau...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Grau..."
+      },
+      "slugByLocale": {
+        "it": "professore-di-classe-aggiunto-bilingue-3a-4a-classe-italiano-93-stadt-chur-chur",
+        "en": "deputy-class-teacher-bilingual-class-train-3rd-4th-class-italian-93-stadt-chur-chur",
+        "de": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712",
+        "fr": "professeur-adjoint-formation-bilingue-3e-4e-classe-italien-93-stadt-chur-chur"
+      },
+      "crawledAt": "2026-09-03T23:30:23.735Z",
+      "id": "stadt-chur-236d71791b5d",
+      "needsRetranslation": true,
+      "salaryMin": 45100,
+      "salaryMax": 83200,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 45100,
+          "maxValue": 83200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-27T00:51:53.245Z",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
+        ],
+        "en": [
+          "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
+        ],
+        "fr": [
+          "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
+      ]
+    },
+    {
+      "title": "Lehrstelle als Kauffrau / Kaufmann öffentliche Verwaltung EFZ",
+      "slug": "apprendistato-come-commerciante-commerciante-pubblica-amministrazione-efz-stadt-chur-chur",
+      "url": "https://jobs.chur.ch/Lehrstelle-als-Kauffrau-Kaufmann-oeffentliche-Verwaltung-E-de-j1713.html",
+      "applyUrl": "https://jobs.chur.ch/Lehrstelle-als-Kauffrau-Kaufmann-oeffentliche-Verwaltung-E-de-j1713.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "Kaufm. Berufe / Kundendienst / Verwaltung",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-18",
+      "validThrough": "",
+      "employmentType": "apprenticeship",
+      "contractType": "stage",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Stadtschule Die Stadtschule Chur ist die grösste öffentliche Schule im...",
+      "titleByLocale": {
+        "it": "Apprendistato come commerciante / commerciante pubblica amministrazione EFZ",
+        "en": "Apprenticeship as a merchant / merchant public administration EFZ",
+        "de": "Lehrstelle als Kauffrau / Kaufmann öffentliche Verwaltung EFZ",
+        "fr": "Apprentissage en tant que commerçant / administration publique marchande EFZ"
+      },
+      "descriptionByLocale": {
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Stadtschule Die Stadtschule Chur ist die grösste öffentliche Schule im...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Stadtschule Die Stadtschule Chur ist die grösste öffentliche Schule im...",
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Stadtschule Die Stadtschule Chur ist die grösste öffentliche Schule im...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Stadtschule Die Stadtschule Chur ist die grösste öffentliche Schule im..."
+      },
+      "slugByLocale": {
+        "it": "apprendistato-come-commerciante-commerciante-pubblica-amministrazione-efz-stadt-chur-chur",
+        "en": "apprenticeship-as-a-merchant-merchant-public-administration-efz-stadt-chur-chur",
+        "de": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
+        "fr": "apprentissage-en-tant-que-commercant-administration-publique-marchande-efz-stadt-chur-chur"
+      },
+      "crawledAt": "2026-09-03T23:31:30.497Z",
+      "id": "stadt-chur-820b8f6a45d2",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-08-27T00:53:00.007Z",
+      "salarySource": "estimated",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
+          "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur"
+        ],
+        "en": [
+          "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
+        ],
+        "fr": [
+          "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
+        "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur"
+      ],
+      "needsRetranslation": true
+    },
     {
       "title": "Bereichsleiter/in Friedhöfe/Bestattungen und Stv. Leiter/in Stadtgärtnerei (80-100%)",
       "slug": "bereichsleiter-in-friedhofe-bestattungen-e-stv-responsabile-stadtgartnerei-80-100-stadt-chur",
@@ -18,14 +231,14 @@
       "country": "CH",
       "category": "public-administration",
       "sector": "Pubblica Amministrazione",
-      "department": "",
+      "department": "Landwirtschaft / Forstwirtschaft",
       "source": "stadt-chur-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-07",
+      "postedDate": "2026-08-06",
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "description": "Bereichsleiter/in Friedhöfe/Bestattungen und Stv. Leiter/in Stadtgärtnerei (80-100%)\n Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nDie Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und pflegerischen Unterhalt der städtischen Freiraumanlagen mit rund 4'000 Strassen- und Anlagebäumen. Zudem ist sie zuständig für alle zehn Friedhöfe sowie für das Bestattungswesen. Die Erhaltung und kontinuierliche Verbesserung der Lebensqualität in der Stadt Chur stehen dabei im Zentrum unserer \n• Aufgaben.\n\nInfolge Pensionierung und Umstrukturierung suchen wir per 1. August 2026 oder nach Vereinbarung Sie als\n\nBereichsleiter/in Friedhöfe/Bestattungen und Stv. Leiter/in Stadtgärtnerei (80-100%)\n \n• Ihre Aufgaben\n In dieser vielseitigen Führungsfunktion übernehmen Sie die Verantwortung für das Friedhofs- und Bestattungswesen der Stadt Chur und stellen dessen reibungslosen, kundenorientierten und pietätvollen Betrieb sicher.\n\nSie organisieren, koordinieren und überwachen den pflegerischen sowie baulichen Unterhalt der städtischen Friedhofanlagen und sorgen für deren kontinuierliche Weiterentwicklung. Dabei führen Sie die Mitarbeitenden des Friedhofs- und Bestattungswesens fachlich und personell und fördern eine konstruktive Zusammenarbeit im Team.\n\nAls stellvertretende Leiterin beziehungsweise stellvertretender Leiter der Stadtgärtnerei unterstützen Sie die Abteilungsleitung in organisatorischen und strategischen Belangen und übernehmen deren Stellvertretung.\n\nZudem beraten Sie die Bevölkerung kompetent in allen Fragen rund um Bestattungen, Friedhöfe und Grabpflege. Die Leitung und Mitarbeit bei betriebseigenen Projekten, die Mitwirkung in Arbeits- und Fachgruppen sowie die Koordination und Beurteilung von beauftragten Unternehmen und weiteren Partnern runden Ihr abwechslungsreiches Aufgabengebiet ab.\n\nIhr Profil\n Sie verfügen über eine abgeschlossene Berufsausbildung in der grünen Branche, vorzugsweise als Gärtner/in EFZ mit Fachrichtung Garten- und Landschaftsbau, und haben sich mit einer höheren Ausbildung, beispielsweise als Landschaftsarchitekt/in, Gärtnermeister/in oder Techniker/in GSO, weitergebildet.\n\nDank Ihrer mehrjährigen Führungserfahrung verstehen Sie es, Mitarbeitende zu motivieren, zu fördern und zielorientiert zu führen.\n\nSie verfügen über gute Deutsch- und IT-Kenntnisse und arbeiten selbstständig, strukturiert sowie lösungsorientiert. Erfahrungen im Bestattungs- und Friedhofswesen sind von Vorteil.\n\nAls zuverlässige, ausgeglichene und verantwortungsbewusste Persönlichkeit begegnen Sie Menschen in herausfordernden Lebenssituationen mit Einfühlungsvermögen, Respekt und der notwendigen Pietät.\n\nTeamfähigkeit, Eigeninitiative sowie ein sicheres Auftreten runden \n• Ihr Profil ab.\n\nUnser Angebot\n Es erwartet Sie eine abwechslungsreiche Führungsaufgabe mit Verantwortung in einem en",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ...",
       "titleByLocale": {
         "it": "Bereichsleiter/in Friedhöfe/Bestattungen e Stv. Responsabile Stadtgärtnerei (80-100%)",
         "en": "Area manager/in cemeteries/burials and Stv. manager/in Stadtgärtnerei (80-100%)",
@@ -44,7 +257,7 @@
         "de": "bereichsleiter-in-friedhofe-bestattungen-und-stv-leiter-in-stadtgartnerei-80-100-stadt-chur-1694",
         "fr": "gestionnaire-de-secteur-dans-les-cimetieres-bureaux-et-directeur-de-stv-dans-stadtgartnerei-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-18T22:10:10.288Z",
+      "crawledAt": "2026-09-03T23:32:37.260Z",
       "id": "stadt-chur-1f1f55884c3a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -60,6 +273,7 @@
         }
       },
       "firstSeenAt": "2026-08-07T21:48:19.192Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "bereichsleiter-in-friedhofe-bestattungen-und-stv-leiter-in-stadtgartnerei-80-100-stadt-chur-1694"
@@ -77,153 +291,6 @@
       "needsRetranslation": true
     },
     {
-      "title": "Berufsbeiständin / Berufsbeistand 80-100%",
-      "slug": "assistente-professionale-assistente-professionale-80-100-stadt-chur-chur",
-      "url": "https://jobs.chur.ch/Berufsbeistaendin-Berufsbeistand-80-100-de-j1708.html",
-      "applyUrl": "https://jobs.chur.ch/Berufsbeistaendin-Berufsbeistand-80-100-de-j1708.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-06",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Berufsbeiständin / Berufsbeistand 80-100%\n Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nFür die Erweiterung unseres Teams suchen wir per 1. September 2026 oder nach Vereinbarung eine/einen\n Berufsbeiständin / Berufsbeistand 80-100%\n \n• Ihre Aufgaben\n In Zusammenarbeit mit involvierten Behörden, Fachstellen und Institutionen sind Sie für das selbständige Führen von behördlichen Kindes- und Erwachsenenschutzmassnahmen zuständig und stellen insbesondere sicher, dass Menschen in einer schwierigen Lebenssituation und unter Wahrung ihres Selbstbestimmungsrechtes situationsgerecht vertreten, beraten und begleitet werden.\n \n• Ihr Profil\n Sie verfügen über ein abgeschlossenes Studium (FH) in Sozialarbeit oder vergleichbaren Fachgebieten. Berufserfahrung in der gesetzlichen Sozialarbeit und Kenntnisse im Kindes- und Erwachsenenschutzrecht, Sozialversicherungsrecht sowie Sozialhilferecht sind für die Mandatsführung wesentlich. Gute IT-Anwenderkenntnisse (KLIB, Word, Excel, Outlook) und Engagement für Menschen in schwierigen Lebenssituationen setzen wir ebenso voraus wie die Freude am Umgang mit Personen verschiedenster Herkunft.\n\nAls verantwortungsbewusste, kommunikative und engagierte Persönlichkeit sind Sie in der Lage, auch in anspruchsvollen und hektischen Situationen Ruhe und den Überblick zu wahren. Sie sollten zudem im Besitz eines Führerausweises der Kategorie B sein und nach Möglichkeit über Fremdsprachenkenntnisse verfügen.\n\nUnser Angebot\n \n• Wir bieten Ihnen eine sinnstiftende, abwechslungsreiche und verantwortungsvolle Tätigkeit in einem engagierten und unterstützenden Team. Ein Führungsteam, welche die Zusammenarbeit auf Augenhöhe und als \"Miteinander\" versteht. Eine Unternehmenskultur, welche die Vereinbarkeit von Familie und Beruf mit der Möglichkeit von Teilzeit-Homeoffice fördert. \n• Wir bieten eine sorgfältige Einarbeitung durch erfahrene und engagierte Fachpersonen und individuelle Weiterentwicklung durch Teilnahme an Weiterbildungen. Professionelle Strukturen, regelmässige Supervision, interner Fachaustausch mit zeitgemässen Anstellungsbedingungen sowie ein zentraler, mit öffentlichen Verkehrsmitteln gut erreichbarer Arbeitsplatz am Rande der Altstadt von Chur, vervollständigen unser Angebot.\n Ihre Fragen\n Weitere Auskünfte erteilt Ihnen gerne Carmen Nicolini, stellvertretende Leiterin Berufsbeistandschaft, Telefon 081 254 49 04.\n Sind Sie interessiert?\n Ihre HR-Ansprechpartnerin freut sich auf Ihre Online Bewerbung bis 23.08.2026 .\n Silvia Maag\n HR-Verantwortliche Tel. 081 254 42 21\n\nFür die Zusammenarbeit mit Personalvermittlungen gelten einheitliche Konditionen ( https://www.chur.ch/personalvermittlung ). Sobald ein Dossier eingereicht wird, gelten diese als akzeptiert.\n Das Erfolgshonorar beträgt pauschal 10 % des vereinbarten Jahreslohnes gemäss Beschäftigungsgrad.",
-      "titleByLocale": {
-        "it": "Assistente professionale / assistente professionale 80-100 %",
-        "en": "Professional assistant / professional assistant 80-100 %",
-        "de": "Berufsbeiständin / Berufsbeistand 80-100%",
-        "fr": "Assistant professionnel / assistant professionnel 80-100 %"
-      },
-      "descriptionByLocale": {
-        "it": "Assistente professionale / assistente professionale 80-100 %\nCon 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti.\n\nPer l'espansione del nostro team stiamo cercando 1. Settembre 2026 o per accordo uno o\nAssistente professionale / assistente professionale 80-100 %\n\n• I loro compiti\nIn collaborazione con le autorità, gli organismi specializzati e le istituzioni coinvolte, si è responsabili della gestione indipendente delle misure ufficiali di protezione dei bambini e degli adulti e in particolare assicurano che le persone in una situazione di vita difficile e nel rispetto del loro diritto all'autodeterminazione siano rappresentate, consigliate e accompagnate.\n\n• Il tuo profilo\nHai completato gli studi (FH) nel lavoro sociale o campi comparabili di competenza. L'esperienza professionale nel lavoro sociale legale e la conoscenza del diritto di protezione dei bambini e degli adulti, il diritto di assicurazione sociale e il diritto di assistenza sociale sono essenziali per la gestione del mandato. Buona conoscenza degli utenti IT (KLIB, Word, Excel, Outlook) e l'impegno per le persone in situazioni di vita difficile sono altrettanto importanti come il piacere di trattare con le persone da diversi background.\n\nCome personalità responsabile, comunicativa e impegnata, si è in grado di mantenere la calma e la visione d'insieme anche in situazioni impegnative e frenetiche. Essi dovrebbero anche avere una licenza di guida di categoria B e, se possibile, la conoscenza delle lingue straniere.\n\nLa nostra offerta\n\n• Vi offriamo un lavoro significativo, vario e responsabile in un team impegnato e di supporto. Un team di gestione che comprende la cooperazione a livello degli occhi e come \"insieme\". Una cultura aziendale che promuove la compatibilità della famiglia e del lavoro con la possibilità di un ufficio a tempo parziale.\n• Offriamo una formazione attenta da professionisti esperti e impegnati e sviluppo individuale attraverso la partecipazione a un'ulteriore formazione. Strutture professionali, supervisione regolare, scambio interno con condizioni di lavoro contemporaneo e un posto di lavoro centrale ai margini del centro storico di Chur, che è facilmente accessibile dai trasporti pubblici, completano la nostra offerta.\nLe loro domande\nCarmen Nicolini, Vice Capo di Assistenza Professionale, è lieta di fornire ulteriori informazioni al telefono 081 254 49 04.\nSei interessato?\nIl vostro contatto HR è impaziente per la vostra applicazione online fino a 23.08.2026 .\nSilvia Maag\nHR manager Tel. 081 254 42 21\n\nLe condizioni uniformi si applicano alla cooperazione con le agenzie di reclutamento (http://www.chur.ch/personalvermittlung ). Una volta che un dossier è presentato, è considerato accettato.\nLa quota di successo ammonta a un tasso piatto del 10% del salario annuo concordato secondo il livello di occupazione.",
-        "en": "Professional assistant / professional assistant 80-100 %\nWith 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees.\n\nFor the expansion of our team we are looking for 1. September 2026 or by arrangement one or\nProfessional assistant / professional assistant 80-100 %\n\n• Their tasks\nIn cooperation with the authorities, specialist bodies and institutions involved, you are responsible for the independent management of official child and adult protection measures and in particular ensure that people in a difficult life situation and while respecting their right to self-determination are represented, advised and accompanied.\n\n• Your profile\nYou have completed studies (FH) in social work or comparable fields of expertise. Professional experience in statutory social work and knowledge of child and adult protection law, social insurance law and social assistance law are essential for mandate management. Good IT user knowledge (KLIB, Word, Excel, Outlook) and commitment to people in difficult life situations are just as important as the pleasure of dealing with people from different backgrounds.\n\nAs a responsible, communicative and committed personality, you are able to keep calm and overview even in demanding and hectic situations. They should also have a category B driving licence and, where possible, knowledge of foreign languages.\n\nOur offer\n\n• We offer you meaningful, varied and responsible work in a committed and supportive team. A management team that understands cooperation at eye level and as \"togetherness\". A corporate culture that promotes the compatibility of family and work with the possibility of a part-time home office.\n• We offer careful training by experienced and committed professionals and individual development through participation in further education. Professional structures, regular supervision, internal exchange with contemporary employment conditions as well as a central workplace on the edge of the old town of Chur, which is easily accessible by public transport, complete our offer.\nTheir questions\nCarmen Nicolini, Deputy Head of Professional Assistance, is happy to provide further information by telephone 081 254 49 04.\nAre you interested?\nYour HR contact is looking forward to your online application until 23.08.2026 .\nSilvia Maag\nHR manager Tel. 081 254 42 21\n\nUniform conditions apply to cooperation with recruitment agencies (http://www.chur.ch/personalvermittlung ). Once a dossier is submitted, it is considered accepted.\nThe success fee amounts to a flat rate of 10% of the agreed annual wage according to the employment level.",
-        "de": "Berufsbeiständin / Berufsbeistand 80-100%\nChur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nFür die Erweiterung unseres Teams suchen wir per 1. September 2026 oder nach Vereinbarung eine/einen\nBerufsbeiständin / Berufsbeistand 80-100%\n\n• Ihre Aufgaben\nIn Zusammenarbeit mit involvierten Behörden, Fachstellen und Institutionen sind Sie für das selbständige Führen von behördlichen Kindes- und Erwachsenenschutzmassnahmen zuständig und stellen insbesondere sicher, dass Menschen in einer schwierigen Lebenssituation und unter Wahrung ihres Selbstbestimmungsrechtes situationsgerecht vertreten, beraten und begleitet werden.\n\n• Ihr Profil\nSie verfügen über ein abgeschlossenes Studium (FH) in Sozialarbeit oder vergleichbaren Fachgebieten. Berufserfahrung in der gesetzlichen Sozialarbeit und Kenntnisse im Kindes- und Erwachsenenschutzrecht, Sozialversicherungsrecht sowie Sozialhilferecht sind für die Mandatsführung wesentlich. Gute IT-Anwenderkenntnisse (KLIB, Word, Excel, Outlook) und Engagement für Menschen in schwierigen Lebenssituationen setzen wir ebenso voraus wie die Freude am Umgang mit Personen verschiedenster Herkunft.\n\nAls verantwortungsbewusste, kommunikative und engagierte Persönlichkeit sind Sie in der Lage, auch in anspruchsvollen und hektischen Situationen Ruhe und den Überblick zu wahren. Sie sollten zudem im Besitz eines Führerausweises der Kategorie B sein und nach Möglichkeit über Fremdsprachenkenntnisse verfügen.\n\nUnser Angebot\n\n• Wir bieten Ihnen eine sinnstiftende, abwechslungsreiche und verantwortungsvolle Tätigkeit in einem engagierten und unterstützenden Team. Ein Führungsteam, welche die Zusammenarbeit auf Augenhöhe und als \"Miteinander\" versteht. Eine Unternehmenskultur, welche die Vereinbarkeit von Familie und Beruf mit der Möglichkeit von Teilzeit-Homeoffice fördert.\n• Wir bieten eine sorgfältige Einarbeitung durch erfahrene und engagierte Fachpersonen und individuelle Weiterentwicklung durch Teilnahme an Weiterbildungen. Professionelle Strukturen, regelmässige Supervision, interner Fachaustausch mit zeitgemässen Anstellungsbedingungen sowie ein zentraler, mit öffentlichen Verkehrsmitteln gut erreichbarer Arbeitsplatz am Rande der Altstadt von Chur, vervollständigen unser Angebot.\nIhre Fragen\nWeitere Auskünfte erteilt Ihnen gerne Carmen Nicolini, stellvertretende Leiterin Berufsbeistandschaft, Telefon 081 254 49 04.\nSind Sie interessiert?\nIhre HR-Ansprechpartnerin freut sich auf Ihre Online Bewerbung bis 23.08.2026 .\nSilvia Maag\nHR-Verantwortliche Tel. 081 254 42 21\n\nFür die Zusammenarbeit mit Personalvermittlungen gelten einheitliche Konditionen ( https://www.chur.ch/personalvermittlung ). Sobald ein Dossier eingereicht wird, gelten diese als akzeptiert.\nDas Erfolgshonorar beträgt pauschal 10 % des vereinbarten Jahreslohnes gemäss Beschäftigungsgrad.",
-        "fr": "Assistant professionnel / assistant professionnel 80-100 %\nAvec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés.\n\nPour l'expansion de notre équipe, nous cherchons 1. septembre 2026 ou par arrangement un ou\nAssistant professionnel / assistant professionnel 80-100 %\n\n• Leurs tâches\nEn coopération avec les autorités, les organismes spécialisés et les institutions concernés, vous êtes responsable de la gestion indépendante des mesures officielles de protection de l'enfant et de l'adulte et, en particulier, de veiller à ce que les personnes en situation difficile et dans le respect de leur droit à l'autodétermination soient représentées, conseillées et accompagnées.\n\n• Votre profil\nVous avez terminé des études en travail social ou dans des domaines d'expertise comparables. L'expérience professionnelle en matière de travail social statutaire et la connaissance de la loi sur la protection de l'enfance et de l'adulte, de la loi sur l'assurance sociale et de la loi sur l'assistance sociale sont essentielles pour la gestion des mandats. Une bonne connaissance des utilisateurs de TI (KLIB, Word, Excel, Outlook) et un engagement envers les personnes dans des situations difficiles sont tout aussi importants que le plaisir de traiter avec des personnes de différents horizons.\n\nEn tant que personnalité responsable, communicative et engagée, vous êtes en mesure de garder le calme et l'aperçu même dans des situations exigeantes et mouvementées. Ils devraient également avoir un permis de conduire de catégorie B et, si possible, une connaissance des langues étrangères.\n\nNotre offre\n\n• Nous vous offrons un travail significatif, varié et responsable dans une équipe engagée et solidaire. Une équipe de gestion qui comprend la coopération au niveau des yeux et comme « ensemble ». Une culture d'entreprise qui favorise la compatibilité de la famille et du travail avec la possibilité d'un bureau à temps partiel.\n• Nous offrons une formation soignée par des professionnels expérimentés et engagés et le développement individuel par la participation à la formation continue. Structures professionnelles, supervision régulière, échanges internes avec les conditions d'emploi contemporaines ainsi qu'un lieu de travail central en bordure de la vieille ville de Chur, facilement accessible par les transports en commun, complètent notre offre.\nLeurs questions\nCarmen Nicolini, chef adjointe de l'aide professionnelle, est heureuse de fournir des renseignements supplémentaires par téléphone au 081 254 49 04.\nÇa t'intéresse ?\nVotre contact RH attend avec impatience votre candidature en ligne jusqu'au 23.08.2026 .\nSilvia Maag\nTél. 081 254 42 21\n\nDes conditions uniformes s'appliquent à la coopération avec les agences de recrutement (http://www.chur.ch/personalvermittlung ). Une fois un dossier soumis, il est considéré comme accepté.\nLes frais de réussite représentent un taux forfaitaire de 10% du salaire annuel convenu en fonction du niveau d'emploi."
-      },
-      "slugByLocale": {
-        "it": "assistente-professionale-assistente-professionale-80-100-stadt-chur-chur",
-        "en": "professional-assistant-professional-assistant-80-100-stadt-chur-chur",
-        "de": "berufsbeistandin-berufsbeistand-80-100-stadt-chur-1708",
-        "fr": "assistant-professionnel-assistant-professionnel-80-100-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:11:17.041Z",
-      "id": "stadt-chur-65a298c0334c",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-06T12:13:05.884Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufsbeistandin-berufsbeistand-80-100-stadt-chur-1708"
-        ],
-        "en": [
-          "berufsbeistandin-berufsbeistand-80-100-stadt-chur-1708"
-        ],
-        "fr": [
-          "berufsbeistandin-berufsbeistand-80-100-stadt-chur-1708"
-        ]
-      },
-      "previousSlugs": [
-        "berufsbeistandin-berufsbeistand-80-100-stadt-chur-1708"
-      ]
-    },
-    {
-      "title": "Sargträger/in",
-      "slug": "coffin-portatore-stadt-chur-chur",
-      "url": "https://jobs.chur.ch/Sargtraegerin-de-j1669.html",
-      "applyUrl": "https://jobs.chur.ch/Sargtraegerin-de-j1669.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-04",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Sargträger/in\n Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nDie Abteilung Stadtgärtnerei ist innerhalb der Dienststelle Grün und Werkbetrieb für das Bestattungs- und Friedhofwesen, den Unterhalt von zehn Friedhöfen und den Betrieb des Krematoriums im Auftragsverhältnis verantwortlich. Sie ist weiter zuständig für den baulichen und pflegerischen Unterhalt der städtischen Freiraumanlagen.\n\nWir suchen nach Vereinbarung eine/n\n\nSargträger/in\n\nIhre Aufgaben\n Zum Aufgabengebiet gehören das Bereitstellen des Sarges, das Tragen und Begleiten des Sarges zum Grab, die Beisetzung und das Eindecken des Grabes.\n \n• Ihr Profil\n Sie sind bereit, auf Abruf Arbeitseinsätze auszuführen. Diese finden von Montag bis Freitag in der Regel nachmittags, selten auch an Samstagvormittagen, statt. Pro Jahr werden ca. 35 Erdbestattungen durchgeführt. Für diese spezielle Arbeit wird von Ihnen ein respekt- und pietätvolles Auftreten verlangt. Sie sind bei guter körperlicher Verfassung und Ihre Einsatzbereitschaft für die Zusammenarbeit in einem 4-köpfigen Team ist hoch. Eigeninitiative und selbständiges Arbeiten sind für Sie keine Fremdwörter. Angesprochen sind auch körperlich fitte Rentner/innen.\n Unser Angebot\n Neben attraktiven städtischen Anstellungsbedingungen erwartet Sie ein motiviertes und kollegiales Team. Die Einsätze werden pauschal pro Einsatz entlöhnt.\n Ihre Fragen\n Weitere Auskünfte erteilt Ihnen gerne Roman Juon, Bereichsleiter Friedhöfe/Bestattungen unter Tel. +41 81 254 47 68.\n\nSind Sie interessiert?\n Ihre HR-Ansprechpartnerin freut sich auf Ihre Onlinebewerbung!\n Ivana Tomaschett\n HR-Verantwortliche Tel. 081 254 42 17\n Für die Zusammenarbeit mit Personalvermittlungen gelten einheitliche Konditionen ( https://www.chur.ch/personalvermittlung ). Sobald ein Dossier eingereicht wird, gelten diese als akzeptiert.\n Das Erfolgshonorar beträgt pauschal 10 % des vereinbarten Jahreslohnes gemäss Beschäftigungsgrad.",
-      "titleByLocale": {
-        "it": "Portacogna",
-        "en": "Cog carrier",
-        "de": "Sargträger/in",
-        "fr": "Transporteur de wagons"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione\n\nPortatore di bara\n\nCon 41.000 abitanti Coira è il centro urbano dei Grigioni. Essendo una città attraente e diversificata, offre servizi moderni e orientati al cliente con i suoi 1.400 dipendenti.\n\nIl dipartimento di giardinaggio cittadino è responsabile dei servizi funebri e cimiteriali, della manutenzione di dieci cimiteri e del funzionamento del crematorio all'interno del dipartimento del verde e dei lavori. Si occupa inoltre della struttura e della manutenzione delle strutture degli spazi aperti urbani.\n\nCompiti\n\n- Prepara la bara\n- Trasportare e accompagnare la bara alla tomba\n- Funerale\n- Coprire la tomba\n\nRequisiti\n\n- Disponibilità a svolgere incarichi di lavoro a chiamata\n- Di solito si svolgono dal lunedì al venerdì nel pomeriggio e raramente il sabato mattina.\n- Ogni anno vengono effettuate circa 35 sepolture.\n- Comportamento rispettoso e rispettoso\n-Buona condizione fisica\n- Elevata disponibilità a lavorare insieme in un team di 4 persone\n- Autoiniziativa e lavoro indipendente\n- Pensionati fisicamente idonei\n\nOffriamo\n\n- Condizioni occupazionali urbane attraenti\n- Team motivato e collegiale\n- Retribuzione forfettaria per implementazione\n\nContatto\n\nRoman Juon, Responsabile Cimiteri/Sepolture, sarà lieto di fornirvi ulteriori informazioni al tel. 41 81 254 47 68.\n\nSei interessato?\n\nIl tuo contatto delle risorse umane attende con ansia la tua candidatura online!\n\nIvana Tomaschett\n\nResponsabile delle risorse umane\n\ntel. 081 254 42 17\n\nPer la collaborazione con le agenzie di collocamento valgono condizioni uniformi (https://www.chur.ch/personalvaktion). Non appena un dossier viene presentato, si considera accettato.\n\nLa commissione di successo è un importo forfettario pari al 10% del salario annuo concordato a seconda del livello di occupazione.",
-        "en": "Description\n\nCog carrier\n\nWith 41'000 inhabitants, Chur is the urban centre of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees.\n\nThe department of Stadtgärtnerei is responsible for the burial and cemetery activities, the maintenance of ten cemeteries and the operation of the crematorium in the contract relationship within the department of Grün und Werkbetrieb. It is also responsible for the structural and maintenance maintenance of the urban open spaces.\n\nTasks\n\n- Prepare the coffin - Carrying and accompanying the coffin to the grave - funeral - Covering the grave\n\nRequirements\n\n- Ready to perform work assignments on demand - These usually take place from Monday to Friday in the afternoon, rarely even on Saturday mornings. - About 35 earth burials are carried out every year. - Respectful and piety-full appearance - Good physical condition - High willingness to work together in a team of four - Self-initiative and independent work - Physically fit pensioners\n\nWe offer\n\n- Attractive urban employment conditions - Motivated and collegial team - Flat rate per job disbursement\n\nContact\n\nFor further information, please contact Roman Juon, Head of the Cemetery/Destination Division at +41 81 254 47 68.\n\nAre you interested?\n\nYour HR contact is looking forward to your online application!\n\nIvana Tomashett\n\nHR responsible\n\nTel. 081 254 42 17\n\nCooperation with recruitment agencies is subject to uniform conditions (https://www.chur.ch/personal placement) and is deemed to be accepted as soon as a dossier is submitted.\n\nThe success fee is 10% of the agreed annual wage according to the level of employment.",
-        "de": "Beschreibung\n\nSargträger/in\n\nChur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nDie Abteilung Stadtgärtnerei ist innerhalb der Dienststelle Grün und Werkbetrieb für das Bestattungs- und Friedhofwesen, den Unterhalt von zehn Friedhöfen und den Betrieb des Krematoriums im Auftragsverhältnis verantwortlich. Sie ist weiter zuständig für den baulichen und pflegerischen Unterhalt der städtischen Freiraumanlagen.\n\nAufgaben\n\n- Bereitstellen des Sarges\n- Tragen und Begleiten des Sarges zum Grab\n- Beisetzung\n- Eindecken des Grabes\n\nAnforderungen\n\n- Bereit, auf Abruf Arbeitseinsätze auszuführen\n- Diese finden von Montag bis Freitag in der Regel nachmittags, selten auch an Samstagvormittagen, statt.\n- Pro Jahr werden ca. 35 Erdbestattungen durchgeführt.\n- Respekt- und pietätvolles Auftreten\n- Gute körperliche Verfassung\n- Hohe Einsatzbereitschaft für die Zusammenarbeit in einem 4-köpfigen Team\n- Eigeninitiative und selbständiges Arbeiten\n- Körperlich fitte Rentner/innen\n\nWir bieten\n\n- Attraktive städtische Anstellungsbedingungen\n- Motiviertes und kollegiales Team\n- Pauschal pro Einsatz entlöhnung\n\nKontakt\n\nWeitere Auskünfte erteilt Ihnen gerne Roman Juon, Bereichsleiter Friedhöfe/Bestattungen unter Tel. +41 81 254 47 68.\n\nSind Sie interessiert?\n\nIhre HR-Ansprechperson freut sich auf Ihre Onlinebewerbung!\n\nIvana Tomaschett\n\nHR-Verantwortliche\n\nTel. 081 254 42 17\n\nFür die Zusammenarbeit mit Personalvermittlungen gelten einheitliche Konditionen (https://www.chur.ch/personalvermittlung). Sobald ein Dossier eingereicht wird, gelten diese als akzeptiert.\n\nDas Erfolgshonorar beträgt pauschal 10 % des vereinbarten Jahreslohnes gemäss Beschäftigungsgrad.",
-        "fr": "Descriptif\n\nPorteur du cercueil\n\nAvec 41 000 habitants, Coire est le centre urbain des Grisons. Ville attractive et diversifiée, elle propose avec ses 1 400 collaborateurs des services modernes et orientés client.\n\nLe service des jardins de la ville est responsable des services funéraires et des cimetières, de l'entretien de dix cimetières et de l'exploitation du crématorium au sein du service des espaces verts et des travaux. Elle est également responsable de la structure et de l’entretien des installations des espaces ouverts urbains.\n\nTâches\n\n- Préparer le cercueil\n- Porter et accompagner le cercueil jusqu'à la tombe\n- Funérailles\n- Couvrir la tombe\n\nExigences\n\n- Disposé à effectuer des tâches de travail sur appel\n- Celles-ci ont généralement lieu du lundi au vendredi l'après-midi, et rarement le samedi matin.\n- Environ 35 enterrements sont réalisés chaque année.\n- Attitude respectueuse et respectueuse\n- Bonne condition physique\n- Grande volonté de travailler en équipe de 4 personnes\n- Auto-initiative et travail indépendant\n- Retraités physiquement aptes\n\nNous offrons\n\n- Des conditions d'emploi urbaines attractives\n- Équipe motivée et collégiale\n- Rémunération forfaitaire par déploiement\n\nContacter\n\nRoman Juon, responsable des cimetières/inhumations, se fera un plaisir de vous fournir de plus amples informations au tél. 41 81 254 47 68.\n\nÊtes-vous intéressé?\n\nVotre interlocuteur RH attend avec impatience votre candidature en ligne !\n\nIvana Tomashett\n\nResponsable RH\n\nTél. 081 254 42 17\n\nDes conditions uniformes s'appliquent à la coopération avec les agences de recrutement (https://www.chur.ch/personalvaktion). Dès qu’un dossier est déposé, il est considéré comme accepté.\n\nLa commission de réussite est un taux forfaitaire de 10 % du salaire annuel convenu en fonction du niveau d'emploi."
-      },
-      "slugByLocale": {
-        "it": "coffin-portatore-stadt-chur-chur",
-        "en": "coffin-bearer-stadt-chur-chur",
-        "de": "sargtrager-in-stadt-chur-chur",
-        "fr": "porte-cercueil-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:12:23.798Z",
-      "id": "stadt-chur-4309d92c4ac7",
-      "previousSlugsByLocale": {
-        "fr": [
-          "sargtrager-in-stadt-chur",
-          "transporteur-de-wagons-stadt-chur"
-        ],
-        "it": [
-          "sargtrager-in-stadt-chur-1669"
-        ]
-      },
-      "previousSlugs": [
-        "sargtrager-in-stadt-chur",
-        "porte-cercueil-stadt-chur-chur",
-        "sargtrager-in-stadt-chur-1669",
-        "transporteur-de-wagons-stadt-chur"
-      ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-04T11:38:57.713Z"
-    },
-    {
       "title": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)",
       "slug": "apprendistato-come-fachfrau-fachmann-betreuung-cfc-specializzazione-kinderbetreuung-stadt-chur",
       "url": "https://jobs.chur.ch/Lehrstelle-als-Fachfrau-Fachmann-Betreuung-EFZ-Fachrichtun-de-j1705.html",
@@ -239,16 +306,16 @@
       "country": "CH",
       "category": "education",
       "sector": "Pubblica Amministrazione",
-      "department": "",
+      "department": "Bildung / Soziale Berufe / Sport",
       "source": "stadt-chur-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-04",
+      "postedDate": "2026-08-03",
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
-      "description": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)\n Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.\n\nDie schulergänzende Kinderbetreuung der Stadtschule bietet derzeit pro Woche für 700 Kindergarten- und Schulkinder an verschiedenen Standorten Mittags- und Nachmittagsbetreuung sowie Betreuung während den Schulferien in den Kindertagesstätten an.\n\nAuf den 1. August 2027 bieten wir eine\n\nLehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)\n Deine \n• Aufgaben\n Ziel der Ausbildung ist das Erlernen der umfassenden Betreuung von Kindern. Kinder stehen am Anfang ihrer Entwicklung. Fachpersonen Betreuung regen Entwicklungsprozesse an und schaffen günstige Bedingungen für vielfältige Lernerfahrungen. Das beinhaltet sinnvolle Freizeitbeschäftigung wie Spielen und Basteln, sowie die Vor- und Nachbereitung des Mittagstisches und der Zwischenmahlzeiten, aber auch die aktive Gesundheitsprävention und Integration von Kindern mit besonderen Bedürfnissen. Pädagogische Aktivitäten mit Rücksichtnahme auf den Entwicklungsstand und den persönlichen Fähigkeiten der Kinder werden geplant und durchgeführt.  Dein Profil\n Freude an der Arbeit mit Kindern und ein hohes Verantwortungsbewusstsein setzen wir voraus. Bist du zudem kontaktfreudig, kommunikativ und verfügst über eine gute Beobachtungsgabe sowie einen sicheren mündlichen und schriftlichen Ausdruck, dann bist du bei uns genau richtig. Eine gute körperliche Gesundheit und psychische Belastbarkeit runden dein Profil ab. Unser Angebot\n \n• Wir bieten dir eine lehrreiche, interessante Lehrstelle in einem lebendigen Umfeld. Deine Fragen\n Weitere Auskünfte erteilt dir gerne Gabi Welter, Ausbildungsverantwortliche Kindertagesstätten, Tel. 081 254 44 41.\n\nBist du interessiert?\n Deine HR-Ansprechpartnerin freut sich auf deine Online Bewerbung!\n Laura Thomann\n HR-Administration\n 081 254 42 16",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die schulergänzende Kinderbetreuung der Stadtschule bietet derzeit pro...",
       "titleByLocale": {
-        "it": "Apprendistato come Fachfrau / Fachmann Betreuung CFC (specializzazione Kinderbetreuung)",
+        "it": "Apprendistato come specialista / assistenza specialistica EFZ (assistenza sanitaria speciale per bambini)",
         "en": "Apprenticeship as Childcare Specialist EFZ (Childcare Focus)",
         "de": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)",
         "fr": "Apprentissage de Spécialiste de l'Accompagnement EFZ (Domaine Accueil de l'Enfance)"
@@ -265,7 +332,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-18T22:13:30.552Z",
+      "crawledAt": "2026-09-03T23:33:44.023Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -281,6 +348,7 @@
         }
       },
       "firstSeenAt": "2026-08-04T11:40:04.481Z",
+      "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705"
@@ -295,284 +363,6 @@
       "previousSlugs": [
         "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705"
       ]
-    },
-    {
-      "title": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
-      "slug": "leitende-r-mechaniker-in-e-stv-bereichsleiter-in-werkstatt-e-flottenmanagement-stadt-chur",
-      "url": "https://jobs.chur.ch/Leitender-Mechanikerin-und-Stv-Bereichsleiterin-Werkstatt--de-j1704.html",
-      "applyUrl": "https://jobs.chur.ch/Leitender-Mechanikerin-und-Stv-Bereichsleiterin-Werkstatt--de-j1704.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "engineering",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-29",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement\n Chur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.\n\nDer Bereich Werkstatt und Flottenmanagement des Werkbetriebs sorgt dafür, dass der vielseitige Fahrzeug- und Maschinenpark der Stadt Chur jederzeit zuverlässig und sicher einsatzbereit ist. Dazu gehören Personenwagen, Lastwagen, Kommunalfahrzeuge, Arbeitsmaschinen, Spezialfahrzeuge sowie zahlreiche Geräte, die täglich für den Betrieb und den Unterhalt der städtischen Infrastruktur im Einsatz stehen.\n\nZur Weiterentwicklung unserer Werkstatt suchen wir eine erfahrene und engagierte Persönlichkeit, die Verantwortung übernimmt und gemeinsam mit dem Bereichsleiter die Zukunft unserer Werkstatt aktiv gestaltet. In dieser vielseitigen Funktion verbindest du anspruchsvolle Diagnose-, Wartungs- und Reparaturarbeiten mit fachlicher Führung, organisatorischen \n• Aufgaben und der Weiterentwicklung des Werkstatt- und Flottenmanagements.\n\nWir suchen per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als\n\nLeitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement  (80 - 100 %)\n\nDeine \n• Aufgaben\n Du führst anspruchsvolle Diagnose-, Wartungs-, Service- und Reparaturarbeiten an Personenwagen, Lastwagen, Kommunalfahrzeugen, Arbeitsmaschinen, Spezialfahrzeugen und Geräten aus und sorgst dafür, dass unser Fahrzeug- und Maschinenpark jederzeit zuverlässig einsatzbereit ist. Mit deiner Erfahrung unterstützt und begleitest du die Mitarbeitenden im Werkstattalltag, gibst dein Fachwissen weiter und förderst ihre fachliche Entwicklung.\n\nGemeinsam mit dem Bereichsleiter koordinierst und priorisierst du die anfallenden Werkstattaufträge. Dabei stellst du sicher, dass sämtliche Arbeiten wirtschaftlich, termingerecht und in hoher Qualität ausgeführt werden. Während der Abwesenheit des Bereichsleiters übernimmst du dessen Stellvertretung in fachlichen und organisatorischen Belangen.\n\nDarüber hinaus wirkst du aktiv an der Weiterentwicklung der Werkstattorganisation, der Arbeitsprozesse und des Flottenmanagements mit. Du bringst deine Erfahrung bei Fahrzeug- und Maschinenbeschaffungen, Evaluationen sowie der langfristigen Investitions- und Flottenplanung ein und koordinierst die Zusammenarbeit mit internen Auftraggebern, Lieferanten und externen Fachbetrieben.\n\nVon Oktober bis März leistest du innerhalb des Garagenteams Winterdienstpikett (rund vier Pikettwochen pro Wintersaison) und stellst gemeinsam mit deinem Team die technische Einsatzbereitschaft der Winterdienstfahrzeuge sicher.\n\nDein Profil\n Du verfügst über eine abgeschlossene Berufslehre EFZ als Landmaschinenmechaniker/in, Baumaschinenmechaniker/in oder Automobil-Mechatroniker/in Nutzfahrzeuge. Idealerweise hast du eine Weiterbildung als Diagnostike",
-      "titleByLocale": {
-        "it": "Leitende/r Mechaniker/in e Stv. Bereichsleiter/in Werkstatt e Flottenmanagement",
-        "en": "Leading mechanic and Stv. Division manager/in workshop and fleet management",
-        "de": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement",
-        "fr": "Mécanicien chef et directeur de division Stv. dans l'atelier et la gestion de la flotte"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione Chur è il centro urbano dei Grigioni con circa 41'000 abitanti. Come città attraente e di origine irlandese, circa 1.400 dipendenti forniscono servizi quotidiani orientati al cliente e moderni per la popolazione e l'economia. Compiti - [Tasks 1] - [Tasks 2] - [Tasks 3]\n• Requisiti - [Task 1] - [Task 2] - [Task 3]\n• Offriamo - [Benefit 1] - [Benefit 2] - [Benefit 3] Contatto - [Contact Information 1] - [Contact Information 2]",
-        "en": "Description Chur is the urban centre of Graubünden with about 41'000 inhabitants. As an attractive and versatile city, around 1,400 employees provide daily customer-oriented and modern services for the population and economy. Tasks - [Tasks 1] - [Tasks 2] - [Tasks 3]\n• Requirements - [Task 1] - [Task 2] - [Task 3]\n• We offer - [Benefit 1] - [Benefit 2] - [Benefit 3] Contact - [Contact Information 1] - [Contact Information 2]",
-        "de": "Leitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement\nChur ist mit rund 41'000 Einwohnerinnen und Einwohnern das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt erbringen rund 1'400 Mitarbeitende täglich kundenorientierte und moderne Dienstleistungen für Bevölkerung und Wirtschaft.\n\nDer Bereich Werkstatt und Flottenmanagement des Werkbetriebs sorgt dafür, dass der vielseitige Fahrzeug- und Maschinenpark der Stadt Chur jederzeit zuverlässig und sicher einsatzbereit ist. Dazu gehören Personenwagen, Lastwagen, Kommunalfahrzeuge, Arbeitsmaschinen, Spezialfahrzeuge sowie zahlreiche Geräte, die täglich für den Betrieb und den Unterhalt der städtischen Infrastruktur im Einsatz stehen.\n\nZur Weiterentwicklung unserer Werkstatt suchen wir eine erfahrene und engagierte Persönlichkeit, die Verantwortung übernimmt und gemeinsam mit dem Bereichsleiter die Zukunft unserer Werkstatt aktiv gestaltet. In dieser vielseitigen Funktion verbindest du anspruchsvolle Diagnose-, Wartungs- und Reparaturarbeiten mit fachlicher Führung, organisatorischen\n• Aufgaben und der Weiterentwicklung des Werkstatt- und Flottenmanagements.\n\nWir suchen per sofort oder nach Vereinbarung eine motivierte Persönlichkeit als\n\nLeitende/r Mechaniker/in und Stv. Bereichsleiter/in Werkstatt und Flottenmanagement (80 - 100 %)\n\nDeine\n• Aufgaben\nDu führst anspruchsvolle Diagnose-, Wartungs-, Service- und Reparaturarbeiten an Personenwagen, Lastwagen, Kommunalfahrzeugen, Arbeitsmaschinen, Spezialfahrzeugen und Geräten aus und sorgst dafür, dass unser Fahrzeug- und Maschinenpark jederzeit zuverlässig einsatzbereit ist. Mit deiner Erfahrung unterstützt und begleitest du die Mitarbeitenden im Werkstattalltag, gibst dein Fachwissen weiter und förderst ihre fachliche Entwicklung.\n\nGemeinsam mit dem Bereichsleiter koordinierst und priorisierst du die anfallenden Werkstattaufträge. Dabei stellst du sicher, dass sämtliche Arbeiten wirtschaftlich, termingerecht und in hoher Qualität ausgeführt werden. Während der Abwesenheit des Bereichsleiters übernimmst du dessen Stellvertretung in fachlichen und organisatorischen Belangen.\n\nDarüber hinaus wirkst du aktiv an der Weiterentwicklung der Werkstattorganisation, der Arbeitsprozesse und des Flottenmanagements mit. Du bringst deine Erfahrung bei Fahrzeug- und Maschinenbeschaffungen, Evaluationen sowie der langfristigen Investitions- und Flottenplanung ein und koordinierst die Zusammenarbeit mit internen Auftraggebern, Lieferanten und externen Fachbetrieben.\n\nVon Oktober bis März leistest du innerhalb des Garagenteams Winterdienstpikett (rund vier Pikettwochen pro Wintersaison) und stellst gemeinsam mit deinem Team die technische Einsatzbereitschaft der Winterdienstfahrzeuge sicher.\n\nDein Profil\nDu verfügst über eine abgeschlossene Berufslehre EFZ als Landmaschinenmechaniker/in, Baumaschinenmechaniker/in oder Automobil-Mechatroniker/in Nutzfahrzeuge. Idealerweise hast du eine Weiterbildung als Diagnostike",
-        "fr": "Description Chur est le centre urbain de Graubünden avec environ 41'000 habitants. En tant que ville attrayante et polyvalente, environ 1 400 employés fournissent des services quotidiens axés sur la clientèle et modernes pour la population et l'économie. Tâches - [Tâches 1] - [Tâches 2] - [Tâches 3]\n• Exigences - [Tâche 1] - [Tâche 2] - [Tâche 3]\n• Nous offrons - [Avantage 1] - [Avantage 2] - [Avantage 3] Contact - [Coordonnées 1] - [Coordonnées 2]"
-      },
-      "slugByLocale": {
-        "it": "leitende-r-mechaniker-in-e-stv-bereichsleiter-in-werkstatt-e-flottenmanagement-stadt-chur",
-        "en": "leading-mechanic-and-stv-division-manager-in-workshop-and-fleet-management-stadt-chur-chur",
-        "de": "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704",
-        "fr": "mecanicien-chef-et-directeur-de-division-stv-dans-l-atelier-et-la-gestion-de-la-flotte-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:14:37.306Z",
-      "id": "stadt-chur-74fdc42733da",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-29T11:40:18.156Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-        ],
-        "en": [
-          "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-        ],
-        "fr": [
-          "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-        ]
-      },
-      "previousSlugs": [
-        "leitende-r-mechaniker-in-und-stv-bereichsleiter-in-werkstatt-und-flottenmanagement-stadt-chur-1704"
-      ],
-      "needsRetranslation": true
-    },
-    {
-      "title": "Vorarbeiter/in Betrieblicher Unterhalt mit Stellvertre-tungsfunktion Bereichsleiter (100%)",
-      "slug": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
-      "url": "https://jobs.chur.ch/Vorarbeiterin-Betrieblicher-Unterhalt-mit-Stellvertre-tung-de-j1702.html",
-      "applyUrl": "https://jobs.chur.ch/Vorarbeiterin-Betrieblicher-Unterhalt-mit-Stellvertre-tung-de-j1702.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-28",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Der Werkbetrieb der Stadt Chur sorgt täglich dafür, dass der öffentlic...",
-      "titleByLocale": {
-        "it": "Vorarbeiter/in Betrieblicher Unterhalt con Stellvertre-tungsfunktion Bereichsleiter (100%)",
-        "en": "Foremen/in-company maintenance with position manager (100%)",
-        "de": "Vorarbeiter/in Betrieblicher Unterhalt mit Stellvertre-tungsfunktion Bereichsleiter (100%)",
-        "fr": "Maintenance des contremaîtres/dans l'entreprise avec gestionnaire de poste (100%)"
-      },
-      "descriptionByLocale": {
-        "it": "Con 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti. La fabbrica della città di Chur assicura ogni giorno che il pubblico...",
-        "en": "With 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees. The factory of the city of Chur ensures every day that the public...",
-        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Der Werkbetrieb der Stadt Chur sorgt täglich dafür, dass der öffentlic...",
-        "fr": "Avec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés. L'usine de la ville de Chur assure chaque jour que le public..."
-      },
-      "slugByLocale": {
-        "it": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
-        "en": "foremen-in-company-maintenance-with-position-manager-100-stadt-chur-chur",
-        "de": "vorarbeiter-in-betrieblicher-unterhalt-mit-stellvertre-tungsfunktion-bereichsleiter-100-stadt-chur-1702",
-        "fr": "maintenance-des-contremaitres-dans-l-entreprise-avec-gestionnaire-de-poste-100-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:15:44.060Z",
-      "id": "stadt-chur-00c100636c42",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-28T11:49:42.646Z",
-      "needsRetranslation": true
-    },
-    {
-      "title": "Zivilstandsbeamtin / Zivilstandsbeamter",
-      "slug": "ufficiale-di-stato-civile-stadt-chur-chur",
-      "url": "https://jobs.chur.ch/Zivilstandsbeamtin-Zivilstandsbeamter-de-j1699.html",
-      "applyUrl": "https://jobs.chur.ch/Zivilstandsbeamtin-Zivilstandsbeamter-de-j1699.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-15",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "description": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
-      "titleByLocale": {
-        "it": "Ufficiale di stato civile",
-        "en": "Civil status officer",
-        "de": "Zivilstandsbeamtin / Zivilstandsbeamter",
-        "fr": "Spécialiste de l ' état civil"
-      },
-      "descriptionByLocale": {
-        "it": "La città di Chur è la residenza ufficiale dell'Ufficio di Stato Civile, che è responsabile della regione di Plessur con circa 44,000 abitanti. Il nostro ufficio si trova nel municipio in mezzo alla bella città vecchia. Come risultato del cambiamento del titolare del lavoro in un altro centro...",
-        "en": "The city of Chur is the official residence of the Civil Status Office, which is responsible for the Plessur region with around 44,000 inhabitants. Our office is located in the town hall in the middle of the beautiful old town.As a result of the change of the job holder to another city center...",
-        "de": "Die Stadt Chur ist Amtssitz des Zivilstandsamtes, welches für die Region Plessur mit rund 44‘000 Einwohnerinnen und Einwohnern zuständig ist. Unser Amt befindet sich im Rathaus mitten in der wunderschönen Altstadt.Infolge Wechsels der Stelleninhaberin in ein anderes Ziv...",
-        "fr": "La ville de Chur est la résidence officielle du Bureau de l'état civil, qui est responsable de la région de Plessur avec environ 44 000 habitants. Notre bureau est situé dans la mairie au milieu de la belle vieille ville. En raison du changement du titulaire de l'emploi dans un autre centre-ville..."
-      },
-      "slugByLocale": {
-        "it": "ufficiale-di-stato-civile-stadt-chur-chur",
-        "en": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-chur",
-        "de": "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699",
-        "fr": "specialiste-de-l-etat-civil-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:16:50.813Z",
-      "id": "stadt-chur-8181a7de3772",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-07-15T11:58:33.330Z",
-      "previousSlugsByLocale": {
-        "en": [
-          "civil-status-officer-stadt-chur-chur",
-          "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-        ],
-        "it": [
-          "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-        ],
-        "fr": [
-          "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-        ]
-      },
-      "previousSlugs": [
-        "civil-status-officer-stadt-chur-chur",
-        "zivilstandsbeamtin-zivilstandsbeamter-stadt-chur-1699"
-      ]
-    },
-    {
-      "title": "Badmeister/in Saison (100%)",
-      "slug": "badmaster-in-stagione-100-stadt-chur-chur",
-      "url": "https://jobs.chur.ch/Badmeisterin-Saison-100-de-j1695.html",
-      "applyUrl": "https://jobs.chur.ch/Badmeisterin-Saison-100-de-j1695.html",
-      "company": "Stadt Chur",
-      "companyKey": "stadt-chur",
-      "companyDomain": "chur.ch",
-      "location": "Chur",
-      "addressLocality": "Chur",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica Amministrazione",
-      "department": "",
-      "source": "stadt-chur-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-10",
-      "validThrough": "",
-      "employmentType": "temporary",
-      "contractType": "temporaneo",
-      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Sport- und Eventanlagen Chur bieten für Sportler, Familien und Gen...",
-      "titleByLocale": {
-        "it": "Badmaster/in stagione (100%)",
-        "en": "Badmaster/in season (100%)",
-        "de": "Badmeister/in Saison (100%)",
-        "fr": "Badmaster/en saison (100%)"
-      },
-      "descriptionByLocale": {
-        "it": "Con 41.000 abitanti, Chur è il centro urbano di Grigioni. Come città attraente e versatile, fornisce servizi moderni e orientati al cliente con i suoi 1.400 dipendenti. Le strutture sportive ed eventi Chur offrono per atleti, famiglie e...",
-        "en": "With 41,000 inhabitants, Chur is the urban center of Graubünden. As an attractive and versatile city, it provides customer-oriented and modern services with its 1,400 employees. The sport and event facilities Chur offer for athletes, families and ...",
-        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Sport- und Eventanlagen Chur bieten für Sportler, Familien und Gen...",
-        "fr": "Avec 41 000 habitants, Chur est le centre urbain des Grisons. En tant que ville attrayante et polyvalente, elle offre des services axés sur le client et modernes avec ses 1 400 employés. Les installations sportives et événementielles Coire offrent pour les athlètes, les familles et ..."
-      },
-      "slugByLocale": {
-        "it": "badmaster-in-stagione-100-stadt-chur-chur",
-        "en": "badmaster-in-season-100-stadt-chur-chur",
-        "de": "badmeister-in-saison-100-stadt-chur-1695",
-        "fr": "badmaster-en-saison-100-stadt-chur-chur"
-      },
-      "crawledAt": "2026-08-18T22:17:57.562Z",
-      "id": "stadt-chur-8abd0783429f",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-08-10T10:55:58.855Z",
-      "retranslationAttempts": 0,
-      "previousSlugsByLocale": {
-        "it": [
-          "badmeister-in-saison-100-stadt-chur-1695"
-        ]
-      },
-      "previousSlugs": [
-        "badmeister-in-saison-100-stadt-chur-1695"
-      ],
-      "needsRetranslation": true
     },
     {
       "title": "Polizeiaspirantinnen und Polizeiaspiranten",
@@ -590,24 +380,24 @@
       "country": "CH",
       "category": "public-safety",
       "sector": "Pubblica Amministrazione",
-      "department": "",
+      "department": "Polizei / Sicherheit / Rettung",
       "source": "stadt-chur-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-08-18",
+      "postedDate": "2025-01-26",
       "validThrough": "",
       "employmentType": "apprenticeship",
       "contractType": "stage",
       "description": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
       "titleByLocale": {
-        "de": "Polizeiaspirantinnen und Polizeiaspiranten",
         "it": "Polizeiaspirantinnen e Polizeiaspiranten",
         "en": "Police aspirants and police aspirants",
+        "de": "Polizeiaspirantinnen und Polizeiaspiranten",
         "fr": "Aspirants policiers et aspirants policiers"
       },
       "descriptionByLocale": {
-        "de": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
         "it": "Chur è con circa 41'000 abitanti il centro urbano di Grigioni. Come una città attraente e versatile, con i suoi 1.400 dipendenti, fornisce servizi orientati al cliente e moderni. La sicurezza è uno dei prerequisiti più importanti per una buona posizione.",
         "en": "Chur is with about 41'000 inhabitants the urban center of Graubünden. As an attractive and versatile city, with its 1,400 employees, it provides customer-oriented and modern services.Security is one of the most important prerequisites for a good location.",
+        "de": "Chur ist mit rund 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.Sicherheit gehört zu den wichtigsten Voraussetzungen für eine gute L...",
         "fr": "Chur est avec environ 41'000 habitants le centre urbain de Graubünden. En tant que ville attrayante et polyvalente, avec ses 1 400 employés, elle offre des services axés sur le client et modernes. La sécurité est l'une des conditions préalables les plus importantes pour un bon emplacement."
       },
       "slugByLocale": {
@@ -616,17 +406,17 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-08-18T22:19:04.322Z",
+      "crawledAt": "2026-09-03T23:34:50.782Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "previousSlugsByLocale": {
-        "it": [
-          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
-        ],
         "en": [
           "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
         ],
         "fr": [
           "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        ],
+        "it": [
+          "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
         ]
       },
       "previousSlugs": [
@@ -636,6 +426,7 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -646,7 +437,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-18T10:00:37.301Z"
+      "firstSeenAt": "2026-08-31T17:28:30.211Z"
     }
   ]
 }

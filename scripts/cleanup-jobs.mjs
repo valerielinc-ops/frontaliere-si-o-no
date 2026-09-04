@@ -23,6 +23,8 @@ import {
 import { hardenJobLocaleFields, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -198,7 +200,7 @@ function disambiguateDedupLoser(loser, collidingSlug) {
   let disambiguated;
   if (suffix) {
     const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
-    const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+    const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
     disambiguated = trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
   } else {
     // Fallback for jobs without a stable fingerprint: use the loser id
@@ -208,7 +210,7 @@ function disambiguateDedupLoser(loser, collidingSlug) {
       .replace(/[^a-z0-9]+/g, '')
       .slice(-6) || 'dedup';
     const baseMaxLen = Math.max(0, 90 - (idTail.length + 1));
-    const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+    const trimmedBase = truncateSlugAtWordBoundary(baseSlug, baseMaxLen).replace(/-+$/, '');
     disambiguated = trimmedBase ? `${trimmedBase}-${idTail}` : idTail;
   }
 
@@ -272,7 +274,7 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
 
   // Sort by expiredAt descending, cap at EXPIRED_JOBS_CAP
   let archived = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   if (archived.length > EXPIRED_JOBS_CAP) {
     archived = archived.slice(0, EXPIRED_JOBS_CAP);
   }
@@ -315,7 +317,7 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   if (added === 0 && existing.length === bySlug.size) return 0;
 
   const archived = [...bySlug.values()]
-    .sort((a, b) => (b.expiredAt || '').localeCompare(a.expiredAt || ''));
+    .sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt));
   writeJson(slicePath, archived);
   return added;
 }

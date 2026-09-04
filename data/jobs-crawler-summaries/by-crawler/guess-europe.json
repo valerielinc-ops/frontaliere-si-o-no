@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-08-26T09:57:08.156Z",
-  "total": 14,
+  "generatedAt": "2026-09-03T23:12:12.394Z",
+  "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 4079,
-  "avgDurationMs": 4079,
+  "unchangedCount": 13,
+  "durationMs": 2623,
+  "avgDurationMs": 2623,
   "durationHistory": [
-    4079
+    2623
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,6 +50,7 @@
       "salaryMax": 63000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-24T21:43:29.951Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -93,6 +94,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-30T22:14:34.803Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -136,6 +138,7 @@
       "salaryMax": 127000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-19T10:09:42.045Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,6 +180,7 @@
       "salaryMax": 61000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-30T22:14:34.803Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -219,6 +223,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T22:27:08.641Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -261,43 +266,7 @@
       "salaryMax": 63000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-10T21:50:54.860Z",
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Sales Associate - Bern Westside - Hourly up to 80pt",
-      "slug": "vendite-associate-bern-westside-hourly-fino-a-80pt-guess-europe-sagl-bern",
-      "url": "https://apply.workable.com/guess-europe-sagl/j/31D1B48D9E/",
-      "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/31D1B48D9E/apply/",
-      "company": "Guess Europe Sagl",
-      "companyKey": "guess-europe",
-      "companyDomain": "guess.eu",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Lusso & Moda",
-      "source": "guess-europe-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-14",
-      "validThrough": "",
-      "benefits": [],
-      "id": "guess-europe-a694e6d062b2",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "firstSeenAt": "2026-08-14T10:28:16.335Z",
-      "needsRetranslation": true,
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -334,6 +303,7 @@
       "salaryMax": 87000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -371,6 +341,7 @@
       "salaryMax": 106000,
       "currency": "CHF",
       "firstSeenAt": "2026-07-21T22:27:52.823Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -408,6 +379,7 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:37:24.333Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -445,6 +417,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:37:24.333Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -489,6 +462,8 @@
       "salaryMax": 103000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-03T12:38:55.276Z",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -525,6 +500,7 @@
       "salaryMax": 91500,
       "currency": "CHF",
       "firstSeenAt": "2026-07-09T22:38:35.232Z",
+      "salarySource": "estimated",
       "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -568,6 +544,7 @@
       "salaryMax": 127000,
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T10:19:43.215Z",
+      "salarySource": "estimated",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,

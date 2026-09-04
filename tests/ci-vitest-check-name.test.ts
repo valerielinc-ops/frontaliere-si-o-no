@@ -21,6 +21,7 @@ const COLLISION_YML = readFileSync(resolve(ROOT, '.github/workflows/pr-collision
 const TESTS_CODE = TESTS_YML.split('\n').filter((line) => !line.trimStart().startsWith('#')).join('\n');
 const AUTOREBASE = readFileSync(resolve(ROOT, 'scripts/ci/pr-autorebase.mjs'), 'utf-8');
 const AUTO_MERGE_EVAL = readFileSync(resolve(ROOT, 'scripts/ci/auto-merge-eval.mjs'), 'utf-8');
+const RELATED_RUNNER = readFileSync(resolve(ROOT, 'scripts/ci/run-related-tests.mjs'), 'utf-8');
 
 describe('VITEST_CHECK_NAME (#1602 drift guard)', () => {
   it('matcha byte-per-byte il name: del job vitest in tests.yml', () => {
@@ -166,7 +167,7 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
       ['contract', /PR-body completeness \+ multi-issue Closes/],
       ['source guards', /check-sibling-patterns\.mjs/],
       ['typecheck', /npm run typecheck:gate/],
-      ['vitest', /npm test --/],
+      ['vitest related', /run-related-tests\.mjs/],
     ] as const) {
       expect(re.test(jobsBody), `famiglia \`${what}\` non trovata nel job fuso`).toBe(true);
     }
@@ -194,16 +195,59 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
     expect(TESTS_CODE).not.toContain('pr-collision-detector');
   });
 
-  it('limita i worker per evitare oversubscription tra i due Vitest', () => {
-    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest run \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
+  it('limita i worker del related run per evitare oversubscription', () => {
+    const vitestRuns = [...TESTS_YML.matchAll(/- name: vitest related \([^\n]+\)[\s\S]*?(?=\n      - name:|\n      #|$)/g)].map(
       (match) => match[0],
     );
-    expect(vitestRuns).toHaveLength(2);
+    expect(vitestRuns).toHaveLength(1);
     for (const run of vitestRuns) {
-      expect(run).toContain('VITEST_MAX_WORKERS: 2');
+      expect(run).toContain('VITEST_MAX_WORKERS: 1');
+      expect(run).toContain('VITEST_POOL: forks');
     }
-    expect(TESTS_YML).toContain('node_modules/.vite-independent');
-    expect(TESTS_YML).toContain('node_modules/.vite-dependent');
+    expect(TESTS_YML).toContain('node_modules/.vite-related');
+  });
+
+  it('include tutti i root applicativi nel grafo related', () => {
+    expect(RELATED_RUNNER).toContain('const projectRe');
+    expect(RELATED_RUNNER).toContain('!alwaysExcludedTests.has(file)');
+    expect(RELATED_RUNNER).toContain("!file.startsWith('.github/')");
+    expect(RELATED_RUNNER).toContain("!file.includes('/')");
+    expect(RELATED_RUNNER).toContain('file !== \'scripts/ci/run-related-tests.mjs\'');
+    expect(RELATED_RUNNER).toContain('sourceRe.test(file)');
+    expect(RELATED_RUNNER).not.toContain('implicitTestDependencyRe');
+    expect(RELATED_RUNNER).toContain('No static related edge found');
+    expect(RELATED_RUNNER).toContain('const visited = new Set()');
+    expect(RELATED_RUNNER).toContain('function stripComments');
+    expect(RELATED_RUNNER).toContain('CHANGED_PATHS_STATUS_FILE');
+    expect(RELATED_RUNNER).toContain("changedStatus !== 'complete'");
+    expect(RELATED_RUNNER).toContain('listCorpusWideTests');
+    expect(RELATED_RUNNER).toContain('VITEST_SKIP_CORPUS_WIDE');
+  });
+
+  it('tests.yml conserva allow-list sparse e fail-safe del corpus', () => {
+    expect(TESTS_YML).toContain('sparse-checkout: |');
+    expect(TESTS_YML).toContain('sparse-checkout-cone-mode: false');
+    expect(TESTS_YML).toContain('!/public/images/');
+    expect(TESTS_YML).toContain('changed-paths-status.txt');
+    expect(TESTS_YML).toContain('partial > changed-paths-status.txt');
+    expect(TESTS_YML).toContain('frontaliere-articles');
+    expect(TESTS_YML).toContain('/REVIEW.md');
+    expect(TESTS_YML).toContain('/AGENTS.md');
+    expect(TESTS_YML).toContain('/firestore.rules');
+    expect(TESTS_YML).toContain('/docs/preferred-sources-checklist.md');
+    expect(TESTS_YML).toContain('/packages/articles/content/blog-body/*/assistente-ai-frontalieri.ts');
+    expect(TESTS_YML).toContain('hard repository-tool budget');
+  });
+
+  it('usa un bundle deterministico e non scarica il diff completo nelle review incrementali', () => {
+    expect(TESTS_YML).toContain('review-bundle.md');
+    expect(TESTS_YML).toContain('elif [ -n "${INCREMENTAL_BASE:-}" ]; then');
+    expect(TESTS_YML).toContain('full PR diff omitted; see delta.patch');
+    expect(TESTS_YML).toContain('review-code-files.txt');
+    expect(TESTS_YML).toContain('delta-files.txt');
+    expect(TESTS_YML).toContain('set_tier incremental-high claude-opus-5 35');
+    expect(TESTS_YML).toContain('set_tier incremental claude-opus-5 35');
+    expect(TESTS_YML).toContain('Read `REVIEW.md` first');
   });
 
   it('abilita e persiste la Node compile cache del job comune', () => {
@@ -267,21 +311,19 @@ describe('job fuso: un check-run, quattro cancelli, un lock', () => {
 /**
  * Il verdetto su main deve poter ARRIVARE IN FONDO.
  *
- * `github.ref` di un push su main è sempre `refs/heads/main`, quindi TUTTI i
- * push su main cadono nello stesso concurrency group. Con
- * `cancel-in-progress: true` ogni merge uccideva il run del merge precedente:
- * la suite dura ~9 min, auto-merge mergia ogni 2-5 min durante uno smaltimento
- * di backlog → 14 run cancellati su 30 (47%) e nessun verdetto proprio nelle
- * finestre in cui una regressione è più probabile.
+ * I push diretti su main sono intenzionalmente esclusi da tests.yml: i writer
+ * automatici mantengono il loro percorso diretto senza lanciare questa suite.
+ * Le PR usano invece newest-wins perché l'head precedente diventa irrilevante
+ * quando arriva un nuovo commit.
  *
  * AGENTS.md fa dipendere una regola operativa esplicita da questo segnale
  * («main rosso blocca a cascata, priorità assoluta main verde»): senza verdetto
  * la regola non è applicabile e una regressione su main resta invisibile finché
  * non la eredita per caso una PR.
  *
- * Il contratto fissato qui: newest-wins SOLO dove cancellare non distrugge
- * informazione (PR: l'head vecchio è irrilevante), mai sul push a main.
- * Questo test fallisce se qualcuno rimette `cancel-in-progress: true` secco.
+ * Il contratto fissato qui: tests.yml valida le PR, non i push diretti su main.
+ * Questo test fallisce se qualcuno reintroduce il trigger push senza aggiornare
+ * esplicitamente il comportamento atteso.
  */
 describe('main health-signal contract (verdetto non cancellabile)', () => {
   const concurrencyBlock = (() => {
@@ -296,37 +338,19 @@ describe('main health-signal contract (verdetto non cancellabile)', () => {
     expect(concurrencyBlock).toMatch(/cancel-in-progress:/);
   });
 
-  it('cancel-in-progress NON è true incondizionato (ucciderebbe il verdetto su main)', () => {
+  it('cancel-in-progress è newest-wins per le esecuzioni PR', () => {
     const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
     expect(m, '`cancel-in-progress:` non trovato').toBeTruthy();
     const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    expect(
-      value === 'true',
-      'cancel-in-progress: true incondizionato → ogni merge su main cancella il run del merge ' +
-        'precedente e main non produce mai un verdetto. Condizionalo sull\'evento ' +
-        '(es. `${{ github.event_name != \'push\' }}`).',
-    ).toBe(false);
+    expect(value).toBe('true');
   });
 
-  it('la condizione esclude il push (main) dalla cancellazione', () => {
-    const m = concurrencyBlock.match(/cancel-in-progress:\s*(.+?)\s*$/m);
-    const value = (m![1] || '').replace(/^['"]|['"]$/g, '');
-    // Deve essere un'espressione che nomina l'evento, non un literal.
-    expect(
-      /\$\{\{.*github\.event_name.*\}\}/.test(value),
-      `cancel-in-progress deve dipendere da github.event_name, trovato: ${value}`,
-    ).toBe(true);
-    // E deve escludere il push: `!= 'push'` (o equivalente esplicito su pull_request).
-    expect(
-      /github\.event_name\s*!=\s*'push'/.test(value) ||
-        /github\.event_name\s*==\s*'pull_request'/.test(value),
-      `la condizione deve escludere il push su main dalla cancellazione, trovato: ${value}`,
-    ).toBe(true);
-  });
-
-  it('tests.yml gira ancora sul push a main (il segnale esiste)', () => {
-    // Se qualcuno togliesse il trigger push il test sopra passerebbe a vuoto.
+  it('non lancia la suite sui push diretti a main', () => {
     const onBlock = TESTS_YML.match(/^on:\s*\n((?:[ \t]+.*\n?|\s*#.*\n)*)/m)?.[1] ?? '';
-    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'trigger `push: branches: [main]` mancante').toBe(true);
+    expect(/push:\s*\n\s*branches:\s*\[?\s*main/.test(onBlock), 'tests.yml non deve avere un trigger push su main').toBe(false);
+  });
+
+  it('mantiene il trigger PR come unico trigger automatico di verifica', () => {
+    expect(TESTS_YML).toMatch(/^\s+pull_request:\s*$/m);
   });
 });

@@ -96,3 +96,32 @@ export function parseFeed(xmlText = '') {
   }
   return parseRssItems(xmlText);
 }
+
+/**
+ * Parse the `items` array of an rss2json.com (https://rss2json.com) API
+ * response into the same entry shape the XML parsers above produce, so
+ * `buildJob()` never needs to know which source served the data.
+ *
+ * Tertiary fallback (morss.it outage, 2026-08-20 → 2026-08-26, #6560):
+ * rss2json.com fetches+parses the feed server-side and returns it as JSON —
+ * no XML dialect to detect, and its egress IP is independent of morss.it's.
+ * Same untrusted-proxy safety filter as `parseRssItems` (#4129): only keep
+ * items whose link is a real Rexx job-detail URL on `jobs.chur.ch` itself.
+ */
+export function parseRss2JsonItems(items = []) {
+  const entries = [];
+  for (const item of Array.isArray(items) ? items : []) {
+    const link = String(item?.link || item?.guid || '');
+    if (!/j\d+\.html/i.test(link) || !link.startsWith('https://jobs.chur.ch/')) continue;
+    entries.push({
+      title: String(item?.title || ''),
+      link,
+      id: String(item?.guid || link),
+      summary: String(item?.description || ''),
+      content: String(item?.content || ''),
+      updated: String(item?.pubDate || ''),
+      category: Array.isArray(item?.categories) ? String(item.categories[0] || '') : '',
+    });
+  }
+  return entries;
+}

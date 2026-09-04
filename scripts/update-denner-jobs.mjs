@@ -52,6 +52,9 @@ import { inferEmploymentType } from './lib/denner-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
+import { launchChromium } from './lib/ensure-chromium.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -84,17 +87,17 @@ const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
-const JOB_DETAIL_HREF_RE = /href="(\/(?:it|de|fr|en)\/(?:le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^"]+)"/gi;
+const DENNER_JOB_PATH_RE = /\/job\/denner(?:-[^/]+)?\//i;
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
-    .replace(/-{2,}/g, '-')
-    .slice(0, 180);
+    .replace(/-{2,}/g, '-');
+  return truncateSlugAtWordBoundary(slug, 180);
 }
 
 /* -- Matchers ---------------------------------------------------------- */
@@ -109,7 +112,7 @@ function isDennerJob(job) {
     key === DENNER_KEY ||
     key.includes('denner') ||
     company.includes('denner') ||
-    (host === DENNER_HOST && url.includes('denner')) ||
+    (host === DENNER_HOST && dedicatedMigrosOwner(job) === DENNER_KEY) ||
     url.includes('denner.ch')
   );
 }
@@ -138,67 +141,99 @@ function mergeCompanyJobs(parsedJobs) {
 }
 
 /* -- Discovery --------------------------------------------------------- */
-async function fetchDennerJobUrls() {
+export async function fetchDennerJobUrls() {
   const allUrls = new Set();
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
+  const headless = process.env.JOBS_DENNER_HEADLESS !== '0';
+  const navTimeoutMs = Number(process.env.JOBS_DENNER_NAV_TIMEOUT_MS) || 30000;
+  const paginationTimeoutMs = Number(process.env.JOBS_DENNER_PAGINATION_TIMEOUT_MS) || 2000;
+  const paginationStallPolls = Math.max(1, Number(process.env.JOBS_DENNER_PAGINATION_STALL_POLLS) || 4);
+  const maxPages = Number(process.env.JOBS_DENNER_MAX_PAGES) || 200;
+  const browserChannel = String(process.env.JOBS_DENNER_BROWSER_CHANNEL || '').trim();
+  const browser = await launchChromium({
+    headless,
+    args: ['--disable-blink-features=AutomationControlled'],
+    ...(browserChannel ? { channel: browserChannel } : {}),
+  });
 
-  // No REGION filter → nationwide (all Swiss Denner stores)
-  const pagesToFetch = [
-    { name: 'All regions', url: DENNER_LISTING_BASE },
-  ];
+  try {
+    const context = await browser.newContext({ userAgent: UA });
+    const page = await context.newPage();
+    console.log(`\ud83d\udd0d Fetching nationwide Denner jobs: ${DENNER_LISTING_BASE}`);
+    await page.goto(DENNER_LISTING_BASE, { waitUntil: 'domcontentloaded', timeout: navTimeoutMs });
 
-  for (const { name, url: listUrl } of pagesToFetch) {
-    let page = 0;
-    let hasMore = true;
+    const consent = page
+      .locator('button:has-text("Akzeptieren"), button:has-text("Alle akzeptieren"), button:has-text("Accept"), button:has-text("Accetta")')
+      .first();
+    if (await consent.isVisible().catch(() => false)) {
+      await consent.click().catch(() => {});
+      await page.waitForTimeout(1500);
+    }
+    await page.waitForTimeout(3000);
 
-    while (hasMore) {
-      const fetchUrl = page === 0 ? listUrl : `${listUrl}${listUrl.includes('?') ? '&' : '?'}page=${page}`;
-      console.log(`\ud83d\udd0d Fetching Denner ${name} jobs (page ${page}): ${fetchUrl}`);
+    const collect = () => page.evaluate((pathSource) => {
+      const pathPattern = new RegExp(pathSource, 'i');
+      return [...new Set(
+        [...document.querySelectorAll('a[href]')]
+          .map((anchor) => anchor.getAttribute('href'))
+          .filter((href) => href && pathPattern.test(href)),
+      )];
+    }, DENNER_JOB_PATH_RE.source);
 
+    for (const href of await collect()) {
+      allUrls.add(new URL(href, `https://${DENNER_HOST}`).toString());
+    }
+    let pageIndex = 1;
+    while (pageIndex < maxPages) {
+      const nextButton = page.locator([
+        'button[aria-label*="ächste" i]',
+        'button[aria-label*="successiva" i]',
+        'button[aria-label*="suivante" i]',
+        'button[aria-label*="next" i]',
+        'button:has-text("Nächste Seite")',
+        'button:has-text("Pagina successiva")',
+      ].join(', ')).first();
+      const visible = await nextButton.isVisible().catch(() => false);
+      const disabled = await nextButton.isDisabled().catch(() => true);
+      if (!visible || disabled) break;
+
+      await nextButton.scrollIntoViewIfNeeded().catch(() => {});
       try {
-        const controller = new AbortController();
-        const timer = setTimeout(() => controller.abort(), timeoutMs);
-
-        let res;
-        let html;
-        try {
-          res = await fetch(fetchUrl, {
-            signal: controller.signal,
-            headers: { Accept: 'text/html,application/xhtml+xml', 'User-Agent': UA },
-            redirect: 'follow',
-          });
-          if (res.ok) {
-            html = await res.text();
-          }
-        } finally {
-          clearTimeout(timer);
-        }
-
-        if (!res.ok) { console.warn(`\u26a0\ufe0f Denner listing returned ${res.status} for ${name} page ${page}`); break; }
-        const pageUrls = new Set();
-
-        let match;
-        while ((match = JOB_DETAIL_HREF_RE.exec(html)) !== null) {
-          const relPath = match[1];
-          if (!/denner/i.test(relPath)) continue;
-          const fullUrl = `https://${DENNER_HOST}${relPath}`;
-          if (!allUrls.has(fullUrl)) { pageUrls.add(fullUrl); allUrls.add(fullUrl); }
-        }
-        JOB_DETAIL_HREF_RE.lastIndex = 0;
-
-        console.log(`  \ud83d\udce6 ${name} page ${page}: ${pageUrls.size} new URL(s)`);
-
-        if (pageUrls.size === 0) { hasMore = false; }
-        else {
-          const nextExists = html.includes(`page=${page + 1}`);
-          hasMore = nextExists;
-          if (hasMore) page++;
-        }
+        await nextButton.click();
       } catch (err) {
-        console.warn(`\u26a0\ufe0f Denner listing fetch failed for ${name} page ${page}: ${err.message}`);
-        break;
+        throw new Error(
+          `Denner discovery incomplete at page ${pageIndex}: next control click failed (${err?.message || err}).`,
+        );
+      }
+      pageIndex += 1;
+      const before = allUrls.size;
+      for (let poll = 0; poll < paginationStallPolls; poll += 1) {
+        await page.waitForTimeout(paginationTimeoutMs);
+        for (const href of await collect()) {
+          allUrls.add(new URL(href, `https://${DENNER_HOST}`).toString());
+        }
+        if (allUrls.size > before) break;
+      }
+      if (allUrls.size === before) {
+        // A genuinely slow (but real) last page can still be mid-render after
+        // paginationStallPolls fixed-length polls. Give it one more chance
+        // keyed on actual network activity instead of another fixed wait: a
+        // page still fetching/rendering blocks here until it settles
+        // (bounded by paginationTimeoutMs); an already-idle page (the real
+        // stall case) resolves immediately, changing nothing.
+        await page.waitForLoadState('networkidle', { timeout: paginationTimeoutMs }).catch(() => {});
+        for (const href of await collect()) {
+          allUrls.add(new URL(href, `https://${DENNER_HOST}`).toString());
+        }
+      }
+      console.log(`  \ud83d\udce6 page ${pageIndex}: ${allUrls.size} total URL(s)`);
+      if (allUrls.size === before) {
+        throw new Error(
+          `Denner discovery incomplete: page ${pageIndex} stalled while the next control remained enabled after ${paginationStallPolls} poll(s) (${allUrls.size} total URLs).`,
+        );
       }
     }
+  } finally {
+    await browser.close().catch(() => {});
   }
 
   console.log(`\u2705 Total unique Denner detail URLs discovered: ${allUrls.size}`);
@@ -304,7 +339,7 @@ async function fetchAndParseDetailPages(urls) {
 }
 
 /* -- Main -------------------------------------------------------------- */
-async function main() {
+export async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(DENNER_KEY, 'Denner');
   console.log('\ud83c\udfea Running dedicated Denner jobs crawler...');
@@ -384,4 +419,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Denner'));
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
+  main().catch((err) => exitCrawlerOnError(err, 'Denner'));
+}

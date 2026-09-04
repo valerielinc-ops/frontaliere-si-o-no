@@ -1,6 +1,6 @@
 name: corpus-wide gates
 
-# I sette gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
+# Gli otto gate che iterano sull'INTERO corpus, tolti dal cammino bloccante
 # delle PR e messi qui. Non è una rimozione: è un trasloco, e questo file è
 # l'indirizzo nuovo.
 #
@@ -18,6 +18,10 @@ name: corpus-wide gates
 #     15.5s   1 test   tests/blog-body-typescript-syntax.test.ts
 #     ─────
 #     201.4s  21 test — il 20,1% del tempo-file per l'1,2% dei test
+#
+# Il test evergreen-pool-consumption è stato aggiunto al registro perché ha
+# superato il timeout quando eseguito sotto contesa CPU; il suo costo viene
+# tenuto separato dal totale storico finché non viene rimisurato in isolamento.
 #
 # Non sono lenti per test: `tests/seo-completeness.test.ts` fa 65.750 test in
 # 21s. Sono lenti perché ciascuno itera su tutto — ~14.748 file di corpus, o un
@@ -69,43 +73,9 @@ name: corpus-wide gates
 #      con `gh workflow run corpus-wide-gates.yml --ref main`.
 
 on:
-  workflow_run:
-    workflows: ['Sync article sitemaps, feeds and ticker from the articles API']
-    types: [completed]
-    branches: [main]
-
-  schedule:
-    # Sfasato dai cron che gli portano il dato o se lo contendono:
-    # sync-articles-sitemaps.yml a :23, mirror-articles-engine.yml a :19,
-    # rerender-article-hubs.yml a :47. Alle :53 il corpus è fermo.
-    - cron: '53 */6 * * *'
-
-  push:
-    branches: [main]
-    paths:
-      # I renderer e i registri che i sette gate esercitano. Sono file che
-      # cambiano per mano umana, quindi il push scatta (al contrario del
-      # corpus, vedi la testata).
-      #
-      # `build-plugins/**` e non l'elenco dei tre plugin di ingresso: la
-      # chiusura degli import di questi test raggiunge anche
-      # `build-plugins/shared/seoPageShell.ts`, `staticPagesPlugin.ts`,
-      # `articlesSiteShellBootstrap.ts` e altri, che una lista scritta a mano
-      # dimenticherebbe — e la dimenticanza non si vedrebbe: il gate
-      # aspetterebbe fino a 6h il cron invece di rigirare subito. Qui la
-      # granularita' non serve a risparmiare (il workflow non blocca nessuno),
-      # serve a non perdere l'evento. Sul lato PR, dove il costo conta, il
-      # trigger e' invece DERIVATO dalla chiusura degli import.
-      - 'build-plugins/**'
-      - 'packages/articles/engine/**'
-      - 'data/blog-articles-data.ts'
-      - 'data/swiss-articles-data.ts'
-      # Self-test: un push che tocca solo il meccanismo lo fa comunque girare
-      # per intero, così la modifica è verificata invece che sperata.
-      - '.github/workflows/corpus-wide-gates.yml'
-      - 'scripts/ci/corpus-wide-tests.mjs'
-      - 'vitest.config.ts'
-
+  # Il corpus è di proprietà di nanakokyobashi-rgb/frontaliere-articles.
+  # Questo workflow resta disponibile solo per una verifica manuale durante
+  # la migrazione, ma non deve più consumare CI su main di questo repository.
   workflow_dispatch:
 
 permissions:
@@ -125,8 +95,8 @@ jobs:
   corpus-gates:
     name: corpus-wide gates (post-merge)
     runs-on: ubuntu-latest
-    # I sette gate misurano 201s di tempo-file, ma girano in parallelo sui 4
-    # vCPU del runner; il grosso del wall è checkout + npm ci + l'assemble.
+    # Gli otto gate girano in parallelo sui 4 vCPU del runner; il grosso del
+    # wall è checkout + npm ci + l'assemble.
     # 30 min è largo apposta: qui un timeout non blocca nessuna PR, mentre un
     # rosso da timeout su un corpus cresciuto sarebbe un falso allarme che
     # costa una issue.
@@ -173,8 +143,13 @@ jobs:
         # registro degli slug. Idempotente.
         run: node scripts/migrate-all-known-job-slugs-canton-aware.mjs
 
+      - name: Verify corpus-wide registry partition
+        # È un controllo meta della CI: non valuta la qualità dei dati live,
+        # ma impedisce che il registro e il suo complemento perdano coverage.
+        run: npx vitest run tests/corpus-wide-test-partition.test.ts
+
       - name: vitest run (solo i gate corpus-wide)
-        # `only` esclude il complemento del registro: girano esattamente i sette
+        # `only` esclude il complemento del registro: girano esattamente i sei
         # file, con le stesse soglie e gli stessi assert che avevano dentro
         # tests.yml. Nessuna env di tolleranza, nessuno `--bail`, nessun
         # `continue-on-error`: se questo step è rosso, il job è rosso.
@@ -226,7 +201,7 @@ jobs:
           context: |
             Uno o più gate corpus-wide sono rossi su `main`.
 
-            Questi sette gate NON girano nel job bloccante `vitest (unit + integration)`
+            Questi sei gate NON girano nel job bloccante `vitest (unit + integration)`
             delle PR che non toccano il corpus — girano qui. Un rosso qui è quindi
             un difetto **già su main**, non un difetto di una PR in attesa.
 

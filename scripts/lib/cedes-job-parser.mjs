@@ -1,15 +1,31 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * CEDES AG job parser — corporate career page.
  * Source: https://www.cedes.com/en/career/jobs/
  */
 
 import { getCompanyDefaults } from './crawler-location-config.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const HQ = getCompanyDefaults('cedes');
 
 const CAREERS_URL = 'https://www.cedes.com/en/career/jobs/';
 const CAREERS_BASE = 'https://www.cedes.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizeCedesJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/(?:[a-z]{2}(?:-[a-z]+)?\/)?career\/jobs\/[^/]+\/?$/i.test(url.pathname)
+      || /^\/en\/openings\/[^/]+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
 
 // ── shared utilities ──────────────────────────────────────────────────
 
@@ -28,8 +44,8 @@ export function stripHtml(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
+  return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {
@@ -55,14 +71,16 @@ export function parseCedesListingHtml(html) {
   const jobs = [];
 
   // Match job links — pattern: /en/career/jobs/{slug} or /career/jobs/{slug}
-  const pattern = /<a[^>]+href=["']([^"']*?\/career\/jobs\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const pattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
 
   while ((m = pattern.exec(html)) !== null) {
-    const rawUrl = m[1].trim();
+    const rawUrl = readAttr(m[1], 'href').trim();
+    if (!/\/career\/jobs\//i.test(rawUrl)) continue;
     // Skip the listing page itself
     if (/\/career\/jobs\/?$/.test(rawUrl)) continue;
-    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    const url = normalizeCedesJobUrl(rawUrl);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -85,11 +103,13 @@ export function parseCedesListingHtml(html) {
 
   // Fallback: generic job link pattern for card-based layouts
   if (jobs.length === 0) {
-    const genericPattern = /<a[^>]+href=["']([^"']+)["'][^>]*class="[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/a>/gi;
+    const genericPattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
     let gm;
     while ((gm = genericPattern.exec(html)) !== null) {
-      const rawUrl = gm[1].trim();
-      const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+      if (!/job/i.test(readAttr(gm[1], 'class'))) continue;
+      const rawUrl = readAttr(gm[1], 'href').trim();
+      const url = normalizeCedesJobUrl(rawUrl);
+      if (!url) continue;
       if (seen.has(url)) continue;
       seen.add(url);
       const title = stripHtml(gm[2]).trim();
@@ -145,11 +165,12 @@ export async function fetchCedesJobUrls() {
 }
 
 export async function fetchCedesDetailPage(url) {
-  if (!url) return null;
+  const safeUrl = normalizeCedesJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 20_000);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });

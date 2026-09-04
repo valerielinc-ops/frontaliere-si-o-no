@@ -157,6 +157,111 @@
       "findings": [
         "fallback_rate_warn"
       ]
+    },
+    {
+      "date": "2026-08-28",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 33,
+        "email_token": 118,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 151,
+      "fallbackRate": 0.2185430463576159,
+      "findings": [
+        "fallback_rate_warn"
+      ]
+    },
+    {
+      "date": "2026-08-29",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 37,
+        "email_token": 125,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 162,
+      "fallbackRate": 0.22839506172839505,
+      "findings": [
+        "fallback_rate_warn"
+      ]
+    },
+    {
+      "date": "2026-08-30",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 37,
+        "email_token": 125,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 162,
+      "fallbackRate": 0.22839506172839505,
+      "findings": [
+        "fallback_rate_warn"
+      ]
+    },
+    {
+      "date": "2026-08-31",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 37,
+        "email_token": 110,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 147,
+      "fallbackRate": 0.25170068027210885,
+      "findings": [
+        "fallback_rate_urgent"
+      ]
+    },
+    {
+      "date": "2026-09-01",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 46,
+        "email_token": 116,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 162,
+      "fallbackRate": 0.2839506172839506,
+      "findings": [
+        "fallback_rate_urgent"
+      ]
+    },
+    {
+      "date": "2026-09-02",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 50,
+        "email_token": 124,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 174,
+      "fallbackRate": 0.28735632183908044,
+      "findings": [
+        "fallback_rate_urgent"
+      ]
+    },
+    {
+      "date": "2026-09-03",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 49,
+        "email_token": 112,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "graded": 161,
+      "fallbackRate": 0.30434782608695654,
+      "findings": [
+        "fallback_rate_urgent"
+      ]
     }
   ]
 }

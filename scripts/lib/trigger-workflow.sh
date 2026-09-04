@@ -3,15 +3,14 @@
 # scripts/lib/trigger-workflow.sh — Generic workflow_dispatch trigger engine.
 #
 # Extracted from scripts/lib/trigger-deploy.sh (issue #4837 stream C) so a
-# second workflow that needs "wait for a ref to reach a SHA, then
-# workflow_dispatch with retry-on-5xx" doesn't hand-roll a second copy of the
-# same curl/retry/ref-poll construct (AGENTS.md Non-Negotiable #6 — a
-# literal-duplicated retry-loop is exactly what the pre-push
+# second workflow that needs "wait for a ref to contain a SHA, then dispatch
+# exactly once" doesn't hand-roll a second copy of the same HTTP/ref-poll
+# construct (AGENTS.md Non-Negotiable #6 — a literal duplicate is what the pre-push
 # check-sibling-patterns.mjs hook flags). trigger-deploy.sh is now a thin
 # wrapper around this engine — see that file's comment header. Per-workflow
 # input SHAPE (which keys go in `inputs`) legitimately differs per caller, so
 # that part stays in each caller; only the identical ref-wait +
-# dispatch-retry + output-contract machinery lives here.
+# dispatch + exact-run validation + output-contract machinery lives here.
 #
 # GITHUB_TOKEN pushes/label-applies do NOT trigger other workflows (GitHub
 # anti-recursion rule) — this script uses a PAT to fire workflow_dispatch.
@@ -29,10 +28,13 @@
 #   GITHUB_REPOSITORY       — owner/repo (set automatically in Actions)
 # Optional env vars:
 #   TRIGGER_REF                — branch/tag to dispatch (default: main)
-#   TRIGGER_EXPECTED_SHA        — wait for TRIGGER_REF to reach this SHA first
+#   TRIGGER_EXPECTED_SHA        — wait until this SHA is at/behind TRIGGER_REF
 #   TRIGGER_REF_WAIT_ATTEMPTS   — max polling attempts (default: 20)
 #   TRIGGER_REF_WAIT_SECONDS    — sleep seconds between polls (default: 2)
-#   TRIGGER_DISPATCH_ATTEMPTS   — max dispatch retry attempts (default: 3)
+#   TRIGGER_RUN_LOOKUP_SECONDS  — sleep between exact-run lookups (default: 1)
+#   TRIGGER_POST_VERIFY_SECONDS — sleep between post-dispatch ancestry
+#                                 re-check retries on transient failure
+#                                 (default: 1; bounded to 3 attempts)
 #
 # Output (GITHUB_OUTPUT):
 #   dispatch_sent=true|false
@@ -43,7 +45,15 @@
 # ─────────────────────────────────────────────────────────────────────────────
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/github-api-version.sh"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+GITHUB_API_VERSION="$(
+  node --input-type=module - "$SCRIPT_DIR/../../functions/src/githubApiHeaders.js" <<'NODE'
+import { pathToFileURL } from 'node:url';
+const modulePath = process.argv[2];
+const { GITHUB_WORKFLOW_DISPATCH_API_VERSION } = await import(pathToFileURL(modulePath));
+process.stdout.write(GITHUB_WORKFLOW_DISPATCH_API_VERSION);
+NODE
+)"
 
 WORKFLOW_FILE="${1:-}"
 # NOT `${2:-{}}`: in that form bash ends the parameter expansion at the FIRST
@@ -86,25 +96,178 @@ REF="${TRIGGER_REF:-main}"
 EXPECTED_SHA="${TRIGGER_EXPECTED_SHA:-}"
 WAIT_ATTEMPTS="${TRIGGER_REF_WAIT_ATTEMPTS:-20}"
 WAIT_SECONDS="${TRIGGER_REF_WAIT_SECONDS:-2}"
-MAX_DISPATCH_ATTEMPTS="${TRIGGER_DISPATCH_ATTEMPTS:-3}"
+RUN_LOOKUP_ATTEMPTS=3
+RUN_LOOKUP_SECONDS="${TRIGGER_RUN_LOOKUP_SECONDS:-1}"
+if [[ ! "$RUN_LOOKUP_SECONDS" =~ ^[0-5]$ ]]; then
+  RUN_LOOKUP_SECONDS=1
+fi
+POST_VERIFY_ATTEMPTS=3
+POST_VERIFY_SECONDS="${TRIGGER_POST_VERIFY_SECONDS:-1}"
+if [[ ! "$POST_VERIFY_SECONDS" =~ ^[0-5]$ ]]; then
+  POST_VERIFY_SECONDS=1
+fi
+
+if [[ ! "$WORKFLOW_FILE" =~ ^[A-Za-z0-9._-]+\.ya?ml$ ]]; then
+  echo "::error::trigger-workflow.sh received an invalid workflow filename" >&2
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+if [[ ! "$REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || [ -z "$REF" ]; then
+  echo "::error::trigger-workflow.sh received an invalid repository or ref" >&2
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+if [ -n "$EXPECTED_SHA" ] && [[ ! "$EXPECTED_SHA" =~ ^[a-f0-9]{40,64}$ ]]; then
+  echo "::error::trigger-workflow.sh received an invalid expected SHA" >&2
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+
+MAX_RESPONSE_BYTES=1048576
+# The Compare API's `files[]` array (per-file unified diffs) is not bounded
+# by the `?per_page=1` used below to cap `commits[]` — a legitimate
+# large diff (e.g. a squash-merge touching thousands of files) can push the
+# response past MAX_RESPONSE_BYTES even though commit_is_expected_or_descendant
+# only reads status/ahead_by/behind_by/*_commit.sha/url, none of which live in
+# `files[]`. Give this endpoint its own, larger bound instead of either
+# false-blocking valid ancestry or loosening the tighter bound every other
+# endpoint here relies on.
+COMPARE_MAX_RESPONSE_BYTES=8388608
+TEMP_ROOT="${RUNNER_TEMP:-${TMPDIR:-/tmp}}"
+TEMP_DIR="$(mktemp -d "${TEMP_ROOT%/}/trigger-workflow.XXXXXX")"
+trap 'rm -rf "$TEMP_DIR"' EXIT
+
+# Headers of the most recent pre-dispatch polling request (read_ref_sha /
+# commit_is_expected_or_descendant), overwritten on every call so the wait
+# loop below can detect a GitHub secondary rate-limit (403) and honor its
+# `Retry-After` instead of treating it like any other transient error.
+RESPONSE_HEADERS_FILE="${TEMP_DIR}/response-headers.txt"
+
+body_is_bounded() {
+  local file="$1"
+  local max="${2:-$MAX_RESPONSE_BYTES}"
+  [ -f "$file" ] && [ "$(wc -c < "$file" | tr -d ' ')" -le "$max" ]
+}
+
+last_http_status_code() {
+  local file="$1"
+  [ -f "$file" ] || return 1
+  # Header lines are CRLF-terminated; strip the trailing \r so the extracted
+  # code compares cleanly against a plain "403" string.
+  awk 'toupper($0) ~ /^HTTP\/[0-9.]+ [0-9]+/ {code=$2} END {gsub(/\r/, "", code); if (code != "") print code; else exit 1}' "$file"
+}
+
+retry_after_seconds() {
+  local file="$1"
+  local cap="$2"
+  [ -f "$file" ] || return 1
+  local value
+  value="$(grep -i '^retry-after:' "$file" 2>/dev/null | tail -1 | tr -dc '0-9')"
+  [ -n "$value" ] || return 1
+  if [ "$value" -gt "$cap" ]; then value="$cap"; fi
+  printf '%s' "$value"
+}
+
+ENCODED_REF="$(node -e 'process.stdout.write(encodeURIComponent(process.argv[1]))' "$REF")"
 
 read_ref_sha() {
   local ref="$1"
-  curl -sS \
+  local response_file="${TEMP_DIR}/ref-response.json"
+  local http_code
+  rm -f "$RESPONSE_HEADERS_FILE"
+  if ! http_code="$(curl --silent --show-error \
+    --connect-timeout 10 \
+    --max-time 30 \
+    --max-filesize "$MAX_RESPONSE_BYTES" \
+    --output "$response_file" \
+    --dump-header "$RESPONSE_HEADERS_FILE" \
+    --write-out "%{http_code}" \
     "https://api.github.com/repos/${REPO}/commits/${ref}" \
     -H "Accept: application/vnd.github+json" \
     -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-    | node -e 'let d="";process.stdin.on("data",c=>d+=c);process.stdin.on("end",()=>{try{const j=JSON.parse(d);if(j&&typeof j.sha==="string")process.stdout.write(j.sha);}catch{}});'
+    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}")"; then
+    return 1
+  fi
+  [ "$http_code" = "200" ] && body_is_bounded "$response_file" || return 1
+  node -e '
+    const fs = require("node:fs");
+    try {
+      const value = JSON.parse(fs.readFileSync(process.argv[1], "utf8"));
+      if (value && typeof value.sha === "string" && /^[a-f0-9]{40,64}$/.test(value.sha)) {
+        process.stdout.write(value.sha);
+      }
+    } catch {}
+  ' "$response_file"
+}
+
+# Return codes: 0 = confirmed descendant, 1 = definitive semantic mismatch
+# (a 200 response whose comparison payload proves it, e.g. diverged/behind —
+# must fail the caller immediately), 2 = transient (curl transport failure,
+# any non-200 status, or an oversized/unbounded body) — none of these tell us
+# anything about actual ancestry, so the caller may retry them.
+commit_is_expected_or_descendant() {
+  local expected_sha="$1"
+  local candidate_sha="$2"
+  local response_file="${TEMP_DIR}/compare-response.json"
+  local http_code
+
+  if [ "$candidate_sha" = "$expected_sha" ]; then
+    return 0
+  fi
+  [[ "$candidate_sha" =~ ^[a-f0-9]{40,64}$ ]] || return 1
+
+  rm -f "$RESPONSE_HEADERS_FILE"
+  if ! http_code="$(curl --silent --show-error \
+    --connect-timeout 10 \
+    --max-time 30 \
+    --max-filesize "$COMPARE_MAX_RESPONSE_BYTES" \
+    --output "$response_file" \
+    --dump-header "$RESPONSE_HEADERS_FILE" \
+    --write-out "%{http_code}" \
+    "https://api.github.com/repos/${REPO}/compare/${expected_sha}...${candidate_sha}?per_page=1" \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}")"; then
+    return 2
+  fi
+  [ "$http_code" = "200" ] && body_is_bounded "$response_file" "$COMPARE_MAX_RESPONSE_BYTES" || return 2
+
+  TRIGGER_COMPARE_FILE="$response_file" \
+  TRIGGER_COMPARE_BASE="$expected_sha" \
+  TRIGGER_COMPARE_HEAD="$candidate_sha" \
+  TRIGGER_COMPARE_REPOSITORY="$REPO" \
+  node <<'NODE'
+const fs = require('node:fs');
+try {
+  const comparison = JSON.parse(fs.readFileSync(process.env.TRIGGER_COMPARE_FILE, 'utf8'));
+  const base = process.env.TRIGGER_COMPARE_BASE;
+  const head = process.env.TRIGGER_COMPARE_HEAD;
+  const repository = process.env.TRIGGER_COMPARE_REPOSITORY;
+  const encodedRepository = repository.split('/').map(encodeURIComponent).join('/');
+  const expectedUrl = `https://api.github.com/repos/${encodedRepository}/compare/${base}...${head}`;
+  if (comparison?.status !== 'ahead'
+      || comparison?.base_commit?.sha !== base
+      || comparison?.merge_base_commit?.sha !== base
+      || comparison?.url !== expectedUrl
+      || !Number.isInteger(comparison?.ahead_by) || comparison.ahead_by < 1
+      || comparison?.behind_by !== 0) process.exit(1);
+} catch {
+  process.exit(1);
+}
+NODE
 }
 
 if [ -n "$EXPECTED_SHA" ]; then
-  echo "⏳ Waiting for ${REF} to reach pushed SHA ${EXPECTED_SHA}..."
+  echo "⏳ Waiting for ${REF} to contain pushed SHA ${EXPECTED_SHA}..."
   REACHED=0
   for attempt in $(seq 1 "$WAIT_ATTEMPTS"); do
-    CURRENT_SHA="$(read_ref_sha "$REF" || true)"
-    if [ -n "$CURRENT_SHA" ] && [ "$CURRENT_SHA" = "$EXPECTED_SHA" ]; then
-      echo "✅ ${REF} now points to ${EXPECTED_SHA}"
+    CURRENT_SHA="$(read_ref_sha "$ENCODED_REF" || true)"
+    if [ -n "$CURRENT_SHA" ] && commit_is_expected_or_descendant "$EXPECTED_SHA" "$CURRENT_SHA"; then
+      if [ "$CURRENT_SHA" = "$EXPECTED_SHA" ]; then
+        echo "✅ ${REF} now points to ${EXPECTED_SHA}"
+      else
+        echo "✅ ${REF} now points to descendant ${CURRENT_SHA} containing ${EXPECTED_SHA}"
+      fi
       REACHED=1
       break
     fi
@@ -113,10 +276,26 @@ if [ -n "$EXPECTED_SHA" ]; then
     else
       echo "… unable to read ${REF} head SHA (attempt ${attempt}/${WAIT_ATTEMPTS})"
     fi
-    sleep "$WAIT_SECONDS"
+    NEXT_SLEEP_SECONDS="$WAIT_SECONDS"
+    # A GitHub secondary rate-limit (403) during polling is not a generic
+    # error: hammering it at the fixed WAIT_SECONDS cadence just re-triggers
+    # it. Honor the server-declared `Retry-After` when present, otherwise
+    # back off to at least 5s instead of the (possibly sub-second) default.
+    if [ "$(last_http_status_code "$RESPONSE_HEADERS_FILE" 2>/dev/null || true)" = "403" ]; then
+      if RETRY_AFTER_VALUE="$(retry_after_seconds "$RESPONSE_HEADERS_FILE" 60 2>/dev/null)"; then
+        NEXT_SLEEP_SECONDS="$RETRY_AFTER_VALUE"
+        echo "⏸️ secondary rate-limit (403) — honoring Retry-After: ${NEXT_SLEEP_SECONDS}s before next poll"
+      else
+        NEXT_SLEEP_SECONDS=$(( WAIT_SECONDS > 5 ? WAIT_SECONDS : 5 ))
+        echo "⏸️ secondary rate-limit (403) without Retry-After — backing off ${NEXT_SLEEP_SECONDS}s before next poll"
+      fi
+    fi
+    sleep "$NEXT_SLEEP_SECONDS"
   done
   if [ "$REACHED" != "1" ]; then
-    echo "⚠️ ${REF} did not reach ${EXPECTED_SHA} in time — dispatching anyway"
+    echo "❌ ${REF} did not contain ${EXPECTED_SHA} in time — dispatch blocked"
+    write_output "dispatch_sent" "false"
+    exit 1
   fi
 fi
 
@@ -138,7 +317,6 @@ try {
   // the caller saw a "successful" trigger of a run that never got its article
   // id. A caller passing malformed JSON is a bug worth failing on.
   console.error(`[trigger-workflow] malformed inputs JSON: ${err.message}`);
-  console.error(`[trigger-workflow] received: ${process.env.TRIGGER_INPUTS_JSON}`);
   process.exit(1);
 }
 if (Object.keys(inputs).length > 0) {
@@ -148,39 +326,167 @@ process.stdout.write(JSON.stringify(payload));
 NODE
 )"
 
-# Retry on transient errors (5xx / connection failure) — GitHub's API dispatch
-# endpoint occasionally 502s under load. Auth/permission errors (4xx) are not
-# transient and fail immediately without wasting the retry budget.
-attempt=1
-while true; do
-  HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" \
-    -X POST \
-    "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
-    -H "Accept: application/vnd.github+json" \
-    -H "Authorization: Bearer ${TOKEN}" \
-    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
-    -d "$PAYLOAD" || echo "000")
+# The pinned GitHub REST workflow_dispatch contract returns the created run
+# identity. The POST is sent
+# exactly once: a timeout, connection failure, 5xx or legacy 204 is ambiguous
+# and must never be followed by another POST. Generic callers do not share a
+# globally unique run-name, so there is no safe list-and-guess reconciliation.
+DISPATCH_BODY_FILE="${TEMP_DIR}/dispatch-response.json"
+if ! HTTP_CODE="$(curl --silent --show-error \
+  --connect-timeout 10 \
+  --max-time 30 \
+  --max-filesize "$MAX_RESPONSE_BYTES" \
+  --output "$DISPATCH_BODY_FILE" \
+  --write-out "%{http_code}" \
+  --request POST \
+  "https://api.github.com/repos/${REPO}/actions/workflows/${WORKFLOW_FILE}/dispatches" \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer ${TOKEN}" \
+  -H "Content-Type: application/json" \
+  -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}" \
+  -d "$PAYLOAD")"; then
+  HTTP_CODE="000"
+fi
 
-  if [ "$HTTP_CODE" = "204" ]; then
-    break
-  fi
-  if [[ ! "$HTTP_CODE" =~ ^5[0-9][0-9]$ ]] && [ "$HTTP_CODE" != "000" ]; then
-    break
-  fi
-  if [ "$attempt" -ge "$MAX_DISPATCH_ATTEMPTS" ]; then
-    break
-  fi
-  echo "⚠️ ${WORKFLOW_FILE} trigger returned HTTP $HTTP_CODE (attempt ${attempt}/${MAX_DISPATCH_ATTEMPTS}) — retrying..."
-  sleep $((attempt * 2))
-  attempt=$((attempt + 1))
-done
-
-if [ "$HTTP_CODE" = "204" ]; then
-  echo "✅ ${WORKFLOW_FILE} triggered successfully"
-  write_output "dispatch_sent" "true"
-  exit 0
-else
-  echo "⚠️ ${WORKFLOW_FILE} trigger returned HTTP $HTTP_CODE (expected 204)"
+if [ "$HTTP_CODE" != "200" ] || ! body_is_bounded "$DISPATCH_BODY_FILE"; then
+  echo "⚠️ ${WORKFLOW_FILE} trigger returned an ambiguous or rejected response (HTTP ${HTTP_CODE})"
   write_output "dispatch_sent" "false"
   exit 1
 fi
+
+if ! RUN_ID="$(
+  TRIGGER_RESPONSE_FILE="$DISPATCH_BODY_FILE" \
+  TRIGGER_EXPECTED_REPOSITORY="$REPO" \
+  node <<'NODE'
+const fs = require('node:fs');
+try {
+  const body = JSON.parse(fs.readFileSync(process.env.TRIGGER_RESPONSE_FILE, 'utf8'));
+  const repository = process.env.TRIGGER_EXPECTED_REPOSITORY;
+  const runId = String(body?.workflow_run_id ?? '');
+  if (!/^[1-9][0-9]*$/.test(runId) || typeof body?.run_url !== 'string'
+      || typeof body?.html_url !== 'string') process.exit(1);
+  const apiUrl = new URL(body.run_url);
+  const htmlUrl = new URL(body.html_url);
+  const encodedRepository = repository.split('/').map(encodeURIComponent).join('/');
+  if (apiUrl.origin !== 'https://api.github.com'
+      || htmlUrl.origin !== 'https://github.com'
+      || apiUrl.pathname !== `/repos/${encodedRepository}/actions/runs/${runId}`
+      || htmlUrl.pathname !== `/${encodedRepository}/actions/runs/${runId}`
+      || apiUrl.search || apiUrl.hash || htmlUrl.search || htmlUrl.hash) process.exit(1);
+  process.stdout.write(runId);
+} catch {
+  process.exit(1);
+}
+NODE
+)"; then
+  echo "⚠️ ${WORKFLOW_FILE} trigger returned an invalid 200 response"
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+
+RUN_BODY_FILE="${TEMP_DIR}/run-response.json"
+RUN_HTTP_CODE="000"
+for lookup_attempt in $(seq 1 "$RUN_LOOKUP_ATTEMPTS"); do
+  if ! RUN_HTTP_CODE="$(curl --silent --show-error \
+    --connect-timeout 10 \
+    --max-time 30 \
+    --max-filesize "$MAX_RESPONSE_BYTES" \
+    --output "$RUN_BODY_FILE" \
+    --write-out "%{http_code}" \
+    "https://api.github.com/repos/${REPO}/actions/runs/${RUN_ID}" \
+    -H "Accept: application/vnd.github+json" \
+    -H "Authorization: Bearer ${TOKEN}" \
+    -H "X-GitHub-Api-Version: ${GITHUB_API_VERSION}")"; then
+    RUN_HTTP_CODE="000"
+  fi
+  if [ "$RUN_HTTP_CODE" = "200" ]; then
+    break
+  fi
+  if { [ "$RUN_HTTP_CODE" = "000" ] || [ "$RUN_HTTP_CODE" = "404" ] \
+      || [ "$RUN_HTTP_CODE" = "429" ] || [[ "$RUN_HTTP_CODE" =~ ^5[0-9][0-9]$ ]]; } \
+      && [ "$lookup_attempt" -lt "$RUN_LOOKUP_ATTEMPTS" ]; then
+    sleep "$RUN_LOOKUP_SECONDS"
+    continue
+  fi
+  break
+done
+
+if [ "$RUN_HTTP_CODE" != "200" ] || ! body_is_bounded "$RUN_BODY_FILE"; then
+  echo "⚠️ ${WORKFLOW_FILE} run identity could not be verified (HTTP ${RUN_HTTP_CODE})"
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+
+if ! RUN_HEAD_SHA="$(
+  TRIGGER_RUN_FILE="$RUN_BODY_FILE" \
+  TRIGGER_EXPECTED_RUN_ID="$RUN_ID" \
+  TRIGGER_EXPECTED_REPOSITORY="$REPO" \
+  TRIGGER_EXPECTED_WORKFLOW="$WORKFLOW_FILE" \
+  TRIGGER_EXPECTED_REF="$REF" \
+  TRIGGER_EXPECTED_HEAD_SHA="$EXPECTED_SHA" \
+  node <<'NODE'
+const fs = require('node:fs');
+try {
+  const run = JSON.parse(fs.readFileSync(process.env.TRIGGER_RUN_FILE, 'utf8'));
+  const runId = process.env.TRIGGER_EXPECTED_RUN_ID;
+  const repository = process.env.TRIGGER_EXPECTED_REPOSITORY;
+  const workflow = process.env.TRIGGER_EXPECTED_WORKFLOW;
+  const ref = process.env.TRIGGER_EXPECTED_REF;
+  const expectedHeadSha = process.env.TRIGGER_EXPECTED_HEAD_SHA;
+  const validPath = run?.path === `.github/workflows/${workflow}`;
+  const nonterminalStatuses = new Set(['queued', 'in_progress', 'requested', 'waiting', 'pending']);
+  const validLifecycle = run?.status === 'completed' || nonterminalStatuses.has(run?.status);
+  if (String(run?.id ?? '') !== runId
+      || run?.repository?.full_name !== repository
+      || !validPath
+      || run?.event !== 'workflow_dispatch'
+      || run?.head_branch !== ref
+      || (expectedHeadSha && (typeof run?.head_sha !== 'string'
+          || !/^[a-f0-9]{40,64}$/.test(run.head_sha)))
+      || !Number.isInteger(run?.run_attempt) || run.run_attempt < 1
+      || !validLifecycle) process.exit(1);
+  if (expectedHeadSha) process.stdout.write(run.head_sha);
+} catch {
+  process.exit(1);
+}
+NODE
+)"; then
+  echo "⚠️ ${WORKFLOW_FILE} direct run failed exact binding validation"
+  write_output "dispatch_sent" "false"
+  exit 1
+fi
+
+if [ -n "$EXPECTED_SHA" ]; then
+  # The run's identity (id, repository, workflow path, event, ref, run_attempt,
+  # head_sha format) is already strictly validated above — this is the last
+  # check, a genuine ancestry re-fetch. A transient failure here (curl
+  # transport error, 5xx, or any non-200 without a definitive comparison
+  # payload — return code 2, see commit_is_expected_or_descendant) is not
+  # evidence of a real mismatch and must not fail the dispatch on the first
+  # try; a definitive semantic mismatch (return code 1, e.g. diverged/behind)
+  # must still fail immediately.
+  POST_VERIFY_STATUS=1
+  for post_verify_attempt in $(seq 1 "$POST_VERIFY_ATTEMPTS"); do
+    if commit_is_expected_or_descendant "$EXPECTED_SHA" "$RUN_HEAD_SHA"; then
+      POST_VERIFY_STATUS=0
+    else
+      POST_VERIFY_STATUS=$?
+    fi
+    if [ "$POST_VERIFY_STATUS" != "2" ]; then
+      break
+    fi
+    if [ "$post_verify_attempt" -lt "$POST_VERIFY_ATTEMPTS" ]; then
+      echo "⏳ transient failure re-checking ${WORKFLOW_FILE} run head ancestry (attempt ${post_verify_attempt}/${POST_VERIFY_ATTEMPTS}) — retrying"
+      sleep "$POST_VERIFY_SECONDS"
+    fi
+  done
+  if [ "$POST_VERIFY_STATUS" != "0" ]; then
+    echo "⚠️ ${WORKFLOW_FILE} direct run head ${RUN_HEAD_SHA} does not contain ${EXPECTED_SHA}"
+    write_output "dispatch_sent" "false"
+    exit 1
+  fi
+fi
+
+echo "✅ ${WORKFLOW_FILE} triggered and exact run ${RUN_ID} verified${RUN_HEAD_SHA:+ at ${RUN_HEAD_SHA}}"
+write_output "dispatch_sent" "true"
+exit 0

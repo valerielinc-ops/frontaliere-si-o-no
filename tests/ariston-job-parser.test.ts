@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildAristonLocalizedContent,
   inferAristonRegion,
@@ -8,6 +8,15 @@ import {
 } from '../scripts/lib/ariston-job-parser.mjs';
 
 describe('ariston job parser', () => {
+  const validFeedItem = ({
+    title = '<title>Service Technician (Bedano, CH, 6930)</title>',
+    link = '<link>https://careers.aristongroup.com/job/Bedano-Service-Technician/123/</link>',
+    location = '<g:location>Bedano, CH, 6930</g:location>',
+    employer = '<g:employer>Ariston Group</g:employer>',
+    category = '<g:job_function>Service</g:job_function>',
+    validThrough = '<g:expiration_date>2026-12-31</g:expiration_date>',
+  } = {}) => `<rss xmlns:g="http://base.google.com/ns/1.0"><channel><item>${title}${link}${location}${employer}${category}${validThrough}</item></channel></rss>`;
+
   it('parses sitemap feed items and keeps target locations', () => {
     const xml = `<?xml version="1.0" encoding="UTF-8"?>
       <rss version="2.0" xmlns:g="http://base.google.com/ns/1.0">
@@ -24,6 +33,15 @@ describe('ariston job parser', () => {
     expect(items).toHaveLength(1);
     expect(items[0].location).toContain('Bedano');
     expect(isAristonTargetLocation(items[0].location)).toBe(true);
+  });
+
+  it('requires the authoritative CH country marker before fuzzy Swiss matching', () => {
+    expect(isAristonTargetLocation('Bedano, CH, 6930')).toBe(true);
+    expect(isAristonTargetLocation('Fontaines, CH, 2046 TECHNICIEN RÉGION NEUCHÂTEL')).toBe(true);
+    expect(isAristonTargetLocation('Hannover, Dresden, Frankfurt, Koblenz, DE, x')).toBe(false);
+    expect(isAristonTargetLocation('Mainburg, DE, 84048 RAUM KOBLENZ')).toBe(false);
+    expect(isAristonTargetLocation('Bedano, 6930')).toBe(false);
+    expect(inferAristonRegion('Fontaines, CH, 2046 TECHNICIEN RÉGION NEUCHÂTEL').canton).toBe('NE');
   });
 
   it('throws a clear, low-drama error instead of the opaque fast-xml-parser exception on unparseable input (#4246)', () => {
@@ -43,6 +61,31 @@ describe('ariston job parser', () => {
     // The library's own opaque message must NOT be the only signal — it should be
     // wrapped, not swallowed (still present in the cause, just not the whole story).
     expect(() => parseAristonSitemapFeed(jinaHtmlFallback)).not.toThrow(/^Maximum nested tags exceeded$/);
+  });
+
+  it.each([
+    '<rss><channel><item><title>Service</title></description></item></channel></rss>',
+    '<rss><channel><item><title>Service</title></item>',
+  ])('rejects malformed or truncated feed XML before parsing', (xml) => {
+    expect(() => parseAristonSitemapFeed(xml)).toThrow(/failed to parse as XML/);
+  });
+
+  it.each([
+    ['title', { title: '<title><strong>Service Technician</strong></title>' }],
+    ['link', { link: '<link>https://careers.aristongroup.com/job/1/</link><link>https://careers.aristongroup.com/job/2/</link>' }],
+    ['g:location', { location: '<g:location>Bedano</g:location><g:location>Lugano</g:location>' }],
+    ['g:employer', { employer: '<g:employer><strong>Ariston</strong></g:employer>' }],
+    ['g:job_function', { category: '<g:job_function>Service</g:job_function><g:job_function>Sales</g:job_function>' }],
+    ['g:expiration_date', { validThrough: '<g:expiration_date>2026-12-31</g:expiration_date><g:expiration_date>2027-01-31</g:expiration_date>' }],
+  ])('drops a single item with a non-scalar or repeated %s leaf instead of aborting the whole feed', (field, override) => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(parseAristonSitemapFeed(validFeedItem(override))).toEqual([]);
+    expect(warnSpy).toHaveBeenCalledWith(
+      expect.stringMatching(
+        new RegExp(`${field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')} must be a single scalar string`),
+      ),
+    );
+    warnSpy.mockRestore();
   });
 
   it('parses detail page metadata and description', () => {

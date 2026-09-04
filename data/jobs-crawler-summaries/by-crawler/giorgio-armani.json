@@ -1,56 +1,18 @@
 {
   "key": "giorgio-armani",
   "label": "giorgio-armani",
-  "generatedAt": "2026-08-26T10:38:19.016Z",
-  "total": 1,
+  "generatedAt": "2026-09-03T23:20:23.523Z",
+  "total": 0,
+  "discovered": null,
+  "written": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 33365,
-  "avgDurationMs": 33365,
-  "durationHistory": [
-    33365
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "Client Advisor - Giorgio Armani Zurich",
-      "slug": "client-advisor-giorgio-armani-zurich-giorgio-armani-s-p-a-zurich",
-      "url": "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5133",
-      "applyUrl": "https://career5.successfactors.eu/sfcareer/jobreqcareer?jobId=5133&company=3397177P",
-      "company": "Giorgio Armani S.p.A.",
-      "companyKey": "giorgio-armani",
-      "companyDomain": "armani.com",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Moda & Lusso",
-      "source": "giorgio-armani-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-08-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "id": "giorgio-armani-6fee7ee2c59e",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "firstSeenAt": "2026-07-17T12:00:46.733Z",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }

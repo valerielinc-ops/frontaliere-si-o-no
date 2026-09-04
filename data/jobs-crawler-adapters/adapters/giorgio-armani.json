@@ -12,13 +12,13 @@
     "https://career5.successfactors.eu/career?company=3397177P&career_ns=job_listing_summary&navBarLevel=JOB_SEARCH"
   ],
   "notes": "Dedicated Giorgio Armani crawler renders the SuccessFactors SPA (company=3397177P) with a headless browser (Playwright): paginates the hydrated job listing, filters for Switzerland-based positions (TI/GR), and parses the hydrated detail .joqReqDescription. The listing/detail pages are no longer curl-fetchable (DWR-rendered SPA).",
-  "updatedAt": "2026-08-26T10:38:18.848Z",
+  "updatedAt": "2026-09-01T10:23:28.749Z",
   "seedMetaByUrl": {
     "https://career5.successfactors.eu/career?career_ns=job_listing&company=3397177P&navBarLevel=JOB_SEARCH&rcm_site_locale=en_US&selected_lang=it_IT&career_job_req_id=5133": {
       "location": "Zurich",
       "canton": "ZH",
       "company": "Giorgio Armani S.p.A.",
-      "postedDate": "2026-08-26"
+      "postedDate": "2026-09-01"
     }
   }
 }

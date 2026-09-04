@@ -52,6 +52,49 @@ jobs:
       - name: Validate dataset (compat self-map + plugin emit)
         run: npx vitest run tests/employer-profile-pages.test.ts tests/search-console-compat.test.ts
 
+      # load-rc-env.mjs needs GOOGLE_APPLICATION_CREDENTIALS to authenticate
+      # to Remote Config (scripts/load-rc-env.mjs:479-482 exits 0 as a no-op
+      # otherwise); this workflow never set it before, which made the step
+      # below inert. Same pattern as monitor-seo-ctr-by-template.yml.
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ No Firebase SA credentials — GITHUB_PAT load will be a no-op"
+          fi
+
+      # GITHUB_PAT = the identity actually honoured by main's "main required
+      # CI checks" ruleset bypass_actors on a direct git push (issue #6325:
+      # the App installation token minted below alone got a HARD GH013
+      # rejection on all 40 retry attempts — no "Bypassed rule violations"
+      # — while every other main-writing data-refresh workflow that loads
+      # GITHUB_PAT here succeeds). configure-main-push-auth.sh already
+      # prefers GITHUB_PAT over APP_TOKEN; loading it here is the only
+      # change needed. Missing from Remote Config → falls back to APP_TOKEN
+      # exactly as before (no regression).
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      # App installation token = secondary push identity fallback if
+      # GITHUB_PAT above is unavailable. git-push-with-retry.sh picks up
+      # APP_TOKEN automatically when set. Missing App creds → APP_TOKEN
+      # unset, push falls back to the ambient credential (no regression).
+      - name: Mint App token (push identity for the ruleset bypass)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Commit and push employer-profiles snapshot
         run: |
           git config user.email "github-actions@github.com"

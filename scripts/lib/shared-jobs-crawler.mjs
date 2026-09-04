@@ -64,6 +64,7 @@ import {
   isJobPortalRelevant as _isJobPortalRelevant,
   isExplicitlyOutsideTarget as _isExplicitlyOutsideTarget,
   isLocationExplicitlyForeign as _isLocationExplicitlyForeign,
+  isForeignAtsUrlLocation as _isForeignAtsUrlLocation,
   isExplicitlyOutsideTargetCantons as _isExplicitlyOutsideTargetCantons,
   recencyTs as _recencyTs,
   mergeRequirements as _mergeRequirements,
@@ -616,6 +617,17 @@ function loadCompanyAdapters() {
     const seedDetailUrls = Array.isArray(parsed.seedDetailUrls)
       ? parsed.seedDetailUrls.map((u) => normalizeSpace(String(u || ''))).filter(Boolean)
       : [];
+    const authoritativeLifecycleDomains = Array.isArray(parsed.authoritativeLifecycleDomains)
+      ? parsed.authoritativeLifecycleDomains.map((domain) => normalizeHost(String(domain || ''))).filter(Boolean)
+      : [];
+    const authoritativeLifecycleDomainSet = new Set(authoritativeLifecycleDomains);
+    const authoritativeDetailSnapshot = parsed.authoritativeDetailSnapshot === true
+      && seedDetailUrls.length > 0
+      && authoritativeLifecycleDomains.length > 0
+      && seedDetailUrls.every((url) => authoritativeLifecycleDomainSet.has(normalizeHost(hostOf(url))));
+    const authoritativeLegacyCompanyAliases = Array.isArray(parsed.authoritativeLegacyCompanyAliases)
+      ? parsed.authoritativeLegacyCompanyAliases.map((alias) => normalizeCompanyKey(String(alias || ''))).filter(Boolean)
+      : [];
     const seedMetaByUrl = {};
     if (parsed.seedMetaByUrl && typeof parsed.seedMetaByUrl === 'object') {
       for (const [rawUrl, rawMeta] of Object.entries(parsed.seedMetaByUrl)) {
@@ -636,6 +648,9 @@ function loadCompanyAdapters() {
       seedUrls,
       seedDetailUrls: seedDetailUrls.length > 0 ? seedDetailUrls : undefined,
       seedMetaByUrl: Object.keys(seedMetaByUrl).length > 0 ? seedMetaByUrl : undefined,
+      authoritativeDetailSnapshot,
+      authoritativeLifecycleDomains: authoritativeDetailSnapshot ? authoritativeLifecycleDomains : undefined,
+      authoritativeLegacyCompanyAliases: authoritativeDetailSnapshot ? authoritativeLegacyCompanyAliases : undefined,
       priority,
       userAgent: userAgent || undefined,
     });
@@ -3122,10 +3137,11 @@ function extractSmartRecruitersListingUrls(html, baseUrl) {
 
 function absoluteLinks(html, baseUrl) {
   const links = new Set();
-  const regex = /<a[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const regex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
-    const href = m[1];
+    const href = readAttr(m[1], 'href').trim();
+    if (!href || href.startsWith('#')) continue;
     const url = tryUrl(href, baseUrl);
     if (url) links.add(url);
   }
@@ -3837,10 +3853,11 @@ async function crawlSmartRecruitersJobs(company, source) {
 
 function absoluteSameHostLinks(html, baseUrl, hintsRegex) {
   const links = new Set();
-  const regex = /<a[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const regex = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
-    const href = m[1];
+    const href = readAttr(m[1], 'href').trim();
+    if (!href || href.startsWith('#')) continue;
     const text = stripHtml(m[2]).toLowerCase();
     const url = tryUrl(href, baseUrl);
     if (!url || !sameHost(url, baseUrl)) continue;
@@ -4098,10 +4115,28 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   }
   if (!location && seedLocation) location = seedLocation;
   const url = tryUrl(node.url, sourcePageUrl) || sourcePageUrl;
+  // A JSON-LD node whose own `url` field points to a canonical/shortlink
+  // variant of the same vacancy (same stable per-job token — UUID, numeric
+  // id, etc. — different query/host/path shell) must still be trusted as the
+  // seed detail: it's the SAME job, not a conflicting one. Literal string
+  // equality on canonicalizeJobUrl() alone would reject that legitimate case
+  // (#7026 item 2). extractJobIdentityFromUrl() is the existing per-job
+  // identity extractor (used for slug-registry keying) and already handles
+  // this exact Prospective.ch `/offene-stellen/{slug}/{uuid}` shape shared by
+  // Fust/Coop, so reuse it here instead of a second bespoke comparison.
+  const sourceIdentity = extractJobIdentityFromUrl(sourcePageUrl);
+  const declaredSeedDetail = options?.isSeedDetail === true
+    && canonicalizeJobUrl(url)
+    && (
+      canonicalizeJobUrl(url) === canonicalizeJobUrl(sourcePageUrl)
+      || (sourceIdentity && extractJobIdentityFromUrl(url) === sourceIdentity)
+    );
 
   if (!title || title.length < 6) return { job: null, reason: 'jsonld_missing_title' };
   if (isLikelyGenericCareerTitle(title)) return { job: null, reason: 'jsonld_generic_title' };
-  if (!isLikelyJobDetailUrl(url)) return { job: null, reason: 'jsonld_not_detail_url' };
+  if (!declaredSeedDetail && !isLikelyJobDetailUrl(url)) {
+    return { job: null, reason: 'jsonld_not_detail_url' };
+  }
 
   // Include addressRegion in relevance check so that jobs in smaller Ticino towns
   // (e.g., Taverne) are still recognized when addressRegion says "Ticino".
@@ -4120,7 +4155,9 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   // an EXPLICIT foreign signal is strong enough to reject regardless of
   // seed trust. Keep the seedMetaRelevant rescue only for the ambiguous
   // "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(location)) return { job: null, reason: 'jsonld_location_explicitly_foreign' };
+  if (isLocationExplicitlyForeign(location) || _isForeignAtsUrlLocation(url)) {
+    return { job: null, reason: 'jsonld_location_explicitly_foreign' };
+  }
   if (isExplicitlyOutsideTarget(mergedLocText) || isExplicitlyOutsideTargetCantons(mergedLocText)) {
     return { job: null, reason: 'jsonld_explicitly_outside_target' };
   }
@@ -4187,6 +4224,30 @@ function toJobFromJsonLd(node, fallbackCompany, sourcePageUrl, options = {}) {
   }
 
   return { job, reason: null };
+}
+
+/**
+ * Read schema.org PostalAddress metadata from HTML-only job pages. Some ATS
+ * tenants expose microdata but no JSON-LD, so the generic fallback otherwise
+ * judges geography from title/body tokens (where e.g. "IT" means Information
+ * Technology, not Italy).
+ */
+function extractHtmlMicrodataAddress(html = '') {
+  const content = (prop) => {
+    const tag = String(html).match(new RegExp(
+      `<[^>]*\\bitemprop=["']${prop}["'][^>]*>`,
+      'i',
+    ))?.[0] || '';
+    return normalizeSpace(decodeHtmlEntities(
+      tag.match(/\bcontent=["']([^"']*)["']/i)?.[1] || '',
+    ));
+  };
+  return {
+    locality: content('addressLocality'),
+    region: content('addressRegion'),
+    postalCode: content('postalCode'),
+    country: content('addressCountry'),
+  };
 }
 
 function extractTitleFromHtml(html) {
@@ -4303,8 +4364,13 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   if (isLikelyListingSummaryContent(title, description)) {
     return { job: null, reason: 'html_listing_summary_page' };
   }
+  const microdataAddress = extractHtmlMicrodataAddress(html);
+  const microdataLocation = [microdataAddress.locality, microdataAddress.region]
+    .filter(Boolean)
+    .join(', ');
   const locationMatch =
     supsiParsed?.location ||
+    microdataLocation ||
     extractLocationFromText(html, '') ||
     sanitizeLocation(normalizeSpace(extractMetaContent(html, 'property', 'jobLocation'))) ||
     (isTargetSwissLocation(description) ? companyCity : '') ||
@@ -4336,8 +4402,18 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
   // mentions Switzerland, so an EXPLICIT foreign signal here is strong
   // enough to reject regardless of seed trust. Keep the seedMetaRelevant
   // rescue only for the ambiguous "no explicit signal either way" case below.
-  if (isLocationExplicitlyForeign(locationMatch)) return { job: null, reason: 'html_location_explicitly_foreign' };
-  if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) {
+  const microdataCountryForeign = Boolean(microdataAddress.country)
+    && !isChCountry(microdataAddress.country)
+    && !normalizeCantonCode(microdataAddress.country);
+  if (microdataCountryForeign || isLocationExplicitlyForeign(locationMatch) || _isForeignAtsUrlLocation(pageUrl)) {
+    return { job: null, reason: 'html_location_explicitly_foreign' };
+  }
+  const explicitSwissMicrodata = isChCountry(microdataAddress.country)
+    && isTargetSwissLocation(`${microdataAddress.locality} ${microdataAddress.region}`);
+  if (
+    !explicitSwissMicrodata
+    && (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal))
+  ) {
     return { job: null, reason: 'html_explicitly_outside_target' };
   }
   if (!isTargetSwissLocation(geoSignalExplicit) && !seedMetaRelevant) return { job: null, reason: 'html_not_target_relevant' };
@@ -4407,12 +4483,37 @@ function toJobFromHtmlFallback(html, pageUrl, companyName, companyCity, options 
 const GRACE_PERIOD_MAX_MISSES = 2;
 
 function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}) {
-  const activeDomains = new Set(
-    (results || [])
-      .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0)
-      .map((r) => normalizeHost(r?.companyDomain || ''))
-      .filter(Boolean)
-  );
+  const activeResults = (results || [])
+    .filter((r) => (r?.processedCandidates || 0) > 0 || (r?.scrapedJobPages || 0) > 0 || (r?.discardedCount || 0) > 0);
+  const activeDomains = new Set();
+  const authoritativeFingerprintsByScope = new Map();
+  const authoritativeLegacyAliasesByCompanyKey = new Map();
+  for (const result of activeResults) {
+    const companyDomain = normalizeHost(result?.companyDomain || '');
+    if (companyDomain) activeDomains.add(companyDomain);
+
+    const companyKey = normalizeCompanyKey(result?.companyKey || '');
+    const lifecycleDomains = Array.isArray(result?.authoritativeLifecycleDomains)
+      ? result.authoritativeLifecycleDomains.map((domain) => normalizeHost(domain)).filter(Boolean)
+      : [];
+    const sourceFingerprintsByDomain = result?.authoritativeDetailFingerprintsByDomain
+      && typeof result.authoritativeDetailFingerprintsByDomain === 'object'
+      ? result.authoritativeDetailFingerprintsByDomain
+      : {};
+    if (!companyKey || lifecycleDomains.length === 0) continue;
+    const legacyAliases = Array.isArray(result?.authoritativeLegacyCompanyAliases)
+      ? result.authoritativeLegacyCompanyAliases.map((alias) => normalizeCompanyKey(alias)).filter(Boolean)
+      : [];
+    authoritativeLegacyAliasesByCompanyKey.set(companyKey, new Set(legacyAliases));
+    for (const domain of lifecycleDomains) {
+      const sourceFingerprints = Array.isArray(sourceFingerprintsByDomain[domain])
+        ? sourceFingerprintsByDomain[domain].filter(Boolean)
+        : [];
+      if (sourceFingerprints.length === 0) continue;
+      activeDomains.add(domain);
+      authoritativeFingerprintsByScope.set(`${companyKey}|${domain}`, new Set(sourceFingerprints));
+    }
+  }
   if (activeDomains.size === 0) return { prunedExisting: existingJobs, removed: 0 };
   const scopeCompanyKeys = new Set(
     (Array.isArray(options.scopeCompanyKeys) ? options.scopeCompanyKeys : [])
@@ -4420,6 +4521,14 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
       .filter(Boolean)
   );
   const hasScopedCompanyKeys = scopeCompanyKeys.size > 0;
+  const singleScopedCompanyKey = scopeCompanyKeys.size === 1 ? [...scopeCompanyKeys][0] : '';
+  if (hasScopedCompanyKeys && !singleScopedCompanyKey && authoritativeLegacyAliasesByCompanyKey.size > 0) {
+    // Legacy-alias fallback (below) only disambiguates a bare `company` string
+    // to a companyKey when exactly one scoped key is requested — with 0 or 2+
+    // scoped keys it's silently skipped, so a legacy record without
+    // `companyKey` is preserved untouched instead of being scoped/pruned.
+    console.warn(`  ⚠️ scopeCompanyKeys has ${scopeCompanyKeys.size} entries — legacy alias fallback for ${[...authoritativeLegacyAliasesByCompanyKey.keys()].join(', ')} disabled (requires exactly 1 scoped key)`);
+  }
 
   const incomingFp = new Set((incomingJobs || []).map((j) => fingerprintJob(j)).filter(Boolean));
   const prunedExisting = [];
@@ -4427,17 +4536,27 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
   for (const job of existingJobs || []) {
     const domain = normalizeHost(hostOf(job?.url || ''));
     if (job?.source === 'Company Careers Crawler' && domain && activeDomains.has(domain)) {
+      const explicitKey = normalizeCompanyKey(String(job?.companyKey || ''));
+      const legacyCompany = normalizeCompanyKey(String(job?.company || ''));
+      const legacyAliases = authoritativeLegacyAliasesByCompanyKey.get(singleScopedCompanyKey);
+      const key = explicitKey
+        || (singleScopedCompanyKey && legacyAliases?.has(legacyCompany) ? singleScopedCompanyKey : '')
+        || legacyCompany;
       if (hasScopedCompanyKeys) {
-        const key = normalizeCompanyKey(String(job?.companyKey || job?.company || ''));
         if (!scopeCompanyKeys.has(key)) {
           prunedExisting.push(job);
           continue;
         }
       }
       const fp = fingerprintJob(job);
-      if (fp && !incomingFp.has(fp)) {
-        // Grace period before dropping a job absent from this run's incoming
-        // set — mirrors mergePreserveLocaleData's silent-job-loss guard in
+      const authoritativeFingerprints = authoritativeFingerprintsByScope.get(`${key}|${domain}`);
+      const isPresent = authoritativeFingerprints
+        ? authoritativeFingerprints.has(fp)
+        : incomingFp.has(fp);
+      if (fp && !isPresent) {
+        // Grace period before dropping a job absent from the authoritative
+        // source snapshot (when explicitly declared) or this run's incoming
+        // set. Mirrors mergePreserveLocaleData's silent-job-loss guard in
         // dedicated-crawler-common.mjs: a domain counting as "active" only
         // means SOME page scraped, not that every page did, so one run's
         // partial-page miss shouldn't be a permanent removal.
@@ -4450,7 +4569,8 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
         continue;
       }
       if (fp && job?.crawlerMissStreak) {
-        // Job reappeared this run — clear a streak left by a prior miss so
+        // Job reappeared in the authoritative source or this run — clear a
+        // streak left by a prior miss so
         // the grace period counts CONSECUTIVE misses, not cumulative ones.
         // Without this, mergeAndDeduplicate's `{ ...prev, ...next }` spread
         // downstream would carry the stale count forward forever, since the
@@ -4484,6 +4604,7 @@ function buildKnownJobUrlsSet(preloadedJobs) {
 async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls = new Set()) {
   const result = {
     company: company.name,
+    companyKey: company.key,
     companyDomain: normalizeHost(hostOf(company.website)),
     discoveredCareerPages: 0,
     scrapedJobPages: 0,
@@ -4506,6 +4627,19 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   const adapter = getCompanyAdapter(company);
   if (adapter && adapter.enabled === false) {
     return result;
+  }
+  if (adapter?.authoritativeDetailSnapshot === true) {
+    result.authoritativeLifecycleDomains = adapter.authoritativeLifecycleDomains;
+    result.authoritativeLegacyCompanyAliases = adapter.authoritativeLegacyCompanyAliases;
+    const fingerprintsByDomain = {};
+    for (const url of adapter.seedDetailUrls || []) {
+      const domain = normalizeHost(hostOf(url));
+      const fingerprint = fingerprintJob({ url });
+      if (!domain || !fingerprint) continue;
+      if (!fingerprintsByDomain[domain]) fingerprintsByDomain[domain] = [];
+      fingerprintsByDomain[domain].push(fingerprint);
+    }
+    result.authoritativeDetailFingerprintsByDomain = fingerprintsByDomain;
   }
   const defaultModes = ['workday', 'greenhouse', 'lever', 'smartrecruiters', 'generic_ats', 'teaser_api', 'jsonld', 'html'];
   const companyModeConfig =
@@ -4617,18 +4751,20 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
 
   let homepageHtml = '';
   const adapterSeeds = getSeedUrlsForCompany(company, crawlerConfig);
+  const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
+  const hasAdapterSeeds = adapterSeeds.length > 0 || adapterDetailUrls.length > 0;
   try {
     const res = await fetchWithTimeout(company.website);
     if (!res.ok) {
       // Don't bail if adapter has seed URLs — they may be on a different host (e.g., jobs.migros.ch vs migros.ch)
-      if (!adapterSeeds.length) return result;
-      console.warn(`  ⚠️ Homepage ${company.website} returned ${res.status}, proceeding with ${adapterSeeds.length} adapter seed URLs`);
+      if (!hasAdapterSeeds) return result;
+      console.warn(`  ⚠️ Homepage ${company.website} returned ${res.status}, proceeding with ${adapterSeeds.length + adapterDetailUrls.length} adapter seed URLs`);
     } else {
       homepageHtml = await res.text();
     }
   } catch (e) {
-    if (!adapterSeeds.length) return result;
-    console.warn(`  ⚠️ Homepage ${company.website} unreachable (${e.message}), proceeding with ${adapterSeeds.length} adapter seed URLs`);
+    if (!hasAdapterSeeds) return result;
+    console.warn(`  ⚠️ Homepage ${company.website} unreachable (${e.message}), proceeding with ${adapterSeeds.length + adapterDetailUrls.length} adapter seed URLs`);
   }
 
   const candidateCareerUrls = new Set();
@@ -4641,6 +4777,24 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
   // (not listing pages). These go directly to jobLinks for HTML fallback extraction,
   // bypassing the generic ATS listing crawl which only extracts JSON-LD from "listing" pages.
   const seedDetailUrls = new Set();
+  // Membership on seedDetailUrls is otherwise a raw-string Set: an accented slug
+  // (French/Italian routes) percent-encodes to hex bytes whose case is NOT
+  // normalized by the URL parser when the input already arrives pre-encoded
+  // (`%c3%a9` in, `%c3%a9` out — verified in Node) while a raw-unicode input
+  // to the same page encodes to uppercase (`%C3%A9`). A seed added from one
+  // encoding and looked up via a URL re-derived with the other (different
+  // discovery path re-finding the same detail page) would silently miss and
+  // fall through to the generic classifier instead of the trusted seed path.
+  // `canonicalizeJobUrl()` lowercases the whole string, so both hex cases key
+  // identically; keep the raw Set for fetch/logging and add a canonical-key
+  // index just for membership checks.
+  const seedDetailUrlKeys = new Set();
+  const seedDetailUrlKey = (url) => canonicalizeJobUrl(url) || String(url || '').toLowerCase();
+  const addSeedDetailUrl = (url) => {
+    seedDetailUrls.add(url);
+    seedDetailUrlKeys.add(seedDetailUrlKey(url));
+  };
+  const isSeedDetailUrl = (url) => seedDetailUrls.has(url) || seedDetailUrlKeys.has(seedDetailUrlKey(url));
   const workdayListingUrls = new Set(extractWorkdayListingUrls(homepageHtml, company.website));
   const greenhouseListingUrls = new Set(extractGreenhouseListingUrls(homepageHtml, company.website));
   const leverListingUrls = new Set(extractLeverListingUrls(homepageHtml, company.website));
@@ -4673,7 +4827,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
       return;
     }
     if (isLikelyJobDetailUrl(link)) {
-      seedDetailUrls.add(link);
+      addSeedDetailUrl(link);
       addJobLink(link, sourceTag);
       return;
     }
@@ -4701,11 +4855,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     routeDiscoveredUrl(seed, 'adapter_seed');
   }
   // Adapter-declared detail URLs bypass isLikelyJobDetailUrl() classification
-  const adapterDetailUrls = Array.isArray(adapter?.seedDetailUrls) ? adapter.seedDetailUrls : [];
   for (const raw of adapterDetailUrls) {
     const link = tryUrl(raw, company.website);
     if (link) {
-      seedDetailUrls.add(link);
+      addSeedDetailUrl(link);
       addJobLink(link, 'adapter_seed_detail');
     }
   }
@@ -4904,7 +5057,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
     // seedDetailUrls bypass skip-optimization: they must always be re-fetched
     // so that _targetScope metadata is present for the merge exclusion bypass.
     const unknownLinks = knownJobUrls.size > 0
-      ? allLinks.filter((u) => seedDetailUrls.has(u) || !knownJobUrls.has(canonicalizeJobUrl(u)))
+      ? allLinks.filter((u) => isSeedDetailUrl(u) || !knownJobUrls.has(canonicalizeJobUrl(u)))
       : allLinks;
     const links = unknownLinks.slice(0, MAX_JOB_LINKS_PER_COMPANY);
     result.skippedKnownUrls += allLinks.length - unknownLinks.length;
@@ -4926,7 +5079,10 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           const detailNodes = extractJobPostingNodes(extractJsonLdBlocks(html));
           let jsonLdAccepted = false;
           for (const node of detailNodes) {
-            const parsed = toJobFromJsonLd(node, company.name, detailUrl, { seedMeta });
+            const parsed = toJobFromJsonLd(node, company.name, detailUrl, {
+              seedMeta,
+              isSeedDetail: isSeedDetailUrl(detailUrl),
+            });
             if (parsed && !parsed.reason && parsed.job) {
               // Migros pages embed JSON-LD with only the brief overview description.
               // The full sections (tasks, skills, benefits) live in the SSR HTML.
@@ -4958,7 +5114,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
           registerFilteredOut('jsonld_rejected_all_nodes');
           continue;
         }
-        const mustAiCheck = !seedDetailUrls.has(detailUrl) && (sourceTag === 'web_search' || (!signals.hasJsonLdJob && (signals.positive <= 1 || signals.negative > 0)));
+        const mustAiCheck = !isSeedDetailUrl(detailUrl) && (sourceTag === 'web_search' || (!signals.hasJsonLdJob && (signals.positive <= 1 || signals.negative > 0)));
         if (mustAiCheck) {
           // eslint-disable-next-line no-await-in-loop
           const gate = await aiValidateJobDetailPage({ html, pageUrl: detailUrl, companyName: company.name });
@@ -4967,7 +5123,7 @@ async function processCompany(company, hintsRegex, crawlerConfig, knownJobUrls =
             continue;
           }
         }
-        const isSeedDetail = seedDetailUrls.has(detailUrl);
+        const isSeedDetail = isSeedDetailUrl(detailUrl);
         const parsed = toJobFromHtmlFallback(html, detailUrl, company.name, company.city || 'Ticino', { seedMeta, isSeedDetail });
         if (parsed.reason) {
           registerFilteredOut(parsed.reason);
@@ -6064,11 +6220,18 @@ export const __testables = {
   aiValidateJobDetailPage,
   fetchWithTimeout,
   buildKnownJobUrlsSet,
+  pruneStaleCrawlerJobs,
+  absoluteLinks,
+  absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the
   // addressCountry-vs-seedCanton precedence predicate it relies on.
   toJobFromJsonLd,
+  toJobFromHtmlFallback,
+  processCompany,
+  extractHtmlMicrodataAddress,
   isJsonLdCountryExplicitlyForeign,
   setCrawlerConfigForTests(cfg) { crawlerConfigGlobal = cfg; },
+  setCompanyAdaptersForTests(adapters) { companyAdaptersGlobal = adapters; },
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
   loadPersistentAiCache,

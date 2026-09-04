@@ -1,3 +1,4 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Läderach (Schweiz) AG job parser — Softgarden career platform (Next.js).
  * Source: https://laderach.career.softgarden.de/jobs/
@@ -7,10 +8,24 @@
  */
 
 import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { readAttr } from './html-attr.mjs';
 
 const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+
+export function normalizeLaderachJobUrl(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim(), CAREERS_BASE);
+    const isJobPath = /^\/jobs\/\d+\/[^/]+\/?$/i.test(url.pathname);
+    if (url.protocol !== 'https:' || url.origin !== CAREERS_BASE || url.username || url.password || !isJobPath) {
+      return null;
+    }
+    return url.href;
+  } catch {
+    return null;
+  }
+}
 
 // ── shared utilities ──────────────────────────────────────────────────
 
@@ -40,8 +55,8 @@ export function stripHtml(html = '') {
 }
 
 export function slugify(value = '') {
-  return String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 180);
+  return truncateSlugAtWordBoundary(String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-'), 180);
 }
 
 export function inferEmploymentType(title = '', description = '', percentage = '') {
@@ -103,16 +118,20 @@ export function parseLaderachNextDataJobs(jobs) {
   for (const item of jobs) {
     if (!item || !item.title) continue;
     const jobId = String(item.jobPostingId || '');
-    const url = String(item.link || '').trim();
-    const key = url || jobId;
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
+    // A malformed/relocated item.link would previously still be accepted as-is
+    // (pre-source-origin-restriction); now that normalizeLaderachJobUrl gates
+    // strictly, fall back to a URL rebuilt from the known-safe jobId+slug
+    // pattern instead of dropping the job outright.
+    const url = normalizeLaderachJobUrl(item.link)
+      || (/^\d+$/.test(jobId) ? normalizeLaderachJobUrl(`/jobs/${jobId}/${slugify(item.title)}/`) : null);
+    if (!url || seen.has(url)) continue;
+    seen.add(url);
 
     result.push({
       id: slugify(item.title),
       jobId,
       title: String(item.title).trim(),
-      url: url.startsWith('http') ? url : `${CAREERS_BASE}${url}`,
+      url,
       location: String(item.location || 'Ennenda').trim(),
       canton: inferAnyCanton(String(item.location || 'Ennenda')) || 'GL',
       department: '',
@@ -127,12 +146,14 @@ export function parseLaderachNextDataJobs(jobs) {
 function parseLaderachHtmlFallback(html) {
   const seen = new Set();
   const jobs = [];
-  const pattern = /<a[^>]+href=["']([^"']*?\/jobs\/\d+\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const pattern = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
 
   while ((m = pattern.exec(html)) !== null) {
-    const rawUrl = m[1].trim();
-    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    const rawUrl = readAttr(m[1], 'href').trim();
+    if (!/\/jobs\/\d+\//i.test(rawUrl)) continue;
+    const url = normalizeLaderachJobUrl(rawUrl);
+    if (!url) continue;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -234,11 +255,12 @@ export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
 }
 
 export async function fetchLaderachDetailPage(url, timeoutMs = 15_000) {
-  if (!url) return null;
+  const safeUrl = normalizeLaderachJobUrl(url);
+  if (!safeUrl) return null;
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(url, {
+    const res = await fetch(safeUrl, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });

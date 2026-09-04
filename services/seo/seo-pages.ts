@@ -920,11 +920,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  },
 
  withholdingRates: {
- title: 'Imposta alla Fonte Ticino 2026: Tabelle A B C H',
- description: 'Imposta alla fonte Ticino 2026: tabelle A, B, C e H, aliquote per CHF 50.000-100.000 e link ai simulatori per netto e busta paga frontalieri.',
+ title: 'Imposta alla Fonte Ticino 2026: Aliquote 7%-18% (Tabelle A B C H)',
+ description: 'Quanto pagate di imposta alla fonte in Ticino 2026? Aliquote reali (7%-18%) per tabella A, B, C, H da CHF 40.000 a 150.000, con simulatori per netto e busta paga.',
  keywords: 'aliquote imposta alla fonte ticino 2026, tabella imposta alla fonte ticino, tabelle A B C H ticino, quellensteuer ticino 2026, imposta alla fonte frontalieri ticino',
- ogTitle: 'Imposta alla Fonte Ticino 2026: Tabelle A B C H',
- ogDescription: 'Tabelle A, B, C e H del Ticino con aliquote 2026, esempi e link ai simulatori per frontalieri.',
+ ogTitle: 'Imposta alla Fonte Ticino 2026: Aliquote 7%-18% (A B C H)',
+ ogDescription: 'Aliquote reali (7%-18%) delle tabelle A, B, C e H del Ticino 2026, con simulatori per calcolare netto e busta paga dei frontalieri.',
  canonicalPath: '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/',
  structuredData: [
  {

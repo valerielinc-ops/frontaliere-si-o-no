@@ -3,8 +3,11 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import {
   SF_J2W_WIDGET_PATTERNS,
+  hasSuccessFactorsMoreLocations,
+  hasSuccessFactorsMoreLocationsInRow,
   isSuccessFactorsWidgetText,
   sanitizeSuccessFactorsField,
+  stripSuccessFactorsMoreLocations,
 } from '../scripts/lib/successfactors-jobs2web-widget-guard.mjs';
 
 /**
@@ -121,6 +124,129 @@ describe('SuccessFactors jobs2web widget guard', () => {
       // A consumer must not be able to mutate the list for every other crawler.
       expect(Object.isFrozen(SF_J2W_WIDGET_PATTERNS)).toBe(true);
       expect(SF_J2W_WIDGET_PATTERNS.length).toBeGreaterThan(20);
+    });
+  });
+
+  describe('multi-location "+N more" marker', () => {
+    it('keeps the visible office and drops the marker, entity-encoded or not', () => {
+      // The Zurich Insurance run that failed closed read exactly this cell.
+      expect(stripSuccessFactorsMoreLocations('Zürich, CH +1 more&hellip;')).toBe('Zürich, CH');
+      expect(stripSuccessFactorsMoreLocations('Basel, CH +2 more…')).toBe('Basel, CH');
+      expect(stripSuccessFactorsMoreLocations('Muttenz, CH, +3 weitere…')).toBe('Muttenz, CH');
+      expect(stripSuccessFactorsMoreLocations('Genève, CH +1 autre…')).toBe('Genève, CH');
+      expect(stripSuccessFactorsMoreLocations('Mendrisio +4 altri…')).toBe('Mendrisio');
+    });
+
+    it('leaves a single-office location untouched', () => {
+      for (const value of ['Sierre, CH', 'Zürich, CH', 'Mendrisio', 'Route 66, CH']) {
+        expect(stripSuccessFactorsMoreLocations(value)).toBe(value);
+        expect(hasSuccessFactorsMoreLocations(value)).toBe(false);
+      }
+    });
+
+    it('detects the marker in the raw row HTML too', () => {
+      // benteler reads it off the whole `<tr>` block to flag rows whose hidden
+      // office may be the Swiss one.
+      expect(
+        hasSuccessFactorsMoreLocations(
+          '<span class="jobLocation">Paderborn, DE <small class="nobr">+1 more&hellip;</small></span>',
+        ),
+      ).toBe(true);
+    });
+
+    it('never trades the marker for the location itself (marker rendered first)', () => {
+      // Cutting to end-of-string assumes the `<small>` is the LAST node of the
+      // cell. A skin that renders it first, or appends a segment after it, must
+      // still yield the office — an empty location is the failure this helper
+      // exists to prevent.
+      expect(stripSuccessFactorsMoreLocations('+2 more… Lugano, CH')).toBe('Lugano, CH');
+      expect(stripSuccessFactorsMoreLocations('+1 weitere…')).toBe('');
+    });
+
+    it('normalizes an entity-encoded or fullwidth "+" before matching', () => {
+      // Call sites that hand over raw markup (benteler) or `stripHtml` output
+      // without entity decoding would otherwise keep "&#43;3 more…".
+      expect(stripSuccessFactorsMoreLocations('Mendrisio &#43;3 more&hellip;')).toBe('Mendrisio');
+      expect(stripSuccessFactorsMoreLocations('Bern, CH ＋2 weitere…')).toBe('Bern, CH');
+      expect(hasSuccessFactorsMoreLocations('Bern, CH &plus;2 mehr…')).toBe(true);
+    });
+
+    describe('row-scoped probe (hasSuccessFactorsMoreLocationsInRow)', () => {
+      const row = (cells: string) => `<tr class="data-row">${cells}</tr>`;
+      const titleCell =
+        '<td class="colTitle"><a class="jobTitle-link" href="/job/Team-Lead-2-more-AG/1/">Team Lead +2 altri reparti</a></td>';
+
+      it('flags a row whose location cell carries the marker', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              '<td class="colTitle"><a class="jobTitle-link" href="/job/x/1/">Quality Engineer</a></td>' +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Warburg, NW, DE <small class="nobr">+1 more&hellip;</small></span></td>',
+            ),
+          ),
+        ).toBe(true);
+      });
+
+      it('ignores a marker-shaped title or href, so no detail fetch is wasted', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>',
+            ),
+          ),
+        ).toBe(false);
+      });
+
+      it('still flags a marker rendered OUTSIDE colLocation while that cell exists', () => {
+        // The fail-closed case: scoping the probe to `td.colLocation` alone
+        // would leave the flag off here, and `listSwissJobs()` would then
+        // discard a multi-office row whose hidden office is the Swiss one.
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>' +
+                '<td class="colSites"><small class="nobr">+2 weitere&hellip;</small></td>',
+            ),
+          ),
+        ).toBe(true);
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            row(
+              titleCell +
+                '<td class="colLocation hidden-phone"><span class="jobLocation">Paderborn, DE</span></td>' +
+                '<td class="colOffices"><span class="jobLocation">+3 autres&hellip;</span></td>',
+            ),
+          ),
+        ).toBe(true);
+      });
+
+      it('falls back to the whole row when the skin exposes no location-like node', () => {
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            '<tr class="data-row"><td>Quality Engineer</td><td>Rothrist, AG, CH +1 more&hellip;</td></tr>',
+          ),
+        ).toBe(true);
+        expect(
+          hasSuccessFactorsMoreLocationsInRow(
+            '<tr class="data-row"><td>Quality Engineer</td><td>Rothrist, AG, CH</td></tr>',
+          ),
+        ).toBe(false);
+      });
+
+      it('treats non-string input as marker-free', () => {
+        for (const value of [undefined, null, 0, {}, []]) {
+          expect(hasSuccessFactorsMoreLocationsInRow(value as unknown as string)).toBe(false);
+        }
+      });
+    });
+
+    it('treats non-string input as marker-free and yields an empty string', () => {
+      for (const value of [undefined, null, 0, {}, []]) {
+        expect(hasSuccessFactorsMoreLocations(value as unknown as string)).toBe(false);
+        expect(stripSuccessFactorsMoreLocations(value as unknown as string)).toBe('');
+      }
     });
   });
 

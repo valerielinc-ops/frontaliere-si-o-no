@@ -46,6 +46,61 @@ jobs:
       - name: Assemble jobs dataset (with stats)
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
+      - name: Check job dataset churn
+        id: churn
+        continue-on-error: true
+        run: node scripts/check-job-dataset-churn.mjs
+
+      - name: Open issue for anomalous dataset churn
+        if: steps.churn.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          count=$(jq 'length' data/job-dataset-churn-issues.json)
+          echo "Found $count churn anomalies."
+
+          for i in $(seq 0 $((count - 1))); do
+            date=$(jq -r ".[$i].date" data/job-dataset-churn-issues.json)
+            metric=$(jq -r ".[$i].metric" data/job-dataset-churn-issues.json)
+            observed=$(jq -r ".[$i].observed" data/job-dataset-churn-issues.json)
+            baselineMean=$(jq -r ".[$i].baselineMean" data/job-dataset-churn-issues.json)
+            baselineStddev=$(jq -r ".[$i].baselineStddev" data/job-dataset-churn-issues.json)
+            threshold=$(jq -r ".[$i].threshold" data/job-dataset-churn-issues.json)
+            baselineDays=$(jq -r ".[$i].baselineDays" data/job-dataset-churn-issues.json)
+            hosts=$(jq -r ".[$i].topHosts | map(\"\\(.host) (\\(.count))\") | join(\", \")" data/job-dataset-churn-issues.json)
+
+            # issueTitle is stable for the same metric + dominant-host hash, so a
+            # multi-day event becomes recurrence comments on one open issue.
+            # The guard keeps date-based titles for unattributed anomalies.
+            title=$(jq -r ".[${i}].issueTitle" data/job-dataset-churn-issues.json)
+            body=$(cat <<EOF
+          Automated churn guard flagged **${metric}** on **${date}**: **${observed}**
+          vs a trailing ${baselineDays}-day baseline of mean=${baselineMean},
+          stddev=${baselineStddev} (threshold ${threshold}).
+
+          Top host contributors: ${hosts:-n/a}
+
+          Source: \`data/jobs-stats-history.json\`
+          Detection script: \`scripts/check-job-dataset-churn.mjs\`
+          Workflow run: ${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}
+
+          Triage:
+          1. Confirm the dominant host above is a real crawler run, not a misclassification.
+          2. If a single source is dumping/retracting pages in bulk, check its parser for a selector or dedup regression.
+          3. If legitimate (e.g. a source republished its whole board), close as expected.
+          EOF
+          )
+
+            node scripts/lib/github-issue-creator.mjs \
+              --title "$title" \
+              --description "$body" \
+              --priority 3 \
+              --label funnel-seo \
+              --workflow "${{ github.workflow }}"
+          done
+
       - name: Commit and push stats history
         run: |
           git config user.email "github-actions@github.com"

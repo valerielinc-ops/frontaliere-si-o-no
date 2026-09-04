@@ -148,7 +148,17 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // Noindex pages are not in the index, so they cannot dilute or inflate
       // what the index contains. Cheap substring test before the regex: the
       // attribute is absent on the large majority of pages.
-      if (html.includes('noindex') && /<meta[^>]+name=["']robots["'][^>]*noindex/i.test(html)) return;
+      // Quote-flexible (matches the sibling regex in every other audit, e.g.
+      // audit-text-html-ratio.mjs / audit-title-length.mjs): the site's HTML
+      // minifier drops attribute quotes when the value needs none
+      // (`name=robots content=noindex,follow`), so a quote-mandatory regex
+      // never matches an emitted page and every below-floor noindex bridge
+      // (short boilerplate, near-zero gain by design) leaks into the cohorts
+      // it was meant to be excluded from — dragging the family's median to
+      // near-zero even though the indexable pages score well above the floor
+      // (issue #6558: confirmed live prod scores 8-13% on the same families
+      // this regex was hiding bridge pages inside of).
+      if (html.includes('noindex') && /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i.test(html)) return;
       const relPath = relative(dist, file);
       // Job-board sections (listing hubs + individual job-detail pages, every
       // canton) are out of scope: they are hydration/JobPosting-JSON-LD driven

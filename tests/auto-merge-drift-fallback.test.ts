@@ -6,7 +6,20 @@
  */
 import { describe, it, expect } from 'vitest';
 import { isReviewWorkflowDriftPR, isTrustedDriftAuthor, prBodyContractOk } from '../scripts/ci/auto-merge-eval.mjs';
+import { isReviewerBot } from '../scripts/ci/lib/constants.mjs';
 import { REVIEW_WORKFLOW_DRIFT_FILES } from '../scripts/ci/lib/constants.mjs';
+
+describe('isReviewerBot', () => {
+  it('riconosce sia Claude sia la GitHub App che pubblica la review', () => {
+    expect(isReviewerBot({ type: 'Bot', login: 'claude[bot]' })).toBe(true);
+    expect(isReviewerBot({ type: 'Bot', login: 'frontaliere-automation[bot]' })).toBe(true);
+  });
+
+  it('non accetta bot esterni o utenti con login simile', () => {
+    expect(isReviewerBot({ type: 'Bot', login: 'frontaliere-automation-evil[bot]' })).toBe(false);
+    expect(isReviewerBot({ type: 'User', login: 'frontaliere-automation[bot]' })).toBe(false);
+  });
+});
 
 describe('isReviewWorkflowDriftPR', () => {
   it('true quando la PR modifica tests.yml', () => {

@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-08-25T21:44:11.707Z",
+  "generatedAt": "2026-09-03T23:16:06.789Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5423,
-  "avgDurationMs": 5423,
+  "durationMs": 5306,
+  "avgDurationMs": 5306,
   "durationHistory": [
-    5423
+    5306
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -82,13 +82,16 @@
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 427,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },
@@ -108,13 +111,16 @@
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
       "needsRetranslation": true,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 421,
+      "retranslationAttempts": 5,
       "firstSeenAt": "2026-07-06T22:38:18.264Z",
       "crawledAt": "",
-      "_qualityScore": 75,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 23,
         "completeness": 11
       }
     },

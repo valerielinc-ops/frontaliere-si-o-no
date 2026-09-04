@@ -170,10 +170,12 @@ import {
   fetchWithRetry,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
+import { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 // Re-export the shared transient-fetch primitives so existing importers of
 // crawler-template keep working and the ATS clients share one classifier.
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
+export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 
@@ -539,21 +541,30 @@ export async function fetchJson(url, options = {}) {
   }, options);
 }
 
-/**
- * Fetch HTML with timeout and error handling.
- */
 export async function fetchHtml(url, options = {}) {
   const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const redirectValidator = typeof options.validateRedirectUrl === 'function'
+    ? options.validateRedirectUrl
+    : null;
   try {
     const html = await fetchWithRetry(async () => {
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), timeoutMs);
       try {
-        const res = await fetch(url, {
+        const requestOptions = {
           method: 'GET',
           headers: { 'User-Agent': DEFAULT_UA, ...options.headers },
           signal: controller.signal,
-        });
+          ...(options.dispatcher ? { dispatcher: options.dispatcher } : {}),
+        };
+        const res = redirectValidator
+          ? await fetchFollowingValidatedRedirects(url, {
+              fetchImpl: options.fetchImpl || fetch,
+              validateUrl: redirectValidator,
+              requestOptions,
+              maxRedirects: options.maxRedirects ?? 5,
+            })
+          : await (options.fetchImpl || fetch)(url, requestOptions);
         if (!res.ok) {
           const err = new Error(`HTTP ${res.status} from ${url}`);
           err.status = res.status;
@@ -570,6 +581,9 @@ export async function fetchHtml(url, options = {}) {
     // datacenter egress IP. The fetch "succeeded" HTTP-wise so the connection
     // rescue below never fires — re-fetch the real page through Jina's clean IP.
     // Genuine pages pass through unchanged (zero cost).
+    // A proxy would hide its redirect chain and effective destination from the
+    // caller's URL policy. Restricted fetches therefore stay fail-closed.
+    if (redirectValidator) return html;
     return await rescueHtmlIfChallenged(html, url, { timeoutMs });
   } catch (err) {
     // Route to the Jina Reader proxy (reliable egress + real browser → raw HTML)
@@ -592,7 +606,7 @@ export async function fetchHtml(url, options = {}) {
     //
     // (fetchJson is intentionally NOT proxied — Jina returns HTML, which would
     // corrupt a JSON response.)
-    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
+    if (!redirectValidator && (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status))) {
       // Retry the proxy itself: Jina's egress IP can be transiently 429'd or
       // WAF-blocked (200 challenge/empty body) — a retry lands on a different
       // Jina IP and usually succeeds. Returns null on exhaustion → safe-fail by
@@ -776,8 +790,126 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {string}   [defaultSourceLang] — Fallback source language (default: 'it')
  * @property {Function} [isTrustedDomain]   — (url) => boolean. For URL validation.
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
+ * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
+ * @property {(jobs: object[]|undefined|null) => boolean} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
+ * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
+ * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  */
+
+/**
+ * Evaluate the opt-in authoritative-snapshot contract. A zero may be
+ * published only when a source-specific validator proves it and the caller
+ * explicitly opts in; an opt-in without a validator has no effect.
+ *
+ * @param {object[]|undefined|null} parsedJobs
+ * @param {{
+ *   validateAuthoritativeSnapshot?: (jobs: object[]|undefined|null) => boolean,
+ *   allowAuthoritativeEmptySnapshot?: boolean,
+ *   authoritativeSnapshotScope?: 'all'|'empty-only',
+ *   companyLabel?: string,
+ * }} [options]
+ * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
+ */
+export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
+  const {
+    validateAuthoritativeSnapshot,
+    allowAuthoritativeEmptySnapshot = false,
+    authoritativeSnapshotScope = 'all',
+    companyLabel = 'Crawler',
+  } = options;
+  if (!['all', 'empty-only'].includes(authoritativeSnapshotScope)) {
+    throw new Error(`${companyLabel}: invalid authoritative snapshot scope`);
+  }
+  let authoritativeSnapshotVerified = false;
+  const snapshotIsWithinAuthorityScope = authoritativeSnapshotScope === 'all'
+    || (Array.isArray(parsedJobs) && parsedJobs.length === 0);
+  if (validateAuthoritativeSnapshot && snapshotIsWithinAuthorityScope) {
+    if (validateAuthoritativeSnapshot(parsedJobs) !== true) {
+      throw new Error(`${companyLabel}: authoritative snapshot validator did not return true`);
+    }
+    authoritativeSnapshotVerified = true;
+  }
+  return {
+    authoritativeSnapshotVerified,
+    authoritativeEmptySnapshot: Boolean(
+      authoritativeSnapshotVerified
+      && allowAuthoritativeEmptySnapshot
+      && Array.isArray(parsedJobs)
+      && parsedJobs.length === 0
+    ),
+  };
+}
+
+/**
+ * Restore the active slug identity of jobs already present in the crawler
+ * slice. This is intentionally opt-in: most crawlers should let a material
+ * title/location correction mint a new slug and retain the old one as a
+ * redirect. A crawler can use this stricter policy when the corrected field is
+ * display metadata and changing an already-published URL would be needless.
+ *
+ * Matching is by the stable job ID which mergePreserveLocaleData has already
+ * carried forward. Fresh jobs are untouched. Existing history is restored
+ * verbatim so an intermediate hardening pass cannot turn a transient derived
+ * slug into a permanent redirect.
+ *
+ * @param {object[]} existingJobs
+ * @param {object[]} currentJobs
+ * @returns {{ jobs: object[], restored: number }}
+ */
+export function restoreExistingSlugIdentity(existingJobs = [], currentJobs = []) {
+  const counts = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id) counts.set(id, (counts.get(id) || 0) + 1);
+  }
+  const existingById = new Map();
+  for (const job of existingJobs) {
+    const id = String(job?.id || '').trim();
+    if (id && counts.get(id) === 1) existingById.set(id, job);
+  }
+
+  let restored = 0;
+  const jobs = currentJobs.map((job) => {
+    const id = String(job?.id || '').trim();
+    const old = id ? existingById.get(id) : null;
+    if (!old) return job;
+
+    const next = { ...job };
+    const oldSlug = String(old.slug || '').trim();
+    if (oldSlug && oldSlug !== String(next.slug || '').trim()) {
+      next.slug = oldSlug;
+      restored++;
+    }
+    if (old.slugByLocale && typeof old.slugByLocale === 'object') {
+      const currentByLocale = next.slugByLocale && typeof next.slugByLocale === 'object'
+        ? next.slugByLocale
+        : {};
+      const restoredByLocale = { ...old.slugByLocale };
+      for (const [locale, slug] of Object.entries(currentByLocale)) {
+        if (!(locale in restoredByLocale)) restoredByLocale[locale] = slug;
+      }
+      if (JSON.stringify(restoredByLocale) !== JSON.stringify(currentByLocale)) restored++;
+      next.slugByLocale = restoredByLocale;
+    }
+
+    if (Array.isArray(old.previousSlugs)) next.previousSlugs = [...old.previousSlugs];
+    else delete next.previousSlugs;
+    if (old.previousSlugsByLocale && typeof old.previousSlugsByLocale === 'object') {
+      next.previousSlugsByLocale = Object.fromEntries(
+        Object.entries(old.previousSlugsByLocale).map(([locale, slugs]) => [
+          locale,
+          Array.isArray(slugs) ? [...slugs] : slugs,
+        ]),
+      );
+    } else {
+      delete next.previousSlugsByLocale;
+    }
+    return next;
+  });
+
+  return { jobs, restored };
+}
 
 /* ── Pipeline ───────────────────────────────────────────────────────── */
 
@@ -800,6 +932,10 @@ export async function runStandardCrawlerPipeline(config) {
     defaultSourceLang = 'it',
     isTrustedDomain,
     matchKey,
+    preserveExistingSlugs = false,
+    validateAuthoritativeSnapshot,
+    allowAuthoritativeEmptySnapshot = false,
+    authoritativeSnapshotScope = 'all',
     baseCrawlerOpts = {},
   } = config;
 
@@ -876,20 +1012,44 @@ export async function runStandardCrawlerPipeline(config) {
     counts.discovered = parsedJobs.discoveredCount;
   }
 
-  if (!parsedJobs || parsedJobs.length === 0) {
+  // Only source-specific crawlers with an explicit completeness proof may
+  // retire every unmatched record immediately. Validation runs before the
+  // zero-job soft exit and before any scratch/archive write, so a partial or
+  // degraded crawl fails closed with the existing slice untouched.
+  const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
+    parsedJobs,
+    {
+      validateAuthoritativeSnapshot,
+      allowAuthoritativeEmptySnapshot,
+      authoritativeSnapshotScope,
+      companyLabel,
+    },
+  );
+
+  if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
     return;
   }
 
-  console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+  if (authoritativeEmptySnapshot) {
+    console.log(`\n🧩 ${companyLabel}: authoritative empty snapshot verified. Retiring stale jobs...\n`);
+  } else {
+    console.log(`\n🧩 ${companyLabel}: ${parsedJobs.length} jobs parsed. Merging...\n`);
+  }
 
   // ─── Step 3: Merge with slug stability ──────────────────────
   // mergePreserveLocaleData preserves translations, slugByLocale, and previousSlugs
   // from previous crawl runs. This is the KEY to slug stability — without it,
   // every crawl would regenerate slugs and orphan indexed URLs.
-  const mergeOpts = matchKey ? { matchKey } : {};
+  const mergeOpts = {
+    ...(matchKey ? { matchKey } : {}),
+    ...(authoritativeSnapshotVerified ? { retainMissingJobs: false } : {}),
+  };
   const merged = mergePreserveLocaleData(companyExisting, parsedJobs, mergeOpts);
-  const clean = merged.sort((a, b) =>
+  const slugStableMerge = preserveExistingSlugs
+    ? restoreExistingSlugIdentity(companyExisting, merged).jobs
+    : merged;
+  const clean = slugStableMerge.sort((a, b) =>
     String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
 
@@ -928,16 +1088,20 @@ export async function runStandardCrawlerPipeline(config) {
   // Translates titles + descriptions to all 4 locales via AI.
   // Uses translation cache (SHA256-based) for ~90% hit rate on re-runs.
   // Sets needsRetranslation=true for jobs that couldn't be translated.
-  console.log(`\n🌐 Running AI localization for ${companyLabel} jobs...`);
-  await runDedicatedBaseCrawler({
-    root,
-    companyKeys: companyKey,
-    disableWorkdayForce: true,
-    localizeExistingOnly: true,
-    forceLocalizationWhenAiEnabledOnly: true,
-    dataJobsPath: DATA_JOBS,
-    ...baseCrawlerOpts,
-  });
+  if (authoritativeEmptySnapshot) {
+    console.log(`\n🌐 ${companyLabel}: no active jobs to localize.`);
+  } else {
+    console.log(`\n🌐 Running AI localization for ${companyLabel} jobs...`);
+    await runDedicatedBaseCrawler({
+      root,
+      companyKeys: companyKey,
+      disableWorkdayForce: true,
+      localizeExistingOnly: true,
+      forceLocalizationWhenAiEnabledOnly: true,
+      dataJobsPath: DATA_JOBS,
+      ...baseCrawlerOpts,
+    });
+  }
 
   // ─── Step 6: Validation ─────────────────────────────────────
   // Checks: locale coverage, URL domains, slug format, description quality.
@@ -948,7 +1112,7 @@ export async function runStandardCrawlerPipeline(config) {
     dataJobsPath: DATA_JOBS,
     isTargetJob: isCompanyJob,
     failOnMissingJobsFile: true,
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: `No ${companyLabel} jobs found after crawl.`,
     detectSourceLang: (text) => detectLang(text, defaultSourceLang),
     deriveSlug: deriveLocalizedSlug,
@@ -958,6 +1122,24 @@ export async function runStandardCrawlerPipeline(config) {
     validateOpts.untrustedDomainReason = `url_not_${companyKey}_domain`;
   }
   validateDedicatedLocaleCoverage(validateOpts);
+
+  // Validation performs its own locale hardening and can re-derive slugs from
+  // corrected metadata. Restore the published identity once more at the
+  // definitive boundary, immediately before slice publication.
+  if (preserveExistingSlugs && fs.existsSync(DATA_JOBS)) {
+    const validatedRaw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const validatedJobs = Array.isArray(validatedRaw)
+      ? validatedRaw
+      : (Array.isArray(validatedRaw?.jobs) ? validatedRaw.jobs : []);
+    const restored = restoreExistingSlugIdentity(companyExisting, validatedJobs);
+    const restoredPayload = Array.isArray(validatedRaw)
+      ? restored.jobs
+      : { ...validatedRaw, jobs: restored.jobs };
+    writeJsonAtomic(DATA_JOBS, restoredPayload);
+    if (restored.restored > 0) {
+      console.log(`  Re-pinned ${restored.restored} existing slug slot(s) after validation.`);
+    }
+  }
 
   // ─── Step 7: Slice + Assemble ───────────────────────────────
   // writeJobsCrawlerSlice has a FINAL safety net that strips any
@@ -971,7 +1153,15 @@ export async function runStandardCrawlerPipeline(config) {
   // at their own source URLs and the smaller slice is accepted ONLY if every
   // one of them is provably gone. A degraded/blocked source still fails here
   // exactly as before — the threshold is unchanged, the proof is the addition.
-  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs);
+  await writeJobsCrawlerSliceVerified(companyKey, sliceJobs, {
+    isTargetJob: isCompanyJob,
+    preserveExistingSlugs,
+    // The source-specific validator has already proven that every attempted
+    // detail became one rich, unique published row. URL probes are weaker for
+    // WordPress archives that keep retired detail pages reachable with HTTP
+    // 200, so this verified snapshot is the evidence for the one write.
+    skipShrinkGuard: authoritativeSnapshotVerified,
+  });
   writeSummaryCrawlerSlice({
     key: companyKey,
     label: companyLabel,

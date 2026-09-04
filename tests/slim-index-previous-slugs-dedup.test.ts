@@ -76,6 +76,10 @@ describe('slim index no longer duplicates the slug-rename history', () => {
     expect(SLIM_INDEX_FIELDS.has('previousSlugsByLocale')).toBe(false);
   });
 
+  it('SLIM_INDEX_FIELDS includes salarySource, so the "(estimate)" marker can reach the client (#6227)', () => {
+    expect(SLIM_INDEX_FIELDS.has('salarySource')).toBe(true);
+  });
+
   it('a slim index record drops both fields but keeps slug + routing identity', () => {
     const slim = buildLocaleJobSlim(renamedJob as Record<string, unknown>);
     expect(slim).not.toHaveProperty('previousSlugs');

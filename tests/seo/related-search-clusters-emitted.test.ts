@@ -40,6 +40,7 @@ import {
   countHreflangLinks,
 } from '../../build-plugins/shared/headLinkPatterns';
 import { ALTERNATE_LOCALES } from '../../build-plugins/shared/localeAlternateBlock';
+import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 const DIST_DIR = resolve(__dirname, '..', '..', 'dist');
 const RUN_DIST_GATES = process.env.RUN_DIST_GATES === '1';
@@ -159,11 +160,25 @@ const SAMPLE_PER_LOCALE = 400;
  * next deploy. A handful of legacy pages does not.
  *
  * The measured rate is PRINTED on every run, pass or fail. That is deliberate:
- * the ceilings below are the first ones this gate has ever had, and there is
- * no measurement to derive them from — the old assertions only ever reported
- * "not zero". The printed rates are what a later, tighter ceiling should be
- * set from. Ratcheting them down as the data arrives is the follow-up; picking
- * a number today and calling it calibrated would be inventing one.
+ * the printed rates are what a later, tighter ceiling should be set from.
+ * Ratcheting them down as the data arrives is the follow-up.
+ *
+ * CALIBRATED (2026-08-30, follow-up #6192 item 1) on the first real measured
+ * post-merge run — `deploy-publish.yml` #33329862819, job
+ * `validate-dist-postbuild`, `dist:quality-tests` rc=0 — after two prior PRs
+ * (#6509, #6700) fixed the gate's own log visibility so the rate could
+ * actually be read. Eight of the nine checks below are structural/binary
+ * (offender rate 0.00–1.00 % on that run: mobile-fold order, head shape,
+ * title length, BreadcrumbList, FAQPage, `dark:` leak, ImageObject, slug
+ * round-trip) — `SYSTEMIC_RATE_CEILING` is tightened from the placeholder
+ * 60 % to 15 %, still an order of magnitude above the observed max (1.00 %),
+ * so normal corpus noise cannot trip it while a real emission break (rate
+ * jumping into double digits) still does. The text-to-HTML ratio check is
+ * NOT one of the eight: it measures actual content thinness over a 30-page
+ * sample (small-sample variance is ±3.3 pp per page) with an observed
+ * baseline of 36.67 %, not template emission — it keeps its own higher
+ * ceiling passed explicitly at the call site instead of inheriting the
+ * tightened default.
  */
 /**
  * A complete cross-locale set is the four locales plus `x-default` — see
@@ -172,7 +187,16 @@ const SAMPLE_PER_LOCALE = 400;
  */
 const HREFLANG_COMPLETE_SET = ALTERNATE_LOCALES.length + 1;
 
-const SYSTEMIC_RATE_CEILING = 0.6;
+const SYSTEMIC_RATE_CEILING = 0.15;
+
+/**
+ * text-to-HTML ratio is content-thinness, not template emission — see the
+ * calibration note above. Observed 36.67 % (11/30) on the first measured
+ * run; kept well above the SYSTEMIC_RATE_CEILING default because a 30-page
+ * sample swings ±3.3 pp per page and this metric is expected to vary with
+ * real content, not just break outright.
+ */
+const TEXT_TO_HTML_RATE_CEILING = 0.5;
 
 /**
  * Assert an offender RATE rather than an offender COUNT, and report it either
@@ -304,6 +328,18 @@ function ratio(html: string): number {
   const text = extractVisibleText(html);
   const textBytes = Buffer.byteLength(text, 'utf8');
   return textBytes / Math.max(htmlBytes, 1);
+}
+
+/**
+ * Below-floor bridge pages (`renderClusterBelowFloorBridge`) are `noindex`
+ * BY DESIGN — canonical points at the hub, body is a short redirect notice.
+ * Same detection idiom as `tests/seo/cathedral-sector-hubs.test.ts` and
+ * `tests/seo/search-pages-head-contract.test.ts` ("AGENTS.md below-floor
+ * bridge doctrine"). Google never indexes these, so their short body isn't
+ * the thin-content emission break this gate exists to catch.
+ */
+function isBridgePage(html: string): boolean {
+  return html.includes(REDIRECT_STUB_MARKER) || /<meta[^>]+noindex/i.test(html);
 }
 
 function totalClusterCount(): number {
@@ -625,12 +661,17 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
       expectSystemicRate(offenders, scanned, 'no `dark:` classes leaked');
     });
 
-    it('text-to-HTML ratio ≥10 % across a sample of 30 pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
+    it('text-to-HTML ratio ≥10 % across a sample of 30 real (non-bridge) pages', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {
       const offenders: string[] = [];
       let scanned = 0;
       let sampled = 0;
+      let bridgesSkipped = 0;
       outer: for (const loc of LOCALES) {
-        for (const page of loadClusterPages(loc, 30)) {
+        for (const page of loadClusterPages(loc, 30 + bridgesSkipped)) {
+          if (isBridgePage(page.html)) {
+            bridgesSkipped++;
+            continue;
+          }
           scanned++;
           const r = ratio(page.html);
           if (r < 0.1) {
@@ -640,7 +681,7 @@ describe.skipIf(!RUN_DIST_GATES || !HAS_DIST || !HAS_PAGES)(
           if (sampled >= 30) break outer;
         }
       }
-      expectSystemicRate(offenders, scanned, 'text-to-HTML ratio >=10 %');
+      expectSystemicRate(offenders, scanned, 'text-to-HTML ratio >=10 %', TEXT_TO_HTML_RATE_CEILING);
     });
 
     it('every ImageObject in JSON-LD carries the four GSC license fields', { timeout: DIST_SCAN_TIMEOUT_MS }, () => {

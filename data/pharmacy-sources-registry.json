@@ -1,0 +1,16 @@
+{
+  "generatedAt": "2026-08-31T00:00:00.000Z",
+  "sources": {
+    "ticino": {
+      "canton": "Ticino",
+      "officialSourceUrl": "https://www.ofct.ch/farmacieturno/",
+      "accessMethod": "html-scrape",
+      "fetchFrequency": "P1D",
+      "timezone": "Europe/Zurich",
+      "sourceType": "official",
+      "owner": "platform",
+      "status": "active",
+      "notes": "Verificato via Playwright/curl (#6398, 2026-08-31): 4/5 regioni (Mendrisiotto/Luganese/Bellinzonese/Biasca e Valli) su www.ofct.ch pubblicano tabelle HTML server-rendered #tabella_mese_corrente_compatta (turno del mese, riga attiva marcata class \"di_turno\") e #tabella_lista_farmacie (anagrafica) — niente JS richiesto, fetch statico + parse HTML bastano. robots.txt permette (crawl-delay: 10), nessun ToU restrittivo trovato. La 5a regione, Locarnese, è su dominio separato (farmacielocarnese.ch, verificato #6740, 2026-08-31): nessun robots.txt (nessun vincolo dichiarato), anche qui solo HTML server-rendered senza JS/API, ma struttura diversa (tabella turni senza indirizzo/CAP, nessuna anagrafica) — serve un parser dedicato, non ancora scritto. Vedi docs/data-sources/farmacie-turno-ticino.md."
+    }
+  }
+}

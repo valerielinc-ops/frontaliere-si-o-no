@@ -6,9 +6,14 @@
  * backed by SAP SuccessFactors. The listing page is a JavaScript SPA that
  * cannot be crawled directly. Instead, this script:
  *
- *   1. Fetches the company.sbb.ch JSON API to discover SBB/FFS roles in Ticino/Grigioni.
- *   2. Fetches login.org apprenticeship pages (partner=SBB CFF FFS, canton=Ticino)
- *      to include apprenticeship positions not exposed by the company.sbb.ch API.
+ *   1. Fetches the company.sbb.ch JSON API (PRIMARY source) to discover SBB/FFS
+ *      roles in Ticino/Grigioni.
+ *   2. Fetches login.org apprenticeship pages (SECONDARY/optional source,
+ *      partner=SBB CFF FFS, canton=Ticino) to include apprenticeship positions
+ *      not exposed by the company.sbb.ch API. login.org has been observed
+ *      returning HTTP 451 persistently from CI runners (#6961) — that outage
+ *      degrades this step (zero new seeds, existing apprenticeship jobs kept
+ *      via merge grace period) instead of failing the whole crawl.
  *   3. Merges and de-duplicates detail URLs from both sources as adapter seeds.
  *   4. Runs the base crawler which fetches each detail page and parses content.
  *
@@ -38,6 +43,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { exitCrawlerOnError, stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
@@ -59,6 +65,7 @@ import { getCompanyDefaults, getCantonDisplayName, isTargetCanton } from './lib/
 import { detectLanguage } from './lib/detect-language.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -137,6 +144,45 @@ function isSbbJob(job) {
     company.includes('ffs') ||
     company.includes('ferrovie federali')
   );
+}
+
+function isLoginSbbJob(job) {
+  try {
+    const host = new URL(String(job?.url || '')).hostname.toLowerCase();
+    return host === 'login.org' || host === 'www.login.org';
+  } catch {
+    return false;
+  }
+}
+
+export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
+  const loginDegraded = loginDiscovery?.degraded === true;
+  return {
+    status: loginDegraded ? 'degraded' : 'healthy',
+    degradedSources: loginDegraded ? ['login.org-apprenticeships'] : [],
+    sources: {
+      aem: {
+        id: 'sbb-aem',
+        role: 'primary',
+        status: 'healthy',
+        sourceZero: apiSeed?.sourceZero === true,
+        aemUrlCount: Array.isArray(apiSeed?.urls) ? apiSeed.urls.length : 0,
+      },
+      loginOrg: {
+        id: 'login.org-apprenticeships',
+        role: 'secondary',
+        status: loginDegraded ? 'degraded' : 'healthy',
+        sourceZero: loginDiscovery?.sourceZero === true,
+        apprenticeshipUrlCount: Array.isArray(loginDiscovery?.urls) ? loginDiscovery.urls.length : 0,
+        pagesAttempted: Number(loginDiscovery?.pagesAttempted) || 0,
+        pagesFetched: Number(loginDiscovery?.pagesFetched) || 0,
+        failureReason: loginDegraded
+          ? String(loginDiscovery?.failureReason || 'listing-fetch-unavailable')
+          : null,
+        failedPageUrl: loginDegraded ? String(loginDiscovery?.failedPageUrl || '') : null,
+      },
+    },
+  };
 }
 
 /**
@@ -235,37 +281,94 @@ function extractLoginPaginationUrlsFromHtml(html = '') {
   return [...urls];
 }
 
-async function fetchLoginSbbDetailUrls() {
+export async function fetchLoginSbbDetailUrls(options = {}) {
   console.log('🔍 Fetching SBB apprenticeship jobs from login.org...');
   console.log(`  📡 ${LOGIN_SBB_LISTING_URL}`);
 
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const fetchPageImpl = options.fetchPageImpl || fetchPage;
   const queue = [LOGIN_SBB_LISTING_URL];
   const visited = new Set();
   const detailUrls = new Set();
+  let duplicateIdentity = 0;
+  let pagesSucceeded = 0;
 
   while (queue.length > 0 && visited.size < LOGIN_MAX_PAGES) {
     const pageUrl = queue.shift();
     if (!pageUrl || visited.has(pageUrl)) continue;
     visited.add(pageUrl);
 
-    const html = await fetchPage(pageUrl, timeoutMs, 'text/html,application/xhtml+xml');
+    const html = await fetchPageImpl(pageUrl, timeoutMs, 'text/html,application/xhtml+xml');
     if (!html) {
-      console.warn(`⚠️ Failed to fetch login.org listing page: ${pageUrl}`);
-      continue;
+      // login.org is a SECONDARY source (apprenticeship listings only — the
+      // company.sbb.ch AEM feed above is primary and covers every SBB role).
+      // Observed contract (#6961): the site returns HTTP 451 (legally/
+      // geographically unavailable) persistently from CI runners, with zero
+      // redirect. Throwing here used to take down the ENTIRE SBB crawl —
+      // including the unrelated, healthy AEM discovery — for an outage on a
+      // source that is not authoritative for the union. Degrade in place
+      // instead: report zero NEW seeds from this source WITHOUT claiming it
+      // is verified-empty (`sourceZero: false`), so the caller keeps
+      // publishing AEM jobs. The source-aware merge below re-submits any
+      // already-persisted login.org apprenticeship jobs — preserving their
+      // ID/URL/slug/previousSlugs without advancing its missing-run counter —
+      // instead
+      // of retiring them on an unproven "source is empty" read.
+      console.warn(`⚠️ SBB login.org listing unavailable — degrading (secondary source, existing apprenticeship jobs retained): ${pageUrl}`);
+      return {
+        urls: [...detailUrls].sort((a, b) => a.localeCompare(b)),
+        sourceZero: false,
+        degraded: true,
+        pagesAttempted: visited.size,
+        pagesFetched: pagesSucceeded,
+        pagesSucceeded,
+        duplicateIdentity,
+        failureReason: 'listing-fetch-unavailable',
+        failedPageUrl: pageUrl,
+      };
     }
+    if (!/(?:login\.org|panoramica-dei-posti-di-tirocinio|panoramica dei posti di tirocinio|\/it\/\d+-)/i.test(html)) {
+      throw new Error(`SBB login.org discovery failed: listing identity marker missing (${pageUrl}).`);
+    }
+    pagesSucceeded += 1;
 
     const pageDetails = extractLoginDetailUrlsFromHtml(html);
     const pagerLinks = extractLoginPaginationUrlsFromHtml(html);
-    for (const u of pageDetails) detailUrls.add(u);
+    for (const u of pageDetails) {
+      if (detailUrls.has(u)) duplicateIdentity += 1;
+      detailUrls.add(u);
+    }
     for (const u of pagerLinks) {
       if (!visited.has(u) && !queue.includes(u)) queue.push(u);
     }
     console.log(`  📄 login page ${visited.size}: +${pageDetails.length} detail URL(s), pager links: ${pagerLinks.length}`);
   }
 
+  if (queue.length > 0) {
+    throw new Error(`SBB login.org discovery incomplete: reached LOGIN_MAX_PAGES=${LOGIN_MAX_PAGES} with ${queue.length} page(s) pending.`);
+  }
+
   console.log(`✅ Total login.org SBB apprenticeship URLs discovered: ${detailUrls.size}`);
-  return [...detailUrls];
+  const urls = [...detailUrls].sort((a, b) => a.localeCompare(b));
+  if (urls.some((url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.protocol !== 'https:' || parsed.hostname !== 'www.login.org';
+    } catch {
+      return true;
+    }
+  })) {
+    throw new Error('SBB login.org discovery invariant failed: non-canonical detail URL.');
+  }
+  return {
+    urls,
+    sourceZero: urls.length === 0,
+    degraded: false,
+    pagesAttempted: visited.size,
+    pagesFetched: pagesSucceeded,
+    pagesSucceeded,
+    duplicateIdentity,
+  };
 }
 
 export function extractLoginLocalizedPageData(html = '') {
@@ -480,29 +583,27 @@ async function fetchLoginLocalizedVariants(detailUrl, timeoutMs = 15000) {
  *
  * Returns urls + API metadata indexed by URL.
  */
-async function fetchSbbJobDetailUrls() {
+export async function fetchSbbJobDetailUrls(options = {}) {
   console.log('🔍 Fetching SBB jobs from AEM JSON API...');
   console.log(`  📡 ${SBB_API_URL}`);
 
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const body = await fetchPage(SBB_API_URL, timeoutMs);
+  const timeoutMs = Number(options.timeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const fetchPageImpl = options.fetchPageImpl || fetchPage;
+  const body = await fetchPageImpl(SBB_API_URL, timeoutMs);
 
   if (!body) {
-    console.error('❌ Failed to fetch SBB API.');
-    return [];
+    throw new Error('SBB AEM discovery failed: API response unavailable.');
   }
 
   let allJobs;
   try {
     allJobs = JSON.parse(body);
   } catch (err) {
-    console.error(`❌ Failed to parse SBB API JSON: ${err.message}`);
-    return [];
+    throw new Error(`SBB AEM discovery failed: invalid JSON (${err.message}).`, { cause: err });
   }
 
   if (!Array.isArray(allJobs)) {
-    console.error('❌ SBB API returned non-array response.');
-    return [];
+    throw new Error('SBB AEM discovery failed: API returned a non-array response.');
   }
 
   console.log(`  📦 Total jobs in API: ${allJobs.length}`);
@@ -527,15 +628,33 @@ async function fetchSbbJobDetailUrls() {
 
   // Extract detail URLs + metadata
   const detailUrls = [];
+  const seenIdentities = new Set();
+  let duplicateIdentity = 0;
   const apiMetaByUrl = new Map();
   const apiMetaByTitle = new Map();
   for (const job of targetJobs) {
     const directLink = job?.links?.directlink;
     if (directLink && directLink.startsWith('http')) {
-      detailUrls.push(directLink);
+      const normalizedUrl = normalizeDetailUrl(directLink);
+      let identity = '';
+      try {
+        const parsed = new URL(normalizedUrl);
+        const match = parsed.pathname.match(/^\/v2\/offene-stellen\/[^/]+\/([0-9a-f-]{20,})$/i);
+        if (parsed.protocol === 'https:' && parsed.hostname === 'jobs.sbb.ch' && match && !parsed.search) {
+          identity = match[1].toLowerCase();
+        }
+      } catch {}
+      if (!identity) {
+        throw new Error(`SBB AEM discovery invariant failed: non-canonical target detail URL ${directLink}.`);
+      }
+      if (seenIdentities.has(identity)) {
+        duplicateIdentity += 1;
+        continue;
+      }
+      seenIdentities.add(identity);
+      detailUrls.push(normalizedUrl);
       const city = (job?.attributes?.['100'] || []).join(', ') || '?';
       const pct = (job?.attributes?.['160'] || []).join(', ') || '?';
-      const normalizedUrl = normalizeDetailUrl(directLink);
       const meta = {
         title: String(job?.title || '').trim(),
         city: String((job?.attributes?.['100'] || [])[0] || '').trim(),
@@ -555,11 +674,19 @@ async function fetchSbbJobDetailUrls() {
     }
   }
 
+  if (detailUrls.length + duplicateIdentity !== targetJobs.length
+      || apiMetaByUrl.size !== detailUrls.length) {
+    throw new Error(`SBB AEM discovery invariant failed: target=${targetJobs.length}, canonical=${detailUrls.length}, duplicates=${duplicateIdentity}, metadata=${apiMetaByUrl.size}.`);
+  }
   console.log(`✅ SBB API Ticino detail URLs discovered: ${detailUrls.length}`);
   return {
-    urls: detailUrls,
+    urls: detailUrls.sort((a, b) => a.localeCompare(b)),
     apiMetaByUrl,
     apiMetaByTitle,
+    sourceZero: detailUrls.length === 0,
+    totalJobs: allJobs.length,
+    targetJobs: targetJobs.length,
+    duplicateIdentity,
   };
 }
 
@@ -577,14 +704,14 @@ function toIsoDate(raw = '') {
 }
 
 function slugify(value = '') {
-  return String(value || '')
+  const slug = String(value || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/&/g, ' e ')
     .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 180);
+    .replace(/^-+|-+$/g, '');
+  return truncateSlugAtWordBoundary(slug, 180);
 }
 
 function decodeHtmlEntities(input = '') {
@@ -981,9 +1108,8 @@ function writeJobsFiles(jobs) {
   }
 }
 
-function mergeParsedSbbJobs(parsedJobs) {
-  const existing = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS);
-  const allJobs = Array.isArray(existing) ? existing : [];
+export function mergeSbbJobsWithDiscoveryState(sbbPriorSnapshot, parsedJobs, options = {}) {
+  const allJobs = Array.isArray(sbbPriorSnapshot) ? sbbPriorSnapshot : [];
   const nonSbb = allJobs.filter((job) => !isSbbJob(job));
   const sbbExisting = allJobs.filter(isSbbJob);
 
@@ -995,13 +1121,36 @@ function mergeParsedSbbJobs(parsedJobs) {
   }
   const deduped = [...byUrl.values()];
 
+  // A degraded secondary snapshot cannot advance the shared missing-job
+  // streak for login.org records. Re-submit only the unobserved login.org
+  // records as fresh identities so mergePreserveLocaleData keeps their exact
+  // ID/slug/history and leaves the missing-run counter unchanged. A healthy
+  // login.org snapshot does not enter this branch, so real removals still use
+  // the normal two-miss grace and disappear on the third confirmed miss.
+  if (options.loginDegraded === true) {
+    for (const retainedLoginJob of sbbExisting) {
+      if (!isLoginSbbJob(retainedLoginJob)) continue;
+      const key = normalizeDetailUrl(retainedLoginJob?.url || '');
+      if (!key || byUrl.has(key)) continue;
+      const { crawlerMissStreak: _priorMissStreak, ...observedLoginJob } = retainedLoginJob;
+      deduped.push(observedLoginJob);
+    }
+  }
+
   // Preserve existing AI translations and slugs
   const cleanSbbJobs = mergePreserveLocaleData(sbbExisting, deduped).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonSbb, ...cleanSbbJobs];
+  return { merged, sbbJobs: cleanSbbJobs };
+}
+
+function mergeParsedSbbJobs(parsedJobs, options = {}) {
+  const existing = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS);
+  const allJobs = Array.isArray(existing) ? existing : [];
+  const { merged, sbbJobs } = mergeSbbJobsWithDiscoveryState(allJobs, parsedJobs, options);
   writeJobsFiles(merged);
-  return cleanSbbJobs;
+  return sbbJobs;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1012,46 +1161,47 @@ function mergeParsedSbbJobs(parsedJobs) {
  * Ensure the SBB adapter JSON has the correct seed URLs
  * (detail page URLs discovered from the API).
  */
-function ensureAdapterSeedUrls(seedUrls) {
-  const adapterPath = path.join(ADAPTERS_DIR, `${SBB_KEY}.json`);
+export function buildSbbAdapterConfig(baseAdapter, seedUrls, updatedAt = new Date().toISOString()) {
+  return {
+    ...(baseAdapter || {}),
+    companyHost: baseAdapter?.companyHost || 'sbb.ch',
+    seedUrls,
+    priority: Math.max(baseAdapter?.priority || 0, 10),
+    crawlerModes: Array.from(new Set([...(baseAdapter?.crawlerModes || []), 'jsonld', 'generic_ats'])),
+    notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).',
+    updatedAt,
+  };
+}
 
-  if (!fs.existsSync(adapterPath)) {
-    console.log(`⚠️ Adapter ${SBB_KEY}.json not found — creating it.`);
-    const adapter = {
+export function assertSbbAdapterParity(adapter, seedUrls) {
+  if (!isDeepStrictEqual(adapter?.seedUrls, seedUrls)) {
+    throw new Error('SBB adapter parity failed: persisted seeds differ from the complete AEM/login.org union.');
+  }
+  return true;
+}
+
+export function ensureAdapterSeedUrls(
+  seedUrls,
+  adapterPath = path.join(ADAPTERS_DIR, `${SBB_KEY}.json`),
+  updatedAt = new Date().toISOString(),
+) {
+  const baseAdapter = fs.existsSync(adapterPath)
+    ? JSON.parse(fs.readFileSync(adapterPath, 'utf-8'))
+    : {
       companyKey: SBB_KEY,
       companyName: 'FFS – Ferrovie Federali Svizzere (SBB)',
       companyHost: 'sbb.ch',
       enabled: true,
       priority: 10,
       crawlerModes: ['generic_ats', 'html', 'jsonld'],
-      seedUrls,
       notes: 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).',
-      updatedAt: new Date().toISOString(),
     };
-    fs.mkdirSync(path.dirname(adapterPath), { recursive: true });
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    return;
-  }
-
-  try {
-    const adapter = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
-    adapter.seedUrls = seedUrls;
-    adapter.companyHost = adapter.companyHost || 'sbb.ch';
-    if (!adapter.crawlerModes?.includes('jsonld')) {
-      adapter.crawlerModes = adapter.crawlerModes || [];
-      adapter.crawlerModes.push('jsonld');
-    }
-    if (!adapter.crawlerModes?.includes('generic_ats')) {
-      adapter.crawlerModes.unshift('generic_ats');
-    }
-    adapter.priority = Math.max(adapter.priority || 0, 10);
-    adapter.notes = 'SBB dedicated seeds from company.sbb.ch AEM JSON API + login.org apprenticeship listing (partner SBB CFF FFS, canton Ticino).';
-    adapter.updatedAt = new Date().toISOString();
-    fs.writeFileSync(adapterPath, JSON.stringify(adapter, null, 2) + '\n');
-    console.log(`📝 Adapter ${SBB_KEY} updated with ${seedUrls.length} seed URLs.`);
-  } catch (err) {
-    console.warn(`⚠️ Could not update adapter: ${err.message}`);
-  }
+  const adapter = buildSbbAdapterConfig(baseAdapter, seedUrls, updatedAt);
+  writeJsonAtomic(adapterPath, adapter);
+  const persisted = JSON.parse(fs.readFileSync(adapterPath, 'utf-8'));
+  assertSbbAdapterParity(persisted, seedUrls);
+  console.log(`📝 Adapter ${SBB_KEY} updated with ${seedUrls.length} seed URLs (AEM/login parity verified).`);
+  return persisted;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -1132,18 +1282,22 @@ async function main() {
   const apiMetaByTitle = apiSeed.apiMetaByTitle || new Map();
 
   // Step 2: Fetch login.org SBB apprenticeship URLs
-  const loginDetailUrls = await fetchLoginSbbDetailUrls();
-  const mergedDetailUrls = [...new Set([...apiUrls, ...loginDetailUrls])];
+  const loginDiscovery = await fetchLoginSbbDetailUrls();
+  const loginDetailUrls = loginDiscovery.urls;
+  const sourceHealth = buildSbbSourceHealth(apiSeed, loginDiscovery);
+  if (loginDiscovery.degraded) {
+    console.log('⚠️ login.org degraded this run — continuing with AEM discovery; existing apprenticeship jobs are source-retained without advancing their miss streak.');
+  }
+  const mergedDetailUrls = [...new Set([...apiUrls, ...loginDetailUrls])].sort((a, b) => a.localeCompare(b));
   console.log(`✅ Total merged SBB detail URLs (API + login.org): ${mergedDetailUrls.length}`);
 
-  if (mergedDetailUrls.length === 0) {
-    console.log('⚠️ No SBB TI/GR job URLs discovered. The API may be down or no target-area positions are open.');
-    console.log('   Falling back to existing adapter seed URLs (if any)...');
-    // Don't overwrite the adapter — keep whatever seeds exist
-  } else {
-    // Update adapter seed URLs for audit/debug visibility
-    ensureAdapterSeedUrls(mergedDetailUrls);
+  if (apiSeed.sourceZero && loginDiscovery.sourceZero) {
+    console.log('ℹ️ Both SBB authoritative sources returned verified empty snapshots. Exiting without changing the adapter.');
+    return;
   }
+
+  // Update adapter seed URLs for audit/debug visibility
+  ensureAdapterSeedUrls(mergedDetailUrls);
 
   // Snapshot company jobs before crawl for diff summary
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SBB_KEY, DATA_JOBS).filter(isSbbJob))
@@ -1153,7 +1307,9 @@ async function main() {
   const parsedSbbJobs = await parseAllSbbDetailJobs(mergedDetailUrls, apiMetaByUrl, apiMetaByTitle);
   console.log(`✅ Parsed SBB jobs (clean): ${parsedSbbJobs.length}`);
   if (parsedSbbJobs.length > 0) {
-    const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs);
+    const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs, {
+      loginDegraded: loginDiscovery.degraded === true,
+    });
     await translateMissingJobLocales({
       dataJobsPath: DATA_JOBS,
       isTargetJob: isSbbJob,
@@ -1195,6 +1351,7 @@ async function main() {
     updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
     removedJobs: crawlDiff.removedJobs.slice(0, 30),
     unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
+    sourceHealth,
   });
   await assembleJobsDataset();
 }

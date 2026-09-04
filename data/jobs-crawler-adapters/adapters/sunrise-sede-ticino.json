@@ -12,7 +12,7 @@
     "https://careers.sunrise.ch/it/it/search-results"
   ],
   "notes": "Dedicated Sunrise crawler parses the Phenom search pages and keeps CH-wide jobs (all 26 cantons) from the Sunrise careers portal; per-job canton inferred from the clean city signal, foreign/unresolved postings dropped.",
-  "updatedAt": "2026-08-26T10:00:05.550Z",
+  "updatedAt": "2026-09-01T10:25:13.487Z",
   "seedMetaByUrl": {
     "https://careers.sunrise.ch/it/it/job/REQ_30036338/ott-platforms-specialist-full-stack-engineer-80-100": {
       "location": "Zurich",
@@ -32,18 +32,6 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-07-13"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036630/marketing-retention-manager-80-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-14"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036826/sales-agent-adliswil-60-100": {
-      "location": "Adliswil",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036821/sales-agent-bachenbulach-60-100": {
       "location": "Bachenbülach",
       "canton": "ZH",
@@ -56,27 +44,9 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036410/sales-agent-zurich-shopville-60-100": {
-      "location": "Zurich",
-      "canton": "ZH",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036830/sales-agent-st-gallen-shopping-arena-60-100": {
-      "location": "St. Gallen",
-      "canton": "SG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036735/sales-agent-oftringen-perry-center-60-100": {
       "location": "Oftringen",
       "canton": "AG",
-      "company": "Sunrise Communications AG",
-      "postedDate": "2026-08-24"
-    },
-    "https://careers.sunrise.ch/it/it/job/REQ_30036854/sales-agent-arbon-60-100": {
-      "location": "Arbon",
-      "canton": "TG",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
@@ -92,11 +62,137 @@
       "company": "Sunrise Communications AG",
       "postedDate": "2026-08-24"
     },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036749/sales-agent-zug-60-100": {
+      "location": "Zug",
+      "canton": "ZG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036859/detailhandelsfachmann-frau-efz-uster": {
+      "location": "Uster",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-26"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036854/sales-agent-arbon-60-100": {
+      "location": "Arbon",
+      "canton": "TG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036874/sales-agent-carouge-80": {
+      "location": "Carouge",
+      "canton": "GE",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-28"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036868/detailhandelsfachmann-frau-efz-wil-sg": {
+      "location": "Wil SG",
+      "canton": "SG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036869/detailhandelsfachmann-frau-efz-sursee": {
+      "location": "Sursee",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036866/detailhandelsfachmann-frau-efz-schaffhausen-fronwegplatz": {
+      "location": "Schaffhausen Fronwegplatz",
+      "canton": "SH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-27"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036860/sales-agent-reinach-ag-60": {
+      "location": "Reinach AG",
+      "canton": "AG",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-28"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036886/detailhandelsfachmann-frau-efz-oerlikon-sternen": {
+      "location": "Oerlikon Sternen",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036612/social-media-storyteller-60-80": {
+      "location": "Zurich",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036880/detailhandelsfachmann-frau-efz-basel-st-jakobspark": {
+      "location": "Basel St.Jakobspark",
+      "canton": "BS",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036882/detailhandelsfachmann-frau-efz-zurich-bahnhofstrasse": {
+      "location": "Zürich Bahnhofstrasse",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036887/detailhandelsfachmann-frau-efz-wallisellen-glattzentrum": {
+      "location": "Wallisellen Glattzentrum",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036891/apprenti-e-gestionnaire-du-commerce-de-detail-cfc-vevey": {
+      "location": "Vevey",
+      "canton": "VD",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036889/detailhandelsfachmann-frau-efz-bern": {
+      "location": "Bern",
+      "canton": "BE",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036888/detailhandelsfachmann-frau-efz-burgdorf": {
+      "location": "Burgdorf",
+      "canton": "BE",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036890/detailhandelsfachmann-frau-efz-biel-bahnhof": {
+      "location": "Biel Bahnhof",
+      "canton": "BE",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036881/detailhandelsfachmann-frau-efz-dietikon": {
+      "location": "Dietikon",
+      "canton": "ZH",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036892/apprenti-e-gestionnaire-du-commerce-de-detail-cfc-monthey": {
+      "location": "Monthey",
+      "canton": "VS",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036894/apprendista-gestore-del-commercio-al-dettaglio-afc-lugano": {
+      "location": "Lugano",
+      "canton": "TI",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-31"
+    },
     "https://careers.sunrise.ch/it/it/job/REQ_30036626/senior-dc-network-engineer-80-100": {
       "location": "Zurich",
       "canton": "ZH",
       "company": "Sunrise Communications AG",
       "postedDate": "2026-06-02"
+    },
+    "https://careers.sunrise.ch/it/it/job/REQ_30036669/sales-agent-luzern-weinmarkt-80": {
+      "location": "Luzern",
+      "canton": "LU",
+      "company": "Sunrise Communications AG",
+      "postedDate": "2026-08-24"
     }
   }
 }

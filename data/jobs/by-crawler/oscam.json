@@ -1,7 +1,67 @@
 {
   "crawlerKey": "oscam",
-  "assembledAt": "2026-08-26T10:23:38.325Z",
+  "assembledAt": "2026-09-03T23:35:41.328Z",
   "jobs": [
+    {
+      "title": "Concorso Psicologo/a assistente (100%)",
+      "slug": "concorso-psicologo-a-assistente-100-oscam",
+      "company": "OSCAM – Ospedale e Casa Anziani Malcantonese",
+      "companyKey": "oscam",
+      "location": "Castelrotto",
+      "canton": "TI",
+      "country": "CH",
+      "url": "http://www.oscam.ch/wp-content/uploads/2018/02/Concorso_generale_medici_assistenti_01.pdf",
+      "applyUrl": "mailto:info@oscam.ch",
+      "description": "## Concorso\n\nOSCAM – Ospedale e Casa Anziani Malcantonese pubblica il seguente concorso: Concorso Psicologo/a assistente (100%).\n\nPer i dettagli completi del concorso, consultare il bando PDF allegato.\n\n**Settore:** Sanità pubblica / Assistenza anziani\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera\n\n**Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+      "category": "social-services",
+      "sector": "Sanità pubblica / Assistenza anziani",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "ENTRY",
+      "source": "oscam-crawler",
+      "postedDate": "2026-08-31",
+      "titleByLocale": {
+        "it": "Concorso Psicologo/a assistente (100%)",
+        "en": "Psychologist/assistant Competition (100%)",
+        "de": "Psychologe/Assistenz-Wettbewerb (100%)",
+        "fr": "Concours de psychologues/assistants (100 %)"
+      },
+      "descriptionByLocale": {
+        "it": "## Concorso\n\nOSCAM – Ospedale e Casa Anziani Malcantonese pubblica il seguente concorso: Concorso Psicologo/a assistente (100%).\n\nPer i dettagli completi del concorso, consultare il bando PDF allegato.\n\n**Settore:** Sanità pubblica / Assistenza anziani\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Svizzera\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Svizzera\n\n**Contatto:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "en": "## Competition\n\nOSCAM – Hospital and Casa Anziani Malcantonese publishes the following contest: Psychologist/assistant Competition (100%).\n\nFor the complete details of the competition, see the attached PDF call.\n\n**Sector:*** Public Health / Senior Caregiver\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Switzerland\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Switzerland\n\n**Contact:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "de": "## Wettbewerb\n\nOSCAM – Hospital and Casa Anziani Malcantonese veröffentlicht den folgenden Wettbewerb: Psychologe / Assistenzwettbewerb (100%).\n\nDie vollständigen Details des Wettbewerbs finden Sie im beigefügten PDF-Aufruf.\n\n**Sektor: *** Öffentliche Gesundheit / Senior Caregiver\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Schweiz\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Schweiz\n\n**Kontakt:** info@oscam.ch | Tel. +41 (0)91 611 37 00",
+        "fr": "## Concurrence\n\nOSCAM – Hospital et Casa Anziani Malcantonese publie le concours suivant : Concours Psychologue/Assistant (100%).\n\nPour obtenir tous les détails du concours, consultez l'appel PDF ci-joint.\n\n**Secteur:*** Santé publique / Soins aux aînés\n\n**Sede Ospedale:** Via Cantonale 4, 6980 Castelrotto (TI), Suisse\n\n**Sede Casa Anziani:** Via Simen, 6987 Caslano (TI), Suisse\n\nTél. +41 (0)91 611 37 00"
+      },
+      "slugByLocale": {
+        "it": "concorso-psicologo-a-assistente-100-oscam",
+        "en": "psychologist-assistant-competition-100-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "de": "psychologe-assistenz-wettbewerb-100-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto",
+        "fr": "concours-de-psychologues-assistants-100-oscam-ospedale-e-casa-anziani-malcantonese-castelrotto"
+      },
+      "sourceLang": "it",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Castelrotto"
+      },
+      "crawledAt": "",
+      "id": "oscam-8b832504260b",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressLocality": "Castelrotto",
+      "addressRegion": "TI",
+      "firstSeenAt": "2026-08-31T17:28:48.788Z"
+    },
     {
       "title": "Concorso generale per medici assistenti 2025-2026",
       "slug": "concorso-generale-per-medici-assistenti-2025-2026-oscam",
@@ -59,7 +119,8 @@
       },
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-08-11T21:51:16.415Z"
+      "firstSeenAt": "2026-08-11T21:51:16.415Z",
+      "salarySource": "estimated"
     },
     {
       "title": "Concorso generale 2026",
@@ -135,7 +196,7 @@
           "concorso-generale-2026-oscam-ospedale-e-casa-anziani-malcantonese-taverne"
         ]
       },
-      "needsRetranslation": true
+      "salarySource": "estimated"
     }
   ]
 }

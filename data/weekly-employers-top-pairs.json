@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-08-24T06:40:45.241Z",
+  "generatedAt": "2026-08-31T12:07:26.683Z",
   "totalQualifyingPairs": 37,
   "topPairs": [
     {
       "company": "Zurich Insurance (sede Ticino)",
       "companySlug": "zurich-insurance-sede-ticino",
       "city": "lugano",
-      "active": 372
+      "active": 148
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
       "companySlug": "eoc-ente-ospedaliero-cantonale",
       "city": "bellinzona",
-      "active": 82
+      "active": 87
     },
     {
       "company": "EOC – Ente Ospedaliero Cantonale",
@@ -24,7 +24,7 @@
       "company": "VF International (The North Face, Timberland)",
       "companySlug": "vf-international-the-north-face-timberland",
       "city": "stabio",
-      "active": 30
+      "active": 32
     },
     {
       "company": "ReleWant",
@@ -45,6 +45,12 @@
       "active": 16
     },
     {
+      "company": "PEMSA",
+      "companySlug": "pemsa",
+      "city": "locarno",
+      "active": 12
+    },
+    {
       "company": "Delvitech SA",
       "companySlug": "delvitech-sa",
       "city": "mendrisio",
@@ -55,12 +61,6 @@
       "companySlug": "rapelli-orior-food-ag",
       "city": "stabio",
       "active": 8
-    },
-    {
-      "company": "PEMSA",
-      "companySlug": "pemsa",
-      "city": "locarno",
-      "active": 7
     }
   ]
 }

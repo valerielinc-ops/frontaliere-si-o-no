@@ -75,6 +75,11 @@ beforeEach(() => {
   execFileSync.mockReset();
   execFileSync.mockImplementation(ghDispatch);
   process.env.GITHUB_REPOSITORY = REPO;
+  // Questo file prova il GUARD, non il numero: fissa il cap a 1 cosi' il mock
+  // `in-flight=1` continua a rappresentare «slot pieni» anche dopo che il
+  // default e' salito a 3 (2026-09-04). Il cap configurabile ha il suo test in
+  // `followup-drainer-inflight-cap.test.ts`.
+  process.env.FOLLOWUP_MAX_INFLIGHT_FIX = '1';
 });
 
 /** Re-importa il modulo con `process.argv` esteso di `extraArgv` (il modulo
@@ -103,7 +108,7 @@ async function runDrainCapturingLogs(extraArgv: string[]): Promise<string[]> {
 describe('followup-drainer --dry-run a slot occupato (#5524 item 2)', () => {
   it('stampa una preview ipotetica anche quando lo slot issue-fix è occupato', async () => {
     const lines = await runDrainCapturingLogs(['--dry-run']);
-    expect(lines.some((l) => l.includes('slot issue-fix occupato'))).toBe(true);
+    expect(lines.some((l) => l.includes('slot issue-fix occupati'))).toBe(true);
     // La preview è la parte che prima non usciva mai: il candidato in coda
     // viene mostrato come se lo slot fosse libero, marcato `[dry]`/PROMUOVO.
     expect(lines.some((l) => l.includes('PROMUOVO #9001'))).toBe(true);
@@ -114,12 +119,12 @@ describe('followup-drainer --dry-run a slot occupato (#5524 item 2)', () => {
 
   it('in modalità reale il guard resta un muro: nessuna preview, nessuna mutazione tentata', async () => {
     const lines = await runDrainCapturingLogs([]);
-    expect(lines.some((l) => l.includes('slot issue-fix occupato (in-flight=1) → nessuna azione.'))).toBe(true);
+    expect(lines.some((l) => l.includes('slot issue-fix occupati (in-flight=1/1) → nessuna azione.'))).toBe(true);
     // L'invariante di sicurezza del guard (mai toccare la issue di una run
     // viva) resta intatta: niente di quello che sta sotto il return è girato.
     expect(lines.some((l) => l.includes('PROMUOVO'))).toBe(false);
     // Solo l'header ("followup-drainer repo=…") e la riga del guard: nient'altro
     // gira dopo il `return` in modalità reale.
-    expect(lines).toEqual(['followup-drainer repo=o/r', 'slot issue-fix occupato (in-flight=1) → nessuna azione.']);
+    expect(lines).toEqual(['followup-drainer repo=o/r', 'slot issue-fix occupati (in-flight=1/1) → nessuna azione.']);
   });
 });

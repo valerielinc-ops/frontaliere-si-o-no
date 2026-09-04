@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-08-26T10:01:45.757Z",
+  "generatedAt": "2026-09-03T23:22:26.879Z",
   "total": 4,
   "newCount": 3,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 34563,
-  "avgDurationMs": 34563,
+  "durationMs": 23574,
+  "avgDurationMs": 23574,
   "durationHistory": [
-    34563
+    23574
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -61,7 +61,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -91,7 +91,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "fr",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -123,7 +123,7 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-08-26",
+      "postedDate": "2026-09-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -133,6 +133,7 @@
       "currency": "CHF",
       "postalCode": "6500",
       "firstSeenAt": "2026-04-13T22:12:00.974Z",
+      "salarySource": "reported",
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "duferco",
-  "assembledAt": "2026-08-26T10:08:16.858Z",
+  "assembledAt": "2026-09-03T23:24:37.193Z",
   "jobs": [
     {
       "id": "duferco-b77369d4-d159-4e52-8bd9-e56da3035df5",
@@ -33,7 +33,7 @@
       "url": "https://duferco.talentics.ai/job/b77369d4-d159-4e52-8bd9-e56da3035df5",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.579Z",
+      "crawledAt": "2026-09-03T23:24:33.309Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -63,6 +63,7 @@
       "firstSeenAt": "2026-06-10T06:06:36.064Z",
       "salaryMin": 79500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -105,7 +106,7 @@
       "url": "https://duferco.talentics.ai/job/acf31343-af32-4da9-98d4-b985d14baa10",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.576Z",
+      "crawledAt": "2026-09-03T23:24:33.307Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -133,9 +134,9 @@
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.061Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -178,7 +179,7 @@
       "url": "https://duferco.talentics.ai/job/7d3cb7f4-0255-411c-98c5-92ad1132c9b1",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.574Z",
+      "crawledAt": "2026-09-03T23:24:33.305Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -215,9 +216,9 @@
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.042Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -260,7 +261,7 @@
       "url": "https://duferco.talentics.ai/job/3ce2e723-cfe3-46ff-92cc-cd3f49dde19b",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.565Z",
+      "crawledAt": "2026-09-03T23:24:33.289Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -296,6 +297,7 @@
       "firstSeenAt": "2026-06-16T13:16:07.116Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -338,7 +340,7 @@
       "url": "https://duferco.talentics.ai/job/ce2e4e2d-3560-47d1-8655-400dce5e2d9f",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.562Z",
+      "crawledAt": "2026-09-03T23:24:33.281Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -378,6 +380,7 @@
       "firstSeenAt": "2026-06-16T13:16:07.097Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -420,7 +423,7 @@
       "url": "https://duferco.talentics.ai/job/24216bb0-34f2-4d8c-a640-1bbceaa47497",
       "source": "Duferco Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:08:14.548Z",
+      "crawledAt": "2026-09-03T23:24:33.254Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -454,9 +457,9 @@
         ]
       },
       "firstSeenAt": "2026-07-03T10:55:24.056Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

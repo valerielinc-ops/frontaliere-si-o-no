@@ -1075,11 +1075,31 @@ const CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL = 'StructuredOutput';
 const CLAUDE_CLI_TEXT_SALVAGE_COMPLETE_RE = /[.!?…:;—][)\]'"’”»“‘]*$/;
 
 // Cap sul buffer di `feed()` in createClaudeCliStreamTrace fra due `\n`.
-// Ogni evento `stream-json` legittimo (compreso un `tool_use` con l'intero
-// articolo strutturato) resta ben sotto: oltre questa soglia una riga senza
-// terminatore non e' un evento grande, e' anomala — senza cap crescerebbe
-// senza limite fino al timeout (follow-up #6034 item 3).
-const CLAUDE_CLI_STREAM_LINE_CAP = 1_000_000;
+// Serve a scartare un residuo che non e' un evento grande ma una riga
+// anomala (senza cap crescerebbe senza limite fino al timeout — follow-up
+// #6034 item 3), NON a bocciare un evento legittimo solo perche' e' grande.
+//
+// Il valore precedente (1_000_000) era giustificato da uno spot-check di
+// `content/blog-body*` (max ~46KB, #633) — copre un SOLO canale (`text`) e un
+// SOLO caller. Con --tools '' nessun tool esterno e' disponibile, quindi
+// l'unico evento potenzialmente grande resta il `tool_use` sintetico di
+// StructuredOutput sotto `--json-schema`: la sua dimensione dipende dallo
+// schema del CHIAMANTE, e ai-models.mjs e' condiviso da piu' pipeline oltre
+// agli articoli (vedi i vari caller di `callLLM`/`callSingleModel`) — non
+// c'e' un tetto di schema che questo modulo possa verificare staticamente.
+//
+// Il tetto che REGGE e' fisico, non un campione: un residuo senza `\n` puo'
+// crescere solo quanto il CLI genera prima di chiudere il blocco, e la
+// generazione e' limitata da CLAUDE_CLI_MAX_TIMEOUT_MS (600s) al throughput
+// piu' alto misurato in questo file (~90 tok/s costanti, vedi
+// CLAUDE_CLI_ALLOWANCE_SHARE) — 600s * 90 tok/s * ~5 char/tok (con margine
+// per l'escaping JSON) e' ~270.000 caratteri. 1_000_000 aveva gia' ~3.7x di
+// margine su quel tetto fisico, insufficiente contro l'incertezza su schemi
+// futuri (es. un array con molti elementi). A 10_000_000 il margine sale a
+// ~37x pur restando ordini di grandezza sotto cio' che serve a far pressione
+// sulla memoria — CLAUDE_CLI_MAX_CONCURRENCY e' 2, quindi il caso peggiore
+// resta ~20MB.
+const CLAUDE_CLI_STREAM_LINE_CAP = 10_000_000;
 
 // Tetto per una singola chiamata al CLI, per quanto grande sia l'allowance
 // residua. Serve a impedire che una sezione lunga (allowance 2400s) regali
@@ -2127,6 +2147,27 @@ const _modelScores = new Map();
 /** @type {Map<string, {successes: number, failures: number}>} per-model detailed counters */
 const _modelDetails = new Map();
 
+/**
+ * Corrections that turn the telemetry counters above into mutually-exclusive
+ * ranking outcomes without erasing operational evidence:
+ *
+ * - `rejectedSuccesses`: HTTP 200s later rejected by downstream validation;
+ *   telemetry keeps both the served response and its content failure, while
+ *   ranking removes the provisional success and keeps the failure.
+ * - `ignoredFailures`: transport-only failures caused by our own timeout cap;
+ *   telemetry keeps them visible, while ranking excludes them because they say
+ *   nothing about model quality.
+ *
+ * Persisting corrections (instead of a second absolute total) lets existing
+ * `successes`/`failures` remain the migration baseline and keeps every new
+ * update atomic across concurrent workflows.
+ * @type {Map<string, {rejectedSuccesses: number, ignoredFailures: number}>}
+ */
+const _rankingCorrections = new Map();
+
+/** HTTP successes that a downstream validator may still accept or reject. */
+const _unvalidatedSuccesses = new Map();
+
 /** @type {Set<string>} models whose score changed since last persist */
 const _dirtyModels = new Set();
 
@@ -2145,7 +2186,7 @@ const _dirtyModels = new Set();
  *
  * Cleared only when the write lands; restored on failure, exactly like
  * `_dirtyModels` (see _persistScoresToFirestore).
- * @type {Map<string, {successes: number, failures: number}>}
+ * @type {Map<string, {successes: number, failures: number, rejectedSuccesses: number, ignoredFailures: number}>}
  */
 const _pendingCounterDeltas = new Map();
 
@@ -2173,6 +2214,14 @@ const SCORE_SUCCESS          =   2;
 const SCORE_RETRYABLE_FAIL   =  -3;
 const SCORE_NON_RETRYABLE    = -10;
 const SCORE_EXHAUSTED        = -50;
+
+// Laplace prior for `_successRate` (see #435): 1 pseudo-success + 1
+// pseudo-failure, so an untested model reads as a neutral 0.5 (worth trying)
+// instead of 0 (worse than everything). Any small symmetric prior works for
+// the ordering property this exists to guarantee; these two are the smallest
+// integers that keep the neutral point exactly at 0.5.
+const RATE_PRIOR_SUCCESSES   =   1;
+const RATE_PRIOR_TOTAL       =   2;
 
 // ── Time-decay for persisted scores ──────────────────────────
 
@@ -2822,6 +2871,12 @@ export async function initScoreStore() {
           failures: data.failures || 0,
         });
       }
+      if (data.rankRejectedSuccesses || data.rankIgnoredFailures) {
+        _rankingCorrections.set(modelId, {
+          rejectedSuccesses: data.rankRejectedSuccesses || 0,
+          ignoredFailures: data.rankIgnoredFailures || 0,
+        });
+      }
 
       // Local CPU fallback has no daily-quota concept (unlike a remote API
       // account) — a stale content/timeout failure from hours ago says
@@ -2921,11 +2976,13 @@ async function _persistScoresToFirestore() {
   // Snapshot the counter deltas alongside the dirty set: both are cleared here
   // and both are restored together if the write fails, so a retry cannot double
   // count and a failed write cannot silently swallow a success.
-  /** @type {Map<string, {successes: number, failures: number}>} */
+  /** @type {Map<string, {successes: number, failures: number, rejectedSuccesses: number, ignoredFailures: number}>} */
   const deltaSnapshot = new Map();
   for (const modelId of toPersist) {
     const d = _pendingCounterDeltas.get(modelId);
-    if (d && (d.successes || d.failures)) deltaSnapshot.set(modelId, { ...d });
+    if (d && (d.successes || d.failures || d.rejectedSuccesses || d.ignoredFailures)) {
+      deltaSnapshot.set(modelId, { ...d });
+    }
     _pendingCounterDeltas.delete(modelId);
   }
 
@@ -2933,6 +2990,7 @@ async function _persistScoresToFirestore() {
   const modelsDelta = {};
   for (const modelId of toPersist) {
     const details = _modelDetails.get(modelId) || { successes: 0, failures: 0 };
+    const corrections = _rankingCorrections.get(modelId) || { rejectedSuccesses: 0, ignoredFailures: 0 };
     const score = _modelScores.get(modelId) || 0;
     const counterDelta = deltaSnapshot.get(modelId);
 
@@ -2960,6 +3018,8 @@ async function _persistScoresToFirestore() {
       if (_firestoreFieldValue && typeof _firestoreFieldValue.increment === 'function') {
         if (counterDelta.successes) entry.successes = _firestoreFieldValue.increment(counterDelta.successes);
         if (counterDelta.failures) entry.failures = _firestoreFieldValue.increment(counterDelta.failures);
+        if (counterDelta.rejectedSuccesses) entry.rankRejectedSuccesses = _firestoreFieldValue.increment(counterDelta.rejectedSuccesses);
+        if (counterDelta.ignoredFailures) entry.rankIgnoredFailures = _firestoreFieldValue.increment(counterDelta.ignoredFailures);
       } else {
         // Unreachable on the firebase-admin path (initScoreStore captures
         // FieldValue from the same module that produced the client, and there is
@@ -2968,6 +3028,8 @@ async function _persistScoresToFirestore() {
         // outcome on the floor.
         entry.successes = details.successes;
         entry.failures = details.failures;
+        entry.rankRejectedSuccesses = corrections.rejectedSuccesses;
+        entry.rankIgnoredFailures = corrections.ignoredFailures;
       }
     }
 
@@ -3019,6 +3081,7 @@ async function _persistScoresToFirestore() {
       .collection(FIRESTORE_COLLECTION)
       .doc(FIRESTORE_AGGREGATE_DOC);
     await ref.set({ models: modelsDelta, updatedAt: now }, { merge: true });
+    return true;
   } catch (err) {
     console.warn(`⚠️  [ScoreStore] Persist failed: ${err?.message || err}`);
     // Re-add dirty models so next flush retries them — and give them back their
@@ -3027,11 +3090,19 @@ async function _persistScoresToFirestore() {
     // the outcomes it was carrying vanished with the rejected promise.
     for (const m of toPersist) _dirtyModels.add(m);
     for (const [m, d] of deltaSnapshot) {
-      const cur = _pendingCounterDeltas.get(m) || { successes: 0, failures: 0 };
+      const cur = _pendingCounterDeltas.get(m) || {
+        successes: 0,
+        failures: 0,
+        rejectedSuccesses: 0,
+        ignoredFailures: 0,
+      };
       cur.successes += d.successes;
       cur.failures += d.failures;
+      cur.rejectedSuccesses += d.rejectedSuccesses || 0;
+      cur.ignoredFailures += d.ignoredFailures || 0;
       _pendingCounterDeltas.set(m, cur);
     }
+    return false;
   }
 }
 
@@ -3059,7 +3130,7 @@ function _schedulePersist() {
 /** Flush all pending scores immediately (use before process exit) */
 export async function flushScores() {
   if (_persistTimer) { clearTimeout(_persistTimer); _persistTimer = null; }
-  await _persistScoresToFirestore();
+  return _persistScoresToFirestore();
 }
 
 /** How long an exit is allowed to wait for the final ledger write. */
@@ -3085,19 +3156,34 @@ export async function flushScoresBeforeExit(timeoutMs = EXIT_FLUSH_TIMEOUT_MS) {
   if (!_firestoreDb || (_dirtyModels.size === 0 && !_persistTimer)) return true;
   let timer = null;
   const pending = _dirtyModels.size;
+  const startedAt = Date.now();
   try {
     const timeout = new Promise((resolve) => {
       timer = setTimeout(() => resolve('timeout'), timeoutMs);
       // NOT unref'd: this promise races a write we are deliberately waiting for.
     });
-    const outcome = await Promise.race([flushScores().then(() => 'flushed'), timeout]);
+    const outcome = await Promise.race([flushScores().then((ok) => ok === false ? 'failed' : 'flushed'), timeout]);
+    const elapsedMs = Date.now() - startedAt;
     if (outcome === 'timeout') {
-      console.warn(`⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms — ${pending} model(s) not persisted`);
+      // `::warning::` (GitHub Actions annotation syntax, already used elsewhere
+      // in this repo e.g. publish-article-chunks.mjs) surfaces this in the run's
+      // Checks/Annotations UI instead of sitting buried in a log a nobody scrolls
+      // to — a plain console.warn is exactly how the loss this function exists to
+      // prevent (see the doc comment above) could silently reopen (issue #6065).
+      console.warn(`::warning::⚠️  [ScoreStore] Final flush timed out after ${timeoutMs}ms (elapsed ${elapsedMs}ms) — ${pending} model(s) not persisted`);
       return false;
     }
+    if (outcome === 'failed') {
+      console.warn(`::warning::⚠️  [ScoreStore] Final flush failed after ${elapsedMs}ms — ${pending} model(s) remain pending`);
+      return false;
+    }
+    // Logged unconditionally (not just on timeout) so CI logs accumulate real
+    // ref.set() latency samples — the data needed to tell whether 8s is
+    // systematically too tight, instead of guessing.
+    console.log(`[ScoreStore] Final flush completed in ${elapsedMs}ms (timeout=${timeoutMs}ms, ${pending} model(s))`);
     return true;
   } catch (err) {
-    console.warn(`⚠️  [ScoreStore] Final flush failed: ${err?.message || err}`);
+    console.warn(`::warning::⚠️  [ScoreStore] Final flush failed after ${Date.now() - startedAt}ms: ${err?.message || err}`);
     return false;
   } finally {
     if (timer) clearTimeout(timer);
@@ -3131,6 +3217,7 @@ export function recordModelSuccess(modelId) {
   d.successes++;
   _modelDetails.set(modelId, d);
   _bumpOutcome(modelId, 'successes');
+  _unvalidatedSuccesses.set(modelId, (_unvalidatedSuccesses.get(modelId) || 0) + 1);
   _dirtyModels.add(modelId);
   _schedulePersist();
 }
@@ -3142,12 +3229,40 @@ export function recordModelSuccess(modelId) {
  * reads it at the very end).
  */
 function _bumpOutcome(modelId, field) {
-  const pending = _pendingCounterDeltas.get(modelId) || { successes: 0, failures: 0 };
+  const pending = _pendingCounterDeltas.get(modelId) || {
+    successes: 0,
+    failures: 0,
+    rejectedSuccesses: 0,
+    ignoredFailures: 0,
+  };
   pending[field]++;
   _pendingCounterDeltas.set(modelId, pending);
   const run = _runOutcomes.get(modelId) || { successes: 0, failures: 0 };
   run[field]++;
   _runOutcomes.set(modelId, run);
+}
+
+/** Add a persisted correction while leaving raw telemetry untouched. */
+function _bumpRankingCorrection(modelId, field) {
+  const correction = _rankingCorrections.get(modelId) || { rejectedSuccesses: 0, ignoredFailures: 0 };
+  correction[field]++;
+  _rankingCorrections.set(modelId, correction);
+  const pending = _pendingCounterDeltas.get(modelId) || {
+    successes: 0,
+    failures: 0,
+    rejectedSuccesses: 0,
+    ignoredFailures: 0,
+  };
+  pending[field]++;
+  _pendingCounterDeltas.set(modelId, pending);
+}
+
+function _consumeUnvalidatedSuccess(modelId) {
+  const pending = _unvalidatedSuccesses.get(modelId) || 0;
+  if (pending <= 0) return false;
+  if (pending === 1) _unvalidatedSuccesses.delete(modelId);
+  else _unvalidatedSuccesses.set(modelId, pending - 1);
+  return true;
 }
 
 /**
@@ -3157,6 +3272,7 @@ function _bumpOutcome(modelId, field) {
  */
 export function recordModelContentSuccess(modelId) {
   if (!modelId) return;
+  _consumeUnvalidatedSuccess(modelId);
   _consecutiveContentFailures.delete(modelId);
 }
 
@@ -3185,6 +3301,13 @@ export function recordModelContentSuccess(modelId) {
  */
 export function recordModelContentFailure(modelId) {
   if (!modelId) return;
+  // callLLM records an HTTP success before the caller validates its payload.
+  // Convert that provisional ranking success into a single failure; keep both
+  // raw telemetry events visible. A direct content failure with no matching
+  // success is already a ranking failure and needs no correction.
+  if (_consumeUnvalidatedSuccess(modelId)) {
+    _bumpRankingCorrection(modelId, 'rejectedSuccesses');
+  }
   recordModelFailure(modelId);
   const count = (_consecutiveContentFailures.get(modelId) || 0) + 1;
   _consecutiveContentFailures.set(modelId, count);
@@ -3218,6 +3341,7 @@ export function recordModelFailure(modelId, { nonRetryable = false, exhausted = 
   d.failures++;
   _modelDetails.set(modelId, d);
   _bumpOutcome(modelId, 'failures');
+  if (transportOnly) _bumpRankingCorrection(modelId, 'ignoredFailures');
   _dirtyModels.add(modelId);
   _schedulePersist();
 }
@@ -3237,9 +3361,9 @@ export function getScoreBoard() {
 }
 
 /**
- * Sort a chain of models by their accumulated score.
- * Models with higher scores come first.
- * Within equal scores, the original chain order is preserved (stable sort).
+ * Sort a chain by reliability within each fallback tier.
+ * Lifetime success rate is primary; decayed score and original order are the
+ * tiebreakers. The legacy name is kept because this helper is private.
  */
 // Identity of a model's last-resort tier — order-independent: which bucket
 // (local/omniroute/claude-cli) a model belongs to never changes, regardless
@@ -3369,6 +3493,40 @@ function _recordLastResortOutcome(model, outcome) {
   if (tier) _stats.lastResort[tier][outcome]++;
 }
 
+/**
+ * Laplace-smoothed success rate from mutually-exclusive lifetime quality
+ * outcomes, not from the decaying additive `score`. Raw `_modelDetails`
+ * remains telemetry; `_rankingCorrections` removes provisional HTTP successes
+ * later rejected by validation and failures caused only by our transport cap.
+ * Both the raw counters and corrections use atomic increments (see
+ * score-ledger-persistence.test.mjs).
+ *
+ * Why not `score` (see #435): `score` is a sum of +/-N per outcome, decayed by
+ * `_decayScore` at load time and then RE-PERSISTED as the new absolute base —
+ * so the decay compounds every time a model is touched instead of applying
+ * once per elapsed hour. A model reached often never sits in a bucket wide
+ * enough to decay (age-since-last-use stays under 1h) and its penalties sum
+ * without bound, while a model reached rarely gets its penalty repeatedly
+ * multiplied toward zero and stabilizes near a small negative equilibrium
+ * regardless of how badly it fails. Net effect measured in the ledger
+ * 2026-08-18: `gemini-2.0-flash` at 0/1122 (score -41) ranked above `gpt-4.1`
+ * at 2585/1000 = 72% (score -46) — recency of use, not reliability, decided
+ * the order.
+ *
+ * A success RATE has none of that: it depends only on the lifetime counts and
+ * is bounded in [0,1]. The Laplace prior
+ * (`RATE_PRIOR_SUCCESSES`/`RATE_PRIOR_TOTAL`) keeps an untested model at a
+ * neutral 0.5 and deliberately favours exploration while the sample is small;
+ * observed reliability increasingly dominates as attempts accumulate.
+ */
+function _successRate(modelId) {
+  const d = _modelDetails.get(modelId);
+  const correction = _rankingCorrections.get(modelId);
+  const successes = Math.max(0, (d?.successes || 0) - (correction?.rejectedSuccesses || 0));
+  const failures = Math.max(0, (d?.failures || 0) - (correction?.ignoredFailures || 0));
+  return (successes + RATE_PRIOR_SUCCESSES) / (successes + failures + RATE_PRIOR_TOTAL);
+}
+
 function sortChainByScore(chain) {
   // Build index map for tiebreaker (lower index = better in original order)
   const indexMap = new Map(chain.map((m, i) => [m, i]));
@@ -3376,6 +3534,13 @@ function sortChainByScore(chain) {
     const ta = _lastResortTier(a);
     const tb = _lastResortTier(b);
     if (ta !== tb) return ta - tb;
+    // Primary key: lifetime success rate — see _successRate for why this and
+    // not the decaying `score` is what decides reliability ordering.
+    const ra = _successRate(a);
+    const rb = _successRate(b);
+    if (rb !== ra) return rb - ra; // higher success rate first
+    // Tiebreak among equal rates (e.g. both untested, or a tie at volume) on
+    // the recency-weighted score, then on original chain order.
     const sa = _modelScores.get(a) || 0;
     const sb = _modelScores.get(b) || 0;
     if (sb !== sa) return sb - sa; // higher score first
@@ -3667,7 +3832,7 @@ export function isAnyModelAvailable() {
 
 /**
  * Peek at the model callLLM() would try first right now, given current
- * availability/exhaustion/cooldown state and score ranking — WITHOUT making
+ * availability/exhaustion/cooldown state and reliability ranking — WITHOUT making
  * an API call. Mirrors callLLM()'s non-forced-chain selection (model
  * start-point override + score sort + availability/exhaustion/cooldown
  * filtering); deliberately skips the diagnostic AI_MODELS_FORCE_CHAIN
@@ -3836,6 +4001,8 @@ export function resetState() {
   _providerCooldown.clear();
   _modelScores.clear();
   _modelDetails.clear();
+  _rankingCorrections.clear();
+  _unvalidatedSuccesses.clear();
   _dirtyModels.clear();
   _pendingCounterDeltas.clear();
   _runOutcomes.clear();
@@ -3976,28 +4143,19 @@ export function classifyNonRetryableError(status, bodyText = '') {
 
   // HTTP 404 — model not found (Cerebras, Groq, OpenRouter return 404 for invalid model IDs)
   //
-  // `no longer available` / `no longer supported` are GOOGLE's wording for a
-  // retired model — "This model models/gemini-2.0-flash is no longer available.
-  // Please update your code to use a newer model". Without them here a retired
-  // Gemini model is nonRetryable but NOT exhausted, so it is re-attempted on
-  // every pass of every retry instead of being skipped after the first 404.
+  // UNCONDITIONAL, exactly like the 402 above, and for a measured reason: a 404
+  // body can be EMPTY. Run 32169621635 (2026-08-18, corpus issue #449): 163 out
+  // of 163 HTTP 404 responses carried a zero-length body. No textual matcher
+  // can cover that class; while this branch gated on wording, every one stayed
+  // eligible and was re-called on every cascade pass.
   //
-  // This is the second time. The roster comment on GEMINI_31_FLASH_LITE records
-  // the first (2026-05-27, run 26534353239): "The deprecated preview kept winning
-  // the fallback selector because 404 didn't mark it exhausted, causing the entire
-  // blog-generator workflow to fail with 50+ retries against the dead endpoint."
-  // That was fixed by deleting the one model and leaving the matcher alone, so on
-  // 2026-08-14 it recurred with three others (gemini-2.0-flash, -flash-lite,
-  // gemini-3-pro-preview, 48 futile 404s in run 31823202761). Deleting the models
-  // is the symptom; this line is the cause.
+  // The risk is bounded: `exhausted` holds for the CURRENT RUN only — it is
+  // never persisted for nonretryable failures. A recovered endpoint is picked
+  // up by the next run, while a dead one costs one round-trip per model instead
+  // of one per cascade pass. Silencing is not roster removal: score, counters
+  // and failure tally remain intact.
   if (status === 404) {
-    if (
-      b.includes('model_not_found') || b.includes('not_found_error') || b.includes('does not exist')
-      || b.includes('no longer available') || b.includes('no longer supported')
-    ) {
-      return { nonRetryable: true, markExhausted: true };
-    }
-    return { nonRetryable: true, markExhausted: false };
+    return { nonRetryable: true, markExhausted: true };
   }
 
   if (status !== 400) return { nonRetryable: false, markExhausted: false };
@@ -5344,6 +5502,8 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
     text: '',
   };
   let buffer = '';
+  const assistantTextSegments = [];
+  const assistantTextSegmentById = new Map();
 
   function absorbLine(raw) {
     const line = raw.trim();
@@ -5395,9 +5555,10 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
   function absorbAssistantBlocks(evt) {
     const blocks = evt?.message?.content;
     if (!Array.isArray(blocks)) return;
+    let newText = '';
     for (const b of blocks) {
       if (!b || typeof b !== 'object') continue;
-      if (b.type === 'text' && typeof b.text === 'string') state.text += b.text;
+      if (b.type === 'text' && typeof b.text === 'string') newText += b.text;
       if (b.type === 'tool_use' && b.name === CLAUDE_CLI_STRUCTURED_OUTPUT_TOOL && b.input && typeof b.input === 'object') {
         try {
           state.structured = JSON.stringify(b.input);
@@ -5405,6 +5566,20 @@ export function createClaudeCliStreamTrace({ now = Date.now } = {}) {
         } catch { /* input ciclico: non salvabile, si tiene il precedente */ }
       }
     }
+    if (!newText) return;
+    // `message` e' un messaggio SDK completo: eventi successivi con lo stesso
+    // id sono snapshot dello stesso messaggio e sostituiscono il segmento;
+    // id diversi (o assenti) sono messaggi distinti e si concatenano. Usare
+    // l'identita' evita l'ambigua euristica sul prefisso: due delta legittimi
+    // "A" + "A final." non devono perdere la prima A.
+    const messageId = typeof evt?.message?.id === 'string' ? evt.message.id : null;
+    if (messageId && assistantTextSegmentById.has(messageId)) {
+      assistantTextSegments[assistantTextSegmentById.get(messageId)] = newText;
+    } else {
+      if (messageId) assistantTextSegmentById.set(messageId, assistantTextSegments.length);
+      assistantTextSegments.push(newText);
+    }
+    state.text = assistantTextSegments.join('');
   }
 
   return {
@@ -6092,9 +6267,8 @@ export async function callLLM(messages, opts = {}) {
     }
   }
 
-  // Sort by accumulated score — models that are working well come first,
-  // models that have been failing are pushed down.
-  // The initial call uses DEFAULT_CHAIN order (all scores 0, tiebreak by index).
+  // Sort by reliability — lifetime success rate first, decayed score second.
+  // The initial call uses DEFAULT_CHAIN order (no history, then score 0).
   // A forced chain keeps its explicit order (no score reshuffle, no preference
   // reorder — the override owns the order verbatim, same as the o.model
   // skip above).

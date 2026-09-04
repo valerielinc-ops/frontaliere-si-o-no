@@ -99,4 +99,35 @@ describe('recommendedBlock render', () => {
       }
     }
   });
+
+  // #6336 (follow-up of #6327): send-saved-jobs-digest.mjs and
+  // send-job-alerts.mjs both splice this return value directly into an
+  // outer `<table>` (`${recommendedBlockHtml}` between two `<tr>` siblings)
+  // — never wrapped or conditionally rendered around a truthiness check on
+  // shape, only on non-emptiness. A malformed or non-empty-but-partial `<tr>`
+  // here would break the table for every recipient in both emails, so the
+  // "no partner active" case is guarded explicitly rather than assumed safe
+  // by analogy between the two call sites.
+  it('returns exactly the empty string, never a malformed <tr>, when no partner or sponsor is active', () => {
+    const savedEntries = NEWSLETTER_AFFILIATE_ENTRIES.splice(0, NEWSLETTER_AFFILIATE_ENTRIES.length);
+    try {
+      expect(pickNewsletterRecommendation({ locale: 'it', interest: 'general' })).toBeNull();
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        expect(renderRecommendedBlock({ locale, interest: 'jobs' })).toBe('');
+      }
+    } finally {
+      NEWSLETTER_AFFILIATE_ENTRIES.push(...savedEntries);
+    }
+  });
+
+  it('when active, returns a single well-formed <tr>…</tr> row safe to splice into the outer table', () => {
+    const html = renderRecommendedBlock({ locale: 'it', interest: 'general' });
+    const trimmed = html.trim();
+    expect(trimmed.startsWith('<tr>')).toBe(true);
+    expect(trimmed.endsWith('</tr>')).toBe(true);
+    // Exactly one top-level row: the block owns its own nested <table> for
+    // the card, so nested <tr>s are expected, but there must be only one
+    // outer <td class="section-pad"> opener — the cell the outer table sees.
+    expect((trimmed.match(/<td class="section-pad"/g) || []).length).toBe(1);
+  });
 });

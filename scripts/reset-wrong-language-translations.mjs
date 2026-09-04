@@ -15,9 +15,10 @@
  *   node scripts/reset-wrong-language-translations.mjs [--dry-run]
  */
 
-import { readFileSync, readdirSync } from 'node:fs';
+import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const CRAWLERS_DIR = join(process.cwd(), 'data/jobs/by-crawler');
@@ -299,7 +300,7 @@ function processFile(filePath) {
 }
 
 function main() {
-  const files = readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json'));
+  const files = listSliceFileNames(CRAWLERS_DIR);
   console.log(`[reset-wrong-lang] Scanning ${files.length} crawler files${DRY_RUN ? ' (DRY RUN)' : ''}...`);
 
   let totalFlagged = 0;

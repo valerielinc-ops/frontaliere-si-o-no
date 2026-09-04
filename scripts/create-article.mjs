@@ -108,6 +108,7 @@ import {
   stripFabricatedExamples,
 } from './lib/article-sanitizers.mjs';
 import { decodeHtmlEntities } from './lib/decode-html-entities.mjs';
+import { readAttr } from './lib/html-attr.mjs';
 import {
   PERFORMANCE_PATH as ARTICLE_PERF_PATH,
   CONSUMED_PATH as CONSUMED_TRACKER_PATH,
@@ -4462,7 +4463,7 @@ function extractDateFromUrl(url) {
 }
 
 /** Build a map of URL → date from <time> elements found near <a> links in the HTML */
-function extractDatesFromHtml(html, baseUrl) {
+export function extractDatesFromHtml(html, baseUrl) {
   const dateMap = new Map();
   // Match <time datetime="..."> anywhere in HTML — build global date context
   const timeRe = /<time[^>]*datetime=["']([^"']+)["'][^>]*>/gi;
@@ -4472,11 +4473,13 @@ function extractDatesFromHtml(html, baseUrl) {
     const pos = tm.index;
     // Find the nearest <a href> within 500 chars before or after this <time>
     const context = html.slice(Math.max(0, pos - 500), pos + 500);
-    const nearbyLink = context.match(/href=["'](https?:\/\/[^"']+)["']/);
+    const nearbyLink = [...context.matchAll(/<a\b[^>]*>/gi)]
+      .map((match) => readAttr(match[0], 'href'))
+      .find((href) => /^https?:\/\//i.test(href));
     if (nearbyLink) {
       try {
         const d = new Date(dateStr);
-        if (!isNaN(d.getTime())) dateMap.set(nearbyLink[1], d);
+        if (!isNaN(d.getTime())) dateMap.set(nearbyLink, d);
       } catch { /* skip invalid dates */ }
     }
   }
@@ -4490,9 +4493,11 @@ function extractDatesFromHtml(html, baseUrl) {
   // (then false-matched into the proven pool). Scope the date to the anchor's
   // own inner HTML so the link↔date pairing is exact (proximity windows misfire
   // when the same nwsId appears in multiple sidebars).
-  const anchorRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const anchorRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let am;
   while ((am = anchorRe.exec(html)) !== null) {
+    const rawHref = readAttr(am[1], 'href');
+    if (!rawHref) continue;
     const inner = am[2];
     const dmy = inner.match(/\b([0-3]?\d)\.(0?[1-9]|1[0-2])\.(20\d{2})\b/);
     if (!dmy) continue;
@@ -4502,7 +4507,7 @@ function extractDatesFromHtml(html, baseUrl) {
     if (day < 1 || day > 31) continue;
     // Resolve to the absolute URL so the key matches extractHeadlines' lookup.
     let href;
-    try { href = new URL(am[1], baseUrl).href; } catch { continue; }
+    try { href = new URL(rawHref, baseUrl).href; } catch { continue; }
     if (!href.startsWith('http') || dateMap.has(href)) continue;
     const d = new Date(year, month - 1, day);
     // Round-trip: reject calendar-impossible dates (31.04, 30.02) that
@@ -4526,14 +4531,15 @@ function isWithinDays(date, days) {
 }
 
 // ── Step 1b: Extract links and headlines from an HTML page ──
-function extractHeadlines(html, baseUrl) {
+export function extractHeadlines(html, baseUrl) {
   const results = [];
   const htmlDateMap = extractDatesFromHtml(html, baseUrl);
   // Match <a href="...">text</a> — capture href and inner text
-  const linkRe = /<a\s[^>]*href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const linkRe = /(<a\b[^>]*>)([\s\S]*?)<\/a>/gi;
   let m;
   while ((m = linkRe.exec(html)) !== null) {
-    let href = m[1];
+    let href = readAttr(m[1], 'href');
+    if (!href) continue;
     const text = m[2].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
     // Only keep links with meaningful text (likely headlines)
     if (text.length < 15 || text.length > 300) continue;
@@ -4568,7 +4574,7 @@ function isRssFeed(content) {
 }
 
 /** Parse RSS/Atom XML and return { url, headline, date }[] — same shape as extractHeadlines */
-function extractRssItems(xml, feedUrl) {
+export function extractRssItems(xml, feedUrl) {
   const results = [];
   const isAtom = /<feed[\s>]/i.test(xml.slice(0, 500));
 
@@ -4579,12 +4585,24 @@ function extractRssItems(xml, feedUrl) {
     while ((em = entryRe.exec(xml)) !== null) {
       const block = em[0];
       const title = block.match(/<title[^>]*><!\[CDATA\[([\s\S]*?)\]\]><\/title>|<title[^>]*>([\s\S]*?)<\/title>/i);
-      const link = block.match(/<link[^>]*href=["']([^"']+)["']/i)
-        || block.match(/<link[^>]*>([^<]+)<\/link>/i);
+      const linkTags = block.match(/<link\b[^>]*>/gi) ?? [];
+      const linkText = block.match(/<link[^>]*>([^<]+)<\/link>/i);
       const date = block.match(/<updated>([^<]+)<\/updated>/i)
         || block.match(/<published>([^<]+)<\/published>/i);
       const headline = (title?.[1] || title?.[2] || '').replace(/<[^>]+>/g, '').trim();
-      const href = (link?.[1] || '').trim();
+      const atomLinks = linkTags
+        .map((tag) => ({
+          href: readAttr(tag, 'href').trim(),
+          rel: readAttr(tag, 'rel').trim().toLowerCase(),
+        }))
+        .filter((link) => link.href);
+      // Atom defines an omitted rel as `alternate`. Prefer an explicit
+      // alternate, then the default/omitted form, before falling back to a
+      // self-only feed so metadata links cannot eclipse the article URL.
+      const preferredLink = atomLinks.find((link) => link.rel.split(/\s+/).includes('alternate'))
+        || atomLinks.find((link) => !link.rel)
+        || atomLinks[0];
+      const href = (preferredLink?.href || linkText?.[1] || '').trim();
       if (!headline || headline.length < 10 || !href) continue;
       let parsedDate = null;
       if (date?.[1]) { try { parsedDate = new Date(date[1]); if (isNaN(parsedDate.getTime())) parsedDate = null; } catch { parsedDate = null; } }
@@ -5249,14 +5267,36 @@ const PROMPT_TOKEN_BUDGET = 8000;
 // ripetizione a piu' checkpoint puo' essere rinforzo intenzionale
 // dell'istruzione lungo un prompt lungo, non un residuo copia-incolla.
 // Toglierla senza validazione rischia di indebolire il gate, non solo di
-// accorciare il prompt. La riduzione residua resta quindi lavoro di prompt
-// engineering iterativo validato in produzione — lo stesso percorso del
-// gemello sul corpus (`nanakokyobashi-rgb/frontaliere-articles#186`: tre PR
-// con un giro di produzione in mezzo, 10100→9500→8500) — ma ORA con un
-// bersaglio concreto (le ripetizioni sopra), non piu' "nessuna trovata".
-// Item 1 resta `blocked` per questa ragione, non da ridiagnosticare con la
-// stessa tecnica finche' qualcuno non porta un taglio editoriale specifico
-// da validare in produzione.
+// accorciare il prompt.
+//
+// Disposizione finale (2026-08-27, round 4 di fix su #6020):
+// `.github/workflows/generate-article.yml` ha lo `schedule:` disattivato dal
+// cutover (issue #4974 item 3, §5.7; guard rafforzato dopo l'incidente
+// #5289) — il corpus live di frontaliereticino.ch viene ora prodotto da
+// `nanakokyobashi-rgb/frontaliere-articles`, che possiede una copia
+// indipendente del generatore e ha gia' validato la propria riduzione
+// (10100→9500→8500) sul SUO lato. Questo script non genera piu' contenuto
+// automatico in questo repo: non esiste, sotto l'architettura attuale, un
+// ciclo di produzione qui da cui osservare il tasso di
+// `abort_topical_relevance` per validare un'ulteriore riduzione del gate.
+//
+// Item 1 chiude `by construction`, non `blocked`: nei 3 round precedenti
+// (2026-08-18/19/24/25/26/27, tutti in #6020) il verdetto era stato scritto
+// come `blocked: <causa>` — uno stato che `scripts/lib/pr-body-sections-check.mjs`
+// classifica `blocked-technical`, NON chiudente per costruzione (resta
+// "lavoro dovuto" per `scripts/ci/followup-has-candidates.mjs`), quindi la
+// issue veniva riaperta a ogni ciclo pur avendo gia' la stessa risposta.
+// La causa qui non e' temporanea ("manca ancora tempo/segnale"): e'
+// STRUTTURALE sotto il cutover attuale, quindi non potra' mai diventare
+// osservabile in questo repo finche' lo script resta dormiente qui. Il gate
+// duro (`PROMPT_TOKEN_CEILING`) resta sempre rispettato (max misurato 10468
+// su 10600, margine 132): il residuo sopra `PROMPT_TOKEN_BUDGET` e' un
+// mancato risparmio di ottimizzazione (roster modelli con cap di input piu'
+// stretto), non un difetto funzionale. Ulteriore compressione, se mai
+// perseguita, appartiene al gemello nanako — che genera davvero il corpus
+// live e puo' davvero osservare l'effetto di un taglio — non a questo
+// script dormiente. Non ridiagnosticare con la stessa tecnica (letta a
+// occhio o scan n-gram, gia' fatti ed esauriti su 4 round precedenti).
 
 /**
  * Il tetto che `tests/news-prompt-token-budget.test.ts` fa rispettare OGGI.

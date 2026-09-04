@@ -1,6 +1,6 @@
 {
   "crawlerKey": "honegger",
-  "assembledAt": "2026-08-26T10:10:40.756Z",
+  "assembledAt": "2026-09-03T23:17:44.725Z",
   "jobs": [
     {
       "id": "honegger-0823edf1fdcb",
@@ -33,7 +33,7 @@
       "url": "https://honegger.ch/job/fachfrau-fachmann-betriebsunterhalt-m-w-d-region-obwalden-nidwalden-luzern-80-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:37.507Z",
+      "crawledAt": "2026-09-03T23:17:41.997Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -75,13 +75,11 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen",
-        "specialista-nella-manutenzione-aziendale-l-f-d-honegger-ag-sarnen"
+        "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen",
-          "specialista-nella-manutenzione-aziendale-l-f-d-honegger-ag-sarnen"
+          "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
         ],
         "en": [
           "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
@@ -90,10 +88,10 @@
           "fachfrau-fachmann-betriebsunterhalt-m-w-d-honegger-ag-sarnen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:39.153Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -136,7 +134,7 @@
       "url": "https://honegger.ch/job/unterhaltsreiniger-in-m-w-d-adliswil-horgen-rapperswil-waedenswil-10-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:36.861Z",
+      "crawledAt": "2026-09-03T23:17:40.677Z",
       "addressLocality": "Adliswil",
       "postalCode": "8134",
       "addressRegion": "ZH",
@@ -170,14 +168,12 @@
       "pensum": "10 - 50%",
       "previousSlugs": [
         "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil",
-        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
+        "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil",
-          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil",
-          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-adliswil"
+          "pulitore-per-la-manutenzione-lun-meredi-d-honegger-ag-amriswil"
         ],
         "en": [
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil"
@@ -186,10 +182,10 @@
           "unterhaltsreiniger-in-m-w-d-honegger-ag-adliswil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:38.618Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -232,7 +228,7 @@
       "url": "https://honegger.ch/job/gaertner-in-m-w-d-stadt-zuerich-umgebung-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:34.835Z",
+      "crawledAt": "2026-09-03T23:17:36.757Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -272,13 +268,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "gartner-in-m-w-d-honegger-ag-zurich",
-        "giardiniere-lun-f-d-honegger-ag-zurich"
+        "gartner-in-m-w-d-honegger-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-m-w-d-honegger-ag-zurich",
-          "giardiniere-lun-f-d-honegger-ag-zurich"
+          "gartner-in-m-w-d-honegger-ag-zurich"
         ],
         "en": [
           "gartner-in-m-w-d-honegger-ag-zurich"
@@ -287,10 +281,10 @@
           "gartner-in-m-w-d-honegger-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:36.995Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -333,7 +327,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-m-w-d-25-50-zuerich/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:34.183Z",
+      "crawledAt": "2026-09-03T23:17:35.569Z",
       "addressLocality": "Zürich",
       "postalCode": "8000",
       "addressRegion": "ZH",
@@ -366,13 +360,11 @@
       "pensumMax": 50,
       "pensum": "25 - 50%",
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich",
-        "collaboratore-trice-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
+        "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich",
-          "collaboratore-trice-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
+          "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
         ],
         "en": [
           "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
@@ -381,10 +373,10 @@
           "mitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:36.457Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -427,7 +419,7 @@
       "url": "https://honegger.ch/job/fachmitarbeiter-in-unterhaltsreinigung-m-w-d-region-obwalden-nidwalden-luzern-40-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:33.474Z",
+      "crawledAt": "2026-09-03T23:17:34.265Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -466,13 +458,11 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen",
-        "specialista-in-pulizia-per-la-manutenzione-l-f-d-honegger-ag-sarnen"
+        "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen",
-          "specialista-in-pulizia-per-la-manutenzione-l-f-d-honegger-ag-sarnen"
+          "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
         ],
         "en": [
           "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
@@ -481,10 +471,10 @@
           "fachmitarbeiter-in-unterhaltsreinigung-m-w-d-honegger-ag-sarnen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:35.923Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -511,7 +501,7 @@
       "title": "Vorarbeiter/in Spezialreinigung (m/w/d)",
       "titleByLocale": {
         "it": "Foreman Special Cleaning (lun/f/d)",
-        "en": "Foreman/in special cleaning (m/f/d)",
+        "en": "Foreman/special cleaning (m/f/d)",
         "de": "Vorarbeiter/in Spezialreinigung (m/w/d)",
         "fr": "Contremaître/en nettoyage spécial (m/f/d)"
       },
@@ -527,7 +517,7 @@
       "url": "https://honegger.ch/job/vorarbeiter-in-spezialreinigung-m-w-d-region-bern-100-3/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:32.801Z",
+      "crawledAt": "2026-09-03T23:17:33.043Z",
       "addressLocality": "Bern",
       "postalCode": "3000",
       "addressRegion": "BE",
@@ -568,13 +558,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern",
-        "foreman-special-cleaning-lun-f-d-honegger-ag-bern"
+        "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern",
-          "foreman-special-cleaning-lun-f-d-honegger-ag-bern"
+          "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
         ],
         "en": [
           "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
@@ -583,10 +571,10 @@
           "vorarbeiter-in-spezialreinigung-m-w-d-honegger-ag-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:35.377Z",
       "salaryMin": 52000,
       "salaryMax": 70000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -629,7 +617,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-kanton-schwyz-von-thalwil-bis-uznach-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:32.086Z",
+      "crawledAt": "2026-09-03T23:17:31.411Z",
       "addressLocality": "Schwyz",
       "postalCode": "6430",
       "addressRegion": "SZ",
@@ -666,13 +654,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz",
-        "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-schwyz"
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz",
-          "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-schwyz"
+          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
         ],
         "en": [
           "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-schwyz"
@@ -685,6 +671,7 @@
       "firstSeenAt": "2026-07-04T11:11:34.843Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -710,10 +697,10 @@
       "companyDomain": "honegger.ch",
       "title": "Mitarbeiter/in Reinigung (m/w/d)",
       "titleByLocale": {
-        "it": "Collaboratore/trice Reinigung (m/w/d)",
-        "en": "Employee/in cleaning (m/f/d)",
+        "it": "Dipendente/pulizia (m/f/d)",
+        "en": "Employee/cleaner (m/f/d)",
         "de": "Mitarbeiter/in Reinigung (m/w/d)",
-        "fr": "Employé/in de nettoyage (m/f/d)"
+        "fr": "Employé/nettoyeur (h/f/d)"
       },
       "description": "**Eintritt:** Ab sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Professionelle Ausführung der Reinigungsarbeiten bei unseren Kunden\n- Fachgerechte Anwendung der Reinigungsmittel\n- Arbeitszeit ist von Montag bis Freitag 12:30 Uhr bis 16:30 Uhr\n\n## Das bringst du mit\n- Kundenfreundliche und dienstleistungsorientierte Art\n- Einsatzfreudigkeit, Zuverlässigkeit und Pünktlichkeit\n- Gepflegtes Erscheinungsbild\n- Keine Einträge im Strafregister\n- Führerschein Kategorie B\n- Gute Deutschkenntnisse\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
       "descriptionByLocale": {
@@ -727,7 +714,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-stans-20-30/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:29.430Z",
+      "crawledAt": "2026-09-03T23:17:26.528Z",
       "addressLocality": "Stans",
       "postalCode": "6370",
       "addressRegion": "NW",
@@ -764,13 +751,11 @@
       "pensumMax": 30,
       "pensum": "20 - 30%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
-        "collaboratore-trice-reinigung-m-w-d-honegger-ag-stans"
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans",
-          "collaboratore-trice-reinigung-m-w-d-honegger-ag-stans"
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
         ],
         "en": [
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
@@ -779,10 +764,10 @@
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-stans"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:33.747Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -825,7 +810,7 @@
       "url": "https://honegger.ch/job/inspektor-in-unterhaltsreinigung-m-w-d-region-zuerich-unterer-zuerichsee-horgen-waedenswil-thalwil-50-80/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:28.768Z",
+      "crawledAt": "2026-09-03T23:17:24.848Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressRegion": "ZH",
@@ -860,13 +845,11 @@
       "pensumMax": 80,
       "pensum": "50 - 80%",
       "previousSlugs": [
-        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen",
-        "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen"
+        "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen",
-          "ispettore-manutenzione-pulizia-lunedi-f-d-honegger-ag-horgen"
+          "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
         ],
         "en": [
           "inspektor-in-unterhaltsreinigung-m-w-d-honegger-ag-horgen"
@@ -879,6 +862,7 @@
       "firstSeenAt": "2026-07-04T11:11:33.215Z",
       "salaryMin": 56500,
       "salaryMax": 75500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -886,104 +870,6 @@
           "@type": "QuantitativeValue",
           "minValue": 56500,
           "maxValue": 75500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "honegger-9c3d02280d62",
-      "slug": "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel",
-      "slugByLocale": {
-        "it": "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel",
-        "en": "employee-in-special-cleaning-m-f-d-honegger-ag-basel",
-        "de": "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-        "fr": "employe-en-nettoyage-special-m-f-d-honegger-ag-basel"
-      },
-      "company": "Honegger AG",
-      "companyKey": "honegger",
-      "companyDomain": "honegger.ch",
-      "title": "Mitarbeiter/in Spezialreinigung (m/w/d)",
-      "titleByLocale": {
-        "it": "Collaboratore/trice Spezialreinigung (m/w/d)",
-        "en": "Employee/in special cleaning (m/f/d)",
-        "de": "Mitarbeiter/in Spezialreinigung (m/w/d)",
-        "fr": "Employé/en nettoyage spécial (m/f/d)"
-      },
-      "description": "**Eintritt:** per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fenster und Fassadenreinigung\n- Diverse Grundreinigungen, auch maschinell\n- Schutzbehandlung von Böden und Oberflächen\n- Baureinigungen\n\n## Das bringst du mit\n- Mehrjährige Berufserfahrung in der Spezialreinigung.\n- Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.\n- Gute mündliche Deutschkenntnisse\n- Du bist bereit auch an Samstagen zu arbeiten\n- Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)\n- Führerausweis Kat. B, Kat. BE von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-      "descriptionByLocale": {
-        "it": "** Ingresso: ** immediatamente o con accordo ## Puoi farlo con noi. - Servizi di pulizia di finestre e facciate - Varie pulizie di base, anche meccaniche - Protezione del suolo e delle superfici - Lavori di costruzione ## Lo porti con te. - Diversi anni di esperienza professionale nella pulizia di specialità. - Si descrive come una personalità affidabile e responsabile con buone maniere. - Buone competenze linguistiche tedesche - Sei anche pronto a lavorare il sabato - Hai il diritto di operare ascensori o portare la motivazione per acquisire questo (IPAF) - Patente di guida Cat B, Cat BE benefico ## Noi come datore di lavoro - attività entusiasmanti e responsabili in una società svizzera che sta plasmando la trasformazione digitale nel settore - l'opportunità di acquisire conoscenze specialistiche, contribuire idee e approfondire la vostra esperienza professionale - molta libertà nel compiere i vostri compiti e l'opportunità di lavorare in modo flessibile e indipendente - una cultura aziendale apprezzativa in cui ci sosteniamo a vicenda in tempi frenetici - Ancora e ancora una buona ragione per ridere insieme",
-        "en": "**Admission:** immediately or by agreement ## You can do that with us. - Windows and facade cleaning services - Miscellaneous basic cleaning, whether or not mechanical - Protection of soil and surfaces - Construction works ## You bring that with you - Several years of professional experience in specialty cleaning. - You describe yourself as a reliable and responsible personality with well-groomed manners. - Good oral German language skills - You are also ready to work on Saturdays - You are entitled to operate lifts or bring the motivation to acquire this (IPAF) - Driving licence Cat B, Cat BE beneficial ## We as an employer - exciting and responsible tasks in a Swiss-wide company that is shaping the digital transformation in the industry - the opportunity to acquire specialist knowledge, contribute ideas and deepen your professional experience - a lot of freedom in fulfilling your tasks and the opportunity to work flexibly and independently - an appreciative corporate culture in which we support each other in hectic times - Again and again a good reason to laugh together",
-        "de": "**Eintritt:** per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fenster und Fassadenreinigung\n- Diverse Grundreinigungen, auch maschinell\n- Schutzbehandlung von Böden und Oberflächen\n- Baureinigungen\n\n## Das bringst du mit\n- Mehrjährige Berufserfahrung in der Spezialreinigung.\n- Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.\n- Gute mündliche Deutschkenntnisse\n- Du bist bereit auch an Samstagen zu arbeiten\n- Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)\n- Führerausweis Kat. B, Kat. BE von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-        "fr": "**Admission :** immédiatement ou par accord ## Tu peux faire ça avec nous. - Services de nettoyage des fenêtres et des façades - Nettoyage de base divers, même mécaniques - Protection des sols et des surfaces - Travaux de construction ## Apporte ça avec toi. - Plusieurs années d'expérience professionnelle en nettoyage spécialisé. - Vous vous décrivez comme une personnalité fiable et responsable aux bonnes manières. - Bonnes compétences orales en langue allemande - Vous êtes également prêt à travailler le samedi - Vous avez le droit d'utiliser des ascenseurs ou d'apporter la motivation pour acquérir ce (IPAF) - Permis de conduire Cat B, Cat BE bénéfique ## Nous en tant qu'employeur - des tâches passionnantes et responsables dans une entreprise suisse qui façonne la transformation numérique dans l'industrie - l'occasion d'acquérir des connaissances spécialisées, d'apporter des idées et d'approfondir votre expérience professionnelle - beaucoup de liberté dans l'accomplissement de vos tâches et la possibilité de travailler de manière flexible et indépendante - une culture d'entreprise reconnaissante dans laquelle nous nous soutenons les uns les autres en période agitée - Encore et encore une bonne raison de rire ensemble"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-basel-stadt-baselland-100/",
-      "source": "Honegger AG Dedicated Parser (custom WordPress board)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:28.095Z",
-      "addressLocality": "Basel",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Pulizie Specializzate",
-      "contract": "permanent",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Facility Management / Pulizie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://honegger.ch/job/mitarbeiter-in-spezialreinigung-m-w-d-region-basel-stadt-baselland-100/",
-      "requirements": [
-        "Mehrjährige Berufserfahrung in der Spezialreinigung.",
-        "Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.",
-        "Gute mündliche Deutschkenntnisse",
-        "Du bist bereit auch an Samstagen zu arbeiten",
-        "Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)",
-        "Führerausweis Kat. B, Kat. BE von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Mehrjährige Berufserfahrung in der Spezialreinigung.",
-          "Du bezeichnest dich als zuverlässige und verantwortungsbewusste Persönlichkeit mit gepflegten Umgangsformen.",
-          "Gute mündliche Deutschkenntnisse",
-          "Du bist bereit auch an Samstagen zu arbeiten",
-          "Du bist berechtigt Hebebühnen zu bedienen oder bringst die Motivation mit dies zu erwerben (IPAF)",
-          "Führerausweis Kat. B, Kat. BE von Vorteil"
-        ]
-      },
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "pensum": "100%",
-      "previousSlugs": [
-        "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-        "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel",
-          "collaboratore-trice-spezialreinigung-m-w-d-honegger-ag-basel"
-        ],
-        "en": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel"
-        ],
-        "fr": [
-          "mitarbeiter-in-spezialreinigung-m-w-d-honegger-ag-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T11:11:32.689Z",
-      "salaryMin": 51000,
-      "salaryMax": 68500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 68500,
           "unitText": "YEAR"
         }
       }
@@ -1019,7 +905,7 @@
       "url": "https://honegger.ch/job/teamleiter-in-unterhaltsreinigung-m-w-d-langenthal-ca-40/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:27.392Z",
+      "crawledAt": "2026-09-03T23:17:23.520Z",
       "addressLocality": "Langenthal",
       "postalCode": "4900",
       "addressRegion": "BE",
@@ -1060,13 +946,11 @@
       "pensumMax": 40,
       "pensum": "40%",
       "previousSlugs": [
-        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal",
-        "pulizia-manutenzione-leader-team-lunedi-meredi-d-honegger-ag-langenthal"
+        "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal",
-          "pulizia-manutenzione-leader-team-lunedi-meredi-d-honegger-ag-langenthal"
+          "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
         ],
         "en": [
           "teamleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-langenthal"
@@ -1079,6 +963,7 @@
       "firstSeenAt": "2026-07-04T11:11:31.034Z",
       "salaryMin": 52000,
       "salaryMax": 70000,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1121,7 +1006,7 @@
       "url": "https://honegger.ch/job/einsatzleiter-in-unterhaltsreinigung-m-w-d-boudry-ne-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:26.738Z",
+      "crawledAt": "2026-09-03T23:17:22.316Z",
       "addressLocality": "Boudry",
       "postalCode": "2017",
       "addressRegion": "NE",
@@ -1160,13 +1045,11 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry",
-        "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry"
+        "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry",
-          "capo-operazioni-manutenzione-pulizia-m-f-d-honegger-ag-boudry"
+          "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
         ],
         "en": [
           "einsatzleiter-in-unterhaltsreinigung-m-w-d-honegger-ag-boudry"
@@ -1179,6 +1062,7 @@
       "firstSeenAt": "2026-07-04T11:11:30.504Z",
       "salaryMin": 64500,
       "salaryMax": 86500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1204,10 +1088,10 @@
       "companyDomain": "honegger.ch",
       "title": "Mitarbeiter/in Reinigung (m/w/d)",
       "titleByLocale": {
-        "it": "Collaboratore/trice Reinigung (m/w/d)",
-        "en": "Employee/in cleaning (m/f/d)",
+        "it": "Dipendente/pulizia (m/f/d)",
+        "en": "Employee/cleaner (m/f/d)",
         "de": "Mitarbeiter/in Reinigung (m/w/d)",
-        "fr": "Employé/in de nettoyage (m/f/d)"
+        "fr": "Employé/nettoyeur (h/f/d)"
       },
       "description": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Professionelle Ausführung der Reinigungsarbeiten bei unseren Kunden\n- Fachgerechte Anwendung der Reinigungsmittel\n- Arbeitszeit von Montag bis Freitag 14.00 bis 17.30 Uhr\n\n## Das bringst du mit\n- Kundenfreundliche und dienstleistungsorientierte Art\n- Einsatzfreudigkeit, Zuverlässigkeit und Pünktlichkeit\n- Gepflegtes Erscheinungsbild\n- Gute mündliche Deutschkenntnisse\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
       "descriptionByLocale": {
@@ -1221,7 +1105,7 @@
       "url": "https://honegger.ch/job/mitarbeiter-in-reinigung-m-w-d-sarnen-40-50/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:26.067Z",
+      "crawledAt": "2026-09-03T23:17:21.131Z",
       "addressLocality": "Sarnen",
       "postalCode": "6060",
       "addressRegion": "OW",
@@ -1254,13 +1138,11 @@
       "pensumMax": 50,
       "pensum": "40 - 50%",
       "previousSlugs": [
-        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen",
-        "collaboratore-trice-reinigung-m-w-d-honegger-ag-sarnen"
+        "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen",
-          "collaboratore-trice-reinigung-m-w-d-honegger-ag-sarnen"
+          "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
         ],
         "en": [
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
@@ -1269,10 +1151,10 @@
           "mitarbeiter-in-reinigung-m-w-d-honegger-ag-sarnen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:11:29.969Z",
       "salaryMin": 53000,
       "salaryMax": 71500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1285,137 +1167,37 @@
       }
     },
     {
-      "id": "honegger-5a1a46019138",
-      "slug": "personale-di-pulizia-in-m-f-d-honegger-ag-basel",
-      "slugByLocale": {
-        "it": "personale-di-pulizia-in-m-f-d-honegger-ag-basel",
-        "en": "cleaning-staff-in-m-f-d-honegger-ag-basel",
-        "de": "reinigungsmitarbeiter-in-m-w-d-honegger-ag-basel",
-        "fr": "personnel-de-nettoyage-en-h-f-d-honegger-ag-basel"
-      },
-      "company": "Honegger AG",
-      "companyKey": "honegger",
-      "companyDomain": "honegger.ch",
-      "title": "Reinigungsmitarbeiter/-in (m/w/d)",
-      "titleByLocale": {
-        "it": "Personale di pulizia/in (m/f/d)",
-        "en": "Cleaning staff/in (m/f/d)",
-        "de": "Reinigungsmitarbeiter/-in (m/w/d)",
-        "fr": "Personnel de nettoyage/en (h/f/d)"
-      },
-      "description": "**Eintritt:** per 31. August 2026 oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Selbstständige und sorgfältige Arbeitsweise\n- Zuverlässig\n- Verantwortungsbewusst\n- Teamfähig\n- Deutsch- oder Englischkenntnisse\n- Gültige Aufenthaltsbewilligung\n- Reinigungserfahrung von Vorteil\n\n## Das bringst du mit\n- Selbstständige und sorgfältige Arbeitsweise\n- Zuverlässig\n- Verantwortungsbewusst\n- Teamfähig\n- Deutsch- oder Englischkenntnisse\n- Gültige Aufenthaltsbewilligung\n- Reinigungserfahrung von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-      "descriptionByLocale": {
-        "it": "Al 31. agosto 2026 o per accordo\n\n## Puoi farlo con noi.\n- Metodi di lavoro autonomi e attenti\n- Affidabile\n- Responsabile\n- Lavoro di squadra\n- Conoscenza del tedesco o dell'inglese\n- Permesso di soggiorno\n- L'esperienza di pulizia è vantaggiosa\n\n## Lo porti con te.\n- Metodi di lavoro autonomi e attenti\n- Affidabile\n- Responsabile\n- Lavoro di squadra\n- Conoscenza del tedesco o dell'inglese\n- Permesso di soggiorno\n- L'esperienza di pulizia è vantaggiosa\n\n## Noi come datore di lavoro\n- attività entusiasmanti e responsabili in una società svizzera che sta plasmando la trasformazione digitale nel settore\n- l'opportunità di acquisire conoscenze specialistiche, contribuire idee e approfondire la vostra esperienza professionale\n- molta libertà nel compiere i vostri compiti e l'opportunità di lavorare in modo flessibile e indipendente\n- una cultura aziendale apprezzativa in cui ci sosteniamo a vicenda in tempi frenetici\n- Ancora e ancora una buona ragione per ridere insieme",
-        "en": "**Admission:** on 31. August 2026 or by arrangement\n\n## You can do that with us.\n- Self-employed and careful working methods\n- Reliable\n- Responsible\n- Teamwork\n- Knowledge of German or English\n- Valid residence permit\n- Cleaning experience is advantageous\n\n## You bring that with you\n- Self-employed and careful working methods\n- Reliable\n- Responsible\n- Teamwork\n- Knowledge of German or English\n- Valid residence permit\n- Cleaning experience is advantageous\n\n## We as an employer\n- exciting and responsible tasks in a Swiss-wide company that is shaping the digital transformation in the industry\n- the opportunity to acquire specialist knowledge, contribute ideas and deepen your professional experience\n- a lot of freedom in fulfilling your tasks and the opportunity to work flexibly and independently\n- an appreciative corporate culture in which we support each other in hectic times\n- Again and again a good reason to laugh together",
-        "de": "**Eintritt:** per 31. August 2026 oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Selbstständige und sorgfältige Arbeitsweise\n- Zuverlässig\n- Verantwortungsbewusst\n- Teamfähig\n- Deutsch- oder Englischkenntnisse\n- Gültige Aufenthaltsbewilligung\n- Reinigungserfahrung von Vorteil\n\n## Das bringst du mit\n- Selbstständige und sorgfältige Arbeitsweise\n- Zuverlässig\n- Verantwortungsbewusst\n- Teamfähig\n- Deutsch- oder Englischkenntnisse\n- Gültige Aufenthaltsbewilligung\n- Reinigungserfahrung von Vorteil\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-        "fr": "**Admission :** le 31. Août 2026 ou par arrangement\n\n## Tu peux faire ça avec nous.\n- Travailleurs indépendants et méthodes de travail prudentes\n- Fiable\n- Responsable\n- Travail d'équipe\n- Connaissance de l'allemand ou de l'anglais\n- Permis de séjour valide\n- L'expérience de nettoyage est avantageuse\n\n## Apporte ça avec toi.\n- Travailleurs indépendants et méthodes de travail prudentes\n- Fiable\n- Responsable\n- Travail d'équipe\n- Connaissance de l'allemand ou de l'anglais\n- Permis de séjour valide\n- L'expérience de nettoyage est avantageuse\n\n## Nous en tant qu'employeur\n- des tâches passionnantes et responsables dans une entreprise suisse qui façonne la transformation numérique dans l'industrie\n- l'occasion d'acquérir des connaissances spécialisées, d'apporter des idées et d'approfondir votre expérience professionnelle\n- beaucoup de liberté dans l'accomplissement de vos tâches et la possibilité de travailler de manière flexible et indépendante\n- une culture d'entreprise reconnaissante dans laquelle nous nous soutenons les uns les autres en période agitée\n- Encore et encore une bonne raison de rire ensemble"
-      },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://honegger.ch/job/reinigungsmitarbeiter-in-m-w-d-basel-stadt-20-30/",
-      "source": "Honegger AG Dedicated Parser (custom WordPress board)",
-      "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:24.059Z",
-      "addressLocality": "Basel",
-      "postalCode": "4001",
-      "addressRegion": "BS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Pulizie di Manutenzione",
-      "contract": "permanent",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Facility Management / Pulizie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-11",
-      "applyUrl": "https://honegger.ch/job/reinigungsmitarbeiter-in-m-w-d-basel-stadt-20-30/",
-      "requirements": [
-        "Selbstständige und sorgfältige Arbeitsweise",
-        "Zuverlässig",
-        "Verantwortungsbewusst",
-        "Teamfähig",
-        "Deutsch- oder Englischkenntnisse",
-        "Gültige Aufenthaltsbewilligung",
-        "Reinigungserfahrung von Vorteil"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "Selbstständige und sorgfältige Arbeitsweise",
-          "Zuverlässig",
-          "Verantwortungsbewusst",
-          "Teamfähig",
-          "Deutsch- oder Englischkenntnisse",
-          "Gültige Aufenthaltsbewilligung",
-          "Reinigungserfahrung von Vorteil"
-        ]
-      },
-      "pensumMin": 20,
-      "pensumMax": 30,
-      "pensum": "20 - 30%",
-      "previousSlugs": [
-        "reinigungsmitarbeiter-in-m-w-d-honegger-ag-basel",
-        "personale-di-pulizia-in-m-f-d-honegger-ag-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "reinigungsmitarbeiter-in-m-w-d-honegger-ag-basel",
-          "personale-di-pulizia-in-m-f-d-honegger-ag-basel"
-        ],
-        "en": [
-          "reinigungsmitarbeiter-in-m-w-d-honegger-ag-basel"
-        ],
-        "fr": [
-          "reinigungsmitarbeiter-in-m-w-d-honegger-ag-basel"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-11T10:08:26.254Z",
-      "salaryMin": 51000,
-      "salaryMax": 68500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51000,
-          "maxValue": 68500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "honegger-4059889d6a2a",
       "slug": "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen",
       "slugByLocale": {
         "it": "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen",
-        "en": "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
+        "en": "employee-cleaning-house-maintenance-and-laundry-logistics-m-f-d-honegger-ag-st-gallen",
         "de": "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
-        "fr": "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
+        "fr": "nettoyage-des-employes-entretien-de-la-maison-et-logistique-de-blanchisserie-h-f-d-honegger-ag-st-gallen"
       },
       "company": "Honegger AG",
       "companyKey": "honegger",
       "companyDomain": "honegger.ch",
       "title": "Mitarbeiter/-in Unterhaltsreinigung, Hauswartung und Wäschelogistik (m/w/d)",
       "titleByLocale": {
-        "it": "Collaboratore/trice/-in Unterhaltsreinigung, Hauswartung e Wäschelogistik (m/w/d)",
-        "en": "Mitarbeiter/-in Unterhaltsreinigung, Hauswartung und Wäschelogistik (m/w/d)",
+        "it": "Pulizia dei dipendenti, manutenzione della casa e logistica della lavanderia (m/f/d)",
+        "en": "Employee cleaning, house maintenance and laundry logistics (m/f/d)",
         "de": "Mitarbeiter/-in Unterhaltsreinigung, Hauswartung und Wäschelogistik (m/w/d)",
-        "fr": "Mitarbeiter/-in Unterhaltsreinigung, Hauswartung und Wäschelogistik (m/w/d)"
+        "fr": "Nettoyage des employés, entretien de la maison et logistique de blanchisserie (h/f/d)"
       },
       "description": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fachgerechte Ausführung der Unterhaltsreinigung sowie Durchführen von allfälligen Grundreinigungen\n- Lieferung der Reinigungsmaterialien / Wäsche auf die einzelnen Objekte\n- Hauswartarbeiten sowie kleinere Gärtnertätigkeiten (bspw. Heckenschneiden)\n\n## Das bringst du mit\n- Erfahrung in der Reinigungsbranche/Hauswartung\n- Du kannst dich mündlich auf Deutsch verständigen\n- Führerschein der Kat. B zwingend\n- Qualität sowie Diskretion sind für dich selbstverständlich\n- Du bist bereit Sonntagsarbeit zu leisten\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
       "descriptionByLocale": {
-        "it": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fachgerechte Ausführung der Unterhaltsreinigung sowie Durchführen von allfälligen Grundreinigungen\n- Lieferung der Reinigungsmaterialien / Wäsche auf die einzelnen Objekte\n- Hauswartarbeiten sowie kleinere Gärtnertätigkeiten (bspw. Heckenschneiden)\n\n## Das bringst du mit\n- Erfahrung in der Reinigungsbranche/Hauswartung\n- Du kannst dich mündlich auf Deutsch verständigen\n- Führerschein der Kat. B zwingend\n- Qualität sowie Diskretion sind für dich selbstverständlich\n- Du bist bereit Sonntagsarbeit zu leisten\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-        "en": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fachgerechte Ausführung der Unterhaltsreinigung sowie Durchführen von allfälligen Grundreinigungen\n- Lieferung der Reinigungsmaterialien / Wäsche auf die einzelnen Objekte\n- Hauswartarbeiten sowie kleinere Gärtnertätigkeiten (bspw. Heckenschneiden)\n\n## Das bringst du mit\n- Erfahrung in der Reinigungsbranche/Hauswartung\n- Du kannst dich mündlich auf Deutsch verständigen\n- Führerschein der Kat. B zwingend\n- Qualität sowie Diskretion sind für dich selbstverständlich\n- Du bist bereit Sonntagsarbeit zu leisten\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
+        "it": "# Ammissione # Immediatamente o con accordo\n\n## Puoi farlo con noi.\n- Esecuzione professionale della pulizia di manutenzione e realizzazione di eventuali pulizie di base\n- Consegna dei materiali di pulizia / lavanderia ai singoli oggetti\n- Attività di pulizia e di giardinaggio minori (ad es. taglio di siepi)\n\n## Lo porti con te.\n- Esperienza nel settore delle pulizie/manutenzione casa\n- È possibile comunicare verbalmente in tedesco\n- La patente di guida di Cat. B obbligatorio\n- Qualità e discrezione sono una questione naturalmente per voi\n- Sei pronto a fare il lavoro di domenica\n\n## Noi come datore di lavoro\n- attività entusiasmanti e responsabili in un'azienda svizzera che sta plasmando la trasformazione digitale nel settore\n- l'opportunità di acquisire conoscenze specialistiche, contribuire idee e approfondire la vostra esperienza professionale\n- molta libertà nel compiere i vostri compiti e l'opportunità di lavorare in modo flessibile e indipendente\n- una cultura aziendale apprezzativa in cui ci sosteniamo a vicenda in tempi frenetici\n- Ancora e ancora una buona ragione per ridere insieme",
+        "en": "**Admission:** Immediately or by agreement\n\n## You can do that with us.\n- Professional execution of the maintenance cleaning and carrying out of possible basic cleanings\n- Delivery of cleaning materials / laundry to the individual objects\n- Housekeeping and minor gardening activities (e.g. hedge cutting)\n\n## You bring that with you\n- Experience in the cleaning industry/home maintenance\n- You can communicate verbally in German\n- Cat's driving license. B mandatory\n- Quality and discretion are a matter of course for you\n- You are ready to do Sunday work\n\n## We as an employer\n- exciting and responsible tasks in a Swiss-wide company that is shaping the digital transformation in the industry\n- the opportunity to acquire specialist knowledge, contribute ideas and deepen your professional experience\n- a lot of freedom in fulfilling your tasks and the opportunity to work flexibly and independently\n- an appreciative corporate culture in which we support each other in hectic times\n- Again and again a good reason to laugh together",
         "de": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fachgerechte Ausführung der Unterhaltsreinigung sowie Durchführen von allfälligen Grundreinigungen\n- Lieferung der Reinigungsmaterialien / Wäsche auf die einzelnen Objekte\n- Hauswartarbeiten sowie kleinere Gärtnertätigkeiten (bspw. Heckenschneiden)\n\n## Das bringst du mit\n- Erfahrung in der Reinigungsbranche/Hauswartung\n- Du kannst dich mündlich auf Deutsch verständigen\n- Führerschein der Kat. B zwingend\n- Qualität sowie Diskretion sind für dich selbstverständlich\n- Du bist bereit Sonntagsarbeit zu leisten\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
-        "fr": "**Eintritt:** Per sofort oder nach Vereinbarung\n\n## Das kannst du bei uns bewirken\n- Fachgerechte Ausführung der Unterhaltsreinigung sowie Durchführen von allfälligen Grundreinigungen\n- Lieferung der Reinigungsmaterialien / Wäsche auf die einzelnen Objekte\n- Hauswartarbeiten sowie kleinere Gärtnertätigkeiten (bspw. Heckenschneiden)\n\n## Das bringst du mit\n- Erfahrung in der Reinigungsbranche/Hauswartung\n- Du kannst dich mündlich auf Deutsch verständigen\n- Führerschein der Kat. B zwingend\n- Qualität sowie Diskretion sind für dich selbstverständlich\n- Du bist bereit Sonntagsarbeit zu leisten\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel in der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine berufliche Erfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen"
+        "fr": "**Admission :** Immédiatement ou par accord\n\n## Tu peux faire ça avec nous.\n- Exécution professionnelle du nettoyage d'entretien et réalisation des éventuels nettoyages de base\n- Livraison de matériel de nettoyage / lessive aux objets individuels\n- Activités d'entretien ménager et de jardinage mineur (par exemple coupe de haies)\n\n## Apporte ça avec toi.\n- Expérience dans l'industrie du nettoyage/entretien de la maison\n- Vous pouvez communiquer verbalement en allemand\n- Le permis de conduire du chat. B obligatoire\n- La qualité et la discrétion sont une question bien sûr pour vous\n- Vous êtes prêt à travailler le dimanche\n\n## Nous en tant qu'employeur\n- des tâches passionnantes et responsables dans une entreprise suisse qui façonne la transformation numérique dans l'industrie\n- l'opportunité d'acquérir des connaissances spécialisées, d'apporter des idées et d'approfondir votre expérience professionnelle\n- beaucoup de liberté dans l'accomplissement de vos tâches et la possibilité de travailler de manière flexible et indépendante\n- une culture d'entreprise reconnaissante dans laquelle nous nous soutenons les uns les autres en période agitée\n- Encore et encore une bonne raison de rire ensemble"
       },
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://honegger.ch/job/mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waeschelogistik-m-w-d-st-gallen-100/",
       "source": "Honegger AG Dedicated Parser (custom WordPress board)",
       "sourceLang": "de",
-      "crawledAt": "2026-08-26T10:10:22.273Z",
+      "crawledAt": "2026-09-03T23:17:15.989Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -1450,19 +1232,23 @@
       "pensumMax": 100,
       "pensum": "100%",
       "previousSlugs": [
-        "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
-        "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen"
+        "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st",
-          "collaboratore-trice-in-unterhaltsreinigung-hauswartung-e-waschelogistik-m-w-d-honegger-ag-st-gallen"
+          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
+        ],
+        "en": [
+          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
+        ],
+        "fr": [
+          "mitarbeiter-in-unterhaltsreinigung-hauswartung-und-waschelogistik-m-w-d-honegger-ag-st"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:40:48.128Z",
       "salaryMin": 47500,
       "salaryMax": 63500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1473,6 +1259,84 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "honegger-71b563f28a9b",
+      "slug": "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
+        "it": "collaboratore-trice-in-risorse-umane-m-w-d-boudry-ne-100-honegger-ag-boudry",
+        "en": "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry",
+        "fr": "mitarbeiter-in-ressources-humaines-w-m-d-boudry-ne-100-honegger-ag-boudry"
+      },
+      "company": "Honegger AG",
+      "companyKey": "honegger",
+      "companyDomain": "honegger.ch",
+      "title": "Mitarbeiter/-in Human Resources (w/m/d) | Boudry (NE) 100%",
+      "titleByLocale": {
+        "it": "Collaboratore/trice/-in Risorse Umane (w/m/d) | Boudry (NE) 100%",
+        "en": "Mitarbeiter/-in Human Resources (w/m/d) | Boudry (NE) 100%",
+        "de": "Mitarbeiter/-in Human Resources (w/m/d) | Boudry (NE) 100%",
+        "fr": "Mitarbeiter/-in Ressources Humaines (w/m/d) | Boudry (NE) 100%"
+      },
+      "description": "**Eintritt:** nach Vereinbarung – 31.05.2027\nVerantwortung übernehmen und den Teamgeist stärken: Lebe eine vielseitige Position mit Zukunft. Wir suchen ein/e Mitarbeiter/-in Human Resources (h/f/d) in Boudry (NE) für 100%\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine Berufserfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
+      "descriptionByLocale": {
+        "it": "**Eintritt:** nach Vereinbarung – 31.05.2027\nVerantwortung übernehmen und den Teamgeist stärken: Lebe eine vielseitige Position mit Zukunft. Wir suchen ein/e Mitarbeiter/-in Human Resources (h/f/d) in Boudry (NE) für 100%\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine Berufserfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
+        "en": "**Eintritt:** nach Vereinbarung – 31.05.2027\nVerantwortung übernehmen und den Teamgeist stärken: Lebe eine vielseitige Position mit Zukunft. Wir suchen ein/e Mitarbeiter/-in Human Resources (h/f/d) in Boudry (NE) für 100%\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine Berufserfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
+        "de": "**Eintritt:** nach Vereinbarung – 31.05.2027\nVerantwortung übernehmen und den Teamgeist stärken: Lebe eine vielseitige Position mit Zukunft. Wir suchen ein/e Mitarbeiter/-in Human Resources (h/f/d) in Boudry (NE) für 100%\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine Berufserfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen",
+        "fr": "**Eintritt:** nach Vereinbarung – 31.05.2027\nVerantwortung übernehmen und den Teamgeist stärken: Lebe eine vielseitige Position mit Zukunft. Wir suchen ein/e Mitarbeiter/-in Human Resources (h/f/d) in Boudry (NE) für 100%\n\n## Wir als Arbeitgeber\n- spannende und verantwortungsvolle Aufgaben in einem schweizweit tätigen Unternehmen, das den digitalen Wandel der Branche prägt\n- die Möglichkeit, dir Fachwissen anzueignen, Ideen einzubringen und deine Berufserfahrung zu vertiefen\n- viel Freiraum bei der Erfüllung deiner Aufgaben und die Möglichkeit, flexibel und eigenständig zu arbeiten\n- eine wertschätzende Unternehmenskultur, in der wir uns in hektischen Zeiten gegenseitig unterstützen\n- immer wieder einen guten Grund, gemeinsam zu lachen"
+      },
+      "location": "Boudry",
+      "canton": "NE",
+      "url": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
+      "source": "Honegger AG Dedicated Parser (custom WordPress board)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-03T23:17:05.045Z",
+      "addressLocality": "Boudry",
+      "postalCode": "2017",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Facility Management",
+      "contract": "permanent",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Facility Management / Pulizie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-03",
+      "applyUrl": "https://honegger.ch/job/mitarbeiter-in-human-resources-w-m-d-boudry-ne-100/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "pensumMin": 100,
+      "pensumMax": 100,
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
+        ],
+        "fr": [
+          "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-human-resources-w-m-d-boudry-ne-100-honegger-ag-boudry"
+      ],
+      "salaryMin": 49500,
+      "salaryMax": 66500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 49500,
+          "maxValue": 66500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:32:10.300Z"
     }
   ]
 }

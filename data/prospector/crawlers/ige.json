@@ -1,0 +1,19 @@
+{
+  "companyKey": "ige",
+  "companyName": "IGE: Lehrstelle als Kaufmann/-frau (KV) EFZ",
+  "companyHost": "ige.prospective.ch",
+  "platform": "prospective.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ige.prospective.ch/offene-stellen/lehrstelle-als-kaufmann-frau-kv-efz-dienstleistung-und-administration-w-m-d/2b1bb362-d333-4856-bd1b-3a12247f02c7"
+  ],
+  "detailTemplate": "/offene-stellen/lehrstelle-als-kaufmann-frau-kv-efz-dienstleistung-und-administration-w-m-d/2b1bb362-d333-4856-bd1b-3a12247f02c7",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lehrstelle als Kaufmann/-frau (KV) EFZ – Dienstleistung und Administration (w/m/d) - mit/ohne Berufsmaturität<br/><br/>Lehrbeginn: August 2027"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-29T10:37:21.275Z"
+}

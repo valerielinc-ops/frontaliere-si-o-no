@@ -93,6 +93,10 @@ const ARTICLE_FOOTER_ROOT = '<div id="footer-root"></div>';
 const HERO_FALLBACK_WIDTH = 1200;
 const HERO_FALLBACK_HEIGHT = 675;
 
+function isMissingPathError(error: unknown): boolean {
+  return (error as NodeJS.ErrnoException).code === 'ENOENT';
+}
+
 /**
  * Google Discover's large-image-card width floor.
  *
@@ -188,6 +192,9 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  baseUrl: BASE_URL,
  gtagSnippet: GTAG_SNIPPET,
  adsenseSnippet: ADSENSE_SNIPPET,
+ // `?? ''` perche' il campo e' opzionale nel contratto: finche' il repo
+ // pubblicatore non passa il proprio snippet, qui non deve uscire `undefined`.
+ partnerizeTagSnippet: PARTNERIZE_TAG_SNIPPET = '',
  offerwallFcSnippet: OFFERWALL_FC_SNIPPET,
  faviconLinks: FAVICON_LINKS,
  seoStaticCssFilename: SEO_STATIC_CSS_FILENAME,
@@ -255,7 +262,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  while ((m = re.exec(src)) !== null) {
  if (!blogImageById[m[1]]) blogImageById[m[1]] = m[2];
  }
- } catch { /* file absent from this root — try the next */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ /* file absent from this root — try the next */
+ }
  }
 
  // ── Article-section descriptors ─────────────────────────────
@@ -351,7 +361,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  while ((anm = anRx.exec(articleDataSrc)) !== null) {
  articleAuthorNameById[anm[1]] = anm[2];
  }
- } catch { /* non-fatal — FAQ extraction will be skipped for all articles */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ /* optional registry absent — FAQ extraction will be skipped for all articles */
+ }
 
  // Parse sitemap-blog.xml for <lastmod> dates (fallback for dateModified)
  const sitemapLastmodBySlug: Record<string, string> = {};
@@ -366,7 +379,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  sitemapLastmodBySlug[locMatch[1]] = lmMatch[1];
  }
  }
- } catch { /* non-fatal */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ /* optional sitemap absent */
+ }
 
  /* ── FAQ extraction for article-specific FAQPage schema ─────── */
  const stripMarkdownForFaq = stripMarkdownPlain;
@@ -416,7 +432,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (!rel) return false;
  try {
  return fs.statSync(np.join(distDir, rel)).isFile();
- } catch {
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
  return false;
  }
  };
@@ -477,14 +494,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // the primary chunk; subsequent files (frontaliere's seo-blog-2..10) are
  // appended verbatim with a single '\n' separator — byte-identical to the
  // legacy seo-blog.ts + seo-blog-N.ts concatenation. Missing chunks are
- // skipped. If the primary file itself is unreadable, the frontaliere section
+ // skipped. If the primary file itself is missing, the frontaliere section
  // keeps its historical seoService.ts fallback; other sections just skip.
  let seoSrc: string | null = null;
  for (const rel of SECTION.seoFiles) {
  let chunk: string;
  try {
  chunk = fs.readFileSync(np.resolve(rootDir, rel), 'utf-8');
- } catch {
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
  if (seoSrc === null) continue; // primary missing → try next / fall back
  break; // a later chunk missing → stop appending (matches old behaviour)
  }
@@ -494,7 +512,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  if (SECTION.name === 'frontaliere') {
  try {
  seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
- } catch {
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
  console.warn('[og-pages] Could not read seo-blog.ts or seoService.ts — skipping');
  continue;
  }
@@ -708,7 +727,10 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  while ((bm = bsRx.exec(bsBlock)) !== null) {
  blogSlugs[bm[1]] = { it: bm[2], en: bm[3], de: bm[4], fr: bm[5] };
  }
- } catch { /* non-fatal — per-article slug lookup will be empty */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ /* optional slug registry absent — per-article lookup will be empty */
+ }
 
  // Blog index slug per locale (e.g. 'articoli-frontaliere') — read from the
  // site shell's narrowed SLUG_TABLES projection (#4315 originally, #4881
@@ -737,7 +759,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const out: Record<string, { title?: string; excerpt?: string; imageAlt?: string }> = {};
  const p = np.resolve(rootDir, `services/locales/${SECTION.metaPrefix}-${locale}.ts`);
  let src = '';
- try { src = fs.readFileSync(p, 'utf-8'); } catch { return out; }
+ try {
+ src = fs.readFileSync(p, 'utf-8');
+ } catch (err) {
+ if (isMissingPathError(err)) return out;
+ throw err;
+ }
  const rx = /'blog\.article\.([^']+)\.(title|excerpt|imageAlt)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  let m: RegExpExecArray | null;
  while ((m = rx.exec(src)) !== null) {
@@ -768,16 +795,29 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  try {
  fs.statSync(np.join(dir, single));
  files.push(single);
- } catch { /* id not in this section/locale — superset-safe no-op */ }
+ } catch (err) {
+ if (!isMissingPathError(err)) throw err;
+ /* id not in this section/locale — superset-safe no-op */
+ }
  }
  } else {
- try { files = fs.readdirSync(dir); } catch { return out; }
+ try {
+ files = fs.readdirSync(dir);
+ } catch (err) {
+ if (isMissingPathError(err)) return out;
+ throw err;
+ }
  }
  const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
  for (const file of files) {
  if (!file.endsWith('.ts')) continue;
  let src = '';
- try { src = fs.readFileSync(np.join(dir, file), 'utf-8'); } catch { continue; }
+ try {
+ src = fs.readFileSync(np.join(dir, file), 'utf-8');
+ } catch (err) {
+ if (isMissingPathError(err)) continue;
+ throw err;
+ }
  let m: RegExpExecArray | null;
  while ((m = rx.exec(src)) !== null) {
  const articleId = m[1];
@@ -1164,6 +1204,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // visible byline below, so static build + client hydration match (was:
  // hardcoded to a single author for every article, all sections).
  const resolvedAuthor = en.authorSlug ? getAuthorBySlug(en.authorSlug) : undefined;
+ // The one author surface #author-eeat left behind: `article:author` below
+ // stayed hardcoded to /chi-siamo/ while byline, JSON-LD and hreflang all
+ // moved to the per-article Person. Every OG consumer (Facebook, LinkedIn,
+ // aggregators) therefore read *every* article — guest-authored ones
+ // included — as attributed to the Redazione. Reported 2026-09-03 by the
+ // guest author of the 2026-09-02 article, whose byline was correct on the
+ // page and wrong in the metadata. Organization fallback keeps /chi-siamo/,
+ // which is exactly `authorObj.url` in that branch, so the tag and the
+ // JSON-LD author can never disagree again.
  const authorObj: Record<string, unknown> = resolvedAuthor
  ? {
  '@type': 'Person' as const,
@@ -1481,7 +1530,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta property="article:published_time" content="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">
  <meta property="article:modified_time" content="${esc(normalizeDateTime(en.dateMod || en.datePub || todayIso))}">
  <meta property="article:section" content="Frontalieri Ticino">
- <meta property="article:author" content="${BASE_URL}/chi-siamo/">
+ <meta property="article:author" content="${esc(String(authorObj.url))}">
 ${href}
  <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
  <script type="application/ld+json">${ldJsonStr}</script>
@@ -1567,6 +1616,7 @@ ${headTags}
  ${asyncCssLink(`/assets/${SEO_STATIC_CSS_FILENAME}`)}
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
@@ -1590,6 +1640,7 @@ ${headTags}
  <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
  ${GTAG_SNIPPET}
  ${ADSENSE_SNIPPET}
+ ${PARTNERIZE_TAG_SNIPPET}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>

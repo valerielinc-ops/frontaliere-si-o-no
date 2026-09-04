@@ -39,9 +39,9 @@
  * Usage: node scripts/fetch-istat-cost-basket.mjs
  */
 
-import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -180,8 +180,7 @@ async function main() {
     provinces: ISTAT_SNAPSHOT.provinces,
   };
 
-  fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
-  fs.writeFileSync(OUT_PATH, JSON.stringify(payload, null, 2) + '\n', 'utf-8');
+  writeJsonAtomic(OUT_PATH, payload);
   console.log(
     `[fetch-istat-cost-basket] wrote ${OUT_PATH} — ${payload.provinces.length} provinces, probe status=${probe.status ?? 'n/a'}`,
   );

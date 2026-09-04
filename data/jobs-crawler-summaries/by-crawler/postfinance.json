@@ -1,18 +1,218 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-08-26T10:37:56.888Z",
-  "total": 20,
+  "generatedAt": "2026-09-03T23:19:56.663Z",
+  "total": 18,
   "newCount": 1,
-  "updatedCount": 18,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 35279,
-  "avgDurationMs": 35279,
+  "updatedCount": 15,
+  "removedCount": 1,
+  "unchangedCount": 2,
+  "durationMs": 30370,
+  "avgDurationMs": 30370,
   "durationHistory": [
-    35279
+    30370
   ],
   "newJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Product-Owner-Data-Insights-%28wmd%29/74606-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Product-Owner-Data-Insights-%28wmd%29/74606-de_DE",
+      "title": "Product Owner Data Insights (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "product-owner-data-insights-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "03.09.26",
+      "validThrough": "01.10.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "crawledAt": "",
+      "_qualityScore": 60,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 9
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "url": "https://jobs.postfinance.ch/job/Platform-Engineer/74636-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Platform-Engineer/74636-de_DE",
+      "title": "Platform Engineer",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "platform-engineer-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "02.09.26",
+      "validThrough": "30.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-e6e37ff2414b",
+      "firstSeenAt": "2026-09-03T13:41:15.545Z",
+      "crawledAt": "",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Platform-Engineer-Windows-&-Automation/74635-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Platform-Engineer-Windows-&-Automation/74635-de_DE",
+      "title": "Platform Engineer - Windows & Automation",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Zofingen",
+      "canton": "AG",
+      "country": "CH",
+      "slug": "platform-engineer-windows-automation-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Informatik und Digital Services"
+      ],
+      "category": [
+        "Informatik und Digital Services"
+      ],
+      "datePosted": "02.09.26",
+      "validThrough": "30.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": false,
+      "_targetScope": {
+        "canton": "AG",
+        "location": "Zofingen"
+      },
+      "id": "postfinance-6b0065787294",
+      "firstSeenAt": "2026-09-02T13:44:09.116Z",
+      "crawledAt": "",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 21,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Projekt-und-Prozessmanagerin-Compliance-Operations/74654-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Projekt-und-Prozessmanagerin-Compliance-Operations/74654-de_DE",
+      "title": "Projekt- und Prozessmanager:in Compliance Operations",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "projekt-e-prozessmanager-in-compliance-operations-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "31.08.26",
+      "validThrough": "28.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-e9a96268174b",
+      "firstSeenAt": "2026-08-31T17:09:37.382Z",
+      "crawledAt": "",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 18,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Review-Manager-im-Bereich-Corporate-Governance-%28wmd%29/74563-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Review-Manager-im-Bereich-Corporate-Governance-%28wmd%29/74563-de_DE",
+      "title": "Review-Manager im Bereich Corporate Governance (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "review-manager-im-bereich-corporate-governance-w-m-d-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Recht und Compliance"
+      ],
+      "category": [
+        "Büro-Recht und Compliance"
+      ],
+      "datePosted": "31.08.26",
+      "validThrough": "30.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-36c4f1f13f8b",
+      "firstSeenAt": "2026-08-31T17:09:37.382Z",
+      "crawledAt": "",
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 18,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenzcenter-Nachlass-Telefonie/74617-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Kompetenzcenter-Nachlass-Telefonie/74617-de_DE",
@@ -22,7 +222,7 @@
       "location": "Bern",
       "canton": "BE",
       "country": "CH",
-      "slug": "mitarbeiter-in-kompetenzcenter-nachlass-telefonie-postfinance",
+      "slug": "collaboratore-trice-kompetenzcenter-nachlass-telefonie-postfinance-bern",
       "sourceLang": "de",
       "department": [
         "Büro-Administration"
@@ -37,141 +237,19 @@
       "experienceLevel": "",
       "sector": "Servizi Finanziari",
       "workload": "80-100%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "_targetScope": {
         "canton": "BE",
         "location": "Bern"
       },
+      "id": "postfinance-f39e5209a780",
+      "firstSeenAt": "2026-08-26T10:37:56.884Z",
       "crawledAt": "",
-      "_qualityScore": 58,
+      "_qualityScore": 73,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "url": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Security-Officer-Kryptographie-%28wmd%29/74412-de_DE",
-      "title": "Security Officer Kryptographie (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "agente-di-sicurezza-cryptography-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "06.08.26",
-      "validThrough": "27.08.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-e7ef2195f503",
-      "firstSeenAt": "2026-08-07T01:09:19.840Z",
-      "postedDate": "06.08.26",
-      "crawledAt": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Fachverantwortlicher-Data-Leakage-Prevention/74398-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Fachverantwortlicher-Data-Leakage-Prevention/74398-de_DE",
-      "title": "Fachverantwortliche:r Data Leakage Prevention",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "responsabile-per-la-prevenzione-delle-perdite-di-dati-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Informatik und Digital Services"
-      ],
-      "category": [
-        "Informatik und Digital Services"
-      ],
-      "datePosted": "04.08.26",
-      "validThrough": "01.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "IT",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-3460233b11aa",
-      "firstSeenAt": "2026-08-05T11:43:40.821Z",
-      "postedDate": "04.08.26",
-      "crawledAt": "",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 11
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Produktmanagerin-Firmenkonto/74557-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Produktmanagerin-Firmenkonto/74557-de_DE",
-      "title": "Senior Produktmanager:in Firmenkonto",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "senior-product-manager-in-conto-aziendale-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "category": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "datePosted": "24.08.26",
-      "validThrough": "21.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-70dce380a6a6",
-      "firstSeenAt": "2026-08-24T10:13:19.972Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
+        "translation": 21,
         "completeness": 9
       }
     },
@@ -205,6 +283,9 @@
         "location": "Zofingen"
       },
       "id": "postfinance-8ebbe8fb16f1",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2257,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-08-24T10:13:19.972Z",
       "crawledAt": "",
       "_qualityScore": 77,
@@ -292,206 +373,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
-      "title": "HR Businesspartner:in",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "hr-businesspartner-in-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Personal"
-      ],
-      "category": [
-        "Büro-Personal"
-      ],
-      "datePosted": "21.08.26",
-      "validThrough": "20.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Risorse Umane",
-      "workload": "70-90%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-778d2920ef6b",
-      "firstSeenAt": "2026-08-21T21:43:00.013Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Mitarbeiterin-Interaction-Management/74372-de_DE",
-      "title": "Mitarbeiter:in Interaction Management",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "collaboratore-trice-interaction-management-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "category": [
-        "Büro-Marketing und Kommunikation"
-      ],
-      "datePosted": "20.08.26",
-      "validThrough": "18.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "60-80%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-ac2729fb9d3c",
-      "firstSeenAt": "2026-08-21T09:49:54.685Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/74260-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenberaterin-PostFinance-Corner/74260-de_DE",
-      "title": "Kundenberater:in PostFinance Corner",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Uster",
-      "canton": "ZH",
-      "country": "CH",
-      "slug": "kundenberater-in-postfinance-corner-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Verkauf und Kundenberatung"
-      ],
-      "category": [
-        "Verkauf und Kundenberatung"
-      ],
-      "datePosted": "17.08.26",
-      "validThrough": "14.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Finanza",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Uster"
-      },
-      "id": "postfinance-02099d0a2424",
-      "firstSeenAt": "2026-08-17T21:49:16.998Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Sustainable-Investing-Specialist-%28wmd%29/74342-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Sustainable-Investing-Specialist-%28wmd%29/74342-de_DE",
-      "title": "Sustainable Investing Specialist (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "sustainable-investing-specialist-w-m-d-postfinance",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "17.08.26",
-      "validThrough": "16.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-34a5ac0273bf",
-      "firstSeenAt": "2026-08-17T21:49:16.998Z",
-      "crawledAt": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://jobs.postfinance.ch/job/Senior-Technical-Product-Owner-%28wmd%29/73124-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Technical-Product-Owner-%28wmd%29/73124-de_DE",
-      "title": "Senior Technical Product Owner (w/m/d)",
-      "company": "PostFinance",
-      "companyKey": "postfinance",
-      "location": "Bern",
-      "canton": "BE",
-      "country": "CH",
-      "slug": "titolare-del-prodotto-tecnico-senior-m-f-d-postfinance-bern",
-      "sourceLang": "de",
-      "department": [
-        "Büro-Projektmanagement"
-      ],
-      "category": [
-        "Büro-Projektmanagement"
-      ],
-      "datePosted": "17.08.26",
-      "validThrough": "14.09.26",
-      "source": "postfinance-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Servizi Finanziari",
-      "workload": "80-100%",
-      "needsRetranslation": true,
-      "_targetScope": {
-        "canton": "BE",
-        "location": "Bern"
-      },
-      "id": "postfinance-33a109abb910",
-      "firstSeenAt": "2026-08-17T10:02:05.031Z",
-      "crawledAt": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
         "completeness": 9
       }
     },
@@ -736,6 +617,55 @@
       }
     },
     {
+      "url": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/HR-Businesspartnerin/74551-de_DE",
+      "title": "HR Businesspartner:in",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "hr-businesspartner-in-postfinance",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Personal"
+      ],
+      "category": [
+        "Büro-Personal"
+      ],
+      "datePosted": "21.08.26",
+      "validThrough": "20.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Risorse Umane",
+      "workload": "70-90%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-778d2920ef6b",
+      "firstSeenAt": "2026-08-21T21:43:00.013Z",
+      "crawledAt": "",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "url": "https://jobs.postfinance.ch/job/IT-Business-Analyst-Data-Warehouse-%28wmd%29/74308-de_DE",
       "applyUrl": "https://jobs.postfinance.ch/job/IT-Business-Analyst-Data-Warehouse-%28wmd%29/74308-de_DE",
       "title": "IT Business Analyst - Data Warehouse (w/m/d)",
@@ -767,36 +697,42 @@
       "id": "postfinance-d5dbcaad5f86",
       "firstSeenAt": "2026-08-05T11:43:40.821Z",
       "crawledAt": "",
-      "_qualityScore": 69,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 12,
-        "translation": 23,
-        "completeness": 9
+        "translation": 25,
+        "completeness": 14
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
-      "url": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
-      "applyUrl": "https://jobs.postfinance.ch/job/Kundenbetreuerin-Customer-Center/74190-de_DE",
-      "title": "Kundenbetreuer:in Customer Center",
+      "url": "https://jobs.postfinance.ch/job/Senior-Technical-Product-Owner-%28wmd%29/73124-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Technical-Product-Owner-%28wmd%29/73124-de_DE",
+      "title": "Senior Technical Product Owner (w/m/d)",
       "company": "PostFinance",
       "companyKey": "postfinance",
-      "location": "Niederurnen",
-      "canton": "GL",
+      "location": "Bern",
+      "canton": "BE",
       "country": "CH",
-      "slug": "kundenbetreuer-in-customer-center-postfinance-niederurnen",
+      "slug": "titolare-del-prodotto-tecnico-senior-m-f-d-postfinance-bern",
       "sourceLang": "de",
       "department": [
-        "Verkauf und Kundenberatung"
+        "Büro-Projektmanagement"
       ],
       "category": [
-        "Verkauf und Kundenberatung"
+        "Büro-Projektmanagement"
       ],
-      "datePosted": "28.07.26",
-      "validThrough": "29.08.26",
+      "datePosted": "17.08.26",
+      "validThrough": "14.09.26",
       "source": "postfinance-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
@@ -804,23 +740,71 @@
       "workload": "80-100%",
       "needsRetranslation": true,
       "_targetScope": {
-        "canton": "GL",
-        "location": "Niederurnen"
+        "canton": "BE",
+        "location": "Bern"
       },
-      "id": "postfinance-c8993d3e0261",
-      "firstSeenAt": "2026-08-25T10:05:05.037Z",
+      "id": "postfinance-33a109abb910",
+      "firstSeenAt": "2026-08-17T10:02:05.031Z",
       "crawledAt": "",
-      "salaryMin": 103500,
-      "salaryMax": 158500,
+      "salaryMin": 94500,
+      "salaryMax": 143000,
       "currency": "CHF",
-      "addressLocality": "Niederurnen",
-      "addressRegion": "GL",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
       "crawlerMissStreak": 1,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 14
+      }
+    },
+    {
+      "url": "https://jobs.postfinance.ch/job/Senior-Produktmanagerin-Firmenkonto/74557-de_DE",
+      "applyUrl": "https://jobs.postfinance.ch/job/Senior-Produktmanagerin-Firmenkonto/74557-de_DE",
+      "title": "Senior Produktmanager:in Firmenkonto",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bern",
+      "canton": "BE",
+      "country": "CH",
+      "slug": "senior-product-manager-in-conto-aziendale-postfinance-bern",
+      "sourceLang": "de",
+      "department": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "category": [
+        "Büro-Marketing und Kommunikation"
+      ],
+      "datePosted": "24.08.26",
+      "validThrough": "21.09.26",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Servizi Finanziari",
+      "workload": "80-100%",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Bern"
+      },
+      "id": "postfinance-70dce380a6a6",
+      "firstSeenAt": "2026-08-24T10:13:19.972Z",
+      "crawledAt": "",
+      "salaryMin": 94500,
+      "salaryMax": 143000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
         "completeness": 14
       }
     }

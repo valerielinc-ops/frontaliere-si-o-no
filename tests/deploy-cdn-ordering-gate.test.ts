@@ -34,6 +34,7 @@ import YAML from 'yaml';
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
 const PREP_SH = resolve('scripts/lib/deploy-it-pages-prep.sh');
 const GATE_SH = resolve('scripts/lib/wait-cdn-build-id.sh');
+const EARLY_CDN_STEP = 'Push generated assets to CDN (early — ahead of the shard pushes)';
 
 /** Slice one `- name: <title>` step out of the build-locale step list. */
 function step(title: string): string {
@@ -391,6 +392,33 @@ function fakeGh(payload: unknown | null): string {
   return dir;
 }
 
+/** A fake jobs API whose authoritative snapshot advances once per `gh` call. */
+function fakeGhSequence(payloads: (unknown | null)[]): string {
+  const dir = mkdtempSync(join(tmpdir(), 'fake-gh-sequence-'));
+  writeFileSync(join(dir, 'state'), '0');
+  payloads.forEach((payload, i) => {
+    writeFileSync(join(dir, `payload-${i}.json`), payload === null ? '' : JSON.stringify(payload));
+  });
+  writeFileSync(
+    join(dir, 'gh'),
+    [
+      '#!/usr/bin/env bash',
+      `state=${JSON.stringify(join(dir, 'state'))}`,
+      'index="$(cat "$state")"',
+      `last=${payloads.length - 1}`,
+      '[ "$index" -le "$last" ] || index="$last"',
+      'printf "%s" "$((index + 1))" > "$state"',
+      `payload="${join(dir, 'payload-')}\${index}.json"`,
+      'if [ ! -s "$payload" ]; then echo "gh: HTTP 503" >&2; exit 1; fi',
+      'filter="."',
+      'while [ $# -gt 0 ]; do case "$1" in --jq) filter="$2"; shift 2 ;; *) shift ;; esac; done',
+      'jq -r "$filter" < "$payload"',
+    ].join('\n'),
+    { mode: 0o755 },
+  );
+  return dir;
+}
+
 /**
  * A PATH holding the gate's real dependencies (curl/tr/cut/sleep) but NO `gh`,
  * so the "gh CLI not on PATH" precondition can be tested without also breaking
@@ -415,6 +443,212 @@ function jobsPayload(status: string, conclusion: string | null) {
     ],
   };
 }
+
+function readinessPayload(
+  jobStatus: string,
+  jobConclusion: string | null,
+  stepName: string | null,
+  stepStatus: string = 'queued',
+) {
+  return {
+    jobs: [
+      {
+        name: 'build-locale (it)',
+        status: jobStatus,
+        conclusion: jobConclusion,
+        steps: stepName === null ? [] : [{ name: stepName, status: stepStatus, conclusion: null }],
+      },
+    ],
+  };
+}
+
+function readinessEnv(payloads: (unknown | null)[], marker: string, expectedId: string) {
+  return {
+    PATH: `${fakeGhSequence(payloads)}:${process.env.PATH ?? ''}`,
+    CDN_BUILD_ID_URL: markerUrl(marker),
+    CDN_IT_JOB_NAME: 'build-locale (it)',
+    CDN_IT_READY_STEP_NAME: EARLY_CDN_STEP,
+    CDN_IT_READY_TIMEOUT_S: '1',
+    CDN_IT_READY_INTERVAL_S: '1',
+    CDN_WAIT_TIMEOUT_S: '1',
+    CDN_WAIT_INTERVAL_S: '1',
+    CDN_IT_CHECK_EVERY_N: '1',
+    GH_TOKEN: 'fake-token',
+    GITHUB_REPOSITORY: 'valerielinc-ops/frontaliere-si-o-no',
+    GITHUB_RUN_ID: '33520063656',
+    _expected: expectedId,
+  };
+}
+
+describe('wait-cdn-build-id.sh — #7049 keeps readiness time out of the marker budget', () => {
+  it('waits for the exact early-CDN step, then starts the FULL marker budget at zero', () => {
+    const { _expected, ...env } = readinessEnv(
+      [
+        readinessPayload('in_progress', null, 'another step', 'in_progress'),
+        readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress'),
+      ],
+      'old-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code, 'a missing marker must still keep the shard unpublished').toBe(1);
+    expect(r.outputs.cdn_ready_result).toBe('ready');
+    expect(r.outputs.cdn_ready_waited_s, 'phase 1 used its own clock').toBe('1');
+    expect(r.outputs.cdn_wait_result).toBe('timeout');
+    expect(r.outputs.cdn_waited_s, 'phase 2 still received its full independent budget').toBe('1');
+    expect(r.stdout).toMatch(/phase 1\/2 ready after 1s/);
+    expect(r.stdout).toMatch(/phase 2\/2: gating shard publish/);
+  });
+
+  it('publishes only after exact readiness AND an exact marker match', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress')],
+      'new-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code).toBe(0);
+    expect(r.outputs.cdn_ready_result).toBe('ready');
+    expect(r.outputs.cdn_wait_result).toBe('matched');
+  });
+
+  it('fails before marker polling when the IT job dies before the exact step', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('completed', 'failure', 'Build', 'completed')],
+      'new-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code).toBe(1);
+    expect(r.outputs.cdn_ready_result).toBe('it_leg_failed');
+    expect(r.outputs.cdn_it_conclusion).toBe('failure');
+    expect(r.outputs.cdn_waited_s, 'marker budget must remain untouched').toBe('0');
+    expect(r.stdout).not.toMatch(/phase 2\/2: gating shard publish/);
+  });
+
+  it('fails closed on a bounded jobs-API uncertainty even when the marker happens to match', () => {
+    const { _expected, ...env } = readinessEnv([null], 'new-build', 'new-build');
+    const r = runGate([_expected], env);
+    expect(r.code).toBe(1);
+    expect(r.outputs.cdn_ready_result).toBe('unobservable');
+    expect(r.outputs.cdn_wait_result).toBe('it_ready_unobservable');
+    expect(r.outputs.cdn_ready_waited_s).toBe('1');
+    expect(r.outputs.cdn_ready_api_failures, 'both bounded polls were uncertain').toBe('2');
+    expect(r.outputs.cdn_waited_s).toBe('0');
+    expect(r.stdout).not.toMatch(/CDN published build id/);
+  });
+
+  it('retries transient jobs-API uncertainty and proceeds only after an authoritative ready snapshot', () => {
+    const { _expected, ...env } = readinessEnv(
+      [null, readinessPayload('in_progress', null, EARLY_CDN_STEP, 'in_progress')],
+      'new-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code).toBe(0);
+    expect(r.outputs.cdn_ready_result).toBe('ready');
+    expect(r.outputs.cdn_ready_waited_s).toBe('1');
+    expect(r.outputs.cdn_ready_api_failures).toBe('1');
+    expect(r.outputs.cdn_wait_result).toBe('matched');
+  });
+
+  it('fails closed at the readiness deadline without spending any marker budget', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('in_progress', null, 'Build', 'in_progress')],
+      'new-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code).toBe(1);
+    expect(r.outputs.cdn_ready_result).toBe('timeout');
+    expect(r.outputs.cdn_wait_result).toBe('it_ready_timeout');
+    expect(r.outputs.cdn_ready_waited_s).toBe('1');
+    expect(r.outputs.cdn_waited_s).toBe('0');
+    expect(r.stdout).not.toMatch(/phase 2\/2: gating shard publish/);
+  });
+
+  it('preserves the exact-marker race: a completed early push wins over an unrelated later IT failure', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('completed', 'failure', EARLY_CDN_STEP, 'completed')],
+      'new-build',
+      'new-build',
+    );
+    const r = runGate([_expected], env);
+    expect(r.code, 'the exact CDN payload is live and remains safe to publish').toBe(0);
+    expect(r.outputs.cdn_ready_result).toBe('ready');
+    expect(r.outputs.cdn_wait_result).toBe('matched');
+  });
+});
+
+// ── #7106: the job-deadline safety margin, a third clock on top of the two
+// nominal ones. Full rationale in "WHY A THIRD CLOCK" in the script itself.
+describe('wait-cdn-build-id.sh — #7106 job-deadline safety margin', () => {
+  it('is a no-op (unchanged behavior) when CDN_JOB_START_EPOCH/CDN_JOB_DEADLINE_S are unset', () => {
+    const url = markerUrl('1718000000123');
+    const r = runGate(['1718000000123'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '5',
+      CDN_WAIT_INTERVAL_S: '1',
+    });
+    expect(r.code).toBe(0);
+    expect(r.stdout).not.toMatch(/job-deadline safety margin/);
+  });
+
+  it('shrinks the phase 2 marker budget to what remains before the deadline', () => {
+    const url = markerUrl('build-42');
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate(['build-42'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '3600', // nominal budget, far larger than what is left
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 10), // this "job" started 10s ago
+      CDN_JOB_DEADLINE_S: '15', // ...and only had 15s to give, total
+    });
+    // The marker already matches, so an immediate first poll still succeeds —
+    // the shrink is a ceiling, not a forced wait (mirrors the nominal budget).
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/#7106 job-deadline safety margin: shrinking phase 2\/2 budget from 3600s to \d+s/);
+  });
+
+  it('exits cleanly with a plain timeout — never a hang — once the job deadline has already passed', () => {
+    const url = markerUrl('an-older-build');
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate(['the-new-build'], {
+      CDN_BUILD_ID_URL: url,
+      CDN_WAIT_TIMEOUT_S: '3600',
+      CDN_WAIT_INTERVAL_S: '1',
+      CDN_JOB_START_EPOCH: String(now - 100),
+      CDN_JOB_DEADLINE_S: '10', // deadline was 90s ago
+    });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toMatch(/shrinking phase 2\/2 budget from 3600s to 0s/);
+    expect(r.outputs.cdn_wait_result).toBe('timeout');
+    expect(r.outputs.cdn_waited_s, 'a passed deadline must not spend any of the nominal budget').toBe('0');
+  });
+
+  it('clamps phase 1 (readiness) the same way, and leaves phase 2 untouched (it never starts)', () => {
+    const { _expected, ...env } = readinessEnv(
+      [readinessPayload('in_progress', null, 'Build', 'in_progress')],
+      'new-build',
+      'new-build',
+    );
+    const now = Math.floor(Date.now() / 1000);
+    const r = runGate([_expected], {
+      ...env,
+      CDN_JOB_START_EPOCH: String(now - 100),
+      CDN_JOB_DEADLINE_S: '10', // deadline was 90s ago
+    });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toMatch(/shrinking phase 1\/2 budget/);
+    expect(r.outputs.cdn_ready_result).toBe('timeout');
+    expect(r.outputs.cdn_ready_waited_s, 'a passed deadline must not spend any of the nominal readiness budget').toBe(
+      '0',
+    );
+    expect(r.outputs.cdn_waited_s, 'the marker budget must never start when phase 1 hits the job deadline').toBe(
+      '0',
+    );
+  });
+});
 
 /** Gate env wired for the abort, pointed at a fake `gh` serving `payload`. */
 function abortEnv(payload: unknown | null, marker: string, expectedId: string) {
@@ -615,6 +849,46 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
     expect(DEPLOY_YML, 'the matrix must still be keyed on `locale`').toMatch(/matrix:\n\s+locale:/);
   });
 
+  it('#7049 wires the exact early-CDN step to a separate bounded phase without shrinking the marker budget', () => {
+    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
+    expect(gate).toContain(`CDN_IT_READY_STEP_NAME: ${EARLY_CDN_STEP}`);
+    expect(gate, 'the readiness phase has its own explicit three-hour ceiling').toMatch(
+      /CDN_IT_READY_TIMEOUT_S: 10800/,
+    );
+    expect(gate, 'jobs API polling stays bounded and explicit').toMatch(/CDN_IT_READY_INTERVAL_S: 30/);
+    expect(gate, 'the historical exact-marker budget must remain unchanged').toMatch(/CDN_WAIT_TIMEOUT_S: 2700/);
+    expect(
+      step(EARLY_CDN_STEP),
+      'the configured observer must name the real IT-only early push, not a stale sibling title',
+    ).toMatch(/if: matrix\.locale == 'it'/);
+  });
+
+  it('#7106 anchors the gate to this leg\'s own job-start clock and holds back 30min under the platform hard-kill', () => {
+    const jobStart = DEPLOY_YML.indexOf('\n  build-locale:');
+    const stepsIdx = DEPLOY_YML.indexOf('\n    steps:', jobStart);
+    const firstStepIdx = DEPLOY_YML.indexOf('\n      - name:', stepsIdx);
+    const firstStep = DEPLOY_YML.slice(firstStepIdx, DEPLOY_YML.indexOf('\n      - name:', firstStepIdx + 1));
+    expect(
+      firstStep,
+      "the job-start clock must be the job's very first step, so no earlier step's time is left uncounted",
+    ).toMatch(/- name: Record job start \(#7106 CDN gate job-deadline safety margin\)/);
+    expect(firstStep).toMatch(/CDN_JOB_START_EPOCH=\$\(date \+%s\)" >> "\$GITHUB_ENV"/);
+
+    const gate = step('Wait for IT CDN push (cross-shard ordering guard)');
+    expect(gate, 'the gate must read the SAME clock the first step wrote').toMatch(
+      /CDN_JOB_START_EPOCH: \$\{\{ env\.CDN_JOB_START_EPOCH \}\}/,
+    );
+    expect(gate, '19800s = (360 - 30) * 60 — derived from timeout-minutes below, not an independent guess').toMatch(
+      /CDN_JOB_DEADLINE_S: 19800/,
+    );
+
+    const job = DEPLOY_YML.slice(jobStart, stepsIdx);
+    expect(
+      job,
+      'timeout-minutes is the input the 19800s constant is derived from — a drift here must be caught',
+    ).toMatch(/^ {4}timeout-minutes: 360$/m);
+  });
+
   it('the surfacing step distinguishes the two failure shapes in the issue it files', () => {
     const s = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
     // Both outputs bound via env: (never interpolated into run: text) — the same
@@ -627,6 +901,21 @@ describe('deploy.yml — the #5331 abort is actually wired to the gate step', ()
       /if \[ -n "\$\{CDN_IT_CONCLUSION:-\}" \]/,
     );
     expect(s, 'the abort branch must name the IT leg as the thing to fix').toMatch(/Fix the IT leg/);
+  });
+
+  it('the surfacing step reports readiness failures separately from marker timeouts', () => {
+    const s = step('Surface an unpublished locale shard (#2569 CDN ordering gate timed out)');
+    for (const out of [
+      'cdn_ready_result',
+      'cdn_ready_waited_s',
+      'cdn_ready_timeout_s',
+      'cdn_ready_api_failures',
+    ]) {
+      expect(s).toMatch(new RegExp(`steps\\.cdn-gate\\.outputs\\.${out}`));
+    }
+    expect(s).toMatch(/\[ "\$\{CDN_READY_RESULT\}" != 'ready' \]/);
+    expect(s).toMatch(/marker budget was never started/);
+    expect(s).toMatch(/jobs-API observability/);
   });
 });
 

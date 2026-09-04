@@ -68,6 +68,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fnv1a32Mod } from './fnv1a.mjs';
 import { shardFileName, listShardFilesIn } from './shard-file-naming.mjs';
+import { writeShardFileIfChanged, writeFileAtomic } from './atomic-shard-write.mjs';
 
 /** Legacy single-file location (kept for read-fallback during/after migration). */
 export const ORPHAN_ENRICHED_LEGACY_FILE = 'data/orphan-enriched-data.json';
@@ -330,21 +331,18 @@ export function writeOrphanEnriched(records, rootDir = process.cwd()) {
   for (let i = 0; i < ORPHAN_ENRICHED_SHARD_COUNT; i++) {
     const orphans = buckets[i].sort(compareCanonical);
     total += orphans.length;
-    fs.writeFileSync(
-      orphanEnrichedShardFile(i, rootDir),
-      `${JSON.stringify({ orphans }, null, 2)}\n`,
-      'utf-8',
-    );
+    const content = `${JSON.stringify({ orphans }, null, 2)}\n`;
+    const file = orphanEnrichedShardFile(i, rootDir);
+    writeShardFileIfChanged(file, content);
   }
 
-  fs.writeFileSync(
+  writeFileAtomic(
     orphanEnrichedManifestFile(rootDir),
     `${JSON.stringify(
       { shardCount: ORPHAN_ENRICHED_SHARD_COUNT, totalRecords: total, totalSlugs: slugs.size },
       null,
       2,
     )}\n`,
-    'utf-8',
   );
 
   // The monolith is unpushable (>100 MB) and now superseded — drop it.

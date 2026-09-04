@@ -97,7 +97,14 @@ describe('validate-dist failure classification', () => {
     // allowlist small" — it would have re-classified four cosmetic gates as
     // deploy-invalidating by default-deny, silently, which is #4828's failure
     // mode. `dist:quality-tests` stays: the fifth file still runs under it.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(19);
+    //
+    // Raised 19 → 21 deliberately for issue #6462 (VISION.md driver D9):
+    // `audit:all/breadcrumb-coverage` and `audit:all/information-gain` were
+    // registered auditors with NO QUALITY_GATES entry, so default-deny left
+    // them deploy-invalidating — despite neither checking anything Google
+    // requires for indexing/rich-results. Same defect class as the other
+    // `audit:all/*` entries above: a page missing either still serves.
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(21);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
     expect(topLevel).toHaveLength(5);
     // Every entry carries a rationale string, not a bare flag.
@@ -181,6 +188,17 @@ describe('audit:all bundle expansion (#4828)', () => {
     expect(v.integrityOk).toBe(false);
     expect(v.blocking).toEqual(['audit:all/footer-root-presence']);
     expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
+  });
+
+  it('issue #6462: breadcrumb-coverage and information-gain are quality, not blocking', () => {
+    // Neither checks a Google indexing/rich-results requirement (no
+    // structured-data mandatory field, no canonical/hreflang, no status
+    // code, no broken redirect) — both are opportunistic internal
+    // heuristics, same class as text-html-ratio/content-duplicates above.
+    const v = evaluateIntegrity(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.quality).toEqual(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
   });
 
   it('DEFAULT-DENY survives inside the namespace', () => {

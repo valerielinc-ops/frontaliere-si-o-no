@@ -42,6 +42,8 @@ import { inferAnyCanton, normalizeCantonCode } from './lib/target-swiss-location
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isDedicatedPostBrand } from './lib/crawler-company-ownership.mjs';
+import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -119,7 +121,7 @@ function slugify(text = '', suffix = '') {
   if (suffix) {
     s = `${s}-${suffix}`.replace(/--+/g, '-');
   }
-  return s.slice(0, 200);
+  return truncateSlugAtWordBoundary(s, 200);
 }
 
 /**
@@ -127,6 +129,7 @@ function slugify(text = '', suffix = '') {
  */
 function isPostJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
+  if (isDedicatedPostBrand(job?.company) || key === 'postauto' || key === 'postfinance') return false;
   const url = String(job?.url || '').toLowerCase();
   const host = (() => {
     try { return new URL(url).hostname.toLowerCase(); } catch { return ''; }
@@ -397,6 +400,10 @@ async function fetchPostJobs() {
   //    `{ canton, city }` so the detail loop never has to default.
   const targetRecords = [];
   for (const record of apiRecords) {
+    const brandCompany = Array.isArray(record.cust_brandCompanyJobSearch)
+      ? record.cust_brandCompanyJobSearch[0]
+      : '';
+    if (isDedicatedPostBrand(brandCompany)) continue;
     const resolved = resolveRecordCanton(record);
     if (!resolved) continue;
     record._resolvedCanton = resolved.canton;

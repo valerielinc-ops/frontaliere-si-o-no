@@ -1,6 +1,6 @@
 {
   "crawlerKey": "yapeal",
-  "assembledAt": "2026-08-26T09:52:10.367Z",
+  "assembledAt": "2026-09-03T23:09:10.947Z",
   "jobs": [
     {
       "id": "yapeal-8d58ba85703f",
@@ -33,7 +33,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T09:52:06.304Z",
+      "crawledAt": "2026-09-03T23:09:07.935Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -56,6 +56,7 @@
         "senior-devops-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich-hybrid",
         "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich-hybrid",
         "senior-harness-ingegnere-with-gcp-experience-80-100-yapeal-zurich",
+        "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich",
         "senior-harness-engineer-with-gcp-experience-80-100-yapeal-zurich-hybrid"
       ],
       "previousSlugsByLocale": {
@@ -63,15 +64,18 @@
           "senior-devops-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich-hybrid",
           "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich-hybrid",
           "senior-harness-ingegnere-with-gcp-experience-80-100-yapeal-zurich",
+          "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich",
           "senior-harness-engineer-with-gcp-experience-80-100-yapeal-zurich-hybrid"
         ],
         "en": [
+          "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich",
           "senior-harness-engineer-with-gcp-experience-80-100-yapeal-zurich-hybrid"
         ]
       },
       "firstSeenAt": "2026-08-07T10:08:11.765Z",
       "salaryMin": 121500,
       "salaryMax": 206500,
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

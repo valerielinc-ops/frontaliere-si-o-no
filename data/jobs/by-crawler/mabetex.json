@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mabetex",
-  "assembledAt": "2026-08-26T10:24:27.270Z",
+  "assembledAt": "2026-08-31T17:15:41.456Z",
   "jobs": [
     {
       "id": "mabetex-d49cdecce749",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.mabetex.com/career/",
       "source": "Mabetex Group Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-08-26T10:24:25.216Z",
+      "crawledAt": "2026-08-31T17:15:39.483Z",
       "previousSlugs": [
         "project-manager-lugano-mabetex",
         "responsabile-del-progetto-mabetex-group-southwest-africa"
@@ -67,6 +67,7 @@
       "salaryMin": 68000,
       "salaryMax": 103000,
       "currency": "CHF",
+      "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",

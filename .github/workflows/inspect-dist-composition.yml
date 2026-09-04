@@ -26,7 +26,7 @@ jobs:
           set -e
           RID="$INPUT_DEPLOY_RUN_ID"
           ARTIFACT_ID=$(gh api repos/${{ github.repository }}/actions/runs/$RID/artifacts \
-            --jq '.artifacts[] | select(.name=="github-pages") | .id' | head -1)
+            --jq '.artifacts[] | select(.name=="github-pages" and .expired==false) | .id' | head -1)
           if [ -z "$ARTIFACT_ID" ]; then
             echo "::error::No 'github-pages' artifact on run $RID."
             exit 1

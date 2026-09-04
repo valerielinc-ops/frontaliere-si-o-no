@@ -23,9 +23,19 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { smnPostingsApiUrl, smnPostingDetailApiUrl, normalizeSmnApiPosting, extractSmnApiDescription, extractSmnPostingId, SMN_POSTINGS_API, slugify, normalizeSpace } from './lib/swiss-medical-network-job-parser.mjs';
+import { matchesCliniqueDeGenolierPosting } from './lib/clinique-de-genolier-job-parser.mjs';
+import { matchesCliniqueDeMontchoisiPosting } from './lib/clinique-de-montchoisi-job-parser.mjs';
+import { matchesCliniqueDeValerePosting } from './lib/clinique-de-valere-job-parser.mjs';
+import { matchesCliniqueGeneraleBeaulieuPosting } from './lib/clinique-generale-beaulieu-job-parser.mjs';
+import { matchesCliniqueGeneraleSteAnnePosting } from './lib/clinique-generale-ste-anne-job-parser.mjs';
+import { matchesHopitalDeMoutierPosting } from './lib/hopital-de-moutier-job-parser.mjs';
+import { matchesKlinikSiloahPosting } from './lib/klinik-siloah-job-parser.mjs';
+import { matchesPrivatklinikBethanienPosting } from './lib/privatklinik-bethanien-job-parser.mjs';
+import { matchesPrivatklinikObachPosting } from './lib/privatklinik-obach-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -43,6 +53,17 @@ const COMPANY_NAME = 'Swiss Medical Network';
 const COMPANY_HOST = 'www.swissmedical.net';
 const CAREERS_URL = 'https://www.swissmedical.net/en/career/job-offers';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+const DEDICATED_CLINIC_MATCHERS = [
+  matchesCliniqueDeGenolierPosting,
+  matchesCliniqueDeMontchoisiPosting,
+  matchesCliniqueDeValerePosting,
+  matchesCliniqueGeneraleBeaulieuPosting,
+  matchesCliniqueGeneraleSteAnnePosting,
+  matchesHopitalDeMoutierPosting,
+  matchesKlinikSiloahPosting,
+  matchesPrivatklinikBethanienPosting,
+  matchesPrivatklinikObachPosting,
+];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
 
@@ -108,8 +129,7 @@ async function fetchJson(url) {
 function loadDedicatedClinicPostingIds() {
   const ids = new Set();
   const dir = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
-  let files = [];
-  try { files = fs.readdirSync(dir).filter((f) => f.endsWith('.json')); } catch { return ids; }
+  const files = listSliceFileNames(dir);
   for (const f of files) {
     if (f === `${COMPANY_KEY}.json`) continue; // skip the umbrella's own slice
     let data;
@@ -121,6 +141,20 @@ function loadDedicatedClinicPostingIds() {
     }
   }
   return ids;
+}
+
+/**
+ * The umbrella and dedicated clinic crawlers read the same SmartRecruiters
+ * tenant. Snapshot ids remain a useful catch-all for legacy clinics, but
+ * cannot prevent a new clinic posting from leaking when the umbrella and a
+ * dedicated crawler run in parallel. Apply every dedicated clinic's source
+ * predicate directly so ownership does not depend on which slice finishes
+ * first.
+ */
+export function isDedicatedClinicOwnedPosting(rawPosting, dedicatedIds = new Set()) {
+  const id = String(rawPosting?.id || '');
+  return (id !== '' && dedicatedIds.has(id))
+    || DEDICATED_CLINIC_MATCHERS.some((matches) => matches(rawPosting));
 }
 
 /** Fetch every SmartRecruiters posting (paginated), CH-wide. */
@@ -264,13 +298,15 @@ async function main() {
   // accept both the ISO code 'ch' and a spelled-out country name).
   const isSwissCountry = (c = '') => !c || /^(ch|switzerland|suisse|schweiz|svizzera)/.test(c);
   const swissPostings = rawPostings
-    .map(normalizeSmnApiPosting)
-    .filter((p) => p.id && p.title && isSwissCountry(p.country));
+    .map((raw) => ({ raw, normalized: normalizeSmnApiPosting(raw) }))
+    .filter(({ normalized }) => normalized.id && normalized.title && isSwissCountry(normalized.country));
 
   // Drop postings already owned by a dedicated SMN clinic crawler (same
   // SmartRecruiters tenant) to prevent duplicate / canonical-churn job pages.
   const dedicatedIds = loadDedicatedClinicPostingIds();
-  const postings = swissPostings.filter((p) => !dedicatedIds.has(p.id));
+  const postings = swissPostings
+    .filter(({ raw }) => !isDedicatedClinicOwnedPosting(raw, dedicatedIds))
+    .map(({ normalized }) => normalized);
   const skippedDedicated = swissPostings.length - postings.length;
   console.log(`  📋 Swiss postings: ${postings.length} / ${rawPostings.length} (skipped ${skippedDedicated} owned by dedicated clinic crawlers)`);
 
@@ -330,4 +366,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Swiss Medical Network'));
+if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))) {
+  main().catch((err) => exitCrawlerOnError(err, 'Swiss Medical Network'));
+}
