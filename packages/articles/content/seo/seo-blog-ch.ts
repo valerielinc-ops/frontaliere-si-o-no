@@ -70961,6 +70961,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-glarona-conversione': {
+    title: 'Patente di guida canton Glarona: conversione ed esami',
+    description: 'Procedura per convertire patente straniera nel canton Glarona: esami teorico-pratici, corsi obbligatori e ufficio della circolazione. Guida pratica completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, glarona, conversione',
+    ogTitle: 'Patente di guida canton Glarona: conversione ed esami',
+    ogDescription: 'Scopri come convertire la tua patente straniera nel canton Glarona: procedura completa, esami teorici e pratici, corsi obbligatori, contatti dell\'ufficio della circolazione.',
+    canonicalPath: '/articoli-svizzera/patente-guida-glarona-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida canton Glarona: conversione ed esami",
+      "description": "Procedura per convertire patente straniera nel canton Glarona: esami teorico-pratici, corsi obbligatori e ufficio della circolazione. Guida pratica completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-glarona-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna nel canton Glarona con segnaletica stradale svizzera"
+      },
+      "datePublished": "2026-09-04T19:18:40+00:00",
+      "dateModified": "2026-09-04T19:18:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-glarona-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

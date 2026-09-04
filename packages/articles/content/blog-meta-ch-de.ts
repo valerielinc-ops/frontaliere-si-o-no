@@ -5467,6 +5467,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-canton-vaud.title': 'Lehre und Ausbildung im Kanton Waadt: Praxisleitfaden',
     'blog.article.apprendistato-canton-vaud.excerpt': 'So finden Sie ein Praktikum im Kanton Waadt, Gehalt, Lehrvertrag und Berufsmaturität nach Schweizer Bundesgesetz.',
     'blog.article.apprendistato-canton-vaud.imageAlt': 'Lehrling arbeitet in einer Schweizer Werkstatt während der praktischen Ausbildung im Handwerk',
+    'blog.article.patente-guida-glarona-conversione.title': 'Führerschein Kanton Glarus: Umschulung und Prüfungen',
+    'blog.article.patente-guida-glarona-conversione.excerpt': 'Wie man einen ausländischen Führerschein im Kanton Glarus umwandelt: komplettes Verfahren, theoretisch-praktische Prüfungen und Pflichtkurse für Personen, die in die Schweiz ziehen.',
+    'blog.article.patente-guida-glarona-conversione.imageAlt': 'Bergstraße im Kanton Glarus mit Schweizer Verkehrsschildern',
 };
 
 export default blogMetaChDe;

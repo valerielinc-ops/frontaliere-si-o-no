@@ -1848,6 +1848,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'tirocinio-formazione-professionale-glarona': { it: 'tirocinio-formazione-professionale-glarona', en: 'apprenticeship-vocational-training-glarus', de: 'lehre-berufsbildung-glarus', fr: 'apprentissage-formation-professionnelle-glaris' },
  'assegni-familiari-vaud-importi-domanda': { it: 'assegni-familiari-vaud-importi-domanda', en: 'family-allowances-vaud-amounts-application', de: 'familienbeihilfen-vaud-betrag-antrag', fr: 'allocations-familiales-vaud-montants-demande' },
  'apprendistato-canton-vaud': { it: 'apprendistato-canton-vaud', en: 'apprenticeship-canton-vaud', de: 'lehre-kanton-waadt', fr: 'apprentissage-canton-vaud' },
+ 'patente-guida-glarona-conversione': { it: 'patente-guida-glarona-conversione', en: 'driver-license-glarus-conversion', de: 'fuehrerschein-glarus-umwandlung', fr: 'permis-glaris-conversion' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

@@ -5467,6 +5467,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-canton-vaud.title': 'Apprendistato e formazione nel Canton Vaud: guida pratica',
     'blog.article.apprendistato-canton-vaud.excerpt': 'Come trovare un tirocinio nel Canton Vaud, retribuzione, contratto di apprendistato e maturità professionale secondo la legge federale svizzera.',
     'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprendista al lavoro in un\'officina svizzera durante la formazione pratica nel settore artigianale',
+    'blog.article.patente-guida-glarona-conversione.title': 'Patente di guida canton Glarona: conversione ed esami',
+    'blog.article.patente-guida-glarona-conversione.excerpt': 'Come convertire la patente straniera nel canton Glarona: procedura completa, esami teorico-pratici e corsi obbligatori per chi si trasferisce in Svizzera.',
+    'blog.article.patente-guida-glarona-conversione.imageAlt': 'Strada di montagna nel canton Glarona con segnaletica stradale svizzera',
 };
 
 export default blogMetaChIt;

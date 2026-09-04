@@ -5467,6 +5467,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-canton-vaud.title': 'Apprenticeship and training in the Canton of Vaud: a practical guide',
     'blog.article.apprendistato-canton-vaud.excerpt': 'How to find an internship in the Canton of Vaud, salary, apprenticeship contract and professional maturity according to Swiss federal law.',
     'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprentice working in a Swiss workshop during practical training in a trade profession',
+    'blog.article.patente-guida-glarona-conversione.title': 'Canton Glarus Driving License: Conversion and Exams',
+    'blog.article.patente-guida-glarona-conversione.excerpt': 'How to convert your foreign driver\'s license in the canton of Glarus: complete procedure, theoretical-practical exams and mandatory courses for those who move to Switzerland.',
+    'blog.article.patente-guida-glarona-conversione.imageAlt': 'Mountain road in Glarus Canton with Swiss traffic signs',
 };
 
 export default blogMetaChEn;

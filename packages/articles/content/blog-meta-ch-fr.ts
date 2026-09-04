@@ -5467,6 +5467,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.apprendistato-canton-vaud.title': 'Apprentissage et formation dans le canton de Vaud : guide pratique',
     'blog.article.apprendistato-canton-vaud.excerpt': 'Comment trouver un stage dans le canton de Vaud, une rémunération, un contrat d\'apprentissage et une maturité professionnelle selon la loi fédérale suisse.',
     'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprenti travaillant dans un atelier suisse lors de sa formation pratique dans un métier',
+    'blog.article.patente-guida-glarona-conversione.title': 'Permis de conduire canton de Glaris : conversion et examens',
+    'blog.article.patente-guida-glarona-conversione.excerpt': 'Comment convertir le permis étranger dans le canton de Glaris : procédure complète, examens théoriques et pratiques et cours obligatoires pour ceux qui déménagent en Suisse.',
+    'blog.article.patente-guida-glarona-conversione.imageAlt': 'Route de montagne dans le canton de Glaris avec panneaux de signalisation suisses',
 };
 
 export default blogMetaChFr;
