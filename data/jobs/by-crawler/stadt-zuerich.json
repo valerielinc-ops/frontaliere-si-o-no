@@ -24577,10 +24577,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Sozialarbeiter*in Erwachsenenprofil",
       "titleByLocale": {
-        "it": "Sozialarbeiter*in Erwachsenenprofil",
-        "en": "Sozialarbeiter*in Erwachsenenprofil",
         "de": "Sozialarbeiter*in Erwachsenenprofil",
-        "fr": "Sozialarbeiter*in Erwachsenenprofil"
+        "it": "Lavoratore sociale*in profilo adulto",
+        "en": "Social worker*in adult profile",
+        "fr": "Travailleur social*en profil adulte"
       },
       "description": "Sozialarbeiter*in Erwachsenenprofil bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Dienste. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51091. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -24615,24 +24615,6 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Dienste",
       "referenceNumber": "51091",
-      "previousSlugs": [
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091",
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich-0c12g7",
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666",
-        "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-d8f3ad",
-        "social-worker-in-adult-profile-stadt-zurich-zurich-d8f3ad",
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-50295",
-        "travailleur-social-en-profil-adulte-stadt-zurich-zurich-d8f3ad",
-        "impiego-del-lavoro-sociale-stadt-zurich-zurich-6ebb11",
-        "social-worker-intake-stadt-zurich-zurich-6ebb11",
-        "sozialarbeiter-in-intake-stadt-zuerich-zurigo-50785",
-        "travailleur-social-stadt-zurich-zurich-6ebb11",
-        "impiego-del-lavoro-sociale-stadt-zurich-zurich",
-        "social-worker-intake-stadt-zurich-zurich",
-        "sozialarbeiter-in-intake-stadt-zuerich-zurigo-49669",
-        "travailleur-social-stadt-zurich-zurich",
-        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091",
@@ -24665,8 +24647,25 @@
           "travailleur-social-stadt-zurich-zurich-6ebb11"
         ]
       },
+      "previousSlugs": [
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-51091",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich-0c12g7",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-49666",
+        "lavoratore-sociale-in-profilo-adulto-stadt-zurich-zurich-d8f3ad",
+        "social-worker-in-adult-profile-stadt-zurich-zurich-d8f3ad",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zuerich-zurigo-50295",
+        "travailleur-social-en-profil-adulte-stadt-zurich-zurich-d8f3ad",
+        "impiego-del-lavoro-sociale-stadt-zurich-zurich-6ebb11",
+        "social-worker-intake-stadt-zurich-zurich-6ebb11",
+        "sozialarbeiter-in-intake-stadt-zuerich-zurigo-50785",
+        "travailleur-social-stadt-zurich-zurich-6ebb11",
+        "impiego-del-lavoro-sociale-stadt-zurich-zurich",
+        "social-worker-intake-stadt-zurich-zurich",
+        "sozialarbeiter-in-intake-stadt-zuerich-zurigo-49669",
+        "travailleur-social-stadt-zurich-zurich",
+        "sozialarbeiter-in-erwachsenenprofil-stadt-zurich-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:49:29.188Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -24679,7 +24678,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T13:49:29.188Z"
     },
     {
       "id": "stadt-zuerich-db1ca4ffcc44",
@@ -30127,10 +30127,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Sozialpädagoge*In oder Lehrperson für den Hort auf Kindergartenstufe, Schule Kappeli",
       "titleByLocale": {
-        "it": "Sozialpädagoge*In o Lehrperson per den Hort auf Kindergartenstufe, Schule Kappeli",
-        "en": "Sozialpädagoge*In oder Lehrperson für den Hort auf Kindergartenstufe, Schule Kappeli",
+        "it": "Educatore sociale* o insegnante per la scuola materna, scuola Kappeli",
+        "en": "Social educator* or teacher for the nursery at kindergarten level, school Kappeli",
         "de": "Sozialpädagoge*In oder Lehrperson für den Hort auf Kindergartenstufe, Schule Kappeli",
-        "fr": "Sozialpädagoge*In oder Lehrperson für den Hort auf Kindergartenstufe, Schule Kappeli"
+        "fr": "Educateur social* ou enseignant pour la maternelle au niveau de la maternelle, école Kappeli"
       },
       "description": "Sozialpädagoge*In oder Lehrperson für den Hort auf Kindergartenstufe, Schule Kappeli bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51530. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -30203,10 +30203,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar",
       "titleByLocale": {
-        "it": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar",
-        "en": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar",
+        "it": "Social Pedagogist / Specialist Care, scuola Kappeli Primary",
+        "en": "Social Pedagogist / Specialist Care, school Kappeli Primary",
         "de": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar",
-        "fr": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar"
+        "fr": "Pédagogie sociale / Soins spécialisés, école Kappeli Primary"
       },
       "description": "Sozialpädagog*in / Fachperson Betreuung, Schule Kappeli Primar bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51532. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -30241,14 +30241,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "51532",
-      "previousSlugsByLocale": {
-        "de": [
-          "sozialpadagog-in-fachperson-betreuung-schule-kappeli-primar-stadt-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "sozialpadagog-in-fachperson-betreuung-schule-kappeli-primar-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "salaryMin": 63000,
@@ -30263,7 +30255,15 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "de": [
+          "sozialpadagog-in-fachperson-betreuung-schule-kappeli-primar-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-fachperson-betreuung-schule-kappeli-primar-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-5e63bd4ddd32",
@@ -32122,10 +32122,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachperson Gesundheit, Standort Herzogenmühle",
       "titleByLocale": {
-        "it": "Fachperson Gesundheit, Standort Herzogenmühle",
-        "en": "Fachperson Gesundheit, Standort Herzogenmühle",
         "de": "Fachperson Gesundheit, Standort Herzogenmühle",
-        "fr": "Fachperson Gesundheit, Standort Herzogenmühle"
+        "it": "Specialista della salute, sito Herzogenmühle",
+        "en": "Health specialist, site Herzogenmühle",
+        "fr": "Spécialiste de la santé, site Herzogenmühle"
       },
       "description": "Fachperson Gesundheit, Standort Herzogenmühle bei der Stadtverwaltung Zürich, Gesundheits- und Umweltdepartement – Gesundheitszentren für das Alter. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51533. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32160,6 +32160,21 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "51533",
+      "needsRetranslation": true,
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:49:29.183Z",
       "previousSlugsByLocale": {
         "de": [
           "fachperson-gesundheit-standort-doldertal-stadt-zuerich-zurigo-51001",
@@ -32192,22 +32207,7 @@
         "fachperson-gesundheit-stadt-zuerich-zurigo-49740",
         "professionnels-de-la-sante-stadt-zurich-zurich",
         "fachperson-gesundheit-standort-herzogenmuhle-stadt-zurich-zurich"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:49:29.183Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "stadt-zuerich-9088c3a5fb93",
@@ -32223,10 +32223,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachlehrperson Musik Sekundarstufe",
       "titleByLocale": {
-        "it": "Fachlehrperson Musik Sekundarstufe",
-        "en": "Fachlehrperson Musik Sekundarstufe",
+        "it": "Specialista insegnante Musica Secondaria",
+        "en": "Specialist teacher Music Secondary",
         "de": "Fachlehrperson Musik Sekundarstufe",
-        "fr": "Fachlehrperson Musik Sekundarstufe"
+        "fr": "Professeur spécialisé Musique Secondaire"
       },
       "description": "Fachlehrperson Musik Sekundarstufe bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51534. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32291,10 +32291,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Abteilungsleiter*in Bildungsangebote",
       "titleByLocale": {
-        "it": "Abteilungsleiter*in Bildungsangebote",
-        "en": "Abteilungsleiter*in Bildungsangebote",
+        "it": "Capo Dipartimento* nelle offerte educative",
+        "en": "Head of Department* in Educational Offers",
         "de": "Abteilungsleiter*in Bildungsangebote",
-        "fr": "Abteilungsleiter*in Bildungsangebote"
+        "fr": "Chef de département* dans les offres éducatives"
       },
       "description": "Abteilungsleiter*in Bildungsangebote bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51540. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32329,6 +32329,10 @@
       "department": "Sicherheitsdepartement",
       "unit": "Schutz & Rettung",
       "referenceNumber": "51540",
+      "previousSlugs": [
+        "abteilungsleiter-in-bildungsangebote-stadt-zuerich-zurigo-51540",
+        "abteilungsleiter-in-bildungsangebote-stadt-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "abteilungsleiter-in-bildungsangebote-stadt-zuerich-zurigo-51540",
@@ -32339,10 +32343,6 @@
           "abteilungsleiter-in-bildungsangebote-stadt-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "abteilungsleiter-in-bildungsangebote-stadt-zuerich-zurigo-51540",
-        "abteilungsleiter-in-bildungsangebote-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "salaryMin": 73500,
@@ -32373,17 +32373,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Fachperson Betreuung, Schule Loogarten",
       "titleByLocale": {
-        "it": "Fachperson Betreuung, Schule Loogarten",
-        "en": "Fachperson Betreuung, Schule Loogarten",
         "de": "Fachperson Betreuung, Schule Loogarten",
-        "fr": "Fachperson Betreuung, Schule Loogarten"
+        "it": "Assistenza specialistica, Scuola Loogarten",
+        "en": "Specialist Care, School Loogarten",
+        "fr": "Soins spécialisés, École Loogarten"
       },
       "description": "Fachperson Betreuung, Schule Loogarten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51544. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Fachperson Betreuung, Schule Loogarten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51544. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Fachperson Betreuung, Schule Loogarten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51544. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Fachperson Betreuung, Schule Loogarten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51544. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Fachperson Betreuung, Schule Loogarten bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Letzi. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51544. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Supervisione specialistica, scuola Loogarten presso l'amministrazione comunale di Zurigo, dipartimento scolastico e sportivo – autorità distrettuale Letzi. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51544. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Specialist supervision, school Loogarten at the city administration of Zurich, school and sports department – district school authority Letzi. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51544. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Supervision spécialisée, école Loogarten à l'administration municipale de Zurich, département scolaire et sportif – autorité scolaire de district Letzi. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51544. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -32411,16 +32411,6 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Letzi",
       "referenceNumber": "51544",
-      "previousSlugsByLocale": {
-        "de": [
-          "fachperson-betreuung-schule-loogarten-stadt-zurich-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "fachperson-betreuung-schule-loogarten-stadt-zurich-zurich"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.457Z",
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -32433,7 +32423,16 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.457Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "fachperson-betreuung-schule-loogarten-stadt-zurich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-schule-loogarten-stadt-zurich-zurich"
+      ]
     },
     {
       "id": "stadt-zuerich-16e59a8f71f2",
@@ -32449,17 +32448,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028",
       "titleByLocale": {
-        "it": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028",
-        "en": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028",
         "de": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028",
-        "fr": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028"
+        "fr": "Gestionnaire d'applications et développeur jusqu'en février 2028",
+        "it": "Application manager e sviluppatore fino a febbraio 2028",
+        "en": "Application manager and developer until February 2028"
       },
       "description": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028 bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51454. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028 bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51454. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028 bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51454. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028 bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51454. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Applikationsverantwortliche*r & -entwickler*in bis Februar 2028 bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51454. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Gestore di applicazioni e sviluppatore fino a febbraio 2028 presso l'Amministrazione Comunale di Zurigo, Dipartimento di Imprese Industriali – Società di Trasporto. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51454. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Application manager and developer until February 2028 at the City Administration of Zurich, Department of Industrial Enterprises – Transport Companies. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51454. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Gestionnaire d'applications et développeur jusqu'en février 2028 à l'administration municipale de Zurich, Département des entreprises industrielles – compagnies de transport. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51454. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -32487,16 +32486,14 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "51454",
-      "previousSlugs": [
-        "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zuerich-zurigo-51454"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zuerich-zurigo-51454"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.457Z",
+      "previousSlugs": [
+        "applikationsverantwortliche-r-entwickler-in-bis-februar-2028-stadt-zuerich-zurigo-51454"
+      ],
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -32509,7 +32506,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.457Z"
     },
     {
       "id": "stadt-zuerich-ff28868c3f44",
@@ -32525,17 +32523,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Teamleiter*in / stv. Abteilungsleiter*in",
       "titleByLocale": {
-        "it": "Teamleiter*in / stv. Abteilungsleiter*in",
-        "en": "Teamleiter*in / stv. Abteilungsleiter*in",
         "de": "Teamleiter*in / stv. Abteilungsleiter*in",
-        "fr": "Teamleiter*in / stv. Abteilungsleiter*in"
+        "it": "Capo squadra / stv. Capo Dipartimento*",
+        "en": "Team leader / stv. Head of Department*",
+        "fr": "Chef d'équipe/chef de département*"
       },
       "description": "Teamleiter*in / stv. Abteilungsleiter*in bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51543. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Teamleiter*in / stv. Abteilungsleiter*in bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51543. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Teamleiter*in / stv. Abteilungsleiter*in bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51543. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Teamleiter*in / stv. Abteilungsleiter*in bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51543. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Teamleiter*in / stv. Abteilungsleiter*in bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51543. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Team leader / stv. Capo Dipartimento presso l'Amministrazione Comunale di Zurigo, Dipartimento Sociale – Ufficio per i benefici aggiuntivi per AHV IV. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51543. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Team leader / stv. Head of Department at the City Administration of Zurich, Social Department – Office for Additional Benefits for AHV IV. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51543. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Chef d'équipe / stv. Chef de département à l'administration municipale de Zurich, Département social – Bureau des prestations supplémentaires pour AHV IV. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51543. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -32563,6 +32561,7 @@
       "department": "Sozialdepartement",
       "unit": "Amt für Zusatzleistungen zur AHV IV",
       "referenceNumber": "51543",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-stv-abteilungsleiter-in-stadt-zuerich-zurigo-51543",
@@ -32577,8 +32576,6 @@
         "teamleiter-in-stv-abteilungsleiter-in-stadt-zuerich-zurigo-51543",
         "teamleiter-in-stv-abteilungsleiter-in-stadt-zurich-zurich"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.457Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -32591,7 +32588,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.457Z"
     },
     {
       "id": "stadt-zuerich-94b13de39e6f",
@@ -32607,17 +32605,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "HR-Berater*in, 80%",
       "titleByLocale": {
-        "it": "Risorse Umane-Berater*in, 80%",
-        "en": "HR-Berater*in, 80%",
         "de": "HR-Berater*in, 80%",
-        "fr": "Ressources Humaines-Berater*in, 80%"
+        "it": "Consulente HR, 80 %",
+        "en": "HR consultant, 80 %",
+        "fr": "Consultant en RH, 80 %"
       },
       "description": "HR-Berater*in, 80% bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51546. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "HR-Berater*in, 80% bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51546. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "HR-Berater*in, 80% bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51546. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "HR-Berater*in, 80% bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51546. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "HR-Berater*in, 80% bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51546. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Consulente HR, 80% presso l'Amministrazione Comunale di Zurigo, Dipartimento di Sicurezza – Protezione e Soccorso. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51546. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "HR consultant, 80% at the City Administration of Zurich, Security Department – Protection & Rescue. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51546. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Consultant RH, 80% à l'administration municipale de Zurich, Département Sécurité – Protection & Sauvetage. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51546. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -32645,6 +32643,20 @@
       "department": "Sicherheitsdepartement",
       "unit": "Schutz & Rettung",
       "referenceNumber": "51546",
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.457Z",
       "previousSlugsByLocale": {
         "de": [
           "hr-berater-in-80-stadt-zurich-zurich"
@@ -32661,22 +32673,7 @@
         "hr-berater-in-80-stadt-zuerich-zurigo-51546",
         "hr-berater-in-80-stadt-zurich-zurich",
         "risorse-umane-berater-in-80-stadt-zurich-zurich"
-      ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.457Z",
-      "salaryMin": 58800,
-      "salaryMax": 89200,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58800,
-          "maxValue": 89200,
-          "unitText": "YEAR"
-        }
-      }
+      ]
     },
     {
       "id": "stadt-zuerich-96b0cc1a7197",
@@ -32692,10 +32689,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Teamleiter*in & Supervisor*in Customer Value Center",
       "titleByLocale": {
-        "it": "Teamleiter*in & Supervisore*in Customer Value Center",
-        "en": "Teamleiter*in & Supervisor*in Customer Value Center",
+        "it": "Leader e supervisore del Customer Value Center",
+        "en": "Team Leader and Supervisor in Customer Value Center",
         "de": "Teamleiter*in & Vorgesetzter*in Customer Value Center",
-        "fr": "Teamleiter*in & Superviseur*in Customer Value Center"
+        "fr": "Chef d'équipe et superviseur du Centre de valeur client"
       },
       "description": "Teamleiter*in & Supervisor*in Customer Value Center bei der Stadtverwaltung Zürich, Departement der Industriellen Betriebe – Verkehrsbetriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51438. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32730,9 +32727,8 @@
       "department": "Departement der Industriellen Betriebe",
       "unit": "Verkehrsbetriebe",
       "referenceNumber": "51438",
-      "previousSlugs": [
-        "teamleiter-in-supervisor-in-customer-value-center-stadt-zuerich-zurigo-51438"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-supervisor-in-customer-value-center-stadt-zuerich-zurigo-51438"
@@ -32741,8 +32737,9 @@
           "teamleiter-in-supervisor-in-customer-value-center-stadt-zuerich-zurigo-51438"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:49:29.184Z",
+      "previousSlugs": [
+        "teamleiter-in-supervisor-in-customer-value-center-stadt-zuerich-zurigo-51438"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -32771,10 +32768,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Diplomierte Pflegefachperson HF als Dauernachtwache, Standort Entlisberg",
       "titleByLocale": {
-        "it": "Diplomierte Pflegefachperson HF come Dauernachtwache, Standort Entlisberg",
-        "en": "Diplomierte Pflegefachperson HF als Dauernachtwache, Standort Entlisberg",
+        "it": "Infermiere qualificato HF come un guardia notturna permanente, posizione Entlisberg",
+        "en": "Qualified nurse HF as a permanent night watch, Entlisberg location",
         "de": "Diplomierte Pflegefachperson HF als Dauernachtwache, Standort Entlisberg",
-        "fr": "Diplomierte Pflegefachperson HF als Dauernachtwache, Standort Entlisberg"
+        "fr": "Infirmière qualifiée HF comme veille de nuit permanente, emplacement d'Entlisberg"
       },
       "description": "Diplomierte Pflegefachperson HF als Dauernachtwache, Standort Entlisberg bei der Stadtverwaltung Zürich, Gesundheits- und Umweltdepartement – Gesundheitszentren für das Alter. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51529. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32809,6 +32806,11 @@
       "department": "Gesundheits- und Umweltdepartement",
       "unit": "Gesundheitszentren für das Alter",
       "referenceNumber": "51529",
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-als-dauernachtwache-standort-entlisberg-stadt-zuerich",
+        "diplomierte-pflegefachperson-hf-als-dauernachtwache-standort-entlisberg-stadt-zurich-zurich",
+        "diplomierte-pflegefachperson-hf-come-dauernachtwache-standort-entlisberg-stadt-zurich"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "diplomierte-pflegefachperson-hf-als-dauernachtwache-standort-entlisberg-stadt-zurich-zurich",
@@ -32819,11 +32821,6 @@
           "diplomierte-pflegefachperson-hf-come-dauernachtwache-standort-entlisberg-stadt-zurich"
         ]
       },
-      "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-als-dauernachtwache-standort-entlisberg-stadt-zuerich",
-        "diplomierte-pflegefachperson-hf-als-dauernachtwache-standort-entlisberg-stadt-zurich-zurich",
-        "diplomierte-pflegefachperson-hf-come-dauernachtwache-standort-entlisberg-stadt-zurich"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:29.183Z",
       "salaryMin": 91500,
@@ -32854,10 +32851,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Dipl. Pflegefachperson FH/HF Psychiatrie",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson FH/HF Psychiatrie",
-        "en": "Dipl. Pflegefachperson FH/HF Psychiatrie",
         "de": "Dipl. Pflegefachperson FH/HF Psychiatrie",
-        "fr": "Dipl. Pflegefachperson FH/HF Psychiatrie"
+        "it": "Dipl. Infermieristica specialista FH/HF psichiatria",
+        "en": "Dipl. Nursing specialist FH/HF psychiatry",
+        "fr": "Dipl. Spécialiste des soins infirmiers psychiatrie FH/HF"
       },
       "description": "Dipl. Pflegefachperson FH/HF Psychiatrie bei der Stadtverwaltung Zürich, Sozialdepartement – Soziale Einrichtungen und Betriebe. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51537. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -32892,6 +32889,7 @@
       "department": "Sozialdepartement",
       "unit": "Soziale Einrichtungen und Betriebe",
       "referenceNumber": "51537",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "dipl-pflegefachperson-hf-fh-als-berufsbildungsverantwortliche-r-pflegewohngruppen-stadt",
@@ -32923,8 +32921,6 @@
         "berufsbildungsverantwortliche-r-pflegewohngruppen-stadt-zuerich-zurigo-51314",
         "dipl-pflegefachperson-fh-hf-psychiatrie-stadt-zurich-zurich"
       ],
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -32937,7 +32933,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T13:49:29.184Z"
     },
     {
       "id": "stadt-zuerich-51643d4d942f",
@@ -32953,17 +32950,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen",
       "titleByLocale": {
-        "it": "Förderlehrperson per ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen",
-        "en": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen",
         "de": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen",
-        "fr": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen"
+        "it": "Förderlehrperson per ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen",
+        "en": "Advancement teacher for a child in the ISR setting: 5th primary class, School Buchwiesen",
+        "fr": "Professeur d'avancement pour un enfant dans le cadre de l'ISR: 5ème classe primaire, école Buchwiesen"
       },
       "description": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51545. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51545. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51545. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51545. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Förderlehrperson für ein Kind im ISR-Setting: 5. Primarklasse, Schule Buchwiesen bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51545. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Insegnante di supporto per un bambino nell'ambiente ISR: 5a classe primaria, prati di libri scolastici presso l'amministrazione della città di Zurigo, dipartimento scolastico e sportivo – autorità distrettuale Glattal. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51545. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Support teacher for a child in the ISR setting: 5th primary class, school book meadows at the city administration of Zurich, school and sports department – district school authority Glattal. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51545. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Enseignant de soutien pour un enfant dans le cadre de l'ISR: 5ème classe primaire, prés de livres scolaires à l'administration municipale de Zurich, département scolaire et sportif – autorité scolaire de district Glattal. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51545. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -32991,16 +32988,15 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "51545",
-      "previousSlugs": [
-        "forderlehrperson-fur-ein-kind-im-isr-setting-5-primarklasse-schule-buchwiesen-stadt"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "forderlehrperson-fur-ein-kind-im-isr-setting-5-primarklasse-schule-buchwiesen-stadt"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.458Z",
+      "previousSlugs": [
+        "forderlehrperson-fur-ein-kind-im-isr-setting-5-primarklasse-schule-buchwiesen-stadt"
+      ],
       "salaryMin": 63000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -33013,7 +33009,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.458Z"
     },
     {
       "id": "stadt-zuerich-479a66102d6a",
@@ -33029,10 +33026,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Reinigungsmitarbeiter*in, Schule Im Birch",
       "titleByLocale": {
-        "it": "Reinigungsmitarbeiter*in, Schule Im Birch",
-        "en": "Reinigungsmitarbeiter*in, Schule Im Birch",
+        "it": "Personale di pulizia, scuola a Birch",
+        "en": "Cleaning staff, school at Birch",
         "de": "Reinigungsmitarbeiter*in, Schule Im Birch",
-        "fr": "Reinigungsmitarbeiter*in, Schule Im Birch"
+        "fr": "Personnel de nettoyage, école à Birch"
       },
       "description": "Reinigungsmitarbeiter*in, Schule Im Birch bei der Stadtverwaltung Zürich, Schul- und Sportdepartement – Kreisschulbehörde Glattal. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51531. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33067,6 +33064,10 @@
       "department": "Schul- und Sportdepartement",
       "unit": "Kreisschulbehörde Glattal",
       "referenceNumber": "51531",
+      "previousSlugs": [
+        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-51531",
+        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-51531",
@@ -33077,10 +33078,6 @@
           "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
         ]
       },
-      "previousSlugs": [
-        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zuerich-zurigo-51531",
-        "reinigungsmitarbeiter-in-schule-im-birch-stadt-zurich-zurich"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "salaryMin": 63000,
@@ -33112,9 +33109,9 @@
       "title": "Technische*r Sachbearbeiter*in Schutzbauten als Schutzraumkontrolleur*in",
       "titleByLocale": {
         "it": "Technische*r Sachbearbeiter*in Schutzbauten come Schutzraumkontrolleur*in",
-        "en": "Technische*r Sachbearbeiter*in Schutzbauten als Schutzraumkontrolleur*in",
+        "en": "Technical personnel* in protective structures as protective room controller*",
         "de": "Technische*r Sachbearbeiter*in Schutzbauten als Schutzraumkontrolleur*in",
-        "fr": "Technische*r Sachbearbeiter*in Schutzbauten als Schutzraumkontrolleur*in"
+        "fr": "Personnel technique* dans les structures de protection comme contrôleur de salle de protection*"
       },
       "description": "Technische*r Sachbearbeiter*in Schutzbauten als Schutzraumkontrolleur*in bei der Stadtverwaltung Zürich, Sicherheitsdepartement – Schutz & Rettung. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51510. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
@@ -33149,6 +33146,11 @@
       "department": "Sicherheitsdepartement",
       "unit": "Schutz & Rettung",
       "referenceNumber": "51510",
+      "previousSlugs": [
+        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zuerich",
+        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich",
+        "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich"
+      ],
       "previousSlugsByLocale": {
         "de": [
           "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich",
@@ -33159,11 +33161,6 @@
           "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich"
         ]
       },
-      "previousSlugs": [
-        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zuerich",
-        "technische-r-sachbearbeiter-in-schutzbauten-als-schutzraumkontrolleur-in-stadt-zurich-zurich",
-        "technische-r-sachbearbeiter-in-schutzbauten-come-schutzraumkontrolleur-in-stadt-zurich"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:29.184Z",
       "salaryMin": 73500,
@@ -35696,17 +35693,17 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen",
       "titleByLocale": {
-        "it": "Stv. Leiter*in Krankheitskosten e Überbrückungsleistungen",
-        "en": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen",
         "de": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen",
-        "fr": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen"
+        "it": "Stv. Leiter*in Krankheitskosten e Überbrückungsleistungen",
+        "en": "Stv. Manager*in Medical expenses and bridging services",
+        "fr": "Stv. Manager*in Frais médicaux et services de transition"
       },
       "description": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51054. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {
-        "it": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51054. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "en": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51054. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
         "de": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51054. Arbeitsort: Zürich (ZH). Weitere Details zu \n• Aufgaben, \n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Stv. Leiter*in Krankheitskosten und Überbrückungsleistungen bei der Stadtverwaltung Zürich, Sozialdepartement – Amt für Zusatzleistungen zur AHV IV. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51054. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung."
+        "it": "Stv. Capo delle Spese Mediche e dei Servizi di Bridging presso l'Amministrazione Comunale di Zurigo, Dipartimento Sociale – Ufficio dei Servizi Aggiuntivi all'AHV IV. La città di Zurigo è uno dei maggiori datori di lavoro pubblici in Svizzera e offre una vasta gamma di posti di lavoro come amministrazione municipale in educazione, salute, servizi sociali, sicurezza, tecnologia e amministrazione generale. Numero di riferimento: 51054. Luogo di lavoro: Zurigo (ZH). Ulteriori dettagli su\n• compiti;\n• I requisiti e il processo di applicazione si trovano sulla piattaforma di lavoro ufficiale \"Working for Zurich\" della Città di Zurigo. Attendiamo con ansia la vostra applicazione.",
+        "en": "Stv. Head of Medical Expenses and Bridging Services at the City Administration of Zurich, Social Department – Office for Additional Services to AHV IV. The city of Zurich is one of the largest public employers in Switzerland and offers a wide range of jobs as a municipal administration in education, health, social services, security, technology and general administration. Reference No: 51054. Place of work: Zurich (ZH). Further details on\n• tasks;\n• Requirements and the application process can be found on the official job platform \"Working for Zurich\" of the City of Zurich. We look forward to your application.",
+        "fr": "Stv. Chef des frais médicaux et des services de raccordement à l'administration municipale de Zurich, Département social – Bureau des services supplémentaires à AHV IV. La ville de Zurich est l'un des plus grands employeurs publics de Suisse et offre un large éventail d'emplois en tant qu'administration municipale dans l'éducation, la santé, les services sociaux, la sécurité, la technologie et l'administration générale. Numéro de référence: 51054. Lieu de travail: Zurich (ZH). Plus de détails sur\n• tâches;\n• Les exigences et le processus de candidature peuvent être trouvés sur la plate-forme d'emploi officielle \"Working for Zurich\" de la ville de Zurich. Nous attendons avec impatience votre candidature."
       },
       "location": "Zürich",
       "canton": "ZH",
@@ -35734,18 +35731,17 @@
       "department": "Sozialdepartement",
       "unit": "Amt für Zusatzleistungen zur AHV IV",
       "referenceNumber": "51054",
-      "previousSlugs": [
-        "stv-leiter-in-krankheitskosten-und-uberbruckungsleistungen-stadt-zuerich-zurigo-51054",
-        "stv-leiter-in-krankheitskosten-e-uberbruckungsleistungen-stadt-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "stv-leiter-in-krankheitskosten-und-uberbruckungsleistungen-stadt-zuerich-zurigo-51054",
           "stv-leiter-in-krankheitskosten-e-uberbruckungsleistungen-stadt-zurich"
         ]
       },
+      "previousSlugs": [
+        "stv-leiter-in-krankheitskosten-und-uberbruckungsleistungen-stadt-zuerich-zurigo-51054",
+        "stv-leiter-in-krankheitskosten-e-uberbruckungsleistungen-stadt-zurich"
+      ],
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:34:45.505Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -35758,7 +35754,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:34:45.505Z"
     },
     {
       "id": "stadt-zuerich-e9172bd0e353",
@@ -36988,10 +36985,10 @@
       "companyDomain": "stadt-zuerich.ch",
       "title": "Kanzleisekretär*in",
       "titleByLocale": {
-        "it": "Kanzleisekretär*in",
-        "en": "Kanzleisekretär*in",
+        "it": "Segreteria di studio legale*",
+        "en": "Law firm secretary*in",
         "de": "Kanzleisekretär*in",
-        "fr": "Kanzleisekretär*in"
+        "fr": "Secrétaire du cabinet d'avocats"
       },
       "description": "Kanzleisekretär*in bei der Stadtverwaltung Zürich, Präsidialdepartement – Friedensrichterinnen- und Friedensrichterämter. Die Stadt Zürich ist eine der grössten öffentlich-rechtlichen Arbeitgeberinnen der Schweiz und bietet als Gemeindeverwaltung vielfältige Stellen in Bildung, Gesundheit, Sozialwesen, Sicherheit, Technik und allgemeiner Verwaltung. Referenz-Nr.: 51285. Arbeitsort: Zürich (ZH). Weitere Details zu\n• Aufgaben,\n• Anforderungen und dem Bewerbungsverfahren finden Sie auf der offiziellen Stellenplattform \"Arbeiten für Zürich\" der Stadt Zürich. Wir freuen uns auf Ihre Bewerbung.",
       "descriptionByLocale": {

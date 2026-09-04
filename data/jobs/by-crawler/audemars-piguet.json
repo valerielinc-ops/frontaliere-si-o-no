@@ -1759,7 +1759,7 @@
       "title": "HR Business Partner - CDD 8mois",
       "titleByLocale": {
         "it": "Risorse Umane Business Partner - CDD 8mois",
-        "en": "HR Business Partner - CDD 8mois",
+        "en": "HR Business Partner - CSD 8 months",
         "de": "Personalwesen Business Partner - CDD 8mois",
         "fr": "HR Business Partner - CDD 8mois"
       },
@@ -1793,10 +1793,8 @@
       "jobReqId": "744000147163264",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hr-business-partner-cdd-8mois-audemars-piguet-tolochenaz-vd-switzerland",
-        "risorse-umane-business-partner-cdd-8mois-audemars-piguet-tolochenaz"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:44:12.851Z",
       "previousSlugsByLocale": {
         "it": [
           "hr-business-partner-cdd-8mois-audemars-piguet-tolochenaz-vd-switzerland",
@@ -1806,8 +1804,10 @@
           "hr-business-partner-cdd-8mois-audemars-piguet-tolochenaz-vd-switzerland"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:44:12.851Z",
+      "previousSlugs": [
+        "hr-business-partner-cdd-8mois-audemars-piguet-tolochenaz-vd-switzerland",
+        "risorse-umane-business-partner-cdd-8mois-audemars-piguet-tolochenaz"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

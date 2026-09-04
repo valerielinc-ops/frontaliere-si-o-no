@@ -329,10 +329,10 @@
       "companyDomain": "google.com",
       "title": "Group Product Manager, Shopping on Gemini",
       "titleByLocale": {
-        "it": "Group Product Manager, Shopping on Gemini",
         "en": "Group Product Manager, Shopping on Gemini",
-        "de": "Group Product Manager, Shopping on Gemini",
-        "fr": "Group Product Manager, Shopping on Gemini"
+        "it": "Group Product Manager, Shopping su Gemini",
+        "de": "Group Product Manager, Einkaufen auf Gemini",
+        "fr": "Group Product Manager, Shopping sur Gemini"
       },
       "description": "Minimum qualifications:\n\n• Bachelor's degree or equivalent practical experience.\n\n• 10 years of experience in product management or related technical role.\n\n• 5 years of experience taking technical products from conception to launch (e.g., ideation to execution, end-to-end, 0 to 1, etc.).\n\n• Experience integrating generative AI tools or LLM interfaces into workflows.\n\nPreferred qualifications:\n\n• Master's degree in a technology or business related field.\n\n• 7 years of experience working cross-functionally with engineering, UX/UI, sales finance, and other stakeholders.\n\n• 7 years of experience in a business function or role (e.g., strategic marketing, business operations, consulting).\n\n• 5 years of experience in a role preparing and delivering technical presentations to senior leadership.\n\n• 5 years of experience in software development or engineering.\n\n• Knowledge of, or continued interest in building accessibility best practices, and experience/curiosity for incorporating accessibility into product development methodologies.\n\nAbout the job\n At Google, we put our users first. The world is always changing, so we need Product Managers who are continuously adapting and excited to work on products that affect millions of people every day.\n\nIn this role, you will work cross-functionally to guide products from conception to launch by connecting the technical and business worlds. You can break down complex problems into steps that drive product development.\n\nOne of the many reasons Google consistently brings innovative, world-changing products to market is because of the collaborative work we do in Product Management. Our team works closely with creative engineers, designers, marketers, etc. to help design and develop technologies that improve access to the world's information. We're responsible for guiding products throughout the execution cycle, focusing specifically on analyzing, positioning, packaging, promoting, and tailoring our solutions to our users.\n\nGoogle Commerce operates at the center of the global commercial journey, helping billions of consumers find what they love while empowering millions of merchants and creators to build thriving businesses.\n The Consumer Shopping team partners closely with Gemini/DeepMind teams to create intelligent, multimodal, and agentic experiences. By combining state-of-the-art LLM reasoning, multimodal understanding (voice, text, image, video), and the world's most comprehensive Shopping Graph (billions of product listings, merchant offers, and real-time inventory), our mission is to deliver deeply personalized, grounded, and actionable shopping experiences across Google’s flagship surfaces in Gemini App, Gemini on Chrome, and Gemini on Android.\n Users come first at Google. Nowhere is this more important than on our Advertising and Commerce team: we believe that ads and commercial information can be highly useful to our users if that information is relevant to what our users wish to find or do. Advertisers worldwide use Google Ads to promote their products; publishers use AdSense to serve relevant ads on their website; and business around the world use our products (like Google Shopping, and Google Wallet) to support their online businesses and bring users into their offline stores. We are constantly innovating to deliver the most effective advertising and commerce opportunities of tomorrow.\n\nResponsibilities\n\n• Define and drive the product roadmap for shopping capabilities within Gemini, identifying user needs and high-impact opportunities for conversational shopping. Design experiences that delight consumers while maintaining a healthy, sustainable ecosystem that creates value for merchants, retailers, and creators of all sizes.\n\n• Guide features from initial concept, UX exploration, and prototyping through launch and continuous iteration at Google scale.\n\n• Partner with UX and Engineering to design intuitive conversational paradigms, interactive product cards, visual browsing, and agentic workflows.\n\n• Establish evaluation frameworks, quality benchmarks, and safety/grounding standards to ensure shopping recommendations in Gemini are accurate, unbiased, trustworthy, and actionable. Define key performance indicators (engagement, user satisfaction, conversion, trust), analyze experiments, and leverage data-driven insights to accelerate product growth.\n\n• Partner seamlessly across Google Commerce, Gemini and Merchant platforms to drive strategic alignment, technical integration, and shared OKRs.",
       "descriptionByLocale": {
@@ -376,12 +376,21 @@
           "Experience integrating generative AI tools or LLM interfaces into workflows."
         ]
       },
-      "previousSlugs": [
-        "group-product-manager-produttivita-del-gruppo-google-switzerland-zurich",
-        "group-product-manager-group-productivity-google-switzerland-zurich",
-        "gruppenproduktmanager-gruppenproduktivitat-google-switzerland-zurich",
-        "group-product-manager-productivite-du-groupe-google-switzerland-zurich"
-      ],
+      "needsRetranslation": true,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:32:22.484Z",
       "previousSlugsByLocale": {
         "it": [
           "group-product-manager-produttivita-del-gruppo-google-switzerland-zurich",
@@ -399,21 +408,12 @@
           "group-product-manager-productivite-du-groupe-google-switzerland-zurich"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T13:32:22.484Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 101500,
-          "maxValue": 154000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "group-product-manager-produttivita-del-gruppo-google-switzerland-zurich",
+        "group-product-manager-group-productivity-google-switzerland-zurich",
+        "gruppenproduktmanager-gruppenproduktivitat-google-switzerland-zurich",
+        "group-product-manager-productivite-du-groupe-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-157fd6ae7c37",
@@ -3690,10 +3690,10 @@
       "companyDomain": "google.com",
       "title": "Data Scientist III, Product",
       "titleByLocale": {
-        "it": "Data Scientist III, Product",
+        "it": "Data Scientist III, Prodotto",
         "en": "Data Scientist III, Product",
-        "de": "Data Scientist III, Product",
-        "fr": "Data Scientist III, Product"
+        "de": "Data Scientist III, Produkt",
+        "fr": "Data Scientist III, Produit"
       },
       "description": "Minimum qualifications:\n\n• Bachelor's degree in Statistics, Mathematics, Data Science, Engineering, Physics, Economics, or a related quantitative field.\n\n• 5 years of work experience with analysis applications (extracting insights, performing statistical analysis, or solving business problems), and coding (Python, R, SQL) (or 2 years work experience with a Master's degree).\n\nPreferred qualifications:\n\n• Master's degree in Statistics, Mathematics, Data Science, Engineering, Physics, Economics, or a related quantitative field.\n\n• 5 years of work experience with analysis applications (extracting insights, performing statistical analysis, or solving business problems), and coding (Python, R, SQL).\n\n• 1 year of experience with AI Algorithms.\n\nAbout the job\n Help serve Google's worldwide user base of more than a billion people. Data Scientists provide quantitative support, market understanding and a strategic perspective to our partners throughout the organization. As a data-loving member of the team, you serve as an analytics expert for your partners, using numbers to help them make better decisions. You will weave stories with meaningful insight from data. You'll make critical recommendations for your fellow Googlers in Engineering and Product Management. You relish tallying up the numbers one minute and communicating your findings to a team leader the next.\n\nResponsibilities\n\n• Automate data extraction from extensive geospatial datasets to build comprehensive reporting and monitoring dashboards that track business health.\n\n• Conduct large-scale data modeling and analysis to discover strategic improvement opportunities and accurately evaluate initiative impact.\n\n• Design and develop statistical methodologies to evaluate data quality while performing thorough root cause analysis on failure cases.\n\n• Present data-driven findings and insights to key stakeholders in regular syncs, making strategic recommendations to guide product or process enhancements.\n\n• Identify and prioritize high-impact growth opportunities and critical operational challenges, delivering execution and noticeable improvements based on continuous feedback.",
       "descriptionByLocale": {

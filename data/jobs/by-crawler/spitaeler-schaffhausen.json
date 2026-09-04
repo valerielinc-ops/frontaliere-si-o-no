@@ -4502,10 +4502,10 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Assistenzärztin / Assistenzarzt Innere Medizin",
       "titleByLocale": {
-        "it": "Assistenzärztin / Assistenzarzt Innere Medizin",
-        "en": "Assistenzärztin / Assistenzarzt Innere Medizin",
+        "it": "Assistente medico / Assistente medico Medicina interna",
+        "en": "Assistant doctor / Assistant doctor Internal medicine",
         "de": "Assistenzärztin / Assistenzarzt Innere Medizin",
-        "fr": "Assistenzärztin / Assistenzarzt Innere Medizin"
+        "fr": "Médecin adjoint / Médecin adjoint Médecine interne"
       },
       "description": "Für die Klinik für Innere Medizin des Kantonsspitals suchen wir ab Ende 2028 / Anfang 2029 eine/einen Assistenzärztin / Assistenzarzt.<br/><br/>Wir sind eine Weiterbildungsklinik der Kategorie A für Allgemeine Innere Medizin. Jährlich werden 3'500 stationäre Patienten auf den allgemein-internistischen Bettenstationen und ebenso viele ambulante Notfälle auf der interdisziplinären Notfallstation betreut. Das ärztliche Team umfasst 13 Leitende Ärzte, 5 Oberärzte und 21 Assistenzärzte. Unsere fachlichen Schwerpunkte sind die Allgemeine Innere Medizin, Akutgeriatrie, die Kardiologie, Onkologie, Neurologie, Nephrologie, Gastroenterologie, Angiologie, Pneumologie, Hämatologie, Endokrinologie, Dermatologie (konsiliarisch) und die Notfallmedizin. Einsatzgebiete für unsere Assistenzärzte/-innen sind die allgemein-internistischen Bettenstationen, die Akutgeriatrie, die Notfallstation und die kardiopulmonale Funktionsdiagnostik sowie die Intensivstation und die Dialysestation.\n\nAufgaben:\n• Rotation auf den Bettenstationen der Klinik für Innere Medizin\n\n• Einsatz auf der Akutgeriatrie\n\n• Einsatz auf der interdisziplinären Notfallstation\n\n• Rotation auf der kardiopulmonalen Diagnostik\n\n• Einsatz auf der interdisziplinären Intensivstation (bei entsprechender Eignung und Wunsch)\n\n• Einsatz auf der Dialyse\n\nAnforderungen:\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Fachliche sowie soziale Kompetenz im Umgang mit Patienten und Ange-hörigen\n\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Verantwortungsbewusstsein, Initiative, Teamfähigkeit, Belastbarkeit und Selbstständigkeit\n\n• Eidgenössisches Arztdiplom oder gleichwertige MEBEKO-Anerkennung\n Bitte die Arbeitszeugnisse und Diplome beilegen und im Motivationsschreiben den Zeitraum angeben, in welchem du verfügbar bist.\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
       "descriptionByLocale": {
@@ -4538,20 +4538,20 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/assistenzaerztin-assistenzarzt-innere-medizin/4d4e03dc-66bc-48fa-9ce7-6519b3fe904f",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
-        "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen",
-        "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen",
-        "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen-76744c",
-        "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen-76744c",
-        "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen-76744c",
-        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen-2",
-        "assistenzarztin-assistenzarzt-innere-medizin-spitaler-schaffhausen-schaffhausen",
-        "medico-assistente-medicina-interna-spitaler-schaffhausen-schaffhausen",
-        "internal-medicine-resident-physician-spitaler-schaffhausen-schaffhausen",
-        "medecin-resident-en-medecine-interne-spitaler-schaffhausen-schaffhausen",
-        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen-ww8wzh"
-      ],
+      "firstSeenAt": "2026-09-03T13:45:03.782Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
       "previousSlugsByLocale": {
         "it": [
           "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
@@ -4574,20 +4574,20 @@
           "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen"
         ]
       },
-      "firstSeenAt": "2026-09-03T13:45:03.782Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81500,
-          "maxValue": 114000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen",
+        "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen",
+        "assistente-medico-assistente-medico-medicina-interna-spitaler-schaffhausen-schaffhausen-76744c",
+        "assistant-doctor-assistant-doctor-internal-medicine-spitaler-schaffhausen-schaffhausen-76744c",
+        "medecin-adjoint-medecin-adjoint-medecine-interne-spitaler-schaffhausen-schaffhausen-76744c",
+        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen-2",
+        "assistenzarztin-assistenzarzt-innere-medizin-spitaler-schaffhausen-schaffhausen",
+        "medico-assistente-medicina-interna-spitaler-schaffhausen-schaffhausen",
+        "internal-medicine-resident-physician-spitaler-schaffhausen-schaffhausen",
+        "medecin-resident-en-medecine-interne-spitaler-schaffhausen-schaffhausen",
+        "assistenzarztin-assistenzarzt-innere-medizin-spitaeler-schaffhausen-schaffhausen-ww8wzh"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-71f32fa9d639",
@@ -4690,19 +4690,18 @@
       "companyDomain": "spitaeler-sh.ch",
       "title": "Unterassistentin / Unterassistent Urologie (100%)",
       "titleByLocale": {
-        "it": "Unterassistentin / Unterassistent Urologie (100%)",
-        "en": "Unterassistentin / Unterassistent Urologie (100%)",
+        "it": "Urologia subassista (100%)",
+        "en": "Sub-assistant urology (100%)",
         "de": "Unterassistentin / Unterassistent Urologie (100%)",
-        "fr": "Unterassistentin / Unterassistent Urologie (100%)"
+        "fr": "Urologie sous-assistante (100 %)"
       },
       "description": "Im Wahlstudienjahr (2. Studienjahr Master Humanmedizin) können Studierende als Unterassistenten in unserer Klinik für Urologie vertiefte Einblicke in die Tätigkeit eines Urologen gewinnen. Sie nehmen aktiv am klinischen Alltag teil.\n\nAufgaben:\n• Du betreust zusammen mit dem Ärtzeteam die urologischen Patienten im Ambulatorium, stationären Bereich und im Operationssaal\n\n• Eintrittsuntersuchungen/Anamnese-Erhebung bei elektiven Patienten\n\n• Bei Bedarf leistest du Assistenz bei verschiedenen Operationen\n\n• Teilnahme an der Abteilungsarbeit wie Visite, Patientenbetreuung sowie KG-Eintragungen\n\n• Diverse abteilungsinterne Fortbildungsmöglichkeiten\n\n• Kostenlose Unterkunftsmöglichkeit im nahe gelegenen Personalhaus\n\nAnforderungen:\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Soziale Kompetenz im Umgang mit Patienten und Angehörigen\n\n• Schweizer-/ oder EU-Staatsbürger\n\n• Student/-in der Humanmedizin\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
       "descriptionByLocale": {
-        "it": "Im Wahlstudienjahr (2. Studienjahr Master Humanmedizin) können Studierende als Unterassistenten in unserer Klinik für Urologie vertiefte Einblicke in die Tätigkeit eines Urologen gewinnen. Sie nehmen aktiv am klinischen Alltag teil.\n\nAufgaben:\n• Du betreust zusammen mit dem Ärtzeteam die urologischen Patienten im Ambulatorium, stationären Bereich und im Operationssaal\n\n• Eintrittsuntersuchungen/Anamnese-Erhebung bei elektiven Patienten\n\n• Bei Bedarf leistest du Assistenz bei verschiedenen Operationen\n\n• Teilnahme an der Abteilungsarbeit wie Visite, Patientenbetreuung sowie KG-Eintragungen\n\n• Diverse abteilungsinterne Fortbildungsmöglichkeiten\n\n• Kostenlose Unterkunftsmöglichkeit im nahe gelegenen Personalhaus\n\nAnforderungen:\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Soziale Kompetenz im Umgang mit Patienten und Angehörigen\n\n• Schweizer-/ oder EU-Staatsbürger\n\n• Student/-in der Humanmedizin\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "en": "Im Wahlstudienjahr (2. Studienjahr Master Humanmedizin) können Studierende als Unterassistenten in unserer Klinik für Urologie vertiefte Einblicke in die Tätigkeit eines Urologen gewinnen. Sie nehmen aktiv am klinischen Alltag teil.\n\nAufgaben:\n• Du betreust zusammen mit dem Ärtzeteam die urologischen Patienten im Ambulatorium, stationären Bereich und im Operationssaal\n\n• Eintrittsuntersuchungen/Anamnese-Erhebung bei elektiven Patienten\n\n• Bei Bedarf leistest du Assistenz bei verschiedenen Operationen\n\n• Teilnahme an der Abteilungsarbeit wie Visite, Patientenbetreuung sowie KG-Eintragungen\n\n• Diverse abteilungsinterne Fortbildungsmöglichkeiten\n\n• Kostenlose Unterkunftsmöglichkeit im nahe gelegenen Personalhaus\n\nAnforderungen:\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Soziale Kompetenz im Umgang mit Patienten und Angehörigen\n\n• Schweizer-/ oder EU-Staatsbürger\n\n• Student/-in der Humanmedizin\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
+        "it": "Nell'anno elettivo (2 ° anno accademico Master in Medicina Umana), gli studenti possono acquisire approfondimenti sul lavoro di un urologo come sub-assistanti nella nostra clinica per l'ureologia. Partecipano attivamente alla vita quotidiana clinica.\n\nCompiti:\n• Insieme con il team medico, si prenderanno cura dei pazienti urologici nell'area ambulatoria, apatia e nella sala operatoria.\n\n• Esami di ingresso/indagine sull'anamnesi nei pazienti elettivi\n\n• Se necessario, si fornisce assistenza in varie operazioni\n\n• Partecipazione a lavori dipartimentali quali visite, assistenza paziente e registrazioni KG\n\n• Varie opportunità di formazione interna\n\n• Alloggio gratuito nella vicina casa personale\n\nRequisiti\n• Impegno e impegno in un'attività clinicamente interdisciplinare\n\n• Conoscenza molto buona del tedesco in lingua e scrittura (livello minimo requisito C1)\n\n• Competenza sociale nel trattare con pazienti e parenti\n\n• Cittadini svizzeri o comunitari\n\n• Studente in medicina umana\n\nOffriamo:\nVuoi conciliare famiglia e lavoro bene? Con il nostro interno crèche direttamente sul sito dell'Ospedale cantonale, vi sosteniamo per un sano equilibrio di vita lavorativa che non solo funziona, ma anche funziona bene.\n\nGli ospedali di Schaffhausen includono l'Ospedale di Canton, i servizi psichiatrici, le pratiche di radiologia e cardiologia Posthof Neuhausen e la pratica Neurology Schaffhausen Center. Con oltre 1.700 dipendenti, garantiamo l'assistenza medica e infermieristica di base estesa nella regione di Schaffhausen. Ogni anno, ci occupiamo di circa 11.000 pazienti malati e 90.000 pazienti ambulanti. Siamo anche un importante centro di formazione nel Cantone.",
+        "en": "In the elective year (2nd academic year Master in Human Medicine), students can gain in-depth insights into the work of a urologist as sub-assistants in our clinic for urology. They actively participate in clinical everyday life.\n\nTasks:\n• Together with the medical team, you will look after the urological patients in the ambulatory, inpatient area and in the operating room.\n\n• Entrance examinations/anamnesis survey in elective patients\n\n• If necessary, you provide assistance in various operations\n\n• Participation in departmental work such as visits, patient care and KG registrations\n\n• Various department-internal training opportunities\n\n• Free accommodation in the nearby staff house\n\nRequirements\n• Commitment and commitment in a clinically interdisciplinary oriented activity\n\n• Very good knowledge of German in language and writing (minimum requirement level C1)\n\n• Social competence in dealing with patients and relatives\n\n• Swiss or EU citizens\n\n• Student in Human Medicine\n\nWe offer:\nDo you want to reconcile family and work well? With our in-house crèche directly on the site of the Cantonal Hospital, we support you for a healthy work-life balance that not only works, but also does well.\n\nThe hospitals in Schaffhausen include the Canton Hospital, the psychiatric services, the radiology and cardiology practices Posthof Neuhausen and the practice Neurology Schaffhausen Center. With more than 1,700 employees, we ensure the extended basic medical and nursing care in the Schaffhausen region. Every year, we look after approximately 11,000 inpatient and 90,000 outpatient patients. We are also an important training centre in the canton.",
         "de": "Im Wahlstudienjahr (2. Studienjahr Master Humanmedizin) können Studierende als Unterassistenten in unserer Klinik für Urologie vertiefte Einblicke in die Tätigkeit eines Urologen gewinnen. Sie nehmen aktiv am klinischen Alltag teil.\n\nAufgaben:\n• Du betreust zusammen mit dem Ärtzeteam die urologischen Patienten im Ambulatorium, stationären Bereich und im Operationssaal\n\n• Eintrittsuntersuchungen/Anamnese-Erhebung bei elektiven Patienten\n\n• Bei Bedarf leistest du Assistenz bei verschiedenen Operationen\n\n• Teilnahme an der Abteilungsarbeit wie Visite, Patientenbetreuung sowie KG-Eintragungen\n\n• Diverse abteilungsinterne Fortbildungsmöglichkeiten\n\n• Kostenlose Unterkunftsmöglichkeit im nahe gelegenen Personalhaus\n\nAnforderungen:\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Soziale Kompetenz im Umgang mit Patienten und Angehörigen\n\n• Schweizer-/ oder EU-Staatsbürger\n\n• Student/-in der Humanmedizin\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton.",
-        "fr": "Im Wahlstudienjahr (2. Studienjahr Master Humanmedizin) können Studierende als Unterassistenten in unserer Klinik für Urologie vertiefte Einblicke in die Tätigkeit eines Urologen gewinnen. Sie nehmen aktiv am klinischen Alltag teil.\n\nAufgaben:\n• Du betreust zusammen mit dem Ärtzeteam die urologischen Patienten im Ambulatorium, stationären Bereich und im Operationssaal\n\n• Eintrittsuntersuchungen/Anamnese-Erhebung bei elektiven Patienten\n\n• Bei Bedarf leistest du Assistenz bei verschiedenen Operationen\n\n• Teilnahme an der Abteilungsarbeit wie Visite, Patientenbetreuung sowie KG-Eintragungen\n\n• Diverse abteilungsinterne Fortbildungsmöglichkeiten\n\n• Kostenlose Unterkunftsmöglichkeit im nahe gelegenen Personalhaus\n\nAnforderungen:\n• Engagement und Einsatzfreude in einer klinisch interdisziplinär orientierten Tätigkeit\n\n• Sehr gute Deutschkenntnisse in Sprache und Schrift (Mindestanforderung Niveau C1)\n\n• Soziale Kompetenz im Umgang mit Patienten und Angehörigen\n\n• Schweizer-/ oder EU-Staatsbürger\n\n• Student/-in der Humanmedizin\n\nWir bieten:\nDu willst Familie und Beruf gut unter einen Hut bringen? Mit unserer hauseigenen Kinderkrippe direkt auf dem Areal des Kantonsspitals unterstützen wir Dich dabei, für eine gesunde Work-Life-Balance, die nicht nur funktioniert, sondern gut tut.\n\nDie Spitäler Schaffhausen umfassen das Kantonsspital, die Psychiatrischen Dienste, die Praxen Radiologie und Kardiologie Posthof Neuhausen sowie die Praxis Neurologie Schaffhausen Zentrum. Mit über 1'700 Mitarbeitenden sichern wir die erweiterte medizinische und pflegerische Grundversorgung der Region Schaffhausen. Jährlich betreuen wir etwa 11'000 stationäre und 90'000 ambulante Patientinnen und Patienten. Zudem sind wir eine wichtige Ausbildungsstätte im Kanton."
+        "fr": "Au cours de l'année élective (2e année universitaire de maîtrise en médecine humaine), les étudiants peuvent acquérir des connaissances approfondies sur le travail d'un urologue comme sous-assistants dans notre clinique d'urologie. Ils participent activement à la vie quotidienne clinique.\n\nTâches :\n• Avec l'équipe médicale, vous vous occuperez des patients urologiques dans la zone ambulatoire, hospitalisée et dans la salle d'opération.\n\n• Examens d'entrée/enquête sur l'anamnèse chez les patients électifs\n\n• Si nécessaire, vous apportez votre assistance dans diverses opérations\n\n• Participation à des travaux ministériels comme les visites, les soins aux patients et l'inscription au GK\n\n• Diverses possibilités de formation interne des départements\n\n• Logement gratuit dans la maison du personnel à proximité\n\nExigences\n• Engagement et engagement dans une activité cliniquement interdisciplinaire\n\n• Très bonne connaissance de l'allemand dans la langue et l'écriture (niveau minimum d'exigence C1)\n\n• Compétence sociale dans le traitement des patients et des proches\n\n• Citoyens suisses ou européens\n\n• Étudiant en médecine humaine\n\nNous offrons:\nVoulez-vous bien concilier la famille et le travail? Avec notre crèche en interne directement sur le site de l'Hôpital Cantonal, nous vous soutenons pour un équilibre sain entre le travail et la vie personnelle qui fonctionne non seulement, mais aussi bien.\n\nLes hôpitaux de Schaffhausen comprennent l'hôpital cantonal, les services psychiatriques, la radiologie et les pratiques de cardiologie Posthof Neuhausen et le centre de neurologie Schaffhausen. Avec plus de 1 700 employés, nous assurons les soins médicaux et infirmiers de base dans la région de Schaffhausen. Chaque année, nous prenons en charge environ 11 000 patients hospitalisés et 90 000 patients externes. Nous sommes également un important centre de formation dans le canton."
       },
-      "needsRetranslation": true,
       "location": "Schaffhausen",
       "canton": "SH",
       "url": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-urologie/8eb43248-0746-40c8-a6b0-35059f0c2b33",
@@ -4726,24 +4725,6 @@
       "applyUrl": "https://stellen.spitaeler-sh.ch/offene-stellen/unterassistentin-unterassistent-urologie/8eb43248-0746-40c8-a6b0-35059f0c2b33",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
-        "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
-        "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
-          "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
-          "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
-        ],
-        "en": [
-          "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen"
-        ],
-        "fr": [
-          "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
-        ]
-      },
       "firstSeenAt": "2026-09-03T13:45:03.777Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4757,7 +4738,25 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
+          "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
+          "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
+        ],
+        "en": [
+          "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen"
+        ],
+        "fr": [
+          "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "urologia-subassista-100-spitaler-schaffhausen-schaffhausen",
+        "sub-assistant-urology-100-spitaler-schaffhausen-schaffhausen",
+        "urologie-sous-assistante-100-spitaler-schaffhausen-schaffhausen"
+      ]
     },
     {
       "id": "spitaeler-schaffhausen-1419855404dc",
