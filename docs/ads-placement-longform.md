@@ -7,17 +7,22 @@ repository.
 
 ## 1. Stato attuale, verificato nel codice
 
-`services/articleAdSlots.ts` → `computeArticleAdSlots()`:
+Il piazzamento inline vive **interamente** in
+`components/community/BlogArticles.tsx` → `renderFormattedContent()` +
+`makeInlineAd` (non esiste un modulo di placement separato: `articleAdSlots.ts`,
+che non era importato da nessun modulo di produzione, è stato rimosso — issue
+#7338):
 
-- **Densità**: un ad ad ogni confine tra segmenti del corpo (`STEP_SEGMENTS = 1`,
-  `STEP_MIN_WORDS = 0` → trigger incondizionato), più un ad per ogni paragrafo
-  via l'hook di rendering in `BlogArticles.tsx` ("max-density mode",
-  commento del 2026-05-19).
-- **Nessun tetto**: `MAX_INLINE_ADS = Number.MAX_SAFE_INTEGER`.
-- **Nessun controllo di sicurezza sui confini strutturali**: il commento del
-  modulo lo dichiara esplicitamente ("No heading-safety check"). Non distingue
-  un confine "tra due paragrafi di prosa" da un confine "subito prima/dopo una
-  tabella, una citazione, una lista operativa".
+- **Densità**: un ad prima di ogni confine H2 e uno a fine segmento, subordinati
+  a un gap minimo di `AD_MIN_WORD_GAP = 200` parole di contenuto dall'ad
+  precedente.
+- **Tetto per articolo**: `ARTICLE_INLINE_AD_CAP = 8`, uniforme su tutti gli
+  articoli (~4 ad su 1500 parole, ~7-8 su 3000).
+- **Eleggibilità**: ≥3 segmenti di corpo, ≥220 parole e ≥1400 caratteri
+  (`adEligible`), soglia unica per tutti i formati ads.
+- **Confini strutturali**: l'unica protezione è il rinvio dell'ad quando la
+  sezione dopo l'H2 apre con una tabella (ri-tentato al confine successivo, mai
+  perso). Citazioni e liste operative non hanno protezione dedicata.
 
 Questa strategia è corretta per il formato attuale (articoli brevi, singolo
 tema, nessuna tabella/mappa) ed è una decisione di revenue esistente — **non va
@@ -98,9 +103,10 @@ esista un longform pubblicato: per questo resta in `## Non implementato
 
 ## 6. Cosa NON fa questo documento
 
-Non introduce un nuovo componente/variante a densità ridotta in
-`services/articleAdSlots.ts`. Costruire quella variante ora, senza un
-consumatore reale (nessun template "longform" esiste ancora nel renderer,
-`BlogArticles.tsx` applica oggi un'unica densità a tutti gli articoli),
-sarebbe un'astrazione speculativa (AGENTS.md #6). Il mapping sopra è la spec
-pronta da implementare quando il primo longform reale esiste da renderizzare.
+Non introduce un nuovo componente/variante a densità ridotta. Il profilo
+longform, quando verrà costruito, va nel placer reale
+(`components/community/BlogArticles.tsx`, vedi §1) e non in un modulo di
+placement separato: quello che esisteva (`services/articleAdSlots.ts`) non era
+importato dalla produzione e modificarlo non avrebbe cambiato una sola
+impression. Il mapping sopra è la spec pronta da implementare quando il primo
+longform reale esiste da renderizzare.
