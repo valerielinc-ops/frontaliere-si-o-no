@@ -11359,6 +11359,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Tessin : convient-il ? Guide des prix frontaliers',
     'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Shopping outlet tessinois : quand cela convient aux frontaliers. Analyse des coûts CH-IT, taux de change EUR/CHF et planification des acquisitions transfrontalières.',
     'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Centre commercial moderne au Tessin avec magasins et architecture suisse caractéristique',
+    'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Frontaliers bulletin de paie suisse 2026',
+    'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Guide pratique : lisez les retenues (impôt source, AVS 5.3%, LPP 7–18%, LAMal), calculez le net, récupérez les taxes en 730 avec la franchise €7.500/€ 10.000.',
+    'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Bulletin de salaire suisse avec montants CHF et déductions, superposé à la vue du waterfront de Lugano et du Lac Lugano.',
 };
 
 export default blogMetaFr;

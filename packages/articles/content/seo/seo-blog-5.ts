@@ -85715,6 +85715,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-come-calcolare-busta-paga': {
+    title: 'Frontalieri busta paga svizzera 2026 | Frontaliere Ticino',
+    description: 'Guida pratica busta paga frontalieri: come leggere le trattenute (imposta fonte, AVS, LPP, LAMal), calcolare il netto, recuperare tasse nel 730 con franchigia',
+    keywords: 'frontalieri, ticino, svizzera, italia, busta, paga, pratica, leggi',
+    ogTitle: 'Busta paga frontalieri Svizzera 2026: trattenute e calcolo netto',
+    ogDescription: 'Scopri come leggere la busta paga frontaliera svizzera: imposta fonte, AVS 5.3%, LPP 7–18%, LAMal. Calcola il netto reale, recupera tasse nel 730. Franchigia €7.500/€10.000, regime transitorio 2024–2033, checklist pratica.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-come-calcolare-busta-paga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri busta paga svizzera 2026",
+      "description": "Guida pratica busta paga frontalieri: come leggere le trattenute (imposta fonte, AVS, LPP, LAMal), calcolare il netto, recuperare tasse nel 730 con franchigia",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/frontalieri-come-calcolare-busta-paga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documento di busta paga svizzera con importi CHF, trattenute e contributi, sovrapposto a vista di Lugano e riva del lago."
+      },
+      "datePublished": "2026-09-04T23:42:53+00:00",
+      "dateModified": "2026-09-04T23:42:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-come-calcolare-busta-paga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
