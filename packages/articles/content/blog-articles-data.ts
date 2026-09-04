@@ -33771,6 +33771,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'trasferirsi-orino-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-04T07:41:14.002Z',
+ image: '/images/blog/trasferirsi-orino-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

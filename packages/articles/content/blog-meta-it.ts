@@ -11304,6 +11304,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Vivere a Cittiglio e lavorare in Ticino: guida frontaliere',
     'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio come zona abitativa per frontalieri: fiscalità, permesso G, costi di vita e vantaggi del trasferimento da Varese al Canton Ticino.',
     'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Stazione di Mendrisio al confine tra Ticino e Italia con pendolari frontalieri in transito',
+    'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Vivere a Orino e lavorare in Ticino da frontaliere',
+    'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Trasferirsi a Orino da frontaliere: Permesso G, imposta alla fonte e procedura amministrativa per il lavoro in Ticino.',
+    'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Veduta panoramica di Lugano al tramonto, con edifici moderni e il lago di confine fra Ticino e Italia.',
 };
 
 export default blogMetaIt;

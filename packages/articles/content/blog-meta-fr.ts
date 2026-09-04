@@ -11305,6 +11305,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Vivre à Cittiglio et travailler au Tessin : guide frontalier',
     'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio comme zone d\'habitation pour les frontaliers : fiscalité, permis G, coûts de la vie et avantages du transfert de Varèse au canton du Tessin.',
     'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Gare de Mendrisio à la frontière entre le Tessin et l\'Italie avec navetteurs transfrontaliers',
+    'blog.article.trasferirsi-orino-lavorare-ticino.title': 'Vivre à Orino et travailler au Tessin en tant que frontalier',
+    'blog.article.trasferirsi-orino-lavorare-ticino.excerpt': 'Déménager à Orino en tant que frontalier : Permis G, impôt à la source et procédure administrative pour le travail au Tessin.',
+    'blog.article.trasferirsi-orino-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano au coucher du soleil, avec batiments modernes et le lac frontiere entre Tessin et Italie.',
 };
 
 export default blogMetaFr;
