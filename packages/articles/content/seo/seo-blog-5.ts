@@ -85325,6 +85325,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-export-svizzera-2026': {
+    title: 'Como export -2,2%, Svizzera cresce al +21,2% | Frontaliere Ticino',
+    description: 'La provincia di Como registra un export in calo del 2,2%. Tessile arretra del 7,9%, ma la Svizzera cresce del 21,2%. Analisi UIL su settori, occupazione e CIGS.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, export, cresce, provincia',
+    ogTitle: 'Como export -2,2%, Svizzera cresce al +21,2%',
+    ogDescription: 'Como soffre con export -2,2% annuo su base annua. Tessile-abbigliamento crolla del 7,9%, macchinari del 5,5%. Ma la Svizzera cresce del 21,2%: opportunità sottoutilizzate. CIGS straordinaria +14,9%: cosa cambia per l\'occupazione.',
+    canonicalPath: '/articoli-frontaliere/como-export-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como export -2,2%, Svizzera cresce al +21,2%",
+      "description": "La provincia di Como registra un export in calo del 2,2%. Tessile arretra del 7,9%, ma la Svizzera cresce del 21,2%. Analisi UIL su settori, occupazione e CIGS.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-export-svizzera-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea del distretto di Mendrisio, zona di confine tra Ticino e Como in Lombardia"
+      },
+      "datePublished": "2026-09-04T13:53:14+00:00",
+      "dateModified": "2026-09-04T13:53:14+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-export-svizzera-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

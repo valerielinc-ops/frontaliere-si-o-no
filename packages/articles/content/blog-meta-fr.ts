@@ -11329,6 +11329,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Grève en Italie : les trains TILO s\'arrêtent à la frontière',
     'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Du 7 au 8 septembre 2026, les services TILO NE circuleront pas en Italie pendant la grève nationale. Bus de remplacement pour la ligne S50.',
     'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin et des trains',
+    'blog.article.como-export-svizzera-2026.title': 'Comme export -2,2%, la Suisse croît à +21,2%',
+    'blog.article.como-export-svizzera-2026.excerpt': 'La province de Côme enregistre une baisse des exportations de 2,2 %. Textile recule de 7,9 %, mais la Suisse croît : +21,2 %. Analyse de l\'UIL sur les secteurs et l\'emploi.',
+    'blog.article.como-export-svizzera-2026.imageAlt': 'Vue aérienne du district de Mendrisiotto, zone frontalière entre Tessin et Lombardie',
 };
 
 export default blogMetaFr;

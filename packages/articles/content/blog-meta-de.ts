@@ -11326,6 +11326,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Streik in Italien: Tilo-Züge HALTEN an der Grenze',
     'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Vom 7. bis 8. September 2026 werden die TILO-DIENSTE während des nationalen Streiks in Italien nicht verkehren. Ersatzbusse für die Linie S50.',
     'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin und Zügen',
+    'blog.article.como-export-svizzera-2026.title': 'Als Export -2,2%, Schweiz wächst mit +21,2%',
+    'blog.article.como-export-svizzera-2026.excerpt': 'Die Provinz Como verzeichnet einen Exportrückgang von 2,2%. Textil um 7,9% zurück, aber die Schweiz wächst: +21,2%. UIL-Analyse zu Sektoren und Beschäftigung.',
+    'blog.article.como-export-svizzera-2026.imageAlt': 'Luftaufnahme des Mendrisio-Bezirks, Grenzregion zwischen Tessin und der Lombardei',
 };
 
 export default blogMetaDe;
