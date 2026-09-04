@@ -11316,6 +11316,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-remoto-estero-fiscalita.title': 'Frontaliere in remoto: tasse e diritti dalla vacanza',
     'blog.article.frontaliere-remoto-estero-fiscalita.excerpt': 'Lavora remoto da estero? La tassazione rimane in Svizzera. Imposta alla fonte, AVS, LAMal: cosa cambia con il nuovo accordo frontalieri 2024.',
     'blog.article.frontaliere-remoto-estero-fiscalita.imageAlt': 'Scrivania di frontaliere con laptop, documenti di lavoro e vista su Lugano sullo sfondo, setup per lavoro remoto',
+    'blog.article.sciopero-tilo-italia-2026.title': 'Nuovo sciopero, i TILO si fermano al confine',
+    'blog.article.sciopero-tilo-italia-2026.excerpt': 'Sciopero nazionale in Italia dal 7 al 8 settembre 2026: ripercussioni sui collegamenti TILO',
+    'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Vista aerea di Lugano con il confine italiano in lontananza',
 };
 
 export default blogMetaIt;

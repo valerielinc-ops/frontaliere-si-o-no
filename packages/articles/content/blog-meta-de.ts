@@ -11314,6 +11314,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-remoto-estero-fiscalita.title': 'Grenzgänger aus der Ferne: Gebühren und Abgaben aus dem Urlaub',
     'blog.article.frontaliere-remoto-estero-fiscalita.excerpt': 'Arbeiten Sie remote im Ausland? Die Besteuerung bleibt in der Schweiz. Quellensteuer, AHV, KVG: Was ändert sich mit dem neuen Grenzgängerabkommen 2024?',
     'blog.article.frontaliere-remoto-estero-fiscalita.imageAlt': 'Arbeitsplatz eines Grenzgängers mit Laptop und Dokumenten, Homeoffice-Setup mit Luganotal im Hintergrund',
+    'blog.article.sciopero-tilo-italia-2026.title': 'Neuer Streik, die TILO halten an der Grenze an',
+    'blog.article.sciopero-tilo-italia-2026.excerpt': 'Nationaler Streik in Italien vom 7. bis 8. September 2026: Auswirkungen auf die TILO-VERBINDUNGEN',
+    'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Luftaufnahme von Lugano mit der italienischen Grenze im Hintergrund',
 };
 
 export default blogMetaDe;
