@@ -1344,6 +1344,27 @@ const CARD_EXCERPT_CHARS = 160;
 const EVENT_CARD_CAP = 80;
 
 /**
+ * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
+ * the LARGEST page in the dataset (1235 upcoming events measured 2026-09-04)
+ * and therefore the one where 80 cards cost the most: a full card is ~1.4 KB of
+ * markup (480x270 `<img>`, category chip, meta line, excerpt up to
+ * `CARD_EXCERPT_CHARS`, comune), so the card block alone weighed ~111 KB of the
+ * 311.8 KB `fr` page — over `MAX_HTML_BYTES`.
+ *
+ * Why the sentinel gets its own number instead of lowering `EVENT_CARD_CAP` for
+ * everyone: on a comune hub the cards ARE the discovery surface for a short,
+ * coherent list, while this bucket is a heterogeneous nationwide dump where the
+ * cards past the first couple dozen add no discovery value proportional to
+ * their bytes. Nothing is dropped — `renderOverflowIndex()` still links every
+ * event past the cap as a text row (~150 B each), so trading 56 cards for 56
+ * rows is about -70 KB with the #5434 reachability invariant untouched.
+ *
+ * Same contract as `EVENT_CARD_CAP`: the card slice and `renderOverflowIndex()`
+ * MUST be handed this very constant, never a different number.
+ */
+const OTHER_EVENTS_CARD_CAP = 24;
+
+/**
  * The event's own summary, shown on every card in every listing (canton hub,
  * comune page, digest, and the "more events" grid on a detail page).
  *
@@ -2195,8 +2216,9 @@ export function renderOtherEventsPage(params: {
   // audit:max-bfs-depth orphan-tail fix). The tail past the cap is NOT dropped
   // any more: `renderOverflowIndex()` below links it as text rows (#5434). This
   // sentinel bucket is the LARGEST one in the dataset (683 upcoming events
-  // measured 2026-08-09), so it is also the page that block weighs most on.
-  const list = events.slice(0, EVENT_CARD_CAP);
+  // measured 2026-08-09), so it is also the page that block weighs most on —
+  // hence its own, lower `OTHER_EVENTS_CARD_CAP` rather than the hub number.
+  const list = events.slice(0, OTHER_EVENTS_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
@@ -2228,7 +2250,7 @@ export function renderOtherEventsPage(params: {
       <div class="mt-4">${renderEventList(list, locale, detailHref)}</div>
     </section>
 
-    ${renderOverflowIndex(events, EVENT_CARD_CAP, locale, detailHref)}
+    ${renderOverflowIndex(events, OTHER_EVENTS_CARD_CAP, locale, detailHref)}
 
     <section class="mt-8 rounded-md border border-edge bg-surface p-5 shadow-stripe-sm">
       <a class="inline-flex items-center gap-2 text-sm font-semibold text-link hover:text-link-hover" href="${pathFor(locale, canton)}">${esc(copy.allEvents)} →</a>
