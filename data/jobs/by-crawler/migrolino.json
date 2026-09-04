@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migrolino",
-  "assembledAt": "2026-09-03T23:15:34.554Z",
+  "assembledAt": "2026-09-04T13:28:42.683Z",
   "jobs": [
     {
       "id": "migrolino-4bf26892a4ca",
@@ -33,7 +33,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/8a1d1c46-c4fb-4be0-8402-da3fe7fc1f20",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:30.934Z",
+      "crawledAt": "2026-09-04T13:28:37.115Z",
       "addressLocality": "Bottmingen",
       "addressRegion": "BL",
       "streetAddress": "Schlossgasse 10",
@@ -55,13 +55,15 @@
         "sales-staff-migrolino-bottmingen",
         "personnel-de-vente-migrolino-bottmingen",
         "personale-di-vendita-migrolino-bottmingen",
-        "verkaufsmitarbeiter-in-migrolino-bottmingen-w81zx7"
+        "verkaufsmitarbeiter-in-migrolino-bottmingen-w81zx7",
+        "personale-di-vendita-migrolino-bottmingen-ddb948"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-bottmingen",
           "personale-di-vendita-migrolino-bottmingen",
-          "verkaufsmitarbeiter-in-migrolino-bottmingen-w81zx7"
+          "verkaufsmitarbeiter-in-migrolino-bottmingen-w81zx7",
+          "personale-di-vendita-migrolino-bottmingen-ddb948"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-bottmingen",
@@ -123,7 +125,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/d8be6127-7745-42fa-98f9-83389dd8a20f",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:30.467Z",
+      "crawledAt": "2026-09-04T13:28:36.416Z",
       "addressLocality": "Roggwil",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 99",
@@ -141,11 +143,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-roggwil"
+        "verkaufsmitarbeiter-in-migrolino-roggwil",
+        "personale-di-vendita-migrolino-roggwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-roggwil"
+          "verkaufsmitarbeiter-in-migrolino-roggwil",
+          "personale-di-vendita-migrolino-roggwil"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-roggwil"
@@ -200,7 +204,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsstellenplanerin-cad-zeichnerin/39da75f9-cebd-4a59-adfa-ece0600d23a8",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:29.955Z",
+      "crawledAt": "2026-09-04T13:28:35.708Z",
       "addressLocality": "Suhr",
       "addressRegion": "Aargau",
       "streetAddress": "Wynenfeldstrasse 3",
@@ -220,18 +224,22 @@
       "previousSlugsByLocale": {
         "de": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
+          "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr"
         ],
         "it": [
           "verkaufsstellenplaner-in-cad-migrolino-suhr",
           "pianificatore-point-of-sale-cad-migrolino-suhr",
-          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
+          "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
+          "cad-planer-in-zeichner-in-migrolino-suhr"
         ]
       },
       "previousSlugs": [
         "verkaufsstellenplaner-in-cad-migrolino-suhr",
         "pianificatore-point-of-sale-cad-migrolino-suhr",
-        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr"
+        "verkaufsstellenplaner-in-cad-zeichner-in-migrolino-suhr",
+        "cad-planer-in-zeichner-in-migrolino-suhr-p5fkjr",
+        "cad-planer-in-zeichner-in-migrolino-suhr"
       ],
       "firstSeenAt": "2026-07-04T11:29:00.801Z",
       "salaryMin": 62000,
@@ -279,7 +287,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/5d80c334-b989-4067-aca6-e184a596b2fb",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:29.364Z",
+      "crawledAt": "2026-09-04T13:28:34.995Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Egghölzli 1",
@@ -313,7 +321,8 @@
         "verkaufsmitarbeiter-in-migrolino-bern-km7tmw",
         "sales-staff-migrolino-bern-c8add6",
         "personnel-de-vente-migrolino-bern-c8add6",
-        "personale-di-vendita-migrolino-bern-c8add6"
+        "personale-di-vendita-migrolino-bern-c8add6",
+        "personale-di-vendita-migrolino-bern-89f77e"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -331,7 +340,8 @@
           "verkaufsmitarbeiter-in-migrolino-bern-km7tmw",
           "sales-staff-migrolino-bern-c8add6",
           "personnel-de-vente-migrolino-bern-c8add6",
-          "personale-di-vendita-migrolino-bern-c8add6"
+          "personale-di-vendita-migrolino-bern-c8add6",
+          "personale-di-vendita-migrolino-bern-89f77e"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-bern-2",
@@ -399,7 +409,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/83504023-47e7-4eb1-96e8-f235e6093e08",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:28.910Z",
+      "crawledAt": "2026-09-04T13:28:34.272Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
@@ -426,7 +436,8 @@
         "sales-staff-migrolino-volketswil",
         "personnel-de-vente-migrolino-volketswil",
         "verkaufsmitarbeiter-in-migrolino-volketswil-btgs0t",
-        "rappresentante-vendite-migrolino-volketswil"
+        "rappresentante-vendite-migrolino-volketswil",
+        "personale-di-vendita-migrolino-volketswil-ce7213"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -437,7 +448,8 @@
           "sales-staff-migrolino-volketswil",
           "personnel-de-vente-migrolino-volketswil",
           "verkaufsmitarbeiter-in-migrolino-volketswil-btgs0t",
-          "rappresentante-vendite-migrolino-volketswil"
+          "rappresentante-vendite-migrolino-volketswil",
+          "personale-di-vendita-migrolino-volketswil-ce7213"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-volketswil",
@@ -501,7 +513,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/67630a78-3436-4b5f-b394-7043fadd728f",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:28.364Z",
+      "crawledAt": "2026-09-04T13:28:33.604Z",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
       "streetAddress": "Lindenallee 98",
@@ -523,13 +535,15 @@
         "sales-staff-migrolino-interlaken",
         "personnel-de-vente-migrolino-interlaken",
         "personale-di-vendita-migrolino-interlaken",
-        "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk"
+        "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
+        "personale-di-vendita-migrolino-interlaken-b79dd7"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-interlaken",
           "personale-di-vendita-migrolino-interlaken",
-          "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk"
+          "verkaufsmitarbeiter-in-migrolino-interlaken-1o3tzk",
+          "personale-di-vendita-migrolino-interlaken-b79dd7"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-interlaken",
@@ -591,7 +605,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/a0222308-de80-48c3-a39e-101c323e74fd",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:27.751Z",
+      "crawledAt": "2026-09-04T13:28:32.858Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Weststrasse 10",
@@ -619,7 +633,8 @@
         "sales-staff-migrolino-thun",
         "personnel-de-vente-migrolino-thun",
         "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
-        "rappresentante-vendite-migrolino-thun"
+        "rappresentante-vendite-migrolino-thun",
+        "personale-di-vendita-migrolino-thun-7a114c"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -631,7 +646,8 @@
           "sales-staff-migrolino-thun",
           "personnel-de-vente-migrolino-thun",
           "verkaufsmitarbeiter-in-migrolino-thun-ygp0tu",
-          "rappresentante-vendite-migrolino-thun"
+          "rappresentante-vendite-migrolino-thun",
+          "personale-di-vendita-migrolino-thun-7a114c"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-thun-2",
@@ -697,7 +713,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/edf4bf6b-f1e7-4928-baf1-5b15162f7ca4",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:27.142Z",
+      "crawledAt": "2026-09-04T13:28:32.165Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofplatz 15/17",
@@ -719,13 +735,15 @@
         "sales-staff-migrolino-winterthur",
         "personnel-de-vente-migrolino-winterthur",
         "personale-di-vendita-migrolino-winterthur",
-        "verkaufsmitarbeiter-in-migrolino-winterthur-5y5doh"
+        "verkaufsmitarbeiter-in-migrolino-winterthur-5y5doh",
+        "personale-di-vendita-migrolino-winterthur-0182b1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-winterthur",
           "personale-di-vendita-migrolino-winterthur",
-          "verkaufsmitarbeiter-in-migrolino-winterthur-5y5doh"
+          "verkaufsmitarbeiter-in-migrolino-winterthur-5y5doh",
+          "personale-di-vendita-migrolino-winterthur-0182b1"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-winterthur",
@@ -787,7 +805,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0ae34116-a28d-420d-b769-ca84e9186ef2",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:26.655Z",
+      "crawledAt": "2026-09-04T13:28:31.409Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Rautistrasse 32",
@@ -810,14 +828,16 @@
         "personnel-de-vente-migrolino-zurich",
         "personale-di-vendita-migrolino-zurich",
         "verkaufsmitarbeiter-in-migrolino-zurich-2",
-        "verkaufsmitarbeiter-in-migrolino-zurich-3eroot"
+        "verkaufsmitarbeiter-in-migrolino-zurich-3eroot",
+        "personale-di-vendita-migrolino-zurich-6d0f30"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-zurich",
           "personale-di-vendita-migrolino-zurich",
           "verkaufsmitarbeiter-in-migrolino-zurich-2",
-          "verkaufsmitarbeiter-in-migrolino-zurich-3eroot"
+          "verkaufsmitarbeiter-in-migrolino-zurich-3eroot",
+          "personale-di-vendita-migrolino-zurich-6d0f30"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-zurich",
@@ -879,7 +899,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/a721fd5c-2fc6-4fbc-9ff0-f06957c48d8f",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:26.178Z",
+      "crawledAt": "2026-09-04T13:28:30.719Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofquai",
@@ -898,13 +918,15 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsmitarbeiter-in-migrolino-zurich"
+          "verkaufsmitarbeiter-in-migrolino-zurich",
+          "verkaufsmitarbeiter-in-migrolino-zurich-saf2lh"
         ],
         "it": [
           "verkaufsmitarbeiter-in-migrolino-zurich",
           "verkaufsmitarbeiter-in-migrolino-zurich-2",
           "personale-di-vendita-migrolino-zurich-2010be",
-          "verkaufsmitarbeiter-in-migrolino-zurich-saf2lh"
+          "verkaufsmitarbeiter-in-migrolino-zurich-saf2lh",
+          "personale-di-vendita-migrolino-zurich-ba7de1"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-zurich-2",
@@ -925,7 +947,8 @@
         "sales-staff-migrolino-zurich-2010be",
         "personnel-de-vente-migrolino-zurich-2010be",
         "personale-di-vendita-migrolino-zurich-2010be",
-        "verkaufsmitarbeiter-in-migrolino-zurich-saf2lh"
+        "verkaufsmitarbeiter-in-migrolino-zurich-saf2lh",
+        "personale-di-vendita-migrolino-zurich-ba7de1"
       ],
       "firstSeenAt": "2026-08-10T10:27:59.737Z",
       "salaryMin": 73500,
@@ -973,7 +996,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/90f43727-fe5f-4182-8996-c5998508249a",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:25.682Z",
+      "crawledAt": "2026-09-04T13:28:30.035Z",
       "addressLocality": "Zofingen",
       "addressRegion": "Aargau",
       "streetAddress": "Untergrabenstrasse 32",
@@ -995,13 +1018,15 @@
         "sales-staff-migrolino-zofingen",
         "personnel-de-vente-migrolino-zofingen",
         "personale-di-vendita-migrolino-zofingen",
-        "verkaufsmitarbeiter-in-migrolino-zofingen-glol4d"
+        "verkaufsmitarbeiter-in-migrolino-zofingen-glol4d",
+        "personale-di-vendita-migrolino-zofingen-528b3f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-zofingen",
           "personale-di-vendita-migrolino-zofingen",
-          "verkaufsmitarbeiter-in-migrolino-zofingen-glol4d"
+          "verkaufsmitarbeiter-in-migrolino-zofingen-glol4d",
+          "personale-di-vendita-migrolino-zofingen-528b3f"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-zofingen",
@@ -1063,7 +1088,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/shopleiterin/c3d6641a-9f66-47f5-b936-32821e9a06e4",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:25.210Z",
+      "crawledAt": "2026-09-04T13:28:29.264Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Binningerstrasse 91",
@@ -1084,13 +1109,15 @@
         "shopleiter-in-migrolino-allschwil",
         "directeur-commercial-migrolino-allschwil",
         "shop-manager-migrolino-allschwil",
-        "shopleiter-in-migrolino-allschwil-i342p2"
+        "shopleiter-in-migrolino-allschwil-i342p2",
+        "shop-manager-migrolino-allschwil-5b9bd3"
       ],
       "previousSlugsByLocale": {
         "it": [
           "shopleiter-in-migrolino-allschwil",
           "shop-manager-migrolino-allschwil",
-          "shopleiter-in-migrolino-allschwil-i342p2"
+          "shopleiter-in-migrolino-allschwil-i342p2",
+          "shop-manager-migrolino-allschwil-5b9bd3"
         ],
         "en": [
           "shopleiter-in-migrolino-allschwil",
@@ -1103,6 +1130,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:53:16.894Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1148,7 +1176,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin-spatdienst/ade0ff40-3e20-4a2b-8707-1f43515e9801",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:24.629Z",
+      "crawledAt": "2026-09-04T13:28:28.482Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Binningerstrasse 91",
@@ -1169,12 +1197,14 @@
         "schichtleiter-in-spatdienst-migrolino-allschwil",
         "shift-leader-in-spatdienst-migrolino-allschwil",
         "chef-d-equipe-in-spatdienst-migrolino-allschwil",
-        "capo-turno-in-spatdienst-migrolino-allschwil"
+        "capo-turno-in-spatdienst-migrolino-allschwil",
+        "capo-turno-in-spatdienst-migrolino-allschwil-0nufdy"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtleiter-in-spatdienst-migrolino-allschwil",
-          "capo-turno-in-spatdienst-migrolino-allschwil"
+          "capo-turno-in-spatdienst-migrolino-allschwil",
+          "capo-turno-in-spatdienst-migrolino-allschwil-0nufdy"
         ],
         "en": [
           "schichtleiter-in-spatdienst-migrolino-allschwil",
@@ -1235,7 +1265,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin-fruhdienst/ebc03954-e60c-4c56-aa07-a449836ab941",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:24.039Z",
+      "crawledAt": "2026-09-04T13:28:27.802Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Binningerstrasse 91",
@@ -1256,12 +1286,14 @@
         "schichtleiter-in-fruhdienst-migrolino-allschwil",
         "shift-leader-in-fruhdienst-migrolino-allschwil",
         "chef-d-equipe-in-fruhdienst-migrolino-allschwil",
-        "capo-turno-in-fruhdienst-migrolino-allschwil"
+        "capo-turno-in-fruhdienst-migrolino-allschwil",
+        "capo-turno-in-fruhdienst-migrolino-allschwil-jnz0pn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtleiter-in-fruhdienst-migrolino-allschwil",
-          "capo-turno-in-fruhdienst-migrolino-allschwil"
+          "capo-turno-in-fruhdienst-migrolino-allschwil",
+          "capo-turno-in-fruhdienst-migrolino-allschwil-jnz0pn"
         ],
         "en": [
           "schichtleiter-in-fruhdienst-migrolino-allschwil",
@@ -1322,7 +1354,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/0d97542a-6458-4e32-bf80-653e5e365c13",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:23.456Z",
+      "crawledAt": "2026-09-04T13:28:27.081Z",
       "addressLocality": "Brügg",
       "addressRegion": "Aargau",
       "streetAddress": "Bahnhofstrasse 8",
@@ -1341,14 +1373,18 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsmitarbeiter-in-migrolino-brugg"
+          "verkaufsmitarbeiter-in-migrolino-brugg",
+          "verkaufsmitarbeiter-in-migrolino-wilderswil"
         ],
         "it": [
-          "verkaufsmitarbeiter-in-migrolino-brugg"
+          "verkaufsmitarbeiter-in-migrolino-brugg",
+          "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-migrolino-brugg"
+        "verkaufsmitarbeiter-in-migrolino-brugg",
+        "verkaufsmitarbeiter-in-migrolino-wilderswil",
+        "addetto-a-alle-vendite-migrolino-wilderswil-t9g9uz"
       ],
       "firstSeenAt": "2026-08-13T10:23:52.270Z",
       "salaryMin": 62000,
@@ -1396,7 +1432,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7ccf9110-419b-4a46-a61f-bb29df927024",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:22.981Z",
+      "crawledAt": "2026-09-04T13:28:26.375Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -1419,14 +1455,16 @@
         "personnel-de-vente-migrolino-romanshorn",
         "personale-di-vendita-migrolino-romanshorn",
         "verkaufsmitarbeiter-in-migrolino-romanshorn-2",
-        "verkaufsmitarbeiter-in-migrolino-romanshorn-5lqtfb"
+        "verkaufsmitarbeiter-in-migrolino-romanshorn-5lqtfb",
+        "personale-di-vendita-migrolino-romanshorn-88a904"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-romanshorn",
           "personale-di-vendita-migrolino-romanshorn",
           "verkaufsmitarbeiter-in-migrolino-romanshorn-2",
-          "verkaufsmitarbeiter-in-migrolino-romanshorn-5lqtfb"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn-5lqtfb",
+          "personale-di-vendita-migrolino-romanshorn-88a904"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-romanshorn",
@@ -1488,7 +1526,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/295772d7-d58f-41fd-95bd-fceb2bcd414c",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:22.518Z",
+      "crawledAt": "2026-09-04T13:28:25.871Z",
       "addressLocality": "Romanshorn",
       "addressRegion": "TG",
       "streetAddress": "Mittlere Gasse 5",
@@ -1507,7 +1545,8 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "verkaufsmitarbeiter-in-migrolino-romanshorn"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn",
+          "verkaufsmitarbeiter-in-migrolino-romanshorn-sf5wo1"
         ],
         "it": [
           "verkaufsmitarbeiter-in-migrolino-romanshorn",
@@ -1522,7 +1561,8 @@
           "verkaufsmitarbeiter-in-migrolino-romanshorn-k2fv81",
           "verkaufsmitarbeiter-in-migrolino-romanshorn-2",
           "personale-di-vendita-migrolino-romanshorn-e1e413",
-          "verkaufsmitarbeiter-in-migrolino-romanshorn-sf5wo1"
+          "verkaufsmitarbeiter-in-migrolino-romanshorn-sf5wo1",
+          "personale-di-vendita-migrolino-romanshorn-bb5103"
         ],
         "en": [
           "sales-staff-migrolino-romanshorn-b0945f",
@@ -1554,7 +1594,8 @@
         "sales-staff-migrolino-romanshorn-e1e413",
         "personnel-de-vente-migrolino-romanshorn-e1e413",
         "personale-di-vendita-migrolino-romanshorn-e1e413",
-        "verkaufsmitarbeiter-in-migrolino-romanshorn-sf5wo1"
+        "verkaufsmitarbeiter-in-migrolino-romanshorn-sf5wo1",
+        "personale-di-vendita-migrolino-romanshorn-bb5103"
       ],
       "firstSeenAt": "2026-08-13T10:23:50.928Z",
       "salaryMin": 57500,
@@ -1602,7 +1643,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/9a0eee64-4777-4fcd-a600-16ca02df4d02",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:22.055Z",
+      "crawledAt": "2026-09-04T13:28:25.286Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Bahnhofstrasse 2",
@@ -1625,7 +1666,8 @@
         "shift-leader-in-migrolino-schmerikon-ye5hr5",
         "chef-d-equipe-in-migrolino-schmerikon-ye5hr5",
         "schichtleiter-in-migrolino-schmerikon-ye5hr5",
-        "schichtleiter-in-migrolino-schmerikon-vjgm2k"
+        "schichtleiter-in-migrolino-schmerikon-vjgm2k",
+        "capo-turno-in-migrolino-schmerikon-vjgm2k"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1633,7 +1675,8 @@
           "capo-turno-in-migrolino-schmerikon-ye5hr5",
           "shift-leader-in-migrolino-schmerikon-ye5hr5",
           "chef-d-equipe-in-migrolino-schmerikon-ye5hr5",
-          "schichtleiter-in-migrolino-schmerikon-ye5hr5"
+          "schichtleiter-in-migrolino-schmerikon-ye5hr5",
+          "capo-turno-in-migrolino-schmerikon-vjgm2k"
         ],
         "en": [
           "shift-leader-in-migrolino-schmerikon-ye5hr5"
@@ -1691,7 +1734,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/46da289d-1644-43c3-ae8c-2340924a0b9d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:21.458Z",
+      "crawledAt": "2026-09-04T13:28:24.543Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "streetAddress": "Winkelriedstrasse 10",
@@ -1710,11 +1753,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schichtleiter-in-migrolino-bern",
-        "schichtleiter-in-migrolino-bern-34e0lc"
+        "schichtleiter-in-migrolino-bern-34e0lc",
+        "capo-turno-in-migrolino-bern-34e0lc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "schichtleiter-in-migrolino-bern"
+          "schichtleiter-in-migrolino-bern",
+          "capo-turno-in-migrolino-bern-34e0lc"
         ],
         "de": [
           "schichtleiter-in-migrolino-bern-34e0lc"
@@ -1766,7 +1811,7 @@
       "url": "https://jobs.migros.ch/fr/nos-entreprises/job/migrolino/vendeur-vendeuse/d6178b5a-4439-46d4-951f-bc22757462ac",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:15:20.894Z",
+      "crawledAt": "2026-09-04T13:28:23.839Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "streetAddress": "place de la gare 10",
@@ -1849,7 +1894,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/4df4ca99-b76b-4b35-9c0f-df1b06b8a850",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:20.301Z",
+      "crawledAt": "2026-09-04T13:28:23.135Z",
       "addressLocality": "Brugg",
       "addressRegion": "Aargau",
       "streetAddress": "Zurzacherstrasse 83",
@@ -1868,12 +1913,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-brugg",
-        "verkaufsmitarbeiter-in-migrolino-brugg-ibn5r5"
+        "verkaufsmitarbeiter-in-migrolino-brugg-ibn5r5",
+        "personale-di-vendita-migrolino-brugg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-brugg",
-          "verkaufsmitarbeiter-in-migrolino-brugg-ibn5r5"
+          "verkaufsmitarbeiter-in-migrolino-brugg-ibn5r5",
+          "personale-di-vendita-migrolino-brugg"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-brugg-ibn5r5",
@@ -1933,7 +1980,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/1eb4e3ed-5d04-432f-bc43-5f42a04c48fd",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:19.729Z",
+      "crawledAt": "2026-09-04T13:28:22.432Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -1953,13 +2000,15 @@
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-wilderswil",
         "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-        "verkaufsmitarbeiter-in-migrolino-wilderswil-32sbbr"
+        "verkaufsmitarbeiter-in-migrolino-wilderswil-32sbbr",
+        "personale-di-vendita-migrolino-wilderswil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil",
           "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-32sbbr"
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-32sbbr",
+          "personale-di-vendita-migrolino-wilderswil"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil",
@@ -2019,7 +2068,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/d4d65354-9355-4297-b288-2a8c27c90a34",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:19.150Z",
+      "crawledAt": "2026-09-04T13:28:21.743Z",
       "addressLocality": "Wilderswil",
       "addressRegion": "BE",
       "streetAddress": "Gsteigstrasse 6",
@@ -2042,13 +2091,15 @@
         "sales-staff-migrolino-wilderswil-e929cd",
         "personnel-de-vente-migrolino-wilderswil-e929cd",
         "personale-di-vendita-migrolino-wilderswil-e929cd",
-        "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv"
+        "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv",
+        "personale-di-vendita-migrolino-wilderswil-1abf98"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil",
           "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
-          "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv"
+          "verkaufsmitarbeiter-in-migrolino-wilderswil-jwgfhv",
+          "personale-di-vendita-migrolino-wilderswil-1abf98"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-wilderswil-2",
@@ -2112,7 +2163,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/b6e83bdd-02a8-4f9d-9250-8e88ed148ef7",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:18.558Z",
+      "crawledAt": "2026-09-04T13:28:21.034Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Zeughausstrasse 38",
@@ -2131,12 +2182,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-sursee-5c91uw",
-        "verkaufsmitarbeiter-in-migrolino-sursee"
+        "verkaufsmitarbeiter-in-migrolino-sursee",
+        "personale-di-vendita-migrolino-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-sursee-5c91uw",
-          "verkaufsmitarbeiter-in-migrolino-sursee"
+          "verkaufsmitarbeiter-in-migrolino-sursee",
+          "personale-di-vendita-migrolino-sursee"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-sursee-5c91uw",
@@ -2197,7 +2250,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/schichtleiterin/2f243b00-3083-4541-b02e-ef2188332f6d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:17.981Z",
+      "crawledAt": "2026-09-04T13:28:20.329Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Zeughausstrasse 38",
@@ -2219,12 +2272,14 @@
         "shift-leader-in-migrolino-sursee",
         "chef-d-equipe-in-migrolino-sursee",
         "capo-turno-in-migrolino-sursee",
-        "schichtleiter-in-migrolino-sursee-g61qht"
+        "schichtleiter-in-migrolino-sursee-g61qht",
+        "capo-turno-in-migrolino-sursee-g61qht"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schichtleiter-in-migrolino-sursee",
-          "capo-turno-in-migrolino-sursee"
+          "capo-turno-in-migrolino-sursee",
+          "capo-turno-in-migrolino-sursee-g61qht"
         ],
         "en": [
           "schichtleiter-in-migrolino-sursee",
@@ -2285,7 +2340,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/7726d43f-a023-4c4f-a74b-e7e93e4359d9",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:17.371Z",
+      "crawledAt": "2026-09-04T13:28:19.648Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofplatz 8",
@@ -2304,12 +2359,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-        "verkaufsmitarbeiter-in-migrolino-dietikon"
+        "verkaufsmitarbeiter-in-migrolino-dietikon",
+        "personale-di-vendita-migrolino-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
-          "verkaufsmitarbeiter-in-migrolino-dietikon"
+          "verkaufsmitarbeiter-in-migrolino-dietikon",
+          "personale-di-vendita-migrolino-dietikon"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-dietikon-cipu2v",
@@ -2370,7 +2427,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/verkaufsmitarbeiterin/5755a25c-40e9-47fc-bb17-1ab95afe177d",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:16.790Z",
+      "crawledAt": "2026-09-04T13:28:18.818Z",
       "addressLocality": "Steffisburg",
       "addressRegion": "BE",
       "streetAddress": "Bernstrasse 39",
@@ -2389,12 +2446,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "verkaufsmitarbeiter-in-migrolino-steffisburg-jndhc5",
-        "verkaufsmitarbeiter-in-migrolino-steffisburg"
+        "verkaufsmitarbeiter-in-migrolino-steffisburg",
+        "personale-di-vendita-migrolino-steffisburg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-migrolino-steffisburg-jndhc5",
-          "verkaufsmitarbeiter-in-migrolino-steffisburg"
+          "verkaufsmitarbeiter-in-migrolino-steffisburg",
+          "personale-di-vendita-migrolino-steffisburg"
         ],
         "en": [
           "verkaufsmitarbeiter-in-migrolino-steffisburg-jndhc5",
@@ -2455,7 +2514,7 @@
       "url": "https://jobs.migros.ch/de/unsere-unternehmen/job/migrolino/car-wash-beraterin/0c1a54fe-a115-43b0-a03c-718932e715da",
       "source": "migrolino Dedicated Parser (Migros Group jobs.migros.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:15:16.197Z",
+      "crawledAt": "2026-09-04T13:28:17.954Z",
       "addressLocality": "Volketswil",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 20a",
