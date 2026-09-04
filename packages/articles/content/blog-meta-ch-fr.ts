@@ -5488,6 +5488,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-vaud-prezzi-mutuo.title': 'Acheter maison Vaud : prix, hypothèque et taxes',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.excerpt': 'Guide pratique d\'achat en Vaud : comment fonctionnent les prêts hypothécaires, les fonds propres, la taxe de passage et les frais de notaire. Procédure étape par étape pour les acheteurs suisses.',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.imageAlt': 'Vue aérienne d\'immeubles résidentiels dans une ville lacustre suisse avec parcs et montagnes',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Acheter une maison en Vaud : prix et hypothèque',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Vaud : prix, exigences de fonds propres, coûts fiscaux, taxes de passage et viabilité du prêt hypothécaire.',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Propriété résidentielle dans le canton de Vaud avec montagne; scène immobilière suisse pour guide d\'achat avec hypothèque.',
 };
 
 export default blogMetaChFr;

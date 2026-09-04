@@ -5488,6 +5488,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.comprare-casa-vaud-prezzi-mutuo.title': 'Comprare casa Vaud: prezzi, mutuo e tasse',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.excerpt': 'Guida pratica all\'acquisto nel Vaud: come funzionano i mutui ipotecari, fondi propri, imposta trapassi e spese notarili. Procedura step-by-step per compratori svizzeri.',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.imageAlt': 'Vista aerea di moderni edifici residenziali in una città svizzera lacustre con parchi e montagne',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Comprare casa nel Vaud: prezzi e mutuo ipotecario',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Guida completa all\'acquisto di una casa nel canton Vaud: prezzi, requisiti di fondi propri, costi fiscali, imposte sui trapassi e sostenibilità del mutuo ipotecario.',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Casa nel Cantone di Vaud con montagne sullo sfondo; scena di proprietà residenziale svizzera per guida all\'acquisto con mutuo.',
 };
 
 export default blogMetaChIt;
