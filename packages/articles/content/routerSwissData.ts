@@ -1836,6 +1836,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cpe-s-voto-bilaterali-iii': { it: 'cpe-s-voto-bilaterali-iii', en: 'cpe-s-vote-bilaterals-iii', de: 'cpe-s-abstimmung-bilaterale-iii', fr: 'cpe-s-vote-bilaterales-iii' },
  'prezzo-olio-riscaldamento-alle-stelle-usa-iran': { it: 'prezzo-olio-riscaldamento-alle-stelle-usa-iran', en: 'heating-oil-prices-soar-due-to-usa-iran-conflict', de: 'heizolpreise-steigen-wegen-usa-iran-konflikt', fr: 'hausse-des-prix-du-fioul-de-chauffage-due-au-conflit-usa-iran' },
  'sicurezza-informatica-cyber-security-day-ated': { it: 'sicurezza-informatica-cyber-security-day-ated', en: 'cyber-security-day-ated-lugano', de: 'cyber-security-tag-ated-lugano', fr: 'journee-cyber-securite-ated-lugano' },
+ 'volkswagen-fornitori-svizzeri': { it: 'volkswagen-fornitori-svizzeri', en: 'volkswagen-swiss-suppliers-risk', de: 'volkswagen-schweizer-zulieferer-risiko', fr: 'volkswagen-fournisseurs-suisses-risques' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

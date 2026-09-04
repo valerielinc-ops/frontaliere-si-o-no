@@ -5431,6 +5431,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sicurezza-informatica-cyber-security-day-ated.title': 'Cyber Security Day: Sicurezza informatica e intelligenza artificiale',
     'blog.article.sicurezza-informatica-cyber-security-day-ated.excerpt': 'La quarta edizione del Cyber Security Day di ATED si è tenuta il 2 settembre a Lugano, con un focus su cybersecurity e intelligenza artificiale.',
     'blog.article.sicurezza-informatica-cyber-security-day-ated.imageAlt': 'Vista aerea del centro di Lugano con edifici moderni e icone di sicurezza digitale.',
+    'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen taglia 50mila posti: quali fornitori svizzeri rischiano?',
+    'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'La ristrutturazione tedesca del colosso colpirà Feintool e pochi altri. Analisi dell\'impatto sulla piazza industriale elvetica secondo gli analisti di Zurigo.',
+    'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Interno di stabilimento produttivo svizzero con macchinari di precisione e operai in ambiente illuminato',
 };
 
 export default blogMetaChIt;

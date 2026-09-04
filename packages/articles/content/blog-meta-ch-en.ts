@@ -5431,6 +5431,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sicurezza-informatica-cyber-security-day-ated.title': 'Cyber Security Day: Cyber Security and Artificial Intelligence',
     'blog.article.sicurezza-informatica-cyber-security-day-ated.excerpt': 'The fourth edition of ATED\'s Cyber Security Day was held on 2 September in Lugano, with a focus on cybersecurity and artificial intelligence.',
     'blog.article.sicurezza-informatica-cyber-security-day-ated.imageAlt': 'Aerial view of Lugano city center with modern buildings and digital security icons.',
+    'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen cuts 50,000 seats: which Swiss suppliers are at risk?',
+    'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'The German restructuring of the colossus will hit Feintool and few others. Analysis of the impact on the Swiss industrial square according to Zurich analysts.',
+    'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Swiss manufacturing facility interior with precision machinery and workers in well-lit industrial environment',
 };
 
 export default blogMetaChEn;
