@@ -134,6 +134,18 @@ function sleep(ms) {
 const LAB_RETRY_SAMPLES = 2;       // 2 additional samples (3 total)
 const LAB_RETRY_THRESHOLD = 0.25;  // same as HARD_CLS_THRESHOLD
 
+/**
+ * L'audit Lighthouse che porta l'attribuzione del layout shift, da qualunque
+ * delle due chiavi lo pubblichi.
+ *
+ * Esportata e pura apposta: il difetto che chiude viveva dentro `runPsi()`,
+ * che fa rete, quindi nessun test poteva vederlo e per tre settimane il campo
+ * e' tornato `null` senza che niente fallisse.
+ */
+export function pickLayoutShiftAudit(audits) {
+  return audits?.['layout-shifts'] ?? audits?.['layout-shift-elements'] ?? undefined;
+}
+
 async function runPsi(url, strategy) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (API_KEY) params.set('key', API_KEY);
@@ -222,12 +234,24 @@ function parsePsiResponse(j) {
     source = 'unavailable';
   }
 
-  // Extract a compact subset of the Lighthouse "layout-shift-elements" audit
-  // for CLS attribution debugging — sufficient to identify the shifting node
-  // without ballooning the report with the full ~500 KB Lighthouse JSON.
+  // Extract a compact subset of the Lighthouse layout-shift attribution audit
+  // for CLS debugging — sufficient to identify the shifting node without
+  // ballooning the report with the full ~500 KB Lighthouse JSON.
   // The full payload (`psiRaw`) is also returned for hard regressions so the
   // post-deploy artifact carries everything an investigator needs.
-  const lsElements = j.lighthouseResult?.audits?.['layout-shift-elements'];
+  //
+  // DUE CHIAVI, e l'ordine conta. Lighthouse ha RITIRATO
+  // `layout-shift-elements` e oggi pubblica `layout-shifts`; PSI risponde solo
+  // con la seconda. Leggendo la sola chiave vecchia questo campo tornava
+  // `null` a OGNI run — e siccome `null` qui è indistinguibile da «la pagina
+  // non ha shift», due analisi automatiche su #5785 (2026-08-13 e 2026-08-18)
+  // hanno concluso «nessuna telemetria di attribuzione disponibile» mentre
+  // l'attribuzione c'era. Misurato il 2026-09-04 su `/cerca-lavoro-ticino/`
+  // mobile: `layout-shift-elements` ASSENTE, `layout-shifts` con 2 item, di
+  // cui uno da solo vale il 99,7% dello shift della pagina. La chiave nuova
+  // per prima, la vecchia come fallback finché esistono report archiviati che
+  // la contengono.
+  const lsElements = pickLayoutShiftAudit(j.lighthouseResult?.audits);
   const finalScreenshot = j.lighthouseResult?.audits?.['final-screenshot']?.details?.data || null;
 
   return {
