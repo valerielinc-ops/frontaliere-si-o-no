@@ -11328,6 +11328,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Sciopero in Italia: i treni TILO si fermano al confine',
     'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Dal 7 al 8 settembre 2026, i servizi TILO non circoleranno in Italia durante lo sciopero nazionale. Bus sostitutivi per la linea S50.',
     'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino e treni',
+    'blog.article.como-export-svizzera-2026.title': 'Como export -2,2%, Svizzera cresce al +21,2%',
+    'blog.article.como-export-svizzera-2026.excerpt': 'La provincia di Como registra un export in calo del 2,2%. Tessile arretra del 7,9%, ma la Svizzera cresce: +21,2%. Analisi UIL su settori e occupazione.',
+    'blog.article.como-export-svizzera-2026.imageAlt': 'Veduta aerea del distretto di Mendrisio, zona di confine tra Ticino e Como in Lombardia',
 };
 
 export default blogMetaIt;

@@ -11327,6 +11327,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Strike in Italy: TILO trains stop at the border',
     'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'From 7 to 8 September 2026, TILO services will not circulate in Italy during the national strike. Replacement buses for line S50.',
     'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape and trains',
+    'blog.article.como-export-svizzera-2026.title': 'As an export -2.2%, Switzerland grows to +21.2%',
+    'blog.article.como-export-svizzera-2026.excerpt': 'The province of Como recorded an export decrease of 2.2%. Textiles lag behind by 7.9%, but Switzerland grows: +21.2%. UIL analysis on sectors and employment.',
+    'blog.article.como-export-svizzera-2026.imageAlt': 'Aerial view of Mendrisio district, border region between Ticino and Lombardy',
 };
 
 export default blogMetaEn;
