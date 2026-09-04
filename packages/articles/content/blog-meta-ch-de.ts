@@ -5404,6 +5404,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Aufenthaltsbewilligung B Kanton Waadt: Voraussetzungen und Verlängerung',
     'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Wie kann ich den Führerschein B im Waadtland erneuern? Was sind die Voraussetzungen? Praktischer Leitfaden zu den Verfahren, erforderlichen Dokumenten und Fristen für die Erneuerung des Wohnsitzes.',
     'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Schweizer Migrationsbehörde mit Personen bei der Einreichung von B-Aufenthaltserlaubnis-Dokumenten',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Führerschein B: Erneuerung und Voraussetzungen im Nidwalden',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'So erneuern Sie die Aufenthaltsbewilligung B im Kanton Nidwalden: Verwaltungsverfahren, Pflichtdokumente, Gültigkeitsdauer und Kontakte der Verwaltung.',
+    'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Schweizer Verwaltungsgebäude mit traditioneller Alpenarchitektur, Symbol der kantonalen Migrationsverwaltung.',
 };
 
 export default blogMetaChDe;

@@ -1827,6 +1827,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'comprare-casa-san-gallo-mutuo': { it: 'comprare-casa-san-gallo-mutuo', en: 'buy-home-san-gallo-mortgage', de: 'haus-kaufen-sankt-gallen-hypothek', fr: 'acheter-maison-saint-gall-hypotheque' },
  'avs-lacune-contributive-san-gallo': { it: 'avs-lacune-contributive-san-gallo', en: 'avs-contribution-gaps-st-gallen', de: 'avs-beitragslucken-st-gallen', fr: 'avs-lacunes-contributives-st-gall' },
  'permesso-dimora-b-vaud-rinnovo': { it: 'permesso-dimora-b-vaud-rinnovo', en: 'residence-permit-b-vaud-renewal', de: 'aufenthaltserlaubnis-b-vaud-erneuerung', fr: 'permis-sejour-b-vaud-renouvellement' },
+ 'permesso-b-nidvaldo-procedura-rinnovo': { it: 'permesso-b-nidvaldo-procedura-rinnovo', en: 'permit-b-nidvaldo-renewal-procedure', de: 'aufenthaltserlaubnis-b-nidwalden-verlaengerung', fr: 'permis-b-nidwald-procedure-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
