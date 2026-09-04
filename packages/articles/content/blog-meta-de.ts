@@ -11278,6 +11278,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Leben in Cassina Rizzardi und Arbeiten im Tessin',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Bewilligung G, Quellensteuer, AHV/BVG, KVG: Kompletter Leitfaden für Grenzgänger Como-Ticino mit Verfahren, Kosten und Transfer-Checkliste.',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Luganersee mit Tessiner Alpen, die sich in ruhigen Gewässern an einem klaren Morgen spiegeln.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Wohnen in Castelnuovo Bozzente und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
 };
 
 export default blogMetaDe;

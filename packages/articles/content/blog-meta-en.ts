@@ -11279,6 +11279,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Living in Cassina Rizzardi and working in Ticino',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Permit G, tax at source, AVS/LPP, LAMal: complete guide for border crossers Como-Ticino with procedure, costs and transfer checklist.',
     'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Lake Lugano with Alpine Ticino mountains mirrored in calm waters on a clear morning.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Living in Castelnuovo Bozzente and working in Ticino as a border worker',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Learn about the connections, travel times, cost of living, and benefits of transferring.',
+    'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background',
 };
 
 export default blogMetaEn;
