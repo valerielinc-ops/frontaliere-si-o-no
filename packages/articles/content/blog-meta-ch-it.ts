@@ -5464,6 +5464,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Assegni familiari Vaud: importi e come fare domanda',
     'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Guida pratica agli assegni familiari nel cantone di Vaud: come fare domanda, diritti dei beneficiari, documenti richiesti e cassa di compensazione competente.',
     'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Una famiglia svizzera consulta i documenti sugli assegni familiari in una cucina moderna con vista sulle montagne alpine.',
+    'blog.article.apprendistato-canton-vaud.title': 'Apprendistato e formazione nel Canton Vaud: guida pratica',
+    'blog.article.apprendistato-canton-vaud.excerpt': 'Come trovare un tirocinio nel Canton Vaud, retribuzione, contratto di apprendistato e maturità professionale secondo la legge federale svizzera.',
+    'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprendista al lavoro in un\'officina svizzera durante la formazione pratica nel settore artigianale',
 };
 
 export default blogMetaChIt;

@@ -70922,6 +70922,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-apprendistato-canton-vaud': {
+    title: 'Apprendistato e formazione nel Canton Vaud: guida pratica',
+    description: 'Guida all\'apprendistato nel Canton Vaud: come trovare un tirocinio, diritti dell\'apprendista, retribuzione e maturità professionale in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, canton, vaud',
+    ogTitle: 'Apprendistato Canton Vaud: come trovare il tirocinio',
+    ogDescription: 'Cercate un\'opportunità di apprendistato nel Canton Vaud? Scoprite come trovare un posto di tirocinio, cosa aspettarvi dal contratto di apprendistato, le retribuzioni e i diritti secondo la legge federale svizzera.',
+    canonicalPath: '/articoli-svizzera/apprendistato-canton-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel Canton Vaud: guida pratica",
+      "description": "Guida all'apprendistato nel Canton Vaud: come trovare un tirocinio, diritti dell'apprendista, retribuzione e maturità professionale in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-canton-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista al lavoro in un'officina svizzera durante la formazione pratica nel settore artigianale"
+      },
+      "datePublished": "2026-09-04T18:44:05+00:00",
+      "dateModified": "2026-09-04T18:44:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-canton-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
