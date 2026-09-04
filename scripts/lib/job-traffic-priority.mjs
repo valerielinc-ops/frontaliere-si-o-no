@@ -69,6 +69,41 @@ export const RESERVE_FOR_OLDEST = 0.2;
  */
 export const QUEUE_AGE_ALERT_DAYS = 150;
 
+/**
+ * The age buckets that PARTITION the dated queue: every dated job lands in
+ * exactly one, so their sum is `withTimestamp`. Any consumer checking that
+ * invariant must sum THESE, never `Object.values(buckets)`.
+ *
+ * @see QUEUE_AGE_BUCKET_KEYS for why the full set does not partition anything.
+ */
+export const QUEUE_AGE_DISJOINT_BUCKET_KEYS = Object.freeze(
+  ['0-7d', '7-30d', '30-90d', '90-180d', '180d+'],
+);
+
+/**
+ * Every key `summarizeQueueAge()` emits, in output order — the disjoint
+ * partition above PLUS a finer subdivision of its first bucket.
+ *
+ * `0-1d`, `1-2d` and `2-7d` SUBDIVIDE `0-7d`, which is kept and still counts
+ * all three. The overlap is deliberate: `data/translation-stats-history.json`
+ * has 200 committed rows that read on `0-7d`, and dropping it would silently
+ * break every reader of the old series. The fine buckets exist because the
+ * translation map's 24-hour target is invisible at 7-day resolution — on
+ * 2026-09-04 `0-7d` held 4.360 jobs, of which 1.308 were younger than a day,
+ * so without `0-1d` a change that fixes the freshest cohort and a change that
+ * does nothing trace the same number.
+ *
+ * The consequence is the trap this constant exists to close: **the full set
+ * does not sum to `withTimestamp`** — it sums to `withTimestamp + buckets
+ * ['0-7d']`. Both lists live here, next to the loop that fills them, so a
+ * future bucket cannot be added to the implementation and missed by a
+ * consumer; that is exactly how `translation-shadow-preflight-v2.mjs` was
+ * broken in two places at once, 1.130 lines apart.
+ */
+export const QUEUE_AGE_BUCKET_KEYS = Object.freeze(
+  ['0-1d', '1-2d', '2-7d', ...QUEUE_AGE_DISJOINT_BUCKET_KEYS],
+);
+
 const MS_PER_DAY = 86_400_000;
 
 /**
@@ -154,19 +189,7 @@ export function summarizeQueueAge(jobs, { now = Date.now(), alertDays = QUEUE_AG
   }
   ages.sort((a, b) => a - b);
 
-  // `0-1d`, `1-2d` and `2-7d` are a SUBDIVISION of `0-7d`, which is kept and
-  // still counts all three, so the 200 committed history rows stay comparable
-  // against new ones on the key they already carry. The overlap is deliberate:
-  // dropping `0-7d` would silently break every reader of the old series.
-  //
-  // The fine buckets exist because the map's 24-hour target is invisible at
-  // 7-day resolution — on 2026-09-04 `0-7d` held 4.360 jobs, of which 1.308
-  // were younger than a day. Without `0-1d` a change that fixes the freshest
-  // cohort and a change that does nothing trace the same number.
-  const buckets = {
-    '0-1d': 0, '1-2d': 0, '2-7d': 0,
-    '0-7d': 0, '7-30d': 0, '30-90d': 0, '90-180d': 0, '180d+': 0,
-  };
+  const buckets = Object.fromEntries(QUEUE_AGE_BUCKET_KEYS.map((k) => [k, 0]));
   for (const a of ages) {
     if (a < 7) {
       buckets['0-7d']++;

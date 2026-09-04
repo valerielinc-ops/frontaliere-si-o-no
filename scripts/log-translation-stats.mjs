@@ -522,7 +522,13 @@ export function formatReport(entry) {
  */
 function readCohort() {
   const raw = readJson(COHORT_FILE);
-  if (!Array.isArray(raw) || raw.length === 0) return null;
+  // An EMPTY cohort is a cohort: the `before` pass ran and found nothing
+  // incomplete. Collapsing it onto `null` would make the `after` pass report
+  // "not measured" for a run that measured perfectly and found zero — the same
+  // null/zero conflation that `completedSamples: null` exists to prevent,
+  // reopened by the reader. `null` is reserved for a sidecar that is absent or
+  // malformed, which is the only case where nothing was measured.
+  if (!Array.isArray(raw)) return null;
   return new Set(raw);
 }
 
