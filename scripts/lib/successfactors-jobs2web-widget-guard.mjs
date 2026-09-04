@@ -182,17 +182,20 @@ const SF_J2W_MORE_LOCATIONS_TOKEN_RE =
  */
 const SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE = new RegExp(
   SF_J2W_MORE_LOCATIONS_TOKEN_RE.source,
-  'i',
+  SF_J2W_MORE_LOCATIONS_TOKEN_RE.flags.replace('g', ''),
 );
 
 /**
  * What a further office segment looks like once the marker has been cut off:
- * a separator, then actual content. Requiring the separator is deliberate — a
- * skin that renders "Zurich, CH +2 more… Apply now" must NOT have the call to
- * action glued onto the location, while "Lugano, CH +1 more… , Bern, CH"
- * carries a real second segment that the tail cut would discard.
+ * a separator, then actual content. Requiring the separator is deliberate —
+ * "Zurich, CH +2 more… Apply now" is page chrome, not a second office, and
+ * must stay indistinguishable from a plain trailing cut, while
+ * "Lugano, CH +1 more… , Bern, CH" carries a real second segment.
+ *
+ * The token regex above already eats `\s*(?:…|\.{3})?`, so the slice tested
+ * here always starts past the ellipsis: no ellipsis alternative needed.
  */
-const SF_J2W_TRAILING_SEGMENT_RE = /^\s*(?:…|\.{3})?\s*[,;]\s*\S/;
+const SF_J2W_TRAILING_SEGMENT_RE = /^\s*[,;]\s*\S/;
 
 /**
  * Normalize the two characters the marker is anchored on, so callers may pass
@@ -301,36 +304,77 @@ export function stripSuccessFactorsMoreLocations(value) {
   if (typeof value !== 'string') return '';
   const normalized = normalizeMarkerChars(value);
   const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
-  if (!normalized.trim()) return withoutTail;
-  if (withoutTail && !hasSegmentAfterMarker(normalized)) return withoutTail;
+  if (withoutTail || !normalized.trim()) {
+    if (withoutTail) warnOnDiscardedOffices(normalized, withoutTail);
+    return withoutTail;
+  }
   return normalized
     .replace(SF_J2W_MORE_LOCATIONS_TOKEN_RE, ' ')
     .replace(/\s+/g, ' ')
-    // The token took its own separator with it, so removing it can leave the
-    // next segment hanging off a floating " , " — join the offices the way the
-    // cell would have rendered them.
-    .replace(/\s+([,;])/g, '$1')
     .replace(/^[\s,;]+|[\s,;]+$/g, '')
     .trim();
 }
 
 /**
- * True when the cell keeps a further structured segment AFTER the marker, i.e.
- * when cutting to end-of-string would throw away an office instead of the
- * marker alone.
+ * The office segments a cell renders AFTER the "+N more…" marker, i.e. exactly
+ * what the tail cut of `stripSuccessFactorsMoreLocations()` throws away.
  *
- * The tail cut is right for the observed skins (the `<small>` is the LAST node
- * of the cell) and stays the default, but on "Lugano, CH +1 more… , Bern, CH"
- * it silently drops ", Bern, CH" — and that discarded segment can be the only
- * Swiss office of the row, i.e. the posting the crawler exists to keep. The
- * loss is indistinguishable from the correct case, so the decision is made
- * here on the shape of the tail rather than left implicit.
+ * `''` for the observed skins, where the `<small>` is the LAST node of the
+ * cell, and `''` for page chrome after the marker ("+2 more… Apply now"): a
+ * further OFFICE is separator-delimited, a call to action is not.
+ *
+ * WHY THIS IS A SEPARATE ACCESSOR and not folded into the strip result: every
+ * one of the eight consumers treats the returned string as ONE office and
+ * feeds it to `splitJobLocation`/`inferSwissTargetCanton`. Returning
+ * "Lugano, CH, Bern, CH" makes that chain infer canton BE for a Lugano
+ * posting — it resolves the first STRONG canton signal, and `Bern` is one —
+ * so the row leaves the Ticino index and ships structured data with the wrong
+ * `addressRegion`. Corrupting the primary office is a worse failure than the
+ * one this accessor exists to surface, so the strip keeps returning the
+ * primary office alone and the extra segments are offered here, opt-in.
+ *
+ * @param {unknown} value
+ * @returns {string} The text after the marker, separators trimmed, or `''`.
+ */
+export function successFactorsMoreLocationsTail(value) {
+  if (typeof value !== 'string') return '';
+  const normalized = normalizeMarkerChars(value);
+  const match = normalized.match(SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE);
+  if (!match || typeof match.index !== 'number') return '';
+  const tail = normalized.slice(match.index + match[0].length);
+  if (!SF_J2W_TRAILING_SEGMENT_RE.test(tail)) return '';
+  return tail.replace(/^[\s,;]+|[\s,;]+$/g, '').trim();
+}
+
+/**
+ * Cells already reported, so a results page of N rows sharing one skin quirk
+ * logs once per distinct cell instead of once per row.
+ */
+const warnedDiscardedCells = new Set();
+
+/**
+ * Make the tail cut audible when it discards a real office.
+ *
+ * The reviewer note this answers (#7264, item 3): on a skin rendering
+ * "Lugano, CH +1 more… , Bern, CH" the cut keeps "Lugano, CH" and drops
+ * ", Bern, CH" — consistent with "keep the primary office", but if such a
+ * skin exists the discarded segment may be the row's only Swiss office and
+ * the choice is INDISTINGUISHABLE from the correct case. No fixture of that
+ * skin exists, so the branch stays unobserved until something says so: this
+ * warning is that observer. It cannot fire on the observed skins (nothing
+ * follows the marker there), so it costs nothing on the live corpus and turns
+ * a silent loss into a grep-able line the day a tenant changes layout.
  *
  * @param {string} normalized Marker-normalized cell text.
- * @returns {boolean}
+ * @param {string} kept The primary office the cut kept.
+ * @returns {void}
  */
-function hasSegmentAfterMarker(normalized) {
-  const match = normalized.match(SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE);
-  if (!match || typeof match.index !== 'number') return false;
-  return SF_J2W_TRAILING_SEGMENT_RE.test(normalized.slice(match.index + match[0].length));
+function warnOnDiscardedOffices(normalized, kept) {
+  const tail = successFactorsMoreLocationsTail(normalized);
+  if (!tail || warnedDiscardedCells.has(normalized)) return;
+  warnedDiscardedCells.add(normalized);
+  console.warn(
+    `\u{1F9ED} j2w multi-segment location cell: kept "${kept}", dropped "${tail}" (from "${normalized.trim()}")`,
+  );
 }
+
