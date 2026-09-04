@@ -5371,6 +5371,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Residence Permit B St. Gallen: Requirements and Renewal',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Practical guide to residence permit B in the Canton of St. Gallen: requirements, documents, duration and renewal procedure at the cantonal migration office.',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'View of St. Gallen city with administrative buildings and Swiss alpine architecture',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Canton of Schwyz: schooling and enrolment',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'Compulsory schooling in the canton of Schwyz begins at the age of 6. Learn about cycles, enrollment, calendar, and high school transition.',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Swiss primary school classroom in Canton Schwyz, children in class, modern furniture and window overlooking Alpine landscape.',
 };
 
 export default blogMetaChEn;

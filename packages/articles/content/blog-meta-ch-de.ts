@@ -5371,6 +5371,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B St. Gallen: Voraussetzungen und Verlängerung',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zur Aufenthaltsbewilligung B im Kanton St. Gallen: Voraussetzungen, Dokumente, Dauer und Erneuerungsverfahren beim kantonalen Migrationsamt.',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Blick auf die Stadt Sankt Gallen mit Verwaltungsgebäuden und Schweizer Alpenarchitektur',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Kanton Schwyz: Schulzyklen und Einschreibung',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'Die Schulpflicht im Kanton Schwyz beginnt mit 6 Jahren. Entdecken Sie Zyklen, Einschreibungen, Kalender und den Übergang in die weiterführende Schule.',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Klassenzimmer einer Schweizer Grundschule im Kanton Schwyz mit Kindern im Unterricht, modernem Mobiliar und Fenster mit Alpenblick.',
 };
 
 export default blogMetaChDe;

@@ -1816,6 +1816,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'settori-salari-uri-lavoro': { it: 'settori-salari-uri-lavoro', en: 'uri-salary-sectors-labor-market', de: 'uri-loehne-arbeitsmarkt-sektoren', fr: 'uri-salaires-secteurs-marche-travail' },
  'imposte-cantonali-svizzera-aliquote-deduzioni': { it: 'imposte-cantonali-svizzera-aliquote-deduzioni', en: 'swiss-cantonal-taxes-rates-deductions', de: 'schweizer-kantonsteuern-satze-abzuge', fr: 'impots-cantonaux-suisse-taux-deductions' },
  'permesso-b-san-gallo-requisiti-rinnovo': { it: 'permesso-b-san-gallo-requisiti-rinnovo', en: 'residence-permit-b-st-gallen-requirements-renewal', de: 'aufenthaltserlaubnis-b-kanton-sangallen-anforderungen-erneuerung', fr: 'permis-sejour-b-canton-saint-gall-requisits-renouvellement' },
+ 'scuola-svitto-cicli-e-iscrizione': { it: 'scuola-svitto-cicli-e-iscrizione', en: 'school-canton-schwyz-cycles-and-enrollment', de: 'schulen-kanton-schwyz-zyklus-und-anmeldung', fr: 'ecole-canton-schwyz-cycles-et-inscription' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
