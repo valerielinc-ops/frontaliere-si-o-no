@@ -146,4 +146,43 @@ describe('cap delle run issue-fix in volo', () => {
     expect(promotions(lines)).toHaveLength(3);
     expect(promotions(lines).length).toBeLessThan(9);
   });
+
+  it('con run vive i RESCUE non girano: l\'invariante che il loro codice assume e\' inflight===0', async () => {
+    // Finding Important della review su #7300. Il codice dei rescue dice
+    // testualmente «inFlightFixCount() in cima ha gia' garantito che NESSUNA
+    // run e' queued/in_progress»: era vero col mutex, falso col cap. Una issue
+    // `agent:fix` con la run VIVA da 35 min e senza PR ha outcome null e non e'
+    // piu' in settling (35 > SETTLE_MIN), quindi supera ORPHAN_MIN_AGE_MIN=30 e
+    // verrebbe classificata orfana — tentativo consumato mentre il fix lavora,
+    // e una seconda run sulla stessa issue al tick dopo. Il p90 misurato dei
+    // run e' 37 min, sopra la soglia: non e' un caso di laboratorio.
+    execFileSync.mockImplementation(makeDispatch(1, 2));
+    const lines = await runDrainCapturingLogs();
+    expect(lines.some((l) => l.includes('rescue orfani/crawler saltati: 1 run issue-fix vive'))).toBe(true);
+    // Il drain, che quell'assunzione non ce l'ha, continua a lavorare.
+    expect(promotions(lines).length).toBeGreaterThan(0);
+  });
+
+  it('a slot liberi i rescue girano come sempre', async () => {
+    execFileSync.mockImplementation(makeDispatch(0, 2));
+    const lines = await runDrainCapturingLogs();
+    expect(lines.some((l) => l.includes('rescue orfani/crawler saltati'))).toBe(false);
+  });
+
+  it('la riga finale non contraddice le promozioni appena stampate', async () => {
+    // Con cap > 1 il ciclo puo' esaurire la coda DOPO aver promosso: la riga
+    // «niente da promuovere» compariva sotto i `PROMUOVO #N` dello stesso tick.
+    execFileSync.mockImplementation(makeDispatch(0, 2));
+    const lines = await runDrainCapturingLogs();
+    expect(promotions(lines)).toHaveLength(2);
+    expect(lines.some((l) => l.includes('niente da promuovere'))).toBe(false);
+    expect(lines.some((l) => l.includes('coda esaurita dopo 2 promozione/i'))).toBe(true);
+  });
+
+  it('senza candidati la riga «niente da promuovere» resta', async () => {
+    execFileSync.mockImplementation(makeDispatch(0, 0));
+    const lines = await runDrainCapturingLogs();
+    expect(promotions(lines)).toHaveLength(0);
+    expect(lines.some((l) => l.includes('niente da promuovere'))).toBe(true);
+  });
 });
