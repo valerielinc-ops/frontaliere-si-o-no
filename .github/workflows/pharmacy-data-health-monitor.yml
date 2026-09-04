@@ -47,7 +47,14 @@ jobs:
       - name: Run pharmacy data-health dashboard
         id: check
         continue-on-error: true
-        run: node scripts/check-pharmacy-data-health.mjs | tee /tmp/pharmacy-health.txt
+        # `set -euo pipefail` obbligatorio: la shell di default di un `run:` è
+        # `bash -e {0}`, NON `-o pipefail`, quindi senza questa riga l'exit
+        # status della pipe sarebbe quello di `tee` (sempre 0) e il monitor
+        # risulterebbe verde per costruzione. Stesso idiom di
+        # `.github/workflows/corpus-ahead-check.yml`.
+        run: |
+          set -euo pipefail
+          node scripts/check-pharmacy-data-health.mjs | tee /tmp/pharmacy-health.txt
 
       - name: Open issue for degraded pharmacy data
         if: steps.check.outcome == 'failure'
@@ -57,12 +64,26 @@ jobs:
           set -euo pipefail
           report=data/pharmacy-data-health-report.json
           if [ ! -f "$report" ]; then
-            echo "Script fallito prima di emettere il report — nessuna issue di dato, se ne occupa il reporter di failure."
+            # `continue-on-error: true` sullo step precedente impedisce al job di
+            # fallire, quindi `if: failure()` in fondo NON si valuta mai vero:
+            # questo ramo è l'unica rete per uno script morto prima di scrivere
+            # il report (es. registry mancante o illeggibile). Deve aprire lui
+            # l'issue, non delegarla a uno step che non partirà.
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Workflow Failure: ${{ github.workflow }}" \
+              --description "## Dashboard dati farmacie morta prima di emettere il report
+
+          \`scripts/check-pharmacy-data-health.mjs\` è uscito non-zero senza scrivere \`data/pharmacy-data-health-report.json\`: tipicamente \`data/pharmacy-sources-registry.json\` mancante o illeggibile. Nessun verdetto sul dato è stato prodotto — la dashboard non è né verde né rossa, è cieca.
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "${{ github.workflow }}"
             exit 0
           fi
           count=$(jq -r '.problems | length' "$report")
           problems=$(jq -r '.problems | map("- " + .) | join("\n")' "$report")
-          dashboard=$(sed -n '/── Dashboard/,/^─\{5,\}/p' /tmp/pharmacy-health.txt)
+          dashboard=$(jq -r '.dashboard | join("\n")' "$report")
 
           body=$(cat <<EOF
           La dashboard dati farmacie ha trovato **${count}** problema/i di copertura, freschezza, fetch o conflitti.

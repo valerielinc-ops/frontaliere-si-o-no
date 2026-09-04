@@ -7,6 +7,7 @@ import {
   detectDutyConflicts,
   evaluateCoverage,
   evaluateFreshness,
+  normalizeIdentityField,
   formatReport,
   parseIsoDurationMs,
 } from '../scripts/check-pharmacy-data-health.mjs';
@@ -71,7 +72,7 @@ describe('evaluateCoverage', () => {
     expect(cov.cantonsWithAnagrafica).toBe(1);
     expect(cov.cantonsWithDuties).toBe(0);
     expect(cov.byStatus).toEqual({ active: 1 });
-    expect(cov.entries[0]).toMatchObject({ key: 'ticino', pharmacyCount: 2, cityCount: 2, regionsFetched: 4 });
+    expect(cov.entries[0]).toMatchObject({ key: 'ticino', pharmacyCount: 2, cityCount: 2, regionsConfigured: 4 });
   });
 });
 
@@ -162,5 +163,41 @@ describe('buildReport', () => {
     expect(lines).toContain('Freschezza anagrafica/ticino');
     expect(lines).toContain('Errori di fetch: 0');
     expect(lines).toContain('Conflitti: 0');
+  });
+});
+
+describe('normalizeIdentityField', () => {
+  it('collapses whitespace and strips diacritics so the same pharmacy from two regions still collides', () => {
+    expect(normalizeIdentityField('Via  Nassa  5')).toBe(normalizeIdentityField('Via Nassa 5'));
+    expect(normalizeIdentityField('Lugàno ')).toBe('lugano');
+    expect(normalizeIdentityField(undefined)).toBe('');
+  });
+
+  it('catches a cross-region duplicate whose address only differs by spacing', () => {
+    const doc = {
+      pharmacies: [
+        { id: 'ti-a', slug: 'a', name: 'Alfa', address: 'Via Nassa 5', postalCode: '6900', sourceUrl: 'r1' },
+        { id: 'ti-b', slug: 'b', name: 'Alfa', address: 'Via  Nassa  5', postalCode: '6900', sourceUrl: 'r2' },
+      ],
+    };
+    expect(detectAnagraficaConflicts('ticino', doc).map((c) => c.type)).toEqual(['duplicate-identity']);
+  });
+});
+
+describe('report payload consumed by the workflow', () => {
+  it('carries the rendered dashboard so the workflow reads it with jq, not a regex on U+2500 separators', () => {
+    const report = buildReport({ registry, datasets: { ticino: anagrafica() }, knownCantonCount: 26, nowMs: NOW });
+    expect(Array.isArray(report.dashboard)).toBe(true);
+    expect(report.dashboard.join('\n')).toContain('Copertura: 1/26');
+  });
+
+  it('names the scheduler (#6752) as the way out when the anagrafica goes stale', () => {
+    const report = buildReport({
+      registry,
+      datasets: { ticino: anagrafica({ _fetchedAt: iso(40) }) },
+      knownCantonCount: 26,
+      nowMs: NOW,
+    });
+    expect(report.problems.join('\n')).toContain('#6752');
   });
 });

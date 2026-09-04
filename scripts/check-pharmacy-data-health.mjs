@@ -95,7 +95,11 @@ export function evaluateCoverage(registry, datasets, duties, knownCantonCount) {
       hasAnagrafica: Boolean(anagrafica),
       pharmacyCount: pharmacies.length,
       cityCount: new Set(pharmacies.map((p) => p?.city).filter(Boolean)).size,
-      regionsFetched: Array.isArray(anagrafica?._sourceRegions) ? anagrafica._sourceRegions.length : 0,
+      // `_sourceRegions` è `OFCT_REGIONS.map(r => r.url)` in
+      // `scripts/import-pharmacies-ticino.mjs`: le regioni CONFIGURATE, non quelle
+      // che hanno risposto. Il nome dice quello che il dato è; le regioni fallite si
+      // leggono da `_errors[]`, che è la dimensione "errori fetch" qui sotto.
+      regionsConfigured: Array.isArray(anagrafica?._sourceRegions) ? anagrafica._sourceRegions.length : 0,
       hasDuties: Boolean(dutyDoc),
       dutyCount: dutyList.length,
     });
@@ -165,6 +169,22 @@ export function collectFetchErrors(datasets, duties) {
 }
 
 /**
+ * Normalizza un campo testuale prima di usarlo come chiave di identità.
+ * `scripts/lib/pharmacy-ticino-parser.mjs` emette `address`/`name` come testo
+ * grezzo della cella HTML: senza collassare spazi e diacritici, "Via  Nassa 5"
+ * e "Via Nassa 5" (o "Lugano"/"Lugàno") sfuggirebbero al rilevamento — cioè
+ * proprio il caso per cui questo controllo esiste.
+ */
+export function normalizeIdentityField(value) {
+  return String(value ?? '')
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+/**
  * Conflitti nell'anagrafica: identità duplicate e stessa farmacia emessa da due
  * regioni diverse (il caso reale quando due pagine di regione si sovrappongono).
  */
@@ -185,7 +205,11 @@ export function detectAnagraficaConflicts(key, doc) {
     if (p?.id) dup('id', p.id, label);
     if (p?.slug) dup('slug', p.slug, label);
     if (p?.name && p?.postalCode && p?.address) {
-      dup('identity', `${String(p.name).toLowerCase()}|${p.postalCode}|${String(p.address).toLowerCase()}`, `${label} (${p.sourceUrl ?? '?'})`);
+      dup(
+        'identity',
+        `${normalizeIdentityField(p.name)}|${normalizeIdentityField(p.postalCode)}|${normalizeIdentityField(p.address)}`,
+        `${label} (${p.sourceUrl ?? '?'})`,
+      );
     }
   }
   return conflicts;
@@ -234,11 +258,20 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
       problems.push(`fonte ${e.key} è "active" ma non esiste alcun dataset (né anagrafica né turni)`);
     }
   }
-  for (const f of freshness.entries) if (f.stale) problems.push(`dataset ${f.kind} ${f.key} stale: ${f.reason}`);
+  // Un'anagrafica stale è una violazione REALE dello SLA dichiarato dalla policy,
+  // non un falso allarme da sopprimere — ma il percorso di rientro va nominato,
+  // altrimenti l'issue resta aperta senza dire cosa la chiude: oggi l'import è
+  // one-shot e lo scheduler è #6752, e appena quello gira `_fetchedAt` si
+  // aggiorna e il monitor si richiude da solo.
+  for (const f of freshness.entries) {
+    if (!f.stale) continue;
+    const hint = f.kind === 'anagrafica' ? ' — l\'import è ancora one-shot, lo scheduler è #6752' : '';
+    problems.push(`dataset ${f.kind} ${f.key} stale: ${f.reason}${hint}`);
+  }
   for (const e of fetchErrors) problems.push(`${e.count} errore/i di fetch nel dataset ${e.kind} ${e.key}`);
   for (const c of conflicts) problems.push(`conflitto ${c.type} (${c.key}): ${c.detail}`);
 
-  return {
+  const report = {
     generatedAt: new Date(nowMs).toISOString(),
     coverage,
     freshness,
@@ -250,6 +283,12 @@ export function buildReport({ registry, datasets = {}, duties = {}, knownCantonC
     problems,
     healthy: problems.length === 0,
   };
+  // La dashboard renderizzata viaggia DENTRO il report: il workflow la estrae
+  // con `jq`, invece di ritagliarla dallo stdout con una regex sui separatori
+  // `─` (U+2500) — che in locale `C` GNU sed lega all'ultimo byte del carattere
+  // multibyte e non chiude mai il range.
+  report.dashboard = formatReport(report);
+  return report;
 }
 
 /** Dashboard leggibile — è anche il corpo che il workflow incolla nell'issue. */
@@ -259,7 +298,7 @@ export function formatReport(report) {
   lines.push(`Copertura: ${c.cantonsInRegistry}/${c.knownCantonCount} cantoni con fonte registrata · ${c.cantonsWithAnagrafica} con anagrafica · ${c.cantonsWithDuties} con turni`);
   lines.push(`Stato fonti: ${Object.entries(c.byStatus).map(([k, v]) => `${k}=${v}`).join(' ') || 'nessuna'}`);
   for (const e of c.entries) {
-    lines.push(`  • ${e.key} [${e.status}] — ${e.pharmacyCount} farmacie in ${e.cityCount} città (${e.regionsFetched} regioni), turni: ${e.hasDuties ? e.dutyCount : 'assenti'}`);
+    lines.push(`  • ${e.key} [${e.status}] — ${e.pharmacyCount} farmacie in ${e.cityCount} città (${e.regionsConfigured} regioni configurate), turni: ${e.hasDuties ? e.dutyCount : 'assenti'}`);
   }
   for (const f of report.freshness.entries) {
     const age = f.ageHours === null ? '?' : `${Math.round(f.ageHours / 24)}g`;
