@@ -525,14 +525,15 @@ function validTrafficStats(stats, deadlineMs = Number.POSITIVE_INFINITY, now = D
       || stats.matchRate < 0 || stats.matchRate > 1
       || typeof stats.freshFirst !== 'boolean'
       || !boundedInteger(stats.freshHead) || !boundedInteger(stats.freshWindowMs)
-      || !boundedInteger(stats.freshDeferred)
+      || !boundedInteger(stats.freshDeferred) || !boundedInteger(stats.freshFuture)
       // La testa fresca e' un sottoinsieme della coda, mai piu' grande; e a
       // corsia spenta deve essere vuota, altrimenti un consumatore la sta
       // accendendo senza dirlo. Idem per i freschi rimandati allo stride dal
       // tetto della testa: insieme restano un sottoinsieme della coda.
       || stats.freshHead + stats.freshDeferred > stats.queued
       || (!stats.freshFirst
-        && (stats.freshHead !== 0 || stats.freshWindowMs !== 0 || stats.freshDeferred !== 0))
+        && (stats.freshHead !== 0 || stats.freshWindowMs !== 0 || stats.freshDeferred !== 0
+          || stats.freshFuture !== 0))
       || typeof stats.reserveForOldest !== 'number' || !Number.isFinite(stats.reserveForOldest)
       || stats.reserveForOldest < 0 || stats.reserveForOldest > 1) return false;
   const age = stats.age;
