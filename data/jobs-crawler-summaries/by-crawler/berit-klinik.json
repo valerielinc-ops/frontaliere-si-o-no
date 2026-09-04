@@ -1,56 +1,19 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-09-03T23:22:45.713Z",
+  "generatedAt": "2026-09-04T13:33:56.524Z",
   "total": 15,
   "newCount": 0,
-  "updatedCount": 15,
+  "updatedCount": 13,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4629,
-  "avgDurationMs": 4629,
+  "unchangedCount": 2,
+  "durationMs": 6850,
+  "avgDurationMs": 6850,
   "durationHistory": [
-    4629
+    6850
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "Dipl. Fachperson Op Technik 80–100%",
-      "slug": "dipl-fachperson-op-technik-80-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Speicher",
-      "addressLocality": "Speicher",
-      "addressRegion": "AR",
-      "postalCode": "9042",
-      "addressCountry": "CH",
-      "canton": "AR",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-03",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf"
-      },
-      "id": "berit-klinik-30d607aea7c2",
-      "firstSeenAt": "2026-07-03T10:37:16.203Z",
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
     {
       "title": "Sportphysiotherapeut:In Fh 80–100%",
       "slug": "sportphysiotherapeut-in-fh-80-100-berit-klinik",
@@ -339,11 +302,11 @@
       },
       "id": "berit-klinik-14c12c17f7c2",
       "firstSeenAt": "2026-08-26T10:04:51.180Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -487,48 +450,11 @@
       },
       "id": "berit-klinik-3ff0c2424361",
       "firstSeenAt": "2026-08-25T21:42:21.057Z",
-      "_qualityScore": 76,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Köchin, 100%",
-      "slug": "kochin-100-berit-klinik",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_koch_k_chin_wattwil_100__befristet_1ca8178916.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Wattwil",
-      "addressLocality": "Wattwil",
-      "addressRegion": "SG",
-      "postalCode": "9630",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-25",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_koch_k_chin_wattwil_100__befristet_1ca8178916.pdf"
-      },
-      "id": "berit-klinik-a37e337dcfee",
-      "firstSeenAt": "2026-08-25T21:42:21.057Z",
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -571,5 +497,90 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Dipl. Fachperson Op Technik 80–100%",
+      "slug": "dipl-specialist-op-technik-80-100-berit-klinik-speicher",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Speicher",
+      "addressLocality": "Speicher",
+      "addressRegion": "AR",
+      "postalCode": "9042",
+      "addressCountry": "CH",
+      "canton": "AR",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-07-03",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_dipl._fachperson_op_technik__80_100__c2a1d5b03e.pdf"
+      },
+      "id": "berit-klinik-30d607aea7c2",
+      "firstSeenAt": "2026-07-03T10:37:16.203Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Köchin, 100%",
+      "slug": "cucina-100-berit-klinik-wattwil",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_koch_k_chin_wattwil_100__befristet_1ca8178916.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-25",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "stelleninserat_koch_k_chin_wattwil_100__befristet_1ca8178916.pdf"
+      },
+      "id": "berit-klinik-a37e337dcfee",
+      "firstSeenAt": "2026-08-25T21:42:21.057Z",
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ]
 }
