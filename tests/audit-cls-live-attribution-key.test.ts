@@ -136,15 +136,31 @@ describe('il modulo non esegue niente quando lo si importa', () => {
       { encoding: 'utf-8', timeout: 60_000 },
     );
 
-    // L'asserzione e' su TUTTO l'output, non sulla presenza del marker: senza
-    // guard il marker viene stampato lo stesso — `run()` e' async e non e'
-    // awaited, quindi l'import risolve e `INERT` esce PRIMA che il grid PSI
-    // finisca. Un `toContain('INERT')` sarebbe verde in entrambi i casi.
-    // Riprodotto: senza guard il figlio stampa `INERT` e poi le righe del grid
-    // (`❌ home@mobile: PSI 429 …`), ed esce comunque 0 per il fail-open sui
-    // 429. L'unico discriminante e' che non esca NIENT'ALTRO.
-    const output = `${r.stdout ?? ''}${r.stderr ?? ''}`.trim();
-    expect(output, 'l\'import ha eseguito qualcosa: run() non e\' dietro il main-module guard').toBe('INERT');
+    // L'asserzione e' sull'output INTERO di stdout, non sulla presenza del
+    // marker: senza guard il marker viene stampato lo stesso — `run()` e' async
+    // e non e' awaited, quindi l'import risolve e `INERT` esce PRIMA che il
+    // grid PSI finisca. Un `toContain('INERT')` sarebbe verde in entrambi i
+    // casi (misurato: passava in 771 ms senza guard).
+    //
+    // Riprodotto senza guard: stdout porta `INERT` seguito da
+    // `Targets audited: 7 × 2 = 14` e dalla tabella del grid, e il processo
+    // esce comunque 0 per il fail-open sui 429. stdout da solo discrimina.
+    //
+    // stderr NON entra nell'uguaglianza: Node ci scrive i propri warning
+    // (`ExperimentalWarning`, `DeprecationWarning` da un import transitivo, o
+    // uno nuovo introdotto da una minor), che renderebbero rosso un gate che
+    // non e' regredito — un falso rosso auto-inflitto. Si guardano solo le
+    // righe di stderr che NON sono warning di Node, dove finiscono gli `❌` di
+    // `run()`.
+    const stdout = (r.stdout ?? '').trim();
+    const stderrLines = (r.stderr ?? '')
+      .split('\n')
+      .map((l) => l.trim())
+      .filter(Boolean)
+      .filter((l) => !/^\(node:\d+\)|Warning:|^\s*at |--trace-(deprecation|warnings)/.test(l));
+
+    expect(stdout, 'l\'import ha eseguito qualcosa: run() non e\' dietro il main-module guard').toBe('INERT');
+    expect(stderrLines, 'il modulo ha scritto su stderr al solo import').toEqual([]);
     expect(r.status).toBe(0);
   });
 });
