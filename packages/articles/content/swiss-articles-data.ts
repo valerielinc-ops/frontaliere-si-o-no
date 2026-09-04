@@ -16255,6 +16255,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'latte-patate-cari-canicola-svizzera',
+    category: 'fiscale',
+    date: '2026-09-04T09:34:40.005Z',
+    image: '/images/blog/latte-patate-cari-canicola-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

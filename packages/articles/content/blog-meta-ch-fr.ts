@@ -5419,6 +5419,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Économie suisse en accélération : bonne nouvelle pour les frontaliers ?',
     'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'L\'économie suisse accélère plus que prévu avec une croissance du PIB de 1,5% au deuxième trimestre 2026.',
     'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Vue aérienne de Lugano avec les montagnes en arrière-plan, montrant la croissance économique.',
+    'blog.article.latte-patate-cari-canicola-svizzera.title': 'Lait et pommes de terre plus chers, la canicule assèche les portefeuilles',
+    'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Des vagues de chaleur et des sécheresses frappent l\'agriculture suisse, avec des pertes estimées à 522 millions de francs en 2026.',
+    'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Les agriculteurs suisses travaillent dans des champs touchés par la sécheresse, avec le lac de Lugano en arrière-plan.',
 };
 
 export default blogMetaChFr;
