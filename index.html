@@ -3,7 +3,110 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    
+
+    <!-- Partnerize Partner Tag (programma affiliato Wise, tag id c98741ed-…).
+         Snippet VERBATIM come consegnato da Partnerize: la loro doc ("The Partnerize
+         Tag for Partners") vieta di modificarlo — ogni edit puo' rompere l'attribuzione.
+         Sta il piu' in alto possibile nel <head>, come richiesto, cosi' Link Switcher e
+         Keyword Monetization sono attivi prima che l'utente clicchi. Per la SPA non serve
+         altro: il tag gestisce da solo i cambi di route dopo il primo load.
+         Qui e' inline (una sola pagina); le 55k pagine statiche usano la copia
+         esternalizzata /assets/partnerize-tag.js — stesso codice, vedi
+         PARTNERIZE_TAG_CONTENT in build-plugins/constants.ts. -->
+    <script>
+        (function () {
+            var pztt = 3;
+            var pztp = {"p":"pzt","mi":0,"ma":99,"e":[]};
+            var tid = 'c98741ed-da90-49d5-a83f-d66821a170e5';
+
+            var pzth = function (i) {
+                var enc = new TextEncoder();
+                var bin = enc.encode(i);
+                return window.crypto.subtle.digest('SHA-1', bin).then(function (b) {
+                    var u = new Uint8Array(b);
+                    var a = [];
+                    for (var j = 0; j < u.length; j++) {
+                        var hex = u[j].toString(16);
+                        if (hex.length < 2) hex = '0' + hex;
+                        a.push(hex);
+                    }
+                    return a.join('');
+                });
+            };
+
+            var pzth2d = function (h) {
+                return h.slice(0, 6) + 'p.' + h + '.com';
+            };
+
+            var pztd = function () {
+                var i;
+                do {
+                    i = Math.floor(Math.random() * ((pztp.ma + 1) - pztp.mi)) + pztp.mi;
+                } while (pztp.e && pztp.e.indexOf(i) !== -1);
+                return pzth(pztp.p + i).then(pzth2d);
+            };
+
+            var pzti = function () {
+                if (pztt <= 0) return;
+                var s = document.createElement('script');
+                s.onerror = function () {
+                    pztt--;
+                    pzti();
+                };
+                s.onload = function () {
+                    l = true;
+                    pzthc();
+                };
+                var d;
+                pztd().then(function (domain) {
+                    d = domain;
+                    s.src = 'https://' + d + '/tag/' + tid;
+                    document.body.appendChild(s);
+                }).catch(function () {
+                    e.push({ error: 'Load failed from ' + d, parameter: '' });
+                    pzthc();
+                });
+            };
+
+            var l = false;
+            var e = [];
+
+            window.pztr = window.pztr || function (t, f, m, p) {
+                var b = (window.pztb = window.pztb || {});
+                var x = (b[t] = b[t] || { fe: {} });
+                (x.fe[f] = x.fe[f] || []).push({ error: m, parameter: p });
+            };
+            window.pztb = window.pztb || {};
+            window.pztb[tid] = window.pztb[tid] || { fe: {} };
+
+            var pzthc = function () {
+                var features_errors = window.pztb[tid].fe;
+                window.pztb[tid].fe = {};
+                var loaded = l;
+                var errors = e;
+                l = false;
+                e = [];
+
+                if (Object.keys(features_errors).length === 0) {
+                    features_errors = { x: [] };
+                }
+
+                fetch('https://api.performancehorizon.com/v3/pzthc/' + tid, {
+                    method: 'POST',
+                    headers: { 'content-type': 'application/json' },
+                    body: JSON.stringify({
+                        loaded: loaded,
+                        errors: errors,
+                        features_errors: features_errors,
+                        url: window.location.href
+                    })
+                }).catch(function () {});
+            };
+
+            document.addEventListener('DOMContentLoaded', pzti);
+        })();
+    </script>
+
     <!-- SEO & Metadata -->
     <title>Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri</title>
     <meta name="description" content="Calcola il netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri. Imposta alla fonte Ticino, IRPEF, AVS/LPP. Accordo 2026 incluso." />

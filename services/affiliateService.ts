@@ -10,8 +10,8 @@
  * - Contextual recommendations based on active comparator
  * 
  * Active partner referral programs: canonical referral URLs live in
- * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise bonus:
- * free card or zero fees up to CHF 600 · Fineco: codice AA8381747, bonus 50€ ·
+ * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise: Partnerize
+ * affiliate deeplink, NO signup bonus for the user · Fineco: codice AA8381747, bonus 50€ ·
  * Crédit Agricole: buono Amazon 50€.
  */
 
