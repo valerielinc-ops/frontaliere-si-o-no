@@ -4650,9 +4650,9 @@
     },
     {
       "id": "emil-frey-076877a20310",
-      "slug": "collaborateur-trice-disposition-administration-emil-frey-marly",
+      "slug": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
       "slugByLocale": {
-        "it": "collaborateur-trice-disposition-administration-emil-frey-marly",
+        "it": "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly",
         "en": "collaborator-arrangement-administration-emil-frey-marly",
         "de": "zusammenarbeitsvereinbarung-verwaltung-emil-frey-marly",
         "fr": "collaborateur-disposition-administration-emil-frey-marly"
@@ -4699,12 +4699,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaborateur-disposition-administration-emil-frey-marly",
-        "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly"
+        "collaborateur-trice-disposition-administration-emil-frey-marly"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaborateur-disposition-administration-emil-frey-marly",
-          "arrangiamento-dei-collaboratori-amministrazione-emil-frey-marly"
+          "collaborateur-trice-disposition-administration-emil-frey-marly"
         ],
         "en": [
           "collaborateur-disposition-administration-emil-frey-marly"
@@ -5017,9 +5017,9 @@
       "slug": "addetto-a-al-commercio-al-dettaglio-o-impiegato-a-in-logistica-emil-frey-zurich",
       "slugByLocale": {
         "it": "addetto-a-al-commercio-al-dettaglio-o-impiegato-a-in-logistica-emil-frey-zurich",
-        "en": "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich",
+        "en": "retail-trade-specialist-or-logistician-emil-frey-zurich",
         "de": "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich",
-        "fr": "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich"
+        "fr": "specialiste-du-commerce-de-detail-ou-logisticien-emil-frey-zurich"
       },
       "company": "Emil Frey",
       "companyKey": "emil-frey",
@@ -5066,6 +5066,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich"
+        ],
+        "en": [
+          "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich"
+        ],
+        "fr": [
           "detailhandelsfachmann-frau-oder-logistiker-in-emil-frey-zurich"
         ]
       },

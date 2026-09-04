@@ -750,11 +750,11 @@
     },
     {
       "id": "bcvs-9cc0ad298f60",
-      "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
+      "slug": "clienti-privati-individuali-banque-cantonale-du-valais-saviese",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
-        "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
-        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
+        "it": "clienti-privati-individuali-banque-cantonale-du-valais-saviese",
+        "en": "private-individual-clients-banque-cantonale-du-valais-saviese",
+        "de": "privatkunden-einzelkunden-banque-cantonale-du-valais-saviese",
         "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
       },
       "company": "Banque Cantonale du Valais",
@@ -826,7 +826,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+        ],
+        "en": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+        ],
+        "de": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+      ]
     },
     {
       "id": "bcvs-56ae8c8289ed",

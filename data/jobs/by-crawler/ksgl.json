@@ -2066,12 +2066,12 @@
     },
     {
       "id": "ksgl-fed53677f22f",
-      "slug": "fachfrau-mann-gesundheit-medizin-kantonsspital-glarus-ksgl-glarus",
+      "slug": "medicina-sanitaria-professionale-kantonsspital-glarus-ksgl-glarus",
       "slugByLocale": {
-        "it": "fachfrau-mann-gesundheit-medizin-kantonsspital-glarus-ksgl-glarus",
-        "en": "fachfrau-mann-gesundheit-medizin-ksgl-glarus",
+        "it": "medicina-sanitaria-professionale-kantonsspital-glarus-ksgl-glarus",
+        "en": "professional-health-medicine-kantonsspital-glarus-ksgl-glarus",
         "de": "fachfrau-mann-gesundheit-medizin-ksgl-glarus",
-        "fr": "fachfrau-mann-gesundheit-medizin-ksgl-glarus"
+        "fr": "medecine-de-la-sante-professionnelle-kantonsspital-glarus-ksgl-glarus"
       },
       "company": "Kantonsspital Glarus (KSGL)",
       "companyKey": "ksgl",
@@ -2113,10 +2113,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-medizin-ksgl-glarus"
+        "fachfrau-mann-gesundheit-medizin-ksgl-glarus",
+        "fachfrau-mann-gesundheit-medizin-kantonsspital-glarus-ksgl-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-medizin-ksgl-glarus",
+          "fachfrau-mann-gesundheit-medizin-kantonsspital-glarus-ksgl-glarus"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-medizin-ksgl-glarus"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-medizin-ksgl-glarus"
         ]
       },

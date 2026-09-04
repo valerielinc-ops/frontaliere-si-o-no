@@ -2046,12 +2046,12 @@
     },
     {
       "id": "equans-6ad8ab65b416",
-      "slug": "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
+      "slug": "direttore-della-costruzione-r-installatore-di-ventilazione-in-equans-switzerland-st-gallen",
       "slugByLocale": {
-        "it": "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
-        "en": "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
+        "it": "direttore-della-costruzione-r-installatore-di-ventilazione-in-equans-switzerland-st-gallen",
+        "en": "construction-manager-r-ventilation-installer-in-equans-switzerland-st-gallen",
         "de": "bauleitende-r-luftungsmonteur-in-equans-st-gallen",
-        "fr": "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+        "fr": "directeur-de-construction-r-installateur-de-ventilation-in-equans-switzerland-st-gallen"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -2107,7 +2107,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+        ],
+        "en": [
+          "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+        ],
+        "fr": [
+          "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "bauleitende-r-luftungsmonteur-in-equans-st-gallen"
+      ]
     },
     {
       "id": "equans-c62d0d4bcde1",
@@ -2454,7 +2468,7 @@
         "it": "allrounder-equans-switzerland-chur",
         "en": "allrounder-in-equans-chur",
         "de": "allrounder-in-equans-chur",
-        "fr": "allrounder-in-equans-chur"
+        "fr": "tout-autour-dans-equans-switzerland-chur"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -2519,7 +2533,8 @@
           "allrounder-in-equans-chur-landquart-sargans"
         ],
         "fr": [
-          "tout-autour-dans-equans-switzerland-chur-landquart-sargans"
+          "tout-autour-dans-equans-switzerland-chur-landquart-sargans",
+          "allrounder-in-equans-chur"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.272Z",
@@ -7249,7 +7264,7 @@
         "it": "installatore-di-servizio-in-ventilazione-clima-equans-switzerland-brig-glis",
         "en": "service-installer-in-ventilation-climate-equans-switzerland-brig-glis",
         "de": "servicemonteur-in-luftung-klima-equans-brig-glis",
-        "fr": "installateur-in-ventilation-climat-equans-switzerland-brig-glis"
+        "fr": "installation-de-service-aeration-climatisation-equans-switzerland-brig-glis"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -7293,7 +7308,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicemonteur-in-luftung-klima-equans-brig-glis"
+        "servicemonteur-in-luftung-klima-equans-brig-glis",
+        "installateur-in-ventilation-climat-equans-switzerland-brig-glis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7303,7 +7319,8 @@
           "servicemonteur-in-luftung-klima-equans-brig-glis"
         ],
         "fr": [
-          "servicemonteur-in-luftung-klima-equans-brig-glis"
+          "servicemonteur-in-luftung-klima-equans-brig-glis",
+          "installateur-in-ventilation-climat-equans-switzerland-brig-glis"
         ]
       },
       "firstSeenAt": "2026-08-27T19:57:22.150Z",

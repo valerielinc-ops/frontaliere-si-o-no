@@ -3273,12 +3273,12 @@
     },
     {
       "id": "lindenhofgruppe-80f30e10d1e7",
-      "slug": "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
+      "slug": "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital",
       "slugByLocale": {
-        "it": "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-        "en": "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
+        "it": "stv-capo-reparto-in-centro-di-emergenza-di-assistenza-lindenhofgruppe-lindenhofspital",
+        "en": "stv-department-head-in-care-emergency-center-lindenhofgruppe-lindenhofspital",
         "de": "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch",
-        "fr": "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
+        "fr": "stv-chef-de-departement-en-centre-de-soins-d-urgence-lindenhofgruppe-lindenhofspital"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3333,7 +3333,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
+        ],
+        "fr": [
+          "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-abteilungsleiter-in-pflege-notfallzentrum-lindenhofgruppe-ch"
+      ]
     },
     {
       "id": "lindenhofgruppe-3760f37be9d6",

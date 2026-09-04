@@ -241,7 +241,6 @@
         "conducteur-conductrice-de-machines-emmi-emmen",
         "maschinenfuhrer-in-emmi-emmen",
         "operatore-macchina-emmi-emmen",
-        "operatore-macchina-emmi-emmen-luzern",
         "operatore-emmi-emmen-luzern",
         "operator-in-emmi-emmen-luzern",
         "anlagenfuhrer-in-emmi-ch",
@@ -254,7 +253,6 @@
           "maschinenfuhrer-in-emmi-emmen-cegxx1",
           "maschinenfuhrer-in-emmi-emmen",
           "operatore-macchina-emmi-emmen",
-          "operatore-macchina-emmi-emmen-luzern",
           "operatore-emmi-emmen-luzern",
           "operator-in-emmi-emmen-luzern",
           "anlagenfuhrer-in-emmi-ch",
@@ -4982,7 +4980,6 @@
       },
       "previousSlugs": [
         "teamleiter-in-milchabfullung-emmi-ch",
-        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
         "capo-turno-100-emmi-bischofszell-thurgau",
         "shift-leader-100-emmi-bischofszell-thurgau",
         "schichtleiter-in-100-emmi-bischofszell",
@@ -4998,7 +4995,6 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-milchabfullung-emmi-ch",
-          "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
           "capo-turno-100-emmi-bischofszell-thurgau",
           "shift-leader-100-emmi-bischofszell-thurgau",
           "schichtleiter-in-100-emmi-bischofszell",
@@ -7065,12 +7061,12 @@
     },
     {
       "id": "emmi-445278f94ed6",
-      "slug": "maschinenfuhrer-in-abfullung-emmi-bischofszell",
+      "slug": "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
       "slugByLocale": {
-        "it": "maschinenfuhrer-in-abfullung-emmi-bischofszell",
-        "en": "maschinenfuhrer-in-abfullung-emmi-bischofszell",
+        "it": "operatore-macchina-in-imbottigliamento-emmi-bischofszell-thurgau",
+        "en": "machine-operator-in-bottling-emmi-bischofszell-thurgau",
         "de": "maschinenfuhrer-in-abfullung-emmi-ch",
-        "fr": "maschinenfuhrer-in-abfullung-emmi-bischofszell"
+        "fr": "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell-thurgau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7129,13 +7125,16 @@
           "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
           "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
           "machine-operator-filling-emmi-bischofszell",
-          "operatore-macchina-in-imbottigliamento-emmi-bischofszell"
+          "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
         ],
         "en": [
-          "machine-operator-filling-emmi-bischofszell"
+          "machine-operator-filling-emmi-bischofszell",
+          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
         ],
         "fr": [
-          "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell"
+          "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
+          "maschinenfuhrer-in-abfullung-emmi-bischofszell"
         ]
       },
       "previousSlugs": [
@@ -7143,7 +7142,8 @@
         "operatore-macchina-in-imbottigliamento-emmi-bischofszell-i9sw4z",
         "operateur-de-machine-en-mise-en-bouteille-emmi-bischofszell",
         "machine-operator-filling-emmi-bischofszell",
-        "operatore-macchina-in-imbottigliamento-emmi-bischofszell"
+        "operatore-macchina-in-imbottigliamento-emmi-bischofszell",
+        "maschinenfuhrer-in-abfullung-emmi-bischofszell"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:24.052Z",
@@ -7381,12 +7381,12 @@
     },
     {
       "id": "emmi-0d316a7ce762",
-      "slug": "schichtkoordinator-in-emmi-suhr",
+      "slug": "coordinatore-del-turno-in-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "schichtkoordinator-in-emmi-suhr",
-        "en": "schichtkoordinator-in-emmi-suhr",
+        "it": "coordinatore-del-turno-in-emmi-suhr-aargau",
+        "en": "shift-coordinator-in-emmi-suhr-aargau",
         "de": "schichtkoordinator-in-emmi-ch",
-        "fr": "schichtkoordinator-in-emmi-suhr"
+        "fr": "coordinateur-de-poste-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -7444,20 +7444,20 @@
           "schichtkoordinator-in-emmi-ch",
           "coordinateur-de-poste-emmi-suhr-aargau",
           "shift-coordinator-in-emmi-suhr-aargau",
-          "coordinatore-del-turno-in-emmi-suhr-aargau"
+          "schichtkoordinator-in-emmi-suhr"
         ],
         "en": [
-          "shift-coordinator-in-emmi-suhr-aargau"
+          "schichtkoordinator-in-emmi-suhr"
         ],
         "fr": [
-          "coordinateur-de-poste-emmi-suhr-aargau"
+          "schichtkoordinator-in-emmi-suhr"
         ]
       },
       "previousSlugs": [
         "schichtkoordinator-in-emmi-ch",
         "coordinateur-de-poste-emmi-suhr-aargau",
         "shift-coordinator-in-emmi-suhr-aargau",
-        "coordinatore-del-turno-in-emmi-suhr-aargau"
+        "schichtkoordinator-in-emmi-suhr"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:24.051Z",

@@ -1354,9 +1354,9 @@
       },
       "slugByLocale": {
         "it": "lattoniere-afc-pemsa-lausanne",
-        "en": "lattoniere-afc-pemsa-lausanne",
-        "de": "lattoniere-afc-pemsa-lausanne",
-        "fr": "lattoniere-afc-pemsa-lausanne"
+        "en": "sheet-metal-worker-afc-pemsa-lausanne",
+        "de": "blechner-efz-pemsa-lausanne",
+        "fr": "ferblantier-cfc-pemsa-lausanne"
       },
       "id": "pemsa-629be5b3c23f",
       "salaryMin": 74500,
@@ -1412,9 +1412,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "en": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "de": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne",
-        "fr": "responsabile-di-progetto-nel-settore-elettrico-e-richiesto-il-diploma-federale-di-esperto-pemsa-lausanne"
+        "en": "project-manager-in-electrical-sector-federal-expert-diploma-required-pemsa-lausanne",
+        "de": "projektleiter-im-elektrobereich-eidgenossisches-expertenexamen-erforderlich-pemsa-lausanne",
+        "fr": "responsable-de-projet-dans-le-secteur-electrique-diplome-federal-d-expert-requis-pemsa-lausanne"
       },
       "id": "pemsa-1fbb02000bd4",
       "salaryMin": 100000,
@@ -1760,9 +1760,9 @@
       },
       "slugByLocale": {
         "it": "assistente-commerciale-m-f-pemsa-biel-bienne",
-        "en": "assistente-commerciale-m-f-pemsa-biel-bienne",
-        "de": "assistente-commerciale-m-f-pemsa-biel-bienne",
-        "fr": "assistente-commerciale-m-f-pemsa-biel-bienne"
+        "en": "commercial-assistant-m-f-pemsa-biel-bienne",
+        "de": "geschaftsassistent-m-w-pemsa-biel-bienne",
+        "fr": "assistant-e-commercial-e-h-f-pemsa-biel-bienne"
       },
       "id": "pemsa-54b14c94fbbd",
       "salaryMin": 76500,
@@ -1818,9 +1818,9 @@
       },
       "slugByLocale": {
         "it": "pavimentazione-stradale-pemsa-bellinzona",
-        "en": "pavimentazione-stradale-pemsa-bellinzona",
-        "de": "pavimentazione-stradale-pemsa-bellinzona",
-        "fr": "pavimentazione-stradale-pemsa-bellinzona"
+        "en": "road-paving-pemsa-bellinzona",
+        "de": "stra-enbelag-pemsa-bellinzona",
+        "fr": "pavage-routier-pemsa-bellinzona"
       },
       "id": "pemsa-28f107226767",
       "salaryMin": 61000,
@@ -6550,7 +6550,7 @@
         "it": "capocantiere-impianti-elettrici-pemsa-geneve",
         "en": "capocantiere-electrical-plants-pemsa-geneve",
         "de": "capocantiere-elektroanlagen-pemsa-geneve",
-        "fr": "capocantiere-impianti-elettrici-pemsa-geneve"
+        "fr": "capocantiere-installations-electriques-pemsa-geneve"
       },
       "id": "pemsa-ebba090de2bb",
       "salaryMin": 74500,
@@ -6568,14 +6568,6 @@
       },
       "firstSeenAt": "2026-08-27T00:42:05.204Z",
       "salarySource": "estimated",
-      "previousSlugsByLocale": {
-        "fr": [
-          "capocantiere-installations-electriques-pemsa-geneve"
-        ]
-      },
-      "previousSlugs": [
-        "capocantiere-installations-electriques-pemsa-geneve"
-      ],
       "needsRetranslation": true
     },
     {
