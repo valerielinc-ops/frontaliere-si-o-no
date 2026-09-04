@@ -11337,6 +11337,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-bollette-varese-frontalieri.title': 'Bollette +39% a Varese: impatto frontalieri',
     'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Autunno e inverno con stangata energetica in provincia di Varese. Aumenti stimati del 39%. Cosa significa per chi lavora in Canton Ticino.',
     'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Soggiorno residenziale nella provincia di Varese con veduta autunnale verso i monti del Canton Ticino',
+    'blog.article.varese-export-q1-2026.title': 'Varese prima in Lombardia con export +23,2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'Nel Q1 2026 la provincia varesina domina il ranking regionale grazie all\'aerospazio che sale del 111,9%. Ma la cassa integrazione straordinaria avanza del 14,9%.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Veduta aerea dell\'area frontaliera Ticino-Italia con paesaggio industriale della provincia di Varese e valli alpine',
 };
 
 export default blogMetaIt;
