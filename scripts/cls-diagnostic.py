@@ -13,7 +13,12 @@ if "details" in cls:
         print(f"  Shift: {json.dumps(item, indent=2)}")
 
 print("\n=== LAYOUT SHIFT ELEMENTS ===")
-lse = a.get("layout-shift-elements", {})
+# Lighthouse ha RITIRATO `layout-shift-elements` in favore di `layout-shifts`:
+# PSI risponde solo con la seconda. Leggendo la sola chiave vecchia questa
+# sezione restava muta anche su pagine che shiftano — vedi la stessa fix in
+# scripts/audit-cls-live.mjs. Chiave nuova per prima, vecchia come fallback
+# per i report Lighthouse archiviati che la contengono ancora.
+lse = a.get("layout-shifts") or a.get("layout-shift-elements", {})
 if "details" in lse:
     for item in lse["details"].get("items", []):
         print(f"  Score: {item.get('score', 'N/A')}")

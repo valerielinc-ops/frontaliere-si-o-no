@@ -5407,6 +5407,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Permit B: renewal and requirements in the Nidvaldo',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'How to renew the residence permit B in the Canton of Nidvaldo: administrative procedure, mandatory documents, duration of validity and contacts of the administration.',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Swiss cantonal administrative building with traditional Alpine architecture, representing Swiss migration administration.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Opening a business in St. Gallen: taxes and procedures',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'From the trade register to social contributions: a complete guide to costs and tax obligations for those who start a business in the Canton of St. Gallen.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Swiss administrative office with professional desks and business registration and tax documents',
 };
 
 export default blogMetaChEn;

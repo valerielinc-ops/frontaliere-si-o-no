@@ -5407,6 +5407,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.title': 'Führerschein B: Erneuerung und Voraussetzungen im Nidwalden',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.excerpt': 'So erneuern Sie die Aufenthaltsbewilligung B im Kanton Nidwalden: Verwaltungsverfahren, Pflichtdokumente, Gültigkeitsdauer und Kontakte der Verwaltung.',
     'blog.article.permesso-b-nidvaldo-procedura-rinnovo.imageAlt': 'Schweizer Verwaltungsgebäude mit traditioneller Alpenarchitektur, Symbol der kantonalen Migrationsverwaltung.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.title': 'Geschäft in St. Gallen eröffnen: Gebühren und Verfahren',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.excerpt': 'Vom Handelsregister bis zu den Sozialversicherungsbeiträgen: Ein umfassender Leitfaden zu Kosten und Steuerpflichten für Unternehmensgründer im Kanton St. Gallen.',
+    'blog.article.guida-attivita-san-gallo-tasse-procedure.imageAlt': 'Schweizer Verwaltungsbüro mit professionellen Schreibtischen und Geschäftsregistrierungs- sowie Steuerdokumenten',
 };
 
 export default blogMetaChDe;

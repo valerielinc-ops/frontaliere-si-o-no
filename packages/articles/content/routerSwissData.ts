@@ -1828,6 +1828,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'avs-lacune-contributive-san-gallo': { it: 'avs-lacune-contributive-san-gallo', en: 'avs-contribution-gaps-st-gallen', de: 'avs-beitragslucken-st-gallen', fr: 'avs-lacunes-contributives-st-gall' },
  'permesso-dimora-b-vaud-rinnovo': { it: 'permesso-dimora-b-vaud-rinnovo', en: 'residence-permit-b-vaud-renewal', de: 'aufenthaltserlaubnis-b-vaud-erneuerung', fr: 'permis-sejour-b-vaud-renouvellement' },
  'permesso-b-nidvaldo-procedura-rinnovo': { it: 'permesso-b-nidvaldo-procedura-rinnovo', en: 'permit-b-nidvaldo-renewal-procedure', de: 'aufenthaltserlaubnis-b-nidwalden-verlaengerung', fr: 'permis-b-nidwald-procedure-renouvellement' },
+ 'guida-attivita-san-gallo-tasse-procedure': { it: 'guida-attivita-san-gallo-tasse-procedure', en: 'guide-opening-business-st-gallen-taxes-procedures', de: 'leitfaden-betrieb-eroeffnen-st-gallen-steuern-verfahren', fr: 'guide-ouvrir-entreprise-saint-gall-impots-procedures' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
