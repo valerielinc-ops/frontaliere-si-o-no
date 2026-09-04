@@ -3976,7 +3976,7 @@
       "firstSeenAt": "2026-08-21T21:28:49.811Z",
       "titleByLocale": {
         "it": "Allrounder vendita (m/w/d) 20-40% — Brig",
-        "en": "Allrounder Verkauf (m/w/d) 20-40% — Brig",
+        "en": "All-rounder Sale (m/f/d) 20-40% — Brig",
         "de": "Allrounder Verkauf (m/w/d) 20-40% — Brig",
         "fr": "Allrounder Vente (m/w/d) 20-40% — Brig"
       },
@@ -3988,7 +3988,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -4001,13 +4001,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4023,7 +4023,6 @@
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 24200,
       "salaryMax": 36600
     },

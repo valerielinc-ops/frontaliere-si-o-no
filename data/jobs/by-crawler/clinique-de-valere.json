@@ -55,14 +55,12 @@
       "previousSlugs": [
         "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-clinique-de-valere",
         "support-in-the-operating-room-or-technical-assistant-specialized-in-the-operating-room-atsso-80-100-clinique-de-valere",
-        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-clinique-de-valere-sion",
-        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-swiss-medical-network"
+        "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-clinique-de-valere-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-clinique-de-valere",
-          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-clinique-de-valere-sion",
-          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-swiss-medical-network"
+          "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-80-100-clinique-de-valere-sion"
         ],
         "en": [
           "aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-clinique-de-valere",
@@ -89,10 +87,10 @@
     },
     {
       "id": "clinique-de-valere-54dc562b182d",
-      "slug": "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere",
+      "slug": "70-assistente-medico-policlinico-clinique-de-valere-sion",
       "slugByLocale": {
-        "it": "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere",
-        "en": "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere",
+        "it": "70-assistente-medico-policlinico-clinique-de-valere-sion",
+        "en": "70-policlinic-medical-assistant-clinique-de-valere-sion",
         "de": "assistent-e-medicale-en-policlinique-a-70-clinique-de-valere-sion",
         "fr": "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere"
       },
@@ -101,8 +99,8 @@
       "companyDomain": "swissmedical.net",
       "title": "Assistant(e) médicale en policlinique à 70 %",
       "titleByLocale": {
-        "it": "Assistant(e) médicale en policlinique à 70 %",
-        "en": "Assistant(e) médicale en policlinique à 70 %",
+        "it": "70% Assistente medico policlinico",
+        "en": "70% Policlinic Medical Assistant",
         "de": "Assistent(e) médicale en policlinique à 70 %",
         "fr": "Assistant(e) médicale en policlinique à 70 %"
       },
@@ -150,7 +148,18 @@
           "maxValue": 84400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere"
+        ],
+        "en": [
+          "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medicale-en-policlinique-a-70-clinique-de-valere"
+      ]
     }
   ]
 }

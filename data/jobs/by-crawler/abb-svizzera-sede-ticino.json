@@ -1223,8 +1223,7 @@
         ],
         "en": [
           "scientist-senior-power-electronic-converters-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-bhfqnq",
-          "applied-physicist-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-47x000",
-          "senior-scientist-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau-eflf96"
+          "applied-physicist-80-100-abb-svizzera-sede-ticino-baden-daettwil-aargau-47x000"
         ],
         "de": [
           "wissenschaftler-senior-leistungselektronik-wandler-80-100-m-w-d-abb-svizzera-sede-ticino-baden-daettwil-aargau",
@@ -1717,7 +1716,7 @@
       "crawledAt": "2026-09-04T13:33:32.187Z",
       "firstSeenAt": "2026-08-19T21:44:00.488Z",
       "titleByLocale": {
-        "de": "Direct Current Datacenter System Architect",
+        "de": "Gleichstrom Datacenter System Architekt",
         "it": "Direct Current Datacenter System Architetto",
         "fr": "Direct Current Datacenter System Architecte",
         "en": "Direct Current Datacenter System Architect"
@@ -1731,7 +1730,7 @@
       "slugByLocale": {
         "it": "direct-current-datacenter-system-architetto-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
         "en": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
-        "de": "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau",
+        "de": "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-argovia",
         "fr": "direct-current-datacenter-system-architecte-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6"
       },
       "requirementsByLocale": {
@@ -1753,7 +1752,6 @@
           "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
           "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-baden-daettwil-aargau",
           "gleichstrom-rechenzentrums-systemarchitekt-abb-svizzera-sede-ticino-argovia",
-          "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-argovia",
           "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau"
         ]
       },
@@ -1762,8 +1760,7 @@
         "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino-baden-daettwil-aargau-nut3b6",
         "direct-current-datacenter-system-architect-abb-svizzera-sede-ticino",
         "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-baden-daettwil-aargau",
-        "gleichstrom-rechenzentrums-systemarchitekt-abb-svizzera-sede-ticino-argovia",
-        "gleichstrom-datacenter-system-architekt-abb-svizzera-sede-ticino-argovia"
+        "gleichstrom-rechenzentrums-systemarchitekt-abb-svizzera-sede-ticino-argovia"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -1779,7 +1776,6 @@
       "addressRegion": "AG",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500
     },
