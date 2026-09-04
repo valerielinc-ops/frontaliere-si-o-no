@@ -159,7 +159,14 @@ export async function refreshPreferredSendHour(subscriberRef, FieldValue) {
 
   if (current && current.preferred_send_sample_count >= PREFERRED_SEND_MIN_EVENTS) {
    const updatedAt = parseEventDate(current.preferred_send_updated_at);
-   const isFresh = updatedAt && (Date.now() - updatedAt.getTime()) < PREFERRED_SEND_REFRESH_INTERVAL_MS;
+   // Intervallo, non semiretta: senza il limite inferiore a zero un
+   // `preferred_send_updated_at` nel futuro (clock skew, data scritta male)
+   // resterebbe "fresco" per sempre e congelerebbe il ricalcolo dell'ora di
+   // invio a vita. Una data futura non e' un dato fresco, e' un dato rotto:
+   // ricalcola.
+   const freshAgeMs = updatedAt ? Date.now() - updatedAt.getTime() : null;
+   const isFresh = freshAgeMs !== null
+    && freshAgeMs >= 0 && freshAgeMs < PREFERRED_SEND_REFRESH_INTERVAL_MS;
    if (isFresh) {
     return {
      updated: false,

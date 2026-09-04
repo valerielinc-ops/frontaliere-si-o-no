@@ -135,6 +135,9 @@ function preflightInput(jobs: any[], {
         freshFirst: false,
         freshHead: 0,
         freshDeferred: 0,
+        // Idem per i freschi scartati perche' datati nel futuro (#7363): a
+        // corsia spenta nessuno viene scartato, quindi zero.
+        freshFuture: 0,
         freshWindowMs: 0,
         age: {
           count: jobs.length,

@@ -185,6 +185,47 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     expect(order[0].slug).toBe('hot');
   });
 
+  it('un firstSeenAt nel FUTURO non e fresco: niente testa, ma resta in coda (#7363)', () => {
+    // La corsia aveva il solo limite inferiore, quindi una data futura — skew
+    // dell'orologio di un crawler, o un `postedDate` mal parsato — la
+    // soddisfaceva a OGNI run, per sempre, e teneva quel job in testa finche'
+    // restava pending. Non e' un job fresco: e' un job non databile.
+    const pending = [
+      job('futuro', new Date(NOW + 7 * DAY).toISOString()),
+      ...Array.from({ length: 5 }, (_, i) => job(`v${i}`, daysAgo(100))),
+    ];
+    const { order, stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true });
+    expect(stats.freshHead).toBe(0);
+    expect(stats.freshFuture).toBe(1);
+    expect(order[0].slug).not.toBe('futuro');
+    // Escluso dalla TESTA, non dalla CODA: nessun job va perso.
+    expect(order).toHaveLength(6);
+    expect(order.map((j: any) => j.slug).sort()).toEqual(['futuro', 'v0', 'v1', 'v2', 'v3', 'v4']);
+    // E il report lo dice, altrimenti il difetto a monte resta muto.
+    expect(formatPriorityReport(stats).join('\n')).toMatch(/1 skipped, dated in the FUTURE/);
+  });
+
+  it('il confine e ADESSO: un job di un secondo fa e fresco, uno fra un secondo no (#7363)', () => {
+    const inside = buildTrafficPriority([job('ora', new Date(NOW - 1000).toISOString())], {},
+      { now: NOW, freshFirst: true }).stats;
+    expect(inside.freshHead).toBe(1);
+    expect(inside.freshFuture).toBe(0);
+    const outside = buildTrafficPriority([job('domani', new Date(NOW + 1000).toISOString())], {},
+      { now: NOW, freshFirst: true }).stats;
+    expect(outside.freshHead).toBe(0);
+    expect(outside.freshFuture).toBe(1);
+  });
+
+  it('a corsia SPENTA il contatore dei futuri resta a zero (contratto validTrafficStats)', () => {
+    // `validTrafficStats()` rifiuta uno stats con la corsia spenta e un
+    // qualunque campo della corsia diverso da zero: il nuovo contatore deve
+    // rispettare la stessa regola degli altri tre.
+    const off = buildTrafficPriority([job('futuro', new Date(NOW + 7 * DAY).toISOString())], {},
+      { now: NOW }).stats;
+    expect(off.freshFirst).toBe(false);
+    expect(off.freshFuture).toBe(0);
+  });
+
   it('dentro la testa comanda il traffico', () => {
     const pending = [job('warm', daysAgo(0.1)), job('hot', daysAgo(0.9))];
     const { order } = buildTrafficPriority(pending, popularity, { now: NOW, freshFirst: true });

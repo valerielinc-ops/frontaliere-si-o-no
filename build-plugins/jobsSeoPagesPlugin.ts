@@ -7793,12 +7793,18 @@ ${staticAnalyticsHtml}
  const sTopCompanies = sUniqueCompanies.slice(0, 5).map((c) => esc(c)).join(', ');
  // Fresh listings in the last 7 days (same window/source as the TI hub).
  const SECTOR_FRESH_WINDOW_MS = 7 * 24 * 60 * 60 * 1000;
- const sectorFreshCutoff = Date.parse(`${dateStamp}T00:00:00Z`) - SECTOR_FRESH_WINDOW_MS;
+ const sectorFreshStamp = Date.parse(`${dateStamp}T00:00:00Z`);
+ const sectorFreshCutoff = sectorFreshStamp - SECTOR_FRESH_WINDOW_MS;
+ // A WINDOW, not a half-line: with only the lower bound a job dated in the
+ // FUTURE (crawler clock skew, misparsed postedDate) counts as "published in
+ // the last 7 days" on a public page, forever. Upper bound is the END of the
+ // build day, so a listing posted later today still counts.
+ const sectorFreshMax = sectorFreshStamp + 24 * 60 * 60 * 1000;
  const sFreshCount = sJobs.filter((j: any) => {
  // First PARSEABLE date, not first truthy: a malformed postedDate must not
  // shadow a valid crawledAt and undercount the fresh tile (see firstParsableMs).
  const t = firstParsableMs(j.datePosted, j.postedDate, j.crawledAt);
- return t >= sectorFreshCutoff;
+ return t >= sectorFreshCutoff && t <= sectorFreshMax;
  }).length;
  const intro = (() => {
  if (locale === 'it') return `<p>Sono attualmente disponibili <strong>${sJobs.length} offerte di lavoro</strong> per ${sectorDisplay.toLowerCase()} in ${esc(cDisplay)}, pubblicate da ${sUniqueCompanies.length} aziende in ${sUniqueLocations.length} località. Tra le aziende che assumono: ${sTopCompanies || '—'}. Gli annunci vengono aggiornati quotidianamente dal nostro crawler.</p>`;
