@@ -1,6 +1,6 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-09-04T13:39:36.282Z",
+  "assembledAt": "2026-09-04T23:11:23.636Z",
   "jobs": [
     {
       "id": "strabag-9db653d104f1",
@@ -34,7 +34,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/531ad36d-6332-4bd9-9953-ca29caac8902/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:31.790Z",
+      "crawledAt": "2026-09-04T23:11:20.315Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/6f2b1045-1245-475b-a118-6690e3b5c0d7/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:31.347Z",
+      "crawledAt": "2026-09-04T23:11:19.914Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/aa091fac-0604-4fcc-b5ba-8b07e24cd6c8/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:30.824Z",
+      "crawledAt": "2026-09-04T23:11:19.598Z",
       "addressLocality": "CH- 8315 Lindau, Rigacher 1",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1407ac71-526e-4e37-8ab6-b1ff309db3ef/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:30.186Z",
+      "crawledAt": "2026-09-04T23:11:18.830Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/1091f0e5-1163-4265-98c3-692ff334949f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:29.737Z",
+      "crawledAt": "2026-09-04T23:11:18.288Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -459,7 +459,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/d903d3ac-a32b-4c45-8c44-f00f181dbdfb/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:29.154Z",
+      "crawledAt": "2026-09-04T23:11:17.874Z",
       "addressLocality": "Amriswil",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -502,7 +502,6 @@
         "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-amriswil",
         "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-amriswil",
         "baufuhrer-in-strassenbau-und-tiefbau-strabag-amriswil",
-        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
         "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
         "baufuhrer-in-genio-civile-e-strassenbau-m-w-d-strabag-ag-bern",
         "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-olten",
@@ -510,7 +509,8 @@
         "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
         "baufuhrer-in-tiefbau-und-strassenbau-m-w-d-strabag-bern",
         "directeur-de-construction-construction-routiere-et-genie-civil-strabag-ag-olten",
-        "directeur-de-construction-en-genie-civil-et-construction-routiere-h-f-d-strabag-ag-bern"
+        "directeur-de-construction-en-genie-civil-et-construction-routiere-h-f-d-strabag-ag-bern",
+        "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -531,23 +531,23 @@
           "baufuhrer-in-strassenbau-und-tiefbau-strabag-amriswil",
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
           "directeur-de-construction-en-genie-civil-et-construction-routiere-strabag-ag-olten",
-          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil",
           "baufuhrer-in-strassenbau-e-genio-civile-strabag-ag-olten",
-          "baufuhrer-in-genio-civile-e-strassenbau-m-w-d-strabag-ag-bern"
+          "baufuhrer-in-genio-civile-e-strassenbau-m-w-d-strabag-ag-bern",
+          "baufuhrer-in-genio-civile-e-strassenbau-strabag-ag-amriswil"
         ],
         "en": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
           "construction-manager-in-road-construction-and-civil-engineering-strabag-ag-olten",
           "construction-manager-in-civil-engineering-and-road-construction-m-f-d-strabag-ag-bern"
         ],
+        "de": [
+          "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
+          "baufuhrer-in-tiefbau-und-strassenbau-m-w-d-strabag-bern"
+        ],
         "fr": [
           "baufuhrer-in-tiefbau-und-strassenbau-strabag-amriswil",
           "directeur-de-construction-construction-routiere-et-genie-civil-strabag-ag-olten",
           "directeur-de-construction-en-genie-civil-et-construction-routiere-h-f-d-strabag-ag-bern"
-        ],
-        "de": [
-          "baufuhrer-in-strassenbau-und-tiefbau-strabag-olten",
-          "baufuhrer-in-tiefbau-und-strassenbau-m-w-d-strabag-bern"
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:43.356Z",
@@ -597,7 +597,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/eacfbd46-aef1-4566-8749-53d13efef1d4/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:28.708Z",
+      "crawledAt": "2026-09-04T23:11:17.470Z",
       "addressLocality": "Lindau bei Effretikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -662,7 +662,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/7ff0bf46-7fe9-422e-8916-00dd51dbbed9/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:28.169Z",
+      "crawledAt": "2026-09-04T23:11:17.088Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -727,7 +727,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/5f7667ff-66cf-4d73-829d-08a8de10f548/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:27.604Z",
+      "crawledAt": "2026-09-04T23:11:16.751Z",
       "addressLocality": "Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -802,7 +802,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/67bea728-bb34-486e-af89-5d87dcd91df2/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:27.209Z",
+      "crawledAt": "2026-09-04T23:11:15.994Z",
       "addressLocality": "Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -883,7 +883,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/4ed6e21f-920f-452d-8dc5-0f616c6a162a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:26.812Z",
+      "crawledAt": "2026-09-04T23:11:15.552Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -964,7 +964,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/ef2d9c4e-349c-487b-97ca-c2ec4cf308d1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:26.341Z",
+      "crawledAt": "2026-09-04T23:11:15.021Z",
       "addressLocality": "Subingen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1045,7 +1045,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/7ab5d04a-3121-49d5-a68c-3b0b7da6d6b3/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:25.810Z",
+      "crawledAt": "2026-09-04T23:11:14.392Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1098,9 +1098,9 @@
       "id": "strabag-b0be6027032e",
       "slug": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
       "slugByLocale": {
-        "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
         "it": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
         "en": "construction-manager-in-road-construction-strabag-ag-erstfeld",
+        "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
         "fr": "directeur-de-la-construction-en-construction-routiere-strabag-ag-erstfeld"
       },
       "company": "STRABAG AG",
@@ -1108,9 +1108,9 @@
       "companyDomain": "strabag.ch",
       "title": "Bauführer:in Strassenbau",
       "titleByLocale": {
-        "de": "Bauführer:in Strassenbau",
         "it": "Responsabile della costruzione: in costruzione stradale",
         "en": "Construction manager: in road construction",
+        "de": "Bauführer:in Strassenbau",
         "fr": "Directeur de la construction: en construction routière"
       },
       "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter, um der innovativste und nachhaltigste Bautechnologiekonzern Europas zu werden. Chancengleichheit, Vielfalt und Inklusion sind integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBauführer:in Strassenbau\n Dein Beitrag bei uns\n\n• Einsatz als Bauführer:in/Projektleiter:in im Bereich Strassenbau\n\n• Durchführen der Arbeitsvorbereitung und Baustellenorganisation\n\n• Beobachten und Lenken des Bauablaufes sowie Baustellenergebniskontrollen\n\n• Korrekte und termingerechte Ausmasserstellung und Abrechnung\n\n• Verantwortung für Kosten-, Termin- und Qualitätseinhaltung\n\n• Betreuung und Koordination der Mitarbeitenden\n\n• Mitarbeit und Mitgestaltung von Innovationsthemen am Bau (z.B. BIM)\n Was für uns zählt\n\n• Abgeschlossene Grundbildung im Bauwesen mit Weiterbildung zum:zur dipl. Bauführer:in und/oder Ingenieur:in oder gleichwertige Ausbildung\n\n• Erfahrung als Bauführer:in im Bereich Strassenbau\n\n• Kooperativer Umgang und Freude an der Teamarbeit\n\n• Unternehmerisches Handeln mit hoher Einsatzbereitschaft\n\n• Versiert im Umgang mit den gängigen EDV-Systemen\n\n• Ausgeprägtes Verantwortungsbewusstsein und Macher-Qualitäten\n\nUnser Mehrwert für dich\n Gesundheit & Wohlbefinden\n\n• Wohlbefinden am Arbeitsplatz: Gesundheit und Arbeitssicherheit stehen bei uns an erster Stelle\n\n• Genuss am Arbeitsplatz: kostenloser Kaffee, Tee und frische Früchte für eine angenehme Pause\n Arbeitsumfeld & Mobilität\n\n• Firmenfahrzeug mit Privatnutzung (je nach Position): flexibel und komfortabel unterwegs\n\n• Company Bike: für kurze Wege zur Baustelle oder ins Büro umweltfreundlich mobil\n\n• Moderne Arbeitsumgebung: hochwertig ausgestattete Büros mit erstklassiger IT-Infrastruktur\n Weiterbildung & Karriere\n\n• Weiterbildung: umfangreiches Schulungs- und Weiterbildungsangebot in unserer eigenen Konzern-Akademie\n\n• Karriere & Entwicklung: vielseitige Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung sowie attraktive Aufstiegschancen\n Gemeinschaft & Events\n\n• Gemeinsame Erlebnisse: regelmässige Feierabendbiere, Grillplauschs und Teamevents für einen starken Zusammenhalt\n\n• Mitarbeiter-Events: Vielfältige Veranstaltungen im In- und Ausland, z. B. das jährliche Fussballturnier in Deutschland\n Neugierig geworden?\n Bewirb dich jetzt und werde Teil unseres Teams. Wir freuen uns auf dich!\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• Sportangebote\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Vereinbarkeit von Familie und Beruf\n\n• Home Office\n\n• Gesundheitsförderung\n\n• Mitarbeiterevents\n\n• gute Verkehrsanbindung\n\nKontakt\n Baue die Wege der Zukunft! Als Bauführer:in im Strassenbau hältst du die Fäden in der Hand und bringst Projekte sicher ins Ziel. Du bist ein:e Macher:in mit Durchsetzungsvermögen und Planungsgeschick? Dich erwarten ein starkes Team und moderne Arbeitsmittel. Werde Teil unserer Erfolgsgeschichte!\n\nJonas Aschwanden\nBifang 4\n\n6472 Erstfeld\n\n+41 41 882 11 11\n Für diese Position ist ein Pre-Employment Screening vorgesehen. Nähere Informationen dazu auf unserer Karrierewebsite .\n\nJetzt bewerben",
@@ -1126,7 +1126,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/af9ffbb8-9583-4042-97ec-4c58d365b29f/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:25.360Z",
+      "crawledAt": "2026-09-04T23:11:14.000Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1144,23 +1144,14 @@
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/af9ffbb8-9583-4042-97ec-4c58d365b29f/",
       "requirements": [],
       "requirementsByLocale": {},
-      "salaryMin": 78000,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-03T13:48:58.773Z",
+      "previousSlugs": [
+        "baufuhrer-in-strassenbau-strabag-erstfeld",
+        "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "baufuhrer-in-strassenbau-strabag-erstfeld"
+          "baufuhrer-in-strassenbau-strabag-erstfeld",
+          "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld"
         ],
         "en": [
           "baufuhrer-in-strassenbau-strabag-erstfeld"
@@ -1169,9 +1160,20 @@
           "baufuhrer-in-strassenbau-strabag-erstfeld"
         ]
       },
-      "previousSlugs": [
-        "baufuhrer-in-strassenbau-strabag-erstfeld"
-      ]
+      "firstSeenAt": "2026-09-03T13:48:58.773Z",
+      "salaryMin": 104500,
+      "salaryMax": 132000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 104500,
+          "maxValue": 132000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "strabag-a56a1d3c9973",
@@ -1205,7 +1207,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/c33eff30-3c1b-470a-b3ad-a03cc36c8b8d/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:24.778Z",
+      "crawledAt": "2026-09-04T23:11:13.526Z",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -1223,6 +1225,22 @@
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/c33eff30-3c1b-470a-b3ad-a03cc36c8b8d/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "polier-in-strassenbau-strabag-erstfeld",
+        "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "polier-in-strassenbau-strabag-erstfeld",
+          "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld"
+        ],
+        "en": [
+          "polier-in-strassenbau-strabag-erstfeld"
+        ],
+        "fr": [
+          "polier-in-strassenbau-strabag-erstfeld"
+        ]
+      },
       "firstSeenAt": "2026-09-03T13:48:58.288Z",
       "salaryMin": 78000,
       "salaryMax": 98500,
@@ -1236,21 +1254,7 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ],
-        "en": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ],
-        "fr": [
-          "polier-in-strassenbau-strabag-erstfeld"
-        ]
-      },
-      "previousSlugs": [
-        "polier-in-strassenbau-strabag-erstfeld"
-      ]
+      }
     }
   ]
 }

@@ -1,19 +1,55 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-09-04T13:28:23.168Z",
-  "total": 3,
+  "generatedAt": "2026-09-04T22:56:29.981Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6480,
-  "avgDurationMs": 6480,
+  "unchangedCount": 0,
+  "durationMs": 6383,
+  "avgDurationMs": 6383,
   "durationHistory": [
-    6480
+    6383
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "citta-di-locarno-operaio-iii-locarno",
+      "slug": "operaio-iii-locarno",
+      "company": "Città di Locarno",
+      "companyKey": "citta-di-locarno",
+      "companyDomain": "locarno.ch",
+      "title": "Operaio III",
+      "location": "Locarno",
+      "canton": "TI",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6600",
+      "streetAddress": "Piazza Grande 18",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=10ee4690-d205-4faf-897a-0a94006b730e,popup=y",
+      "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_concorso_operaio_generico_III_(servizi_urbani)_1.pdf",
+      "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=10ee4690-d205-4faf-897a-0a94006b730e,popup=y",
+      "source": "Locarno Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-04T22:56:25.677Z",
+      "firstSeenAt": "2026-07-09T22:41:46.298Z",
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -41,7 +77,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=fa2f1a2e-4391-40a5-bd04-d9b82c505300,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T13:28:17.996Z",
+      "crawledAt": "2026-09-04T22:56:24.830Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -76,7 +112,7 @@
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=10ee4690-d205-4faf-897a-0a94006b730e,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-04T13:28:19.019Z",
+      "crawledAt": "2026-09-04T22:56:25.677Z",
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -84,45 +120,6 @@
         "richness": 24,
         "translation": 25,
         "completeness": 20
-      }
-    },
-    {
-      "id": "citta-di-locarno-una-o-un-capo-servizio-iii-manutenzione-stabili-100-locarno",
-      "slug": "una-o-un-capo-servizio-iii-manutenzione-stabili-100-locarno",
-      "company": "Città di Locarno",
-      "companyKey": "citta-di-locarno",
-      "companyDomain": "locarno.ch",
-      "title": "Una o un Capo Servizio III - Manutenzione stabili (100%)",
-      "location": "Locarno",
-      "canton": "TI",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6600",
-      "streetAddress": "Piazza Grande 18",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7e203d4e-5e55-40dc-99c9-adbb71dc99f3,popup=y",
-      "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_di_concorso_un_o_una_Capo_Servizio_mautenzioni_stabili_DLT_100.pdf",
-      "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=7e203d4e-5e55-40dc-99c9-adbb71dc99f3,popup=y",
-      "source": "Locarno Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-08-21T21:41:10.162Z",
-      "firstSeenAt": "2026-07-09T22:41:46.298Z",
-      "salaryMin": 68000,
-      "salaryMax": 103000,
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
       }
     }
   ]

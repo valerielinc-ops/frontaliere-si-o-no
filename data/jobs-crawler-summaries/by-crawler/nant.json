@@ -1,18 +1,18 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-09-04T13:27:14.029Z",
-  "total": 9,
+  "generatedAt": "2026-09-04T22:55:12.276Z",
+  "total": 8,
   "discovered": null,
-  "written": 9,
+  "written": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4893,
-  "avgDurationMs": 4893,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5115,
+  "avgDurationMs": 5115,
   "durationHistory": [
-    4893
+    5115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://app.beehire.com/invite/yKOL6UF3X",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.723Z",
+      "crawledAt": "2026-09-04T22:55:07.805Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -67,7 +67,7 @@
       "url": "https://app.beehire.com/invite/7MtT679t5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.731Z",
+      "crawledAt": "2026-09-04T22:55:07.807Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -105,7 +105,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.736Z",
+      "crawledAt": "2026-09-04T22:55:07.816Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://app.beehire.com/invite/4RPhgQTMf",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.737Z",
+      "crawledAt": "2026-09-04T22:55:07.820Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://app.beehire.com/invite/0IEYXiSqR",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.742Z",
+      "crawledAt": "2026-09-04T22:55:07.826Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://app.beehire.com/invite/62T5zjL5K",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.754Z",
+      "crawledAt": "2026-09-04T22:55:07.844Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -257,7 +257,7 @@
       "url": "https://app.beehire.com/invite/R8D2jUAXI",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.756Z",
+      "crawledAt": "2026-09-04T22:55:07.846Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -295,7 +295,7 @@
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:09.755Z",
+      "crawledAt": "2026-09-04T22:55:07.845Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -321,8 +321,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "nant-fecd12c97f57",
       "slug": "infermiera-cdm-90-morabia-fondation-de-nant-corsier-sur-vevey",
@@ -365,5 +364,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

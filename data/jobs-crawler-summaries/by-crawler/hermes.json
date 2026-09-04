@@ -1,20 +1,21 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-09-04T13:28:01.383Z",
+  "generatedAt": "2026-09-04T22:55:57.575Z",
   "total": 8,
   "discovered": null,
   "written": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 20956,
-  "avgDurationMs": 20956,
+  "durationMs": 17498,
+  "avgDurationMs": 17498,
   "durationHistory": [
-    20956
+    17498
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hermes-02949861efad",
       "slug": "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch",
@@ -27,7 +28,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:54.190Z",
+      "crawledAt": "2026-09-04T22:55:49.662Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -41,16 +42,15 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-09-04T13:27:54.190Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "hermes-bfa10b4da950",
       "slug": "cdi-responsable-mecanique-h-f-hermes-ch",
@@ -63,7 +63,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:54.790Z",
+      "crawledAt": "2026-09-04T22:55:50.390Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -79,11 +79,11 @@
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
-      "_qualityScore": 73,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 14
       }
     },
@@ -99,7 +99,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23530/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:55.393Z",
+      "crawledAt": "2026-09-04T22:55:51.064Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -135,7 +135,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23533/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:55.981Z",
+      "crawledAt": "2026-09-04T22:55:51.736Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -171,7 +171,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23011/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:56.695Z",
+      "crawledAt": "2026-09-04T22:55:52.415Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -206,7 +206,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:27:57.289Z",
+      "crawledAt": "2026-09-04T22:55:53.216Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -242,7 +242,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:57.909Z",
+      "crawledAt": "2026-09-04T22:55:53.891Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -277,7 +277,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21421/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:27:58.569Z",
+      "crawledAt": "2026-09-04T22:55:54.544Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",

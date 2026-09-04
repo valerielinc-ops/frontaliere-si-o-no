@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gemeinde-st-moritz",
-  "assembledAt": "2026-09-04T13:35:54.361Z",
+  "assembledAt": "2026-09-04T23:08:11.859Z",
   "jobs": [
     {
       "id": "gemeinde-st-moritz-8ee8533e73fe",
@@ -33,7 +33,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/bistromitarbeiter-60-80-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:35:51.594Z",
+      "crawledAt": "2026-09-04T23:08:08.445Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -86,6 +86,7 @@
         ]
       },
       "firstSeenAt": "2026-06-15T14:26:57.886Z",
+      "needsRetranslation": true,
       "salaryMin": 34500,
       "salaryMax": 52200,
       "salarySource": "estimated",
@@ -132,7 +133,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindepolizist-100-m-w-1",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:35:49.795Z",
+      "crawledAt": "2026-09-04T23:08:06.624Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -184,6 +185,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T10:17:01.704Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -230,7 +232,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/gemeindeschreiber-100-m-w",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:35:47.956Z",
+      "crawledAt": "2026-09-04T23:08:04.859Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -338,7 +340,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/mitarbeitende-reinigung-100-m-w-d-unbefristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:35:46.053Z",
+      "crawledAt": "2026-09-04T23:08:03.023Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -429,7 +431,7 @@
       "url": "https://www.gemeinde-stmoritz.ch/aktuelles/aktuelles/offene-stellen/detail/kosmetikerin-massagetherapeutin-m-w-d-40-100-befristet",
       "source": "Gemeinde St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:35:44.285Z",
+      "crawledAt": "2026-09-04T23:08:00.966Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",

@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-04T13:26:21.019Z",
+  "generatedAt": "2026-09-04T22:53:57.785Z",
   "total": 30,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 29,
-  "durationMs": 15654,
-  "avgDurationMs": 15654,
+  "durationMs": 15350,
+  "avgDurationMs": 15350,
   "durationHistory": [
-    15654
+    15350
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -156,7 +156,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.893Z",
+      "crawledAt": "2026-09-04T22:53:55.048Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -209,7 +209,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.890Z",
+      "crawledAt": "2026-09-04T22:53:55.046Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -327,7 +327,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.887Z",
+      "crawledAt": "2026-09-04T22:53:55.044Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-20",
@@ -492,7 +492,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.885Z",
+      "crawledAt": "2026-09-04T22:53:55.043Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -615,7 +615,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.882Z",
+      "crawledAt": "2026-09-04T22:53:55.038Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-07-21",
@@ -723,7 +723,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.880Z",
+      "crawledAt": "2026-09-04T22:53:55.036Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -777,7 +777,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.878Z",
+      "crawledAt": "2026-09-04T22:53:55.032Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-03",
@@ -907,7 +907,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.876Z",
+      "crawledAt": "2026-09-04T22:53:55.030Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -963,7 +963,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.873Z",
+      "crawledAt": "2026-09-04T22:53:55.026Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -1088,7 +1088,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.871Z",
+      "crawledAt": "2026-09-04T22:53:55.023Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1144,7 +1144,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.869Z",
+      "crawledAt": "2026-09-04T22:53:55.019Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -1272,7 +1272,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.852Z",
+      "crawledAt": "2026-09-04T22:53:54.999Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1297,7 +1297,7 @@
     },
     {
       "id": "efg-6488",
-      "slug": "global-regulatory-reporting-specialist-efg-geneve",
+      "slug": "global-regulatory-reporting-specialista-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Global Regulatory Reporting Specialist",
       "location": "Geneve",
@@ -1329,10 +1329,9 @@
           }
         }
       },
-      "crawledAt": "2026-09-04T13:26:17.849Z",
+      "crawledAt": "2026-09-04T22:53:54.993Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "datePosted": "2026-09-03",
       "salaryMin": 104500,
       "salaryMax": 183500,
@@ -1340,11 +1339,11 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-03T23:15:04.646Z",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
