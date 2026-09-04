@@ -83472,7 +83472,7 @@
         "it": "it-business-partner-lead-san-diego-roche-ch",
         "en": "it-business-partner-lead-san-diego-roche-ch",
         "de": "it-business-partner-lead-san-diego-roche-ch",
-        "fr": "it-business-partner-lead-san-diego-roche-ch"
+        "fr": "responsable-des-partenaires-commerciaux-it-san-diego-roche-carlsbad"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83530,12 +83530,12 @@
     },
     {
       "id": "roche-30ba42dd740e",
-      "slug": "account-value-partner-npc-sales-bangkok-roche-ch",
+      "slug": "partner-di-valore-conto-npc-vendite-bangkok-roche-thailand",
       "slugByLocale": {
-        "it": "account-value-partner-npc-sales-bangkok-roche-ch",
+        "it": "partner-di-valore-conto-npc-vendite-bangkok-roche-thailand",
         "en": "account-value-partner-npc-sales-bangkok-roche-ch",
         "de": "account-value-partner-npc-sales-bangkok-roche-ch",
-        "fr": "account-value-partner-npc-sales-bangkok-roche-ch"
+        "fr": "partenaire-de-valeur-du-compte-ventes-npc-bangkok-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83589,7 +83589,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "account-value-partner-npc-sales-bangkok-roche-ch"
+        ],
+        "fr": [
+          "account-value-partner-npc-sales-bangkok-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "account-value-partner-npc-sales-bangkok-roche-ch"
+      ]
     },
     {
       "id": "roche-a9481b2a699f",
@@ -83661,7 +83672,7 @@
         "it": "senior-medical-science-manager-gi-roche-ch",
         "en": "senior-medical-science-manager-gi-roche-ch",
         "de": "senior-medical-science-manager-gi-roche-ch",
-        "fr": "senior-medical-science-manager-gi-roche-ch"
+        "fr": "aine-gestionnaire-des-sciences-medicales-gi-roche-xian"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83869,12 +83880,12 @@
     },
     {
       "id": "roche-702e333aa225",
-      "slug": "patient-journey-partner-hematologia-hemofilia-roche-ch",
+      "slug": "partner-del-viaggio-paziente-hematologia-hemofilia-roche-poland",
       "slugByLocale": {
-        "it": "patient-journey-partner-hematologia-hemofilia-roche-ch",
+        "it": "partner-del-viaggio-paziente-hematologia-hemofilia-roche-poland",
         "en": "patient-journey-partner-hematologia-hemofilia-roche-ch",
         "de": "patient-journey-partner-hematologia-hemofilia-roche-ch",
-        "fr": "patient-journey-partner-hematologia-hemofilia-roche-ch"
+        "fr": "partenaire-de-voyage-patient-hematologia-hemophilie-roche-poland"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83928,7 +83939,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-hematologia-hemofilia-roche-ch"
+        ],
+        "fr": [
+          "patient-journey-partner-hematologia-hemofilia-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-hematologia-hemofilia-roche-ch"
+      ]
     },
     {
       "id": "roche-92cb5232acae",
@@ -84014,8 +84036,8 @@
       "slugByLocale": {
         "it": "master-data-manager-roche-ch",
         "en": "master-data-manager-roche-ch",
-        "de": "master-data-manager-roche-ch",
-        "fr": "master-data-manager-roche-ch"
+        "de": "stammdatenmanager-roche-mumbai",
+        "fr": "gestionnaire-de-donnees-principal-roche-mumbai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84073,12 +84095,12 @@
     },
     {
       "id": "roche-f5f7d5c3dac5",
-      "slug": "praktikum-m-w-d-im-bereich-events-congresses-roche-ch",
+      "slug": "stage-m-f-d-nel-campo-degli-eventi-congressi-roche-grenzach",
       "slugByLocale": {
-        "it": "praktikum-m-w-d-im-bereich-events-congresses-roche-ch",
-        "en": "praktikum-m-w-d-im-bereich-events-congresses-roche-ch",
+        "it": "stage-m-f-d-nel-campo-degli-eventi-congressi-roche-grenzach",
+        "en": "internship-m-f-d-in-the-field-of-events-congresses-roche-grenzach",
         "de": "praktikum-m-w-d-im-bereich-events-congresses-roche-ch",
-        "fr": "praktikum-m-w-d-im-bereich-events-congresses-roche-ch"
+        "fr": "stage-h-f-d-dans-le-domaine-des-evenements-et-congres-roche-grenzach"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84131,16 +84153,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-m-w-d-im-bereich-events-congresses-roche-ch"
+        ],
+        "en": [
+          "praktikum-m-w-d-im-bereich-events-congresses-roche-ch"
+        ],
+        "fr": [
+          "praktikum-m-w-d-im-bereich-events-congresses-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-m-w-d-im-bereich-events-congresses-roche-ch"
+      ]
     },
     {
       "id": "roche-858ea30cbb9a",
-      "slug": "legal-compliance-strategic-programs-delivery-lead-roche-ch",
+      "slug": "legale-compliance-programmi-strategici-delivery-lead-roche-basel",
       "slugByLocale": {
-        "it": "legal-compliance-strategic-programs-delivery-lead-roche-ch",
+        "it": "legale-compliance-programmi-strategici-delivery-lead-roche-basel",
         "en": "legal-compliance-strategic-programs-delivery-lead-roche-ch",
         "de": "legal-compliance-strategic-programs-delivery-lead-roche-ch",
-        "fr": "legal-compliance-strategic-programs-delivery-lead-roche-ch"
+        "fr": "legislation-et-conformite-programmes-strategiques-et-prestation-responsable-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84193,16 +84229,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-compliance-strategic-programs-delivery-lead-roche-ch"
+        ],
+        "fr": [
+          "legal-compliance-strategic-programs-delivery-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-compliance-strategic-programs-delivery-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-89b77fa4cd3c",
-      "slug": "associate-manager-filling-roche-ch",
+      "slug": "gestione-associato-riempimento-roche-shanghai",
       "slugByLocale": {
-        "it": "associate-manager-filling-roche-ch",
+        "it": "gestione-associato-riempimento-roche-shanghai",
         "en": "associate-manager-filling-roche-ch",
         "de": "associate-manager-filling-roche-ch",
-        "fr": "associate-manager-filling-roche-ch"
+        "fr": "gestionnaire-associe-remplissage-roche-shanghai"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84256,16 +84303,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-manager-filling-roche-ch"
+        ],
+        "fr": [
+          "associate-manager-filling-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-manager-filling-roche-ch"
+      ]
     },
     {
       "id": "roche-77be2b91946b",
-      "slug": "senior-product-manager-roche-ch",
+      "slug": "responsabile-del-prodotto-senior-roche-ho-chi-minh",
       "slugByLocale": {
-        "it": "senior-product-manager-roche-ch",
+        "it": "responsabile-del-prodotto-senior-roche-ho-chi-minh",
         "en": "senior-product-manager-roche-ch",
-        "de": "senior-product-manager-roche-ch",
-        "fr": "senior-product-manager-roche-ch"
+        "de": "senior-produktmanager-roche-ho-chi-minh",
+        "fr": "gestionnaire-principal-de-produits-roche-ho-chi-minh"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84318,7 +84376,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-product-manager-roche-ch"
+        ],
+        "de": [
+          "senior-product-manager-roche-ch"
+        ],
+        "fr": [
+          "senior-product-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-product-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-615b8cb52337",
@@ -84395,12 +84467,12 @@
     },
     {
       "id": "roche-fedbb2c6ec4d",
-      "slug": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg",
+      "slug": "dipendente-di-produzione-lavoratore-chimico-in-limited-on-2-anni-roche-penzberg",
       "slugByLocale": {
-        "it": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg",
-        "en": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
+        "it": "dipendente-di-produzione-lavoratore-chimico-in-limited-on-2-anni-roche-penzberg",
+        "en": "production-employee-chemical-worker-in-limited-on-2-years-roche-penzberg",
         "de": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
-        "fr": "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch"
+        "fr": "employe-de-production-travailleur-chimique-en-limitee-sur-2-ans-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84440,10 +84512,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch"
+        "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
+        "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch",
+          "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-penzberg"
+        ],
+        "en": [
+          "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch"
+        ],
+        "fr": [
           "produktionsangestellter-chemiewerker-in-auf-2-jahre-befristet-roche-ch"
         ]
       },
@@ -84623,12 +84703,12 @@
     },
     {
       "id": "roche-a485ffde718a",
-      "slug": "employee-lifecycle-management-specialista-basel-temporary-for-2-years-on-site-roche-basel",
+      "slug": "specialista-di-gestione-del-ciclo-di-vita-dei-dipendenti-basel-temporaneo-per-2-anni-in-loco-roche-basel",
       "slugByLocale": {
-        "it": "employee-lifecycle-management-specialista-basel-temporary-for-2-years-on-site-roche-basel",
+        "it": "specialista-di-gestione-del-ciclo-di-vita-dei-dipendenti-basel-temporaneo-per-2-anni-in-loco-roche-basel",
         "en": "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch",
-        "de": "employee-lifecycle-management-spezialist-basel-temporary-for-2-years-on-site-roche-basel",
-        "fr": "employee-lifecycle-management-specialiste-basel-temporary-for-2-years-on-site-roche-basel"
+        "de": "employee-lifecycle-management-spezialist-basel-befristet-fur-2-jahre-vor-ort-roche-basel",
+        "fr": "specialiste-de-la-gestion-du-cycle-de-vie-des-employes-bale-temporaire-pendant-2-ans-sur-place-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84674,15 +84754,19 @@
           "employee-lifecycle-management-specialista-basel-temporary-for-2-years-on-site-roche-basel"
         ],
         "de": [
-          "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch"
+          "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch",
+          "employee-lifecycle-management-spezialist-basel-temporary-for-2-years-on-site-roche-basel"
         ],
         "fr": [
-          "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch"
+          "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch",
+          "employee-lifecycle-management-specialiste-basel-temporary-for-2-years-on-site-roche-basel"
         ]
       },
       "previousSlugs": [
         "employee-lifecycle-management-specialist-basel-temporary-for-2-years-on-site-roche-ch",
-        "employee-lifecycle-management-specialista-basel-temporary-for-2-years-on-site-roche-basel"
+        "employee-lifecycle-management-specialista-basel-temporary-for-2-years-on-site-roche-basel",
+        "employee-lifecycle-management-spezialist-basel-temporary-for-2-years-on-site-roche-basel",
+        "employee-lifecycle-management-specialiste-basel-temporary-for-2-years-on-site-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -84701,12 +84785,12 @@
     },
     {
       "id": "roche-f473d71398b2",
-      "slug": "business-development-partner-roche-ch",
+      "slug": "partner-di-sviluppo-aziendale-roche-thailand",
       "slugByLocale": {
-        "it": "business-development-partner-roche-ch",
+        "it": "partner-di-sviluppo-aziendale-roche-thailand",
         "en": "business-development-partner-roche-ch",
         "de": "business-development-partner-roche-ch",
-        "fr": "business-development-partner-roche-ch"
+        "fr": "partenaire-de-developpement-des-entreprises-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84760,16 +84844,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-partner-roche-ch"
+        ],
+        "fr": [
+          "business-development-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-1f5b4b46dd53",
-      "slug": "marketing-value-partner-disease-management-roche-ch",
+      "slug": "partner-del-valore-di-marketing-gestione-delle-malattie-roche-thailand",
       "slugByLocale": {
-        "it": "marketing-value-partner-disease-management-roche-ch",
+        "it": "partner-del-valore-di-marketing-gestione-delle-malattie-roche-thailand",
         "en": "marketing-value-partner-disease-management-roche-ch",
         "de": "marketing-value-partner-disease-management-roche-ch",
-        "fr": "marketing-value-partner-disease-management-roche-ch"
+        "fr": "partenaire-de-valeur-commerciale-gestion-des-maladies-roche-thailand"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -84823,7 +84918,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "marketing-value-partner-disease-management-roche-ch"
+        ],
+        "fr": [
+          "marketing-value-partner-disease-management-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "marketing-value-partner-disease-management-roche-ch"
+      ]
     },
     {
       "id": "roche-1a042b890f25",
@@ -85046,12 +85152,12 @@
     },
     {
       "id": "roche-80efa7b2c2eb",
-      "slug": "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-penzberg",
+      "slug": "dipendente-di-produzione-m-f-d-etichettatura-e-area-di-imballaggio-temporanea-2-anni-roche-penzberg",
       "slugByLocale": {
-        "it": "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-penzberg",
-        "en": "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch",
+        "it": "dipendente-di-produzione-m-f-d-etichettatura-e-area-di-imballaggio-temporanea-2-anni-roche-penzberg",
+        "en": "production-employee-m-f-d-labelling-packaging-area-temporary-2-years-roche-penzberg",
         "de": "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch",
-        "fr": "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch"
+        "fr": "employe-de-production-h-f-d-zone-d-etiquetage-et-d-emballage-temporaire-2-ans-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85091,10 +85197,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch"
+        "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch",
+        "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch",
+          "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-penzberg"
+        ],
+        "en": [
+          "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch"
+        ],
+        "fr": [
           "produktionsmitarbeiter-m-w-d-bereich-etikettierung-verpackung-befristet-2-jahre-roche-ch"
         ]
       },
@@ -85199,7 +85313,7 @@
         "it": "business-technical-consulente-roche-madrid",
         "en": "business-technical-consultant-roche-ch",
         "de": "business-technical-berater-roche-madrid",
-        "fr": "business-technical-consultant-roche-ch"
+        "fr": "consultant-technique-en-affaires-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85245,6 +85359,9 @@
           "business-technical-consulente-roche-madrid"
         ],
         "de": [
+          "business-technical-consultant-roche-ch"
+        ],
+        "fr": [
           "business-technical-consultant-roche-ch"
         ]
       },
@@ -85430,8 +85547,8 @@
       "slugByLocale": {
         "it": "product-manager-ris-roche-ch",
         "en": "product-manager-ris-roche-ch",
-        "de": "product-manager-ris-roche-ch",
-        "fr": "product-manager-ris-roche-ch"
+        "de": "produktmanager-ris-roche-basel",
+        "fr": "gestionnaire-de-produits-ris-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85494,7 +85611,7 @@
         "it": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
         "en": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
         "de": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch",
-        "fr": "alliance-management-principal-drug-safety-outsourcing-vendor-strategy-leader-roche-ch"
+        "fr": "chef-de-la-gestion-de-l-alliance-gestion-de-la-securite-des-medicaments-et-chef-de-la-strategie-des-fournisseurs-roche"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85752,7 +85869,7 @@
         "it": "medical-manager-cardiometabolism-pipeline-acceleration-team-roche-ch",
         "en": "medical-manager-cardiometabolism-pipeline-acceleration-team-roche-ch",
         "de": "medical-manager-cardiometabolism-pipeline-acceleration-team-roche-ch",
-        "fr": "medical-manager-cardiometabolism-pipeline-acceleration-team-roche-ch"
+        "fr": "directeur-medical-cardiometabolisme-equipe-d-acceleration-du-pipeline-roche-madrid"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85809,12 +85926,12 @@
     },
     {
       "id": "roche-bc3cbf1d2cf5",
-      "slug": "notfallsanitater-come-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-per-den-bereich-der-medizinischen-dienste-m-w-d-roche-penzberg",
+      "slug": "assistente-medico-di-emergenza-m-f-d-a-tempo-pieno-per-il-campo-dei-servizi-medici-m-f-d-roche-penzberg",
       "slugByLocale": {
-        "it": "notfallsanitater-come-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-per-den-bereich-der-medizinischen-dienste-m-w-d-roche-penzberg",
-        "en": "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der",
+        "it": "assistente-medico-di-emergenza-m-f-d-a-tempo-pieno-per-il-campo-dei-servizi-medici-m-f-d-roche-penzberg",
+        "en": "emergency-medical-assistant-m-f-d-full-time-for-the-field-of-medical-services-m-f-d-roche-penzberg",
         "de": "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der",
-        "fr": "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der"
+        "fr": "assistant-medical-d-urgence-h-f-d-a-temps-plein-pour-le-domaine-des-services-medicaux-h-f-d-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85854,10 +85971,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der"
+        "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der",
+        "notfallsanitater-come-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-per-den-bereich-der-medizinischen-dienste-m-w-d-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der",
+          "notfallsanitater-come-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-per-den-bereich-der-medizinischen-dienste-m-w-d-roche-penzberg"
+        ],
+        "en": [
+          "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der"
+        ],
+        "fr": [
           "notfallsanitater-als-arbeitsmedizinischer-assistent-m-w-d-in-vollzeit-fur-den-bereich-der"
         ]
       },
@@ -85879,12 +86004,12 @@
     },
     {
       "id": "roche-fe44a446761e",
-      "slug": "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-penzberg",
+      "slug": "assistente-di-laboratorio-ptcg-m-f-d-temporaneo-a-2-anni-roche-penzberg",
       "slugByLocale": {
-        "it": "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-penzberg",
-        "en": "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch",
+        "it": "assistente-di-laboratorio-ptcg-m-f-d-temporaneo-a-2-anni-roche-penzberg",
+        "en": "laboratory-assistant-ptcg-m-f-d-temporary-to-2-years-roche-penzberg",
         "de": "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch",
-        "fr": "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch"
+        "fr": "assistant-de-laboratoire-ptcg-h-f-d-temporaire-a-2-ans-roche-penzberg"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -85924,10 +86049,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch"
+        "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch",
+        "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch",
+          "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-penzberg"
+        ],
+        "en": [
+          "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch"
+        ],
+        "fr": [
           "laborassistenz-ptcg-m-w-d-befristet-auf-2-jahre-roche-ch"
         ]
       },
@@ -86029,12 +86162,12 @@
     },
     {
       "id": "roche-794bd8d925e0",
-      "slug": "customer-project-manager-roche-ch",
+      "slug": "responsabile-del-progetto-cliente-roche-basel",
       "slugByLocale": {
-        "it": "customer-project-manager-roche-ch",
         "en": "customer-project-manager-roche-ch",
-        "de": "customer-project-manager-roche-ch",
-        "fr": "customer-project-manager-roche-ch"
+        "it": "responsabile-del-progetto-cliente-roche-basel",
+        "de": "kundenprojektmanager-roche-basel",
+        "fr": "gestionnaire-de-projet-client-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -86095,13 +86228,18 @@
           "project-manager-roche-ch",
           "projektmanager-roche-budapest-6b9fec",
           "gestionnaire-de-projet-roche-budapest-6b9fec",
-          "project-manager-roche-ch-2"
+          "project-manager-roche-ch-2",
+          "customer-project-manager-roche-ch"
         ],
         "en": [
           "global-project-manager-roche-ch-6bdq4r"
         ],
         "fr": [
-          "global-project-manager-roche-ch-2"
+          "global-project-manager-roche-ch-2",
+          "customer-project-manager-roche-ch"
+        ],
+        "de": [
+          "customer-project-manager-roche-ch"
         ]
       },
       "previousSlugs": [
@@ -86112,7 +86250,8 @@
         "gestionnaire-de-projet-roche-budapest-6b9fec",
         "project-manager-roche-ch-2",
         "global-project-manager-roche-ch-6bdq4r",
-        "global-project-manager-roche-ch-2"
+        "global-project-manager-roche-ch-2",
+        "customer-project-manager-roche-ch"
       ]
     },
     {
@@ -86273,9 +86412,9 @@
     },
     {
       "id": "roche-522973b2edf2",
-      "slug": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
+      "slug": "ingenieur-e-servizio-e-manutenzione-parigi-ile-de-france-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
+        "it": "ingenieur-e-servizio-e-manutenzione-parigi-ile-de-france-d-f-m-roche-france",
         "en": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
         "de": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch",
         "fr": "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
@@ -86332,14 +86471,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-e-service-maintenance-paris-ile-de-france-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-f1ee96038f7c",
-      "slug": "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch",
+      "slug": "operazioni-compliance-specialist-supply-chain-d-f-m-roche-paris",
       "slugByLocale": {
-        "it": "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch",
-        "en": "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch",
+        "it": "operazioni-compliance-specialist-supply-chain-d-f-m-roche-paris",
+        "en": "operations-compliance-specialist-supply-chain-d-f-m-roche-paris",
         "de": "specialiste-conformite-des-operations-lieferkette-d-f-m-roche-paris",
         "fr": "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch"
       },
@@ -86394,15 +86541,26 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch"
+        ],
+        "en": [
+          "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-conformite-des-operations-supply-chain-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-3404e412cc73",
-      "slug": "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch",
+      "slug": "commercial-manager-multi-giochi-territoriali-sud-est-lione-grenoble-d-f-m-roche-france",
       "slugByLocale": {
-        "it": "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch",
-        "en": "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch",
-        "de": "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch",
+        "it": "commercial-manager-multi-giochi-territoriali-sud-est-lione-grenoble-d-f-m-roche-france",
+        "en": "commercial-manager-territorial-multi-games-south-east-lyon-grenoble-d-f-m-roche-france",
+        "de": "commercial-manager-territorial-multi-games-south-east-lyon-grenoble-d-w-m-roche-france",
         "fr": "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch"
       },
       "company": "Roche",
@@ -86456,13 +86614,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch"
+        ],
+        "en": [
+          "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch"
+        ],
+        "de": [
+          "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-commercial-territorial-multi-gammes-sud-est-lyon-grenoble-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-3bab14521090",
-      "slug": "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch",
+      "slug": "responsabile-dei-multigiochi-commerciali-territoriali-sud-est-montpellier-d-f-m-roche-meylan",
       "slugByLocale": {
-        "it": "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch",
+        "it": "responsabile-dei-multigiochi-commerciali-territoriali-sud-est-montpellier-d-f-m-roche-meylan",
         "en": "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch",
         "de": "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch",
         "fr": "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch"
@@ -86518,7 +86690,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-commercial-territorial-multi-gammes-sud-est-montpellier-d-f-m-roche-ch"
+      ]
     },
     {
       "id": "roche-ad1193527d2c",
@@ -86602,9 +86782,9 @@
     },
     {
       "id": "roche-adaebccec8b5",
-      "slug": "patient-journey-partner-hematology-roche-ch",
+      "slug": "ematologia-partner-del-viaggio-paziente-roche-sweden",
       "slugByLocale": {
-        "it": "patient-journey-partner-hematology-roche-ch",
+        "it": "ematologia-partner-del-viaggio-paziente-roche-sweden",
         "en": "patient-journey-partner-hematology-roche-ch",
         "de": "patient-journey-partner-hematology-roche-ch",
         "fr": "patient-journey-partner-hematology-roche-ch"
@@ -86660,16 +86840,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-journey-partner-hematology-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-journey-partner-hematology-roche-ch"
+      ]
     },
     {
       "id": "roche-1779287f7cb2",
-      "slug": "commercial-lead-npc-roche-ch",
+      "slug": "piombo-commerciale-npc-roche-kuwait",
       "slugByLocale": {
-        "it": "commercial-lead-npc-roche-ch",
         "en": "commercial-lead-npc-roche-ch",
+        "it": "piombo-commerciale-npc-roche-kuwait",
         "de": "commercial-lead-npc-roche-ch",
-        "fr": "commercial-lead-npc-roche-ch"
+        "fr": "plomb-commercial-pnc-roche-kuwait"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -86722,7 +86910,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-03T23:11:55.326Z"
+      "firstSeenAt": "2026-09-03T23:11:55.326Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commercial-lead-npc-roche-ch"
+        ],
+        "fr": [
+          "commercial-lead-npc-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "commercial-lead-npc-roche-ch"
+      ]
     },
     {
       "id": "roche-61bc47cca40a",
@@ -86880,10 +87079,10 @@
       "id": "roche-4e6dfed23f12",
       "slug": "senior-test-manager-roche-ch",
       "slugByLocale": {
-        "it": "senior-test-manager-roche-ch",
         "en": "senior-test-manager-roche-ch",
+        "it": "senior-test-manager-roche-ch",
         "de": "senior-test-manager-roche-ch",
-        "fr": "senior-test-manager-roche-ch"
+        "fr": "gestionnaire-principal-des-tests-roche-motherwell"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87473,10 +87672,10 @@
       "id": "roche-67a8951ff224",
       "slug": "product-marketing-manager-oncology-roche-ch",
       "slugByLocale": {
-        "it": "product-marketing-manager-oncology-roche-ch",
         "en": "product-marketing-manager-oncology-roche-ch",
+        "it": "product-marketing-manager-oncology-roche-ch",
         "de": "product-marketing-manager-oncology-roche-ch",
-        "fr": "product-marketing-manager-oncology-roche-ch"
+        "fr": "responsable-du-marketing-des-produits-oncologie-roche-warsaw"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87801,12 +88000,12 @@
     },
     {
       "id": "roche-31f212ee36f6",
-      "slug": "intellectual-property-patent-attorney-roche-ch",
+      "slug": "proprieta-intellettuale-procuratore-di-brevetti-roche-basel",
       "slugByLocale": {
-        "it": "intellectual-property-patent-attorney-roche-ch",
         "en": "intellectual-property-patent-attorney-roche-ch",
-        "de": "intellectual-property-patent-attorney-roche-ch",
-        "fr": "intellectual-property-patent-attorney-roche-ch"
+        "it": "proprieta-intellettuale-procuratore-di-brevetti-roche-basel",
+        "de": "geistiges-eigentum-patentanwalt-roche-basel",
+        "fr": "propriete-intellectuelle-procureur-en-brevets-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87859,7 +88058,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-03T23:11:39.394Z"
+      "firstSeenAt": "2026-09-03T23:11:39.394Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "intellectual-property-patent-attorney-roche-ch"
+        ],
+        "de": [
+          "intellectual-property-patent-attorney-roche-ch"
+        ],
+        "fr": [
+          "intellectual-property-patent-attorney-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "intellectual-property-patent-attorney-roche-ch"
+      ]
     },
     {
       "id": "roche-fbbd1edab019",
@@ -87937,12 +88150,12 @@
     },
     {
       "id": "roche-a3125dd69b76",
-      "slug": "regulatory-affairs-project-manager-roche-ch",
+      "slug": "responsabile-del-progetto-per-gli-affari-regolamentari-roche-basel-20d393",
       "slugByLocale": {
-        "it": "regulatory-affairs-project-manager-roche-ch",
         "en": "regulatory-affairs-project-manager-roche-ch",
-        "de": "regulatory-affairs-project-manager-roche-ch",
-        "fr": "regulatory-affairs-project-manager-roche-ch"
+        "it": "responsabile-del-progetto-per-gli-affari-regolamentari-roche-basel-20d393",
+        "de": "projektmanager-fur-regulatory-affairs-roche-basel-20d393",
+        "fr": "gestionnaire-de-projet-des-affaires-reglementaires-roche-basel-20d393"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -87995,7 +88208,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-03T23:11:37.507Z"
+      "firstSeenAt": "2026-09-03T23:11:37.507Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ],
+        "de": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ],
+        "fr": [
+          "regulatory-affairs-project-manager-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regulatory-affairs-project-manager-roche-ch"
+      ]
     },
     {
       "id": "roche-a3bf3486220c",
@@ -88224,10 +88451,10 @@
     },
     {
       "id": "roche-9002fc393c99",
-      "slug": "patient-strategy-salesforce-tech-lead-roche-ch",
+      "slug": "strategia-paziente-salesforce-tech-lead-roche-hyderabad",
       "slugByLocale": {
-        "it": "patient-strategy-salesforce-tech-lead-roche-ch",
         "en": "patient-strategy-salesforce-tech-lead-roche-ch",
+        "it": "strategia-paziente-salesforce-tech-lead-roche-hyderabad",
         "de": "patient-strategy-salesforce-tech-lead-roche-ch",
         "fr": "patient-strategy-salesforce-responsable-technique-roche-hyderabad"
       },
@@ -88282,14 +88509,22 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-03T23:11:33.830Z"
+      "firstSeenAt": "2026-09-03T23:11:33.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-strategy-salesforce-tech-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-strategy-salesforce-tech-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-90f2cc3c6e9e",
-      "slug": "patient-strategy-integration-tech-lead-roche-ch",
+      "slug": "strategia-del-paziente-integrazione-tech-lead-roche-hyderabad",
       "slugByLocale": {
-        "it": "patient-strategy-integration-tech-lead-roche-ch",
         "en": "patient-strategy-integration-tech-lead-roche-ch",
+        "it": "strategia-del-paziente-integrazione-tech-lead-roche-hyderabad",
         "de": "patient-strategy-integration-tech-lead-roche-ch",
         "fr": "patient-strategy-integration-responsable-technique-roche-hyderabad"
       },
@@ -88344,7 +88579,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-03T23:11:32.949Z"
+      "firstSeenAt": "2026-09-03T23:11:32.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "patient-strategy-integration-tech-lead-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "patient-strategy-integration-tech-lead-roche-ch"
+      ]
     },
     {
       "id": "roche-14f472262e9d",
@@ -90135,12 +90378,12 @@
     },
     {
       "id": "roche-6cae5bdc993d",
-      "slug": "technical-product-owner-manager-roche-ch",
+      "slug": "proprietario-manager-del-prodotto-tecnico-roche-basel",
       "slugByLocale": {
-        "it": "technical-product-owner-manager-roche-ch",
+        "it": "proprietario-manager-del-prodotto-tecnico-roche-basel",
         "en": "technical-project-manager-security-compliance-valdiation-roche-ch",
         "de": "technical-product-owner-manager-roche-ch",
-        "fr": "technical-product-owner-manager-roche-ch"
+        "fr": "proprietaire-gestionnaire-de-produits-techniques-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90201,6 +90444,9 @@
           "technical-product-owner-manager-roche-ch"
         ],
         "en": [
+          "technical-product-owner-manager-roche-ch"
+        ],
+        "fr": [
           "technical-product-owner-manager-roche-ch"
         ]
       },

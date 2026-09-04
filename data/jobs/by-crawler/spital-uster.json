@@ -4108,12 +4108,12 @@
     },
     {
       "id": "spital-uster-6a4860bd7b18",
-      "slug": "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster",
+      "slug": "capo-medico-o-capo-dipartimento-in-urologia-80-100-spital-uster-uster",
       "slugByLocale": {
-        "it": "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster",
-        "en": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
+        "it": "capo-medico-o-capo-dipartimento-in-urologia-80-100-spital-uster-uster",
+        "en": "chief-physician-or-head-of-department-in-urology-80-100-spital-uster-uster",
         "de": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
-        "fr": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        "fr": "medecin-en-chef-ou-chef-de-departement-en-urologie-80-100-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4156,10 +4156,18 @@
       "requirementsByLocale": {},
       "department": "Ärztliches Personal",
       "previousSlugs": [
-        "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
+        "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
+          "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster"
+        ],
+        "en": [
+          "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        ],
+        "fr": [
           "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
         ]
       },
@@ -4180,12 +4188,12 @@
     },
     {
       "id": "spital-uster-fa734638ebcf",
-      "slug": "oberarztin-oberarzt-per-la-interdisziplinare-notfallstation-spital-uster",
+      "slug": "medico-senior-per-il-reparto-di-emergenza-interdisciplinare-spital-uster-uster",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-per-la-interdisziplinare-notfallstation-spital-uster",
-        "en": "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch",
         "de": "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch",
-        "fr": "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch"
+        "it": "medico-senior-per-il-reparto-di-emergenza-interdisciplinare-spital-uster-uster",
+        "en": "senior-physician-for-the-interdisciplinary-emergency-department-spital-uster-uster",
+        "fr": "medecin-principal-pour-le-service-d-urgence-interdisciplinaire-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4229,11 +4237,19 @@
       "department": "Administration/Management/Stab",
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch",
+          "oberarztin-oberarzt-per-la-interdisziplinare-notfallstation-spital-uster"
+        ],
+        "en": [
+          "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch"
+        "oberarztin-oberarzt-fur-die-interdisziplinare-notfallstation-spital-uster-ch",
+        "oberarztin-oberarzt-per-la-interdisziplinare-notfallstation-spital-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

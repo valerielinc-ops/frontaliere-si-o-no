@@ -3341,7 +3341,7 @@
       "slugByLocale": {
         "it": "global-product-manager-data-visualizer-80-100-siemens-zug",
         "en": "global-product-manager-data-visualizer-80-100-siemens-zug",
-        "de": "global-product-manager-data-visualizer-80-100-siemens-zug",
+        "de": "globaler-produktmanager-datenvisualisierer-80-100-siemens-zug",
         "fr": "global-product-manager-data-visualizer-80-100-siemens-zug"
       },
       "company": "Siemens",
@@ -3914,12 +3914,12 @@
     },
     {
       "id": "siemens-e09630e3d024",
-      "slug": "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen",
+      "slug": "system-sales-engineer-in-building-technology-80-100-siemens-ostermundigen",
       "slugByLocale": {
-        "it": "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen",
+        "it": "system-sales-engineer-in-building-technology-80-100-siemens-ostermundigen",
         "en": "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen",
         "de": "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen",
-        "fr": "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen"
+        "fr": "engineer-de-vente-de-systeme-dans-la-technologie-du-batiment-80-100-siemens-ostermundigen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -3977,16 +3977,27 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen"
+        ],
+        "fr": [
+          "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "systemverkaufsingenieur-in-gebaudetechnik-80-100-siemens-ostermundigen"
+      ]
     },
     {
       "id": "siemens-b0648db32b3d",
-      "slug": "planner-relationship-manager-80-100-siemens-zuerich",
+      "slug": "responsabile-relazioni-planner-80-100-siemens-zuerich",
       "slugByLocale": {
-        "it": "planner-relationship-manager-80-100-siemens-zuerich",
+        "it": "responsabile-relazioni-planner-80-100-siemens-zuerich",
         "en": "planner-relationship-manager-80-100-siemens-zuerich",
         "de": "planner-relationship-manager-80-100-siemens-zuerich",
-        "fr": "planner-relationship-manager-80-100-siemens-zuerich"
+        "fr": "gestionnaire-de-relations-avec-les-planificateurs-80-100-siemens-zuerich"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4044,7 +4055,18 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "planner-relationship-manager-80-100-siemens-zuerich"
+        ],
+        "fr": [
+          "planner-relationship-manager-80-100-siemens-zuerich"
+        ]
+      },
+      "previousSlugs": [
+        "planner-relationship-manager-80-100-siemens-zuerich"
+      ]
     },
     {
       "id": "siemens-fa68bc8b3e84",
@@ -4332,12 +4354,12 @@
     },
     {
       "id": "siemens-369e1b60da1d",
-      "slug": "techniker-in-raumautomation-80-100-siemens-zuerich",
+      "slug": "tecnico-in-automazione-ambiente-80-100-siemens-zuerich",
       "slugByLocale": {
-        "it": "techniker-in-raumautomation-80-100-siemens-zuerich",
-        "en": "techniker-in-raumautomation-80-100-siemens-zuerich",
         "de": "techniker-in-raumautomation-80-100-siemens-zuerich",
-        "fr": "techniker-in-raumautomation-80-100-siemens-zuerich"
+        "it": "tecnico-in-automazione-ambiente-80-100-siemens-zuerich",
+        "en": "technician-in-room-automation-80-100-siemens-zuerich",
+        "fr": "technicien-dans-l-automatisation-des-locaux-80-100-siemens-zuerich"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4395,7 +4417,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:15:10.099Z"
+      "firstSeenAt": "2026-09-03T23:15:10.099Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-raumautomation-80-100-siemens-zuerich"
+        ],
+        "en": [
+          "techniker-in-raumautomation-80-100-siemens-zuerich"
+        ],
+        "fr": [
+          "techniker-in-raumautomation-80-100-siemens-zuerich"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-raumautomation-80-100-siemens-zuerich"
+      ]
     }
   ]
 }

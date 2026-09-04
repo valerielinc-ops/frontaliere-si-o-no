@@ -11804,12 +11804,12 @@
     },
     {
       "id": "stadler-rail-974d99a542f0",
-      "slug": "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen",
+      "slug": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen",
       "slugByLocale": {
-        "it": "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen",
-        "en": "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
         "de": "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
-        "fr": "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
+        "it": "specialista-in-pittura-e-superficie-in-ingegneria-stadler-rail-st-margrethen",
+        "en": "specialist-in-paint-and-surface-in-engineering-stadler-rail-st-margrethen",
+        "fr": "specialiste-en-peinture-et-surface-en-ingenierie-stadler-rail-st-margrethen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11852,11 +11852,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
+          "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen"
+        ],
+        "en": [
+          "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
+        ],
+        "fr": [
           "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
-        "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch"
+        "spezialist-in-lack-und-oberflache-im-engineering-stadler-rail-ch",
+        "spezialist-in-lack-e-oberflache-im-engineering-stadler-rail-st-margrethen"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -11875,12 +11883,12 @@
     },
     {
       "id": "stadler-rail-3cdc25bdead8",
-      "slug": "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch",
+      "slug": "team-leader-commissioning-elettrico-stadler-rail-bussnang",
       "slugByLocale": {
-        "it": "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch",
-        "en": "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch",
+        "it": "team-leader-commissioning-elettrico-stadler-rail-bussnang",
+        "en": "team-leader-electrical-commissioning-stadler-rail-bussnang",
         "de": "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch",
-        "fr": "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch"
+        "fr": "chef-d-equipe-mise-en-service-electrique-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -11934,7 +11942,21 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch"
+        ],
+        "en": [
+          "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch"
+        ],
+        "fr": [
+          "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-elektrische-inbetriebsetzung-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-dc14869526b5",

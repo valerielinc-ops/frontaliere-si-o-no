@@ -3441,11 +3441,11 @@
     },
     {
       "id": "hib-broye-41549dc70411",
-      "slug": "employe-e-de-maison-a-80-hib-broye-payerne",
+      "slug": "80-dipendente-domestico-hopital-intercantonal-de-la-broye-hib-payerne",
       "slugByLocale": {
-        "it": "employe-e-de-maison-a-80-hib-broye-payerne",
-        "en": "employe-e-de-maison-a-80-hib-broye-payerne",
-        "de": "employe-e-de-maison-a-80-hib-broye-payerne",
+        "it": "80-dipendente-domestico-hopital-intercantonal-de-la-broye-hib-payerne",
+        "en": "80-domestic-employee-hopital-intercantonal-de-la-broye-hib-payerne",
+        "de": "80-hausangestellte-hopital-intercantonal-de-la-broye-hib-payerne",
         "fr": "employe-e-de-maison-a-80-hib-broye-payerne"
       },
       "company": "Hôpital Intercantonal de la Broye (HIB)",
@@ -3500,7 +3500,21 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "employe-e-de-maison-a-80-hib-broye-payerne"
+        ],
+        "en": [
+          "employe-e-de-maison-a-80-hib-broye-payerne"
+        ],
+        "de": [
+          "employe-e-de-maison-a-80-hib-broye-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "employe-e-de-maison-a-80-hib-broye-payerne"
+      ]
     },
     {
       "id": "hib-broye-48d8a4460df1",

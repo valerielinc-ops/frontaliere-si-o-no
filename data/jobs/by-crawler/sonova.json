@@ -1132,12 +1132,12 @@
     },
     {
       "id": "sonova-4414f1cfd509",
-      "slug": "clinical-affairs-manager-m-f-d-sonova-ch",
+      "slug": "responsabile-affari-clinici-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
-        "it": "clinical-affairs-manager-m-f-d-sonova-ch",
+        "it": "responsabile-affari-clinici-m-f-d-sonova-staefa-switzerland",
         "en": "clinical-affairs-manager-m-f-d-sonova-ch",
         "de": "clinical-affairs-manager-m-f-d-sonova-ch",
-        "fr": "clinical-affairs-manager-m-f-d-sonova-ch"
+        "fr": "gestionnaire-des-affaires-cliniques-h-f-d-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -1189,13 +1189,24 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-affairs-manager-m-f-d-sonova-ch"
+        ],
+        "fr": [
+          "clinical-affairs-manager-m-f-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-affairs-manager-m-f-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-00f339ff331d",
-      "slug": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
+      "slug": "amministrazione-del-personale-m-f-d-sonova-staefa-switzerland",
       "slugByLocale": {
-        "it": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
+        "it": "amministrazione-del-personale-m-f-d-sonova-staefa-switzerland",
         "en": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
         "de": "sachbearbeiter-service-administration-m-w-d-sonova-ch",
         "fr": "sachbearbeiter-service-administration-m-w-d-sonova-ch"
@@ -1250,7 +1261,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-service-administration-m-w-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-service-administration-m-w-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-05280fbe6de4",

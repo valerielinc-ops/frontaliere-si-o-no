@@ -9006,12 +9006,12 @@
     },
     {
       "id": "ubs-e6215de0c797",
-      "slug": "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz",
+      "slug": "consulente-clienti-privato-a-affluent-kreuzlingen-80-100-ubs-ostschweiz",
       "slugByLocale": {
-        "it": "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz",
-        "en": "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz",
+        "it": "consulente-clienti-privato-a-affluent-kreuzlingen-80-100-ubs-ostschweiz",
+        "en": "private-client-advisor-in-affluent-kreuzlingen-80-100-ubs-ostschweiz",
         "de": "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz",
-        "fr": "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz"
+        "fr": "consultant-client-prive-en-affluent-kreuzlingen-80-100-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9073,7 +9073,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz"
+        ],
+        "en": [
+          "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz"
+        ],
+        "fr": [
+          "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-affluent-kreuzlingen-80-100-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-b2bb85373ab6",
@@ -9082,7 +9096,7 @@
         "it": "associate-program-client-advisor-wm-team-central-europe-ubs-zurich",
         "en": "associate-program-client-advisor-wm-team-central-europe-ubs-zurich",
         "de": "associate-program-client-advisor-wm-team-central-europe-ubs-zurich",
-        "fr": "associate-program-client-advisor-wm-team-central-europe-ubs-zurich"
+        "fr": "programme-associe-client-advisor-wm-team-europe-centrale-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9148,12 +9162,12 @@
     },
     {
       "id": "ubs-b048ad0c0325",
-      "slug": "privatkundenberater-in-affluent-herisau-ubs-ostschweiz",
+      "slug": "consulente-privato-in-affluente-herisau-ubs-ostschweiz",
       "slugByLocale": {
-        "it": "privatkundenberater-in-affluent-herisau-ubs-ostschweiz",
-        "en": "privatkundenberater-in-affluent-herisau-ubs-ostschweiz",
+        "it": "consulente-privato-in-affluente-herisau-ubs-ostschweiz",
+        "en": "private-client-advisor-in-affluent-herisau-ubs-ostschweiz",
         "de": "privatkundenberater-in-affluent-herisau-ubs-ostschweiz",
-        "fr": "privatkundenberater-in-affluent-herisau-ubs-ostschweiz"
+        "fr": "conseiller-client-prive-a-affluent-herisau-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9216,7 +9230,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-in-affluent-herisau-ubs-ostschweiz"
+        ],
+        "en": [
+          "privatkundenberater-in-affluent-herisau-ubs-ostschweiz"
+        ],
+        "fr": [
+          "privatkundenberater-in-affluent-herisau-ubs-ostschweiz"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-in-affluent-herisau-ubs-ostschweiz"
+      ]
     },
     {
       "id": "ubs-5a35959c8501",
@@ -9225,7 +9253,7 @@
         "it": "privatkundenberater-in-retail-bodensee-rorschach-o-arbon-80-100-ubs-ostschweiz",
         "en": "privatkundenberater-in-retail-bodensee-rorschach-oder-arbon-80-100-ubs-ostschweiz",
         "de": "privatkundenberater-in-retail-bodensee-rorschach-oder-arbon-80-100-ubs-ostschweiz",
-        "fr": "privatkundenberater-in-retail-bodensee-rorschach-oder-arbon-80-100-ubs-ostschweiz"
+        "fr": "consultant-de-detail-en-bodensee-de-detail-rorschach-ou-arbon-80-100-ubs-ostschweiz"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -9278,6 +9306,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "privatkundenberater-in-retail-bodensee-rorschach-oder-arbon-80-100-ubs-ostschweiz"
+        ],
+        "fr": [
           "privatkundenberater-in-retail-bodensee-rorschach-oder-arbon-80-100-ubs-ostschweiz"
         ]
       },

@@ -4,7 +4,7 @@
   "jobs": [
     {
       "id": "company-ux19ye",
-      "slug": "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye",
+      "slug": "cuoco-assistente-cuoco-di-help-migros-restaurant-thun",
       "company": "Migros Restaurant",
       "title": "Hilfskoch*Hilfsköchin",
       "location": "Thun",
@@ -65,19 +65,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye",
-        "en": "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye",
+        "it": "cuoco-assistente-cuoco-di-help-migros-restaurant-thun",
+        "en": "assistant-cook-help-cook-migros-restaurant-thun",
         "de": "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye",
-        "fr": "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye"
+        "fr": "chef-adjoint-aide-cuisinier-migros-restaurant-thun"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "hilfskoch-hilfskochin-migros-restaurant-thun"
+          "hilfskoch-hilfskochin-migros-restaurant-thun",
+          "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye"
+        ],
+        "en": [
+          "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye"
+        ],
+        "fr": [
+          "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye"
         ]
       },
       "previousSlugs": [
-        "hilfskoch-hilfskochin-migros-restaurant-thun"
+        "hilfskoch-hilfskochin-migros-restaurant-thun",
+        "hilfskoch-hilfskochin-migros-restaurant-thun-ux19ye"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -98,7 +106,7 @@
     },
     {
       "id": "company-obg1hx",
-      "slug": "koch-kochin-migros-restaurant-thun-obg1hx",
+      "slug": "cucinare-migros-restaurant-thun-5aaafb",
       "company": "Migros Restaurant",
       "title": "Koch*Köchin",
       "location": "Thun",
@@ -171,19 +179,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "koch-kochin-migros-restaurant-thun-obg1hx",
-        "en": "koch-kochin-migros-restaurant-thun-obg1hx",
+        "it": "cucinare-migros-restaurant-thun-5aaafb",
+        "en": "cook-cook-migros-restaurant-thun-5aaafb",
         "de": "koch-kochin-migros-restaurant-thun-obg1hx",
-        "fr": "koch-kochin-migros-restaurant-thun-obg1hx"
+        "fr": "cuisiniere-migros-restaurant-thun-5aaafb"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-thun"
+          "koch-kochin-migros-restaurant-thun",
+          "koch-kochin-migros-restaurant-thun-obg1hx"
+        ],
+        "en": [
+          "koch-kochin-migros-restaurant-thun-obg1hx"
+        ],
+        "fr": [
+          "koch-kochin-migros-restaurant-thun-obg1hx"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-migros-restaurant-thun"
+        "koch-kochin-migros-restaurant-thun",
+        "koch-kochin-migros-restaurant-thun-obg1hx"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -204,7 +220,7 @@
     },
     {
       "id": "company-fwg2e3",
-      "slug": "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
+      "slug": "cucinare-migros-restaurant-burgdorf",
       "company": "Migros Restaurant",
       "title": "Koch*Köchin",
       "location": "Burgdorf",
@@ -269,19 +285,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
-        "en": "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
+        "it": "cucinare-migros-restaurant-burgdorf",
+        "en": "cook-cook-migros-restaurant-burgdorf",
         "de": "koch-kochin-migros-restaurant-burgdorf-fwg2e3",
-        "fr": "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
+        "fr": "cuisiniere-migros-restaurant-burgdorf"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-migros-restaurant-burgdorf"
+          "koch-kochin-migros-restaurant-burgdorf",
+          "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
+        ],
+        "en": [
+          "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
+        ],
+        "fr": [
+          "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-migros-restaurant-burgdorf"
+        "koch-kochin-migros-restaurant-burgdorf",
+        "koch-kochin-migros-restaurant-burgdorf-fwg2e3"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1072,7 +1096,7 @@
     },
     {
       "id": "company-m12lkk",
-      "slug": "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk",
+      "slug": "specialista-qm-m-f-d-fresh-food-beverage-group-volketswil",
       "company": "Fresh Food & Beverage Group",
       "title": "Fachspezialist QM (f/m/d)",
       "location": "Volketswil",
@@ -1127,10 +1151,10 @@
         "fr": "Vous recherchez un emploi polyvalent dans lequel vous pouvez prouver votre savoir-faire en gestion de la qualité et vos compétences organisationnelles chaque jour?\n\n## Mansioni\n- Traitement des tâches selon des spécifications et des processus normalisés.\n- Examen des données sur les matières premières et les produits de base dans les spécifications afin d'assurer l'ensemble de l'information du point de vue de la salubrité des aliments et de la législation.\n- Examen de l'évolution de la situation afin d'assurer toute l'information du point de vue de la sécurité alimentaire et de la législation.\n- Tenir à jour la base de données dans le système informatique correspondant pour la création de déclarations et de spécifications.\n- Révision des textes obligatoires (noms, compositions, informations nutritionnelles, promotions).\n\n## Exigences\n- 3 à 5 ans: loi sur les aliments\n- Études terminées (uni/ETH, FH, HF): Sciences alimentaires ou formation de base (p. ex. technologie alimentaire, laboratoire) et expérience professionnelle en gestion de la qualité\n- Bonne connaissance de la législation et des étiquettes alimentaires.\n- Très bonne connaissance informatique, l'expérience avec SAP est un avantage.\n- Force, résilience et flexibilité.\n- Compétences analytiques, conceptuelles et commerciales.\n- en allemand (négociation certaine)\n- Anglais (avantageux)\n- Français (avantageux)\n\n## Cosa de Friamo\n- Prestations sociales: 730 jours de congé de maladie avec plein salaire net.\n- Offres de l'employé: Employee Points Cumulus, Rabais Abonnements mobiles, taux d'intérêt plus élevés Migros Bank, Club School/Fitness contributions et plus.\n- Club School Migros : remboursement de 70% des coûts par cours (max. CHF 1000 par cours).\n- Offres sportives et de fitness: remboursement de CHF 200 par abonnement annuel de fitness.\n\n## Contatto\n## Demande et contact Pia Sigrist ## Processus de recrutement Sélection préalable des demandes (groupe FBB) Nous vérifions les demandes reçues de façon continue, créons une présélection et les publions au gestionnaire pour consultation. La décision d'avancement ou de retrait du processus de recrutement sera communiquée par téléphone ou par courriel. Entretiens avec les RH et le ministère (Groupe FBB) L'entrevue est menée pratiquement ou sur place avec la personne responsable des RH ou du service spécialisé. Il s'agit avant tout d'en apprendre davantage sur le personnel et les compétences spécialisées et donne aux deux parties la possibilité d'évaluer l'adéquation culturelle de l'entreprise et de l'équipe. La question de savoir si quelqu'un fait partie de l'équipe est un facteur important pour les employés et les employeurs lorsqu'ils décident d'un emploi ou non. Dans un cadre décontracté, nous donnons donc l'occasion à chacun de se connaître. Lorsque nous obtenons des références, nous demandons à nouveau des impressions, des points forts et des points faibles et nous les faisons vérifier par d'anciens superviseurs ou employés. Les références peuvent être obtenues après le premier ou le deuxième tour et ne sont faites qu'avec consentement. Durée jusqu'à retour d'information: Jusqu'à une semaine Offre & Exposition de contrat (FFB-Groupe) Après notre offre de travail oral, les points de contrat les plus importants sont à nouveau vérifiés. Après accord, le contrat est commandé et envoyé par la poste. Note pour les fournisseurs de services au personnel Pour cette position, nous ne considérons que les demandes directes."
       },
       "slugByLocale": {
-        "it": "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk",
-        "en": "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk",
+        "it": "specialista-qm-m-f-d-fresh-food-beverage-group-volketswil",
+        "en": "specialist-qm-m-f-d-fresh-food-beverage-group-volketswil",
         "de": "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk",
-        "fr": "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk"
+        "fr": "specialiste-qm-h-f-d-fresh-food-beverage-group-volketswil"
       },
       "requirementsByLocale": {
         "it": [],
@@ -1150,11 +1174,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil"
+          "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil",
+          "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk"
+        ],
+        "en": [
+          "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk"
+        ],
+        "fr": [
+          "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil"
+        "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil",
+        "fachspezialist-qm-m-w-d-fresh-food-beverage-group-volketswil-m12lkk"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1292,7 +1324,7 @@
     },
     {
       "id": "company-4dg9at",
-      "slug": "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon",
+      "slug": "venditore-specializzato-non-food-m-f-d-societe-cooperative-migros-geneve-nyon",
       "company": "Société coopérative Migros Genève",
       "title": "Vendeuse spécialisée non Food (F/H/D)",
       "location": "Nyon",
@@ -1345,9 +1377,9 @@
         "de": "Sie haben eine solide Erfahrung im Non-Food-Bereich und möchten diese Expertise mit unseren Kunden teilen? Arbeiten Sie gerne in einem Umfeld, in dem Qualität und Frische an erster Stelle stehen? Diese Gelegenheit ist für Sie! Treten Sie unserem Nyon Türteam bei und helfen Sie dabei, das Kundenerlebnis einzigartig zu machen!\n\n## Mansioni\n- Sie stellen die Versorgung und Verwaltung von Nicht-Lebensmittelregalen sicher, indem Sie die Verfügbarkeit und Präsentation von Produkten garantieren.\n- Sie verwalten Aktien und Bestellungen basierend auf Leistungsindikatoren.\n- Sie beteiligen sich am Qualitätsmanagement, indem Sie sicherstellen, dass jedes Produkt unseren Qualitätsstandards entspricht.\n- Sie beraten Kunden und teilen Ihre Expertise in Non-Food-Produkten.\n- Sie helfen bei der Einrichtung von Werbeaktionen und kommerziellen Aktionen.\n- Sie unterstützen andere Bereiche Ihres Shops nach Prioritäten.\n\n## erforderlich\n- 2-5 Jahre Erfahrung: im Einzelhandel\n- Abgeschlossenes professionelles Lernen (CFC): Retail Manager\n- Strenge, Organisation und Autonomie\n- Hervorragende Kommunikationsfähigkeiten und starker Teamgeist\n- Vielseitig, dynamisch und immer mit einem Lächeln\n- Französisch (Gute Meisterschaft)\n\n## Cosa offeriamo\n- Betriebsrente: Primärbeiträge, Beiträge ab 20 Jahren verdoppelt durch Migros und Vorruhestand ab 58 Jahren.\n- Essen: Mahlzeitenrabatt von Fr.4 (ab Einkäufen von 10.-) in Migros Restaurants.\n- Cumulus Punkte: Reduktion von 2% und 5% je nach Sortiment.\n- Migros Bank: Zinsen zum Vorzugszinssatz und kostenlos für ein Sparkonto.\n\n## Contatto\n## Kandidat und Kontakt Michaël Lassère Talent Acquisition Specialist - LinkedIn ## Rekrutierungsprozess Vorauswahl von Dateien Wir überprüfen ständig die eingegangenen Bewerbungen, prüfen sie vorab und leiten sie an den Manager weiter. Die Entscheidung, den Rekrutierungsprozess fortzusetzen oder abzuschaffen, wird telefonisch oder per E-Mail mitgeteilt. Rückkehrzeit: bis zu 3 Wochen Professionelles Interview Während des professionellen Interviews stellt der Manager und / oder eine andere spezialisierte Person oder sogar das Team spezifische Fragen zum Wissen, um die Arbeit zu erledigen. Wenn möglich, dann gibt es mehr Zeit, den Arbeitsplatz und das Team in einer Broken-Stick-Diskussion kennenzulernen. Rückgabezeit: bis zu 3 Wochen Vertragsangebot und Einrichtung (digital) Die wesentlichen Punkte des Vertrages werden nach unserem mündlichen Stellenangebot nochmals überprüft. Der Vertragsabschluss wird dann im gegenseitigen Einvernehmen initiiert, bevor er per E-Mail zur digitalen Signatur verschickt wird. Rückgabezeit: bis zu 1 Woche"
       },
       "slugByLocale": {
-        "it": "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon",
-        "en": "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at",
-        "de": "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at",
+        "it": "venditore-specializzato-non-food-m-f-d-societe-cooperative-migros-geneve-nyon",
+        "en": "specialized-seller-non-food-m-f-d-societe-cooperative-migros-geneve-nyon",
+        "de": "spezialisierter-verkaufer-nicht-lebensmittel-m-w-d-societe-cooperative-migros-geneve-nyon",
         "fr": "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at"
       },
       "requirementsByLocale": {
@@ -1366,11 +1398,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at",
+          "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon"
+        ],
+        "en": [
+          "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at"
+        ],
+        "de": [
           "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at"
         ]
       },
       "previousSlugs": [
-        "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at"
+        "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon-4dg9at",
+        "vendeuse-specialisee-non-food-m-w-d-societe-cooperative-migros-geneve-nyon"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1391,7 +1431,7 @@
     },
     {
       "id": "company-3wnkth",
-      "slug": "collaboratore-trice-empfang-m-w-d-delica-ag-birsfelden-3wnkth",
+      "slug": "ricezione-dei-dipendenti-m-f-d-delica-ag-birsfelden",
       "company": "Delica AG",
       "title": "Mitarbeiter Empfang (w/m/d)",
       "location": "Birsfelden",
@@ -1467,19 +1507,28 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-empfang-m-w-d-delica-ag-birsfelden-3wnkth",
-        "en": "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth",
+        "it": "ricezione-dei-dipendenti-m-f-d-delica-ag-birsfelden",
+        "en": "employee-reception-m-f-d-delica-ag-birsfelden",
         "de": "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth",
-        "fr": "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth"
+        "fr": "reception-des-employes-h-f-d-delica-ag-birsfelden"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden"
+          "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden",
+          "collaboratore-trice-empfang-m-w-d-delica-ag-birsfelden-3wnkth"
+        ],
+        "en": [
+          "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth"
+        ],
+        "fr": [
+          "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden"
+        "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden",
+        "collaboratore-trice-empfang-m-w-d-delica-ag-birsfelden-3wnkth",
+        "mitarbeiter-empfang-m-w-d-delica-ag-birsfelden-3wnkth"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -1500,7 +1549,7 @@
     },
     {
       "id": "company-v0iw7h",
-      "slug": "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h",
+      "slug": "supervisione-del-centro-clienti-migros-bank-wallisellen",
       "company": "Migros Bank",
       "title": "Betreurin Kundencenter",
       "location": "Wallisellen",
@@ -1571,19 +1620,27 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h",
-        "en": "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h",
+        "it": "supervisione-del-centro-clienti-migros-bank-wallisellen",
+        "en": "supervising-customer-center-migros-bank-wallisellen",
         "de": "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h",
-        "fr": "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h"
+        "fr": "superviser-le-centre-client-migros-bank-wallisellen"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "betreurin-kundencenter-migros-bank-wallisellen"
+          "betreurin-kundencenter-migros-bank-wallisellen",
+          "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h"
+        ],
+        "en": [
+          "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h"
+        ],
+        "fr": [
+          "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h"
         ]
       },
       "previousSlugs": [
-        "betreurin-kundencenter-migros-bank-wallisellen"
+        "betreurin-kundencenter-migros-bank-wallisellen",
+        "betreurin-kundencenter-migros-bank-wallisellen-v0iw7h"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -1704,7 +1761,7 @@
     },
     {
       "id": "company-678p21",
-      "slug": "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge",
+      "slug": "venditore-specializzato-frutta-e-verdura-m-f-d-societe-cooperative-migros-geneve-carouge",
       "company": "Société coopérative Migros Genève",
       "title": "Vendeuse spécialisée Fruits & Légumes (F/H/D)",
       "location": "Carouge",
@@ -1770,19 +1827,27 @@
         ]
       },
       "slugByLocale": {
-        "it": "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge",
-        "en": "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21",
-        "de": "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21",
+        "it": "venditore-specializzato-frutta-e-verdura-m-f-d-societe-cooperative-migros-geneve-carouge",
+        "en": "specialized-seller-fruits-vegetables-m-f-d-societe-cooperative-migros-geneve-carouge",
+        "de": "spezialisierter-verkaufer-obst-gemuse-m-w-d-societe-cooperative-migros-geneve-carouge",
         "fr": "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21"
       },
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
+          "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21",
+          "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge"
+        ],
+        "en": [
+          "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21"
+        ],
+        "de": [
           "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21"
         ]
       },
       "previousSlugs": [
-        "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21"
+        "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge-678p21",
+        "vendeuse-specialisee-fruits-legumes-m-w-d-societe-cooperative-migros-geneve-carouge"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,

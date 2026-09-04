@@ -2034,12 +2034,12 @@
     },
     {
       "id": "livit-92fa1c60c350",
-      "slug": "immobilienbewirtschafter-in-livit-zurich",
+      "slug": "responsabile-della-proprieta-in-livit-ag-zurich",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-in-livit-zurich",
-        "en": "immobilienbewirtschafter-in-livit-zurich",
         "de": "immobilienbewirtschafter-in-livit-zurich",
-        "fr": "immobilienbewirtschafter-in-livit-zurich"
+        "it": "responsabile-della-proprieta-in-livit-ag-zurich",
+        "en": "property-manager-in-livit-ag-zurich",
+        "fr": "gestionnaire-immobilier-in-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2098,33 +2098,33 @@
       "firstSeenAt": "2026-09-03T13:50:01.144Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-della-proprieta-in-livit-ag-zurich",
           "property-manager-in-livit-ag-zurich",
           "gestionnaire-immobilier-in-livit-ag-zurich",
-          "gestore-immobiliare-livit-ag-zurich"
+          "gestore-immobiliare-livit-ag-zurich",
+          "immobilienbewirtschafter-in-livit-zurich"
         ],
         "en": [
-          "property-manager-in-livit-ag-zurich"
+          "immobilienbewirtschafter-in-livit-zurich"
         ],
         "fr": [
-          "gestionnaire-immobilier-in-livit-ag-zurich"
+          "immobilienbewirtschafter-in-livit-zurich"
         ]
       },
       "previousSlugs": [
-        "responsabile-della-proprieta-in-livit-ag-zurich",
         "property-manager-in-livit-ag-zurich",
         "gestionnaire-immobilier-in-livit-ag-zurich",
-        "gestore-immobiliare-livit-ag-zurich"
+        "gestore-immobiliare-livit-ag-zurich",
+        "immobilienbewirtschafter-in-livit-zurich"
       ]
     },
     {
       "id": "livit-b5485e1aef1e",
-      "slug": "senior-immobilienbewirtschafter-in-livit-zurich",
+      "slug": "senior-property-manager-in-livit-ag-zurich",
       "slugByLocale": {
-        "it": "senior-immobilienbewirtschafter-in-livit-zurich",
+        "it": "senior-property-manager-in-livit-ag-zurich",
         "en": "senior-immobilienbewirtschafter-in-livit-zurich",
         "de": "senior-immobilienbewirtschafter-in-livit-zurich",
-        "fr": "senior-immobilienbewirtschafter-in-livit-zurich"
+        "fr": "directeur-immobilier-principal-en-livit-ag-zurich"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2180,15 +2180,26 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-immobilienbewirtschafter-in-livit-zurich"
+        ],
+        "fr": [
+          "senior-immobilienbewirtschafter-in-livit-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-immobilienbewirtschafter-in-livit-zurich"
+      ]
     },
     {
       "id": "livit-a76232404ae4",
-      "slug": "gerant-e-d-immeubles-commercial-360-livit-ag-geneve",
+      "slug": "direttore-dell-edificio-commerciale-360-livit-ag-geneve",
       "slugByLocale": {
-        "it": "gerant-e-d-immeubles-commercial-360-livit-ag-geneve",
-        "en": "gerant-e-d-immeubles-commercial-360-livit-geneve",
-        "de": "gerant-e-d-immeubles-commercial-360-livit-geneve",
+        "it": "direttore-dell-edificio-commerciale-360-livit-ag-geneve",
+        "en": "commercial-building-manager-360-livit-ag-geneve",
+        "de": "gewerblicher-gebaudemanager-360-livit-ag-geneve",
         "fr": "gerant-e-d-immeubles-commercial-360-livit-geneve"
       },
       "company": "Livit AG",
@@ -2233,10 +2244,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gerant-e-d-immeubles-commercial-360-livit-geneve"
+        "gerant-e-d-immeubles-commercial-360-livit-geneve",
+        "gerant-e-d-immeubles-commercial-360-livit-ag-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "gerant-e-d-immeubles-commercial-360-livit-geneve",
+          "gerant-e-d-immeubles-commercial-360-livit-ag-geneve"
+        ],
+        "en": [
+          "gerant-e-d-immeubles-commercial-360-livit-geneve"
+        ],
+        "de": [
           "gerant-e-d-immeubles-commercial-360-livit-geneve"
         ]
       },

@@ -143,8 +143,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
         "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau-64caf8",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax",
-        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+        "registered-nurse-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -160,12 +159,10 @@
           "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9ztkax"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9-9ztkax"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.792Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -178,7 +175,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-b6e1ec77798d",
@@ -3338,12 +3336,10 @@
         ],
         "fr": [
           "med-praxissing-in-notfall-kantonsspital-aarau-ksa-aarau",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "firstSeenAt": "2026-07-10T12:11:07.791Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3356,7 +3352,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-50d01a54c105",
@@ -3927,8 +3924,7 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
         "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau-9zu4ig",
-        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3940,15 +3936,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
         ],
         "en": [
           "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-21T21:48:21.989Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3961,7 +3955,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksa-803625157377",
@@ -6925,9 +6920,9 @@
       "slug": "collaboratore-trice-reinigung-teilzeit-per-oktober-bis-dezember-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "it": "collaboratore-trice-reinigung-teilzeit-per-oktober-bis-dezember-kantonsspital-aarau-ksa-aarau",
-        "en": "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch",
+        "en": "employee-in-cleaning-part-time-for-october-to-december-kantonsspital-aarau-ksa-aarau",
         "de": "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch",
-        "fr": "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch"
+        "fr": "employe-in-de-nettoyage-a-temps-partiel-d-octobre-a-decembre-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6974,6 +6969,12 @@
         "it": [
           "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch",
           "collaboratore-trice-reinigung-teilzeit-per-oktober-bis-dezember-kantonsspital-aarau-ksa-aarau"
+        ],
+        "en": [
+          "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch"
+        ],
+        "fr": [
+          "mitarbeiter-in-reinigung-teilzeit-fur-oktober-bis-dezember-ksa-ch"
         ]
       },
       "needsRetranslation": true,
@@ -7737,12 +7738,12 @@
     },
     {
       "id": "ksa-f5acad9c6171",
-      "slug": "leitung-gastronomie-ksa-ch",
+      "slug": "capo-della-gastronomia-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "leitung-gastronomie-ksa-ch",
-        "en": "leitung-gastronomie-ksa-ch",
+        "it": "capo-della-gastronomia-kantonsspital-aarau-ksa-aarau",
+        "en": "head-of-gastronomy-kantonsspital-aarau-ksa-aarau",
         "de": "leitung-gastronomie-ksa-ch",
-        "fr": "leitung-gastronomie-ksa-ch"
+        "fr": "chef-de-la-gastronomie-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7801,10 +7802,20 @@
       "previousSlugsByLocale": {
         "de": [
           "leitung-gastronomie-kantonsspital-aarau-ksa-aarau"
+        ],
+        "it": [
+          "leitung-gastronomie-ksa-ch"
+        ],
+        "en": [
+          "leitung-gastronomie-ksa-ch"
+        ],
+        "fr": [
+          "leitung-gastronomie-ksa-ch"
         ]
       },
       "previousSlugs": [
-        "leitung-gastronomie-kantonsspital-aarau-ksa-aarau"
+        "leitung-gastronomie-kantonsspital-aarau-ksa-aarau",
+        "leitung-gastronomie-ksa-ch"
       ]
     },
     {

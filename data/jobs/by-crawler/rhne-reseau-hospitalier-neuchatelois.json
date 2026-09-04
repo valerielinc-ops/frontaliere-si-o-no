@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-55e68b4b0ec4",
-      "slug": "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois",
+      "slug": "un-lavoratore-medico-e-amministrativo-al-90-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois",
-        "en": "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois",
-        "de": "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois",
+        "it": "un-lavoratore-medico-e-amministrativo-al-90-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "a-90-medical-and-administrative-worker-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "ein-90-medizinischer-und-verwaltungsmitarbeiter-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -64,15 +64,29 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "en": [
+          "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "de": [
+          "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois"
+        ]
+      },
+      "previousSlugs": [
+        "un-e-collaborateur-trice-medico-administratif-a-90-rhne-reseau-hospitalier-neuchatelois"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-d55e49545a13",
-      "slug": "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+      "slug": "responsabile-clinica-in-ent-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "en": "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
-        "de": "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel",
+        "it": "responsabile-clinica-in-ent-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "head-of-clinic-in-ent-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "leiter-der-klinik-in-hno-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -128,7 +142,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "en": [
+          "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ],
+        "de": [
+          "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-en-orl-a-100-rhne-reseau-hospitalier-neuchatelois-neuchatel"
+      ]
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-0a7fe4f1c7a2",
@@ -218,11 +246,11 @@
     },
     {
       "id": "rhne-reseau-hospitalier-neuchatelois-a8532902a94e",
-      "slug": "medecin-chef-fe-adjoint-e-angiologie-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+      "slug": "assistente-capo-medico-80-100-angiologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
       "slugByLocale": {
-        "it": "medecin-chef-fe-adjoint-e-angiologie-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel",
-        "en": "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
-        "de": "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "it": "assistente-capo-medico-80-100-angiologia-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "en": "assistant-chief-medical-officer-80-100-angiology-reseau-hospitalier-neuchatelois-rhne-neuchatel",
+        "de": "assistant-chief-medical-officer-80-100-angiologie-reseau-hospitalier-neuchatelois-rhne-neuchatel",
         "fr": "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
       },
       "company": "Réseau hospitalier neuchâtelois (RHNE)",
@@ -266,10 +294,18 @@
       "requirementsByLocale": {},
       "externalId": "9",
       "previousSlugs": [
-        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+        "medecin-chef-fe-adjoint-e-angiologie-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois",
+          "medecin-chef-fe-adjoint-e-angiologie-a-80-100-reseau-hospitalier-neuchatelois-rhne-neuchatel"
+        ],
+        "en": [
+          "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
+        ],
+        "de": [
           "medecin-chef-fe-adjoint-e-angiologie-a-80-100-rhne-reseau-hospitalier-neuchatelois"
         ]
       },

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "klinik-aadorf-54951a2960e8",
-      "slug": "mitarbeiterin-collaboratore-trice-hausdienst-m-w-d-60-klinik-aadorf",
+      "slug": "cooperato-service-cooperato-m-f-d-60-klinik-aadorf-aadorf",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-hausdienst-m-w-d-60-klinik-aadorf",
-        "en": "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf",
+        "it": "cooperato-service-cooperato-m-f-d-60-klinik-aadorf-aadorf",
+        "en": "cooperate-cooperate-service-m-f-d-60-klinik-aadorf-aadorf",
         "de": "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf",
-        "fr": "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf"
+        "fr": "cooperate-cooperate-service-h-f-d-60-klinik-aadorf-aadorf"
       },
       "company": "Klinik Aadorf",
       "companyKey": "klinik-aadorf",
@@ -58,6 +58,12 @@
         "it": [
           "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf",
           "mitarbeiterin-collaboratore-trice-hausdienst-m-w-d-60-klinik-aadorf"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-hausdienst-w-m-d-60-klinik-aadorf-aadorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:30:32.646Z",

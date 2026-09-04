@@ -5249,12 +5249,12 @@
     },
     {
       "id": "kanton-basel-landschaft-5024e72e9912",
-      "slug": "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach",
+      "slug": "consulente-di-giardinaggio-biologico-kantonale-verwaltung-basel-landschaft-sissach",
       "slugByLocale": {
-        "it": "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach",
-        "en": "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach",
+        "it": "consulente-di-giardinaggio-biologico-kantonale-verwaltung-basel-landschaft-sissach",
+        "en": "organic-gardening-consultant-kantonale-verwaltung-basel-landschaft-sissach",
         "de": "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach",
-        "fr": "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach"
+        "fr": "consultant-en-jardinage-biologique-kantonale-verwaltung-basel-landschaft-sissach"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5309,16 +5309,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach"
+        ],
+        "en": [
+          "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach"
+        ],
+        "fr": [
+          "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach"
+        ]
+      },
+      "previousSlugs": [
+        "beraterin-berater-biogartenbau-kanton-basel-landschaft-sissach"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-ed3b2b692077",
-      "slug": "sachbearbeiterin-fachstelle-opfer-e-kinderbefragung-kantonale-verwaltung-basel-landschaft-liestal",
+      "slug": "personale-incaricato-delle-interviste-di-vittime-e-bambini-kantonale-verwaltung-basel-landschaft-liestal",
       "slugByLocale": {
-        "it": "sachbearbeiterin-fachstelle-opfer-e-kinderbefragung-kantonale-verwaltung-basel-landschaft-liestal",
-        "en": "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal",
+        "it": "personale-incaricato-delle-interviste-di-vittime-e-bambini-kantonale-verwaltung-basel-landschaft-liestal",
+        "en": "personnel-in-charge-of-victim-and-child-interviews-kantonale-verwaltung-basel-landschaft-liestal",
         "de": "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal",
-        "fr": "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal"
+        "fr": "personnel-charge-des-entretiens-avec-les-victimes-et-les-enfants-kantonale-verwaltung-basel-landschaft-liestal"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5368,6 +5382,12 @@
         "it": [
           "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal",
           "sachbearbeiterin-fachstelle-opfer-e-kinderbefragung-kantonale-verwaltung-basel-landschaft-liestal"
+        ],
+        "en": [
+          "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal"
+        ],
+        "fr": [
+          "sachbearbeiterin-fachstelle-opfer-und-kinderbefragung-kanton-basel-landschaft-liestal"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:15.253Z",
@@ -5387,12 +5407,12 @@
     },
     {
       "id": "kanton-basel-landschaft-841be37195cd",
-      "slug": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
+      "slug": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
-        "it": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "en": "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "fr": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
+        "it": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "fr": "enseignant-6e-classe-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5454,16 +5474,19 @@
           "class-teacher-6th-class-maternity-representation-kantonale-verwaltung-basel-landschaft-ormalingen",
           "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen",
           "enseignant-de-classe-6eme-classe-representation-maternelle-kantonale-verwaltung-basel-landschaft-ormalingen",
-          "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen",
+          "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ],
         "en": [
-          "class-teacher-6th-class-maternity-representation-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "class-teacher-6th-class-maternity-representation-kantonale-verwaltung-basel-landschaft-ormalingen",
+          "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "de": [
           "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen"
         ],
         "fr": [
-          "enseignant-de-classe-6eme-classe-representation-maternelle-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "enseignant-de-classe-6eme-classe-representation-maternelle-kantonale-verwaltung-basel-landschaft-ormalingen",
+          "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ]
       },
       "previousSlugs": [
@@ -5471,7 +5494,9 @@
         "class-teacher-6th-class-maternity-representation-kantonale-verwaltung-basel-landschaft-ormalingen",
         "klassenlehrperson-6-klasse-mutterschaftsvertretung-kanton-basel-landschaft-ormalingen",
         "enseignant-de-classe-6eme-classe-representation-maternelle-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "klassenlehrperson-6-klasse-mutterschaftsvertretung-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
+        "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
       ]
     },
     {

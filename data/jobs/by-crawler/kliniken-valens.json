@@ -8729,12 +8729,12 @@
     },
     {
       "id": "kliniken-valens-acf698f89bbf",
-      "slug": "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen",
+      "slug": "nutrizionista-f-m-a-30-50-kliniken-valens-st-gallen",
       "slugByLocale": {
-        "it": "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen",
-        "en": "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen",
+        "it": "nutrizionista-f-m-a-30-50-kliniken-valens-st-gallen",
+        "en": "nutritionist-f-m-a-30-50-kliniken-valens-st-gallen",
         "de": "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen",
-        "fr": "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen"
+        "fr": "nutritionniste-f-m-a-30-50-kliniken-valens-st-gallen"
       },
       "company": "Kliniken Valens",
       "companyKey": "kliniken-valens",
@@ -8789,7 +8789,21 @@
           "maxValue": 43500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen"
+        ],
+        "en": [
+          "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen"
+        ],
+        "fr": [
+          "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-w-m-a-30-50-kliniken-valens-st-gallen"
+      ]
     }
   ]
 }

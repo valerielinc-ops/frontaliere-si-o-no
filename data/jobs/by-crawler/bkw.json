@@ -26039,9 +26039,9 @@
       "slug": "luftungsmonteur-in-cfc-alle-con-4-tage-woche-bkw-langenthal",
       "slugByLocale": {
         "it": "luftungsmonteur-in-cfc-alle-con-4-tage-woche-bkw-langenthal",
-        "en": "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch",
+        "en": "ventilation-fitter-in-efz-all-with-4-day-week-bkw-langenthal",
         "de": "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch",
-        "fr": "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch"
+        "fr": "installation-de-ventilation-dans-efz-tous-avec-une-semaine-de-4-jours-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26089,6 +26089,12 @@
         "it": [
           "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch",
           "luftungsmonteur-in-cfc-alle-con-4-tage-woche-bkw-langenthal"
+        ],
+        "en": [
+          "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch"
+        ],
+        "fr": [
+          "luftungsmonteur-in-efz-alle-mit-4-tage-woche-bkw-ch"
         ]
       },
       "previousSlugs": [
@@ -26197,12 +26203,12 @@
     },
     {
       "id": "bkw-f79deacb3e5d",
-      "slug": "produktmanager-in-energie-alle-bkw-ch",
+      "slug": "product-manager-in-energy-tutti-bkw-oberkirch",
       "slugByLocale": {
-        "it": "produktmanager-in-energie-alle-bkw-ch",
-        "en": "produktmanager-in-energie-alle-bkw-ch",
+        "it": "product-manager-in-energy-tutti-bkw-oberkirch",
+        "en": "product-manager-in-energy-all-bkw-oberkirch",
         "de": "produktmanager-in-energie-alle-bkw-ch",
-        "fr": "produktmanager-in-energie-alle-bkw-ch"
+        "fr": "gestionnaire-de-produit-en-energie-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26258,7 +26264,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "produktmanager-in-energie-alle-bkw-ch"
+        ],
+        "en": [
+          "produktmanager-in-energie-alle-bkw-ch"
+        ],
+        "fr": [
+          "produktmanager-in-energie-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktmanager-in-energie-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-0da0e0104760",
@@ -26267,7 +26287,7 @@
         "it": "responsabile-di-progetto-luftung-alle-con-4-tage-woche-bkw-langenthal",
         "en": "projektleiter-in-luftung-alle-mit-4-tage-woche-bkw-ch",
         "de": "projektleiter-in-luftung-alle-mit-4-tage-woche-bkw-ch",
-        "fr": "projektleiter-in-luftung-alle-mit-4-tage-woche-bkw-ch"
+        "fr": "chef-de-projet-en-ventilation-tous-avec-semaine-de-4-jours-bkw-langenthal"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26317,6 +26337,9 @@
         "it": [
           "projektleiter-in-luftung-alle-mit-4-tage-woche-bkw-ch",
           "responsabile-di-progetto-luftung-alle-con-4-tage-woche-bkw-langenthal"
+        ],
+        "fr": [
+          "projektleiter-in-luftung-alle-mit-4-tage-woche-bkw-ch"
         ]
       },
       "needsRetranslation": true,
@@ -26337,12 +26360,12 @@
     },
     {
       "id": "bkw-58eb877b7ab5",
-      "slug": "sachbearbeiter-in-trassensicherung-alle-bkw-ch",
+      "slug": "persona-responsabile-nella-sicurezza-del-percorso-tutti-bkw-ostermundigen",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-trassensicherung-alle-bkw-ch",
-        "en": "sachbearbeiter-in-trassensicherung-alle-bkw-ch",
+        "it": "persona-responsabile-nella-sicurezza-del-percorso-tutti-bkw-ostermundigen",
+        "en": "person-in-charge-in-path-security-all-bkw-ostermundigen",
         "de": "sachbearbeiter-in-trassensicherung-alle-bkw-ch",
-        "fr": "sachbearbeiter-in-trassensicherung-alle-bkw-ch"
+        "fr": "responsable-en-securite-du-chemin-tous-bkw-ostermundigen"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -26398,7 +26421,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-trassensicherung-alle-bkw-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-trassensicherung-alle-bkw-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-trassensicherung-alle-bkw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-trassensicherung-alle-bkw-ch"
+      ]
     },
     {
       "id": "bkw-1283e4019c15",
@@ -26622,14 +26659,7 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/sanitaerinsallateur-in-efz/c94c7f7e-0c0a-4542-a8c3-e5ed026ecb85",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sanitarinsallateur-in-efz-bkw-ch",
-        "plumbing-sallator-efz-bkw-saanen",
-        "plomberie-sallator-efz-bkw-saanen",
-        "idraulica-sallator-efz-bkw-saanen",
-        "sanitarinsallateur-in-efz-bkw-saanen",
-        "sanitarinsallateur-in-cfc-bkw-saanen"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sanitarinsallateur-in-efz-bkw-ch",
@@ -26648,8 +26678,14 @@
           "sanitarinsallateur-in-efz-bkw-saanen"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-03T23:13:33.484Z",
+      "previousSlugs": [
+        "sanitarinsallateur-in-efz-bkw-ch",
+        "plumbing-sallator-efz-bkw-saanen",
+        "plomberie-sallator-efz-bkw-saanen",
+        "idraulica-sallator-efz-bkw-saanen",
+        "sanitarinsallateur-in-efz-bkw-saanen",
+        "sanitarinsallateur-in-cfc-bkw-saanen"
+      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -26662,7 +26698,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T23:13:33.484Z"
     },
     {
       "id": "bkw-499677e334b4",

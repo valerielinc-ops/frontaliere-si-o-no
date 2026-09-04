@@ -2383,12 +2383,12 @@
     },
     {
       "id": "stadt-bern-e375f8729775",
-      "slug": "ict-supporter-in-2nd-level-stadt-bern-bern",
+      "slug": "sostegno-alle-tic-in-2-livello-stadt-bern-bern",
       "slugByLocale": {
-        "it": "ict-supporter-in-2nd-level-stadt-bern-bern",
-        "en": "ict-supporter-in-2nd-level-stadt-bern-bern",
         "de": "ict-supporter-in-2nd-level-stadt-bern-bern",
-        "fr": "ict-supporter-in-2nd-level-stadt-bern-bern"
+        "it": "sostegno-alle-tic-in-2-livello-stadt-bern-bern",
+        "en": "ict-supporter-in-2nd-level-stadt-bern-bern",
+        "fr": "supporteur-tic-en-2eme-niveau-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2444,7 +2444,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:09:22.231Z"
+      "firstSeenAt": "2026-09-03T23:09:22.231Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-supporter-in-2nd-level-stadt-bern-bern"
+        ],
+        "fr": [
+          "ict-supporter-in-2nd-level-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "ict-supporter-in-2nd-level-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-ace642270679",

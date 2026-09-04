@@ -1150,12 +1150,12 @@
     },
     {
       "id": "evam-vaud-8318130",
-      "slug": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-lausanne",
+      "slug": "gestione-amministrativa-ve-trasporto-80-100-cdi-evam-lausanne",
       "slugByLocale": {
-        "it": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-lausanne",
-        "en": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch",
-        "de": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch",
-        "fr": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch"
+        "fr": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch",
+        "it": "gestione-amministrativa-ve-trasporto-80-100-cdi-evam-lausanne",
+        "en": "administrative-manager-ve-transport-80-100-cdi-evam-lausanne",
+        "de": "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch"
       },
       "company": "EVAM",
       "companyKey": "evam-vaud",
@@ -1200,6 +1200,9 @@
         "it": [
           "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch",
           "gestionnaire-administratif-ve-transports-80-100-cdi-evam-lausanne"
+        ],
+        "en": [
+          "gestionnaire-administratif-ve-transports-80-100-cdi-evam-vaud-ch"
         ]
       },
       "previousSlugs": [

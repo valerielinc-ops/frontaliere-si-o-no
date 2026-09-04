@@ -953,12 +953,12 @@
     },
     {
       "id": "tschuggen-db8be080832f",
-      "slug": "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
+      "slug": "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa",
       "slugByLocale": {
-        "it": "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-        "en": "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
+        "it": "masseur-cosmeticista-m-f-d-stagione-invernale-26-27-tschuggen-collection-arosa",
+        "en": "masseur-cosmetician-m-f-d-winter-season-26-27-tschuggen-collection-arosa",
         "de": "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch",
-        "fr": "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
+        "fr": "masseur-cosmeticien-h-f-d-hiver-saison-26-27-tschuggen-collection-arosa"
       },
       "company": "Tschuggen Collection",
       "companyKey": "tschuggen",
@@ -1014,7 +1014,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
+        ],
+        "en": [
+          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
+        ],
+        "fr": [
+          "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "masseur-kosmetiker-m-w-d-wintersaison-26-27-tschuggen-ch"
+      ]
     }
   ]
 }

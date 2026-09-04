@@ -3605,12 +3605,12 @@
     },
     {
       "id": "spital-emmental-70d9159e9e13",
-      "slug": "dipl-pflegefachperson-a-spital-emmental-langnau",
+      "slug": "infermiera-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "en": "dipl-pflegefachperson-a-spital-emmental-langnau",
+        "it": "infermiera-a-spital-emmental-langnau",
+        "en": "dipl-nurse-a-spital-emmental-langnau",
         "de": "dipl-pflegefachperson-a-spital-emmental-langnau",
-        "fr": "dipl-pflegefachperson-a-spital-emmental-langnau"
+        "fr": "infirmiere-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3676,33 +3676,37 @@
           "dipl-infermiera-a-servizio-notturno-permanente-spital-emmental-langnau",
           "dipl-nurse-a-permanent-night-service-spital-emmental-langnau",
           "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau",
-          "a-service-de-nuit-permanent-spital-emmental-langnau"
+          "a-service-de-nuit-permanent-spital-emmental-langnau",
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
         ],
         "en": [
-          "dipl-nurse-a-permanent-night-service-spital-emmental-langnau"
+          "dipl-nurse-a-permanent-night-service-spital-emmental-langnau",
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
         ],
         "de": [
           "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau"
         ],
         "fr": [
-          "a-service-de-nuit-permanent-spital-emmental-langnau"
+          "a-service-de-nuit-permanent-spital-emmental-langnau",
+          "dipl-pflegefachperson-a-spital-emmental-langnau"
         ]
       },
       "previousSlugs": [
         "dipl-infermiera-a-servizio-notturno-permanente-spital-emmental-langnau",
         "dipl-nurse-a-permanent-night-service-spital-emmental-langnau",
         "dipl-pflegefachperson-a-dauernachtdienst-spital-emmental-langnau",
-        "a-service-de-nuit-permanent-spital-emmental-langnau"
+        "a-service-de-nuit-permanent-spital-emmental-langnau",
+        "dipl-pflegefachperson-a-spital-emmental-langnau"
       ]
     },
     {
       "id": "spital-emmental-545db11185b2",
-      "slug": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+      "slug": "dipl-tecnica-chirurgica-specialistica-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "en": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
+        "it": "dipl-tecnica-chirurgica-specialistica-a-spital-emmental-burgdorf",
+        "en": "dipl-specialist-surgical-technique-a-spital-emmental-burgdorf",
         "de": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf",
-        "fr": "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        "fr": "c-est-quoi-technique-chirurgicale-specialisee-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3762,16 +3766,30 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachperson-operationstechnik-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-4628a080eadb",
-      "slug": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
+      "slug": "dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
+        "it": "dipl-expert-expert-intensive-care-nds-hf-a-spital-emmental-burgdorf",
         "en": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
         "de": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf",
-        "fr": "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        "fr": "dipl-expert-expert-soins-intensifs-nds-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3831,7 +3849,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-experten-intensivpflege-nds-hf-a-spital-emmental-burgdorf"
+      ]
     },
     {
       "id": "spital-emmental-b1e5caf2173a",
@@ -3923,12 +3952,12 @@
     },
     {
       "id": "spital-emmental-ee38f3604e95",
-      "slug": "teamleitung-sekretariat-spital-emmental-burgdorf",
+      "slug": "reumatologia-leader-di-squadra-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "teamleitung-sekretariat-spital-emmental-burgdorf",
-        "en": "teamleitung-sekretariat-spital-emmental-burgdorf",
+        "it": "reumatologia-leader-di-squadra-spital-emmental-burgdorf",
+        "en": "team-leader-rheumatology-spital-emmental-burgdorf",
         "de": "teamleitung-rheumatologie-spital-emmental-burgdorf",
-        "fr": "teamleitung-sekretariat-spital-emmental-burgdorf"
+        "fr": "rhumatologie-du-chef-d-equipe-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3979,6 +4008,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleitung-rheumatologie-spital-emmental-burgdorf",
+          "teamleitung-sekretariat-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "teamleitung-sekretariat-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "teamleitung-sekretariat-spital-emmental-burgdorf"
         ]
       },
@@ -4362,12 +4397,12 @@
     },
     {
       "id": "spital-emmental-b58680df96b4",
-      "slug": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
+      "slug": "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "en": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
+        "it": "assistente-medico-assistente-medico-in-psichiatria-di-vecchiaia-a-spital-emmental-burgdorf",
+        "en": "assistant-physician-assistant-physician-in-old-age-psychiatry-a-spital-emmental-burgdorf",
         "de": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf",
-        "fr": "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        "fr": "medecin-adjoint-en-psychiatrie-de-la-vieillesse-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4427,7 +4462,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-alterspsychiatrie-a-spital-emmental-burgdorf"
+      ]
     }
   ]
 }

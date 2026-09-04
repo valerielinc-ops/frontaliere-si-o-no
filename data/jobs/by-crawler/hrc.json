@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "hrc-5d469c582dc7",
-      "slug": "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100",
+      "slug": "community-health-care-assistant-chs-m-f-in-geriatria-e-riabilitazione-all-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100",
-        "en": "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100",
-        "de": "assistent-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100-hopital-riviera-chablais-hrc",
+        "it": "community-health-care-assistant-chs-m-f-in-geriatria-e-riabilitazione-all-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "community-health-care-assistant-chs-m-f-in-geriatrics-and-rehabilitation-at-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "community-health-care-assistant-chs-m-w-in-geriatrie-und-rehabilitation-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
         "fr": "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -63,7 +63,22 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100"
+        ],
+        "en": [
+          "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100"
+        ],
+        "de": [
+          "assistent-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100-hopital-riviera-chablais-hrc"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100",
+        "assistent-en-soins-et-sante-communautaire-assc-h-f-en-geriatrie-et-readaptation-a-80-100-hopital-riviera-chablais-hrc"
+      ]
     },
     {
       "id": "hrc-cb661a105a08",
@@ -114,13 +129,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-h-f-a-100-hrc-rennaz",
-        "fisioterapia-100-m-f-hopital-riviera-chablais-hrc-rennaz"
+        "physiotherapeute-h-f-a-100-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-h-f-a-100-hrc-rennaz",
-          "fisioterapia-100-m-f-hopital-riviera-chablais-hrc-rennaz"
+          "physiotherapeute-h-f-a-100-hrc-rennaz"
         ],
         "en": [
           "physiotherapeute-h-f-a-100-hrc-rennaz"
@@ -194,13 +207,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physiotherapeute-h-f-a-60-80-hrc-rennaz",
-        "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+        "physiotherapeute-h-f-a-60-80-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeute-h-f-a-60-80-hrc-rennaz",
-          "physiotherapeute-h-f-a-60-80-hopital-riviera-chablais-hrc-rennaz"
+          "physiotherapeute-h-f-a-60-80-hrc-rennaz"
         ]
       },
       "firstSeenAt": "2026-08-31T17:22:56.035Z",
@@ -268,13 +279,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
-        "specialista-in-fitness-adattato-m-f-100-hopital-riviera-chablais-hrc-rennaz"
+        "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz",
-          "specialista-in-fitness-adattato-m-f-100-hopital-riviera-chablais-hrc-rennaz"
+          "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
         ],
         "en": [
           "specialiste-en-activite-physique-adaptee-h-f-a-100-hrc-rennaz"
@@ -364,11 +373,11 @@
     },
     {
       "id": "hrc-3e29bcec6ec8",
-      "slug": "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz",
+      "slug": "atsso-o-aiuto-sala-operatoria-m-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz",
-        "en": "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz",
-        "de": "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz",
+        "it": "atsso-o-aiuto-sala-operatoria-m-f-a-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "atsso-or-operating-room-aid-m-f-at-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "atsso-oder-operationssaalhilfe-m-w-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
         "fr": "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -423,14 +432,28 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz"
+        ],
+        "en": [
+          "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz"
+        ],
+        "de": [
+          "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "atsso-ou-aide-de-salle-d-operation-h-f-a-80-100-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-cfdfad9a7723",
-      "slug": "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz",
+      "slug": "m-f-assistente-medico-in-urologia-ambulatoria-al-60-80-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz",
-        "en": "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz",
+        "it": "m-f-assistente-medico-in-urologia-ambulatoria-al-60-80-hopital-riviera-chablais-hrc-rennaz",
+        "en": "m-f-medical-assistant-in-ambulatory-urology-at-60-80-hopital-riviera-chablais-hrc-rennaz",
         "de": "assistent-medical-h-f-en-urologie-ambulatoire-a-60-80-hopital-riviera-chablais-hrc-rennaz",
         "fr": "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz"
       },
@@ -486,15 +509,26 @@
           "maxValue": 86000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz"
+        ],
+        "en": [
+          "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-medical-h-f-en-urologie-ambulatoire-a-60-80-hrc-rennaz"
+      ]
     },
     {
       "id": "hrc-f057bdaa87b7",
-      "slug": "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz",
+      "slug": "responsabile-clinica-m-f-presso-i-centri-medici-di-monthey-e-vevey-all-80-100-hopital-riviera-chablais-hrc-rennaz",
       "slugByLocale": {
-        "it": "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz",
-        "en": "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz",
-        "de": "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz",
+        "it": "responsabile-clinica-m-f-presso-i-centri-medici-di-monthey-e-vevey-all-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "en": "head-of-clinic-m-f-at-the-medical-centers-of-monthey-and-vevey-at-80-100-hopital-riviera-chablais-hrc-rennaz",
+        "de": "leiter-der-klinik-m-w-in-den-medizinischen-zentren-von-monthey-und-vevey-bei-80-100-hopital-riviera-chablais-hrc-rennaz",
         "fr": "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz"
       },
       "company": "Hôpital Riviera-Chablais (HRC)",
@@ -550,7 +584,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz"
+        ],
+        "en": [
+          "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz"
+        ],
+        "de": [
+          "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-clinique-h-f-aux-permanences-medicales-de-monthey-et-vevey-a-80-100-hrc-rennaz"
+      ]
     }
   ]
 }

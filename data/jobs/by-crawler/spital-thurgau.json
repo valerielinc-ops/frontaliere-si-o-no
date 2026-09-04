@@ -13921,12 +13921,12 @@
     },
     {
       "id": "spital-thurgau-91c10ae67934",
-      "slug": "dipl-pflegefachmann-frau-klinik-per-kinder-e-jugendliche-con-der-zusatzfunktion-come-berufsbildner-in-spital-thurgau-stgag-kantonsspital-munsterlingen",
+      "slug": "dipl-infermieristica-clinica-specializzata-per-bambini-e-adolescenti-con-una-funzione-aggiuntiva-come-formatore",
       "slugByLocale": {
-        "it": "dipl-pflegefachmann-frau-klinik-per-kinder-e-jugendliche-con-der-zusatzfunktion-come-berufsbildner-in-spital-thurgau-stgag-kantonsspital-munsterlingen",
-        "en": "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als",
+        "it": "dipl-infermieristica-clinica-specializzata-per-bambini-e-adolescenti-con-una-funzione-aggiuntiva-come-formatore",
+        "en": "dipl-nursing-specialist-clinic-for-children-and-adolescents-with-an-additional-function-as-a-vocational-trainer-spital",
         "de": "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als",
-        "fr": "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als"
+        "fr": "dipl-clinique-specialisee-en-soins-infirmiers-pour-enfants-et-adolescents-ayant-une-fonction-supplementaire-de-formateur"
       },
       "company": "Spital Thurgau (STGAG)",
       "companyKey": "spital-thurgau",
@@ -13970,10 +13970,18 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als"
+        "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als",
+        "dipl-pflegefachmann-frau-klinik-per-kinder-e-jugendliche-con-der-zusatzfunktion-come-berufsbildner-in-spital-thurgau-stgag-kantonsspital-munsterlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als",
+          "dipl-pflegefachmann-frau-klinik-per-kinder-e-jugendliche-con-der-zusatzfunktion-come-berufsbildner-in-spital-thurgau-stgag-kantonsspital-munsterlingen"
+        ],
+        "en": [
+          "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als"
+        ],
+        "fr": [
           "dipl-pflegefachmann-frau-klinik-fur-kinder-und-jugendliche-mit-der-zusatzfunktion-als"
         ]
       },

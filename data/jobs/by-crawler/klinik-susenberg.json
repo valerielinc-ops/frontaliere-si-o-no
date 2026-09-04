@@ -6,10 +6,10 @@
       "id": "klinik-susenberg-0a64f805f971",
       "slug": "koch-kochin-cfc-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",
       "slugByLocale": {
-        "it": "koch-kochin-cfc-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",
-        "en": "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",
         "de": "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",
-        "fr": "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich"
+        "it": "koch-kochin-cfc-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich",
+        "en": "koch-kochin-efz-50-60-temporary-until-june-2027-klinik-susenberg-zurich",
+        "fr": "koch-kochin-efz-50-60-temporaire-jusqu-en-juin-2027-klinik-susenberg-zurich"
       },
       "company": "Klinik Susenberg",
       "companyKey": "klinik-susenberg",
@@ -55,6 +55,12 @@
       "department": "Gastronomie",
       "previousSlugsByLocale": {
         "it": [
+          "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich"
+        ],
+        "en": [
+          "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich"
+        ],
+        "fr": [
           "koch-kochin-efz-50-60-befristet-bis-juni-2027-klinik-susenberg-zurich"
         ]
       },

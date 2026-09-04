@@ -5584,12 +5584,12 @@
     },
     {
       "id": "kanton-st-gallen-7883bb4bef1b",
-      "slug": "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch",
+      "slug": "stage-in-informatica-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
-        "it": "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch",
-        "en": "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch",
+        "it": "stage-in-informatica-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "internship-in-information-science-m-f-d-kanton-st-gallen-st-gallen",
         "de": "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch",
-        "fr": "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch"
+        "fr": "stage-en-sciences-de-l-information-h-f-d-kanton-st-gallen-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5644,16 +5644,30 @@
           "maxValue": 76000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-informationswissenschaft-m-w-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-6390dd3531f2",
-      "slug": "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
+      "slug": "veterinario-ufficiale-veterinario-ufficiale-m-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen",
       "slugByLocale": {
-        "it": "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
-        "en": "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
+        "it": "veterinario-ufficiale-veterinario-ufficiale-m-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen",
+        "en": "official-veterinarian-official-veterinarian-m-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen",
         "de": "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
-        "fr": "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
+        "fr": "veterinaire-officiel-veterinaire-officiel-h-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5708,16 +5722,30 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
+        ],
+        "en": [
+          "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
+      ]
     },
     {
       "id": "kanton-st-gallen-575fd9887346",
-      "slug": "sachbearbeiter-in-administration-e-finanzen-m-w-d-kanton-st-gallen-walzenhausen-ar",
+      "slug": "amministrazione-e-finanza-m-f-d-kanton-st-gallen-walzenhausen-ar",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-administration-e-finanzen-m-w-d-kanton-st-gallen-walzenhausen-ar",
-        "en": "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch",
         "de": "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch",
-        "fr": "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch"
+        "it": "amministrazione-e-finanza-m-f-d-kanton-st-gallen-walzenhausen-ar",
+        "en": "administration-and-finance-m-f-d-kanton-st-gallen-walzenhausen-ar",
+        "fr": "administration-et-finances-h-f-d-kanton-st-gallen-walzenhausen-ar"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -5761,11 +5789,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch",
+          "sachbearbeiter-in-administration-e-finanzen-m-w-d-kanton-st-gallen-walzenhausen-ar"
+        ],
+        "en": [
+          "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch"
+        "sachbearbeiter-in-administration-und-finanzen-w-m-d-kanton-st-gallen-ch",
+        "sachbearbeiter-in-administration-e-finanzen-m-w-d-kanton-st-gallen-walzenhausen-ar"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

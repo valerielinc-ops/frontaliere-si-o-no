@@ -489,12 +489,12 @@
     },
     {
       "id": "spitex-basel-214d67c707cb",
-      "slug": "leiterin-leiter-pflege-80-100-spitex-basel",
+      "slug": "testa-di-cura-80-100-spitex-basel-basel",
       "slugByLocale": {
-        "it": "leiterin-leiter-pflege-80-100-spitex-basel",
-        "en": "leiterin-leiter-pflege-80-100-spitex-basel-pflege",
+        "it": "testa-di-cura-80-100-spitex-basel-basel",
+        "en": "head-of-care-80-100-spitex-basel-basel",
         "de": "leiterin-leiter-pflege-80-100-spitex-basel-pflege",
-        "fr": "leiterin-leiter-pflege-80-100-spitex-basel-pflege"
+        "fr": "responsable-des-soins-80-100-spitex-basel-basel"
       },
       "company": "SPITEX BASEL",
       "companyKey": "spitex-basel",
@@ -537,10 +537,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiterin-leiter-pflege-80-100-spitex-basel-pflege"
+        "leiterin-leiter-pflege-80-100-spitex-basel-pflege",
+        "leiterin-leiter-pflege-80-100-spitex-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-pflege-80-100-spitex-basel-pflege",
+          "leiterin-leiter-pflege-80-100-spitex-basel"
+        ],
+        "en": [
+          "leiterin-leiter-pflege-80-100-spitex-basel-pflege"
+        ],
+        "fr": [
           "leiterin-leiter-pflege-80-100-spitex-basel-pflege"
         ]
       },

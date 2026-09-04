@@ -19891,12 +19891,12 @@
     },
     {
       "id": "hoch-health-c1d219e76590",
-      "slug": "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-ostschweiz-st-gallen",
+      "slug": "dipl-infermieristica-squadra-di-ventilazione-professionale-60-100-hoch-health-ostschweiz-st-gallen",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-ostschweiz-st-gallen",
-        "en": "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen",
         "de": "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen",
-        "fr": "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen"
+        "it": "dipl-infermieristica-squadra-di-ventilazione-professionale-60-100-hoch-health-ostschweiz-st-gallen",
+        "en": "dipl-nursing-professional-ventilation-team-60-100-hoch-health-ostschweiz-st-gallen",
+        "fr": "dipl-equipe-de-ventilation-professionnelle-des-soins-infirmiers-60-100-hoch-health-ostschweiz-st-gallen"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -19939,11 +19939,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen",
+          "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen"
+        "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-st-gallen",
+        "dipl-pflegefachfrau-mann-beatmungsteam-60-100-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,

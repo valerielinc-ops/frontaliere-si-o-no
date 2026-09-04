@@ -8020,12 +8020,12 @@
     },
     {
       "id": "ksb-81d924e4294f",
-      "slug": "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden",
+      "slug": "pratica-di-emergenza-mpa-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden",
-        "en": "mpa-notfallpraxis-80-ksb-ch",
+        "it": "pratica-di-emergenza-mpa-80-kantonsspital-baden-ksb-baden",
+        "en": "mpa-emergency-practice-80-kantonsspital-baden-ksb-baden",
         "de": "mpa-notfallpraxis-80-ksb-ch",
-        "fr": "mpa-notfallpraxis-80-ksb-ch"
+        "fr": "pratique-d-urgence-de-la-zpm-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -8074,6 +8074,12 @@
         "it": [
           "mpa-notfallpraxis-80-ksb-ch",
           "mpa-notfallpraxis-80-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "mpa-notfallpraxis-80-ksb-ch"
+        ],
+        "fr": [
+          "mpa-notfallpraxis-80-ksb-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:28.223Z",
@@ -8093,12 +8099,12 @@
     },
     {
       "id": "ksb-ee859070848c",
-      "slug": "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden",
+      "slug": "pratica-di-emergenza-mpa-50-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden",
-        "en": "mpa-notfallpraxis-50-ksb-ch",
         "de": "mpa-notfallpraxis-50-ksb-ch",
-        "fr": "mpa-notfallpraxis-50-ksb-ch"
+        "it": "pratica-di-emergenza-mpa-50-kantonsspital-baden-ksb-baden",
+        "en": "mpa-emergency-practice-50-kantonsspital-baden-ksb-baden",
+        "fr": "pratique-d-urgence-de-la-zpm-50-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -8144,6 +8150,12 @@
           "mpa-notfallpraxis-50-ksb-ch",
           "mpa-notfallpraxis-60-100-ksb-ch",
           "mpa-notfallpraxis-50-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "mpa-notfallpraxis-50-ksb-ch"
+        ],
+        "fr": [
+          "mpa-notfallpraxis-50-ksb-ch"
         ]
       },
       "previousSlugs": [

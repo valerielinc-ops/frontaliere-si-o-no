@@ -1531,8 +1531,7 @@
           "associe-de-vente-senior-cartier-geneva",
           "avocat-principal-cartier-geneva",
           "grand-vendeur-senior-sales-associate-richemont-geneva",
-          "senior-sales-associate-richemont-geneva-n74jn7",
-          "senior-sales-associate-richemont-geneva"
+          "senior-sales-associate-richemont-geneva-n74jn7"
         ]
       },
       "firstSeenAt": "2026-05-11T13:58:02.473Z",
@@ -13490,11 +13489,11 @@
     },
     {
       "id": "richemont-20c197406626",
-      "slug": "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds",
+      "slug": "coordinatore-delle-risorse-umane-procadrans-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds",
-        "en": "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds",
-        "de": "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds",
+        "it": "coordinatore-delle-risorse-umane-procadrans-la-chaux-de-fonds",
+        "en": "human-resources-coordinator-procadrans-la-chaux-de-fonds",
+        "de": "personalkoordinator-procadrans-la-chaux-de-fonds",
         "fr": "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -13549,7 +13548,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds"
+        ],
+        "en": [
+          "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds"
+        ],
+        "de": [
+          "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-ressources-humaines-richemont-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "richemont-f1d4b013dc79",
@@ -13833,11 +13846,11 @@
     },
     {
       "id": "richemont-5b8c443ad31e",
-      "slug": "responsable-ssse-richemont-la-chaux-de-fonds",
+      "slug": "capo-della-ssse-procadrans-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "responsable-ssse-richemont-la-chaux-de-fonds",
-        "en": "responsable-ssse-richemont-la-chaux-de-fonds",
-        "de": "responsable-ssse-richemont-la-chaux-de-fonds",
+        "it": "capo-della-ssse-procadrans-la-chaux-de-fonds",
+        "en": "head-of-ssse-procadrans-la-chaux-de-fonds",
+        "de": "leiter-der-ssse-procadrans-la-chaux-de-fonds",
         "fr": "responsable-ssse-richemont-la-chaux-de-fonds"
       },
       "company": "ProCadrans",
@@ -13892,7 +13905,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-ssse-richemont-la-chaux-de-fonds"
+        ],
+        "en": [
+          "responsable-ssse-richemont-la-chaux-de-fonds"
+        ],
+        "de": [
+          "responsable-ssse-richemont-la-chaux-de-fonds"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-ssse-richemont-la-chaux-de-fonds"
+      ]
     },
     {
       "id": "richemont-67a994c9a6b9",
@@ -13960,11 +13987,11 @@
     },
     {
       "id": "richemont-a97a92b0f967",
-      "slug": "apprenti-horloger-de-production-cfc-richemont-couvet",
+      "slug": "apprenti-casa-orologiera-cfc-cartier-manufacture-couvet",
       "slugByLocale": {
-        "it": "apprenti-horloger-de-production-cfc-richemont-couvet",
+        "it": "apprenti-casa-orologiera-cfc-cartier-manufacture-couvet",
         "en": "apprenti-horloger-de-production-cfc-richemont-couvet",
-        "de": "apprenti-horloger-de-production-cfc-richemont-couvet",
+        "de": "auszubildender-produktionsuhrmacher-cfc-cartier-manufacture-couvet",
         "fr": "apprenti-horloger-de-production-cfc-richemont-couvet"
       },
       "company": "Cartier Manufacture",
@@ -14020,15 +14047,26 @@
           "maxValue": 92000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-horloger-de-production-cfc-richemont-couvet"
+        ],
+        "de": [
+          "apprenti-horloger-de-production-cfc-richemont-couvet"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-horloger-de-production-cfc-richemont-couvet"
+      ]
     },
     {
       "id": "richemont-16004ff57122",
-      "slug": "controleur-se-qualite-cdm-richemont-meyrin",
+      "slug": "regolatore-qualita-cdm-roger-dubuis-meyrin",
       "slugByLocale": {
-        "it": "controleur-se-qualite-cdm-richemont-meyrin",
-        "en": "controleur-se-qualite-cdm-richemont-meyrin",
-        "de": "controleur-se-qualite-cdm-richemont-meyrin",
+        "it": "regolatore-qualita-cdm-roger-dubuis-meyrin",
+        "en": "controller-quality-cdm-roger-dubuis-meyrin",
+        "de": "controller-qualitat-cdm-roger-dubuis-meyrin",
         "fr": "controleur-se-qualite-cdm-richemont-meyrin"
       },
       "company": "Roger Dubuis",
@@ -14084,15 +14122,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-se-qualite-cdm-richemont-meyrin"
+        ],
+        "en": [
+          "controleur-se-qualite-cdm-richemont-meyrin"
+        ],
+        "de": [
+          "controleur-se-qualite-cdm-richemont-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-se-qualite-cdm-richemont-meyrin"
+      ]
     },
     {
       "id": "richemont-2b12edac17b8",
-      "slug": "apprenti-operateur-en-horlogerie-afp-richemont-couvet",
+      "slug": "apprenti-operator-in-orologeria-afp-cartier-manufacture-couvet",
       "slugByLocale": {
-        "it": "apprenti-operateur-en-horlogerie-afp-richemont-couvet",
-        "en": "apprenti-operateur-en-horlogerie-afp-richemont-couvet",
-        "de": "apprenti-operateur-en-horlogerie-afp-richemont-couvet",
+        "it": "apprenti-operator-in-orologeria-afp-cartier-manufacture-couvet",
+        "en": "apprenti-operator-in-watchmaking-afp-cartier-manufacture-couvet",
+        "de": "auszubildender-betreiber-in-der-uhrmacherei-afp-cartier-manufacture-couvet",
         "fr": "apprenti-operateur-en-horlogerie-afp-cartier-manufacture-couvet"
       },
       "company": "Cartier Manufacture",
@@ -14148,15 +14200,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-couvet"
+        ],
+        "en": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-couvet"
+        ],
+        "de": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-couvet"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-operateur-en-horlogerie-afp-richemont-couvet"
+      ]
     },
     {
       "id": "richemont-7d05764ab5d9",
-      "slug": "apprenti-horloger-richemont-couvet",
+      "slug": "apprentice-watchmaker-cartier-manufacture-couvet",
       "slugByLocale": {
-        "it": "apprenti-horloger-richemont-couvet",
+        "it": "apprentice-watchmaker-cartier-manufacture-couvet",
         "en": "apprenti-horloger-richemont-couvet",
-        "de": "apprenti-horloger-richemont-couvet",
+        "de": "lehrling-uhrmacher-cartier-manufacture-couvet",
         "fr": "apprenti-horloger-cartier-manufacture-couvet"
       },
       "company": "Cartier Manufacture",
@@ -14211,7 +14277,18 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-horloger-richemont-couvet"
+        ],
+        "de": [
+          "apprenti-horloger-richemont-couvet"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-horloger-richemont-couvet"
+      ]
     },
     {
       "id": "richemont-fac5bcdabbc4",

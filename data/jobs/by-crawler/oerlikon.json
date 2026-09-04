@@ -181,12 +181,12 @@
     },
     {
       "id": "oerlikon-69b1abc884fd",
-      "slug": "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
+      "slug": "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen",
       "slugByLocale": {
-        "it": "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen",
-        "en": "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
+        "it": "installatore-meccanico-gn-per-la-costruzione-di-impianti-oerlikon-wohlen",
+        "en": "installer-mechanic-gn-for-plant-construction-oerlikon-wohlen",
         "de": "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
-        "fr": "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
+        "fr": "installateur-mecanicien-gn-pour-la-construction-d-installations-oerlikon-wohlen"
       },
       "company": "Oerlikon",
       "companyKey": "oerlikon",
@@ -228,10 +228,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
+        "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
+        "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch",
+          "monteur-mechaniker-gn-per-den-anlagenbau-oerlikon-wohlen"
+        ],
+        "en": [
+          "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
+        ],
+        "fr": [
           "monteur-mechaniker-gn-fur-den-anlagenbau-oerlikon-ch"
         ]
       },

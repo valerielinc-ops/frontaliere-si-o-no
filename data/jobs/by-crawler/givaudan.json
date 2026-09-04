@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "givaudan-88297d5be02a",
-      "slug": "site-operations-controller-ingredients-m-f-d-givaudan-ch",
+      "slug": "controller-operazioni-del-sito-ingredienti-m-f-d-givaudan-vernier-switzerland",
       "slugByLocale": {
-        "it": "site-operations-controller-ingredients-m-f-d-givaudan-ch",
         "en": "site-operations-controller-ingredients-m-f-d-givaudan-ch",
+        "it": "controller-operazioni-del-sito-ingredienti-m-f-d-givaudan-vernier-switzerland",
         "de": "site-operations-controller-ingredients-m-f-d-givaudan-ch",
-        "fr": "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+        "fr": "controleur-d-exploitation-ingredients-h-f-d-givaudan-vernier-switzerland"
       },
       "company": "Givaudan",
       "companyKey": "givaudan",
@@ -63,7 +63,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:39:50.714Z"
+      "firstSeenAt": "2026-09-03T23:39:50.714Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+        ],
+        "fr": [
+          "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+        ]
+      },
+      "previousSlugs": [
+        "site-operations-controller-ingredients-m-f-d-givaudan-ch"
+      ]
     },
     {
       "id": "givaudan-787305dcc30b",

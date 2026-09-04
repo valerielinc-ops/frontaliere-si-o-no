@@ -710,12 +710,12 @@
     },
     {
       "id": "kanton-zuerich-6087dcf88ec7",
-      "slug": "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
+      "slug": "aiuti-all-innovazione-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
-        "it": "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich",
-        "en": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
+        "it": "aiuti-all-innovazione-kantonale-verwaltung-zurich-8050-zurich",
+        "en": "aid-innendienst-kantonale-verwaltung-zurich-8050-zurich",
         "de": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
-        "fr": "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
+        "fr": "aide-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -767,13 +767,19 @@
         "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
+          "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich"
+        ],
         "de": [
           "aushilfe-schadensupport-innendienst-kantonale-verwaltung-zurich-8050-zurich",
           "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
         ],
-        "it": [
-          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich",
-          "aushilfe-schadensupport-servizio-interno-kantonale-verwaltung-zurich-8050-zurich"
+        "en": [
+          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
+        ],
+        "fr": [
+          "aushilfe-schadensupport-innendienst-kanton-zuerich-8050-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:48:12.971Z",
@@ -1327,12 +1333,12 @@
     },
     {
       "id": "kanton-zuerich-166ee1c3f188",
-      "slug": "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen",
+      "slug": "auditorato-presso-la-corte-distrettuale-di-horgen-kantonale-verwaltung-zurich-horgen",
       "slugByLocale": {
-        "it": "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen",
-        "en": "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen",
+        "it": "auditorato-presso-la-corte-distrettuale-di-horgen-kantonale-verwaltung-zurich-horgen",
+        "en": "auditorate-at-horgen-district-court-kantonale-verwaltung-zurich-horgen",
         "de": "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen",
-        "fr": "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen"
+        "fr": "auditorat-au-tribunal-de-district-de-horgen-kantonale-verwaltung-zurich-horgen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1394,10 +1400,20 @@
       "previousSlugsByLocale": {
         "de": [
           "auditorat-am-bezirksgericht-horgen-kantonale-verwaltung-zurich-horgen"
+        ],
+        "it": [
+          "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen"
+        ],
+        "en": [
+          "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen"
+        ],
+        "fr": [
+          "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen"
         ]
       },
       "previousSlugs": [
-        "auditorat-am-bezirksgericht-horgen-kantonale-verwaltung-zurich-horgen"
+        "auditorat-am-bezirksgericht-horgen-kantonale-verwaltung-zurich-horgen",
+        "auditorat-am-bezirksgericht-horgen-kanton-zuerich-horgen"
       ]
     },
     {
@@ -8861,12 +8877,12 @@
     },
     {
       "id": "kanton-zuerich-5bb5b99f4de5",
-      "slug": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+      "slug": "supervisore-supervisore-supervisore-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "en": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+        "it": "supervisore-supervisore-supervisore-kantonale-verwaltung-zurich-zurich",
+        "en": "supervisor-supervisor-supervisor-kantonale-verwaltung-zurich-zurich",
         "de": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "fr": "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        "fr": "superviseur-superviseur-superviseur-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -8928,10 +8944,20 @@
       "previousSlugsByLocale": {
         "de": [
           "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "it": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-zurich"
+        "aufseher-in-betreuer-in-kantonale-verwaltung-zurich-zurich",
+        "aufseher-in-betreuer-in-kanton-zuerich-zurich"
       ]
     },
     {
@@ -9419,12 +9445,12 @@
     },
     {
       "id": "kanton-zuerich-4b2ad70c9ed8",
-      "slug": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
+      "slug": "merce-commerciale-in-kjz-miglia-kantonale-verwaltung-zurich-feldmeilen",
       "slugByLocale": {
-        "it": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
-        "en": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen",
+        "it": "merce-commerciale-in-kjz-miglia-kantonale-verwaltung-zurich-feldmeilen",
+        "en": "commercial-clerk-in-kjz-miles-kantonale-verwaltung-zurich-feldmeilen",
         "de": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kanton-zuerich-feldmeilen",
-        "fr": "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
+        "fr": "commis-commercial-a-kjz-miles-kantonale-verwaltung-zurich-feldmeilen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9481,6 +9507,12 @@
         ],
         "de": [
           "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kanton-zuerich-feldmeilen",
+          "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
+        ],
+        "en": [
+          "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
+        ],
+        "fr": [
           "kaufmannische-r-sachbearbeiter-in-kjz-meilen-kantonale-verwaltung-zurich-feldmeilen"
         ]
       },
@@ -11807,12 +11839,12 @@
     },
     {
       "id": "kanton-zuerich-47e6274d59a9",
-      "slug": "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
+      "slug": "aiuti-per-i-servizi-esterni-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
-        "it": "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
-        "en": "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
+        "it": "aiuti-per-i-servizi-esterni-kantonale-verwaltung-zurich-8050-zurich",
+        "en": "aid-for-external-services-kantonale-verwaltung-zurich-8050-zurich",
         "de": "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich",
-        "fr": "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich"
+        "fr": "aide-aux-services-exterieures-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -11874,10 +11906,20 @@
       "previousSlugsByLocale": {
         "de": [
           "aushilfe-schadensupport-aussendienst-kantonale-verwaltung-zurich-8050-zurich"
+        ],
+        "it": [
+          "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich"
+        ],
+        "en": [
+          "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich"
+        ],
+        "fr": [
+          "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich"
         ]
       },
       "previousSlugs": [
-        "aushilfe-schadensupport-aussendienst-kantonale-verwaltung-zurich-8050-zurich"
+        "aushilfe-schadensupport-aussendienst-kantonale-verwaltung-zurich-8050-zurich",
+        "aushilfe-schadensupport-aussendienst-kanton-zuerich-8050-zurich"
       ]
     },
     {
@@ -12500,12 +12542,12 @@
     },
     {
       "id": "kanton-zuerich-f0d24ef9a863",
-      "slug": "sekretar-in-kanton-zuerich-zurich",
+      "slug": "segretario-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
-        "it": "sekretar-in-kanton-zuerich-zurich",
-        "en": "sekretar-in-kanton-zuerich-zurich",
         "de": "sekretar-in-kanton-zuerich-zurich",
-        "fr": "sekretar-in-kanton-zuerich-zurich"
+        "it": "segretario-kantonale-verwaltung-zurich-zurich",
+        "en": "secretary-kantonale-verwaltung-zurich-zurich",
+        "fr": "secretaire-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12567,10 +12609,20 @@
       "previousSlugsByLocale": {
         "de": [
           "sekretar-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "it": [
+          "sekretar-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "sekretar-in-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "sekretar-in-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "sekretar-in-kantonale-verwaltung-zurich-zurich"
+        "sekretar-in-kantonale-verwaltung-zurich-zurich",
+        "sekretar-in-kanton-zuerich-zurich"
       ]
     },
     {
@@ -13517,12 +13569,12 @@
     },
     {
       "id": "kanton-zuerich-2a06f18b94d2",
-      "slug": "rektor-in-kanton-zuerich-8004-zurich",
+      "slug": "rettore-in-kantonale-verwaltung-zurich-8004-zurich",
       "slugByLocale": {
-        "it": "rektor-in-kanton-zuerich-8004-zurich",
-        "en": "rektor-in-kanton-zuerich-8004-zurich",
+        "it": "rettore-in-kantonale-verwaltung-zurich-8004-zurich",
+        "en": "rector-in-kantonale-verwaltung-zurich-8004-zurich",
         "de": "rektor-in-kanton-zuerich-8004-zurich",
-        "fr": "rektor-in-kanton-zuerich-8004-zurich"
+        "fr": "recteur-in-kantonale-verwaltung-zurich-8004-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -13583,10 +13635,6 @@
       },
       "firstSeenAt": "2026-09-03T13:47:11.630Z",
       "previousSlugsByLocale": {
-        "de": [
-          "betriebscoach-kanton-zuerich-zurich",
-          "rektor-in-kantonale-verwaltung-zurich-8004-zurich"
-        ],
         "it": [
           "coach-aziendale-kantonale-verwaltung-zurich",
           "operating-coach-kantonale-verwaltung-zurich-zurich",
@@ -13596,13 +13644,20 @@
           "entraineur-d-exploitation-kantonale-verwaltung-zurich-zurich",
           "betriebscoach-kantonale-verwaltung-zurich-zurich",
           "betriebscoach-kantonale-verwaltung-zurich",
-          "operational-coach-kantonale-verwaltung-zurich-zurich"
+          "operational-coach-kantonale-verwaltung-zurich-zurich",
+          "rektor-in-kanton-zuerich-8004-zurich"
         ],
         "en": [
-          "operating-coach-kantonale-verwaltung-zurich-zurich"
+          "operating-coach-kantonale-verwaltung-zurich-zurich",
+          "rektor-in-kanton-zuerich-8004-zurich"
+        ],
+        "de": [
+          "betriebscoach-kanton-zuerich-zurich",
+          "rektor-in-kantonale-verwaltung-zurich-8004-zurich"
         ],
         "fr": [
-          "coach-d-entreprise-kantonale-verwaltung-zurich"
+          "coach-d-entreprise-kantonale-verwaltung-zurich",
+          "rektor-in-kanton-zuerich-8004-zurich"
         ]
       },
       "previousSlugs": [
@@ -13615,7 +13670,8 @@
         "betriebscoach-kantonale-verwaltung-zurich-zurich",
         "betriebscoach-kantonale-verwaltung-zurich",
         "operational-coach-kantonale-verwaltung-zurich-zurich",
-        "rektor-in-kantonale-verwaltung-zurich-8004-zurich"
+        "rektor-in-kantonale-verwaltung-zurich-8004-zurich",
+        "rektor-in-kanton-zuerich-8004-zurich"
       ]
     },
     {
@@ -14336,12 +14392,12 @@
     },
     {
       "id": "kanton-zuerich-19bfc7069ff7",
-      "slug": "wissenschaftliche-r-collaboratore-trice-bewilligung-e-aufsicht-institutionen-im-bereich-heimpflege-kantonale-verwaltung-zurich",
+      "slug": "personale-scientifico-istituzioni-di-controllo-e-di-approvazione-nel-settore-dell-assistenza-domestica-kantonale",
       "slugByLocale": {
-        "it": "wissenschaftliche-r-collaboratore-trice-bewilligung-e-aufsicht-institutionen-im-bereich-heimpflege-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich",
+        "it": "personale-scientifico-istituzioni-di-controllo-e-di-approvazione-nel-settore-dell-assistenza-domestica-kantonale",
+        "en": "scientific-staff-approval-and-supervision-institutions-in-the-field-of-home-care-kantonale-verwaltung-zurich-zurich",
         "de": "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich"
+        "fr": "personnel-scientifique-etablissements-d-approbation-et-de-supervision-dans-le-domaine-des-soins-a-domicile-kantonale"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14394,6 +14450,12 @@
         "it": [
           "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich",
           "wissenschaftliche-r-collaboratore-trice-bewilligung-e-aufsicht-institutionen-im-bereich-heimpflege-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-bewilligung-und-aufsicht-institutionen-im-bereich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:07.616Z",
@@ -15741,12 +15803,12 @@
     },
     {
       "id": "kanton-zuerich-eee285028d74",
-      "slug": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+      "slug": "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
-        "en": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf",
+        "it": "assistente-temporaneo-temporaneo-direttore-del-laboratorio-kantonale-verwaltung-zurich-regensdorf",
+        "en": "temporary-temporary-assistant-workshop-manager-kantonale-verwaltung-zurich-regensdorf",
         "de": "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
-        "fr": "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        "fr": "assistant-temporaire-responsable-de-l-atelier-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15799,6 +15861,12 @@
         "it": [
           "aushilfe-werkstattbetreuer-in-befristet-kanton-zuerich-regensdorf",
           "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "en": [
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
+        ],
+        "fr": [
+          "aushilfe-werkstattbetreuer-in-befristet-kantonale-verwaltung-zurich-regensdorf"
         ]
       },
       "firstSeenAt": "2026-09-03T13:47:00.841Z",
@@ -15818,12 +15886,12 @@
     },
     {
       "id": "kanton-zuerich-89c3f245843b",
-      "slug": "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich",
+      "slug": "prorettore-in-gymnasium-prorector-in-fms-kantonale-verwaltung-zurich-8004-zurich",
       "slugByLocale": {
-        "it": "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich",
-        "en": "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich",
+        "it": "prorettore-in-gymnasium-prorector-in-fms-kantonale-verwaltung-zurich-8004-zurich",
+        "en": "prorector-in-gymnasium-prorector-in-fms-kantonale-verwaltung-zurich-8004-zurich",
         "de": "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich",
-        "fr": "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich"
+        "fr": "prorecteur-en-gymnase-prorecteur-en-fms-kantonale-verwaltung-zurich-8004-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -15886,10 +15954,20 @@
       "previousSlugsByLocale": {
         "de": [
           "prorektor-in-gymnasium-prorektor-in-fms-kantonale-verwaltung-zurich-8004-zurich"
+        ],
+        "it": [
+          "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich"
+        ],
+        "en": [
+          "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich"
+        ],
+        "fr": [
+          "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich"
         ]
       },
       "previousSlugs": [
-        "prorektor-in-gymnasium-prorektor-in-fms-kantonale-verwaltung-zurich-8004-zurich"
+        "prorektor-in-gymnasium-prorektor-in-fms-kantonale-verwaltung-zurich-8004-zurich",
+        "prorektor-in-gymnasium-prorektor-in-fms-kanton-zuerich-8004-zurich"
       ]
     },
     {
@@ -16231,12 +16309,12 @@
     },
     {
       "id": "kanton-zuerich-6f76055b60df",
-      "slug": "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich",
+      "slug": "test-manager-in-temporaneo-12-mesi-kantonale-verwaltung-zurich-zurich-2b674d",
       "slugByLocale": {
-        "it": "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich",
-        "en": "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich",
         "de": "test-manager-in-befristet-12-monate-kanton-zuerich-zurich",
-        "fr": "test-manager-in-befristet-12-monate-kanton-zuerich-zurich"
+        "it": "test-manager-in-temporaneo-12-mesi-kantonale-verwaltung-zurich-zurich-2b674d",
+        "en": "test-manager-in-temporary-12-months-kantonale-verwaltung-zurich-zurich-2b674d",
+        "fr": "gestionnaire-d-essais-en-temporaire-12-mois-kantonale-verwaltung-zurich-zurich-2b674d"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16286,11 +16364,18 @@
         "it": [
           "test-manager-in-befristet-12-monate-kanton-zuerich-zurich",
           "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "test-manager-in-befristet-12-monate-kanton-zuerich-zurich"
         ]
       },
       "previousSlugs": [
         "test-manager-in-befristet-12-monate-kanton-zuerich-zurich",
-        "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich"
+        "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich",
+        "test-manager-in-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -16715,7 +16800,7 @@
         "it": "collaboratore-trice-koordinationsstelle-ki-use-case-exploration-e-community-management-kantonale-verwaltung-zurich",
         "en": "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kantonale-verwaltung-zurich-zurich",
         "de": "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kanton",
-        "fr": "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kantonale-verwaltung-zurich-zurich"
+        "fr": "ai-exploration-des-cas-d-utilisation-et-gestion-communautaire-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16766,13 +16851,16 @@
         "collaboratore-trice-koordinationsstelle-ki-use-case-exploration-e-community-management-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kanton",
+          "collaboratore-trice-koordinationsstelle-ki-use-case-exploration-e-community-management-kantonale-verwaltung-zurich"
+        ],
         "de": [
           "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kantonale-verwaltung-zurich-zurich",
           "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kanton"
         ],
-        "it": [
-          "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kanton",
-          "collaboratore-trice-koordinationsstelle-ki-use-case-exploration-e-community-management-kantonale-verwaltung-zurich"
+        "fr": [
+          "mitarbeiter-in-koordinationsstelle-ki-use-case-exploration-und-community-management-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:46:55.742Z",
@@ -16792,12 +16880,12 @@
     },
     {
       "id": "kanton-zuerich-616c68ee9c26",
-      "slug": "risorse-umane-fachperson-befristet-bis-30-september-2027-con-allfalliger-option-auf-festanstellung-kantonale-verwaltung-zurich",
+      "slug": "specialista-hr-temporaneo-fino-a-30-settembre-2027-con-possibile-opzione-di-lavoro-permanente-kantonale-verwaltung",
       "slugByLocale": {
-        "it": "risorse-umane-fachperson-befristet-bis-30-september-2027-con-allfalliger-option-auf-festanstellung-kantonale-verwaltung-zurich",
-        "en": "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung",
         "de": "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung",
-        "fr": "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung"
+        "it": "specialista-hr-temporaneo-fino-a-30-settembre-2027-con-possibile-opzione-di-lavoro-permanente-kantonale-verwaltung",
+        "en": "hr-specialist-temporary-until-30-september-2027-with-possible-permanent-employment-option-kantonale-verwaltung-zurich",
+        "fr": "specialiste-des-rh-temporaire-jusqu-a-30-septembre-2027-avec-possibilite-d-emploi-permanent-kantonale-verwaltung-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -16844,11 +16932,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung",
+          "risorse-umane-fachperson-befristet-bis-30-september-2027-con-allfalliger-option-auf-festanstellung-kantonale-verwaltung-zurich"
+        ],
+        "en": [
+          "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung"
+        ],
+        "fr": [
           "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung"
         ]
       },
       "previousSlugs": [
-        "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung"
+        "hr-fachperson-befristet-bis-30-september-2027-mit-allfalliger-option-auf-festanstellung",
+        "risorse-umane-fachperson-befristet-bis-30-september-2027-con-allfalliger-option-auf-festanstellung-kantonale-verwaltung-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,

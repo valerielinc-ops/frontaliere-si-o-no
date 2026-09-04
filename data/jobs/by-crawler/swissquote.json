@@ -1649,12 +1649,12 @@
     },
     {
       "id": "swissquote-d5a8e3e34d64",
-      "slug": "account-payable-officer-40-50-swissquote-gland",
+      "slug": "agente-passivo-40-50-swissquote-gland",
       "slugByLocale": {
-        "it": "account-payable-officer-40-50-swissquote-gland",
+        "it": "agente-passivo-40-50-swissquote-gland",
         "en": "account-payable-officer-40-50-swissquote-gland",
         "de": "account-payable-officer-40-50-swissquote-gland",
-        "fr": "account-payable-officer-40-50-swissquote-gland"
+        "fr": "agent-responsable-des-comptes-40-50-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -1711,7 +1711,18 @@
           "maxValue": 91800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "account-payable-officer-40-50-swissquote-gland"
+        ],
+        "fr": [
+          "account-payable-officer-40-50-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "account-payable-officer-40-50-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-dbde50b0d56a",
@@ -1939,12 +1950,12 @@
     },
     {
       "id": "swissquote-451eb38e8787",
-      "slug": "apprenti-e-mediamaticien-ne-swissquote-gland",
+      "slug": "apprentice-mediamatician-n-swissquote-gland",
       "slugByLocale": {
-        "it": "apprenti-e-mediamaticien-ne-swissquote-gland",
+        "fr": "apprenti-e-mediamaticien-ne-swissquote-gland",
+        "it": "apprentice-mediamatician-n-swissquote-gland",
         "en": "apprenti-e-mediamaticien-ne-swissquote-gland",
-        "de": "apprenti-e-mediamaticien-ne-swissquote-gland",
-        "fr": "apprenti-e-mediamaticien-ne-swissquote-gland"
+        "de": "auszubildender-mediamatiker-n-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2000,7 +2011,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:29:32.467Z"
+      "firstSeenAt": "2026-09-03T23:29:32.467Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-mediamaticien-ne-swissquote-gland"
+        ],
+        "de": [
+          "apprenti-e-mediamaticien-ne-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-mediamaticien-ne-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-c35518c02f86",
@@ -2072,12 +2094,12 @@
     },
     {
       "id": "swissquote-1273040065b3",
-      "slug": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland",
+      "slug": "apprentices-computers-operazioni-e-rete-swissquote-gland",
       "slugByLocale": {
-        "it": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland",
-        "en": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland",
-        "de": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland",
-        "fr": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland"
+        "fr": "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland",
+        "it": "apprentices-computers-operazioni-e-rete-swissquote-gland",
+        "en": "apprentices-computers-operations-and-network-swissquote-gland",
+        "de": "auszubildende-computer-operationen-und-netzwerk-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2133,16 +2155,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:29:32.470Z"
+      "firstSeenAt": "2026-09-03T23:29:32.470Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland"
+        ],
+        "en": [
+          "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland"
+        ],
+        "de": [
+          "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-informaticien-ne-exploitation-et-reseau-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-ee2a1818e1fb",
-      "slug": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland",
+      "slug": "apprendistato-business-dipendente-servizio-e-amministrazione-swissquote-gland",
       "slugByLocale": {
-        "it": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland",
-        "en": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland",
-        "de": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland",
-        "fr": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland"
+        "fr": "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland",
+        "it": "apprendistato-business-dipendente-servizio-e-amministrazione-swissquote-gland",
+        "en": "apprenticeship-business-employee-service-administration-swissquote-gland",
+        "de": "lehrling-betriebsangestellter-service-administration-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2198,16 +2234,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:29:32.474Z"
+      "firstSeenAt": "2026-09-03T23:29:32.474Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-service-administration-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-9af282d3ac1f",
-      "slug": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",
+      "slug": "apprendistato-dipendente-di-affari-banca-swissquote-gland",
       "slugByLocale": {
-        "it": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",
-        "en": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",
-        "de": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",
-        "fr": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
+        "fr": "apprenti-e-employe-e-de-commerce-banque-swissquote-gland",
+        "it": "apprendistato-dipendente-di-affari-banca-swissquote-gland",
+        "en": "apprenticeship-business-employee-bank-swissquote-gland",
+        "de": "lehrling-betriebsangestellte-bank-swissquote-gland"
       },
       "company": "Swissquote",
       "companyKey": "swissquote",
@@ -2263,7 +2313,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:29:32.472Z"
+      "firstSeenAt": "2026-09-03T23:29:32.472Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-banque-swissquote-gland"
+      ]
     },
     {
       "id": "swissquote-3e4e5e45c71f",

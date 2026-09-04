@@ -9775,12 +9775,12 @@
     },
     {
       "id": "tertianum-2cec1596fdfd",
-      "slug": "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon",
+      "slug": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
       "slugByLocale": {
-        "it": "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "en": "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon",
+        "it": "apprendista-ristorazione-professionale-uomo-tertianum-pfaffikon",
+        "en": "apprentice-restoration-professional-man-tertianum-pfaffikon",
         "de": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "fr": "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "fr": "apprentissage-restauration-professionnelle-homme-tertianum-pfaffikon"
       },
       "company": "Tertianum",
       "companyKey": "tertianum",
@@ -9824,7 +9824,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
-        "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon",
+        "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9832,6 +9833,10 @@
           "apprendista-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ],
         "en": [
+          "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon",
+          "apprentice-restaurationsfachfrau-mann-tertianum-pfaffikon"
+        ],
+        "fr": [
           "lernende-r-restaurationsfachfrau-mann-tertianum-pfaffikon"
         ]
       },
@@ -21391,11 +21396,11 @@
     },
     {
       "id": "tertianum-316d98f3c044",
-      "slug": "infirmier-ere-diplome-e-80-100-tertianum-morges",
+      "slug": "infermiera-laureata-80-100-tertianum-morges",
       "slugByLocale": {
-        "it": "infirmier-ere-diplome-e-80-100-tertianum-morges",
-        "en": "infirmier-ere-diplome-e-80-100-tertianum-morges",
-        "de": "infirmier-ere-diplome-e-80-100-tertianum-morges",
+        "it": "infermiera-laureata-80-100-tertianum-morges",
+        "en": "graduated-nurse-80-100-tertianum-morges",
+        "de": "absolventin-krankenschwester-80-100-tertianum-morges",
         "fr": "infirmier-ere-diplome-e-80-100-tertianum-morges"
       },
       "company": "Tertianum",
@@ -21451,7 +21456,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-diplome-e-80-100-tertianum-morges"
+        ],
+        "en": [
+          "infirmier-ere-diplome-e-80-100-tertianum-morges"
+        ],
+        "de": [
+          "infirmier-ere-diplome-e-80-100-tertianum-morges"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-diplome-e-80-100-tertianum-morges"
+      ]
     },
     {
       "id": "tertianum-a404b5d9ef61",

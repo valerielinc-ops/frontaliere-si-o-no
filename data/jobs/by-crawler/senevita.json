@@ -10680,10 +10680,10 @@
     },
     {
       "id": "senevita-d1f6c008e3e1",
-      "slug": "apprendistato-fachmann-frau-gesundheit-cfc-senevita-ag-wohlen",
+      "slug": "apprendistato-professional-woman-health-efz-senevita-ag-wohlen",
       "slugByLocale": {
-        "it": "apprendistato-fachmann-frau-gesundheit-cfc-senevita-ag-wohlen",
-        "en": "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen",
+        "it": "apprendistato-professional-woman-health-efz-senevita-ag-wohlen",
+        "en": "apprenticeship-professional-woman-health-efz-senevita-ag-wohlen",
         "de": "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen",
         "fr": "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen"
       },
@@ -10736,6 +10736,9 @@
         "it": [
           "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen",
           "apprendistato-fachmann-frau-gesundheit-cfc-senevita-ag-wohlen"
+        ],
+        "en": [
+          "lehrstelle-fachmann-frau-gesundheit-efz-senevita-ag-wohlen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:49.266Z",
@@ -16082,12 +16085,12 @@
     },
     {
       "id": "senevita-dad07f925ab5",
-      "slug": "servicefachangestellte-r-60-senevita-so-olten",
+      "slug": "specialisti-di-servizio-r-60-senevita-so-olten",
       "slugByLocale": {
-        "it": "servicefachangestellte-r-60-senevita-so-olten",
-        "en": "servicefachangestellte-r-60-senevita-so-olten",
+        "it": "specialisti-di-servizio-r-60-senevita-so-olten",
+        "en": "service-specialists-r-60-senevita-so-olten",
         "de": "servicefachangestellte-r-60-senevita-so-olten",
-        "fr": "servicefachangestellte-r-60-senevita-so-olten"
+        "fr": "specialistes-des-services-r-60-senevita-so-olten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16143,7 +16146,21 @@
           "maxValue": 71400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicefachangestellte-r-60-senevita-so-olten"
+        ],
+        "en": [
+          "servicefachangestellte-r-60-senevita-so-olten"
+        ],
+        "fr": [
+          "servicefachangestellte-r-60-senevita-so-olten"
+        ]
+      },
+      "previousSlugs": [
+        "servicefachangestellte-r-60-senevita-so-olten"
+      ]
     },
     {
       "id": "senevita-6f534d7c3cd3",

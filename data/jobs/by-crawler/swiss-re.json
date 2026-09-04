@@ -11575,10 +11575,10 @@
       "id": "swiss-re-f116cfab45c1",
       "slug": "risk-consulente-swiss-re-london-gb",
       "slugByLocale": {
-        "it": "risk-consulente-swiss-re-london-gb",
         "en": "risk-consultant-swiss-re-ch",
+        "it": "risk-consulente-swiss-re-london-gb",
         "de": "risk-berater-swiss-re-london-gb",
-        "fr": "risk-consultant-swiss-re-ch"
+        "fr": "consultant-en-risque-swiss-re-london-gb"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -11639,6 +11639,9 @@
           "risk-consulente-swiss-re-london-gb"
         ],
         "de": [
+          "risk-consultant-swiss-re-ch"
+        ],
+        "fr": [
           "risk-consultant-swiss-re-ch"
         ]
       },
@@ -23657,12 +23660,12 @@
     },
     {
       "id": "swiss-re-9f9606460936",
-      "slug": "corso-business-management-expert-swiss-re-ch",
+      "slug": "esperto-di-gestione-aziendale-di-corso-swiss-re-mexico-city-mx",
       "slugByLocale": {
-        "it": "corso-business-management-expert-swiss-re-ch",
+        "it": "esperto-di-gestione-aziendale-di-corso-swiss-re-mexico-city-mx",
         "en": "corso-business-management-expert-swiss-re-ch",
         "de": "corso-business-management-expert-swiss-re-ch",
-        "fr": "corso-business-management-expert-swiss-re-ch"
+        "fr": "corso-expert-en-gestion-d-entreprise-swiss-re-mexico-city-mx"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -23716,7 +23719,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "corso-business-management-expert-swiss-re-ch"
+        ],
+        "fr": [
+          "corso-business-management-expert-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "corso-business-management-expert-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-50e888e1c4f3",
@@ -23870,12 +23884,12 @@
     },
     {
       "id": "swiss-re-cb0fd65e78e7",
-      "slug": "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch",
+      "slug": "modello-di-rischio-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
       "slugByLocale": {
-        "it": "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch",
+        "it": "modello-di-rischio-hybrid-m-f-x-d-80-100-swiss-re-zurich-ch",
         "en": "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "de": "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "de": "risikomodellierer-hybrid-m-w-x-d-80-100-swiss-re-zurich-ch",
+        "fr": "modelisateur-de-risque-hybrid-h-f-x-j-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -23929,7 +23943,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "de": [
+          "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "risk-modeller-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-00be7319fbbc",
@@ -23937,7 +23965,7 @@
       "slugByLocale": {
         "it": "senior-actuarial-analista-swiss-re-kuala-lumpur-my",
         "en": "senior-actuarial-analyst-swiss-re-ch",
-        "de": "senior-actuarial-analyst-swiss-re-ch",
+        "de": "senior-aktuarialanalyst-swiss-re-kuala-lumpur-my",
         "fr": "senior-actuarial-analyste-swiss-re-kuala-lumpur-my"
       },
       "company": "Swiss Re",
@@ -23985,6 +24013,9 @@
           "senior-actuarial-analista-swiss-re-kuala-lumpur-my"
         ],
         "fr": [
+          "senior-actuarial-analyst-swiss-re-ch"
+        ],
+        "de": [
           "senior-actuarial-analyst-swiss-re-ch"
         ]
       },

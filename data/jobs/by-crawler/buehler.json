@@ -12753,12 +12753,12 @@
     },
     {
       "id": "buehler-1cc189153d62",
-      "slug": "technical-help-desk-buehler-holland",
+      "slug": "servizio-tecnico-buhler-group-holland",
       "slugByLocale": {
-        "it": "technical-help-desk-buehler-holland",
         "en": "technical-help-desk-buehler-holland",
-        "de": "technical-help-desk-buehler-holland",
-        "fr": "technical-help-desk-buhler-group-holland"
+        "it": "servizio-tecnico-buhler-group-holland",
+        "de": "technischer-helpdesk-buhler-group-holland",
+        "fr": "bureau-d-assistance-technique-buhler-group-holland"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12813,16 +12813,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:15:40.830Z"
+      "firstSeenAt": "2026-09-03T23:15:40.830Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-help-desk-buehler-holland"
+        ],
+        "de": [
+          "technical-help-desk-buehler-holland"
+        ],
+        "fr": [
+          "technical-help-desk-buhler-group-holland"
+        ]
+      },
+      "previousSlugs": [
+        "technical-help-desk-buehler-holland",
+        "technical-help-desk-buhler-group-holland"
+      ]
     },
     {
       "id": "buehler-2fc45bec6698",
-      "slug": "estagiario-juridico-buehler-curitiba",
+      "slug": "etagiario-juridico-buhler-group-curitiba",
       "slugByLocale": {
-        "it": "estagiario-juridico-buehler-curitiba",
+        "fr": "estagiario-juridico-buehler-curitiba",
+        "it": "etagiario-juridico-buhler-group-curitiba",
         "en": "estagiario-juridico-buehler-curitiba",
-        "de": "estagiario-juridico-buehler-curitiba",
-        "fr": "estagiario-juridico-buehler-curitiba"
+        "de": "estagiario-juridico-buehler-curitiba"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12877,7 +12892,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:15:40.807Z"
+      "firstSeenAt": "2026-09-03T23:15:40.807Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "estagiario-juridico-buehler-curitiba"
+        ]
+      },
+      "previousSlugs": [
+        "estagiario-juridico-buehler-curitiba"
+      ]
     },
     {
       "id": "buehler-72f368c9fde2",

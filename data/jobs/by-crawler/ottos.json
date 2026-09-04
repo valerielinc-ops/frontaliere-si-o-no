@@ -787,12 +787,12 @@
     },
     {
       "id": "ottos-b43f4fc45648",
-      "slug": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
+      "slug": "personale-di-vendita-in-food-non-food-otto-s-ag-wil",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
-        "en": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil",
+        "it": "personale-di-vendita-in-food-non-food-otto-s-ag-wil",
+        "en": "sales-staff-in-food-non-food-otto-s-ag-wil",
         "de": "verkaufsmitarbeiter-in-food-non-food-ottos-wil",
-        "fr": "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        "fr": "personnel-commercial-en-alimentation-non-alimentation-otto-s-ag-wil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -846,6 +846,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-food-non-food-ottos-wil",
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
+        ],
+        "fr": [
           "verkaufsmitarbeiter-in-food-non-food-otto-s-ag-wil"
         ]
       },
@@ -1310,12 +1316,12 @@
     },
     {
       "id": "ottos-79810a6d5f96",
-      "slug": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
+      "slug": "personale-commerciale-in-tessile-sport-otto-s-ag-netstal",
       "slugByLocale": {
-        "it": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
-        "en": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal",
+        "it": "personale-commerciale-in-tessile-sport-otto-s-ag-netstal",
+        "en": "sales-staff-in-textile-sport-otto-s-ag-netstal",
         "de": "verkaufsmitarbeiter-in-textil-sport-ottos-netstal",
-        "fr": "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        "fr": "personnel-commercial-en-textile-sport-otto-s-ag-netstal"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -1369,6 +1375,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufsmitarbeiter-in-textil-sport-ottos-netstal",
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
+        ],
+        "fr": [
           "verkaufsmitarbeiter-in-textil-sport-otto-s-ag-netstal"
         ]
       },
@@ -3045,9 +3057,9 @@
       "slug": "venditore-ausiliario-di-articoli-sportivi-m-f-ottos-riazzino",
       "slugByLocale": {
         "it": "venditore-ausiliario-di-articoli-sportivi-m-f-ottos-riazzino",
-        "en": "venditore-ausiliario-di-articoli-sportivi-m-f-ottos-riazzino",
-        "de": "venditore-ausiliario-di-articoli-sportivi-m-f-ottos-riazzino",
-        "fr": "venditore-ausiliario-di-articoli-sportivi-m-f-ottos-riazzino"
+        "en": "auxiliary-salesman-of-sports-items-m-f-otto-s-ag-riazzino",
+        "de": "hilfsverkaufer-von-sportartikeln-m-w-otto-s-ag-riazzino",
+        "fr": "vendeur-auxiliaire-d-articles-de-sport-h-f-otto-s-ag-riazzino"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7086,11 +7098,11 @@
     },
     {
       "id": "ottos-d4def6a673f1",
-      "slug": "vendeur-d-articles-de-sport-m-w-d-otto-s-ag-delemont",
+      "slug": "venditore-di-articoli-sportivi-m-f-otto-s-ag-delemont",
       "slugByLocale": {
-        "it": "vendeur-d-articles-de-sport-m-w-d-otto-s-ag-delemont",
-        "en": "vendeur-d-articles-de-sport-h-f-ottos-delemont",
-        "de": "vendeur-d-articles-de-sport-h-f-ottos-delemont",
+        "it": "venditore-di-articoli-sportivi-m-f-otto-s-ag-delemont",
+        "en": "seller-of-sports-goods-m-f-otto-s-ag-delemont",
+        "de": "verkaufer-von-sportartikeln-m-w-otto-s-ag-delemont",
         "fr": "vendeur-d-articles-de-sport-h-f-ottos-delemont"
       },
       "company": "OTTO'S AG",
@@ -7145,6 +7157,12 @@
         "it": [
           "vendeur-d-articles-de-sport-h-f-ottos-delemont",
           "vendeur-d-articles-de-sport-m-w-d-otto-s-ag-delemont"
+        ],
+        "en": [
+          "vendeur-d-articles-de-sport-h-f-ottos-delemont"
+        ],
+        "de": [
+          "vendeur-d-articles-de-sport-h-f-ottos-delemont"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:45.337Z",
@@ -8017,12 +8035,12 @@
     },
     {
       "id": "ottos-2889f2928a16",
-      "slug": "kassierer-in-ottos-zollikofen",
+      "slug": "cashier-in-otto-s-ag-zollikofen",
       "slugByLocale": {
-        "it": "kassierer-in-ottos-zollikofen",
+        "it": "cashier-in-otto-s-ag-zollikofen",
         "en": "kassierer-in-ottos-zollikofen",
         "de": "kassierer-in-ottos-zollikofen",
-        "fr": "kassierer-in-ottos-zollikofen"
+        "fr": "caissier-otto-s-ag-zollikofen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -8082,7 +8100,18 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kassierer-in-ottos-zollikofen"
+        ],
+        "fr": [
+          "kassierer-in-ottos-zollikofen"
+        ]
+      },
+      "previousSlugs": [
+        "kassierer-in-ottos-zollikofen"
+      ]
     },
     {
       "id": "ottos-6a06aee8ce6f",
@@ -9466,12 +9495,12 @@
     },
     {
       "id": "ottos-3f6bc2b70931",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
+      "slug": "aiuto-venditore-in-food-non-food-otto-s-ag-oberengstringen",
       "slugByLocale": {
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
+        "it": "aiuto-venditore-in-food-non-food-otto-s-ag-oberengstringen",
+        "en": "help-seller-in-food-non-food-otto-s-ag-oberengstringen",
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen"
+        "fr": "vendeur-d-aide-dans-la-nourriture-non-alimentaire-otto-s-ag-oberengstringen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9531,7 +9560,21 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-oberengstringen"
+      ]
     },
     {
       "id": "ottos-d19c9bfc4718",
@@ -10764,11 +10807,11 @@
     },
     {
       "id": "ottos-f86824bb2beb",
-      "slug": "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont",
+      "slug": "venditore-ausiliario-sportivo-m-f-otto-s-ag-delemont",
       "slugByLocale": {
-        "it": "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont",
-        "en": "vendeur-auxiliaire-sport-h-f-ottos-delemont",
-        "de": "vendeur-auxiliaire-sport-h-f-ottos-delemont",
+        "it": "venditore-ausiliario-sportivo-m-f-otto-s-ag-delemont",
+        "en": "sports-auxiliary-seller-m-f-otto-s-ag-delemont",
+        "de": "sporthilfsverkaufer-m-w-otto-s-ag-delemont",
         "fr": "vendeur-auxiliaire-sport-h-f-ottos-delemont"
       },
       "company": "OTTO'S AG",
@@ -10823,6 +10866,12 @@
         "it": [
           "vendeur-auxiliaire-sport-h-f-ottos-delemont",
           "vendeur-auxiliaire-sport-m-w-d-otto-s-ag-delemont"
+        ],
+        "en": [
+          "vendeur-auxiliaire-sport-h-f-ottos-delemont"
+        ],
+        "de": [
+          "vendeur-auxiliaire-sport-h-f-ottos-delemont"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:19.065Z",

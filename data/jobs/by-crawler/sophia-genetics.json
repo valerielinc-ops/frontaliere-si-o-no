@@ -6,10 +6,10 @@
       "id": "sophia-genetics-69b5583b6d1c",
       "slug": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
       "slugByLocale": {
-        "it": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
         "en": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
+        "it": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
         "de": "senior-program-leader-ivd-cdx-sophia-genetics-rolle",
-        "fr": "senior-program-leader-ivd-cdx-sophia-genetics-rolle"
+        "fr": "chef-de-programme-principal-div-cdx-sophia-genetics-rolle"
       },
       "company": "SOPHiA GENETICS",
       "companyKey": "sophia-genetics",
@@ -252,14 +252,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-        "senior-ai-software-engineer-sophia-genetics-rolle",
-        "senior-ai-software-ingegnere-sophia-genetics-rolle"
+        "senior-ai-software-engineer-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-          "senior-ai-software-engineer-sophia-genetics-rolle",
-          "senior-ai-software-ingegnere-sophia-genetics-rolle"
+          "senior-ai-software-engineer-sophia-genetics-rolle"
         ],
         "de": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
@@ -331,13 +329,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-associate-contract-sophia-genetics-rolle",
-        "qualita-associate-contratto-sophia-genetics-rolle"
+        "quality-associate-contract-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-associate-contract-sophia-genetics-rolle",
-          "qualita-associate-contratto-sophia-genetics-rolle"
+          "quality-associate-contract-sophia-genetics-rolle"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:16.120Z",
@@ -407,14 +403,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
-        "production-manager-sophia-genetics-rolle",
-        "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle"
+        "production-manager-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "production-warehouse-manager-supply-chain-sophia-genetics-rolle",
-          "production-manager-sophia-genetics-rolle",
-          "direttore-di-produzione-e-magazzino-catena-di-fornitura-sophia-genetics-rolle"
+          "production-manager-sophia-genetics-rolle"
         ],
         "de": [
           "production-warehouse-manager-supply-chain-sophia-genetics-rolle"
@@ -424,7 +418,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:10:52.959Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -437,7 +430,8 @@
           "maxValue": 162000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sophia-genetics-95e70a357565",
@@ -490,13 +484,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-associate-sophia-genetics-rolle",
-        "produzione-sophia-genetics-rolle"
+        "production-associate-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-associate-sophia-genetics-rolle",
-          "produzione-sophia-genetics-rolle"
+          "production-associate-sophia-genetics-rolle"
         ],
         "de": [
           "production-associate-sophia-genetics-rolle"

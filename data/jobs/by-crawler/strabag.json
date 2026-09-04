@@ -840,9 +840,9 @@
       "slug": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
       "slugByLocale": {
         "it": "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern",
-        "en": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
+        "en": "technical-r-group-leader-in-civil-engineering-and-road-construction-strabag-ag-bern",
         "de": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
-        "fr": "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        "fr": "chef-de-groupe-en-genie-civil-et-construction-routiere-strabag-ag-bern"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -893,6 +893,12 @@
         "it": [
           "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern",
           "technische-r-gruppenleiter-in-genio-civile-e-strassenbau-strabag-ag-bern"
+        ],
+        "en": [
+          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
+        ],
+        "fr": [
+          "technische-r-gruppenleiter-in-tiefbau-und-strassenbau-strabag-bern"
         ]
       },
       "firstSeenAt": "2026-09-03T13:48:59.915Z",
@@ -915,9 +921,9 @@
       "slug": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
       "slugByLocale": {
         "it": "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen",
-        "en": "polier-in-tiefbau-und-strassenbau-strabag-subingen",
+        "en": "polisher-in-civil-engineering-and-road-construction-strabag-ag-subingen",
         "de": "polier-in-tiefbau-und-strassenbau-strabag-subingen",
-        "fr": "polier-in-tiefbau-und-strassenbau-strabag-subingen"
+        "fr": "polisher-en-genie-civil-et-construction-routiere-strabag-ag-subingen"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -968,6 +974,12 @@
         "it": [
           "polier-in-tiefbau-und-strassenbau-strabag-subingen",
           "polier-in-genio-civile-e-strassenbau-strabag-ag-subingen"
+        ],
+        "en": [
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
+        ],
+        "fr": [
+          "polier-in-tiefbau-und-strassenbau-strabag-subingen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:48:59.561Z",
@@ -1068,12 +1080,12 @@
     },
     {
       "id": "strabag-b0be6027032e",
-      "slug": "baufuhrer-in-strassenbau-strabag-erstfeld",
+      "slug": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
       "slugByLocale": {
-        "it": "baufuhrer-in-strassenbau-strabag-erstfeld",
-        "en": "baufuhrer-in-strassenbau-strabag-erstfeld",
         "de": "baufuhrer-in-strassenbau-strabag-erstfeld",
-        "fr": "baufuhrer-in-strassenbau-strabag-erstfeld"
+        "it": "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
+        "en": "construction-manager-in-road-construction-strabag-ag-erstfeld",
+        "fr": "directeur-de-la-construction-en-construction-routiere-strabag-ag-erstfeld"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1132,29 +1144,27 @@
       "firstSeenAt": "2026-09-03T13:48:58.773Z",
       "previousSlugsByLocale": {
         "it": [
-          "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld"
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
         ],
         "en": [
-          "construction-manager-in-road-construction-strabag-ag-erstfeld"
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
         ],
         "fr": [
-          "directeur-de-la-construction-en-construction-routiere-strabag-ag-erstfeld"
+          "baufuhrer-in-strassenbau-strabag-erstfeld"
         ]
       },
       "previousSlugs": [
-        "responsabile-della-costruzione-in-costruzione-stradale-strabag-ag-erstfeld",
-        "construction-manager-in-road-construction-strabag-ag-erstfeld",
-        "directeur-de-la-construction-en-construction-routiere-strabag-ag-erstfeld"
+        "baufuhrer-in-strassenbau-strabag-erstfeld"
       ]
     },
     {
       "id": "strabag-a56a1d3c9973",
-      "slug": "polier-in-strassenbau-strabag-erstfeld",
+      "slug": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
       "slugByLocale": {
-        "it": "polier-in-strassenbau-strabag-erstfeld",
-        "en": "polier-in-strassenbau-strabag-erstfeld",
+        "it": "lucidatore-in-costruzione-stradale-strabag-ag-erstfeld",
+        "en": "polisher-in-road-construction-strabag-ag-erstfeld",
         "de": "polier-in-strassenbau-strabag-erstfeld",
-        "fr": "polier-in-strassenbau-strabag-erstfeld"
+        "fr": "polisher-dans-la-construction-routiere-strabag-ag-erstfeld"
       },
       "company": "STRABAG AG",
       "companyKey": "strabag",
@@ -1210,7 +1220,21 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "polier-in-strassenbau-strabag-erstfeld"
+        ],
+        "en": [
+          "polier-in-strassenbau-strabag-erstfeld"
+        ],
+        "fr": [
+          "polier-in-strassenbau-strabag-erstfeld"
+        ]
+      },
+      "previousSlugs": [
+        "polier-in-strassenbau-strabag-erstfeld"
+      ]
     }
   ]
 }

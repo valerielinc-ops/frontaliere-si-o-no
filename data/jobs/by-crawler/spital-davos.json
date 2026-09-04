@@ -2029,12 +2029,12 @@
     },
     {
       "id": "spital-davos-61f9fa513b4a",
-      "slug": "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos",
+      "slug": "assistenza-sanitaria-professionale-efz-a-lungo-termine-per-la-guardia-notturna-50-90-spital-davos-davos",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos",
-        "en": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
+        "it": "assistenza-sanitaria-professionale-efz-a-lungo-termine-per-la-guardia-notturna-50-90-spital-davos-davos",
+        "en": "health-professional-efz-long-term-care-for-night-watch-50-90-spital-davos-davos",
         "de": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
-        "fr": "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch"
+        "fr": "soins-de-longue-duree-pour-les-professionnels-de-la-sante-efz-50-90-spital-davos-davos"
       },
       "company": "Spital Davos",
       "companyKey": "spital-davos",
@@ -2087,6 +2087,12 @@
         "it": [
           "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch",
           "fachperson-gesundheit-cfc-langzeitpflege-per-nachtwache-50-90-spital-davos"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-langzeitpflege-fur-nachtwache-50-90-spital-davos-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:12.003Z",

@@ -3235,10 +3235,10 @@
     },
     {
       "id": "weisse-arena-505df034171d",
-      "slug": "allrounder-in-restauration-weisse-arena-ch",
+      "slug": "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
       "slugByLocale": {
-        "it": "allrounder-in-restauration-weisse-arena-ch",
-        "en": "allrounder-in-restauration-weisse-arena-ch",
+        "it": "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
+        "en": "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e",
         "de": "allrounder-in-restauration-weisse-arena-ch",
         "fr": "allrounder-in-restauration-weisse-arena-ch"
       },
@@ -3299,7 +3299,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-in-restauration-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-in-restauration-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "allrounder-in-restauration-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-033df4fa896b",

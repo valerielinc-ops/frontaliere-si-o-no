@@ -1670,12 +1670,12 @@
     },
     {
       "id": "epi-stiftung-ff543192f18c",
-      "slug": "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+      "slug": "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich",
       "slugByLocale": {
-        "it": "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
-        "en": "leiterin-leiter-ict-operations-epi-stiftung-zurich",
         "de": "leiterin-leiter-ict-operations-epi-stiftung-zurich",
-        "fr": "leiterin-leiter-ict-operations-epi-stiftung-zurich"
+        "it": "capo-delle-operazioni-ict-schweizerische-epilepsie-stiftung-epi-zurich",
+        "en": "head-of-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich",
+        "fr": "chef-des-operations-tic-schweizerische-epilepsie-stiftung-epi-zurich"
       },
       "company": "Schweizerische Epilepsie-Stiftung (EPI)",
       "companyKey": "epi-stiftung",
@@ -1719,11 +1719,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+          "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich"
+        ],
+        "en": [
+          "leiterin-leiter-ict-operations-epi-stiftung-zurich"
+        ],
+        "fr": [
           "leiterin-leiter-ict-operations-epi-stiftung-zurich"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-ict-operations-epi-stiftung-zurich"
+        "leiterin-leiter-ict-operations-epi-stiftung-zurich",
+        "leiterin-leiter-ict-operations-schweizerische-epilepsie-stiftung-epi-zurich"
       ],
       "salaryMin": 124000,
       "salaryMax": 173000,

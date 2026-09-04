@@ -1608,12 +1608,12 @@
     },
     {
       "id": "csl-behring-79440e4adc01",
-      "slug": "global-supply-planner-csl-behring-ch",
+      "slug": "piano-di-approvvigionamento-globale-csl-behring-bern",
       "slugByLocale": {
-        "it": "global-supply-planner-csl-behring-ch",
         "en": "global-supply-planner-csl-behring-ch",
+        "it": "piano-di-approvvigionamento-globale-csl-behring-bern",
         "de": "global-supply-planner-csl-behring-ch",
-        "fr": "global-supply-planner-csl-behring-ch"
+        "fr": "planificateur-d-approvisionnement-mondial-csl-behring-bern"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1668,7 +1668,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:30:01.806Z"
+      "firstSeenAt": "2026-09-03T23:30:01.806Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-supply-planner-csl-behring-ch"
+        ],
+        "fr": [
+          "global-supply-planner-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-supply-planner-csl-behring-ch"
+      ]
     },
     {
       "id": "csl-behring-ab5817d6f844",

@@ -8421,12 +8421,12 @@
     },
     {
       "id": "emmi-43090d433347",
-      "slug": "teamleiter-in-butterei-emmi-ch",
+      "slug": "team-leader-in-butterei-emmi-suhr-aargau",
       "slugByLocale": {
-        "it": "teamleiter-in-butterei-emmi-ch",
+        "it": "team-leader-in-butterei-emmi-suhr-aargau",
         "en": "teamleiter-in-butterei-emmi-ch",
         "de": "teamleiter-in-butterei-emmi-ch",
-        "fr": "teamleiter-in-butterei-emmi-ch"
+        "fr": "chef-d-equipe-a-butterei-emmi-suhr-aargau"
       },
       "company": "Emmi",
       "companyKey": "emmi",
@@ -8499,10 +8499,17 @@
       "previousSlugsByLocale": {
         "de": [
           "teamleiter-in-butterei-emmi-suhr"
+        ],
+        "it": [
+          "teamleiter-in-butterei-emmi-ch"
+        ],
+        "fr": [
+          "teamleiter-in-butterei-emmi-ch"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-butterei-emmi-suhr"
+        "teamleiter-in-butterei-emmi-suhr",
+        "teamleiter-in-butterei-emmi-ch"
       ]
     },
     {

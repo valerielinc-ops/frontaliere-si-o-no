@@ -6861,12 +6861,12 @@
     },
     {
       "id": "etat-de-fribourg-8f0bf43a62de",
-      "slug": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
+      "slug": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
-        "en": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
         "de": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch",
-        "fr": "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        "it": "diplomassista-in-dottorando-etat-de-fribourg-fribourg",
+        "en": "diplomassist-in-doctoral-student-etat-de-fribourg-fribourg",
+        "fr": "diplomes-en-doctorant-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6926,16 +6926,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:15.153Z"
+      "firstSeenAt": "2026-09-03T23:26:15.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "diplomassistent-in-doktorand-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-1d72ecb77aff",
-      "slug": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
+      "slug": "registratore-di-primo-grado-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-        "en": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-        "de": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
-        "fr": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
+        "fr": "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch",
+        "it": "registratore-di-primo-grado-etat-de-fribourg-fribourg",
+        "en": "civil-registrar-of-first-instance-etat-de-fribourg-fribourg",
+        "de": "registrar-erster-instanz-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -6994,16 +7008,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:14.455Z"
+      "firstSeenAt": "2026-09-03T23:26:14.455Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-civil-de-1ere-instance-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f0a8162646ea",
-      "slug": "responsable-du-service-financier-etat-de-fribourg-ch",
+      "slug": "agente-finanziario-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "responsable-du-service-financier-etat-de-fribourg-ch",
-        "en": "responsable-du-service-financier-etat-de-fribourg-ch",
-        "de": "responsable-du-service-financier-etat-de-fribourg-ch",
-        "fr": "responsable-du-service-financier-etat-de-fribourg-ch"
+        "fr": "responsable-du-service-financier-etat-de-fribourg-ch",
+        "it": "agente-finanziario-etat-de-fribourg-fribourg",
+        "en": "financial-officer-etat-de-fribourg-fribourg",
+        "de": "finanzminister-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7062,16 +7090,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:13.751Z"
+      "firstSeenAt": "2026-09-03T23:26:13.751Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-du-service-financier-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "responsable-du-service-financier-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "responsable-du-service-financier-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-du-service-financier-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-60746eb1ddbd",
-      "slug": "responsabile-finanzdienst-etat-de-fribourg",
+      "slug": "capo-dei-servizi-finanziari-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "responsabile-finanzdienst-etat-de-fribourg",
-        "en": "leiter-in-finanzdienst-etat-de-fribourg-ch",
         "de": "leiter-in-finanzdienst-etat-de-fribourg-ch",
-        "fr": "leiter-in-finanzdienst-etat-de-fribourg-ch"
+        "it": "capo-dei-servizi-finanziari-etat-de-fribourg-fribourg",
+        "en": "head-of-financial-services-etat-de-fribourg-fribourg",
+        "fr": "chef-des-services-financiers-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7119,6 +7161,12 @@
         "it": [
           "leiter-in-finanzdienst-etat-de-fribourg-ch",
           "responsabile-finanzdienst-etat-de-fribourg"
+        ],
+        "en": [
+          "leiter-in-finanzdienst-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "leiter-in-finanzdienst-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
@@ -7290,12 +7338,12 @@
     },
     {
       "id": "etat-de-fribourg-e3db7769a43c",
-      "slug": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
+      "slug": "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "en": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
         "de": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch",
-        "fr": "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        "it": "gestione-del-caso-amministrativo-etat-de-fribourg-fribourg",
+        "en": "administrative-case-handler-etat-de-fribourg-fribourg",
+        "fr": "gestionnaire-de-dossiers-administratifs-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7354,16 +7402,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:08.915Z"
+      "firstSeenAt": "2026-09-03T23:26:08.915Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssachbearbeiter-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-f6e71af54297",
-      "slug": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
+      "slug": "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-        "en": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-        "de": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
-        "fr": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
+        "fr": "collaborateur-trice-administratif-ive-etat-de-fribourg-ch",
+        "it": "contributo-amministrativo-attivo-etat-de-fribourg-fribourg",
+        "en": "administrative-ive-contributor-etat-de-fribourg-fribourg",
+        "de": "administrativer-iver-beitrag-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7422,7 +7484,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:07.530Z"
+      "firstSeenAt": "2026-09-03T23:26:07.530Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-administratif-ive-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-72974d7be2ba",
@@ -7537,12 +7613,12 @@
     },
     {
       "id": "etat-de-fribourg-9190a0336c62",
-      "slug": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
+      "slug": "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "en": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "de": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
-        "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        "fr": "greffier-iere-de-1ere-instance-etat-de-fribourg-ch",
+        "it": "registratore-di-prima-istanza-etat-de-fribourg-fribourg",
+        "en": "registrar-of-first-instance-etat-de-fribourg-fribourg",
+        "de": "kanzler-der-ersten-instanz-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7601,16 +7677,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:10.994Z"
+      "firstSeenAt": "2026-09-03T23:26:10.994Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-iere-de-1ere-instance-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-96135119e7c5",
-      "slug": "secretaire-de-juge-etat-de-fribourg-ch",
+      "slug": "segretario-del-giudice-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "secretaire-de-juge-etat-de-fribourg-ch",
-        "en": "secretaire-de-juge-etat-de-fribourg-ch",
-        "de": "secretaire-de-juge-etat-de-fribourg-ch",
-        "fr": "secretaire-de-juge-etat-de-fribourg-ch"
+        "fr": "secretaire-de-juge-etat-de-fribourg-ch",
+        "it": "segretario-del-giudice-etat-de-fribourg-fribourg",
+        "en": "secretary-of-judge-etat-de-fribourg-fribourg",
+        "de": "richtersekretar-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7669,16 +7759,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:10.294Z"
+      "firstSeenAt": "2026-09-03T23:26:10.294Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "secretaire-de-juge-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-juge-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-c52614fba760",
-      "slug": "greffier-ere-volant-e-etat-de-fribourg-ch",
+      "slug": "registratore-di-volo-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "greffier-ere-volant-e-etat-de-fribourg-ch",
-        "en": "greffier-ere-volant-e-etat-de-fribourg-ch",
-        "de": "greffier-ere-volant-e-etat-de-fribourg-ch",
-        "fr": "greffier-ere-volant-e-etat-de-fribourg-ch"
+        "fr": "greffier-ere-volant-e-etat-de-fribourg-ch",
+        "it": "registratore-di-volo-etat-de-fribourg-fribourg",
+        "en": "flying-registrar-etat-de-fribourg-fribourg",
+        "de": "fliegender-registrar-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7737,16 +7841,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:09.598Z"
+      "firstSeenAt": "2026-09-03T23:26:09.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-ere-volant-e-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-ere-volant-e-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-ere-volant-e-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-ere-volant-e-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-e5df719cb8a6",
-      "slug": "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
+      "slug": "corte-di-giustizia-e-tribunale-di-primo-grado-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
-        "en": "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
         "de": "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch",
-        "fr": "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+        "it": "corte-di-giustizia-e-tribunale-di-primo-grado-etat-de-fribourg-fribourg",
+        "en": "court-clerk-first-instance-court-authorities-etat-de-fribourg-fribourg",
+        "fr": "greffier-autorites-judiciaires-de-premiere-instance-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7805,16 +7923,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:08.220Z"
+      "firstSeenAt": "2026-09-03T23:26:08.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gerichtschreiber-in-erstinstanzliche-gerichtsbehorden-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-893712f8a08f",
-      "slug": "sekretar-in-etat-de-fribourg-ch",
+      "slug": "segretario-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "sekretar-in-etat-de-fribourg-ch",
-        "en": "sekretar-in-etat-de-fribourg-ch",
         "de": "sekretar-in-etat-de-fribourg-ch",
-        "fr": "sekretar-in-etat-de-fribourg-ch"
+        "it": "segretario-etat-de-fribourg-fribourg",
+        "en": "secretary-etat-de-fribourg-fribourg",
+        "fr": "secretaire-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7873,16 +8005,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:06.832Z"
+      "firstSeenAt": "2026-09-03T23:26:06.832Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sekretar-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "sekretar-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "sekretar-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sekretar-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-928f4a500ca4",
-      "slug": "conseiller-ere-en-personnel-etat-de-fribourg-ch",
+      "slug": "consigliere-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "conseiller-ere-en-personnel-etat-de-fribourg-ch",
-        "en": "conseiller-ere-en-personnel-etat-de-fribourg-ch",
-        "de": "conseiller-ere-en-personnel-etat-de-fribourg-ch",
-        "fr": "conseiller-ere-en-personnel-etat-de-fribourg-ch"
+        "fr": "conseiller-ere-en-personnel-etat-de-fribourg-ch",
+        "it": "consigliere-etat-de-fribourg-fribourg",
+        "en": "staff-counsellor-etat-de-fribourg-fribourg",
+        "de": "personalberater-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -7941,16 +8087,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:05.456Z"
+      "firstSeenAt": "2026-09-03T23:26:05.456Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-personnel-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "conseiller-ere-en-personnel-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "conseiller-ere-en-personnel-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-personnel-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-b0b786b96e9f",
-      "slug": "personalberater-in-etat-de-fribourg-ch",
+      "slug": "consulente-del-personale-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "personalberater-in-etat-de-fribourg-ch",
-        "en": "personalberater-in-etat-de-fribourg-ch",
         "de": "personalberater-in-etat-de-fribourg-ch",
-        "fr": "personalberater-in-etat-de-fribourg-ch"
+        "it": "consulente-del-personale-etat-de-fribourg-fribourg",
+        "en": "personnel-consultant-etat-de-fribourg-fribourg",
+        "fr": "conseiller-en-personnel-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8009,7 +8169,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:04.772Z"
+      "firstSeenAt": "2026-09-03T23:26:04.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberater-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "personalberater-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "personalberater-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberater-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-a9563678bcf0",
@@ -8097,12 +8271,12 @@
     },
     {
       "id": "etat-de-fribourg-1a8349989f66",
-      "slug": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch",
+      "slug": "registratore-o-cancelliere-relatore-presso-la-corte-cantonale-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "en": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "de": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch",
-        "fr": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch"
+        "fr": "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch",
+        "it": "registratore-o-cancelliere-relatore-presso-la-corte-cantonale-etat-de-fribourg-fribourg",
+        "en": "registrar-or-registrar-e-rapporteur-at-the-cantonal-court-etat-de-fribourg-fribourg",
+        "de": "registrar-oder-registrar-e-rapporteur-beim-kantonalen-gericht-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8161,16 +8335,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:03.380Z"
+      "firstSeenAt": "2026-09-03T23:26:03.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "greffier-iere-ou-greffier-iere-rapporteur-e-au-tribunal-cantonal-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-7132a0a500ea",
-      "slug": "juriste-etat-de-fribourg-ch",
+      "slug": "ufficiale-legale-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "juriste-etat-de-fribourg-ch",
-        "en": "juriste-etat-de-fribourg-ch",
-        "de": "juriste-etat-de-fribourg-ch",
-        "fr": "juriste-etat-de-fribourg-ch"
+        "fr": "juriste-etat-de-fribourg-ch",
+        "it": "ufficiale-legale-etat-de-fribourg-fribourg",
+        "en": "legal-officer-etat-de-fribourg-fribourg",
+        "de": "juriste-etat-de-fribourg-ch"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8235,10 +8423,12 @@
           "consigliere-professionale-etat-de-fribourg-fribourg",
           "professional-counsellor-etat-de-fribourg-fribourg",
           "berufsberater-in-etat-de-fribourg-ch",
-          "conseiller-professionnel-etat-de-fribourg-fribourg"
+          "conseiller-professionnel-etat-de-fribourg-fribourg",
+          "juriste-etat-de-fribourg-ch"
         ],
         "en": [
-          "professional-counsellor-etat-de-fribourg-fribourg"
+          "professional-counsellor-etat-de-fribourg-fribourg",
+          "juriste-etat-de-fribourg-ch"
         ],
         "de": [
           "berufsberater-in-etat-de-fribourg-ch"
@@ -8251,17 +8441,18 @@
         "consigliere-professionale-etat-de-fribourg-fribourg",
         "professional-counsellor-etat-de-fribourg-fribourg",
         "berufsberater-in-etat-de-fribourg-ch",
-        "conseiller-professionnel-etat-de-fribourg-fribourg"
+        "conseiller-professionnel-etat-de-fribourg-fribourg",
+        "juriste-etat-de-fribourg-ch"
       ]
     },
     {
       "id": "etat-de-fribourg-fb3db8370ffe",
-      "slug": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
+      "slug": "apprendista-commerciale-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
-        "en": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
-        "de": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
-        "fr": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+        "fr": "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch",
+        "it": "apprendista-commerciale-etat-de-fribourg-fribourg",
+        "en": "apprentice-trade-employee-etat-de-fribourg-fribourg",
+        "de": "auszubildender-handelsmitarbeiter-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8320,16 +8511,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:01.987Z"
+      "firstSeenAt": "2026-09-03T23:26:01.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-employe-e-de-commerce-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-60faa14eacbe",
-      "slug": "jurist-in-etat-de-fribourg-ch",
+      "slug": "avvocato-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "jurist-in-etat-de-fribourg-ch",
-        "en": "jurist-in-etat-de-fribourg-ch",
         "de": "jurist-in-etat-de-fribourg-ch",
-        "fr": "jurist-in-etat-de-fribourg-ch"
+        "it": "avvocato-etat-de-fribourg-fribourg",
+        "en": "lawyer-etat-de-fribourg-fribourg",
+        "fr": "avocat-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8388,7 +8593,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:26:01.298Z"
+      "firstSeenAt": "2026-09-03T23:26:01.298Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "jurist-in-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "jurist-in-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-ca38577757fd",
@@ -8585,12 +8804,12 @@
     },
     {
       "id": "etat-de-fribourg-b3876fdd80a6",
-      "slug": "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
+      "slug": "responsabile-contabilita-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
-        "en": "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
         "de": "verantwortliche-r-buchhaltung-etat-de-fribourg-ch",
-        "fr": "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+        "it": "responsabile-contabilita-etat-de-fribourg-fribourg",
+        "en": "responsible-accounting-etat-de-fribourg-fribourg",
+        "fr": "responsable-comptable-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8649,16 +8868,30 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:59.212Z"
+      "firstSeenAt": "2026-09-03T23:25:59.212Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-r-buchhaltung-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-9bd7531e87d6",
-      "slug": "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
+      "slug": "responsabile-del-caso-amministrativo-al-registro-di-terra-etat-de-fribourg-tafers",
       "slugByLocale": {
-        "it": "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
-        "en": "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
         "de": "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch",
-        "fr": "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+        "it": "responsabile-del-caso-amministrativo-al-registro-di-terra-etat-de-fribourg-tafers",
+        "en": "administrative-case-officer-in-land-registry-etat-de-fribourg-tafers",
+        "fr": "agent-administratif-dans-le-registre-foncier-etat-de-fribourg-tafers"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8717,16 +8950,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:58.520Z"
+      "firstSeenAt": "2026-09-03T23:25:58.520Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+        ],
+        "fr": [
+          "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verwaltungssachbearbeiter-in-grundbuchamt-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-aa6a0cec8fac",
-      "slug": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
+      "slug": "responsabile-del-progetto-e-justice-it-ict-project-leader-etat-de-fribourg-givisiez",
       "slugByLocale": {
-        "it": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
+        "fr": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
+        "it": "responsabile-del-progetto-e-justice-it-ict-project-leader-etat-de-fribourg-givisiez",
         "en": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
-        "de": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch",
-        "fr": "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+        "de": "leiter-des-e-justiz-it-projekts-ict-projektleiter-etat-de-fribourg-givisiez"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8784,16 +9031,27 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:57.814Z"
+      "firstSeenAt": "2026-09-03T23:25:57.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-du-projet-informatique-e-justice-ict-project-leader-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-5fde81fda991",
-      "slug": "responsable-comptable-etat-de-fribourg-ch",
+      "slug": "contabilita-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "responsable-comptable-etat-de-fribourg-ch",
-        "en": "responsable-comptable-etat-de-fribourg-ch",
-        "de": "responsable-comptable-etat-de-fribourg-ch",
-        "fr": "responsable-comptable-etat-de-fribourg-ch"
+        "fr": "responsable-comptable-etat-de-fribourg-ch",
+        "it": "contabilita-etat-de-fribourg-fribourg",
+        "en": "accountant-etat-de-fribourg-fribourg",
+        "de": "buchhalter-etat-de-fribourg-fribourg-28be49"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -8852,7 +9110,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-03T23:25:57.109Z"
+      "firstSeenAt": "2026-09-03T23:25:57.109Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-comptable-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "responsable-comptable-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "responsable-comptable-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-comptable-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-d4aef580ea24",
@@ -8905,13 +9177,22 @@
       "pensumMin": 60,
       "pensumMax": 60,
       "pensum": "60%",
-      "previousSlugs": [
-        "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
-        "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
-        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
-        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
-        "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg"
-      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Rue des Chanoines 17",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-09-03T23:25:56.419Z",
       "previousSlugsByLocale": {
         "it": [
           "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
@@ -8929,31 +9210,22 @@
           "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg"
         ]
       },
-      "firstSeenAt": "2026-09-03T23:25:56.419Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "previousSlugs": [
+        "judge-at-the-coercive-measures-court-etat-de-fribourg-fribourg",
+        "juge-a-la-cour-des-mesures-coercitives-etat-de-fribourg-fribourg",
+        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg",
+        "richter-in-beim-zwangsmassnahmengericht-etat-de-fribourg-ch",
+        "giudice-alla-corte-di-giustizia-etat-de-fribourg-fribourg"
+      ]
     },
     {
       "id": "etat-de-fribourg-4f8fe869b7be",
-      "slug": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+      "slug": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
       "slugByLocale": {
-        "it": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "en": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "de": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
-        "fr": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
+        "fr": "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch",
+        "it": "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
+        "en": "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
+        "de": "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -9015,23 +9287,23 @@
       "firstSeenAt": "2026-09-03T23:25:55.718Z",
       "previousSlugsByLocale": {
         "it": [
-          "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
           "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
           "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg",
-          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065"
+          "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065",
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
         ],
         "en": [
-          "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg"
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
         ],
         "de": [
-          "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg"
+          "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
         ]
       },
       "previousSlugs": [
-        "giudice-al-tribunale-delle-misure-coercitive-etat-de-fribourg-fribourg",
         "judge-at-the-tribunal-for-coercive-measures-etat-de-fribourg-fribourg",
         "richterin-am-gericht-fur-zwangsma-nahmen-etat-de-fribourg-fribourg",
-        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065"
+        "giudice-presso-la-corte-delle-misure-coercitive-etat-de-fribourg-fribourg-025065",
+        "juge-au-tribunal-des-mesures-de-contrainte-etat-de-fribourg-ch"
       ]
     },
     {

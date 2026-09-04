@@ -3565,12 +3565,12 @@
     },
     {
       "id": "on-running-e79a7edf225b",
-      "slug": "lead-procurement-excellence-on-running-ch",
+      "slug": "piombo-eccellenza-degli-appalti-on-running-zurich",
       "slugByLocale": {
-        "it": "lead-procurement-excellence-on-running-ch",
+        "it": "piombo-eccellenza-degli-appalti-on-running-zurich",
         "en": "lead-procurement-excellence-on-running-ch",
         "de": "lead-procurement-excellence-on-running-ch",
-        "fr": "lead-procurement-excellence-on-running-ch"
+        "fr": "responsable-excellence-en-matiere-d-approvisionnement-on-running-zurich"
       },
       "company": "On Running",
       "companyKey": "on-running",
@@ -3631,7 +3631,18 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-procurement-excellence-on-running-ch"
+        ],
+        "fr": [
+          "lead-procurement-excellence-on-running-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lead-procurement-excellence-on-running-ch"
+      ]
     },
     {
       "id": "on-running-883ac5a45a29",
