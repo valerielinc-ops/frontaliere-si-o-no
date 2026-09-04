@@ -5416,6 +5416,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'Sondaggio SSR sulle votazioni federali del 27 settembre',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'La SSR ha avviato un nuovo sondaggio sulle iniziative in votazione il 27 settembre. Partecipazione online aperta fino alle 23.00 di mercoledì prossimo.',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Urna elettorale svizzera per le votazioni federali',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Economia svizzera in accelerazione: è una buona notizia anche per i frontalieri?',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'L\'economia svizzera accelera più del previsto con una crescita del PIL del 1,5% nel secondo trimestre 2026.',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Vista aerea di Lugano con montagne sullo sfondo, che mostra la crescita economica.',
 };
 
 export default blogMetaChIt;

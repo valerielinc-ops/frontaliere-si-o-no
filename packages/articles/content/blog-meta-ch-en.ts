@@ -5416,6 +5416,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'SSR Survey on Federal Voting on September 27',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'The SRG launched a new survey on the initiatives on the ballot on 27 September. Online participation open until 23.00 next Wednesday.',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Swiss ballot box for federal elections',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Accelerating Swiss economy: good news for frontier workers too?',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'The Swiss economy accelerates more than expected with GDP growth of 1.5% in the second quarter of 2026.',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Aerial view of Lugano with mountains in the background, showcasing economic growth.',
 };
 
 export default blogMetaChEn;

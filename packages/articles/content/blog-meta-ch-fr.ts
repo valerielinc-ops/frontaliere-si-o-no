@@ -5416,6 +5416,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'Sondage SSR sur les votations fédérales du 27 septembre',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'La SSR a lancé un nouveau sondage sur les initiatives votées le 27 septembre. Participation en ligne ouverte jusqu\'à 23h00 mercredi prochain.',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Urne électorale suisse pour les votations fédérales',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Économie suisse en accélération : bonne nouvelle pour les frontaliers ?',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'L\'économie suisse accélère plus que prévu avec une croissance du PIB de 1,5% au deuxième trimestre 2026.',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Vue aérienne de Lugano avec les montagnes en arrière-plan, montrant la croissance économique.',
 };
 
 export default blogMetaChFr;

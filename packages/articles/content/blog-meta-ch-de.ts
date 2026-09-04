@@ -5416,6 +5416,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'SRG-Umfrage zu den eidgenössischen Abstimmungen vom 27. September',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'Die SRG hat am 27. September eine neue Umfrage zu den Abstimmungsinitiativen gestartet. Die Online-Teilnahme ist am kommenden Mittwoch bis 23.00 Uhr geöffnet.',
     'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Schweizer Wahlurne für eidgenössische Abstimmungen',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Schweizer Wirtschaft beschleunigt sich: Gute Nachricht für Grenzgänger?',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'Die Schweizer Wirtschaft beschleunigt sich stärker als erwartet mit einem BIP-Wachstum von 1,5 % im zweiten Quartal 2026.',
+    'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Luftaufnahme von Lugano mit Bergen im Hintergrund, die das Wirtschaftswachstum zeigt.',
 };
 
 export default blogMetaChDe;
