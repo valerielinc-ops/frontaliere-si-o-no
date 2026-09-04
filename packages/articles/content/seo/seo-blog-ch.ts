@@ -70454,6 +70454,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-informatica-cyber-security-day-ated': {
+    title: 'Cyber Security Day: Sicurezza informatica e intelligenza artificiale',
+    description: 'La quarta edizione del Cyber Security Day di ATED si è tenuta il 2 settembre a Lugano, con un focus su cybersecurity e intelligenza artificiale. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, cyber, security, sicurezza, informatica',
+    ogTitle: 'Cyber Security Day di ATED: Focus su sicurezza informatica e intelligenza artificiale',
+    ogDescription: 'La quarta edizione del Cyber Security Day di ATED si è tenuta il 2 settembre a Lugano, con un focus su cybersecurity e intelligenza artificiale. L\'evento ha visto la partecipazione di numerosi esperti e professionisti del settore, tra cui Mark',
+    canonicalPath: '/articoli-svizzera/sicurezza-informatica-cyber-security-day-ated/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cyber Security Day: Sicurezza informatica e intelligenza artificiale",
+      "description": "La quarta edizione del Cyber Security Day di ATED si è tenuta il 2 settembre a Lugano, con un focus su cybersecurity e intelligenza artificiale. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sicurezza-informatica-cyber-security-day-ated.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del centro di Lugano con edifici moderni e icone di sicurezza digitale."
+      },
+      "datePublished": "2026-09-04T12:08:11+00:00",
+      "dateModified": "2026-09-04T12:08:11+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sicurezza-informatica-cyber-security-day-ated/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -5428,6 +5428,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Heating oil price skyrocketing, fault of USA and Iran',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'Homeowners in Switzerland must prepare for significant prices for heating oil due to the Iran-US conflict.',
     'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Aerial view of Lugano focusing on residential areas, highlighting the impact of rising heating oil prices.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.title': 'Cyber Security Day: Cyber Security and Artificial Intelligence',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.excerpt': 'The fourth edition of ATED\'s Cyber Security Day was held on 2 September in Lugano, with a focus on cybersecurity and artificial intelligence.',
+    'blog.article.sicurezza-informatica-cyber-security-day-ated.imageAlt': 'Aerial view of Lugano city center with modern buildings and digital security icons.',
 };
 
 export default blogMetaChEn;
