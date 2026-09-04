@@ -5476,6 +5476,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-zugo-guida-pratica.title': 'Permis de séjour B Canton Zoug : exigences et renouvellement',
     'blog.article.permesso-b-zugo-guida-pratica.excerpt': 'Guide du permis de séjour B à Zoug : comment fonctionne le permis renouvelable, quelles exigences fédérales et cantonales suivre, documents et procédure de renouvellement.',
     'blog.article.permesso-b-zugo-guida-pratica.imageAlt': 'Bureau de l\'administration cantonale de migration à Zoug avec bureaux, dossiers et accueil',
+    'blog.article.scuola-4-giorni-belp.title': 'À l\'école seulement 4 jours, l\'expérience (pour l\'instant) convainc',
+    'blog.article.scuola-4-giorni-belp.excerpt': 'Depuis trois semaines, à Belp, dans le canton de Berne, un nouveau projet pilote est en cours avec 4 jours d\'école et 6 semaines de vacances.',
+    'blog.article.scuola-4-giorni-belp.imageAlt': 'École à Belp, Canton de Berne, avec des enfants jouant et apprenant dans une salle de classe moderne.',
 };
 
 export default blogMetaChFr;

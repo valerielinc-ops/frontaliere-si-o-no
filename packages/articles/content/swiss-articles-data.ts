@@ -16426,6 +16426,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'scuola-4-giorni-belp',
+    category: 'novita',
+    date: '2026-09-04T21:47:50.000Z',
+    image: '/images/blog/scuola-4-giorni-belp.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
