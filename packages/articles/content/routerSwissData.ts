@@ -1831,6 +1831,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-attivita-san-gallo-tasse-procedure': { it: 'guida-attivita-san-gallo-tasse-procedure', en: 'guide-opening-business-st-gallen-taxes-procedures', de: 'leitfaden-betrieb-eroeffnen-st-gallen-steuern-verfahren', fr: 'guide-ouvrir-entreprise-saint-gall-impots-procedures' },
  'permesso-l-breve-durata-vaud-proroga': { it: 'permesso-l-breve-durata-vaud-proroga', en: 'work-permit-l-short-term-vaud', de: 'arbeitserlaubnis-l-kurzfristig-waadt', fr: 'permis-l-courte-duree-vaud' },
  'sondaggio-ssr-votazioni-27-settembre': { it: 'sondaggio-ssr-votazioni-27-settembre', en: 'ssr-survey-september-27-votes', de: 'ssr-umfrage-abstimmungen-27-september', fr: 'sondage-ssr-votations-27-septembre' },
+ 'economia-svizzera-accelerazione-frontalieri': { it: 'economia-svizzera-accelerazione-frontalieri', en: 'swiss-economy-acceleration-frontalieri', de: 'schweizer-wirtschaft-beschleunigung-frontalieri', fr: 'economie-suisse-acceleration-frontalieri' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
