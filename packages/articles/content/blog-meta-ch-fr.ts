@@ -5479,6 +5479,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scuola-4-giorni-belp.title': 'À l\'école seulement 4 jours, l\'expérience (pour l\'instant) convainc',
     'blog.article.scuola-4-giorni-belp.excerpt': 'Depuis trois semaines, à Belp, dans le canton de Berne, un nouveau projet pilote est en cours avec 4 jours d\'école et 6 semaines de vacances.',
     'blog.article.scuola-4-giorni-belp.imageAlt': 'École à Belp, Canton de Berne, avec des enfants jouant et apprenant dans une salle de classe moderne.',
+    'blog.article.borse-studio-vaud-requisiti.title': 'Bourses canton de Vaud : exigences et montants',
+    'blog.article.borse-studio-vaud-requisiti.excerpt': 'Comment accéder aux bourses et prêts à l\'étude du canton de Vaud : exigences économiques, mérite scolaire, montants maximaux et procédure de candidature.',
+    'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Salle de cours à l\'université de Lausanne avec des étudiants prenant des notes',
 };
 
 export default blogMetaChFr;

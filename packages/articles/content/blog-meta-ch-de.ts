@@ -5479,6 +5479,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scuola-4-giorni-belp.title': 'In der Schule nur 4 Tage, überzeugt das Experiment (vorerst)',
     'blog.article.scuola-4-giorni-belp.excerpt': 'Seit drei Wochen läuft in Belp im Kanton Bern ein neues Pilotprojekt mit 4 Schultagen und 6 Wochen Ferien.',
     'blog.article.scuola-4-giorni-belp.imageAlt': 'Schule in Belp, Kanton Bern, mit Kindern, die in einem modernen Klassenzimmer spielen und lernen.',
+    'blog.article.borse-studio-vaud-requisiti.title': 'Stipendien Kanton Waadt: Voraussetzungen und Beträge',
+    'blog.article.borse-studio-vaud-requisiti.excerpt': 'So erhalten Sie Zugang zu Stipendien und Studiendarlehen des Kantons Waadt: finanzielle Voraussetzungen, schulische Leistungen, Höchstbeträge und Bewerbungsverfahren.',
+    'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Vorlesungssaal der Universität Lausanne mit Studierenden, die Notizen machen',
 };
 
 export default blogMetaChDe;

@@ -1852,6 +1852,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'imposta-successione-donazione-glarona': { it: 'imposta-successione-donazione-glarona', en: 'inheritance-tax-donation-canton-glarus-rates', de: 'erbschaftssteuer-schenkungssteuer-kanton-glarus', fr: 'impot-succession-donation-canton-glaris' },
  'permesso-b-zugo-guida-pratica': { it: 'permesso-b-zugo-guida-pratica', en: 'permit-b-zug-practical-guide', de: 'aufenthaltserlaubnis-b-zug-praktischer-leitfaden', fr: 'permis-b-zoug-guide-pratique' },
  'scuola-4-giorni-belp': { it: 'scuola-4-giorni-belp', en: 'school-4-days-belp', de: 'schule-4-tage-belp', fr: 'ecole-4-jours-belp' },
+ 'borse-studio-vaud-requisiti': { it: 'borse-studio-vaud-requisiti', en: 'scholarships-vaud-requirements', de: 'stipendien-waadt-anforderungen', fr: 'bourses-etude-vaud-conditions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
