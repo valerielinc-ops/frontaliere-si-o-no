@@ -5452,6 +5452,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.soldati-svizzera-video-guerra.title': 'Tote Schweizer Soldaten: Junge SVP schockiert mit Kriegsvideo',
     'blog.article.soldati-svizzera-video-guerra.excerpt': 'Die SVP-Jugend fördert das Ja zur Neutralitätsinitiative mit einem selbst produzierten Kriegsfilm, der eine Schweiz im Krieg zeigt.',
     'blog.article.soldati-svizzera-video-guerra.imageAlt': 'Schweizer Soldaten in einem Kriegsvideo',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen streicht weitere 50’000 Stellen',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'Der Volkswagen Konzern hat einen Sanierungsplan angekündigt, der den Abbau von weiteren 50’000 Arbeitsplätzen bis 2030 vorsieht.',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Luftaufnahme von Lugano mit dem Luganersee im Hintergrund',
 };
 
 export default blogMetaChDe;
