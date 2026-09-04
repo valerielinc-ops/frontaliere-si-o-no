@@ -19,8 +19,16 @@ name: job-description-locale-audit
 # `min_headroom_pp` is what makes that state visible before it costs a day.
 #
 # THE REPAIR PATH IS NOT HERE. `mark-locale-mismatched-jobs.mjs` inside
-# translate-pending.yml marks the offenders `needsRetranslation`, which both
-# removes them from this population and queues them for the cascade. That script
+# .github/workflows/translate-pending-logic.yml marks the offenders
+# `needsRetranslation`, which both removes them from this population and queues
+# them for the cascade. That -logic.yml is the SOURCE that
+# scripts/generate-crawler-group-workflows.mjs renders into
+# .github/corpus-workflows/translate-pending.yml, which is what the corpus pool
+# actually runs; it is also what the frontaliere-articles caller invokes
+# cross-repo via workflow_call. Edit the -logic.yml one and regenerate — this
+# repo's own .github/workflows/translate-pending.yml is DISABLED (its
+# `schedule:`/`workflow_run:` triggers were removed by the migration), so
+# editing it changes nothing. That script
 # wrote its marks ONLY to the gitignored `data/jobs.json` until #5637, so the
 # marks evaporated on every re-assemble and the backlog could never drain —
 # which is why the breach above was never going to clear on its own. This audit
@@ -248,7 +256,7 @@ jobs:
             }
 
             md += `\n### Riprodurre\n\n\`\`\`bash\nnode scripts/assemble-jobs-dataset.mjs\nnode scripts/audit-job-description-locale.mjs\nnpx vitest run tests/job-locale-consistency.test.ts\n\`\`\`\n\n`;
-            md += `### Riparare\n\nIl percorso previsto e' il marker dentro \`translate-pending.yml\`, che mette \`needsRetranslation\` sugli offender (cosi' escono da questa popolazione ED entrano in coda per la cascata):\n\n`;
+            md += `### Riparare\n\nIl percorso previsto e' il marker dentro \`.github/workflows/translate-pending-logic.yml\` (la SORGENTE: gira sul pool corpus tramite l'artefatto generato \`.github/corpus-workflows/translate-pending.yml\` e cross-repo via workflow_call dal caller in frontaliere-articles — \`.github/workflows/translate-pending.yml\` di questo repo e' DISABILITATO e modificarlo non cambia nulla), che mette \`needsRetranslation\` sugli offender (cosi' escono da questa popolazione ED entrano in coda per la cascata):\n\n`;
             md += `\`\`\`bash\nnode scripts/mark-locale-mismatched-jobs.mjs\n\`\`\`\n\n`;
             md += `Se il conteggio non scende fra un run e l'altro, il sospetto e' che i mark non stiano arrivando alle slice committate: \`data/jobs.json\` e' un artefatto gitignorato, e uno step che scrive solo li' perde il flag al riassemblaggio successivo (era il difetto chiuso da #5637).\n\n`;
             md += `**Report completo:** artifact \`job-description-locale-audit-report\` (30 giorni).\n`;
