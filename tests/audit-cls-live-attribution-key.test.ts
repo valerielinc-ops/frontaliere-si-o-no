@@ -31,7 +31,9 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { pickLayoutShiftAudit, compactShiftItems, layoutShiftAuditSource } from '../scripts/audit-cls-live.mjs';
+import { pathToFileURL } from 'node:url';
+import { spawnSync } from 'node:child_process';
+import { pickLayoutShiftAudit, compactShiftItems } from '../scripts/audit-cls-live.mjs';
 
 const NEW_AUDIT = {
   score: 1,
@@ -44,43 +46,30 @@ const OLD_AUDIT = {
 
 describe('pickLayoutShiftAudit', () => {
   it('preferisce `layout-shifts`, la chiave che Lighthouse pubblica oggi', () => {
-    expect(pickLayoutShiftAudit({ 'layout-shifts': NEW_AUDIT })).toBe(NEW_AUDIT);
+    expect(pickLayoutShiftAudit({ 'layout-shifts': NEW_AUDIT }).audit).toBe(NEW_AUDIT);
   });
 
   it('non torna undefined su una risposta PSI reale priva della chiave vecchia', () => {
     // La forma esatta osservata il 2026-09-04: la vecchia chiave NON c'e'.
     const audits = { 'cumulative-layout-shift': { score: 0.97 }, 'layout-shifts': NEW_AUDIT };
-    const picked = pickLayoutShiftAudit(audits);
-    expect(picked?.details?.items?.[0]?.node?.selector).toBe('div.ft-rail-grid-x');
+    const { audit, source } = pickLayoutShiftAudit(audits);
+    expect(audit?.details?.items?.[0]?.node?.selector).toBe('div.ft-rail-grid-x');
+    expect(source).toBe('layout-shifts');
   });
 
   it('cade sulla chiave ritirata per i report Lighthouse archiviati', () => {
-    expect(pickLayoutShiftAudit({ 'layout-shift-elements': OLD_AUDIT })).toBe(OLD_AUDIT);
+    expect(pickLayoutShiftAudit({ 'layout-shift-elements': OLD_AUDIT }).audit).toBe(OLD_AUDIT);
   });
 
   it('la chiave nuova vince quando ci sono entrambe', () => {
     const picked = pickLayoutShiftAudit({ 'layout-shifts': NEW_AUDIT, 'layout-shift-elements': OLD_AUDIT });
-    expect(picked).toBe(NEW_AUDIT);
+    expect(picked.audit).toBe(NEW_AUDIT);
+    expect(picked.source).toBe('layout-shifts');
   });
 
   it('undefined quando non c\'e\' nessuna delle due, senza lanciare', () => {
-    expect(pickLayoutShiftAudit({})).toBeUndefined();
-    expect(pickLayoutShiftAudit(undefined)).toBeUndefined();
-  });
-});
-
-describe('layoutShiftAuditSource — quale chiave ha risposto', () => {
-  // `attribution.score` non misura la stessa cosa nelle due chiavi (audit
-  // binario sulla vecchia, CLS scalato sulla nuova): senza `source` un
-  // confronto storico su quel numero cambia significato in silenzio.
-  it('nomina la chiave nuova quando c\'e\'', () => {
-    expect(layoutShiftAuditSource({ 'layout-shifts': NEW_AUDIT })).toBe('layout-shifts');
-  });
-  it('nomina la chiave vecchia sui report archiviati', () => {
-    expect(layoutShiftAuditSource({ 'layout-shift-elements': OLD_AUDIT })).toBe('layout-shift-elements');
-  });
-  it('null quando non risponde nessuna delle due', () => {
-    expect(layoutShiftAuditSource({})).toBeNull();
+    expect(pickLayoutShiftAudit({})).toEqual({ audit: undefined, source: null });
+    expect(pickLayoutShiftAudit(undefined)).toEqual({ audit: undefined, source: null });
   });
 });
 
@@ -127,13 +116,35 @@ describe('compactShiftItems — forma stabile e compatta', () => {
 describe('il modulo non esegue niente quando lo si importa', () => {
   // Il difetto trovato dalla review su PR #7287: `run()` era invocata al
   // top-level senza guard, quindi importare questo modulo dal test faceva
-  // partire il grid PSI completo (rete live) dentro il worker vitest, che poi
-  // moriva su uno dei `process.exit()` di `run()`. Il test che pinna il
-  // contratto era lo stesso che innescava il gate.
-  it('`run()` sta dietro il main-module guard', () => {
-    const src = fs.readFileSync(path.resolve(__dirname, '../scripts/audit-cls-live.mjs'), 'utf-8');
-    expect(src, 'run() non deve essere invocata al top-level: l\'import deve restare inerte')
-      .toMatch(/if \(import\.meta\.url === pathToFileURL\(process\.argv\[1\] \|\| ''\)\.href\) \{/);
-    expect(src).not.toMatch(/^run\(\)\.catch/m);
+  // partire il grid PSI completo (TARGETS x STRATEGIES, rete live verso
+  // frontaliereticino.ch) dentro il worker vitest, che poi moriva su uno dei
+  // `process.exit()` di `run()`. Il test che pinna il contratto era lo stesso
+  // che innescava il gate.
+  //
+  // Provato sul COMPORTAMENTO e non sul testo del guard (nit della seconda
+  // review): asserire la stringa esatta `if (import.meta.url === ...)` fa
+  // fallire qualunque riscrittura equivalente — per esempio estrarre un
+  // `isMainModule()` — pur restando corretta. Ed e' proprio un test che
+  // pinnava una stringa invece di un comportamento ad aver lasciato vivere per
+  // settimane il difetto della chiave ritirata che questo file esiste per
+  // impedire.
+  it('un import in un processo pulito non produce NIENTE oltre al proprio marker', () => {
+    const modUrl = pathToFileURL(path.resolve(__dirname, '../scripts/audit-cls-live.mjs')).href;
+    const r = spawnSync(
+      process.execPath,
+      ['--input-type=module', '-e', `await import(${JSON.stringify(modUrl)}); console.log('INERT');`],
+      { encoding: 'utf-8', timeout: 60_000 },
+    );
+
+    // L'asserzione e' su TUTTO l'output, non sulla presenza del marker: senza
+    // guard il marker viene stampato lo stesso — `run()` e' async e non e'
+    // awaited, quindi l'import risolve e `INERT` esce PRIMA che il grid PSI
+    // finisca. Un `toContain('INERT')` sarebbe verde in entrambi i casi.
+    // Riprodotto: senza guard il figlio stampa `INERT` e poi le righe del grid
+    // (`❌ home@mobile: PSI 429 …`), ed esce comunque 0 per il fail-open sui
+    // 429. L'unico discriminante e' che non esca NIENT'ALTRO.
+    const output = `${r.stdout ?? ''}${r.stderr ?? ''}`.trim();
+    expect(output, 'l\'import ha eseguito qualcosa: run() non e\' dietro il main-module guard').toBe('INERT');
+    expect(r.status).toBe(0);
   });
 });
