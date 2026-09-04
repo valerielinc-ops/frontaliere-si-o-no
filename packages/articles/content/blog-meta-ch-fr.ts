@@ -5374,6 +5374,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Canton de Schwyz : cycles scolaires et inscription',
     'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'L\'obligation scolaire dans le canton de Schwyz commence à 6 ans. Découvrez les cycles, les inscriptions, le calendrier et la transition vers les lycées.',
     'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Salle de classe d\'une école primaire suisse du canton de Schwyz avec enfants en cours, mobilier moderne et fenêtre donnant sur le paysage alpin.',
+    'blog.article.guida-imposta-successione-donazione-svitto.title': 'Droit de succession et donation : guide Schwyz',
+    'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Droits de succession et de donation dans le canton de Schwyz : taux, exonérations, déclaration, délais. Guide complet sur la fiscalité du patrimoine.',
+    'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Bureau de l\'administration fiscale cantonale avec des documents sur la succession et la donation, calculatrice et formulaires de déclaration.',
 };
 
 export default blogMetaChFr;

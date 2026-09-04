@@ -5374,6 +5374,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Kanton Schwyz: Schulzyklen und Einschreibung',
     'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'Die Schulpflicht im Kanton Schwyz beginnt mit 6 Jahren. Entdecken Sie Zyklen, Einschreibungen, Kalender und den Übergang in die weiterführende Schule.',
     'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Klassenzimmer einer Schweizer Grundschule im Kanton Schwyz mit Kindern im Unterricht, modernem Mobiliar und Fenster mit Alpenblick.',
+    'blog.article.guida-imposta-successione-donazione-svitto.title': 'Erbschafts- und Schenkungssteuer: Leitfaden Schwyz',
+    'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Erbschafts- und Schenkungssteuern im Kanton Schwyz: Sätze, Befreiungen, Erklärung, Fristen. Vollständiger Leitfaden zur Vermögensbesteuerung.',
+    'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Schreibtisch der kantonalen Steuerbehörde mit Dokumenten zu Erbschaft- und Schenkungssteuer, Taschenrechner und Erklärungsformularen.',
 };
 
 export default blogMetaChDe;

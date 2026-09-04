@@ -5374,6 +5374,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Cantone Svitto: cicli scolastici e iscrizione',
     'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'L\'obbligo scolastico nel cantone Svitto inizia a 6 anni. Scopri cicli, iscrizioni, calendario e transizione alle scuole superiori.',
     'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Aula di una scuola primaria svizzera nel cantone Svitto, con bambini in classe, arredo scolastico moderno e grande finestra che affaccia sul paesaggio alpino.',
+    'blog.article.guida-imposta-successione-donazione-svitto.title': 'Imposta di successione e donazione: guida Svitto',
+    'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Imposte di successione e donazione nel Cantone di Svitto: aliquote, esenzioni, dichiarazione, termini. Guida completa su tassazione patrimonio.',
+    'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Scrivania dell\'amministrazione fiscale cantonale con documenti su successione e donazione, calcolatrice e moduli di dichiarazione.',
 };
 
 export default blogMetaChIt;

@@ -5374,6 +5374,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Canton of Schwyz: schooling and enrolment',
     'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'Compulsory schooling in the canton of Schwyz begins at the age of 6. Learn about cycles, enrollment, calendar, and high school transition.',
     'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Swiss primary school classroom in Canton Schwyz, children in class, modern furniture and window overlooking Alpine landscape.',
+    'blog.article.guida-imposta-successione-donazione-svitto.title': 'Inheritance and donation tax: Svitto guide',
+    'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Inheritance and gift taxes in the Canton of Schwyz: rates, exemptions, declaration, terms. Complete guide on wealth taxation.',
+    'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Cantonal tax administration office desk with inheritance and gift tax documents, calculator and declaration forms.',
 };
 
 export default blogMetaChEn;
