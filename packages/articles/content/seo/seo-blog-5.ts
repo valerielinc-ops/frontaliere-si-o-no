@@ -85481,6 +85481,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferirsi-svizzera-italiano-guida-permessi': {
+    title: 'Trasferirsi in Svizzera da italiano: guida ai permessi',
+    description: 'Permesso B, fiscalità svizzera, AVS e LAMal: guida completa ai passaggi amministrativi e fiscali per trasferirsi dall\'Italia in Svizzera come residente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, permessi, permesso',
+    ogTitle: 'Trasferirsi in Svizzera da italiano: guida ai permessi',
+    ogDescription: 'Scopri come trasferirsi in Svizzera dall\'Italia. Guida ai permessi B, fiscalità, AVS, LPP e LAMal. Confronto frontaliere vs residente. Checklist completa e procedure amministrative.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-svizzera-italiano-guida-permessi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi in Svizzera da italiano: guida ai permessi",
+      "description": "Permesso B, fiscalità svizzera, AVS e LAMal: guida completa ai passaggi amministrativi e fiscali per trasferirsi dall'Italia in Svizzera come residente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-svizzera-italiano-guida-permessi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano dal Ceresio: destinazione comune per trasferimenti dall'Italia"
+      },
+      "datePublished": "2026-09-04T18:58:35+00:00",
+      "dateModified": "2026-09-04T18:58:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-svizzera-italiano-guida-permessi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

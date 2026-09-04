@@ -11339,6 +11339,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-export-q1-2026.title': 'Varese first in Lombardy with export +23.2%',
     'blog.article.varese-export-q1-2026.excerpt': 'In Q1 2026, the Varese province dominated the regional ranking thanks to aerospace which rose by 111.9%. But the extraordinary layoffs advanced by 14.9%.',
     'blog.article.varese-export-q1-2026.imageAlt': 'Aerial view of Switzerland-Italy border region with Varese province industrial landscape and Alpine valleys',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Moving to Switzerland as an Italian: a guide to permits',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permit B, Swiss taxation, AVS and LAMal: all the administrative steps for those leaving Italy.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'View of Lugano from Lake Ceresio: common destination for transfers from Italy',
 };
 
 export default blogMetaEn;

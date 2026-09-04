@@ -11338,6 +11338,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.varese-export-q1-2026.title': 'Varese zuerst in der Lombardei mit Export +23,2%',
     'blog.article.varese-export-q1-2026.excerpt': 'Im Q1 2026 dominiert die Provinz Varese das regionale Ranking dank der um 111,9% gestiegenen Luft- und Raumfahrt. Aber die außerordentliche Integrationskasse schreitet um 14,9% voran.',
     'blog.article.varese-export-q1-2026.imageAlt': 'Luftaufnahme der Schweiz-Italien Grenzregion mit Industriegebiet der Provinz Varese und Alpentäler',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Umzug in die Schweiz als Italiener: Führerschein',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Bewilligung B, Schweizer Steuern, AHV und KVG: alle administrativen Schritte für diejenigen, die Italien verlassen.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Blick auf Lugano vom Luganersee: häufiges Transferziel aus Italien',
 };
 
 export default blogMetaDe;
