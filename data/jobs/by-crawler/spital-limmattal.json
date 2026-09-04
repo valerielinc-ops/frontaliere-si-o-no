@@ -70,12 +70,12 @@
     },
     {
       "id": "spital-limmattal-0c6759a01a3e",
-      "slug": "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch",
+      "slug": "giorno-responsabile-r-lavoro-a-casa-80-100-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch",
-        "en": "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch",
         "de": "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch",
-        "fr": "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch"
+        "it": "giorno-responsabile-r-lavoro-a-casa-80-100-spital-limmattal-schlieren",
+        "en": "day-responsible-r-housework-80-100-spital-limmattal-schlieren",
+        "fr": "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -135,31 +135,31 @@
       "firstSeenAt": "2026-09-03T13:32:24.805Z",
       "previousSlugsByLocale": {
         "it": [
-          "giorno-responsabile-r-lavoro-a-casa-80-100-spital-limmattal-schlieren",
           "day-responsible-r-housework-80-100-spital-limmattal-schlieren",
-          "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren"
+          "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren",
+          "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch"
         ],
         "en": [
-          "day-responsible-r-housework-80-100-spital-limmattal-schlieren"
+          "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch"
         ],
         "fr": [
-          "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren"
+          "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch"
         ]
       },
       "previousSlugs": [
-        "giorno-responsabile-r-lavoro-a-casa-80-100-spital-limmattal-schlieren",
         "day-responsible-r-housework-80-100-spital-limmattal-schlieren",
-        "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren"
+        "jour-responsable-r-travaux-menagers-80-100-spital-limmattal-schlieren",
+        "tagesverantwortliche-r-hausdienst-80-100-spital-limmattal-ch"
       ]
     },
     {
       "id": "spital-limmattal-7a3669f0d113",
-      "slug": "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch",
+      "slug": "segreteria-medica-disposizione-letto-coordinamento-delle-po-80-spital-limmattal-schlieren",
       "slugByLocale": {
-        "it": "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch",
-        "en": "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch",
         "de": "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch",
-        "fr": "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch"
+        "it": "segreteria-medica-disposizione-letto-coordinamento-delle-po-80-spital-limmattal-schlieren",
+        "en": "medical-secretary-bed-disposition-op-coordination-80-spital-limmattal-schlieren",
+        "fr": "secretaire-medical-distribution-des-lits-coordination-des-op-80-spital-limmattal-schlieren"
       },
       "company": "Spital Limmattal",
       "companyKey": "spital-limmattal",
@@ -216,7 +216,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:17:21.308Z"
+      "firstSeenAt": "2026-09-03T23:17:21.308Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch"
+        ],
+        "en": [
+          "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch"
+        ],
+        "fr": [
+          "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretarin-bettendisposition-op-koordination-80-spital-limmattal-ch"
+      ]
     },
     {
       "id": "spital-limmattal-8ef5818d464e",

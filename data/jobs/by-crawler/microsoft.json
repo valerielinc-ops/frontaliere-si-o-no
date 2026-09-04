@@ -358,12 +358,12 @@
     },
     {
       "id": "microsoft-200053528",
-      "slug": "customer-success-account-manager-microsoft-zurich",
+      "slug": "gestione-account-di-successo-del-cliente-microsoft-zurich",
       "slugByLocale": {
-        "it": "customer-success-account-manager-microsoft-zurich",
+        "it": "gestione-account-di-successo-del-cliente-microsoft-zurich",
         "en": "customer-success-account-manager-microsoft-zurich",
         "de": "customer-success-account-manager-microsoft-zurich",
-        "fr": "customer-success-account-manager-microsoft-zurich"
+        "fr": "gestionnaire-de-compte-de-reussite-client-microsoft-zurich"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -423,22 +423,27 @@
       "previousSlugsByLocale": {
         "it": [
           "customer-success-account-manager-microsoft-zurich-7v3neu",
-          "customer-success-account-manager-microsoft-zurich-2"
+          "customer-success-account-manager-microsoft-zurich-2",
+          "customer-success-account-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "customer-success-account-manager-microsoft-zurich"
         ]
       },
       "previousSlugs": [
         "customer-success-account-manager-microsoft-zurich-7v3neu",
-        "customer-success-account-manager-microsoft-zurich-2"
+        "customer-success-account-manager-microsoft-zurich-2",
+        "customer-success-account-manager-microsoft-zurich"
       ]
     },
     {
       "id": "microsoft-200053299",
-      "slug": "customer-success-account-manager-microsoft-zurich-2",
+      "slug": "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
       "slugByLocale": {
-        "it": "customer-success-account-manager-microsoft-zurich-2",
         "en": "customer-success-account-manager-microsoft-zurich-7v3neu",
+        "it": "gestione-account-di-successo-del-cliente-microsoft-zurich-906d96",
         "de": "customer-success-account-manager-microsoft-zurich-2",
-        "fr": "customer-success-account-manager-microsoft-zurich-2"
+        "fr": "gestionnaire-de-compte-de-reussite-client-microsoft-zurich-906d96"
       },
       "company": "Microsoft",
       "companyKey": "microsoft",
@@ -497,14 +502,19 @@
       "firstSeenAt": "2026-09-03T23:09:35.183Z",
       "previousSlugsByLocale": {
         "it": [
-          "customer-success-account-manager-microsoft-zurich"
+          "customer-success-account-manager-microsoft-zurich",
+          "customer-success-account-manager-microsoft-zurich-2"
         ],
         "en": [
           "customer-success-account-manager-microsoft-zurich"
+        ],
+        "fr": [
+          "customer-success-account-manager-microsoft-zurich-2"
         ]
       },
       "previousSlugs": [
-        "customer-success-account-manager-microsoft-zurich"
+        "customer-success-account-manager-microsoft-zurich",
+        "customer-success-account-manager-microsoft-zurich-2"
       ]
     },
     {

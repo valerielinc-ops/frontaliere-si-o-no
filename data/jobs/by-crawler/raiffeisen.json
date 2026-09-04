@@ -11258,12 +11258,12 @@
     },
     {
       "id": "raiffeisen-13e579a9aee6",
-      "slug": "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen",
+      "slug": "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen",
+        "it": "employee-insurance-advisory-pension-fund-m-f-d-raiffeisen-st-gallen",
         "en": "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
         "de": "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen"
+        "fr": "fonds-de-pension-consultatif-d-assurance-des-employes-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11313,6 +11313,9 @@
         "it": [
           "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen",
           "collaboratore-trice-versichertenberatung-pensionskasse-m-w-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-versichertenberatung-pensionskasse-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:40:51.036Z",
@@ -11397,12 +11400,12 @@
     },
     {
       "id": "raiffeisen-82bf71b05825",
-      "slug": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
+      "slug": "assistente-vendite-m-f-d-raiffeisen-meilen",
       "slugByLocale": {
-        "it": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-        "en": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
+        "it": "assistente-vendite-m-f-d-raiffeisen-meilen",
+        "en": "assistant-sales-m-f-d-raiffeisen-meilen",
         "de": "assistent-vertrieb-w-m-d-raiffeisen-meilen",
-        "fr": "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        "fr": "ventes-auxiliaires-h-f-d-raiffeisen-meilen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11457,16 +11460,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ],
+        "en": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ],
+        "fr": [
+          "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-vertrieb-w-m-d-raiffeisen-meilen"
+      ]
     },
     {
       "id": "raiffeisen-aa24dc3be019",
-      "slug": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
+      "slug": "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
-        "it": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
-        "en": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
         "de": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich",
-        "fr": "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
+        "it": "senior-private-client-advisor-immobiliare-m-f-d-raiffeisen-zurich",
+        "en": "senior-private-client-advisor-real-estate-m-f-d-raiffeisen-zurich",
+        "fr": "conseiller-principal-client-prive-immobilier-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11526,29 +11543,33 @@
         "it": [
           "senior-private-client-advisor-immobiliare-f-m-d-raiffeisen-zurich",
           "senior-private-client-advisor-real-estate-f-m-d-raiffeisen-zurich",
-          "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich"
+          "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich",
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
         ],
         "en": [
-          "senior-private-client-advisor-real-estate-f-m-d-raiffeisen-zurich"
+          "senior-private-client-advisor-real-estate-f-m-d-raiffeisen-zurich",
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
         ],
         "fr": [
-          "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich"
+          "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich",
+          "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
         ]
       },
       "previousSlugs": [
         "senior-private-client-advisor-immobiliare-f-m-d-raiffeisen-zurich",
         "senior-private-client-advisor-real-estate-f-m-d-raiffeisen-zurich",
-        "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich"
+        "conseiller-principal-en-immobilier-f-m-d-raiffeisen-zurich",
+        "senior-privatkundenberater-immobilien-w-m-d-raiffeisen-zurich"
       ]
     },
     {
       "id": "raiffeisen-c85219dc38ba",
-      "slug": "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
+      "slug": "servizi-client-individuali-m-f-d-raiffeisen-tagerwilen",
       "slugByLocale": {
-        "it": "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
-        "en": "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
         "de": "individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
-        "fr": "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
+        "it": "servizi-client-individuali-m-f-d-raiffeisen-tagerwilen",
+        "en": "individual-client-services-m-f-d-raiffeisen-tagerwilen",
+        "fr": "services-clients-individuels-h-f-d-raiffeisen-tagerwilen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11606,33 +11627,37 @@
       "firstSeenAt": "2026-09-03T13:40:51.016Z",
       "previousSlugsByLocale": {
         "it": [
-          "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen"
+          "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen",
+          "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
         ],
         "en": [
-          "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen"
+          "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen",
+          "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
         ],
         "de": [
           "teamleitung-individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
         ],
         "fr": [
-          "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen"
+          "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen",
+          "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
         ]
       },
       "previousSlugs": [
         "consulenza-clienti-individuale-f-m-d-raiffeisen-tagerwilen",
         "team-management-individual-client-advice-f-m-d-raiffeisen-tagerwilen",
         "teamleitung-individualkundenberatung-w-m-d-raiffeisen-tagerwilen",
-        "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen"
+        "gestion-de-l-equipe-conseils-individuels-aux-clients-f-m-d-raiffeisen-tagerwilen",
+        "individualkundenberatung-w-m-d-raiffeisen-tagerwilen"
       ]
     },
     {
       "id": "raiffeisen-4e63b17de344",
-      "slug": "leiter-credit-office-m-w-d-raiffeisen-hochdorf",
+      "slug": "capo-ufficio-di-credito-m-f-d-raiffeisen-hochdorf",
       "slugByLocale": {
-        "it": "leiter-credit-office-m-w-d-raiffeisen-hochdorf",
+        "it": "capo-ufficio-di-credito-m-f-d-raiffeisen-hochdorf",
         "en": "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
         "de": "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
-        "fr": "leiter-credit-office-w-m-d-raiffeisen-hochdorf"
+        "fr": "chef-du-bureau-de-credit-h-f-d-raiffeisen-hochdorf"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11675,10 +11700,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-credit-office-w-m-d-raiffeisen-hochdorf"
+        "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
+        "leiter-credit-office-m-w-d-raiffeisen-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-credit-office-w-m-d-raiffeisen-hochdorf",
+          "leiter-credit-office-m-w-d-raiffeisen-hochdorf"
+        ],
+        "fr": [
           "leiter-credit-office-w-m-d-raiffeisen-hochdorf"
         ]
       },
@@ -11699,12 +11729,12 @@
     },
     {
       "id": "raiffeisen-6b800ccf5bfd",
-      "slug": "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
+      "slug": "team-leader-servizi-clienti-m-f-d-raiffeisen-aarau",
       "slugByLocale": {
-        "it": "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
-        "en": "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
+        "it": "team-leader-servizi-clienti-m-f-d-raiffeisen-aarau",
+        "en": "team-leader-customer-services-m-f-d-raiffeisen-aarau",
         "de": "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau",
-        "fr": "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
+        "fr": "chef-d-equipe-services-a-la-clientele-h-f-d-raiffeisen-aarau"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11759,16 +11789,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
+        ],
+        "en": [
+          "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
+        ],
+        "fr": [
+          "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-kundenberatung-w-m-d-raiffeisen-aarau"
+      ]
     },
     {
       "id": "raiffeisen-532fc316f32c",
       "slug": "collaboratore-trice-services-m-w-d-raiffeisen-giffers",
       "slugByLocale": {
         "it": "collaboratore-trice-services-m-w-d-raiffeisen-giffers",
-        "en": "mitarbeiter-services-m-w-d-raiffeisen-giffers",
+        "en": "employee-services-m-f-d-raiffeisen-giffers",
         "de": "mitarbeiter-services-m-w-d-raiffeisen-giffers",
-        "fr": "mitarbeiter-services-m-w-d-raiffeisen-giffers"
+        "fr": "services-aux-employes-h-f-d-raiffeisen-giffers"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11818,6 +11862,12 @@
         "it": [
           "mitarbeiter-services-m-w-d-raiffeisen-giffers",
           "collaboratore-trice-services-m-w-d-raiffeisen-giffers"
+        ],
+        "en": [
+          "mitarbeiter-services-m-w-d-raiffeisen-giffers"
+        ],
+        "fr": [
+          "mitarbeiter-services-m-w-d-raiffeisen-giffers"
         ]
       },
       "firstSeenAt": "2026-09-03T13:40:50.997Z",
@@ -11837,12 +11887,12 @@
     },
     {
       "id": "raiffeisen-afce4cec8fca",
-      "slug": "kundenberater-in-m-w-d-raiffeisen-lyss",
+      "slug": "consulente-clienti-in-m-f-d-raiffeisen-lyss",
       "slugByLocale": {
-        "it": "kundenberater-in-m-w-d-raiffeisen-lyss",
-        "en": "kundenberater-in-m-w-d-raiffeisen-lyss",
+        "it": "consulente-clienti-in-m-f-d-raiffeisen-lyss",
+        "en": "customer-advisor-in-m-f-d-raiffeisen-lyss",
         "de": "kundenberater-in-m-w-d-raiffeisen-lyss",
-        "fr": "kundenberater-in-m-w-d-raiffeisen-lyss"
+        "fr": "conseiller-client-en-h-f-d-raiffeisen-lyss"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11898,16 +11948,30 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-m-w-d-raiffeisen-lyss"
+        ],
+        "en": [
+          "kundenberater-in-m-w-d-raiffeisen-lyss"
+        ],
+        "fr": [
+          "kundenberater-in-m-w-d-raiffeisen-lyss"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-m-w-d-raiffeisen-lyss"
+      ]
     },
     {
       "id": "raiffeisen-1d356b08223d",
-      "slug": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
+      "slug": "asset-management-provident-advisor-m-f-raiffeisen-monthey",
       "slugByLocale": {
-        "it": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
+        "fr": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
+        "it": "asset-management-provident-advisor-m-f-raiffeisen-monthey",
         "en": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
-        "de": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey",
-        "fr": "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
+        "de": "asset-management-provident-advisor-m-w-raiffeisen-monthey"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11962,16 +12026,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:19:36.000Z"
+      "firstSeenAt": "2026-09-03T23:19:36.000Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
+        ],
+        "de": [
+          "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-en-gestion-de-fortune-amp-prevoyance-f-h-raiffeisen-monthey"
+      ]
     },
     {
       "id": "raiffeisen-4c1b70689916",
-      "slug": "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-st-gallen",
+      "slug": "elaborazione-del-credito-dei-dipendenti-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-st-gallen",
-        "en": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen",
         "de": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen",
-        "fr": "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen"
+        "it": "elaborazione-del-credito-dei-dipendenti-m-f-d-raiffeisen-st-gallen",
+        "en": "employee-credit-processing-m-f-d-raiffeisen-st-gallen",
+        "fr": "traitement-du-credit-des-employes-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -12017,6 +12092,12 @@
         "it": [
           "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen",
           "collaboratore-trice-kreditverarbeitung-m-w-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "mitarbeiter-kreditverarbeitung-w-m-d-raiffeisen-st-gallen"
         ]
       },
       "previousSlugs": [

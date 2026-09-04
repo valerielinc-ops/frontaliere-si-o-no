@@ -3058,12 +3058,12 @@
     },
     {
       "id": "decathlon-71e3d5452fd0",
-      "slug": "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
+      "slug": "ultimo-coordinatore-del-trasporto-mile-m-f-contratto-a-tempo-fisso-bussigny-decathlon-bussigny",
       "slugByLocale": {
-        "it": "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
+        "it": "ultimo-coordinatore-del-trasporto-mile-m-f-contratto-a-tempo-fisso-bussigny-decathlon-bussigny",
         "en": "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
-        "de": "last-mile-transport-koordinator-m-f-fixed-term-contract-bussigny-decathlon-bussigny",
-        "fr": "last-mile-transport-coordinateur-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
+        "de": "last-mile-transportkoordinator-m-w-befristeter-vertrag-bussigny-decathlon-bussigny",
+        "fr": "last-mile-coordinateur-de-transport-h-f-contrat-a-duree-determinee-bussigny-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3119,11 +3119,23 @@
       "firstSeenAt": "2026-09-03T23:20:35.494Z",
       "previousSlugsByLocale": {
         "it": [
-          "last-mile-transport-coordinatore-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
+          "last-mile-transport-coordinatore-m-f-fixed-term-contract-bussigny-decathlon-bussigny",
+          "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch"
+        ],
+        "de": [
+          "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
+          "last-mile-transport-koordinator-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
+        ],
+        "fr": [
+          "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
+          "last-mile-transport-coordinateur-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
         ]
       },
       "previousSlugs": [
-        "last-mile-transport-coordinatore-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
+        "last-mile-transport-coordinatore-m-f-fixed-term-contract-bussigny-decathlon-bussigny",
+        "last-mile-transport-coordinator-m-f-fixed-term-contract-bussigny-decathlon-ch",
+        "last-mile-transport-koordinator-m-f-fixed-term-contract-bussigny-decathlon-bussigny",
+        "last-mile-transport-coordinateur-m-f-fixed-term-contract-bussigny-decathlon-bussigny"
       ]
     },
     {
@@ -4755,11 +4767,11 @@
     },
     {
       "id": "decathlon-f3a375e317e0",
-      "slug": "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch",
+      "slug": "logistics-command-preparation-team-m-f-cdi-70-martigny-decathlon-martigny",
       "slugByLocale": {
-        "it": "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch",
+        "it": "logistics-command-preparation-team-m-f-cdi-70-martigny-decathlon-martigny",
         "en": "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch",
-        "de": "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch",
+        "de": "logistik-kommandovorbereitung-team-m-w-cdi-70-martigny-decathlon-martigny",
         "fr": "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4813,15 +4825,26 @@
           "maxValue": 64000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch"
+        ],
+        "de": [
+          "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "equipier-logistique-preparation-de-commandes-h-f-cdi-70-martigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-f85f2ab793c5",
-      "slug": "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch",
+      "slug": "head-of-rayon-training-m-f-cdi-100-bussigny-decathlon-bussigny",
       "slugByLocale": {
-        "it": "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch",
+        "it": "head-of-rayon-training-m-f-cdi-100-bussigny-decathlon-bussigny",
         "en": "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch",
-        "de": "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch",
+        "de": "leiter-rayon-training-m-w-cdi-100-bussigny-decathlon-bussigny",
         "fr": "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch"
       },
       "company": "Decathlon",
@@ -4875,16 +4898,27 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch"
+        ],
+        "de": [
+          "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-rayon-en-formation-h-f-cdi-100-bussigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-51457064c1c1",
-      "slug": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch",
+      "slug": "consigliere-cycle-m-f-contratto-orario-60-bussigny-decathlon-bussigny",
       "slugByLocale": {
-        "it": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch",
-        "en": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch",
-        "de": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch",
-        "fr": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch"
+        "fr": "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch",
+        "it": "consigliere-cycle-m-f-contratto-orario-60-bussigny-decathlon-bussigny",
+        "en": "counsellor-cycle-m-f-hourly-contract-60-bussigny-decathlon-bussigny",
+        "de": "ratgeber-cycle-m-w-stundenvertrag-60-bussigny-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4937,7 +4971,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:26.904Z"
+      "firstSeenAt": "2026-09-03T23:20:26.904Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch"
+        ],
+        "en": [
+          "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-cycle-h-f-contrat-horaire-60-bussigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-9469bb0bf2b6",

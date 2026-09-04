@@ -16629,12 +16629,12 @@
     },
     {
       "id": "usz-4b2a964b08c7",
-      "slug": "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach",
+      "slug": "responsabile-professionale-i-processi-hr-e-i-progetti-80-100-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach",
-        "en": "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach",
+        "it": "responsabile-professionale-i-processi-hr-e-i-progetti-80-100-universitatsspital-zurich-usz-stettbach",
+        "en": "professional-responsible-r-hr-processes-projects-80-100-universitatsspital-zurich-usz-stettbach",
         "de": "fachverantwortliche-r-hr-prozesse-amp-projekte-80-100-usz-ch",
-        "fr": "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach"
+        "fr": "responsable-professionnel-r-processus-et-projets-rh-80-100-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16683,6 +16683,12 @@
         "it": [
           "fachverantwortliche-r-hr-prozesse-amp-projekte-80-100-usz-ch",
           "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach"
+        ],
+        "en": [
+          "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach"
+        ],
+        "fr": [
+          "fachverantwortliche-r-hr-prozesse-projekte-80-100-universitatsspital-zurich-usz-stettbach"
         ]
       },
       "firstSeenAt": "2026-09-03T13:51:39.337Z",
@@ -16702,12 +16708,12 @@
     },
     {
       "id": "usz-c7d8c3a209a9",
-      "slug": "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch",
+      "slug": "medico-senior-m-f-d-area-di-acute-cardiologia-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch",
-        "en": "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch",
+        "it": "medico-senior-m-f-d-area-di-acute-cardiologia-80-100-universitatsspital-zurich-usz-campus",
+        "en": "senior-physician-m-f-d-area-of-acute-cardiology-80-100-universitatsspital-zurich-usz-campus",
         "de": "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch",
-        "fr": "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
+        "fr": "medecin-principal-h-f-d-zone-de-cardiologie-aigue-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16761,16 +16767,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
+        ],
+        "en": [
+          "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-w-m-d-bereich-akute-kardiologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-6d4c37b2a3ff",
-      "slug": "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus",
+      "slug": "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus",
-        "en": "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus",
         "de": "verwaltungssekretar-in-biopsiesekretariat-30-50-usz-ch",
-        "fr": "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
+        "it": "segreteria-amministrativa-in-segreteria-di-biopsia-30-50-universitatsspital-zurich-usz-campus",
+        "en": "administrative-secretary-in-biopsy-secretariat-30-50-universitatsspital-zurich-usz-campus",
+        "fr": "secretaire-d-administration-dans-le-secretariat-de-la-biopsie-30-50-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16819,7 +16839,11 @@
           "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
         ],
         "fr": [
-          "verwaltungssekretar-in-biopsiesekretariat-80-100-usz-ch"
+          "verwaltungssekretar-in-biopsiesekretariat-80-100-usz-ch",
+          "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "verwaltungssekretar-in-biopsiesekretariat-30-50-universitatsspital-zurich-usz-campus"
         ]
       },
       "previousSlugs": [
@@ -16844,12 +16868,12 @@
     },
     {
       "id": "usz-fcd7f40a2fef",
-      "slug": "abteilungskoordinator-in-per-la-dialyseabteilung-80-100-universitatsspital-zurich-usz-campus",
+      "slug": "coordinatore-del-dipartimento-per-il-dipartimento-di-dialisi-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "abteilungskoordinator-in-per-la-dialyseabteilung-80-100-universitatsspital-zurich-usz-campus",
-        "en": "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch",
+        "it": "coordinatore-del-dipartimento-per-il-dipartimento-di-dialisi-80-100-universitatsspital-zurich-usz-campus",
+        "en": "department-coordinator-for-the-dialysis-department-80-100-universitatsspital-zurich-usz-campus",
         "de": "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch",
-        "fr": "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch"
+        "fr": "coordinateur-du-departement-pour-le-departement-de-dialyse-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16898,6 +16922,12 @@
         "it": [
           "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch",
           "abteilungskoordinator-in-per-la-dialyseabteilung-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch"
+        ],
+        "fr": [
+          "abteilungskoordinator-in-fur-die-dialyseabteilung-80-100-usz-ch"
         ]
       },
       "firstSeenAt": "2026-09-03T13:51:39.328Z",
@@ -16917,12 +16947,12 @@
     },
     {
       "id": "usz-28b4ae874a46",
-      "slug": "studentische-aushilfe-per-la-disposition-der-medizinischen-onkologie-e-hamatologie-20-universitatsspital-zurich-usz-campus",
+      "slug": "assistenza-agli-studenti-per-la-disposizione-di-oncologia-medica-ed-ematologia-20-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "studentische-aushilfe-per-la-disposition-der-medizinischen-onkologie-e-hamatologie-20-universitatsspital-zurich-usz-campus",
-        "en": "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20",
+        "it": "assistenza-agli-studenti-per-la-disposizione-di-oncologia-medica-ed-ematologia-20-universitatsspital-zurich-usz-campus",
+        "en": "student-assistance-for-the-disposition-of-medical-oncology-and-hematology-20-universitatsspital-zurich-usz-campus",
         "de": "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20",
-        "fr": "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20"
+        "fr": "aide-aux-etudiants-pour-l-elimination-de-l-oncologie-medicale-et-de-l-hematologie-20-universitatsspital-zurich-usz"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16971,6 +17001,12 @@
         "it": [
           "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20",
           "studentische-aushilfe-per-la-disposition-der-medizinischen-onkologie-e-hamatologie-20-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20"
+        ],
+        "fr": [
+          "studentische-aushilfe-fur-die-disposition-der-medizinischen-onkologie-und-hamatologie-20"
         ]
       },
       "firstSeenAt": "2026-09-03T13:51:39.325Z",
@@ -16990,12 +17026,12 @@
     },
     {
       "id": "usz-b0c1e3d361fe",
-      "slug": "sachbearbeiter-in-per-den-pflege-pool-40-universitatsspital-zurich-usz-campus",
+      "slug": "personale-per-la-piscina-di-cura-40-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-per-den-pflege-pool-40-universitatsspital-zurich-usz-campus",
-        "en": "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch",
+        "it": "personale-per-la-piscina-di-cura-40-universitatsspital-zurich-usz-campus",
+        "en": "personnel-in-for-the-nursing-pool-40-universitatsspital-zurich-usz-campus",
         "de": "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch",
-        "fr": "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch"
+        "fr": "personnel-dans-le-bassin-de-soins-infirmiers-40-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17037,10 +17073,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch"
+        "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch",
+        "sachbearbeiter-in-per-den-pflege-pool-40-universitatsspital-zurich-usz-campus"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch",
+          "sachbearbeiter-in-per-den-pflege-pool-40-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch"
+        ],
+        "fr": [
           "sachbearbeiter-in-fur-den-pflege-pool-40-usz-ch"
         ]
       },
@@ -17225,10 +17269,10 @@
       "id": "usz-930c0ee35a1d",
       "slug": "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
       "slugByLocale": {
+        "de": "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
         "it": "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
         "en": "associate-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
-        "de": "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
-        "fr": "collaborateur-trice-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
+        "fr": "employes-dans-la-gastronomie-avec-responsabilite-de-localisation-70-universitatsspital-zurich-usz-stettbach"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17276,7 +17320,8 @@
           "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
         ],
         "fr": [
-          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch"
+          "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
+          "collaborateur-trice-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
         ],
         "en": [
           "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch"
@@ -17284,7 +17329,8 @@
       },
       "previousSlugs": [
         "mitarbeiter-in-gastronomie-mit-standortverantwortung-70-usz-ch",
-        "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
+        "collaboratore-trice-gastronomie-con-standortverantwortung-70-universitatsspital-zurich-usz-stettbach",
+        "collaborateur-trice-gastronomie-mit-standortverantwortung-70-universitatsspital-zurich-usz-stettbach"
       ],
       "salaryMin": 51500,
       "salaryMax": 78100,
@@ -17385,10 +17431,10 @@
       "id": "usz-cf05d83957e2",
       "slug": "pflegehelfer-in-o-ags-per-la-neonatologie-80-100-universitatsspital-zurich-usz-campus",
       "slugByLocale": {
-        "it": "pflegehelfer-in-o-ags-per-la-neonatologie-80-100-universitatsspital-zurich-usz-campus",
-        "en": "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch",
         "de": "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch",
-        "fr": "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch"
+        "it": "pflegehelfer-in-o-ags-per-la-neonatologie-80-100-universitatsspital-zurich-usz-campus",
+        "en": "nursing-assistant-in-or-ags-for-neonatology-80-100-universitatsspital-zurich-usz-campus",
+        "fr": "assistant-infirmier-en-ou-ags-pour-la-neonatologie-80-100-universitatsspital-zurich-usz-campus"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17434,6 +17480,12 @@
         "it": [
           "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch",
           "pflegehelfer-in-o-ags-per-la-neonatologie-80-100-universitatsspital-zurich-usz-campus"
+        ],
+        "en": [
+          "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "pflegehelfer-in-oder-ags-fur-die-neonatologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [

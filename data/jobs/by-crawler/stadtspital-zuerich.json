@@ -3589,7 +3589,6 @@
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.244Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3602,7 +3601,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "stadtspital-zuerich-24c2950125f3",
@@ -8435,13 +8435,13 @@
           "fachperson-gesundheit-frauenklinik-stadtspital-zuerich-51163",
           "specialist-health-as-station-coordinator-in-women-s-clinic-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736"
-        ],
         "fr": [
           "fachperson-gesundheit-frauenklinik-stadtspital-zuerich-51163",
           "specialiste-de-la-sante-en-tant-que-coordonnateur-de-poste-dans-la-clinique-pour-femmes-stadtspital-zurich-zurich",
           "specialiste-de-la-sante-en-tant-que-coordonnateur-de-quartier-a-frauenklinik-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "fachperson-gesundheit-als-stationskoordinator-in-frauenklinik-stadtspital-zuerich-50736"
         ]
       },
       "firstSeenAt": "2026-08-03T12:52:13.602Z",
@@ -10588,9 +10588,9 @@
       "slug": "fachspezialist-in-risorse-umane-services-befristet-per-1-jahr-stadtspital-zurich",
       "slugByLocale": {
         "it": "fachspezialist-in-risorse-umane-services-befristet-per-1-jahr-stadtspital-zurich",
-        "en": "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516",
+        "en": "specialist-in-hr-services-temporary-for-1-year-stadtspital-zurich-zurich",
         "de": "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zurich-zurich",
-        "fr": "fachspezialist-in-ressources-humaines-services-befristet-fur-1-jahr-stadtspital-zurich-zurich"
+        "fr": "specialiste-en-rh-temporaire-d-un-an-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -10637,17 +10637,20 @@
       "referenceNumber": "51516",
       "previousSlugs": [
         "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516",
-        "fachspezialist-in-risorse-umane-services-befristet-per-1-jahr-stadtspital-zurich"
+        "fachspezialist-in-ressources-humaines-services-befristet-fur-1-jahr-stadtspital-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516",
-          "fachspezialist-in-risorse-umane-services-befristet-per-1-jahr-stadtspital-zurich"
+          "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516"
         ],
         "de": [
           "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516"
         ],
         "fr": [
+          "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516",
+          "fachspezialist-in-ressources-humaines-services-befristet-fur-1-jahr-stadtspital-zurich-zurich"
+        ],
+        "en": [
           "fachspezialist-in-hr-services-befristet-fur-1-jahr-stadtspital-zuerich-51516"
         ]
       },
@@ -11243,12 +11246,12 @@
           "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich",
           "dipl-nurse-general-surgery-triemli-temporary-stadtspital-zurich-zurich"
         ],
-        "de": [
-          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490"
-        ],
         "fr": [
           "dipl-pflegefachperson-allgemeinchirurgie-triemli-stadtspital-zurich-zurich",
           "dipl-infirmiere-generale-chirurgie-triemli-temporaire-stadtspital-zurich-zurich"
+        ],
+        "de": [
+          "dipl-pflegefachperson-allgemeinchirurgie-triemli-befristet-stadtspital-zuerich-50490"
         ]
       },
       "firstSeenAt": "2026-07-12T22:04:54.241Z",
@@ -11349,12 +11352,12 @@
     },
     {
       "id": "stadtspital-zuerich-cb0332ed4418",
-      "slug": "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich",
+      "slug": "dipl-specialista-di-cura-intensiva-cura-waid-stadtspital-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich",
-        "en": "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich",
+        "it": "dipl-specialista-di-cura-intensiva-cura-waid-stadtspital-zurich-zurich",
+        "en": "dipl-care-specialist-intensive-care-waid-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich",
-        "fr": "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich"
+        "fr": "dipl-specialiste-des-soins-soins-intensifs-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -11410,6 +11413,12 @@
         ],
         "de": [
           "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zuerich-49140"
+        ],
+        "en": [
+          "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-intensivpflege-waid-stadtspital-zurich-zurich"
         ]
       },
       "needsRetranslation": true,

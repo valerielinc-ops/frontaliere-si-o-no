@@ -3681,12 +3681,12 @@
     },
     {
       "id": "pdgr-88d8c245896e",
-      "slug": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+      "slug": "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
-        "en": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+        "it": "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur",
+        "en": "school-curative-education-teacher-shp-psychiatrische-dienste-graubunden-chur",
         "de": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
-        "fr": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+        "fr": "enseignant-en-education-curative-scolaire-shp-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3746,16 +3746,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+        ],
+        "en": [
+          "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+        ],
+        "fr": [
+          "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-schulische-heilpadagogik-shp-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-30b20a9db75a",
-      "slug": "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
+      "slug": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
       "slugByLocale": {
-        "it": "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz",
-        "en": "assistenz-oder-fachpsychologe-in-pdgr-ch",
         "de": "assistenz-oder-fachpsychologe-in-pdgr-ch",
-        "fr": "assistenz-oder-fachpsychologe-in-pdgr-ch"
+        "it": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
+        "en": "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz",
+        "fr": "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3805,6 +3819,12 @@
           "assistenz-oder-fachpsychologe-in-pdgr-ch",
           "assistenz-oder-fachpsychologe-in-pdgr-ch-3",
           "assistenz-o-fachpsychologe-in-psychiatrische-dienste-graubunden-ilanz"
+        ],
+        "en": [
+          "assistenz-oder-fachpsychologe-in-pdgr-ch"
+        ],
+        "fr": [
+          "assistenz-oder-fachpsychologe-in-pdgr-ch"
         ]
       },
       "previousSlugs": [
@@ -3830,12 +3850,12 @@
     },
     {
       "id": "pdgr-16daeae2e7ac",
-      "slug": "gartner-in-pdgr-ch",
+      "slug": "giardino-in-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "gartner-in-pdgr-ch",
-        "en": "gartner-in-pdgr-ch",
         "de": "gartner-in-pdgr-ch",
-        "fr": "gartner-in-pdgr-ch"
+        "it": "giardino-in-psychiatrische-dienste-graubunden-chur",
+        "en": "gardener-in-psychiatrische-dienste-graubunden-chur",
+        "fr": "jardinier-in-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3894,16 +3914,30 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-03T23:23:20.801Z"
+      "firstSeenAt": "2026-09-03T23:23:20.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "gartner-in-pdgr-ch"
+        ],
+        "en": [
+          "gartner-in-pdgr-ch"
+        ],
+        "fr": [
+          "gartner-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "gartner-in-pdgr-ch"
+      ]
     },
     {
       "id": "pdgr-d6e4f98002d7",
-      "slug": "arbeitsagoge-in-pdgr-ch",
+      "slug": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
       "slugByLocale": {
-        "it": "arbeitsagoge-in-pdgr-ch",
-        "en": "arbeitsagoge-in-pdgr-ch",
         "de": "arbeitsagoge-in-pdgr-ch",
-        "fr": "arbeitsagoge-in-pdgr-ch"
+        "it": "maniglia-di-lavoro-in-psychiatrische-dienste-graubunden-chur",
+        "en": "work-handler-in-psychiatrische-dienste-graubunden-chur",
+        "fr": "gestionnaire-de-travail-in-psychiatrische-dienste-graubunden-chur"
       },
       "company": "Psychiatrische Dienste Graubünden",
       "companyKey": "pdgr",
@@ -3962,7 +3996,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-03T23:23:19.650Z"
+      "firstSeenAt": "2026-09-03T23:23:19.650Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arbeitsagoge-in-pdgr-ch"
+        ],
+        "en": [
+          "arbeitsagoge-in-pdgr-ch"
+        ],
+        "fr": [
+          "arbeitsagoge-in-pdgr-ch"
+        ]
+      },
+      "previousSlugs": [
+        "arbeitsagoge-in-pdgr-ch"
+      ]
     }
   ]
 }

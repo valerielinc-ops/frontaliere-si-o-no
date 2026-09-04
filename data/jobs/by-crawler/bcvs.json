@@ -853,11 +853,11 @@
     },
     {
       "id": "bcvs-56ae8c8289ed",
-      "slug": "collaborateur-trice-clientele-des-prives-bcvs-martigny",
+      "slug": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-martigny",
       "slugByLocale": {
-        "it": "collaborateur-trice-clientele-des-prives-bcvs-martigny",
-        "en": "collaborateur-trice-clientele-des-prives-bcvs-martigny",
-        "de": "collaborateur-trice-clientele-des-prives-bcvs-martigny",
+        "it": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-martigny",
+        "en": "private-client-collaborator-banque-cantonale-du-valais-martigny",
+        "de": "private-client-mitarbeiter-banque-cantonale-du-valais-martigny",
         "fr": "collaborateur-trice-clientele-des-prives-bcvs-martigny"
       },
       "company": "Banque Cantonale du Valais",
@@ -925,15 +925,29 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-clientele-des-prives-bcvs-martigny"
+        ],
+        "en": [
+          "collaborateur-trice-clientele-des-prives-bcvs-martigny"
+        ],
+        "de": [
+          "collaborateur-trice-clientele-des-prives-bcvs-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-clientele-des-prives-bcvs-martigny"
+      ]
     },
     {
       "id": "bcvs-f210ab306496",
-      "slug": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
+      "slug": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny",
       "slugByLocale": {
-        "it": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "en": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "de": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
+        "it": "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny",
+        "en": "private-individual-client-advisor-banque-cantonale-du-valais-martigny",
+        "de": "privater-individueller-kundenberater-banque-cantonale-du-valais-martigny",
         "fr": "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
       },
       "company": "Banque Cantonale du Valais",
@@ -1004,7 +1018,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+        ],
+        "en": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+        ],
+        "de": [
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+      ]
     }
   ]
 }

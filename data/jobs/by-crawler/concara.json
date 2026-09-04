@@ -3370,12 +3370,12 @@
     },
     {
       "id": "concara-81495106ff5c",
-      "slug": "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern",
+      "slug": "team-leader-in-payroll-time-tracking-80-100-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern",
+        "it": "team-leader-in-payroll-time-tracking-80-100-concara-domicil-spitex-bern-bern",
         "en": "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern",
         "de": "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern",
-        "fr": "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern"
+        "fr": "chef-d-equipe-dans-la-paie-suivi-du-temps-80-100-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3431,7 +3431,18 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern"
+        ],
+        "fr": [
+          "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-payroll-zeiterfassung-80-100-concara-bern"
+      ]
     },
     {
       "id": "concara-0d9176dfb5a7",

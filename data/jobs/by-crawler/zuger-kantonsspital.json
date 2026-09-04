@@ -1189,12 +1189,12 @@
     },
     {
       "id": "zuger-kantonsspital-e44f48718958",
-      "slug": "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
+      "slug": "specialist-health-emergency-center-80-100-zuger-kantonsspital-baar",
       "slugByLocale": {
-        "it": "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
+        "it": "specialist-health-emergency-center-80-100-zuger-kantonsspital-baar",
         "en": "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
         "de": "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar",
-        "fr": "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
+        "fr": "centre-d-urgence-specialise-en-sante-80-100-zuger-kantonsspital-baar"
       },
       "company": "Zuger Kantonsspital",
       "companyKey": "zuger-kantonsspital",
@@ -1249,7 +1249,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
+        ],
+        "fr": [
+          "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-notfallzentrum-80-100-zuger-kantonsspital-baar"
+      ]
     }
   ]
 }

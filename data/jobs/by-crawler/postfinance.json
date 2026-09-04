@@ -160,12 +160,12 @@
         "de": "Product Owner Data Insights (w/m/d)",
         "fr": "Données du propriétaire du produit (h/f/d)"
       },
-      "slug": "product-owner-data-insights-w-m-d-postfinance",
+      "slug": "proprietario-del-prodotto-insights-m-f-d-postfinance-bern",
       "slugByLocale": {
-        "it": "product-owner-data-insights-w-m-d-postfinance",
+        "it": "proprietario-del-prodotto-insights-m-f-d-postfinance-bern",
         "en": "product-owner-data-insights-w-m-d-postfinance",
         "de": "product-owner-data-insights-w-m-d-postfinance",
-        "fr": "product-owner-data-insights-w-m-d-postfinance"
+        "fr": "donnees-du-proprietaire-du-produit-h-f-d-postfinance-bern"
       },
       "sourceLang": "de",
       "department": [
@@ -204,7 +204,18 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-03T23:19:56.654Z"
+      "firstSeenAt": "2026-09-03T23:19:56.654Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-owner-data-insights-w-m-d-postfinance"
+        ],
+        "fr": [
+          "product-owner-data-insights-w-m-d-postfinance"
+        ]
+      },
+      "previousSlugs": [
+        "product-owner-data-insights-w-m-d-postfinance"
+      ]
     },
     {
       "url": "https://jobs.postfinance.ch/job/Platform-Engineer/74636-de_DE",

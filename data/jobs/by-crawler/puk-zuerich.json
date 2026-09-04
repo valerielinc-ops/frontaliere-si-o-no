@@ -4023,12 +4023,12 @@
     },
     {
       "id": "puk-zuerich-bb883273f6ee",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
+      "slug": "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
+        "it": "dipl-specialista-infermieristico-centro-di-depressione-ansia-e-psicoterapia-psychiatrische-universitatsklinik-zurich",
+        "en": "dipl-nursing-specialist-centre-for-depression-anxiety-and-psychotherapy-psychiatrische-universitatsklinik-zurich-rheinau",
         "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
+        "fr": "dipl-specialiste-des-soins-infirmiers-centre-de-depression-d-anxiete-et-de-psychotherapie-psychiatrische"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4074,10 +4074,18 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-depressionen-angsterkrankungen-e-psychotherapie-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-depressionen-angsterkrankungen-und"
         ]
       },
@@ -4191,12 +4199,12 @@
     },
     {
       "id": "puk-zuerich-d4233c2e23ce",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
+      "slug": "dipl-specialista-infermieristico-centro-per-le-malattie-di-dipendenza-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau",
-        "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
+        "it": "dipl-specialista-infermieristico-centro-per-le-malattie-di-dipendenza-psychiatrische-universitatsklinik-zurich-rheinau",
+        "en": "dipl-nursing-specialist-center-for-dependency-diseases-psychiatrische-universitatsklinik-zurich-rheinau",
         "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
+        "fr": "dipl-specialiste-des-soins-infirmiers-centre-des-maladies-de-la-dependance-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4247,13 +4255,19 @@
         "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
         "de": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich",
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich"
         ],
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich-rheinau"
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-abhangigkeitserkrankungen-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:10.850Z",
@@ -4718,12 +4732,12 @@
     },
     {
       "id": "puk-zuerich-2167d1781cd8",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
+      "slug": "dipl-infermieristica-professionale-o-dipl-social-pedagogue-social-pedagogue-clinica-diurna-per-bambini-psychiatrische",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur",
-        "en": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
+        "it": "dipl-infermieristica-professionale-o-dipl-social-pedagogue-social-pedagogue-clinica-diurna-per-bambini-psychiatrische",
+        "en": "dipl-nursing-professional-or-dipl-social-pedagogue-social-pedagogue-day-clinic-for-children-psychiatrische",
         "de": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
+        "fr": "dipl-professionnels-des-soins-infirmiers-ou-dipl-pedagogue-sociale-pedagogie-sociale-clinique-de-jour-pour-enfants"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4769,10 +4783,18 @@
       "pensumMax": 60,
       "pensum": "60%",
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
+        "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
+        "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik",
+          "dipl-pflegefachfrau-pflegefachmann-o-dipl-sozialpadagogin-sozialpadagoge-tagesklinik-per-kinder-psychiatrische-universitatsklinik-zurich-winterthur"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-oder-dipl-sozialpadagogin-sozialpadagoge-tagesklinik"
         ]
       },

@@ -49,12 +49,10 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Oberdorf-Lastwagenf%C3%BChrerin-NW-6370/1358626157/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "lastwagenfuhrer-in-holcim-ch",
-        "lastwagenfuhrer-in-holcim-group-oberdorf",
-        "camion-driver-in-holcim-group-oberdorf"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "lastwagenfuhrer-in-holcim-group-oberdorf"
+        ],
         "it": [
           "lastwagenfuhrer-in-holcim-ch",
           "lastwagenfuhrer-in-holcim-group-oberdorf",
@@ -63,14 +61,15 @@
         "en": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ],
-        "de": [
-          "lastwagenfuhrer-in-holcim-group-oberdorf",
-          "lastwagenfuhrer-in-holcim-ch"
-        ],
         "fr": [
           "lastwagenfuhrer-in-holcim-group-oberdorf"
         ]
       },
+      "previousSlugs": [
+        "lastwagenfuhrer-in-holcim-ch",
+        "lastwagenfuhrer-in-holcim-group-oberdorf",
+        "camion-driver-in-holcim-group-oberdorf"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:39.818Z",
       "salaryMin": 69500,
@@ -444,24 +443,23 @@
       "applyUrl": "https://careers.holcimgroup.com/holcim_switzerland/job/Ingenbohl-Brunnen-Allrounderin-SZ-6440/1365697857/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "allrounder-in-holcim-ch",
-        "allrounder-in-holcim-group-ingenbohl-brunnen",
-        "allrounder-holcim-group-ingenbohl-brunnen"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "allrounder-in-holcim-group-ingenbohl-brunnen"
+        ],
         "it": [
           "allrounder-in-holcim-ch",
           "allrounder-holcim-group-ingenbohl-brunnen"
-        ],
-        "de": [
-          "allrounder-in-holcim-group-ingenbohl-brunnen",
-          "allrounder-in-holcim-ch"
         ],
         "fr": [
           "allrounder-in-holcim-ch"
         ]
       },
+      "previousSlugs": [
+        "allrounder-in-holcim-ch",
+        "allrounder-in-holcim-group-ingenbohl-brunnen",
+        "allrounder-holcim-group-ingenbohl-brunnen"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-08T22:25:53.801Z",
       "salaryMin": 69500,
@@ -562,12 +560,12 @@
     },
     {
       "id": "holcim-9c8bef513ca7",
-      "slug": "electrical-engineering-project-manager-holcim-ch",
+      "slug": "responsabile-del-progetto-di-ingegneria-elettrica-holcim-group-wurenlingen",
       "slugByLocale": {
-        "it": "electrical-engineering-project-manager-holcim-ch",
+        "it": "responsabile-del-progetto-di-ingegneria-elettrica-holcim-group-wurenlingen",
         "en": "electrical-engineering-project-manager-holcim-ch",
         "de": "electrical-engineering-project-manager-holcim-ch",
-        "fr": "electrical-engineering-project-manager-holcim-ch"
+        "fr": "directeur-du-projet-de-genie-electrique-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -621,7 +619,18 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "electrical-engineering-project-manager-holcim-ch"
+        ],
+        "fr": [
+          "electrical-engineering-project-manager-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "electrical-engineering-project-manager-holcim-ch"
+      ]
     },
     {
       "id": "holcim-113a217f6ab9",

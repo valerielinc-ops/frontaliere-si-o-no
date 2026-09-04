@@ -474,11 +474,11 @@
     },
     {
       "id": "hermes-bfa10b4da950",
-      "slug": "cdi-responsable-mecanique-h-f-hermes-ch",
+      "slug": "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland",
       "slugByLocale": {
-        "it": "cdi-responsable-mecanique-h-f-hermes-ch",
-        "en": "cdi-responsable-mecanique-h-f-hermes-ch",
-        "de": "cdi-responsable-mecanique-h-f-hermes-ch",
+        "it": "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland",
+        "en": "cdi-mechanical-manager-m-f-hermes-le-noirmont-jura-switzerland",
+        "de": "cdi-mechanischer-manager-m-w-hermes-le-noirmont-jura-switzerland",
         "fr": "cdi-responsable-mecanique-h-f-hermes-ch"
       },
       "company": "Hermès",
@@ -533,7 +533,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-responsable-mecanique-h-f-hermes-ch"
+        ],
+        "en": [
+          "cdi-responsable-mecanique-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdi-responsable-mecanique-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-responsable-mecanique-h-f-hermes-ch"
+      ]
     },
     {
       "id": "hermes-02949861efad",

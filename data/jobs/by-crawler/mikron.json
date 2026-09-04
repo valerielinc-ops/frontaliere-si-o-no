@@ -236,10 +236,11 @@
         "it": "Controllo ingegnere specialista (m/f/d)",
         "de": "Steuerungsingenieur Spezialist (m/w/d)"
       },
-      "slug": "controls-engineer-specialist-m-f-d-mikron",
+      "slug": "controllo-ingegnere-specialista-m-f-d-mikron-group-boudry",
       "slugByLocale": {
-        "it": "controls-engineer-specialist-m-f-d-mikron",
-        "en": "controls-engineer-specialist-m-f-d-mikron"
+        "it": "controllo-ingegnere-specialista-m-f-d-mikron-group-boudry",
+        "en": "controls-engineer-specialist-m-f-d-mikron",
+        "de": "steuerungsingenieur-spezialist-m-w-d-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "technology",
@@ -268,7 +269,15 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "controls-engineer-specialist-m-f-d-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "controls-engineer-specialist-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/warehouse-logistic-operator-mfd-0",
@@ -434,17 +443,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "product-care-leader-m-f-d-mikron",
-          "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry"
-        ]
-      },
-      "previousSlugs": [
-        "product-care-leader-m-f-d-mikron",
-        "leader-della-cura-del-prodotto-m-f-d-mikron-group-boudry"
-      ]
+      }
     },
     {
       "url": "https://www.mikron.com/en/product-conformity-specialist-mfd",
@@ -502,17 +501,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "previousSlugsByLocale": {
-        "it": [
-          "product-conformity-specialist-m-f-d-mikron",
-          "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry"
-        ]
-      },
-      "previousSlugs": [
-        "product-conformity-specialist-m-f-d-mikron",
-        "specialista-di-conformita-del-prodotto-m-f-d-mikron-group-boudry"
-      ]
+      "crawlerMissStreak": 1
     },
     {
       "url": "https://www.mikron.com/en/hardware-engineer-specialist-mfd-0",
@@ -613,19 +602,14 @@
       "previousSlugs": [
         "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
         "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno",
-        "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno",
-        "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-        "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno"
+        "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno",
-          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron",
-          "marketing-generalista-m-f-d-con-lingua-madre-tedesca-mikron-group-agno"
+          "marketing-generalist-m-f-d-con-la-lingua-tedesca-madre-mikron-group-agno"
         ],
         "en": [
-          "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno",
-          "marketing-generalist-m-w-d-mit-deutscher-muttersprache-mikron"
+          "marketing-generalist-m-f-d-with-native-german-language-mikron-group-agno"
         ],
         "fr": [
           "marketing-generaliste-h-f-d-avec-langue-allemande-native-mikron-group-agno"

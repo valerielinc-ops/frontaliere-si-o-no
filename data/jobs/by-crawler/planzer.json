@@ -124,8 +124,7 @@
         "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-marstetten",
         "apprenticeship-logistician-in-efz-field-of-specialization-warehouse-planzer-marstetten",
         "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-marstetten",
-        "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-marstetten",
-        "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-spreitenbach"
+        "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-marstetten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -133,8 +132,7 @@
           "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-marstetten",
           "apprenticeship-logistician-in-efz-field-of-specialization-warehouse-planzer-marstetten",
           "lehrstelle-logistiker-in-efz-fachrichtung-lager-planzer-marstetten",
-          "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-marstetten",
-          "apprendistato-impiegato-a-in-logistica-cfc-specializzazione-magazzino-planzer-spreitenbach"
+          "apprentissage-logisticien-dans-efz-domaine-de-specialisation-entrepot-planzer-marstetten"
         ],
         "en": [
           "apprenticeship-logistician-in-efz-field-of-specialization-warehouse-planzer-marstetten"
@@ -295,12 +293,12 @@
     },
     {
       "id": "planzer-9baea472e573",
-      "slug": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
+      "slug": "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen",
       "slugByLocale": {
-        "it": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "en": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
+        "it": "sorter-pacchetto-strato-tardivo-m-f-d-planzer-seewen",
+        "en": "package-sorter-late-layer-m-f-d-planzer-seewen",
         "de": "paketsortierer-spatschicht-m-w-d-planzer-seewen",
-        "fr": "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        "fr": "trieuse-de-paquets-couche-tardive-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -356,16 +354,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-spatschicht-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-2de65beb8c4e",
-      "slug": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
+      "slug": "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen",
       "slugByLocale": {
-        "it": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "en": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
+        "it": "sorter-del-pacchetto-strato-iniziale-m-f-d-planzer-seewen",
+        "en": "package-sorter-early-layer-m-f-d-planzer-seewen",
         "de": "paketsortierer-fruhschicht-m-w-d-planzer-seewen",
-        "fr": "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        "fr": "trieuse-de-paquets-au-debut-du-calque-h-f-d-planzer-seewen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -421,16 +433,30 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ],
+        "en": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ],
+        "fr": [
+          "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+        ]
+      },
+      "previousSlugs": [
+        "paketsortierer-fruhschicht-m-w-d-planzer-seewen"
+      ]
     },
     {
       "id": "planzer-60719705fd22",
-      "slug": "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt",
+      "slug": "cuscinetti-dipendenti-con-missioni-di-guida-m-f-d-planzer-zermatt",
       "slugByLocale": {
-        "it": "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt",
-        "en": "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt",
         "de": "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt",
-        "fr": "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt"
+        "it": "cuscinetti-dipendenti-con-missioni-di-guida-m-f-d-planzer-zermatt",
+        "en": "employees-bearings-with-driving-missions-m-f-d-planzer-zermatt",
+        "fr": "employes-roulements-avec-des-missions-de-conduite-h-f-d-planzer-zermatt"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -477,6 +503,12 @@
         "it": [
           "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt",
           "collaboratore-trice-magazzino-con-fahreinsatzen-m-w-d-planzer-zermatt"
+        ],
+        "en": [
+          "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt"
+        ],
+        "fr": [
+          "mitarbeiter-lager-mit-fahreinsatzen-m-w-d-planzer-zermatt"
         ]
       },
       "previousSlugs": [
@@ -500,12 +532,12 @@
     },
     {
       "id": "planzer-145aab8578c5",
-      "slug": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
+      "slug": "selezione-dei-dipendenti-m-f-d-planzer-harkingen",
       "slugByLocale": {
-        "it": "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen",
-        "en": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
+        "it": "selezione-dei-dipendenti-m-f-d-planzer-harkingen",
+        "en": "employee-picking-m-f-d-planzer-harkingen",
         "de": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
-        "fr": "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        "fr": "selection-des-employes-h-f-d-planzer-harkingen"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -556,6 +588,12 @@
         "it": [
           "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen",
           "collaboratore-trice-kommissionierung-m-w-d-planzer-harkingen"
+        ],
+        "en": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
+        ],
+        "fr": [
+          "mitarbeiter-kommissionierung-m-w-d-planzer-harkingen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:35:14.657Z",
@@ -577,10 +615,10 @@
       "id": "planzer-c550e27051ac",
       "slug": "collaboratore-trice-magazzino-m-w-d-planzer-wikon",
       "slugByLocale": {
-        "it": "collaboratore-trice-magazzino-m-w-d-planzer-wikon",
-        "en": "mitarbeiter-lager-m-w-d-planzer-wikon",
         "de": "mitarbeiter-lager-m-w-d-planzer-wikon",
-        "fr": "mitarbeiter-lager-m-w-d-planzer-wikon"
+        "it": "collaboratore-trice-magazzino-m-w-d-planzer-wikon",
+        "en": "employee-camp-m-f-d-planzer-wikon",
+        "fr": "camp-des-employes-h-f-d-planzer-wikon"
       },
       "company": "Planzer",
       "companyKey": "planzer",
@@ -627,6 +665,12 @@
         "it": [
           "mitarbeiter-lager-m-w-d-planzer-wikon",
           "collaboratore-trice-magazzino-m-w-d-planzer-wikon"
+        ],
+        "en": [
+          "mitarbeiter-lager-m-w-d-planzer-wikon"
+        ],
+        "fr": [
+          "mitarbeiter-lager-m-w-d-planzer-wikon"
         ]
       },
       "previousSlugs": [
@@ -909,13 +953,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cobol-developer-m-w-d-planzer-dietikon",
-        "cobol-sviluppatore-m-w-d-planzer-dietikon"
+        "cobol-developer-m-w-d-planzer-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cobol-developer-m-w-d-planzer-dietikon",
-          "cobol-sviluppatore-m-w-d-planzer-dietikon"
+          "cobol-developer-m-w-d-planzer-dietikon"
         ],
         "fr": [
           "cobol-developer-m-w-d-planzer-dietikon"

@@ -6223,12 +6223,12 @@
     },
     {
       "id": "lups-b93634683d91",
-      "slug": "assistenzarzt-60-100-m-w-d-lups-luzern",
+      "slug": "assistente-medico-60-100-m-f-d-luzerner-psychiatrie-lups-luzern",
       "slugByLocale": {
-        "it": "assistenzarzt-60-100-m-w-d-lups-luzern",
-        "en": "assistenzarzt-60-100-m-w-d-lups-luzern",
+        "it": "assistente-medico-60-100-m-f-d-luzerner-psychiatrie-lups-luzern",
+        "en": "assistant-doctor-60-100-m-f-d-luzerner-psychiatrie-lups-luzern",
         "de": "assistenzarzt-60-100-m-w-d-lups-luzern",
-        "fr": "assistenzarzt-60-100-m-w-d-lups-luzern"
+        "fr": "assistant-medecin-60-100-h-f-d-luzerner-psychiatrie-lups-luzern"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6282,7 +6282,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarzt-60-100-m-w-d-lups-luzern"
+        ],
+        "en": [
+          "assistenzarzt-60-100-m-w-d-lups-luzern"
+        ],
+        "fr": [
+          "assistenzarzt-60-100-m-w-d-lups-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarzt-60-100-m-w-d-lups-luzern"
+      ]
     },
     {
       "id": "lups-2b7976f21bf1",
@@ -6488,12 +6502,12 @@
     },
     {
       "id": "lups-1c3639d57832",
-      "slug": "psychologin-80-m-w-d-lups-kriens",
+      "slug": "psicologo-80-m-f-d-luzerner-psychiatrie-lups-kriens",
       "slugByLocale": {
-        "it": "psychologin-80-m-w-d-lups-kriens",
-        "en": "psychologin-80-m-w-d-lups-kriens",
         "de": "psychologin-80-m-w-d-lups-kriens",
-        "fr": "psychologin-80-m-w-d-lups-kriens"
+        "it": "psicologo-80-m-f-d-luzerner-psychiatrie-lups-kriens",
+        "en": "psychologist-80-m-f-d-luzerner-psychiatrie-lups-kriens",
+        "fr": "psychologue-80-h-f-d-luzerner-psychiatrie-lups-kriens"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6547,7 +6561,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:09:31.077Z"
+      "firstSeenAt": "2026-09-03T23:09:31.077Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-80-m-w-d-lups-kriens"
+        ],
+        "en": [
+          "psychologin-80-m-w-d-lups-kriens"
+        ],
+        "fr": [
+          "psychologin-80-m-w-d-lups-kriens"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-80-m-w-d-lups-kriens"
+      ]
     },
     {
       "id": "lups-1e090e0d2c1a",
@@ -6616,12 +6644,12 @@
     },
     {
       "id": "lups-8252347e4944",
-      "slug": "arbeitsagoge-60-100-m-w-d-lups-st-urban",
+      "slug": "dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
       "slugByLocale": {
         "de": "arbeitsagoge-60-100-m-w-d-lups-st-urban",
-        "it": "arbeitsagoge-60-100-m-w-d-lups-st-urban",
-        "en": "arbeitsagoge-60-100-m-w-d-lups-st-urban",
-        "fr": "arbeitsagoge-60-100-m-w-d-lups-st-urban"
+        "it": "dipendente-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "en": "employee-60-100-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "fr": "employe-60-100-h-f-d-luzerner-psychiatrie-lups-st-urban"
       },
       "company": "Luzerner Psychiatrie (LUPS)",
       "companyKey": "lups",
@@ -6683,23 +6711,27 @@
           "agenzie-di-lavoro-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
           "work-agencies-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
           "arbeitsagoge-50-60-m-w-d-lups-st-urban",
-          "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban"
+          "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
+          "arbeitsagoge-60-100-m-w-d-lups-st-urban"
         ],
         "en": [
-          "work-agencies-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban"
+          "work-agencies-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
+          "arbeitsagoge-60-100-m-w-d-lups-st-urban"
         ],
         "de": [
           "arbeitsagoge-50-60-m-w-d-lups-st-urban"
         ],
         "fr": [
-          "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban"
+          "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
+          "arbeitsagoge-60-100-m-w-d-lups-st-urban"
         ]
       },
       "previousSlugs": [
         "agenzie-di-lavoro-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
         "work-agencies-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
         "arbeitsagoge-50-60-m-w-d-lups-st-urban",
-        "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban"
+        "agences-de-travail-50-60-m-f-d-luzerner-psychiatrie-lups-st-urban",
+        "arbeitsagoge-60-100-m-w-d-lups-st-urban"
       ],
       "crawlerMissStreak": 2
     },

@@ -748,11 +748,11 @@
     },
     {
       "id": "spitex-ch-e43393ee7797",
-      "slug": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg",
+      "slug": "dipl-infermiera-hf-psichiatria-40-90-spitex-rothenburg-rothenburg",
       "slugByLocale": {
-        "it": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg",
-        "en": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg",
         "de": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg",
+        "it": "dipl-infermiera-hf-psichiatria-40-90-spitex-rothenburg-rothenburg",
+        "en": "dipl-nurse-hf-psychiatry-40-90-spitex-rothenburg-rothenburg",
         "fr": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg"
       },
       "company": "Spitex Rothenburg",
@@ -812,11 +812,16 @@
       "firstSeenAt": "2026-09-03T13:39:47.199Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+          "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+        "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+        "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg"
       ]
     },
     {
@@ -971,12 +976,12 @@
     },
     {
       "id": "spitex-ch-14d79ce20cb2",
-      "slug": "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim",
+      "slug": "costruzione-di-flexpool-carico-di-lavoro-orario-flessibile-spitex-region-mullheim-mullheim",
       "slugByLocale": {
-        "it": "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim",
-        "en": "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim",
+        "it": "costruzione-di-flexpool-carico-di-lavoro-orario-flessibile-spitex-region-mullheim-mullheim",
+        "en": "construction-of-flexpool-flexible-hourly-workload-spitex-region-mullheim-mullheim",
         "de": "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim",
-        "fr": "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim"
+        "fr": "construction-de-flexpool-charge-de-travail-horaire-flexible-spitex-region-mullheim-mullheim"
       },
       "company": "Spitex Region Müllheim",
       "companyKey": "spitex-ch",
@@ -1032,7 +1037,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim"
+        ],
+        "en": [
+          "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim"
+        ],
+        "fr": [
+          "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim"
+        ]
+      },
+      "previousSlugs": [
+        "aufbau-flexpool-flexibles-stundenpensum-spitex-ch-mullheim"
+      ]
     },
     {
       "id": "spitex-ch-42137f554167",
@@ -1117,10 +1136,10 @@
       "id": "spitex-ch-96f3ea63d160",
       "slug": "flying-bildungsverantwortliche-per-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-bachtel-ag-wetzikon-zh",
       "slugByLocale": {
-        "it": "flying-bildungsverantwortliche-per-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-bachtel-ag-wetzikon-zh",
-        "en": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch",
         "de": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch",
-        "fr": "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        "it": "flying-bildungsverantwortliche-per-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-bachtel-ag-wetzikon-zh",
+        "en": "flying-education-responsible-for-the-training-network-in-zurioberland-spitex-bachtel-ag-wetzikon-zh",
+        "fr": "flying-education-responsable-du-reseau-d-entrainement-de-zurioberland-spitex-bachtel-ag-wetzikon-zh"
       },
       "company": "Spitex Bachtel AG",
       "companyKey": "spitex-ch",
@@ -1165,6 +1184,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        ],
+        "en": [
+          "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
+        ],
+        "fr": [
           "flying-bildungsverantwortliche-fur-das-ausbildungsnetz-im-zurioberland-gesucht-spitex-ch"
         ]
       },

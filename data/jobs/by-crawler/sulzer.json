@@ -25937,12 +25937,12 @@
     },
     {
       "id": "sulzer-66fceb3c1b97",
-      "slug": "tax-manager-sulzer-ch",
+      "slug": "gestione-fiscale-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
-        "it": "tax-manager-sulzer-ch",
+        "fr": "tax-manager-sulzer-ch",
+        "it": "gestione-fiscale-sulzer-cuautitlan-izcalli",
         "en": "tax-manager-sulzer-cuautitlan-izcalli",
-        "de": "tax-manager-sulzer-ch",
-        "fr": "tax-manager-sulzer-ch"
+        "de": "steuerberater-sulzer-cuautitlan-izcalli"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -25996,7 +25996,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-03T23:30:13.376Z"
+      "firstSeenAt": "2026-09-03T23:30:13.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "tax-manager-sulzer-ch"
+        ],
+        "de": [
+          "tax-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "tax-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-700e4e591139",
@@ -26186,12 +26197,12 @@
     },
     {
       "id": "sulzer-e3f583d8f222",
-      "slug": "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch",
+      "slug": "macchinista-manuale-mulino-orizzontale-vtl-sulzer-edmonton",
       "slugByLocale": {
-        "it": "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch",
         "en": "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch",
+        "it": "macchinista-manuale-mulino-orizzontale-vtl-sulzer-edmonton",
         "de": "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch",
-        "fr": "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch"
+        "fr": "machiniste-manuel-usine-d-emboutissage-horizontale-vtl-sulzer-edmonton"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -26244,7 +26255,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-03T23:30:11.075Z"
+      "firstSeenAt": "2026-09-03T23:30:11.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch"
+        ],
+        "fr": [
+          "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manual-machinist-horizontal-boring-mill-vtl-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-8b6940a24400",

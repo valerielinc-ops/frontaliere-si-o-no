@@ -549,12 +549,12 @@
     },
     {
       "id": "schulthess-klinik-9214d811c47d",
-      "slug": "radiologiefachperson-schulthess-klinik-zurich",
+      "slug": "specialista-della-radiologia-schulthess-klinik-zurich",
       "slugByLocale": {
-        "it": "radiologiefachperson-schulthess-klinik-zurich",
-        "en": "radiologiefachperson-schulthess-klinik-zurich",
+        "it": "specialista-della-radiologia-schulthess-klinik-zurich",
+        "en": "radiology-specialist-schulthess-klinik-zurich",
         "de": "radiologiefachperson-schulthess-klinik-zurich",
-        "fr": "radiologiefachperson-schulthess-klinik-zurich"
+        "fr": "specialiste-de-radiologie-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -609,16 +609,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "radiologiefachperson-schulthess-klinik-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-schulthess-klinik-zurich"
+      ]
     },
     {
       "id": "schulthess-klinik-0b32553ee454",
-      "slug": "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich",
+      "slug": "dipendente-membro-del-personale-operativo-e-disposizione-del-letto-schulthess-klinik-zurich",
       "slugByLocale": {
-        "it": "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich",
-        "en": "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
+        "it": "dipendente-membro-del-personale-operativo-e-disposizione-del-letto-schulthess-klinik-zurich",
+        "en": "employee-staff-member-operating-and-bed-disposition-schulthess-klinik-zurich",
         "de": "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
+        "fr": "employe-membre-du-personnel-fonctionnement-et-disposition-du-lit-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -668,6 +682,12 @@
         "it": [
           "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich",
           "mitarbeiterin-collaboratore-trice-op-e-bettendisposition-schulthess-klinik-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-op-und-bettendisposition-schulthess-klinik-zurich"
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:46.593Z",
@@ -849,12 +869,12 @@
     },
     {
       "id": "schulthess-klinik-f226253b6361",
-      "slug": "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
+      "slug": "farmacia-professionale-farmacia-professionale-schulthess-klinik-lengghalde-2-zurich",
       "slugByLocale": {
-        "it": "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
-        "en": "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
         "de": "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich",
-        "fr": "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+        "it": "farmacia-professionale-farmacia-professionale-schulthess-klinik-lengghalde-2-zurich",
+        "en": "professional-pharmacy-professional-pharmacy-schulthess-klinik-lengghalde-2-zurich",
+        "fr": "pharmacie-professionnelle-pharmacie-professionnelle-schulthess-klinik-lengghalde-2-zurich"
       },
       "company": "Schulthess Klinik",
       "companyKey": "schulthess-klinik",
@@ -909,7 +929,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:10:03.577Z"
+      "firstSeenAt": "2026-09-03T23:10:03.577Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "en": [
+          "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+        ],
+        "fr": [
+          "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-apotheke-fachmann-apotheke-schulthess-klinik-lengghalde-2-zurich"
+      ]
     }
   ]
 }

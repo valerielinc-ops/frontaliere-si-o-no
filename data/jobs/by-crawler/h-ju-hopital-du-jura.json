@@ -953,11 +953,11 @@
     },
     {
       "id": "h-ju-hopital-du-jura-ed425b1ed111",
-      "slug": "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont",
+      "slug": "infermiera-a-pediatria-hopital-du-jura-h-ju-delemont",
       "slugByLocale": {
-        "it": "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont",
-        "en": "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont",
-        "de": "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont",
+        "it": "infermiera-a-pediatria-hopital-du-jura-h-ju-delemont",
+        "en": "nurse-in-pediatrics-hopital-du-jura-h-ju-delemont",
+        "de": "krankenschwester-in-der-padiatrie-hopital-du-jura-h-ju-delemont",
         "fr": "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont"
       },
       "company": "Hôpital du Jura (H-JU)",
@@ -1014,7 +1014,21 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont"
+        ],
+        "en": [
+          "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont"
+        ],
+        "de": [
+          "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-pediatrie-h-ju-hopital-du-jura-delemont"
+      ]
     }
   ]
 }

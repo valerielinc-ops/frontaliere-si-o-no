@@ -328,12 +328,12 @@
     },
     {
       "id": "cordenpharma-16f2c9557475",
-      "slug": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
+      "slug": "scienziato-per-l-innovazione-postdoc-chemist-100-m-f-d-cordenpharma-liestal",
       "slugByLocale": {
-        "it": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
-        "en": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
         "de": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
-        "fr": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+        "it": "scienziato-per-l-innovazione-postdoc-chemist-100-m-f-d-cordenpharma-liestal",
+        "en": "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
+        "fr": "chercheur-en-innovation-postdoc-chimiste-100-h-f-d-cordenpharma-liestal"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
@@ -388,7 +388,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:09:49.890Z"
+      "firstSeenAt": "2026-09-03T23:09:49.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+        ],
+        "fr": [
+          "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+      ]
     },
     {
       "id": "cordenpharma-4605023155c6",

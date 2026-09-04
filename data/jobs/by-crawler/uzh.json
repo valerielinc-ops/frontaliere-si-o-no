@@ -10007,12 +10007,12 @@
     },
     {
       "id": "uzh-ce0472f2ac30",
-      "slug": "program-manager-uzh-zurich",
+      "slug": "direttore-del-programma-universitat-zurich-zurich",
       "slugByLocale": {
-        "it": "program-manager-uzh-zurich",
+        "it": "direttore-del-programma-universitat-zurich-zurich",
         "en": "program-manager-universitat-zurich-zurich",
         "de": "program-manager-uzh-zurich",
-        "fr": "program-manager-uzh-zurich"
+        "fr": "gestionnaire-de-programme-universitat-zurich-zurich"
       },
       "company": "Universität Zürich",
       "companyKey": "uzh",
@@ -10068,7 +10068,18 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "program-manager-uzh-zurich"
+        ],
+        "fr": [
+          "program-manager-uzh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "program-manager-uzh-zurich"
+      ]
     },
     {
       "id": "uzh-0a43feee01b9",

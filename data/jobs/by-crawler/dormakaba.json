@@ -1315,12 +1315,12 @@
     },
     {
       "id": "dormakaba-12228",
-      "slug": "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
+      "slug": "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon",
       "slugByLocale": {
         "de": "leiter-versand-80-100-m-w-d-dormakaba-ch",
-        "it": "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
-        "en": "leiter-versand-80-100-m-w-d-dormakaba-ch",
-        "fr": "leiter-versand-80-100-m-w-d-dormakaba-ch"
+        "it": "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon",
+        "en": "head-of-shipping-80-100-m-f-d-dormakaba-wetzikon",
+        "fr": "responsable-de-la-livraison-80-100-h-f-d-dormakaba-wetzikon"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -1366,10 +1366,18 @@
         "de": []
       },
       "previousSlugs": [
-        "leiter-versand-80-100-m-w-d-dormakaba-ch"
+        "leiter-versand-80-100-m-w-d-dormakaba-ch",
+        "leiter-versand-80-100-m-w-d-dormakaba-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-versand-80-100-m-w-d-dormakaba-ch",
+          "leiter-versand-80-100-m-w-d-dormakaba-wetzikon"
+        ],
+        "en": [
+          "leiter-versand-80-100-m-w-d-dormakaba-ch"
+        ],
+        "fr": [
           "leiter-versand-80-100-m-w-d-dormakaba-ch"
         ]
       },

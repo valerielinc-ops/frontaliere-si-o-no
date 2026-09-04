@@ -2462,12 +2462,12 @@
     },
     {
       "id": "triaplus-6a1d104475dc",
-      "slug": "pflegedienstleitung-e-mitglied-der-geschaftsleitung-m-w-d-100-triaplus-ag-oberwil",
+      "slug": "servizio-di-cura-e-membro-della-gestione-m-f-d-100-triaplus-ag-oberwil",
       "slugByLocale": {
-        "it": "pflegedienstleitung-e-mitglied-der-geschaftsleitung-m-w-d-100-triaplus-ag-oberwil",
-        "en": "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus",
+        "it": "servizio-di-cura-e-membro-della-gestione-m-f-d-100-triaplus-ag-oberwil",
+        "en": "care-service-and-member-of-the-management-m-f-d-100-triaplus-ag-oberwil",
         "de": "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus",
-        "fr": "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus"
+        "fr": "service-de-soins-et-membre-de-la-direction-h-f-d-100-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2509,10 +2509,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus"
+        "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus",
+        "pflegedienstleitung-e-mitglied-der-geschaftsleitung-m-w-d-100-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus",
+          "pflegedienstleitung-e-mitglied-der-geschaftsleitung-m-w-d-100-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus"
+        ],
+        "fr": [
           "pflegedienstleitung-und-mitglied-der-geschaftsleitung-m-w-d-100-triaplus"
         ]
       },
@@ -2533,12 +2541,12 @@
     },
     {
       "id": "triaplus-150a73ebdc9e",
-      "slug": "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2",
+      "slug": "social-worker-m-f-d-triaplus-ag-oberwil",
       "slugByLocale": {
-        "it": "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2",
+        "it": "social-worker-m-f-d-triaplus-ag-oberwil",
         "en": "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2",
         "de": "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2",
-        "fr": "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2"
+        "fr": "travailleur-social-h-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2592,7 +2600,18 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2"
+        ],
+        "fr": [
+          "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-w-m-d-triaplus-sozialarbeiter-in-w-m-d-2"
+      ]
     }
   ]
 }

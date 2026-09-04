@@ -53,16 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-manager-market-shaping-gavi-le-grand-saconnex",
-        "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+        "senior-manager-market-shaping-gavi-le-grand-saconnex"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-manager-market-shaping-gavi-le-grand-saconnex",
-          "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
-        ],
-        "en": [
-          "senior-manager-african-vaccine-manufacturing-accelerator-avma-market-shaping-gavi-le-grand"
+          "senior-manager-market-shaping-gavi-le-grand-saconnex"
         ]
       },
       "needsRetranslation": true,
@@ -149,12 +144,12 @@
     },
     {
       "id": "gavi-747d17d810cb",
-      "slug": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
+      "slug": "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex",
       "slugByLocale": {
-        "it": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
+        "it": "partenariati-e-innovazione-del-settore-privato-gavi-the-vaccine-alliance-le-grand-saconnex",
         "en": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
         "de": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex",
-        "fr": "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
+        "fr": "chef-partenariats-avec-le-secteur-prive-et-innovation-gavi-the-vaccine-alliance-le-grand-saconnex"
       },
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
@@ -211,7 +206,18 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
+        ],
+        "fr": [
+          "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
+        ]
+      },
+      "previousSlugs": [
+        "head-private-sector-partnerships-and-innovation-gavi-le-grand-saconnex"
+      ]
     }
   ]
 }

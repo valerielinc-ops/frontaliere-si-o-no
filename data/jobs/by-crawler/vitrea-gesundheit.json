@@ -675,12 +675,12 @@
     },
     {
       "id": "vitrea-gesundheit-df3bb2972e97",
-      "slug": "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau",
+      "slug": "cucina-chef-a-100-vitrea-gesundheit-seewis-im-prattigau",
       "slugByLocale": {
-        "it": "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau",
-        "en": "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau",
+        "it": "cucina-chef-a-100-vitrea-gesundheit-seewis-im-prattigau",
+        "en": "cook-chef-a-100-vitrea-gesundheit-seewis-im-prattigau",
         "de": "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau",
-        "fr": "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau"
+        "fr": "cuisiniere-chef-a-100-vitrea-gesundheit-seewis-im-prattigau"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -734,7 +734,21 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau"
+        ],
+        "en": [
+          "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau"
+        ],
+        "fr": [
+          "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-a-100-vitrea-gesundheit-seewis-im-prattigau"
+      ]
     }
   ]
 }

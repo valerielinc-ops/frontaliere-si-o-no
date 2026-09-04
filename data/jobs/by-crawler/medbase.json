@@ -13102,12 +13102,12 @@
     },
     {
       "id": "medbase-bc3c6114c44d",
-      "slug": "facharztin-arzt-aim-o-praktische-r-arztin-arzt-a-80-100-medbase-bern",
+      "slug": "specialista-dottore-medico-aim-o-praticante-dottore-a-80-100-medbase-bern",
       "slugByLocale": {
-        "it": "facharztin-arzt-aim-o-praktische-r-arztin-arzt-a-80-100-medbase-bern",
-        "en": "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch",
+        "it": "specialista-dottore-medico-aim-o-praticante-dottore-a-80-100-medbase-bern",
+        "en": "medical-specialist-doctor-aim-or-practitioner-doctor-a-80-100-medbase-bern",
         "de": "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch",
-        "fr": "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch"
+        "fr": "specialiste-medical-docteur-aim-ou-praticien-docteur-a-80-100-medbase-bern"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -13149,10 +13149,18 @@
       "requirementsByLocale": {},
       "jobReqId": "JR07589",
       "previousSlugs": [
-        "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch"
+        "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch",
+        "facharztin-arzt-aim-o-praktische-r-arztin-arzt-a-80-100-medbase-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch",
+          "facharztin-arzt-aim-o-praktische-r-arztin-arzt-a-80-100-medbase-bern"
+        ],
+        "en": [
+          "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch"
+        ],
+        "fr": [
           "facharztin-arzt-aim-oder-praktische-r-arztin-arzt-a-80-100-medbase-ch"
         ]
       },
@@ -13372,12 +13380,12 @@
     },
     {
       "id": "medbase-e4bb08ecad1f",
-      "slug": "stv-teamleiter-logistik-a-80-100-medbase-ch",
+      "slug": "stv-team-leader-logistics-a-80-100-medbase-frauenfeld",
       "slugByLocale": {
-        "it": "stv-teamleiter-logistik-a-80-100-medbase-ch",
-        "en": "stv-teamleiter-logistik-a-80-100-medbase-ch",
         "de": "stv-teamleiter-logistik-a-80-100-medbase-ch",
-        "fr": "stv-teamleiter-logistik-a-80-100-medbase-ch"
+        "it": "stv-team-leader-logistics-a-80-100-medbase-frauenfeld",
+        "en": "stv-teamleiter-logistik-a-80-100-medbase-ch",
+        "fr": "stv-chef-d-equipe-logistique-a-80-100-medbase-frauenfeld"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -13432,16 +13440,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:22:42.517Z"
+      "firstSeenAt": "2026-09-03T23:22:42.517Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleiter-logistik-a-80-100-medbase-ch"
+        ],
+        "fr": [
+          "stv-teamleiter-logistik-a-80-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleiter-logistik-a-80-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-c0d2d80cee18",
-      "slug": "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch",
+      "slug": "responsabile-regionale-in-a-regione-farmacia-svizzera-orientale-100-medbase-winterthur",
       "slugByLocale": {
-        "it": "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch",
-        "en": "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch",
         "de": "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch",
-        "fr": "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch"
+        "it": "responsabile-regionale-in-a-regione-farmacia-svizzera-orientale-100-medbase-winterthur",
+        "en": "regional-manager-in-a-pharmacy-region-eastern-switzerland-100-medbase-winterthur",
+        "fr": "directeur-regional-a-region-pharmacie-suisse-est-100-medbase-winterthur"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -13498,7 +13517,21 @@
       },
       "streetAddress": "Schützenstrasse 3",
       "postalCode": "8400",
-      "firstSeenAt": "2026-09-03T23:22:41.836Z"
+      "firstSeenAt": "2026-09-03T23:22:41.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch"
+        ],
+        "en": [
+          "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch"
+        ],
+        "fr": [
+          "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regionalleiter-in-a-pharmacy-region-ostschweiz-100-medbase-ch"
+      ]
     },
     {
       "id": "medbase-8eeb06f789b6",

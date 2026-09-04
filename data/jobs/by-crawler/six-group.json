@@ -6324,12 +6324,12 @@
     },
     {
       "id": "six-group-ecec0268f495",
-      "slug": "customer-support-agent-six-group-warsaw",
+      "slug": "agente-di-assistenza-clienti-six-group-warsaw",
       "slugByLocale": {
-        "it": "customer-support-agent-six-group-warsaw",
+        "it": "agente-di-assistenza-clienti-six-group-warsaw",
         "en": "customer-support-agent-six-group-warsaw",
         "de": "customer-support-agent-six-group-warsaw",
-        "fr": "customer-support-agent-six-group-warsaw"
+        "fr": "agent-de-soutien-a-la-clientele-six-group-warsaw"
       },
       "company": "SIX Group",
       "companyKey": "six-group",
@@ -6384,7 +6384,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "customer-support-agent-six-group-warsaw"
+        ],
+        "fr": [
+          "customer-support-agent-six-group-warsaw"
+        ]
+      },
+      "previousSlugs": [
+        "customer-support-agent-six-group-warsaw"
+      ]
     },
     {
       "id": "six-group-e42428f5f7f2",

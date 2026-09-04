@@ -9773,12 +9773,12 @@
     },
     {
       "id": "equans-e5a29dcf3fa3",
-      "slug": "strategy-amp-sustainability-graduate-program-equans-zurich",
+      "slug": "programma-di-laurea-di-strategia-e-sostenibilita-equans-switzerland-zurich",
       "slugByLocale": {
-        "it": "strategy-amp-sustainability-graduate-program-equans-zurich",
+        "it": "programma-di-laurea-di-strategia-e-sostenibilita-equans-switzerland-zurich",
         "en": "strategy-amp-sustainability-graduate-program-equans-zurich",
-        "de": "strategy-amp-sustainability-graduate-program-equans-zurich",
-        "fr": "strategy-amp-sustainability-graduate-program-equans-zurich"
+        "de": "strategie-nachhaltigkeit-graduate-program-equans-switzerland-zurich",
+        "fr": "strategie-et-durabilite-programme-des-diplomes-equans-switzerland-zurich"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",
@@ -9833,16 +9833,30 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "strategy-amp-sustainability-graduate-program-equans-zurich"
+        ],
+        "de": [
+          "strategy-amp-sustainability-graduate-program-equans-zurich"
+        ],
+        "fr": [
+          "strategy-amp-sustainability-graduate-program-equans-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategy-amp-sustainability-graduate-program-equans-zurich"
+      ]
     },
     {
       "id": "equans-fa89a4079020",
       "slug": "junior-facility-manager-in-baden-equans-baden",
       "slugByLocale": {
+        "de": "junior-facility-manager-in-baden-equans-baden",
         "it": "junior-facility-manager-in-baden-equans-baden",
         "en": "junior-facility-manager-in-baden-equans-baden",
-        "de": "junior-facility-manager-in-baden-equans-baden",
-        "fr": "junior-facility-manager-in-baden-equans-baden"
+        "fr": "directeur-des-installations-juniors-in-baden-equans-switzerland-baden"
       },
       "company": "Equans Switzerland",
       "companyKey": "equans",

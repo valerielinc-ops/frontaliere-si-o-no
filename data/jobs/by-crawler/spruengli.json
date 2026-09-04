@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spruengli-38a6aa65af9b",
-      "slug": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+      "slug": "turn-manager-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
       "slugByLocale": {
-        "it": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
-        "en": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen",
+        "it": "turn-manager-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
+        "en": "shift-manager-100-cafe-bar-zurich-airport-confiserie-sprungli-ag-zurich",
         "de": "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
-        "fr": "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        "fr": "gestionnaire-de-poste-100-cafe-bar-aeroport-de-zurich-confiserie-sprungli-ag-zurich"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -60,6 +60,12 @@
       "previousSlugsByLocale": {
         "it": [
           "schichtleiter-in-100-cafe-bar-flughafen-zurich-spruengli-zurich",
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "en": [
+          "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
+        ],
+        "fr": [
           "schichtleiter-in-100-cafe-bar-flughafen-zurich-confiserie-sprungli-ag-zurich-flughafen"
         ]
       },

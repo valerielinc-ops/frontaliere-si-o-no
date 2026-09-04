@@ -274,11 +274,11 @@
     },
     {
       "id": "epi-geneve-16e2b1af3612",
-      "slug": "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l",
+      "slug": "un-assistente-socio-professionale-cooker-100-servizio-alimentare-cdi-etablissements-publics-pour-l-integration-collonge",
       "slugByLocale": {
-        "it": "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l",
-        "en": "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l",
-        "de": "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-epi",
+        "it": "un-assistente-socio-professionale-cooker-100-servizio-alimentare-cdi-etablissements-publics-pour-l-integration-collonge",
+        "en": "a-socio-professional-assistant-cooker-100-food-service-cdi-etablissements-publics-pour-l-integration-collonge-bellerive",
+        "de": "ein-sozioprofessioneller-assistent-kocher-100-food-service-cdi-etablissements-publics-pour-l-integration-collonge",
         "fr": "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l"
       },
       "company": "Établissements publics pour l'intégration",
@@ -334,6 +334,12 @@
         "fr": [
           "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-epi",
           "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l"
+        ],
+        "en": [
+          "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-etablissements-publics-pour-l"
+        ],
+        "de": [
+          "un-e-assistant-e-socioprofessionnel-le-cuisinier-iere-a-100-service-restauration-cdi-epi"
         ]
       },
       "needsRetranslation": true,
@@ -354,11 +360,11 @@
     },
     {
       "id": "epi-geneve-8ece846eb6d2",
-      "slug": "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland",
+      "slug": "un-socio-educatore-graffiti-75-6-mesi-cdm-etablissements-publics-pour-l-integration-thonex-ge-switzerland",
       "slugByLocale": {
-        "it": "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland",
-        "en": "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland",
-        "de": "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland",
+        "it": "un-socio-educatore-graffiti-75-6-mesi-cdm-etablissements-publics-pour-l-integration-thonex-ge-switzerland",
+        "en": "a-socio-educator-graffiti-75-6-month-cdm-etablissements-publics-pour-l-integration-thonex-ge-switzerland",
+        "de": "ein-sozialpadagoge-graffiti-75-6-monate-cdm-etablissements-publics-pour-l-integration-thonex-ge-switzerland",
         "fr": "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-etablissements-publics-pour-l-integration-thonex"
       },
       "company": "Établissements publics pour l'intégration",
@@ -420,10 +426,20 @@
       "previousSlugsByLocale": {
         "fr": [
           "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-etablissements-publics-pour-l-integration-thonex"
+        ],
+        "it": [
+          "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland"
+        ],
+        "en": [
+          "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland"
+        ],
+        "de": [
+          "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland"
         ]
       },
       "previousSlugs": [
-        "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-etablissements-publics-pour-l-integration-thonex"
+        "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-etablissements-publics-pour-l-integration-thonex",
+        "un-e-socio-educateur-trice-graffiti-75-cdm-de-6-mois-epi-geneve-thonex-ge-switzerland"
       ]
     },
     {

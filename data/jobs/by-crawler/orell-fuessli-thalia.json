@@ -2163,12 +2163,12 @@
     },
     {
       "id": "orell-fuessli-thalia-19c5f36afdd1",
-      "slug": "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
+      "slug": "capo-reparto-80-100-a-orell-fussli-thalia-wurenlos",
       "slugByLocale": {
-        "it": "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
-        "en": "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
+        "it": "capo-reparto-80-100-a-orell-fussli-thalia-wurenlos",
+        "en": "head-of-department-80-100-a-orell-fussli-thalia-wurenlos",
         "de": "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos",
-        "fr": "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
+        "fr": "chef-de-departement-80-100-a-orell-fussli-thalia-wurenlos"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2224,16 +2224,30 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
+        ],
+        "en": [
+          "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
+        ],
+        "fr": [
+          "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleitung-80-100-a-orell-fuessli-thalia-wurenlos"
+      ]
     },
     {
       "id": "orell-fuessli-thalia-70203f956024",
-      "slug": "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa",
+      "slug": "specialista-al-dettaglio-papeterie-40-50-a-orell-fussli-thalia-stafa",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa",
-        "en": "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
+        "it": "specialista-al-dettaglio-papeterie-40-50-a-orell-fussli-thalia-stafa",
+        "en": "retail-specialist-papeterie-40-50-a-orell-fussli-thalia-stafa",
         "de": "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
-        "fr": "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
+        "fr": "specialiste-du-commerce-de-detail-papeterie-40-50-a-orell-fussli-thalia-stafa"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -2284,6 +2298,12 @@
         "it": [
           "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
           "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:15.697Z",

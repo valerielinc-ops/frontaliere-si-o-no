@@ -167,12 +167,12 @@
     },
     {
       "id": "sro-0d6507b8e96d",
-      "slug": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
+      "slug": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
       "slugByLocale": {
-        "it": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "en": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
         "de": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal",
-        "fr": "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
+        "it": "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal",
+        "en": "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
+        "fr": "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -237,19 +237,23 @@
         "it": [
           "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal-a98242",
           "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-a98242",
-          "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242"
+          "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242",
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
         ],
         "en": [
-          "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-a98242"
+          "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-a98242",
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
         ],
         "fr": [
-          "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242"
+          "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242",
+          "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
         ]
       },
       "previousSlugs": [
         "stv-station-manager-80-100-reparto-interdisciplinare-sro-ag-spital-region-oberaargau-langenthal-a98242",
         "stv-station-manager-80-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal-a98242",
-        "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242"
+        "stv-gestionnaire-de-station-80-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau-langenthal-a98242",
+        "stv-stationsleiter-in-80-100-interdisziplinare-abteilung-sro-langenthal"
       ]
     },
     {
@@ -829,12 +833,12 @@
     },
     {
       "id": "sro-a8d0d579b075",
-      "slug": "leitende-arztin-leitenden-arzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-100-sro-ag-spital-region-oberaargau-langenthal",
+      "slug": "principale-medico-ortopedia-e-chirurgia-trauma-con-focus-sulla-chirurgia-del-piede-100-sro-ag-spital-region-oberaargau",
       "slugByLocale": {
-        "it": "leitende-arztin-leitenden-arzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-100-sro-ag-spital-region-oberaargau-langenthal",
-        "en": "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt",
         "de": "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt",
-        "fr": "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt"
+        "it": "principale-medico-ortopedia-e-chirurgia-trauma-con-focus-sulla-chirurgia-del-piede-100-sro-ag-spital-region-oberaargau",
+        "en": "principal-physician-orthopaedics-and-trauma-surgery-with-focus-on-foot-surgery-100-sro-ag-spital-region-oberaargau",
+        "fr": "orthopedie-du-medecin-principal-et-chirurgie-de-traumatisme-avec-l-accent-sur-la-chirurgie-du-pied-100-sro-ag-spital"
       },
       "company": "SRO AG (Spital Region Oberaargau)",
       "companyKey": "sro",
@@ -884,6 +888,12 @@
         "it": [
           "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt",
           "leitende-arztin-leitenden-arzt-orthopala-e-unfallchirurgie-con-schwerpunkt-fusschirurgie-sprunggelenkschirurgie-100-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "en": [
+          "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt"
+        ],
+        "fr": [
+          "leitende-arztin-leitenden-arzt-orthopadie-und-unfallchirurgie-mit-schwerpunkt"
         ]
       },
       "previousSlugs": [
@@ -1195,7 +1205,6 @@
         "de": "Wir suchen nach Vereinbarung eine Das bewirken Sie bei uns\n• Mithilfe in der Pflege und Betreuung unserer Patientinnen und Patienten\n• Ausführen von hauswirtschaftlichen Aufgaben\n• Ausführen von medizinaltechnischen und behandlungspflegerischen Arbeiten\n• Ausführen von administrativen und logistischen Arbeiten Das bringen Sie mit\n• Abgeschlossene Berufsausbildung als Fachperson Gesundheit EFZ\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit Bei uns arbeiten\n• Verantwortungsvolle und interessante Aufgaben in einem dynamischen Umfeld\n• Eine patientenorientierte, interdisziplinäre Zusammenarbeit\n• Eine moderne und hochstehende Infrastruktur\n• Zeitgemässe Anstellungsbedingungen nach GAV\n• Parkplätze und eine gute Anbindung an den ÖV\n• Weiterbildungsmöglichkeiten SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Mithilfe in der Pflege und Betreuung unserer Patientinnen und Patienten\n• Ausführen von hauswirtschaftlichen Aufgaben\n• Ausführen von medizinaltechnischen und behandlungspflegerischen Arbeiten\n• Ausführen von administrativen und logistischen Arbeiten\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung als Fachperson Gesundheit EFZ\n• Hohe Sozial- und Selbstkompetenz\n• Bereitschaft zur Schichtarbeit",
         "fr": "Nous sommes à la recherche d'un accord qui aboutira avec nous\n• Assistance dans les soins et soins de nos patients\n• Exécution des tâches domestiques\n• Exécution de travaux médicaux et de soins\n• Exécution des travaux administratifs et logistiques Ça t'amène.\n• Formation professionnelle complétée en tant que spécialiste de la santé EFZ\n• Haute compétence sociale et autonome\n• Volonté de travailler avec nous\n• Des tâches responsables et intéressantes dans un environnement dynamique\n• Coopération interdisciplinaire axée sur le patient\n• Une infrastructure moderne et de haut niveau\n• Conditions d'emploi actuelles selon GAV\n• Parking et une bonne connexion aux transports publics\n• Autres possibilités de formation SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Assistance dans les soins et soins de nos patients\n• Exécution des tâches domestiques\n• Exécution de travaux médicaux et de soins\n• Exécution des travaux administratifs et logistiques\n\nExigences\n• Formation professionnelle complétée en tant que spécialiste de la santé EFZ\n• Haute compétence sociale et autonome\n• Préparation au travail posté"
       },
-      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/4b691d26-085a-4f1a-9a30-6f8e0a96dd59",
@@ -1223,25 +1232,20 @@
       "pensum": "50 - 100%",
       "validThrough": "2026-10-01",
       "department": "Gesundheitswesen",
-      "previousSlugs": [
-        "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
-        "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
-        "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
-        "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "gestione-della-qualita-professionale-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "professional-quality-management-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "fachperson-qualitatsmanagement-80-100-sro-langenthal",
-        "gestion-de-la-qualite-professionnelle-80-100-sro-ag-spital-region-oberaargau-langenthal",
-        "professional-health-fage-emergency-center-50-100-sro-ag-spital-region-oberaargau-langenthal",
-        "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu",
-        "fachperson-gesundheit-50-100-sro-langenthal",
-        "assistente-medico-assistente-professionale-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal",
-        "medical-assistant-practice-assistant-100-cardiology-sro-ag-spital-region-oberaargau-langenthal",
-        "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
-        "assistant-medical-assistant-professionnel-100-cardiologie-sro-ag-spital-region-oberaargau-langenthal",
-        "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal"
-      ],
+      "salaryMin": 85000,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-03T13:35:17.227Z",
       "previousSlugsByLocale": {
         "it": [
           "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
@@ -1267,29 +1271,35 @@
           "fachperson-gesundheit-50-100-sro-langenthal",
           "medical-assistant-practice-assistant-100-cardiology-sro-ag-spital-region-oberaargau-langenthal"
         ],
-        "de": [
-          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal"
-        ],
         "fr": [
           "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
           "fachperson-gesundheit-50-100-sro-langenthal",
           "assistant-medical-assistant-professionnel-100-cardiologie-sro-ag-spital-region-oberaargau-langenthal"
+        ],
+        "de": [
+          "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal"
         ]
       },
-      "firstSeenAt": "2026-09-03T13:35:17.227Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      }
+      "previousSlugs": [
+        "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
+        "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
+        "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal-2b110d",
+        "health-professional-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "professionnels-de-la-sante-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "gestione-della-qualita-professionale-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "professional-quality-management-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fachperson-qualitatsmanagement-80-100-sro-langenthal",
+        "gestion-de-la-qualite-professionnelle-80-100-sro-ag-spital-region-oberaargau-langenthal",
+        "professional-health-fage-emergency-center-50-100-sro-ag-spital-region-oberaargau-langenthal",
+        "fachperson-gesundheit-50-100-sro-langenthal-xj5ocu",
+        "fachperson-gesundheit-50-100-sro-langenthal",
+        "assistente-medico-assistente-professionale-100-cardiologia-sro-ag-spital-region-oberaargau-langenthal",
+        "medical-assistant-practice-assistant-100-cardiology-sro-ag-spital-region-oberaargau-langenthal",
+        "medizinische-n-praxisassistentin-praxisassistenten-100-kardiologie-sro-langenthal",
+        "assistant-medical-assistant-professionnel-100-cardiologie-sro-ag-spital-region-oberaargau-langenthal",
+        "salute-professionale-50-100-sro-ag-spital-region-oberaargau-langenthal"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "sro-84a93febb9eb",
@@ -2951,7 +2961,6 @@
         "de": "Wir bieten ab Herbst 2026 interessante Studiengänge resp. Ausbildungsplätze an Das bewirken Sie bei uns\n• Pflege und Betreuung von Menschen, welche sich in einer psychischen Krise befinden. Mithilfe des interdisziplinären Teams begleitest du die Menschen durch diese Zeit\n• Mitarbeit auf Augenhöhe in einem Team, welches aus Pflegefachpersonen, Ärzten, Psycholog:innen und Sozialarbeiter:innen besteht\n• Während der Ausbildung werden die verschiedenen Stationen der Psychiatrischen Behandlung durchlaufen. Das erste Jahr findet auf der stationären Akutbehandlung, das zweite in der teilstationären Tagesklinik und das dritte in der mobilen Akutbehandlung statt Das bringen Sie mit\n• Lehrabschluss mit Eidgenössischem Fähigkeitszeugnis EFZ\n• Fachmittelschulabschluss oder Gymnasiale Maturität\n• Erfolgreich absolvierte Eignungsabklärung\n• Psychische Belastbarkeit und Reflexionsfähigkeit\n• Rasche Auffassungs- und Beobachtungsgabe\n• Starke kommunikative Fähigkeiten\n• Für ein Praktikum in der mobilen Akutbehandlung ist ein Führerausweis der Kat. B. erforderlich Bei uns arbeiten\n• Eine fundierte Ausbildung in einem vielseitigen Lernfeld\n• Individuelle Unterstützung in deinem Lernprozess durch eine Berufsbildner:in und qualifizierte Fachpersonen\n• Während des Praktikums finden transferunterstützende Unterrichte statt\n• Zusammenarbeit mit engagierten und motivierten Teams\n• Mitarbeit in verschiedenen Bereichen der (teil-)stationären und ambulanten Behandlung\n• Verantwortungsvolle und sinnstiftende Aufgaben in einem dynamischen Umfeld\n• Patientenorientierte, interdisziplinäre Zusammenarbeit auf Augenhöhe\n• Moderne und hochstehende Infrastruktur\n• Kein Nachtdienst\n• Maximal ein Wochenenddienst pro Monat SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nAufgaben:\n• Pflege und Betreuung von Menschen, welche sich in einer psychischen Krise befinden. Mithilfe des interdisziplinären Teams begleitest du die Menschen durch diese Zeit\n• Mitarbeit auf Augenhöhe in einem Team, welches aus Pflegefachpersonen, Ärzten, Psycholog:innen und Sozialarbeiter:innen besteht\n• Während der Ausbildung werden die verschiedenen Stationen der Psychiatrischen Behandlung durchlaufen. Das erste Jahr findet auf der stationären Akutbehandlung, das zweite in der teilstationären Tagesklinik und das dritte in der mobilen Akutbehandlung statt\n\nAnforderungen:\n• Lehrabschluss mit Eidgenössischem Fähigkeitszeugnis EFZ\n• Fachmittelschulabschluss oder Gymnasiale Maturität\n• Erfolgreich absolvierte Eignungsabklärung\n• Psychische Belastbarkeit und Reflexionsfähigkeit\n• Rasche Auffassungs- und Beobachtungsgabe\n• Starke kommunikative Fähigkeiten\n• Für ein Praktikum in der mobilen Akutbehandlung ist ein Führerausweis der Kat. B. erforderlich",
         "fr": "Nous offrons dès l'automne 2026 des programmes d'étude intéressants resp. Apprentissages que vous pouvez faire avec nous\n• Soins et soins aux personnes en crise mentale. Avec l'aide de l'équipe interdisciplinaire, vous accompagnez les gens à travers ce temps\n• Coopération au niveau des yeux dans une équipe composée d'infirmières, de médecins, de psychologues:à l'intérieur et de travailleurs sociaux:à l'intérieur\n• Au cours de la formation, les différentes étapes du traitement psychiatrique sont franchies. La première année a lieu dans le traitement aigu des patients hospitalisés, la deuxième dans la clinique de jour semi-infirmiers et la troisième dans le traitement aigu mobile C'est ce qu'ils apportent.\n• Diplôme de professeur avec certificat fédéral de compétence EFZ\n• Diplôme d'études secondaires spécialisées ou diplôme d'études secondaires\n• Évaluation des aptitudes réussie\n• Résistance psychologique et capacité de réflexion\n• Perception et observation rapides\n• Fortes compétences en communication\n• Pour un stage en traitement aigu mobile, un permis de conduire est le Cat. B. Requis pour travailler avec nous\n• Une bonne éducation dans un domaine d'apprentissage polyvalent\n• Soutien individuel dans votre processus d'apprentissage par un formateur professionnel: en et spécialistes qualifiés\n• Pendant le stage, les leçons de soutien au transfert ont lieu\n• Collaboration avec des équipes engagées et motivées\n• Coopération dans divers domaines des soins (partiels) hospitaliers et ambulatoires\n• Des tâches responsables et significatives dans un environnement dynamique\n• Coopération interdisciplinaire axée sur le patient au niveau des yeux\n• Infrastructures modernes et de haute qualité\n• Pas de service de nuit\n• Service maximum d'un week-end par mois SRO AG Spital Langenthal, St. Urbanstrasse 67, CH-4900 Langenthal T 062 916 31 31, F 062 916 31 12, info@sro.ch, www.sro.ch\n\nTâches :\n• Soins et soins aux personnes en crise mentale. Avec l'aide de l'équipe interdisciplinaire, vous accompagnez les gens à travers ce temps\n• Coopération au niveau des yeux dans une équipe composée d'infirmières, de médecins, de psychologues:à l'intérieur et de travailleurs sociaux:à l'intérieur\n• Au cours de la formation, les différentes étapes du traitement psychiatrique sont franchies. La première année a lieu dans le traitement aigu des patients hospitalisés, la deuxième dans la clinique de jour semi-infirmiers et la troisième dans le traitement aigu mobile\n\nExigences\n• Diplôme de professeur avec certificat fédéral de compétence EFZ\n• Diplôme d'études secondaires spécialisées ou diplôme d'études secondaires\n• Évaluation des aptitudes réussie\n• Résistance psychologique et capacité de réflexion\n• Perception et observation rapides\n• Fortes compétences en communication\n• Pour un stage en traitement aigu mobile, un permis de conduire est le Cat. B. Besoins"
       },
-      "needsRetranslation": false,
       "location": "Langenthal",
       "canton": "BE",
       "url": "https://ohws.prospective.ch/public/v1/jobs/5f5b2503-36ba-478a-b124-544a36b11142",
@@ -2976,6 +2985,50 @@
       "requirementsByLocale": {},
       "validThrough": "2026-10-01",
       "department": "Gesundheitswesen",
+      "previousSlugsByLocale": {
+        "it": [
+          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
+          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-psychiatrische-dienste",
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region",
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau",
+          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
+          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        ],
+        "en": [
+          "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
+          "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        ],
+        "de": [
+          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
+        ],
+        "fr": [
+          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region",
+          "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau",
+          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
+          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
+        ]
+      },
       "previousSlugs": [
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal",
         "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
@@ -3000,50 +3053,6 @@
         "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal",
         "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
-          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal",
-          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-psychiatrische-dienste",
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region",
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau",
-          "dipl-pflegefachfrau-mann-hf-fh-50-100-im-nachtdienst-interdisziplinare-abteilung-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal",
-          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-infermieristica-professionale-hf-occupazione-operativa-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-ag-spital-region-oberaargau-langenthal"
-        ],
-        "en": [
-          "dipl-nursing-professional-hf-operational-employment-focus-p-sro-ag-spital-region-oberaargau-langenthal-a975f3",
-          "dipl-nursing-specialist-hf-fh-80-100-br-interdisciplinary-private-department-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-specialist-hf-fh-40-100-interdisciplinary-department-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-nursing-professional-hf-operational-employment-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
-        ],
-        "de": [
-          "dipl-pflegefachfrau-mann-hf-fh-80-100-br-interdisziplinare-privatabteilung-sro-langenthal",
-          "dipl-pflegefachfrau-mann-hf-fh-40-100-interdisziplinare-abteilung-sro-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-sro-langenthal"
-        ],
-        "fr": [
-          "c-est-quoi-professionnels-des-soins-infirmiers-hf-emploi-operationnel-focus-p-sro-ag-spital-region-oberaargau-a975f3",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-80-100-br-departement-prive-interdisciplinaire-sro-ag-spital-region",
-          "dipl-specialiste-des-soins-infirmiers-hf-fh-40-100-departement-interdisciplinaire-sro-ag-spital-region-oberaargau",
-          "c-est-quoi-soins-infirmiers-professionnels-hf-emploi-operationnel-sro-ag-spital-region-oberaargau-langenthal",
-          "dipl-pflegefachfrau-mann-hf-betriebsanstellung-fokus-p-sro-langenthal"
-        ]
-      },
-      "firstSeenAt": "2026-09-03T13:35:06.210Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3056,7 +3065,9 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-03T13:35:06.210Z",
+      "needsRetranslation": false
     },
     {
       "id": "sro-4a38ff59f418",

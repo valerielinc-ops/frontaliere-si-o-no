@@ -26483,12 +26483,12 @@
     },
     {
       "id": "hirslanden-01c7ef7d29a3",
-      "slug": "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden",
+      "slug": "dipendenti-dipendenti-documentari-gestione-medica-e-assistente-personale-direzione-50-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden",
-        "it": "mitarbeiterin-collaboratore-trice-belegarztmanagement-assistenz-stab-direktion-50-hirslanden-klinik-hirslanden-andreasklinik-cham",
-        "en": "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden",
-        "fr": "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden"
+        "it": "dipendenti-dipendenti-documentari-gestione-medica-e-assistente-personale-direzione-50-hirslanden-klinik-hirslanden",
+        "en": "employee-employee-documentary-medical-management-assistant-staff-directorate-50-hirslanden-klinik-hirslanden",
+        "fr": "employe-employe-documentaire-gestion-medicale-et-direction-du-personnel-adjoint-50-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26542,7 +26542,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:21:33.598Z"
+      "firstSeenAt": "2026-09-03T23:21:33.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-collaboratore-trice-belegarztmanagement-assistenz-stab-direktion-50-hirslanden-klinik-hirslanden-andreasklinik-cham",
+          "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-collaboratore-trice-belegarztmanagement-assistenz-stab-direktion-50-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "mitarbeiterin-mitarbeiter-belegarztmanagement-assistenz-stab-direktion-50-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-eb042cd2253c",
@@ -28994,12 +29010,12 @@
     },
     {
       "id": "hirslanden-b632ed567bb7",
-      "slug": "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "dipendente-guest-services-dipendente-80-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "collaboratore-trice-mitarbeiterin-guest-services-80-hirslanden-klinik-stephanshorn",
-        "en": "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn"
+        "it": "dipendente-guest-services-dipendente-80-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "employee-guest-services-employee-80-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "employe-services-aux-invites-employe-80-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29053,16 +29069,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:31.667Z"
+      "firstSeenAt": "2026-09-03T23:20:31.667Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratore-trice-mitarbeiterin-guest-services-80-hirslanden-klinik-stephanshorn",
+          "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratore-trice-mitarbeiterin-guest-services-80-hirslanden-klinik-stephanshorn",
+        "mitarbeiter-mitarbeiterin-guest-services-80-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-036de9bbe5ce",
-      "slug": "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden",
+      "slug": "supporto-per-gli-studenti-banco-di-servizio-di-agguato-fatturazione-bern-a-50-100-hirslanden-klinik-hirslanden-corporate",
       "slugByLocale": {
         "de": "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "it": "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "en": "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "fr": "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        "it": "supporto-per-gli-studenti-banco-di-servizio-di-agguato-fatturazione-bern-a-50-100-hirslanden-klinik-hirslanden-corporate",
+        "en": "student-support-ambulant-service-desk-invoicing-bern-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "soutien-aux-etudiants-ambulant-service-desk-facturation-berne-a-50-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29116,16 +29148,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:30.641Z"
+      "firstSeenAt": "2026-09-03T23:20:30.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ],
+        "en": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ],
+        "fr": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-unterstutzung-ambulante-service-desk-fakturierung-bern-a-50-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-cc8fab20a90a",
-      "slug": "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden",
+      "slug": "servizio-stazionario-per-studenti-invoicing-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "it": "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "en": "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "fr": "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        "it": "servizio-stazionario-per-studenti-invoicing-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "student-support-stationary-service-desk-invoicing-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "soutien-aux-etudiants-bureau-de-service-stationnaire-facturation-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29179,7 +29225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:27.525Z"
+      "firstSeenAt": "2026-09-03T23:20:27.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ],
+        "en": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ],
+        "fr": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-unterstutzung-stationare-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-de5b2f432202",
@@ -29246,12 +29306,12 @@
     },
     {
       "id": "hirslanden-7461c863e5ab",
-      "slug": "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik",
+      "slug": "responsabile-della-cura-e-membro-del-team-di-gestione-a-100-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik",
-        "it": "leiterin-leiter-pflege-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
-        "en": "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik",
-        "fr": "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik"
+        "it": "responsabile-della-cura-e-membro-del-team-di-gestione-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "head-of-care-and-member-of-the-management-team-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "responsable-des-soins-et-membre-de-l-equipe-de-direction-a-100-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29305,16 +29365,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:32.731Z"
+      "firstSeenAt": "2026-09-03T23:20:32.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-leiter-pflege-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
+          "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-leiter-pflege-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
+        "leiterin-leiter-pflege-und-mitglied-vom-managementteam-a-100-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-419919819a9b",
-      "slug": "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden",
+      "slug": "sostegno-per-studenti-banco-di-assistenza-per-l-imboscata-di-zurigo-a-50-100-hirslanden-klinik-hirslanden-corporate",
       "slugByLocale": {
         "de": "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "it": "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "en": "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden",
-        "fr": "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        "it": "sostegno-per-studenti-banco-di-assistenza-per-l-imboscata-di-zurigo-a-50-100-hirslanden-klinik-hirslanden-corporate",
+        "en": "student-support-ambulant-service-desk-invoicing-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "soutien-aux-etudiants-ambulant-service-desk-facturation-zurich-a-50-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29368,16 +29444,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:29.598Z"
+      "firstSeenAt": "2026-09-03T23:20:29.598Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ],
+        "en": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ],
+        "fr": [
+          "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-unterstutzung-ambulante-service-desk-fakturierung-zurich-a-50-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-f6e6560aeed1",
-      "slug": "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden",
+      "slug": "responsabile-del-sistema-medico-mes-e-membro-del-team-di-gestione-a-100-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden",
-        "it": "leiterin-leiter-medizinisches-system-mes-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
-        "en": "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden",
-        "fr": "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden"
+        "it": "responsabile-del-sistema-medico-mes-e-membro-del-team-di-gestione-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "head-of-medical-system-mes-and-member-of-the-management-team-a-100-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "chef-du-systeme-medical-mes-et-membre-de-l-equipe-de-direction-a-100-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29431,16 +29521,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:33.780Z"
+      "firstSeenAt": "2026-09-03T23:20:33.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-leiter-medizinisches-system-mes-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
+          "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden"
+        ],
+        "en": [
+          "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden"
+        ],
+        "fr": [
+          "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-leiter-medizinisches-system-mes-e-mitglied-vom-managementteam-a-100-hirslanden-klinik-linde",
+        "leiterin-leiter-medizinisches-system-mes-und-mitglied-vom-managementteam-a-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-ed27ffc9b4c5",
-      "slug": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden",
+      "slug": "personale-personale-servizio-di-fatturazione-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden",
-        "it": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden",
-        "en": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden",
-        "fr": "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        "it": "personale-personale-servizio-di-fatturazione-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "personnel-personnel-service-desk-invoicing-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "facturation-du-bureau-du-personnel-a-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29494,15 +29600,29 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-service-desk-fakturierung-a-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-944a77c3be52",
-      "slug": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+      "slug": "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
-        "de": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "it": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
-        "en": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil",
+        "de": "poolist-krankenschwester-80-flexibel-hirslanden-klinik-hirslanden-clinique-cecil",
+        "it": "infermiere-da-biliardo-80-flessibile-hirslanden-klinik-hirslanden-clinique-cecil",
+        "en": "poolist-nurse-80-flexible-hirslanden-klinik-hirslanden-clinique-cecil",
         "fr": "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
@@ -29557,16 +29677,30 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "en": [
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "de": [
+          "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-pooliste-a-80-flexible-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-e7011471d122",
-      "slug": "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde",
+      "slug": "apprendistato-apprendistato-come-cuoco-cuoco-efz-a-a-partire-da-agosto-2027-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde",
-        "it": "apprendistato-come-kochin-koch-cfc-a-per-august-2027-hirslanden-klinik-linde",
-        "en": "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde",
-        "fr": "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde"
+        "it": "apprendistato-apprendistato-come-cuoco-cuoco-efz-a-a-partire-da-agosto-2027-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "apprenticeship-apprenticeship-as-cook-cook-efz-a-as-of-august-2027-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "apprentissage-apprentissage-comme-cuisinier-cuisinier-efz-a-en-aout-2027-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29620,16 +29754,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:35.805Z"
+      "firstSeenAt": "2026-09-03T23:20:35.805Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendistato-come-kochin-koch-cfc-a-per-august-2027-hirslanden-klinik-linde",
+          "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
+          "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde"
+        ]
+      },
+      "previousSlugs": [
+        "apprendistato-come-kochin-koch-cfc-a-per-august-2027-hirslanden-klinik-linde",
+        "lehrstelle-lehre-als-kochin-koch-efz-a-per-august-2027-hirslanden-hirslanden-klinik-linde"
+      ]
     },
     {
       "id": "hirslanden-eda4a2728937",
-      "slug": "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden",
+      "slug": "servizio-stazionario-dello-studente-invoicing-bern-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "it": "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "en": "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden",
-        "fr": "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        "it": "servizio-stazionario-dello-studente-invoicing-bern-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "student-support-stationary-service-desk-invoicing-bern-a-50-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "soutien-aux-etudiants-stationary-service-desk-facturation-bern-a-50-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29683,16 +29833,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:20:28.586Z"
+      "firstSeenAt": "2026-09-03T23:20:28.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ],
+        "en": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ],
+        "fr": [
+          "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "studentische-unterstutzung-stationare-service-desk-fakturierung-bern-a-50-100-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-36e57d863b69",
-      "slug": "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden",
+      "slug": "assistente-tecnico-di-sterilizzazione-assistente-tecnico-di-sterilizzazione-a-60-hirslanden-klinik-hirslanden-klinik-im",
       "slugByLocale": {
         "de": "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden",
-        "it": "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden",
-        "en": "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden",
-        "fr": "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden"
+        "it": "assistente-tecnico-di-sterilizzazione-assistente-tecnico-di-sterilizzazione-a-60-hirslanden-klinik-hirslanden-klinik-im",
+        "en": "technical-sterilization-assistant-technical-sterilization-assistant-a-60-hirslanden-klinik-hirslanden-klinik-im-park",
+        "fr": "assistant-technique-de-sterilisation-assistant-technique-de-sterilisation-a-60-hirslanden-klinik-hirslanden-klinik-im"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29746,7 +29910,21 @@
           "maxValue": 75600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden"
+        ],
+        "en": [
+          "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden"
+        ],
+        "fr": [
+          "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "technische-sterilisationsassistentin-technischer-sterilisationsassistent-a-60-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-59c5eb2cebc5",

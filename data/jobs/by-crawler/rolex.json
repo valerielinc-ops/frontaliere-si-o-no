@@ -12751,11 +12751,11 @@
     },
     {
       "id": "rolex-c7d83940cb4b",
-      "slug": "manager-process-h-f-rolex-ch",
+      "slug": "gestione-del-processo-m-f-rolex-bienne",
       "slugByLocale": {
-        "it": "manager-process-h-f-rolex-ch",
+        "it": "gestione-del-processo-m-f-rolex-bienne",
         "en": "manager-process-h-f-rolex-bienne",
-        "de": "manager-process-h-f-rolex-ch",
+        "de": "prozessmanager-m-w-rolex-bienne",
         "fr": "manager-process-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -12808,7 +12808,18 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-process-h-f-rolex-ch"
+        ],
+        "de": [
+          "manager-process-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-process-h-f-rolex-ch"
+      ]
     },
     {
       "id": "rolex-4616ff09b908",

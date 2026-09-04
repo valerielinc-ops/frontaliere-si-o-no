@@ -1920,12 +1920,12 @@
     },
     {
       "id": "schindler-053880cdcd48",
-      "slug": "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon",
+      "slug": "teamleader-in-service-room-lucerna-m-f-d-80-100-schindler-ebikon",
       "slugByLocale": {
-        "it": "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon",
-        "en": "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon",
+        "it": "teamleader-in-service-room-lucerna-m-f-d-80-100-schindler-ebikon",
+        "en": "teamleader-in-service-room-lucerne-m-f-d-80-100-schindler-ebikon",
         "de": "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon",
-        "fr": "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon"
+        "fr": "chef-d-equipe-dans-la-salle-de-service-lucerne-h-f-d-80-100-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -1980,7 +1980,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon"
+        ],
+        "en": [
+          "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon"
+        ],
+        "fr": [
+          "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "teamleader-in-service-raum-luzern-m-w-d-80-100-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-be84eedefbe4",
@@ -2425,9 +2439,9 @@
     },
     {
       "id": "schindler-70b719f537bd",
-      "slug": "servicetechniker-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
+      "slug": "tecnico-di-servizio-nella-regione-zofingen-olten-m-f-d-80-100-schindler-oberentfelden",
       "slugByLocale": {
-        "it": "servicetechniker-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
+        "it": "tecnico-di-servizio-nella-regione-zofingen-olten-m-f-d-80-100-schindler-oberentfelden",
         "en": "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
         "de": "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
         "fr": "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden"
@@ -2472,11 +2486,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden"
+        "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
+        "servicetechniker-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden"
+          "servicetechniker-in-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden",
+          "servicetechniker-in-der-region-zofingen-olten-m-w-d-80-100-schindler-oberentfelden"
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:51.103Z",
@@ -4779,9 +4795,9 @@
     },
     {
       "id": "schindler-bbe0f53f988c",
-      "slug": "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil",
+      "slug": "tecnico-di-servizio-nella-regione-di-orlikon-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
-        "it": "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil",
+        "it": "tecnico-di-servizio-nella-regione-di-orlikon-m-f-d-80-100-schindler-wettswil",
         "en": "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil",
         "de": "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil",
         "fr": "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil"
@@ -4839,7 +4855,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-region-orlikon-m-w-d-80-100-schindler-wettswil"
+      ]
     },
     {
       "id": "schindler-a71b58653d3b",

@@ -491,12 +491,12 @@
     },
     {
       "id": "postauto-89f6a42f9c86",
-      "slug": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+      "slug": "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains",
       "slugByLocale": {
-        "it": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-        "en": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-        "de": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
-        "fr": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
+        "fr": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains",
+        "it": "driver-per-il-dispositivo-carpostal-yverdon-les-bains-postauto-ag-yverdon-les-bains",
+        "en": "carpostal-driver-yverdon-les-bains-postauto-ag-yverdon-les-bains",
+        "de": "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -560,10 +560,12 @@
           "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
           "carpostal-driver-carpostal-yverdon-les-bains",
           "carpostal-fahrer-carpostal-yverdon-les-bains",
-          "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
+          "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
+          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
         ],
         "en": [
-          "carpostal-driver-carpostal-yverdon-les-bains"
+          "carpostal-driver-carpostal-yverdon-les-bains",
+          "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
         ],
         "de": [
           "carpostal-fahrer-carpostal-yverdon-les-bains"
@@ -576,7 +578,8 @@
         "driver-per-il-dispositivo-carpostal-carpostal-yverdon-les-bains",
         "carpostal-driver-carpostal-yverdon-les-bains",
         "carpostal-fahrer-carpostal-yverdon-les-bains",
-        "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains"
+        "conductrice-conducteur-carpostal-carpostal-yverdon-les-bains",
+        "conductrice-conducteur-carpostal-yverdon-les-bains-postauto-yverdon-les-bains"
       ]
     },
     {
@@ -2042,12 +2045,12 @@
     },
     {
       "id": "postauto-c7235468a4e7",
-      "slug": "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+      "slug": "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern",
       "slugByLocale": {
-        "it": "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
-        "en": "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
+        "it": "specialista-nei-sistemi-di-ricarica-del-supporto-operativo-postauto-ag-bern",
+        "en": "specialist-in-operation-support-charging-systems-postauto-ag-bern",
         "de": "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern",
-        "fr": "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        "fr": "specialiste-dans-les-systemes-de-charge-de-soutien-operationnel-postauto-ag-bern"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -2106,7 +2109,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        ],
+        "en": [
+          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        ],
+        "fr": [
+          "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-betriebssupport-ladesysteme-postauto-bern"
+      ]
     }
   ]
 }

@@ -3826,11 +3826,11 @@
     },
     {
       "id": "hopital-du-valais-b15370102f5b",
-      "slug": "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion",
+      "slug": "infermiera-all-80-100-per-il-reparto-oncologia-h3-dell-ospedale-di-sion-hopital-du-valais-sion",
       "slugByLocale": {
-        "it": "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion",
-        "en": "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion",
-        "de": "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion",
+        "it": "infermiera-all-80-100-per-il-reparto-oncologia-h3-dell-ospedale-di-sion-hopital-du-valais-sion",
+        "en": "nurse-at-80-100-for-the-h3-oncology-department-of-the-hospital-of-sion-hopital-du-valais-sion",
+        "de": "krankenschwester-bei-80-100-fur-die-h3-onkologie-abteilung-des-krankenhauses-von-sion-hopital-du-valais-sion",
         "fr": "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion"
       },
       "company": "Hôpital du Valais",
@@ -3890,7 +3890,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VS"
+      "addressRegion": "VS",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion"
+        ],
+        "en": [
+          "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion"
+        ],
+        "de": [
+          "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-a-80-100-pour-le-service-de-medecine-oncologie-h3-de-l-hopital-de-sion"
+      ]
     },
     {
       "id": "hopital-du-valais-6a298c192f32",

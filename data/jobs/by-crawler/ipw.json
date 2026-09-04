@@ -2023,12 +2023,12 @@
     },
     {
       "id": "ipw-68e9a79451c8",
-      "slug": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+      "slug": "professionale-specialista-casalinga-integrierte-psychiatrie-winterthur-ipw-winterthur",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-        "en": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
+        "it": "professionale-specialista-casalinga-integrierte-psychiatrie-winterthur-ipw-winterthur",
+        "en": "professional-specialist-housekeeping-integrierte-psychiatrie-winterthur-ipw-winterthur",
         "de": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur",
-        "fr": "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        "fr": "professionnel-specialiste-menage-integrierte-psychiatrie-winterthur-ipw-winterthur"
       },
       "company": "Integrierte Psychiatrie Winterthur (ipw)",
       "companyKey": "ipw",
@@ -2086,7 +2086,21 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ],
+        "en": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ],
+        "fr": [
+          "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-hauswirtschaft-ipw-winterthur"
+      ]
     },
     {
       "id": "ipw-60efeb88c75b",

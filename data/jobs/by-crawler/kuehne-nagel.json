@@ -187,13 +187,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-        "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+        "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach",
-          "tecnico-di-servizio-logistica-lun-f-d-kuehne-nagel-embrach"
+          "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
         ],
         "en": [
           "servicetechniker-logistik-m-w-d-kuehne-nagel-embrach"
@@ -203,7 +201,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:08:08.265Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -216,7 +213,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kuehne-nagel-1e35f532e28b",
@@ -291,7 +289,7 @@
         "it": "operations-manager-healthcare-m-w-d-landverkehr-kuehne-nagel-moehlin",
         "en": "operations-manager-healthcare-m-w-d-landverkehr-kuehne-nagel-moehlin",
         "de": "operations-manager-healthcare-m-w-d-landverkehr-kuehne-nagel-moehlin",
-        "fr": "operations-manager-healthcare-m-w-d-landverkehr-kuehne-nagel-moehlin"
+        "fr": "directeur-des-operations-sante-h-f-d-transport-terrestre-kuehne-nagel-moehlin"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -601,13 +599,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "communications-manager-technology-kuehne-nagel-schindellegi",
-        "gestione-delle-comunicazioni-tecnologia-kuehne-nagel-schindellegi"
+        "communications-manager-technology-kuehne-nagel-schindellegi"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "communications-manager-technology-kuehne-nagel-schindellegi",
-          "gestione-delle-comunicazioni-tecnologia-kuehne-nagel-schindellegi"
+          "communications-manager-technology-kuehne-nagel-schindellegi"
         ],
         "de": [
           "communications-manager-technology-kuehne-nagel-schindellegi"
@@ -683,14 +679,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-opfikon",
-        "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-embrach",
-        "customer-care-specialista-seefracht-m-w-d-kuehne-nagel-opfikon"
+        "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-embrach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-opfikon",
-          "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-embrach",
-          "customer-care-specialista-seefracht-m-w-d-kuehne-nagel-opfikon"
+          "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-embrach"
         ],
         "de": [
           "customer-care-specialist-seefracht-m-w-d-kuehne-nagel-embrach"
@@ -783,12 +777,12 @@
     },
     {
       "id": "kuehne-nagel-cfca87cfc776",
-      "slug": "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
+      "slug": "personale-in-esportazione-m-f-d-trasporti-terrestri-kuehne-nagel-embrach",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
-        "en": "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
         "de": "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach",
-        "fr": "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
+        "it": "personale-in-esportazione-m-f-d-trasporti-terrestri-kuehne-nagel-embrach",
+        "en": "personnel-in-export-m-f-d-land-transport-kuehne-nagel-embrach",
+        "fr": "personnel-en-exportation-h-f-d-transport-terrestre-kuehne-nagel-embrach"
       },
       "company": "Kuehne+Nagel",
       "companyKey": "kuehne-nagel",
@@ -845,7 +839,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-03T23:19:43.927Z"
+      "firstSeenAt": "2026-09-03T23:19:43.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
+        ],
+        "en": [
+          "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
+        ],
+        "fr": [
+          "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-export-m-w-d-landverkehr-kuehne-nagel-embrach"
+      ]
     },
     {
       "id": "kuehne-nagel-937b4aab0d8d",
@@ -989,13 +997,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-export-specialist-m-f-d-sea-logistics-kuehne-nagel-opfikon",
-        "senior-export-specialista-m-f-d-sea-logistica-kuehne-nagel-opfikon"
+        "senior-export-specialist-m-f-d-sea-logistics-kuehne-nagel-opfikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-export-specialist-m-f-d-sea-logistics-kuehne-nagel-opfikon",
-          "senior-export-specialista-m-f-d-sea-logistica-kuehne-nagel-opfikon"
+          "senior-export-specialist-m-f-d-sea-logistics-kuehne-nagel-opfikon"
         ],
         "de": [
           "senior-export-specialist-m-f-d-sea-logistics-kuehne-nagel-opfikon"

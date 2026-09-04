@@ -3040,12 +3040,12 @@
     },
     {
       "id": "buergenstock-hotels-aa7af9522a25",
-      "slug": "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen",
+      "slug": "logisticista-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen",
-        "en": "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen",
+        "it": "logisticista-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "logistician-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "de": "logistiker-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        "fr": "logisticien-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3094,6 +3094,12 @@
         "it": [
           "logistiker-100-w-m-i-buergenstock-hotels-obburgen",
           "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "en": [
+          "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen"
+        ],
+        "fr": [
+          "logistiker-100-w-m-i-burgenstock-hotels-ag-obburgen"
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:24.984Z",
@@ -3113,12 +3119,12 @@
     },
     {
       "id": "buergenstock-hotels-4f93d22a8cb3",
-      "slug": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+      "slug": "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen",
       "slugByLocale": {
-        "it": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "en": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
+        "it": "commissione-di-rango-100-f-m-i-burgenstock-hotels-ag-obburgen",
+        "en": "commis-de-rank-100-f-m-i-burgenstock-hotels-ag-obburgen",
         "de": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen",
-        "fr": "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        "fr": "commission-de-grade-100-f-m-i-burgenstock-hotels-ag-obburgen"
       },
       "company": "Bürgenstock Hotels AG",
       "companyKey": "buergenstock-hotels",
@@ -3172,7 +3178,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "en": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ],
+        "fr": [
+          "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+        ]
+      },
+      "previousSlugs": [
+        "commis-de-rang-100-w-m-i-buergenstock-hotels-obburgen"
+      ]
     },
     {
       "id": "buergenstock-hotels-e134d177a5ce",

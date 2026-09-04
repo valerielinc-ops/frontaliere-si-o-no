@@ -409,12 +409,12 @@
     },
     {
       "id": "galliker-8980731d9299",
-      "slug": "fachperson-betriebsunterhalt-a-galliker-luzern",
+      "slug": "manutenzione-professionale-a-galliker-transport-ag-luzern",
       "slugByLocale": {
-        "it": "fachperson-betriebsunterhalt-a-galliker-luzern",
-        "en": "fachperson-betriebsunterhalt-a-galliker-luzern",
+        "it": "manutenzione-professionale-a-galliker-transport-ag-luzern",
+        "en": "professional-maintenance-a-galliker-transport-ag-luzern",
         "de": "fachperson-betriebsunterhalt-a-galliker-luzern",
-        "fr": "fachperson-betriebsunterhalt-a-galliker-luzern"
+        "fr": "entretien-professionnel-a-galliker-transport-ag-luzern"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -471,7 +471,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betriebsunterhalt-a-galliker-luzern"
+        ],
+        "en": [
+          "fachperson-betriebsunterhalt-a-galliker-luzern"
+        ],
+        "fr": [
+          "fachperson-betriebsunterhalt-a-galliker-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betriebsunterhalt-a-galliker-luzern"
+      ]
     },
     {
       "id": "galliker-ada8d2a11eb8",

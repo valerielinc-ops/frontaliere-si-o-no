@@ -4646,12 +4646,12 @@
     },
     {
       "id": "epfl-03a146fde10c",
-      "slug": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
+      "slug": "ricercatore-post-dottorato-in-verticale-urbana-e-osservatorio-digitale-geospaziale-epfl-lausanne",
       "slugByLocale": {
-        "it": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
+        "it": "ricercatore-post-dottorato-in-verticale-urbana-e-osservatorio-digitale-geospaziale-epfl-lausanne",
         "en": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
-        "de": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl",
-        "fr": "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl"
+        "de": "postdoktorand-in-urbaner-vertikalitat-und-geospatialem-digitalem-observatorium-epfl-lausanne",
+        "fr": "chercheur-postdoctoral-en-verticalite-urbaine-et-observatoire-numerique-geospatial-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4707,15 +4707,29 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-urban-verticality-and-geospatial-digital-observatory-epfl"
+      ]
     },
     {
       "id": "epfl-df12a5dfedab",
-      "slug": "technicien-ne-en-histologie-epfl-lausanne",
+      "slug": "istologia-tecnica-epfl-lausanne",
       "slugByLocale": {
-        "it": "technicien-ne-en-histologie-epfl-lausanne",
-        "en": "technicien-ne-en-histologie-epfl-lausanne",
-        "de": "technicien-ne-en-histologie-epfl-lausanne",
+        "it": "istologia-tecnica-epfl-lausanne",
+        "en": "histology-technician-epfl-lausanne",
+        "de": "histologietechniker-epfl-lausanne",
         "fr": "technicien-ne-en-histologie-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4772,7 +4786,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-histologie-epfl-lausanne"
+        ],
+        "en": [
+          "technicien-ne-en-histologie-epfl-lausanne"
+        ],
+        "de": [
+          "technicien-ne-en-histologie-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-histologie-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-a3cef403113a",

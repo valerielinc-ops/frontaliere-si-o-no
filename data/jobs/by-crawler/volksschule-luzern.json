@@ -1241,12 +1241,12 @@
     },
     {
       "id": "volksschule-luzern-f9aacbf4ddbe",
-      "slug": "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
+      "slug": "maestro-kindergarten-scuola-geissenstein-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
-        "en": "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
+        "it": "maestro-kindergarten-scuola-geissenstein-volksschule-stadt-luzern-luzern",
+        "en": "teacher-kindergarten-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
         "de": "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
-        "fr": "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        "fr": "professeur-maternelle-ecole-geissenstein-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1301,16 +1301,30 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-cd2601a30720",
-      "slug": "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
+      "slug": "specialista-insegnante-asilo-scuola-casa-geissenstein-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
-        "en": "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
+        "it": "specialista-insegnante-asilo-scuola-casa-geissenstein-volksschule-stadt-luzern-luzern",
+        "en": "specialist-teacher-kindergarten-school-house-geissenstein-volksschule-stadt-luzern-luzern",
         "de": "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern",
-        "fr": "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        "fr": "professeur-specialise-maternelle-maison-scolaire-geissenstein-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1365,16 +1379,30 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "fachlehrperson-kindergarten-schulhaus-geissenstein-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-be1a2454ca47",
-      "slug": "stellvertretung-fachlehrperson-per-eine-3-klasse-schulhaus-geissenstein-volksschule-stadt-luzern",
+      "slug": "professore-aggiunto-per-una-terza-classe-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "stellvertretung-fachlehrperson-per-eine-3-klasse-schulhaus-geissenstein-volksschule-stadt-luzern",
-        "en": "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern",
+        "it": "professore-aggiunto-per-una-terza-classe-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
+        "en": "deputy-teacher-for-a-3rd-class-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern",
         "de": "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern",
-        "fr": "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern"
+        "fr": "professeur-adjoint-pour-une-3eme-classe-schoolhouse-geissenstein-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1417,10 +1445,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern"
+        "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern",
+        "stellvertretung-fachlehrperson-per-eine-3-klasse-schulhaus-geissenstein-volksschule-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern",
+          "stellvertretung-fachlehrperson-per-eine-3-klasse-schulhaus-geissenstein-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern"
+        ],
+        "fr": [
           "stellvertretung-fachlehrperson-fur-eine-3-klasse-schulhaus-geissenstein-volksschule-luzern"
         ]
       },
@@ -1441,12 +1477,12 @@
     },
     {
       "id": "volksschule-luzern-a16d3f357305",
-      "slug": "schulische-heilpadagogin-o-forderlehrperson-kindergarten-schulhaus-geissenstein-volksschule-stadt-luzern",
+      "slug": "scuola-curativa-pedagogue-o-supporto-insegnante-asilo-scuola-casa-geissenstein-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "schulische-heilpadagogin-o-forderlehrperson-kindergarten-schulhaus-geissenstein-volksschule-stadt-luzern",
-        "en": "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein",
+        "it": "scuola-curativa-pedagogue-o-supporto-insegnante-asilo-scuola-casa-geissenstein-volksschule-stadt-luzern-luzern",
+        "en": "school-curative-pedagogue-or-support-teacher-kindergarten-school-house-geissenstein-volksschule-stadt-luzern-luzern",
         "de": "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein",
-        "fr": "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein"
+        "fr": "pedagogue-scolaire-ou-enseignant-de-soutien-maternelle-maison-scolaire-geissenstein-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1489,10 +1525,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein"
+        "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein",
+        "schulische-heilpadagogin-o-forderlehrperson-kindergarten-schulhaus-geissenstein-volksschule-stadt-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein",
+          "schulische-heilpadagogin-o-forderlehrperson-kindergarten-schulhaus-geissenstein-volksschule-stadt-luzern"
+        ],
+        "en": [
+          "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein"
+        ],
+        "fr": [
           "schulische-heilpadagogin-oder-forderlehrperson-kindergarten-schulhaus-geissenstein"
         ]
       },

@@ -988,12 +988,12 @@
     },
     {
       "id": "klinik-im-hasel-8e8093978046",
-      "slug": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "slug": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
       "slugByLocale": {
-        "it": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "en": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+        "it": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
+        "en": "intern-in-social-work-f-m-d-80-klinik-im-hasel-gontenschwil",
         "de": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
-        "fr": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+        "fr": "stagiaire-travail-social-f-m-d-80-klinik-im-hasel-gontenschwil"
       },
       "company": "Klinik im Hasel",
       "companyKey": "klinik-im-hasel",
@@ -1048,7 +1048,21 @@
           "maxValue": 66000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+        ],
+        "en": [
+          "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+        ],
+        "fr": [
+          "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil"
+      ]
     }
   ]
 }

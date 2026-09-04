@@ -7,9 +7,9 @@
       "slug": "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
       "slugByLocale": {
         "it": "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
-        "en": "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+        "en": "employee-warenlager-technik-bell-schweiz-ag-basel",
         "de": "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
-        "fr": "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+        "fr": "employe-warenlager-technik-bell-schweiz-ag-basel"
       },
       "company": "Bell Schweiz AG",
       "companyKey": "hilcona",
@@ -47,12 +47,19 @@
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
-        "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+        "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel",
+        "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
           "collaboratore-trice-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+        ],
+        "en": [
+          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
+        ],
+        "fr": [
+          "mitarbeiter-mitarbeiterin-warenlager-technik-bell-schweiz-ag-basel"
         ]
       },
       "needsRetranslation": true,

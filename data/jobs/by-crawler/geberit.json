@@ -2065,8 +2065,8 @@
       "slugByLocale": {
         "de": "leiter-kundeninnendienst-a-100-geberit-ch",
         "it": "leiter-kundeninnendienst-a-100-geberit-rapperswil-jona",
-        "en": "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona",
-        "fr": "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
+        "en": "team-leader-customer-interior-service-a-100-geberit-rapperswil-jona",
+        "fr": "chef-d-equipe-service-interieur-a-la-clientele-a-100-geberit-rapperswil-jona"
       },
       "company": "Geberit",
       "companyKey": "geberit",
@@ -2110,7 +2110,8 @@
         "de": []
       },
       "previousSlugs": [
-        "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        "teamleiter-kunden-innendienst-a-100-geberit-ch",
+        "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2118,6 +2119,12 @@
         ],
         "de": [
           "teamleiter-kunden-innendienst-a-100-geberit-ch"
+        ],
+        "en": [
+          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
+        ],
+        "fr": [
+          "teamleiter-kunden-innendienst-a-100-geberit-rapperswil-jona"
         ]
       },
       "salaryMin": 57500,
@@ -2258,18 +2265,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "social-media-digital-marketing-coordinator-a-60-geberit-ch",
-        "social-media-digital-marketing-coordinatore-a-60-geberit-rapperswil-jona",
-        "social-media-digital-marketing-coordinateur-a-60-geberit-rapperswil-jona"
+        "social-media-digital-marketing-coordinator-a-60-geberit-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "social-media-digital-marketing-coordinator-a-60-geberit-ch",
-          "social-media-digital-marketing-coordinatore-a-60-geberit-rapperswil-jona"
+          "social-media-digital-marketing-coordinator-a-60-geberit-ch"
         ],
         "fr": [
-          "social-media-digital-marketing-coordinator-a-60-geberit-ch",
-          "social-media-digital-marketing-coordinateur-a-60-geberit-rapperswil-jona"
+          "social-media-digital-marketing-coordinator-a-60-geberit-ch"
         ]
       },
       "salaryMin": 35100,

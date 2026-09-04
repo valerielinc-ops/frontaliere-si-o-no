@@ -53,13 +53,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "velokurier-in-kaffeemaschinen-service-60-felfel-zurich",
-        "velokurier-in-servizio-macchina-da-caffe-60-felfel-zurich"
+        "velokurier-in-kaffeemaschinen-service-60-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "velokurier-in-kaffeemaschinen-service-60-felfel-zurich",
-          "velokurier-in-servizio-macchina-da-caffe-60-felfel-zurich"
+          "velokurier-in-kaffeemaschinen-service-60-felfel-zurich"
         ],
         "en": [
           "velokurier-in-kaffeemaschinen-service-60-felfel-zurich"
@@ -137,22 +135,19 @@
       "previousSlugs": [
         "servicetechniker-in-felfel-felfel-zurich",
         "servicetechniker-in-felfel-zurich",
-        "technicien-de-service-en-felfel-felfel-zurich",
-        "tecnico-di-servizio-in-felfel-felfel-zurich"
+        "technicien-de-service-en-felfel-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "servicetechniker-in-felfel-felfel-zurich",
-          "servicetechniker-in-felfel-zurich",
-          "tecnico-di-servizio-in-felfel-felfel-zurich"
+          "servicetechniker-in-felfel-zurich"
         ],
         "en": [
           "servicetechniker-in-felfel-felfel-zurich"
         ],
         "fr": [
           "servicetechniker-in-felfel-felfel-zurich",
-          "technicien-de-service-en-felfel-felfel-zurich",
-          "servicetechniker-in-felfel-zurich"
+          "technicien-de-service-en-felfel-felfel-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -176,9 +171,9 @@
       "slug": "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
       "slugByLocale": {
         "it": "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
-        "en": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
+        "en": "assembly-employee-in-refrigerators-temporary-3-months-100-felfel-zurich",
         "de": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
-        "fr": "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+        "fr": "employe-de-l-assemblee-au-refrigerateur-temporaire-3-mois-100-felfel-zurich"
       },
       "company": "FELFEL",
       "companyKey": "felfel",
@@ -222,13 +217,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
-        "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+        "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich",
-          "montage-collaboratore-trice-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+          "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+        ],
+        "en": [
+          "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
+        ],
+        "fr": [
+          "montage-mitarbeiter-in-kuhlschranke-befristet-3-monate-100-felfel-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -364,13 +363,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "iot-platform-engineer-felfel-zurich",
-        "iot-platform-ingegnere-felfel-zurich"
+        "iot-platform-engineer-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "iot-platform-engineer-felfel-zurich",
-          "iot-platform-ingegnere-felfel-zurich"
+          "iot-platform-engineer-felfel-zurich"
         ],
         "de": [
           "iot-platform-engineer-felfel-zurich"
@@ -380,7 +377,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T21:45:10.723Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -393,7 +389,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "felfel-fad1b905af75",
@@ -447,13 +444,11 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "fleet-device-engineer-felfel-zurich",
-          "edge-platform-engineer-felfel-zurich"
+          "fleet-device-engineer-felfel-zurich"
         ],
         "it": [
           "edge-platform-engineer-felfel-zurich",
-          "fleet-device-engineer-felfel-zurich",
-          "edge-platform-ingegnere-felfel-zurich"
+          "fleet-device-engineer-felfel-zurich"
         ],
         "de": [
           "edge-platform-engineer-felfel-zurich"
@@ -464,11 +459,9 @@
       },
       "previousSlugs": [
         "edge-platform-engineer-felfel-zurich",
-        "fleet-device-engineer-felfel-zurich",
-        "edge-platform-ingegnere-felfel-zurich"
+        "fleet-device-engineer-felfel-zurich"
       ],
       "firstSeenAt": "2026-07-03T21:45:10.720Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -481,7 +474,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "felfel-9303cee58b90",
@@ -603,16 +597,14 @@
         "de": [
           "senior-techniker-kalte-elektrotechnik-felfel-zurich",
           "servicetechniker-kaltetechnik-elektronik-felfel-zurich",
-          "elektrotechniker-in-efz-felfel-zurich",
-          "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich"
+          "elektrotechniker-in-efz-felfel-zurich"
         ],
         "it": [
           "senior-techniker-kalte-elektrotechnik-felfel-zurich",
           "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich",
           "servicetechniker-kaltetechnik-elektronik-felfel-zurich",
           "servizio-tecnico-refrigerazione-elettronica-felfel-zurich",
-          "elektrotechniker-in-efz-felfel-zurich",
-          "elektrotechniker-in-cfc-felfel-zurich"
+          "elektrotechniker-in-efz-felfel-zurich"
         ],
         "en": [
           "senior-maintenance-reliability-engineer-kaltetechnik-felfel-zurich",
@@ -634,8 +626,7 @@
         "servizio-tecnico-refrigerazione-elettronica-felfel-zurich",
         "service-technician-refrigeration-electronics-felfel-zurich",
         "technicien-de-service-refrigeration-electronique-felfel-zurich",
-        "elektrotechniker-in-efz-felfel-zurich",
-        "elektrotechniker-in-cfc-felfel-zurich"
+        "elektrotechniker-in-efz-felfel-zurich"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T14:46:18.541Z",
@@ -784,13 +775,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "business-development-manager-felfel-zurich",
-        "responsabile-dello-sviluppo-commerciale-felfel-zurich"
+        "business-development-manager-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-development-manager-felfel-zurich",
-          "responsabile-dello-sviluppo-commerciale-felfel-zurich"
+          "business-development-manager-felfel-zurich"
         ],
         "fr": [
           "business-development-manager-felfel-zurich"
@@ -863,13 +852,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "automatiker-servicetechniker-kaltetechnik-100-felfel-zurich",
-        "tecnologia-di-refrigerazione-automatica-servizio-100-felfel-zurich"
+        "automatiker-servicetechniker-kaltetechnik-100-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-servicetechniker-kaltetechnik-100-felfel-zurich",
-          "tecnologia-di-refrigerazione-automatica-servizio-100-felfel-zurich"
+          "automatiker-servicetechniker-kaltetechnik-100-felfel-zurich"
         ],
         "en": [
           "automatiker-servicetechniker-kaltetechnik-100-felfel-zurich"
@@ -948,16 +935,14 @@
         "gestionnaire-de-compte-felfel-zurich",
         "gestione-delle-entrate-felfel-zurich",
         "internship-revenue-management-felfel-zurich",
-        "gestion-des-recettes-des-stages-felfel-zurich",
-        "gestione-account-felfel-zurich"
+        "gestion-des-recettes-des-stages-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "account-manager-felfel-zurich",
           "gestione-delle-entrate-felfel-zurich",
           "internship-revenue-management-felfel-zurich",
-          "gestion-des-recettes-des-stages-felfel-zurich",
-          "gestione-account-felfel-zurich"
+          "gestion-des-recettes-des-stages-felfel-zurich"
         ],
         "de": [
           "internship-revenue-management-felfel-zurich"
@@ -1035,13 +1020,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "account-executive-felfel-zurich",
-        "account-esecutivo-felfel-zurich"
+        "account-executive-felfel-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "account-executive-felfel-zurich",
-          "account-esecutivo-felfel-zurich"
+          "account-executive-felfel-zurich"
         ],
         "fr": [
           "account-executive-felfel-zurich"

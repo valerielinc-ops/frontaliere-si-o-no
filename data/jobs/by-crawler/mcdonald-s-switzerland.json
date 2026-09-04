@@ -484,7 +484,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/host-hostess/job/P8-395562-1",
-      "slug": "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
+      "slug": "host-host-mcdonald-s-switzerland-affoltern",
       "location": "AFFOLTERN",
       "canton": "ZH",
       "country": "CH",
@@ -506,7 +506,7 @@
         "fr": "Host/Hostess"
       },
       "slugByLocale": {
-        "it": "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
+        "it": "host-host-mcdonald-s-switzerland-affoltern",
         "en": "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
         "de": "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
         "fr": "host-hostess-mcdonald-s-switzerland-affoltern"
@@ -535,7 +535,15 @@
         }
       },
       "addressLocality": "AFFOLTERN",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
+        ]
+      },
+      "previousSlugs": [
+        "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
+      ]
     },
     {
       "title": "Guest Experience Leader",
@@ -1295,7 +1303,7 @@
       "slugByLocale": {
         "it": "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
         "en": "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
-        "de": "crew-member-mcdonald-s-switzerland-affoltern",
+        "de": "besatzungsmitglied-mcdonald-s-switzerland-affoltern",
         "fr": "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
       },
       "descriptionByLocale": {
@@ -1322,7 +1330,15 @@
         }
       },
       "addressLocality": "AFFOLTERN",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "de": [
+          "crew-member-mcdonald-s-switzerland-affoltern"
+        ]
+      },
+      "previousSlugs": [
+        "crew-member-mcdonald-s-switzerland-affoltern"
+      ]
     },
     {
       "title": "Guest Experience Leader",

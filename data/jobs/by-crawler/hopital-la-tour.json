@@ -903,9 +903,9 @@
     },
     {
       "id": "hopital-la-tour-21f037f09490",
-      "slug": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
+      "slug": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
+        "it": "assistente-medico-in-pediatria-cdi-80-hopital-de-la-tour-meyrin",
         "en": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
         "de": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin",
         "fr": "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
@@ -963,15 +963,23 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-medical-e-en-pediatrie-cdi-80-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-d684c72b4fa2",
-      "slug": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin",
+      "slug": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin",
-        "en": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin",
-        "de": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin",
+        "it": "infermiera-notturna-in-medicina-cdi-80-hopital-de-la-tour-meyrin",
+        "en": "night-nurse-in-medicine-cdi-80-hopital-de-la-tour-meyrin",
+        "de": "nachtkrankenschwester-in-der-medizin-cdi-80-hopital-de-la-tour-meyrin",
         "fr": "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
@@ -1027,15 +1035,29 @@
           "maxValue": 96400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-nuit-en-medecine-cdi-80-hopital-la-tour-meyrin"
+      ]
     },
     {
       "id": "hopital-la-tour-50115154c172",
-      "slug": "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin",
+      "slug": "aiuto-ospedaliero-e-dipartimento-per-bambini-madre-cdm-6-mesi-al-75-hopital-de-la-tour-meyrin",
       "slugByLocale": {
-        "it": "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin",
-        "en": "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin",
-        "de": "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin",
+        "it": "aiuto-ospedaliero-e-dipartimento-per-bambini-madre-cdm-6-mesi-al-75-hopital-de-la-tour-meyrin",
+        "en": "hospital-aid-e-mother-child-department-cdm-6-months-at-75-hopital-de-la-tour-meyrin",
+        "de": "hospital-aid-e-mutter-kind-abteilung-cdm-6-monate-bei-75-hopital-de-la-tour-meyrin",
         "fr": "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin"
       },
       "company": "Hôpital de La Tour",
@@ -1091,7 +1113,21 @@
           "maxValue": 90400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin"
+        ],
+        "en": [
+          "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin"
+        ],
+        "de": [
+          "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin"
+        ]
+      },
+      "previousSlugs": [
+        "aide-hospitalier-ere-departement-mere-enfant-cdm-6-mois-a-75-hopital-la-tour-meyrin"
+      ]
     }
   ]
 }
