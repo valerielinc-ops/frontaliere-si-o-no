@@ -176,6 +176,28 @@ const SF_J2W_MORE_LOCATIONS_TOKEN_RE =
   /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b\s*(?:…|\.{3})?/gi;
 
 /**
+ * Same marker, non-global, used to LOCATE the token so the text after it can
+ * be inspected. A `g` regex carries `lastIndex` between calls and would make
+ * the inspection depend on the previous cell.
+ */
+const SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE = new RegExp(
+  SF_J2W_MORE_LOCATIONS_TOKEN_RE.source,
+  SF_J2W_MORE_LOCATIONS_TOKEN_RE.flags.replace('g', ''),
+);
+
+/**
+ * What a further office segment looks like once the marker has been cut off:
+ * a separator, then actual content. Requiring the separator is deliberate —
+ * "Zurich, CH +2 more… Apply now" is page chrome, not a second office, and
+ * must stay indistinguishable from a plain trailing cut, while
+ * "Lugano, CH +1 more… , Bern, CH" carries a real second segment.
+ *
+ * The token regex above already eats `\s*(?:…|\.{3})?`, so the slice tested
+ * here always starts past the ellipsis: no ellipsis alternative needed.
+ */
+const SF_J2W_TRAILING_SEGMENT_RE = /^\s*[,;]\s*\S/;
+
+/**
  * Normalize the two characters the marker is anchored on, so callers may pass
  * raw HTML as well as decoded text: the ellipsis (`&hellip;`) and the `+`
  * itself (`&#43;`/`&plus;`, plus the fullwidth `＋` some tenant CMSes emit).
@@ -282,10 +304,77 @@ export function stripSuccessFactorsMoreLocations(value) {
   if (typeof value !== 'string') return '';
   const normalized = normalizeMarkerChars(value);
   const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
-  if (withoutTail || !normalized.trim()) return withoutTail;
+  if (withoutTail || !normalized.trim()) {
+    if (withoutTail) warnOnDiscardedOffices(normalized, withoutTail);
+    return withoutTail;
+  }
   return normalized
     .replace(SF_J2W_MORE_LOCATIONS_TOKEN_RE, ' ')
     .replace(/\s+/g, ' ')
     .replace(/^[\s,;]+|[\s,;]+$/g, '')
     .trim();
 }
+
+/**
+ * The office segments a cell renders AFTER the "+N more…" marker, i.e. exactly
+ * what the tail cut of `stripSuccessFactorsMoreLocations()` throws away.
+ *
+ * `''` for the observed skins, where the `<small>` is the LAST node of the
+ * cell, and `''` for page chrome after the marker ("+2 more… Apply now"): a
+ * further OFFICE is separator-delimited, a call to action is not.
+ *
+ * WHY THIS IS A SEPARATE ACCESSOR and not folded into the strip result: every
+ * one of the eight consumers treats the returned string as ONE office and
+ * feeds it to `splitJobLocation`/`inferSwissTargetCanton`. Returning
+ * "Lugano, CH, Bern, CH" makes that chain infer canton BE for a Lugano
+ * posting — it resolves the first STRONG canton signal, and `Bern` is one —
+ * so the row leaves the Ticino index and ships structured data with the wrong
+ * `addressRegion`. Corrupting the primary office is a worse failure than the
+ * one this accessor exists to surface, so the strip keeps returning the
+ * primary office alone and the extra segments are offered here, opt-in.
+ *
+ * @param {unknown} value
+ * @returns {string} The text after the marker, separators trimmed, or `''`.
+ */
+export function successFactorsMoreLocationsTail(value) {
+  if (typeof value !== 'string') return '';
+  const normalized = normalizeMarkerChars(value);
+  const match = normalized.match(SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE);
+  if (!match || typeof match.index !== 'number') return '';
+  const tail = normalized.slice(match.index + match[0].length);
+  if (!SF_J2W_TRAILING_SEGMENT_RE.test(tail)) return '';
+  return tail.replace(/^[\s,;]+|[\s,;]+$/g, '').trim();
+}
+
+/**
+ * Cells already reported, so a results page of N rows sharing one skin quirk
+ * logs once per distinct cell instead of once per row.
+ */
+const warnedDiscardedCells = new Set();
+
+/**
+ * Make the tail cut audible when it discards a real office.
+ *
+ * The reviewer note this answers (#7264, item 3): on a skin rendering
+ * "Lugano, CH +1 more… , Bern, CH" the cut keeps "Lugano, CH" and drops
+ * ", Bern, CH" — consistent with "keep the primary office", but if such a
+ * skin exists the discarded segment may be the row's only Swiss office and
+ * the choice is INDISTINGUISHABLE from the correct case. No fixture of that
+ * skin exists, so the branch stays unobserved until something says so: this
+ * warning is that observer. It cannot fire on the observed skins (nothing
+ * follows the marker there), so it costs nothing on the live corpus and turns
+ * a silent loss into a grep-able line the day a tenant changes layout.
+ *
+ * @param {string} normalized Marker-normalized cell text.
+ * @param {string} kept The primary office the cut kept.
+ * @returns {void}
+ */
+function warnOnDiscardedOffices(normalized, kept) {
+  const tail = successFactorsMoreLocationsTail(normalized);
+  if (!tail || warnedDiscardedCells.has(normalized)) return;
+  warnedDiscardedCells.add(normalized);
+  console.warn(
+    `\u{1F9ED} j2w multi-segment location cell: kept "${kept}", dropped "${tail}" (from "${normalized.trim()}")`,
+  );
+}
+
