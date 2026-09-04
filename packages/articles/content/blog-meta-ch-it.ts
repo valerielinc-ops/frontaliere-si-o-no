@@ -5425,6 +5425,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilaterali III: la Commissione dice sì agli accordi',
     'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'La CPE-S ha dato parere favorevole agli Accordi Bilaterali III con 9 voti a favore. Il dibattito approderà al Consiglio degli Stati a fine mese.',
     'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.title': 'Prezzo olio da riscaldamento alle stelle, colpa di Usa e Iran',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.excerpt': 'I proprietari di case in Svizzera devono prepararsi a rincari significativi per l\'olio da riscaldamento a causa del conflitto Iran-USA.',
+    'blog.article.prezzo-olio-riscaldamento-alle-stelle-usa-iran.imageAlt': 'Vista aerea di Lugano con focus su aree residenziali, evidenziando l\'impatto dei prezzi dell\'olio da riscaldamento.',
 };
 
 export default blogMetaChIt;
