@@ -27,7 +27,10 @@ import {
   extractH1Title,
   parseContentSections,
   buildDescription,
-  buildPublicUrl,
+  buildEnglishUrl,
+  buildEnglishIndex,
+  jobTitleKey,
+  resolvePublicUrl,
 } from '../scripts/lib/giardino-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -314,17 +317,182 @@ describe('buildDescription', () => {
 
 // ─── Public URL construction ────────────────────────────────────────────────────
 
-describe('buildPublicUrl', () => {
-  it('builds English URL from WP slug', () => {
-    expect(buildPublicUrl('gl-steward-m-w')).toBe(
-      'https://giardinohotels.ch/en/jobs/gl-steward-m-w/',
+describe('buildEnglishUrl', () => {
+  it('builds an English URL from an English WP slug', () => {
+    expect(buildEnglishUrl('staff-cook-m-f')).toBe(
+      'https://giardinohotels.ch/en/jobs/staff-cook-m-f/',
     );
   });
 
   it('builds URL for child care slug', () => {
-    expect(buildPublicUrl('ga-child-care-attendant')).toBe(
+    expect(buildEnglishUrl('ga-child-care-attendant')).toBe(
       'https://giardinohotels.ch/en/jobs/ga-child-care-attendant/',
     );
+  });
+});
+
+describe('jobTitleKey', () => {
+  it('matches the German and English gender markers of the same post', () => {
+    expect(jobTitleKey('Steward (m/w)')).toBe(jobTitleKey('Steward (m/f)'));
+  });
+
+  it('decodes WP entities before normalizing', () => {
+    expect(jobTitleKey('Reservations &amp; Front Office Specialist (m/w)')).toBe(
+      'reservations front office specialist',
+    );
+  });
+
+  it('keeps distinct roles distinct', () => {
+    expect(jobTitleKey('Chef de Rang (m/w)')).not.toBe(
+      jobTitleKey('Chef de Rang Ecco (m/w)'),
+    );
+  });
+});
+
+// The English listing carries its own WPML slugs; only entries present there
+// have a real /en/ permalink.
+const EN_LISTINGS = [
+  {
+    slug: 'staff-cook-m-f',
+    link: 'https://giardinohotels.ch/en/jobs/staff-cook-m-f/',
+    title: { rendered: 'Staff Cook (m/f)' },
+  },
+  {
+    slug: 'steward-m-f',
+    link: 'https://giardinohotels.ch/en/jobs/steward-m-f/',
+    title: { rendered: 'Steward (m/f)' },
+  },
+  {
+    slug: 'ga-child-care-attendant',
+    link: 'https://giardinohotels.ch/en/jobs/ga-child-care-attendant/',
+    title: { rendered: 'Child Care Attendant (m/f)' },
+  },
+];
+
+describe('buildEnglishIndex', () => {
+  it('indexes by slug and by title key', () => {
+    const index = buildEnglishIndex(EN_LISTINGS);
+    expect(index.bySlug.get('steward-m-f')).toBe(
+      'https://giardinohotels.ch/en/jobs/steward-m-f/',
+    );
+    expect(index.byTitle.get('staff cook')).toBe(
+      'https://giardinohotels.ch/en/jobs/staff-cook-m-f/',
+    );
+  });
+
+  it('drops ambiguous title keys rather than guessing', () => {
+    const index = buildEnglishIndex([
+      ...EN_LISTINGS,
+      {
+        slug: 'gm-steward-m-f',
+        link: 'https://giardinohotels.ch/en/jobs/gm-steward-m-f/',
+        title: { rendered: 'Steward (m/f)' },
+      },
+    ]);
+    expect(index.byTitle.has('steward')).toBe(false);
+    expect(index.bySlug.get('gm-steward-m-f')).toBe(
+      'https://giardinohotels.ch/en/jobs/gm-steward-m-f/',
+    );
+  });
+
+  it('ignores entries from an untrusted domain', () => {
+    const index = buildEnglishIndex([
+      { slug: 'evil', link: 'https://malicious-site.com/en/jobs/evil/', title: { rendered: 'Evil' } },
+    ]);
+    expect(index.bySlug.size).toBe(0);
+  });
+
+  it('tolerates a missing English listing', () => {
+    expect(buildEnglishIndex([]).bySlug.size).toBe(0);
+    expect(buildEnglishIndex(undefined).byTitle.size).toBe(0);
+  });
+});
+
+describe('resolvePublicUrl', () => {
+  const index = buildEnglishIndex(EN_LISTINGS);
+
+  it('uses the English permalink when the slug matches exactly', () => {
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'ga-child-care-attendant',
+          link: 'https://giardinohotels.ch/de/jobs/ga-child-care-attendant/',
+          title: { rendered: 'Child Care Attendant (m/w)' },
+        },
+        index,
+      ),
+    ).toBe('https://giardinohotels.ch/en/jobs/ga-child-care-attendant/');
+  });
+
+  it('finds the translation whose slug differs (staff-cook-m-w -> staff-cook-m-f)', () => {
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'staff-cook-m-w',
+          link: 'https://giardinohotels.ch/de/jobs/staff-cook-m-w/',
+          title: { rendered: 'Staff Cook (m/w)' },
+        },
+        index,
+      ),
+    ).toBe('https://giardinohotels.ch/en/jobs/staff-cook-m-f/');
+  });
+
+  it('finds the translation whose slug prefix differs (gm-steward -> steward-m-f)', () => {
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'gm-steward',
+          link: 'https://giardinohotels.ch/de/jobs/gm-steward/',
+          title: { rendered: 'Steward (m/w)' },
+        },
+        index,
+      ),
+    ).toBe('https://giardinohotels.ch/en/jobs/steward-m-f/');
+  });
+
+  it('falls back to the German permalink when the post is untranslated', () => {
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'restaurant-manager-m-w',
+          link: 'https://giardinohotels.ch/de/jobs/restaurant-manager-m-w/',
+          title: { rendered: 'Restaurant Manager &#8211; Fine Dining Restaurant Ecco' },
+        },
+        index,
+      ),
+    ).toBe('https://giardinohotels.ch/de/jobs/restaurant-manager-m-w/');
+  });
+
+  it('never pastes a German slug into the /en/ path', () => {
+    const url = resolvePublicUrl(
+      {
+        slug: 'gm-chef-de-rang',
+        link: 'https://giardinohotels.ch/de/jobs/gm-chef-de-rang/',
+        title: { rendered: 'Chef de Rang (m/w)' },
+      },
+      index,
+    );
+    expect(url).not.toContain('/en/jobs/gm-chef-de-rang/');
+    expect(url).toBe('https://giardinohotels.ch/de/jobs/gm-chef-de-rang/');
+  });
+
+  it('rebuilds a German permalink when the API omits the link', () => {
+    expect(
+      resolvePublicUrl({ slug: 'gm-chef-de-rang', title: { rendered: 'Chef de Rang (m/w)' } }, index),
+    ).toBe('https://giardinohotels.ch/de/jobs/gm-chef-de-rang/');
+  });
+
+  it('degrades to the German permalink when the English listing is unavailable', () => {
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'staff-cook-m-w',
+          link: 'https://giardinohotels.ch/de/jobs/staff-cook-m-w/',
+          title: { rendered: 'Staff Cook (m/w)' },
+        },
+        buildEnglishIndex([]),
+      ),
+    ).toBe('https://giardinohotels.ch/de/jobs/staff-cook-m-w/');
   });
 });
 
