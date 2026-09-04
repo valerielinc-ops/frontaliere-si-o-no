@@ -1820,6 +1820,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-imposta-successione-donazione-svitto': { it: 'guida-imposta-successione-donazione-svitto', en: 'guide-inheritance-gift-tax-schwyz', de: 'leitfaden-erbschafts-schenkungssteuer-schwyz', fr: 'guide-droits-succession-donation-schwytz' },
  'avviare-attivita-turgovia-commercio': { it: 'avviare-attivita-turgovia-commercio', en: 'start-business-thurgau-commercial-register', de: 'gewerbe-anmelden-thurgau-handelsregister', fr: 'demarrer-activite-thurgovie-registre-commerce' },
  'permesso-l-san-gallo-proroga': { it: 'permesso-l-san-gallo-proroga', en: 'permit-l-st-gallen-validity-renewal', de: 'permit-l-sanktgallen-gultigkeit-erneuerung', fr: 'permis-l-saint-gall-validite-renouvellement' },
+ 'fondare-impresa-turgovia-procedura-costi': { it: 'fondare-impresa-turgovia-procedura-costi', en: 'founding-business-thurgau-procedure-costs', de: 'unternehmen-grunden-thurgau-verfahren-kosten', fr: 'fonder-entreprise-thurgovie-procedure-frais' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

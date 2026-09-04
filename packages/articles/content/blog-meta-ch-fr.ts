@@ -5383,6 +5383,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-san-gallo-proroga.title': 'Permis L Saint-Gall : validité et prorogation',
     'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Permis L de courte durée jusqu\'à 1 an, procédures de renouvellement, contraintes à l\'employeur, transformation en permis B. Guide pratique.',
     'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Bâtiment administratif cantonal suisse avec drapeau suisse et panorama alpin en arrière-plan',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Ouvrir l\'activité Thurgovie : registre du commerce et des coûts',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Guide pratique pour créer une entreprise dans le canton de Thurgovie : procédures d\'inscription, formes juridiques, fiscalité fédérale et cantonale, obligations SUVA et prévoyance.',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Bureau commercial suisse avec signature d\'un document d\'enregistrement commercial; environnement de travail professionnel moderne.',
 };
 
 export default blogMetaChFr;

@@ -5383,6 +5383,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-san-gallo-proroga.title': 'Permesso L San Gallo: validità e proroga',
     'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Permesso L di breve durata fino a 1 anno, procedure di rinnovo, vincoli al datore di lavoro, trasformazione in permesso B. Guida pratica.',
     'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Edificio amministrativo cantonale svizzero con bandiera svizzera e paesaggio alpino sullo sfondo',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Aprire attività Turgovia: registro commercio e costi',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Guida pratica a fondare impresa nel Cantone Turgovia: procedure di iscrizione, forme giuridiche, tassazione federale e cantonale, obblighi SUVA e previdenza.',
+    'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Ufficio commerciale svizzero con sottoscrizione di documento di registrazione attività; ambiente professionale moderno.',
 };
 
 export default blogMetaChIt;
