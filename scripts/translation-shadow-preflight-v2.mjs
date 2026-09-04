@@ -56,7 +56,10 @@ function nullable(value) {
 }
 
 function parseDefaultBoolean(value, flag) {
-  if (value === undefined) return false;
+  // Su `schedule` il workflow passa comunque il flag, con il valore vuoto di
+  // `inputs.<nome>`: la stringa vuota vale «input non fornito», come per
+  // parseDefaultInteger, e ricade sul default `false` dichiarato nel workflow.
+  if (value === undefined || value === '') return false;
   if (value === 'true') return true;
   if (value === 'false') return false;
   throw new TypeError(`${flag} must be true or false`);
