@@ -1,18 +1,18 @@
 {
   "key": "clinique-de-valere",
   "label": "Clinique de Valère",
-  "generatedAt": "2026-09-03T23:12:21.781Z",
-  "total": 3,
+  "generatedAt": "2026-09-04T13:28:20.571Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
+  "written": 2,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 7138,
-  "avgDurationMs": 7138,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4283,
+  "avgDurationMs": 4283,
   "durationHistory": [
-    7138
+    4283
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -30,7 +30,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146683320-assistant-e-medicale-en-policlinique-a-70-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:12:15.513Z",
+      "crawledAt": "2026-09-04T13:28:17.216Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000144287819-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-80-100-",
       "source": "Clinique de Valère Dedicated Parser (SMN clinic=CDV)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:12:15.514Z",
+      "crawledAt": "2026-09-04T13:28:17.218Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -93,8 +93,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-de-valere-1a3f60eca57b",
       "slug": "radiologia-medica-tecnico-80-100-clinique-de-valere-sion",
@@ -128,7 +127,6 @@
       "salaryMax": 120500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -137,5 +135,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
