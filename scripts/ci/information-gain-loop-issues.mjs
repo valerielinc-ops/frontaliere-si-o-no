@@ -128,17 +128,22 @@ ${METHOD_NOTE}`;
 }
 
 function ratchetBody(r, verdict) {
+  // L'etichetta viene dai path CAMPIONATI, la chiave d'inventario no: con la
+  // risoluzione per prefisso (#7384) le due possono differire, e dettare
+  // `['<etichetta>', …]` manderebbe a togliere una riga che non esiste.
+  const inventoryKey = r.inventoryKey ?? r.label;
   return `## Misura
 
 La coorte \`${r.label}\` è registrata in \`KNOWN_LOW_GAIN_COHORTS\`
-(\`scripts/audit-information-gain.mjs\`) con ${pct(r.recorded)}, ma oggi misura
-**${pct(r.medianIgs)}**, sopra il floor di ${pct(verdict.floor)}.
+(\`scripts/audit-information-gain.mjs\`) alla riga \`${inventoryKey}\` con
+${pct(r.recorded)}, ma oggi misura **${pct(r.medianIgs)}**, sopra il floor di
+${pct(verdict.floor)}.
 
 Misurato il ${verdict.ranAt}.
 
 ## Cosa serve
 
-Togliere la riga \`['${r.label}', ${r.recorded}]\` da \`KNOWN_LOW_GAIN_COHORTS\`.
+Togliere la riga \`['${inventoryKey}', ${r.recorded}]\` da \`KNOWN_LOW_GAIN_COHORTS\`.
 
 L'inventario è un ratchet che può solo **scendere**: finché la riga c'è, il gate
 protegge quella coorte da un peggioramento ma non le chiede più di stare sopra

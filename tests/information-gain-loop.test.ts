@@ -56,6 +56,23 @@ describe('classifyCohorts — i tre bucket sono tre loop diversi', () => {
     expect(regressions).toEqual([]);
   });
 
+  it('un’etichetta più stretta della chiave d’inventario risolve lo stesso (issue #7384)', () => {
+    // Il live-scan campiona 12 URL per sitemap, quindi le sue etichette sono
+    // più lunghe del tronco di famiglia ancora più spesso di quelle del gate
+    // su dist: senza relazione di prefisso ogni run la vedrebbe fuori
+    // inventario e la classificherebbe `below-floor`.
+    const { ratchets, regressions, opportunities } = classifyCohorts(
+      [cohort('it:/stipendio-medio-svizzera-informatico-', 9)],
+      { ...OPTS, inventory: new Map([['it:/stipendio-medio-svizzera-', 0]]) },
+    );
+    expect(regressions).toEqual([]);
+    expect(opportunities).toEqual([]);
+    expect(ratchets[0].recorded).toBe(0);
+    // La riga da togliere dall'inventario è la CHIAVE, non l'etichetta di
+    // questo campione: senza questo campo il ratchet non è azionabile.
+    expect(ratchets[0].inventoryKey).toBe('it:/stipendio-medio-svizzera-');
+  });
+
   it('una coorte dell’inventario che peggiora oltre la tolleranza è una regressione', () => {
     const { regressions } = classifyCohorts([cohort('it:/c/', 2.4)], {
       ...OPTS,
