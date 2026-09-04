@@ -11315,6 +11315,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-remoto-estero-fiscalita.title': 'Remote border crossing: taxes and fees from the holiday',
     'blog.article.frontaliere-remoto-estero-fiscalita.excerpt': 'Do you work remotely from abroad? Taxation remains in Switzerland. Tax at source, AVS, LAMal: what changes with the new 2024 border agreement.',
     'blog.article.frontaliere-remoto-estero-fiscalita.imageAlt': 'Frontierworker\'s desk with laptop and documents, professional home office setup overlooking Lugano valley',
+    'blog.article.sciopero-tilo-italia-2026.title': 'New strike, TILO stop at the border',
+    'blog.article.sciopero-tilo-italia-2026.excerpt': 'National strike in Italy from 7 to 8 September 2026: repercussions on TILO CONNECTIONS',
+    'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Aerial view of Lugano with the Italian border in the background',
 };
 
 export default blogMetaEn;

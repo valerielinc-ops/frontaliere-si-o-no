@@ -85169,6 +85169,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-tilo-italia-2026': {
+    title: 'Nuovo sciopero, i TILO si fermano al confine | Frontaliere Ticino',
+    description: 'Sciopero nazionale in Italia dal 7 al 8 settembre 2026: ripercussioni sui collegamenti TILO. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, sciopero, tilo, fermano',
+    ogTitle: 'Nuovo sciopero, i TILO si fermano al confine',
+    ogDescription: 'Sciopero nazionale in Italia dal 7 al 8 settembre 2026: ripercussioni sui collegamenti TILO. I servizi TILO RE80, S10, S30, S40 e S50 non circoleranno in Italia durante questo periodo.',
+    canonicalPath: '/articoli-frontaliere/sciopero-tilo-italia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuovo sciopero, i TILO si fermano al confine",
+      "description": "Sciopero nazionale in Italia dal 7 al 8 settembre 2026: ripercussioni sui collegamenti TILO. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-tilo-italia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il confine italiano in lontananza"
+      },
+      "datePublished": "2026-09-04T09:42:01+00:00",
+      "dateModified": "2026-09-04T09:42:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-tilo-italia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
