@@ -2030,8 +2030,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "pdgr-931f5642c1d2",
@@ -2734,7 +2733,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Fachperson Gesundheit für die Nachtwache",
       "titleByLocale": {
-        "it": "Fachperson Gesundheit per la Nachtwache",
+        "it": "Professionista della Salute per la guardia notturna",
         "en": "Health Professional for the Night Watch",
         "de": "Fachperson Gesundheit für die Nachtwache",
         "fr": "Professionnels de la santé pour la veille nocturne"
@@ -2803,7 +2802,6 @@
           "professionnel-de-sante-pour-le-service-de-nuit-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:28:46.940Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -2924,7 +2922,7 @@
       "companyDomain": "pdgr.ch",
       "title": "Dipl. Pflegefachperson HF für den Tag- und/oder Nachtdienst",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachperson HF per den Tag- e/o Nachtdienst",
+        "it": "Dipl. Infermiera HF per giorno e/o notte",
         "en": "Dipl. Nurse HF for day and/or night duty",
         "de": "Dipl. Pflegefachperson HF für den Tag- und/oder Nachtdienst",
         "fr": "Dipl. Infirmière HF pour le travail de jour et/ou de nuit"
@@ -2977,7 +2975,6 @@
           "dipl-pflegefachperson-hf-fur-den-tag-und-oder-nachtdienst-psychiatrische-dienste-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:32:29.028Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -3668,11 +3665,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "assistenz-oder-fachpsychologe-in-pdgr-ch"
+          "assistenz-oder-fachpsychologe-in-pdgr-ch",
+          "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
         ]
       },
       "previousSlugs": [
-        "assistenz-oder-fachpsychologe-in-pdgr-ch"
+        "assistenz-oder-fachpsychologe-in-pdgr-ch",
+        "assistenz-oder-fachpsychologe-in-pdgr-ch-3"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
