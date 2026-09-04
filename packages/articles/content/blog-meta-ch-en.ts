@@ -5458,6 +5458,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprenticeship and training: how it works in Switzerland',
     'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Find out how apprenticeships work in Switzerland: from traineeship research to contract, from pay to legal protections to professional maturity.',
     'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Young apprentice working in modern Swiss workshop during hands-on professional training',
+    'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprenticeship and vocational training in the canton of Glarus',
+    'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'How to find an internship, enter into a contract, learn about the apprentice\'s salary and achieve professional maturity in the canton of Glarus.',
+    'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Young apprentice during practical vocational training in a Swiss company workshop with instructor',
 };
 
 export default blogMetaChEn;

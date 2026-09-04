@@ -5458,6 +5458,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-svizzera-guida-pratica.title': 'Aus- und Weiterbildung: So funktioniert es in der Schweiz',
     'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Erfahren Sie, wie die Lehre in der Schweiz funktioniert: von der Suche nach dem Praktikum bis zum Vertrag, von der Vergütung über den Rechtsschutz bis zur Berufsmaturität.',
     'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Junger Lehrling arbeitet in modernem Schweizer Betrieb während praktischer Ausbildung',
+    'blog.article.tirocinio-formazione-professionale-glarona.title': 'Lehre und Berufsausbildung im Kanton Glarus',
+    'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Wie man ein Praktikum findet, einen Vertrag abschliesst, die Entlohnung des Lernenden kennt und die Berufsmaturität im Kanton Glarus erlangt.',
+    'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Lehrling bei praktischer Berufsausbildung in einem Schweizer Betrieb mit Ausbilder',
 };
 
 export default blogMetaChDe;

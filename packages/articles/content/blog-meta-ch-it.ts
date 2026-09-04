@@ -5458,6 +5458,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-svizzera-guida-pratica.title': 'Apprendistato e formazione: come funziona in Svizzera',
     'blog.article.apprendistato-svizzera-guida-pratica.excerpt': 'Scopri come funziona l\'apprendistato in Svizzera: dalla ricerca del tirocinio al contratto, dalla retribuzione alle protezioni legali fino alla maturità professionale.',
     'blog.article.apprendistato-svizzera-guida-pratica.imageAlt': 'Giovane apprendista lavora in officina svizzera moderna durante la formazione pratica con attrezzi professionali',
+    'blog.article.tirocinio-formazione-professionale-glarona.title': 'Apprendistato e formazione professionale nel canton Glarona',
+    'blog.article.tirocinio-formazione-professionale-glarona.excerpt': 'Come trovare un tirocinio, stipulare un contratto, conoscere la retribuzione dell\'apprendista e conseguire la maturità professionale nel canton Glarona.',
+    'blog.article.tirocinio-formazione-professionale-glarona.imageAlt': 'Un giovane apprendista durante una lezione pratica di formazione professionale in un\'azienda svizzera con istruttore',
 };
 
 export default blogMetaChIt;
