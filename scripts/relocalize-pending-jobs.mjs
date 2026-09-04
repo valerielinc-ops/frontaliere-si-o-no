@@ -1606,7 +1606,21 @@ async function main() {
           const preRetryJobs = readJson(DATA_JOBS_PATH);
           const preRetrySig = Array.isArray(preRetryJobs)
             ? snapshotCompanySignatures(preRetryJobs, key) : new Map();
-          await runSharedCrawler([key], count);
+          // Stesso braccio del primo passaggio: `assignThinkingArm` e'
+          // deterministica sulla coppia (azienda, sale), quindi l'azienda non
+          // cambia braccio fra i due passaggi. Senza questo l'azienda verrebbe
+          // ritentata con il thinking al default mentre l'esperimento la conta
+          // nel braccio assegnato, e la misura sarebbe un miscuglio.
+          const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;
+          const retryHandle = retryArm ? applyThinkingArm(retryArm, process.env) : null;
+          const retryStartedMs = LEGACY_CLOCK.now();
+          const fixedBeforeRetry = totalFixed;
+          try {
+            await runSharedCrawler([key], count);
+          } finally {
+            if (retryHandle) retryHandle.restore();
+          }
+          const retryElapsedMs = LEGACY_CLOCK.now() - retryStartedMs;
           const afterRetry = readJson(DATA_JOBS_PATH);
           if (Array.isArray(afterRetry)) {
             const cleared = clearRetranslationFlags(afterRetry);
@@ -1616,6 +1630,17 @@ async function main() {
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
               const retryAttempted = changedSlugsSince(preRetrySig, afterRetry, key);
               syncTranslationsToCrawlerFile(key, afterRetry, retryAttempted);
+              if (retryArm) {
+                thinkingRows.push({
+                  arm: retryArm,
+                  companyKey: key,
+                  pass: 'retry',
+                  jobCount: count,
+                  elapsedMs: retryElapsedMs,
+                  attempted: retryAttempted.size,
+                  cleared: totalFixed - fixedBeforeRetry,
+                });
+              }
             }
           }
         } catch {

@@ -154,6 +154,24 @@ describe('innesto nel cascade', () => {
     expect(cascade).toContain('const armHandle = thinkingArm ? applyThinkingArm(thinkingArm, process.env) : null;');
   });
 
+  it('copre ENTRAMBI i punti in cui il cascade lancia il crawler', () => {
+    // Il secondo e' il passaggio di retry. Senza il braccio anche li', una
+    // azienda verrebbe ritentata con il thinking al default mentre
+    // l'esperimento la conta nel braccio assegnato: la misura sarebbe un
+    // miscuglio invece di due bracci.
+    const chiamate = cascade.match(/await runSharedCrawler\(/g) || [];
+    const ripristini = cascade.match(/Handle\.restore\(\)/g) || [];
+    expect(chiamate.length).toBe(2);
+    expect(ripristini.length).toBe(chiamate.length);
+  });
+
+  it('il retry usa lo stesso braccio del primo passaggio', () => {
+    // assignThinkingArm e' deterministica sulla coppia (azienda, sale): la
+    // stessa azienda non puo' cambiare braccio fra i due passaggi.
+    expect(assignThinkingArm('coop-ticino', 'run-9')).toBe(assignThinkingArm('coop-ticino', 'run-9'));
+    expect(cascade).toContain('const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;');
+  });
+
   it('scrive l artefatto nel RUNNER_TEMP, non fra i dati tracciati', () => {
     expect(cascade).toContain("process.env.RUNNER_TEMP");
     expect(cascade).toContain('translation-thinking-ab.json');
