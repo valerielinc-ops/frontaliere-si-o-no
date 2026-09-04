@@ -11357,6 +11357,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Ticino outlet: convenient? Border price guide',
     'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Ticino shopping outlets: when convenient for border crossers. CH-IT cost analysis, EUR/CHF exchange and planning acquired cross-border.',
     'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Modern shopping center in Ticino with storefronts and Swiss architectural style',
+    'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Swiss payroll frontiers 2026',
+    'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Practical guide: read the deductions (source tax, AVS 5.3%, LPP 7–18%, LAMal), calculate the net, recover the taxes in 730 with the deductible €7.500/€10,000.',
+    'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Swiss payslip document with CHF amounts and deductions overlaid on Lugano\'s waterfront and Lake Lugano view.',
 };
 
 export default blogMetaEn;

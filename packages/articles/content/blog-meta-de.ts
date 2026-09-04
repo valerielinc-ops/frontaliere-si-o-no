@@ -11356,6 +11356,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Tessin: lohnt es sich? Preisführer für Grenzüberschreitungen',
     'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Tessiner Shopping Outlet: Wann es sich für Grenzgänger lohnt. Kostenanalyse CH-IT, Wechselkurs EUR/CHF und grenzüberschreitend erworbene Planung.',
     'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Modernes Einkaufszentrum im Tessin mit Geschäften und charakteristischer Schweizer Architektur',
+    'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Grenzgänger Schweizer Lohnabrechnung 2026',
+    'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Praktischer Leitfaden: Lesen Sie die Abzüge (Quellensteuer, AHV 5,3%, BVG 7-18%, KVG), berechnen Sie das Netto, holen Sie die Steuern im Jahr 730 mit dem Selbstbehalt von € 7.500/€ 10.000 ein.',
+    'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Schweizer Lohnabrechnung mit CHF-Beträgen, überlagert auf Luganos Uferpromenade und Luganersee-Blick.',
 };
 
 export default blogMetaDe;

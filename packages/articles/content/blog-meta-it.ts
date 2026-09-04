@@ -11358,6 +11358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Ticino: conviene? Guida prezzi frontalieri',
     'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Shopping outlet ticinesi: quando conviene per frontalieri. Analisi costi CH-IT, cambio EUR/CHF e pianificazione acquisiti transfrontalieri.',
     'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Esterno di un moderno centro commerciale nel Ticino con negozi e architettura svizzera caratteristica',
+    'blog.article.frontalieri-come-calcolare-busta-paga.title': 'Frontalieri busta paga svizzera 2026',
+    'blog.article.frontalieri-come-calcolare-busta-paga.excerpt': 'Guida pratica: leggi le trattenute (imposta fonte, AVS 5.3%, LPP 7–18%, LAMal), calcola il netto, recupera le tasse nel 730 con la franchigia €7.500/€10.000.',
+    'blog.article.frontalieri-come-calcolare-busta-paga.imageAlt': 'Documento di busta paga svizzera con importi CHF, trattenute e contributi, sovrapposto a vista di Lugano e riva del lago.',
 };
 
 export default blogMetaIt;
