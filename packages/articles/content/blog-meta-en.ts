@@ -11354,6 +11354,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.shopping-outlet-ticino.title': 'Ticino outlet shopping: a guide to shopping centres',
     'blog.article.shopping-outlet-ticino.excerpt': 'Practical guide for border workers: how to make the most of Ticino outlets, CHF-EUR comparison, schedules and conscious purchasing strategies.',
     'blog.article.shopping-outlet-ticino.imageAlt': 'Shopping street in Ticino with storefronts and pedestrians, natural lighting.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Ticino outlet: convenient? Border price guide',
+    'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Ticino shopping outlets: when convenient for border crossers. CH-IT cost analysis, EUR/CHF exchange and planning acquired cross-border.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Modern shopping center in Ticino with storefronts and Swiss architectural style',
 };
 
 export default blogMetaEn;

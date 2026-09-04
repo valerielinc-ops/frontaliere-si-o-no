@@ -11356,6 +11356,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.shopping-outlet-ticino.title': 'Shopping outlet Tessin : guide des centres commerciaux',
     'blog.article.shopping-outlet-ticino.excerpt': 'Guide pratique pour les frontaliers : comment tirer le meilleur parti des points de vente tessinois, comparaison CHF-EUR, horaires et stratégies d\'achat conscient.',
     'blog.article.shopping-outlet-ticino.imageAlt': 'Rue commerçante au Tessin avec vitrines et piétons, éclairage naturel.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.title': 'Outlet Tessin : convient-il ? Guide des prix frontaliers',
+    'blog.article.outlet-prezzi-ticino-frontalieri.excerpt': 'Shopping outlet tessinois : quand cela convient aux frontaliers. Analyse des coûts CH-IT, taux de change EUR/CHF et planification des acquisitions transfrontalières.',
+    'blog.article.outlet-prezzi-ticino-frontalieri.imageAlt': 'Centre commercial moderne au Tessin avec magasins et architecture suisse caractéristique',
 };
 
 export default blogMetaFr;
