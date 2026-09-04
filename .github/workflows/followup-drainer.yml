@@ -28,8 +28,11 @@ permissions:
 jobs:
   drain:
     runs-on: ubuntu-latest
-    # NON alzare questo cap: il timeout #5162 era il Checkout, non il drain (che
-    # gira in ~5s). Deve restare uguale a JOB_TIMEOUT_MINUTES qui sotto —
+    # NON alzare questo cap. Il drain gira in ~5s: i due timeout visti finora
+    # erano il setup, non il lavoro — il #5162 era il Checkout, il #7309 era
+    # `npm ci` (4-5 minuti dei 6, vedi il commento al posto dello step, ora
+    # rimosso). Alzare il cap avrebbe nascosto entrambi invece di toglierli.
+    # Deve restare uguale a JOB_TIMEOUT_MINUTES qui sotto —
     # `timeout-minutes` non accetta il context `env`, quindi il valore è ripetuto.
     timeout-minutes: 6
     env:
@@ -95,11 +98,28 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: '22'
-          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci --ignore-scripts
-
+      # NIENTE `npm ci` — è la causa del timeout #7309, non il Checkout.
+      # Misurato sui tre ultimi drain riusciti (run 33858476484/33858363375/
+      # 33855949476): Checkout 36-39s, `npm ci --ignore-scripts` **217-292s**
+      # («added 1201 packages in 5m», con la cache npm già in hit: il costo è
+      # l'estrazione dei pacchetti, non il download). Su un cap da 6 minuti
+      # l'install da solo ne mangiava fino a 4,9 — il job viveva stabilmente sul
+      # bordo e una variazione qualsiasi lo faceva scadere `cancelled`, che è
+      # esattamente ciò che è successo nel run 33859085321.
+      #
+      # E l'install non serviva: la chiusura transitiva degli import di TUTTI
+      # gli script di questo job (followup-drainer.mjs, load-rc-env.mjs,
+      # mint-app-token.mjs, alert-pat-down.mjs, probe-workflow-scope.mjs — 12
+      # file) ha UN solo specificatore non-`node:`, `firebase-admin` in
+      # load-rc-env.mjs, che dal 2026-07 ha la sua via REST dependency-free
+      # (issue #4837, `fetchTemplateViaRest`) proprio per i workflow che saltano
+      # `npm ci`. Lo stesso mirror di questo workflow nel corpus gira già senza
+      # (`loop-sync-manifest.json`: «Niente npm ci: gli script del ciclo sono
+      # zero-dep»), e il repo ha già ~10 workflow con la stessa scelta.
+      #
+      # Se un domani uno script di questo job importa un pacchetto npm, il job
+      # muore `ERR_MODULE_NOT_FOUND` al primo `node` — rumoroso, non silenzioso.
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}

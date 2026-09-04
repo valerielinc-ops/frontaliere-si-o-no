@@ -124,9 +124,26 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     }
   });
 
-  it('senza verdetto NON_RETRYABLE, il titolo di famiglia decide come prima', () => {
+  it('regressione #7307: `max-turns` vince sul riconoscimento di famiglia', () => {
+    // Stesso loop di #5608 con un altro verdetto, misurato sulle 6 issue del
+    // bucket `fix-outcome:max-turns` nella finestra 14gg. Due di quelle sei —
+    // #7242 `Crawler Failure: Run zurich` e #7179 `Run volg` — erano state
+    // parcheggiate `fu-parked` + `needs-human` dal drainer (path max-turns non
+    // eleggibile alla decomposizione) e ri-accodate da QUESTO pre-pass alle
+    // 06:49 del 2026-09-04 sul solo titolo di famiglia, senza che nulla fosse
+    // cambiato dal verdetto: la run successiva rifà lo stesso cap di turni.
+    // Le altre quattro le ha liberate lo sweep Claude scrivendo una scheda
+    // nuova — input cambiato, porta di rientro legittima, non toccata da qui.
+    for (const title of ['Crawler Failure: Run zurich', 'PostHog Exception: TypeError']) {
+      const d = prepassDecision({ title, verdict: 'max-turns' });
+      expect(d.action, title).toBe('keep');
+      expect(d.reason, title).toMatch(/max-turns/);
+    }
+  });
+
+  it('senza un verdetto che batte la famiglia, il titolo decide come prima', () => {
     expect(prepassDecision({ title: 'PostHog Exception: TypeError' }).action).toBe('requeue');
-    expect(prepassDecision({ title: 'PostHog Exception: TypeError', verdict: 'max-turns' }).action).toBe('requeue');
+    expect(prepassDecision({ title: 'PostHog Exception: TypeError', verdict: 'pr-created' }).action).toBe('requeue');
   });
 
   it('il verdetto batte il titolo non riconosciuto, e (post-#6427) anche agent:fix', () => {

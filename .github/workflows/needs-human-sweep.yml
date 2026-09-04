@@ -150,6 +150,13 @@ jobs:
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude sweep
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (120min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 110min = cap del job meno il setup pre-Claude misurato (~94s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 110
         id: claude_sweep
         continue-on-error: true
         uses: anthropics/claude-code-action@v1
