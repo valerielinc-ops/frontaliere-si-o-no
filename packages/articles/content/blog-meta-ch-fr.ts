@@ -5440,6 +5440,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aggiornamento-direttiva-crs-2026.title': 'Nouvelle directive technique CRS : obligations à partir de 2026',
     'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'L\'AFC met à jour la norme CRS : à partir du 1er janvier 2026, de nouvelles obligations de communication et l\'adoption du schéma XML 3.0 obligatoire à partir de 2027.',
     'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Documents financiers et ordinateur dans un bureau suisse',
+    'blog.article.cressier-guasto-benzina-garantita.title': 'Cressier arrêté, essence garantie par les stocks',
+    'blog.article.cressier-guasto-benzina-garantita.excerpt': 'Raffinerie de Cressier arrêtée pour panne technique cette semaine. Elle couvre 30 % des besoins suisses. Des stocks obligatoires garantissent l\'approvisionnement en essence, diesel et kérosène.',
+    'blog.article.cressier-guasto-benzina-garantita.imageAlt': 'Installation de raffinerie pétrolière moderne avec tours de contrôle et réservoirs de stockage dans le paysage industriel suisse',
 };
 
 export default blogMetaChFr;

@@ -70610,6 +70610,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cressier-guasto-benzina-garantita': {
+    title: 'Cressier ferma, benzina garantita dalle scorte',
+    description: 'Raffineria di Cressier ferma per guasto tecnico questa settimana. Copre il 30% del fabbisogno svizzero. Scorte obbligatorie garantiscono l\'approvvigionamento',
+    keywords: 'frontalieri, ticino, svizzera, italia, cressier, ferma, benzina, garantita',
+    ogTitle: 'Cressier ferma, benzina garantita dalle scorte',
+    ogDescription: 'Raffineria di Cressier ferma per guasto tecnico questa settimana. Copre il 30% del fabbisogno svizzero. Scorte obbligatorie garantiscono l\'approvvigionamento di benzina, diesel e kerosene.',
+    canonicalPath: '/articoli-svizzera/cressier-guasto-benzina-garantita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cressier ferma, benzina garantita dalle scorte",
+      "description": "Raffineria di Cressier ferma per guasto tecnico questa settimana. Copre il 30% del fabbisogno svizzero. Scorte obbligatorie garantiscono l'approvvigionamento",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cressier-guasto-benzina-garantita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianto industriale di raffineria moderna con torri di controllo e cisterne di stoccaggio nel paesaggio svizzero"
+      },
+      "datePublished": "2026-09-04T14:04:31+00:00",
+      "dateModified": "2026-09-04T14:04:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cressier-guasto-benzina-garantita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -1839,6 +1839,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'volkswagen-fornitori-svizzeri': { it: 'volkswagen-fornitori-svizzeri', en: 'volkswagen-swiss-suppliers-risk', de: 'volkswagen-schweizer-zulieferer-risiko', fr: 'volkswagen-fournisseurs-suisses-risques' },
  'nidvaldo-comprare-casa-costi-fiscali': { it: 'nidvaldo-comprare-casa-costi-fiscali', en: 'nidvaldo-buying-house-costs-taxes', de: 'nidwald-haus-kaufen-kosten-steuern', fr: 'nidwald-acheter-maison-couts-fiscalite' },
  'aggiornamento-direttiva-crs-2026': { it: 'aggiornamento-direttiva-crs-2026', en: 'crs-directive-update-2026', de: 'crs-richtlinien-update-2026', fr: 'mise-a-jour-directive-crs-2026' },
+ 'cressier-guasto-benzina-garantita': { it: 'cressier-guasto-benzina-garantita', en: 'cressier-shutdown-fuel-supply-guaranteed', de: 'cressier-betriebsstillegung-kraftstoff-versorgung', fr: 'cressier-arret-carburant-approvisionnement-garanti' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

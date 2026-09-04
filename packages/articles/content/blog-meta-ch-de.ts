@@ -5440,6 +5440,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aggiornamento-direttiva-crs-2026.title': 'Neue technische SRK-Richtlinie: Pflichten ab 2026',
     'blog.article.aggiornamento-direttiva-crs-2026.excerpt': 'Die ESTV aktualisiert den SRK-Standard: Ab dem 1. Januar 2026 neue Meldepflichten und die Einführung des ab 2027 obligatorischen XML 3.0-Schemas.',
     'blog.article.aggiornamento-direttiva-crs-2026.imageAlt': 'Finanzunterlagen und Computer in einem Schweizer Büro',
+    'blog.article.cressier-guasto-benzina-garantita.title': 'Cressier gestoppt, Benzin durch Bestände garantiert',
+    'blog.article.cressier-guasto-benzina-garantita.excerpt': 'Die Raffinerie von Cressier stellt diese Woche aufgrund eines technischen Defekts ein. Sie deckt 30% des Schweizer Bedarfs. Obligatorische Lagerbestände gewährleisten die Versorgung mit Benzin, Diesel und Kerosin.',
+    'blog.article.cressier-guasto-benzina-garantita.imageAlt': 'Moderne Erdölraffinerieanlage mit Kontrolltürmen und Lagertanks in der Schweizer Industrielandschaft',
 };
 
 export default blogMetaChDe;
