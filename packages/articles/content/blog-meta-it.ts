@@ -11286,6 +11286,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Vivere a Dizzasco e lavorare in Ticino da frontaliere',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per frontalieri: permesso G, imposte, AVS/LPP, LAMal, ristorni, tempi di percorrenza e costo della vita tra Dizzasco e Ticino.',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Veduta mattutina del Lago di Lugano con le Alpi italiane sullo sfondo e un\'auto da pendolare sulla strada verso il valico di confine.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Vivere a Solbiate con Cagno da frontaliere: come fare',
+    'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Trasferirsi in Italia di confine e lavorare in Ticino: vantaggi fiscali, procedure permessi, costi della vita e impatto sulla busta paga.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Vista panoramica del confine svizzero-italiano in Ticino meridionale, con vallate alpine e aree di confine presso i valichi transfrontalieri.',
 };
 
 export default blogMetaIt;

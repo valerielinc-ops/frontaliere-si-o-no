@@ -11285,6 +11285,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Living in Dizzasco and working in Ticino as a border worker',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers: G permit, taxes, AVS/LPP, LAMal, refreshments, travel times and cost of living between Dizzasco and Ticino.',
     'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Early morning Lake Lugano view with Alps in background and a commuter car on the road heading to the border checkpoint.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Living in Solbiate with Cagno as a border crosser: how to do it',
+    'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Moving to border Italy and working in Ticino: tax advantages, procedures allowed, costs of living and impact on paycheck.',
+    'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Panoramic view of the Switzerland-Italy border in southern Ticino showing Alpine valleys and cross-border checkpoint infrastructure at sunset.',
 };
 
 export default blogMetaEn;
