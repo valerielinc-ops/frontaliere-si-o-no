@@ -1843,6 +1843,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'domanda-permesso-c-glarona-guida': { it: 'domanda-permesso-c-glarona-guida', en: 'residence-permit-c-glarus-application-guide', de: 'aufenthaltsbewilligung-c-glarus-antrag-leitfaden', fr: 'permis-residence-c-glaris-demande-guide' },
  'permesso-c-glarona-come-richiederlo': { it: 'permesso-c-glarona-come-richiederlo', en: 'residence-permit-c-glarus-how-to-apply', de: 'aufenthaltserlaubnis-c-glarus-beantragen', fr: 'permis-residence-c-glaris-demander' },
  'soldati-svizzera-video-guerra': { it: 'soldati-svizzera-video-guerra', en: 'swiss-soldiers-war-video', de: 'schweizer-soldaten-kriegsvideo', fr: 'soldats-suisses-video-guerre' },
+ 'volkswagen-taglia-50mila-posti-2030': { it: 'volkswagen-taglia-50mila-posti-2030', en: 'volkswagen-to-cut-50000-jobs-by-2030', de: 'volkswagen-streicht-50000-arbeitsplaetze-bis-2030', fr: 'volkswagen-supprime-50000-emplois-dici-2030' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

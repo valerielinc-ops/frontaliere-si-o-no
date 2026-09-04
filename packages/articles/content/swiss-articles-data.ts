@@ -16354,6 +16354,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'volkswagen-taglia-50mila-posti-2030',
+    category: 'novita',
+    date: '2026-09-04T17:04:53.178Z',
+    image: '/images/blog/volkswagen-taglia-50mila-posti-2030.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

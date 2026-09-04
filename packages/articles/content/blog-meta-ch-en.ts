@@ -5452,6 +5452,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.soldati-svizzera-video-guerra.title': 'Dead Swiss Soldiers: Young UDC shocks with war video',
     'blog.article.soldati-svizzera-video-guerra.excerpt': 'The UDC Youth are promoting a yes to the neutrality initiative with a self-produced war film showing a Switzerland at war.',
     'blog.article.soldati-svizzera-video-guerra.imageAlt': 'Swiss soldiers in a war video',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.title': 'Volkswagen cuts another 50,000 jobs',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.excerpt': 'The Volkswagen Group has announced a restructuring plan that envisages the cutting of an additional 50,000 jobs by 2030.',
+    'blog.article.volkswagen-taglia-50mila-posti-2030.imageAlt': 'Aerial view of Lugano with Lake Lugano in the background',
 };
 
 export default blogMetaChEn;
