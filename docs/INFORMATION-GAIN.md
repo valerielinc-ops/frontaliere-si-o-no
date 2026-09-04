@@ -131,11 +131,12 @@ La run `33460354951` ha misurato **37 coorti sotto floor su 159 gated**
 (9817 pagine in coorte, `sampleRate` 0,25, nessuna baseline: soglia assoluta).
 Trentasette sembra un cluster nuovo rispetto alle 3 righe dell'inventario.
 Non lo è: sono **cinque famiglie**, ognuna spezzata in più coorti perché ogni
-variante di `h1` è una coorte a sé.
+variante di `h1` è una coorte a sé. 22 + 4 + 4 + 4 + 3 = 37: le famiglie
+coprono tutti gli offender, nessuno resta fuori.
 
 | Famiglia | Coorti | Mediana | Cos'è la pagina |
 |---|---|---|---|
-| Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) | 20 | 0–4 % | una combinazione RAL × figli × stato civile × regime frontaliero |
+| Calcolatori di stipendio netto (`/calcola-stipendio/`, `/gehalt-berechnen/`, `/calculate-salary/`, `/calculer-salaire/`) | 22 | 0–4 % | una combinazione RAL × figli × stato civile × regime frontaliero |
 | Tempi di attesa alla dogana (`/tempi-attesa-dogana/` e traduzioni) | 4 | 0 % | un valico, 13–18 segmenti in tutto |
 | Premi cassa malati (`/premi-cassa-malati/` e traduzioni) | 4 | 2,6–2,7 % | un cantone × una fascia d'età |
 | Aziende che assumono, settimanali (`/aziende-che-assumono/` e traduzioni) | 4 | 2,8–4,9 % | una città × una settimana |

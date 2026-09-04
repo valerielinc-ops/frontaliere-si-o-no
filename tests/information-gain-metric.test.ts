@@ -162,13 +162,21 @@ describe('information-gain: utility di percorso', () => {
     expect(commonPathPrefix(['/de/arbeit-bern-architekt/', '/de/arbeit-freiburg-maurer/'])).toBe('/de/arbeit-');
   });
 
-  it('resta identica quando il segmento divergente non ha prefisso comune', () => {
-    // Il passo di caratteri rende l'etichetta più specifica, mai meno: è
-    // questo che tiene valide le voci già in `KNOWN_LOW_GAIN_COHORTS` e la
-    // tabella di calibrazione, scritte prima del fix.
+  it('si ferma al confine di token: una lettera condivisa non è un template condiviso', () => {
+    // Il passo di caratteri viene troncato all'ultimo `-`, altrimenti
+    // l'etichetta dipenderebbe da QUALI pagine il run ha campionato:
+    // `tradate|torino` condividono una `t` e darebbero
+    // `/tasse-frontalieri-comune/t`, `tradate|bregnano` no. Con il confine di
+    // token l'etichetta è la stessa nei due casi — è questo che tiene valide
+    // le voci già in `KNOWN_LOW_GAIN_COHORTS` e la tabella di calibrazione,
+    // scritte prima del fix.
     expect(commonPathPrefix(['/tasse-frontalieri-comune/tradate/', '/tasse-frontalieri-comune/bregnano/'])).toBe(
       '/tasse-frontalieri-comune/',
     );
+    expect(commonPathPrefix(['/tasse-frontalieri-comune/tradate/', '/tasse-frontalieri-comune/torino/'])).toBe(
+      '/tasse-frontalieri-comune/',
+    );
+    expect(commonPathPrefix(['/lavoro-ticino-infermiere/', '/lavoro-ticino-idraulico/'])).toBe('/lavoro-ticino-');
     expect(
       commonPathPrefix([
         '/vivere-in-austria-lavorare-in-svizzera/gaissau/',
@@ -313,6 +321,8 @@ describe('information-gain: il report nomina l\'identità della coorte, non solo
     expect(extra.cohortsGated).toBe(1);
     const [cohort] = extra.cohorts;
     expect(cohort.label).toBe('it:/premi-cassa-malati/cantone-');
-    expect(cohort.skeletonHash).toMatch(/^[0-9a-f]+$/);
+    // Stessa larghezza del suffisso `~` anti-collisione, così un'etichetta
+    // `en:/en/~896cea` si cerca nel report per uguaglianza e non per prefisso.
+    expect(cohort.skeletonHash).toMatch(/^[0-9a-f]{1,6}$/);
   });
 });

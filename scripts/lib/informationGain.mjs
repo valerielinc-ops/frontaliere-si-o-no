@@ -322,28 +322,24 @@ export function fingerprintPage(relPath, html) {
 /**
  * Longest common path prefix — the cohort's human-readable name.
  *
- * Whole `/`-delimited segments first, then the common CHARACTER prefix of the
- * first segment where the paths diverge. The character step used to run only
- * when NO whole segment was common, which made the label locale-asymmetric on
- * exactly the families that need it most: `/lavoro-argovia-autista/` has no
- * common segment and gets the readable `it:/lavoro-`, while its own de/en/fr
- * translations (`/de/arbeit-bern-architekt/`, `/en/jobs-bern-fitter/`) always
- * share the locale segment, so the fallback never fired and every flat-slug
- * family in a prefixed locale collapsed to `/de/`, `/en/`, `/fr/`. Those
- * labels then collided with each other and got the `~skeletonHash` suffix from
- * `scoreCohorts`, so the same page family reads `it:/lavoro-` in one locale and
- * `en:/en/~896cea` in another (issue #6975: 37 offenders, several of them
- * unidentifiable from the report for this reason alone).
+ * Whole `/`-delimited segments first, then the common character prefix of the
+ * first diverging segment, truncated back to its last `-` so the label always
+ * ends on a slug-token boundary and never on half a word.
  *
- * It is not only cosmetic. `KNOWN_LOW_GAIN_COHORTS` in
- * `audit-information-gain.mjs` is keyed BY label, and a label that stops at
- * `/fr/` is a key shared with every other flat-slug family in French: one
- * inventoried value silently standing for several unrelated templates.
+ * The character step used to run only when NO whole segment was common, which
+ * made the label locale-asymmetric: `/lavoro-argovia-autista/` got the readable
+ * `it:/lavoro-`, while its `/de/`, `/en/`, `/fr/` translations always share the
+ * locale segment, so every flat-slug family in a prefixed locale collapsed to
+ * `/de/`, `/en/`, `/fr/` and then collided into `~skeletonHash` suffixes. That
+ * matters because `KNOWN_LOW_GAIN_COHORTS` is keyed BY label: a key stopping at
+ * `/fr/` stands for several unrelated templates at once. See
+ * `docs/INFORMATION-GAIN.md` for the audit run this came from (issue #6975).
  *
- * Strictly more specific, never less — when the diverging segment has no
- * common character prefix (`/tasse-frontalieri-comune/<comune>/`) the label is
- * byte-identical to what it was before, which is what keeps the existing
- * inventory entries and the calibration table valid.
+ * The `-` boundary is what keeps the label independent of WHICH pages a run
+ * sampled: `tradate|torino` share a `t` but no token, so
+ * `/tasse-frontalieri-comune/<comune>/` stays `/tasse-frontalieri-comune/`
+ * instead of drifting to `/tasse-frontalieri-comune/t` on one sample and
+ * `/tasse-frontalieri-comune/` on the next.
  */
 export function commonPathPrefix(paths) {
   if (paths.length === 0) return '/';
@@ -361,7 +357,12 @@ export function commonPathPrefix(paths) {
   const diverging = split.map((parts) => parts[out.length] ?? '');
   let len = 0;
   while (diverging.every((s) => s.length > len && s[len] === diverging[0][len])) len += 1;
-  const tail = diverging[0].slice(0, len);
+  // Back to the last token boundary: an accidental shared letter (`tradate` vs
+  // `torino`) is not a shared template, and cutting there would make the label
+  // depend on which pages the run sampled.
+  const raw = diverging[0].slice(0, len);
+  const cut = raw.lastIndexOf('-');
+  const tail = cut >= 0 ? raw.slice(0, cut + 1) : '';
   if (out.length === 0) return tail ? `/${tail}` : '/';
   return tail ? `/${out.join('/')}/${tail}` : `/${out.join('/')}/`;
 }
