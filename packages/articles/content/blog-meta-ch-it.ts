@@ -5377,6 +5377,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-imposta-successione-donazione-svitto.title': 'Imposta di successione e donazione: guida Svitto',
     'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Imposte di successione e donazione nel Cantone di Svitto: aliquote, esenzioni, dichiarazione, termini. Guida completa su tassazione patrimonio.',
     'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Scrivania dell\'amministrazione fiscale cantonale con documenti su successione e donazione, calcolatrice e moduli di dichiarazione.',
+    'blog.article.avviare-attivita-turgovia-commercio.title': 'Aprire un\'attività in Turgovia: costi e procedura',
+    'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Guida passo-passo: forme giuridiche, iscrizione registro commercio, tasse federali/cantonali, contributi AVS/LPP/LAMal e obblighi assicurativi per avviare un\'impresa in Svizzera.',
+    'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Professionista svizzero legge documenti per l\'iscrizione al registro di commercio e moduli di tassa',
 };
 
 export default blogMetaChIt;
