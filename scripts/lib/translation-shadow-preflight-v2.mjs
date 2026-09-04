@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
+import { QUEUE_AGE_BUCKET_KEYS, QUEUE_AGE_DISJOINT_BUCKET_KEYS } from './job-traffic-priority.mjs';
 
 export const TRANSLATION_SHADOW_PREFLIGHT_V2_SCHEMA_VERSION = 2;
 export const TRANSLATION_SHADOW_PREFLIGHT_V2_MAX_BYTES = 8 * 1024 * 1024;
@@ -527,7 +528,10 @@ function validTrafficStats(stats, deadlineMs = Number.POSITIVE_INFINITY, now = D
       || !boundedInteger(age.count) || !boundedInteger(age.withTimestamp)
       || !nullableFiniteNumber(age.oldestAgeDays) || !nullableFiniteNumber(age.p50AgeDays)
       || !nullableFiniteNumber(age.p90AgeDays)
-      || !exactKeys(age.buckets, ['0-7d', '180d+', '30-90d', '7-30d', '90-180d'])) return false;
+      // Imported, never retyped: an EXACT key check that drifts from the
+      // producer invalidates every shadow preflight observation, silently and
+      // for every run.
+      || !exactKeys(age.buckets, QUEUE_AGE_BUCKET_KEYS)) return false;
   for (const value of Object.values(age.buckets)) {
     checkDeadline(deadlineMs, now);
     if (!boundedInteger(value)) return false;
@@ -1659,7 +1663,13 @@ function validateTranslationShadowDecisionSemanticsV2(decision) {
         || legacy.traffic.stats.age.count !== snapshot.orderedPending.count
         || legacy.traffic.stats.matched > legacy.traffic.stats.queued
         || legacy.traffic.stats.age.withTimestamp > legacy.traffic.stats.age.count
-        || Object.values(legacy.traffic.stats.age.buckets).reduce((sum, count) => sum + count, 0)
+        // Solo le fasce DISGIUNTE: dal 2026-09-04 `0-1d`/`1-2d`/`2-7d`
+        // suddividono `0-7d` invece di affiancarla, quindi
+        // `Object.values(...)` somma la coorte sotto i sette giorni DUE volte
+        // e vale `withTimestamp + buckets['0-7d']`. Con un solo job fresco in
+        // coda il confronto era falso e invalidava l'osservazione — sul corpus
+        // vivo sono 4.360 job, cioè ogni run.
+        || QUEUE_AGE_DISJOINT_BUCKET_KEYS.reduce((sum, key) => sum + legacy.traffic.stats.age.buckets[key], 0)
           !== legacy.traffic.stats.age.withTimestamp
         || snapshot.capWindow.count !== Math.min(legacy.maxJobs, snapshot.orderedPending.count)
         || legacy.companyFilter.after !== snapshot.pending.count

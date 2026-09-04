@@ -134,7 +134,13 @@ function preflightInput(jobs: any[], {
           oldestAgeDays: null,
           p50AgeDays: null,
           p90AgeDays: null,
-          buckets: { '0-7d': 0, '7-30d': 0, '30-90d': 0, '90-180d': 0, '180d+': 0 },
+          // `0-1d`/`1-2d`/`2-7d` suddividono `0-7d` (#17), che resta. Il
+          // controllo di chiavi del preflight e' ESATTO: questa fixture e' il
+          // punto in cui una fascia aggiunta da un lato solo diventa rossa.
+          buckets: {
+            '0-1d': 0, '1-2d': 0, '2-7d': 0,
+            '0-7d': 0, '7-30d': 0, '30-90d': 0, '90-180d': 0, '180d+': 0,
+          },
           alert: false,
           alertDays: 150,
         },
