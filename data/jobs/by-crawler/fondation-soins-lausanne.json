@@ -123,8 +123,7 @@
         "icls-infermiere-cliniche-specialistiche-h-f-fondation-soins-lausanne-lausanne",
         "icls-specialist-clinician-nurse-h-f-fondation-soins-lausanne-lausanne",
         "icls-fachkrankenschwester-h-f-fondation-soins-lausanne-lausanne",
-        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne",
-        "icls-infermiera-clinica-specializzata-m-f-fondation-soins-lausanne-lausanne"
+        "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -133,8 +132,7 @@
           "icls-infermiere-cliniche-specialistiche-h-f-fondation-soins-lausanne-lausanne",
           "icls-specialist-clinician-nurse-h-f-fondation-soins-lausanne-lausanne",
           "icls-fachkrankenschwester-h-f-fondation-soins-lausanne-lausanne",
-          "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne",
-          "icls-infermiera-clinica-specializzata-m-f-fondation-soins-lausanne-lausanne"
+          "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
           "icls-infirmier-clinicien-specialise-h-f-fondation-soins-lausanne-lausanne"
@@ -311,7 +309,7 @@
       "slug": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
         "it": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-        "en": "ergotherapeute-m-w-d-fondation-soins-lausanne",
+        "en": "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
         "de": "ergotherapeut-m-w-fondation-soins-lausanne-lausanne",
         "fr": "ergotherapeute-h-f-fondation-soins-lausanne-lausanne"
       },
@@ -370,8 +368,6 @@
         "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne",
         "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne",
         "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne",
-        "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
-        "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
         "ergotherapeute-m-w-d-fondation-soins-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -389,15 +385,13 @@
           "coordinatore-dell-infermiera-m-f-fondation-soins-lausanne-lausanne",
           "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne",
           "pflegekoordinator-m-w-fondation-soins-lausanne-lausanne",
-          "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne",
-          "ergoterapist-m-f-fondation-soins-lausanne-lausanne"
+          "infirmier-coordinateur-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
           "ergotherapeute-h-f-fondation-soins-lausanne-lausanne",
           "health-assistant-m-f-fondation-soins-lausanne-lausanne",
           "health-auxiliaries-m-f-fondation-soins-lausanne-lausanne",
           "nurse-coordinator-m-f-fondation-soins-lausanne-lausanne",
-          "ergotherapist-m-f-fondation-soins-lausanne-lausanne",
           "ergotherapeute-m-w-d-fondation-soins-lausanne"
         ],
         "de": [
@@ -482,8 +476,7 @@
         "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
         "health-assistant-m-f-fondation-soins-lausanne-lausanne",
         "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
-        "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
-        "salute-ausiliare-m-f-fondation-soins-lausanne-lausanne"
+        "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -491,8 +484,7 @@
           "assistente-sanitario-m-f-fondation-soins-lausanne-lausanne",
           "health-assistant-m-f-fondation-soins-lausanne-lausanne",
           "gesundheitsassistent-m-w-fondation-soins-lausanne-lausanne",
-          "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
-          "salute-ausiliare-m-f-fondation-soins-lausanne-lausanne"
+          "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne"
         ],
         "en": [
           "health-assistant-m-f-fondation-soins-lausanne-lausanne",
@@ -524,7 +516,7 @@
       "slugByLocale": {
         "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
         "en": "field-nurse-m-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-terrain-m-w-d-fondation-soins-lausanne",
+        "de": "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
         "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
@@ -572,23 +564,21 @@
         "field-nurse-m-f-fondation-soins-lausanne-lausanne",
         "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
         "infirmier-terrain-m-w-d-fondation-soins-lausanne",
-        "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-        "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne"
+        "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "field-nurse-m-f-fondation-soins-lausanne-lausanne",
           "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne",
           "infirmier-terrain-m-w-d-fondation-soins-lausanne",
-          "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-          "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne"
+          "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
           "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
         ],
         "de": [
           "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-          "feld-krankenschwester-m-w-fondation-soins-lausanne-lausanne"
+          "infirmier-terrain-m-w-d-fondation-soins-lausanne"
         ]
       },
       "firstSeenAt": "2026-08-31T17:16:04.034Z",
@@ -805,13 +795,11 @@
       "requirementsByLocale": {},
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugs": [
-        "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
-        "assistente-per-la-salute-e-la-cura-della-comunita-m-f-fondation-soins-lausanne-lausanne"
+        "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
-          "assistente-per-la-salute-e-la-cura-della-comunita-m-f-fondation-soins-lausanne-lausanne"
+          "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
         ],
         "en": [
           "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"

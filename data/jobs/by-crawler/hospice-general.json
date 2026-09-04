@@ -320,12 +320,12 @@
     },
     {
       "id": "hospice-general-0c1f7883a1c8",
-      "slug": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice",
+      "slug": "capo-unita-m-f-80-cdi-service-home-vivere-insieme-assistenza-ai-migranti-hospice-general-geneve-switzerland",
       "slugByLocale": {
         "fr": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice",
-        "it": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice",
-        "en": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice",
-        "de": "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice"
+        "it": "capo-unita-m-f-80-cdi-service-home-vivere-insieme-assistenza-ai-migranti-hospice-general-geneve-switzerland",
+        "en": "head-of-unit-m-f-80-cdi-service-home-living-together-assistance-to-migrants-hospice-general-geneve-switzerland",
+        "de": "referatsleiter-m-w-80-cdi-service-home-gemeinsam-leben-hilfe-fur-migranten-hospice-general-geneve-switzerland"
       },
       "company": "Hospice général",
       "companyKey": "hospice-general",
@@ -383,16 +383,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:48:43.948Z"
+      "firstSeenAt": "2026-09-04T13:48:43.948Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice"
+        ],
+        "en": [
+          "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice"
+        ],
+        "de": [
+          "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-d-unite-h-f-80-cdi-service-accueil-vivre-ensemble-aide-aux-migrants-hospice"
+      ]
     },
     {
       "id": "hospice-general-5f00d89d7ee3",
-      "slug": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle",
+      "slug": "consulente-per-l-integrazione-professionale-m-f-80-cdi-servizio-di-integrazione-professionale-direzione-per-l",
       "slugByLocale": {
         "fr": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle",
-        "it": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle",
-        "en": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle",
-        "de": "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle"
+        "it": "consulente-per-l-integrazione-professionale-m-f-80-cdi-servizio-di-integrazione-professionale-direzione-per-l",
+        "en": "professional-integration-advisor-m-f-80-cdi-vocational-integration-service-directorate-for-integration-and-operational",
+        "de": "professioneller-integrationsberater-m-w-80-cdi-berufsintegrationsdienst-direktion-fur-integration-und-operative"
       },
       "company": "Hospice général",
       "companyKey": "hospice-general",
@@ -450,7 +464,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:48:43.936Z"
+      "firstSeenAt": "2026-09-04T13:48:43.936Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle"
+        ],
+        "en": [
+          "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle"
+        ],
+        "de": [
+          "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-en-insertion-professionnelle-h-f-80-cdi-service-d-insertion-professionnelle"
+      ]
     }
   ]
 }

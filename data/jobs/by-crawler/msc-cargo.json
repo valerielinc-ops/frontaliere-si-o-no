@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "msc-cargo-7a52f19823fe",
-      "slug": "senior-category-manager-watch-msc-geneva",
+      "slug": "senior-categoria-manager-orologio-msc-group-geneva",
       "slugByLocale": {
         "en": "senior-category-manager-watch-msc-geneva",
-        "it": "senior-category-manager-watch-msc-geneva",
+        "it": "senior-categoria-manager-orologio-msc-group-geneva",
         "de": "senior-category-manager-watch-msc-geneva",
-        "fr": "senior-category-manager-watch-msc-geneva"
+        "fr": "gestionnaire-de-categorie-senior-watch-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -66,15 +66,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:36:26.221Z"
+      "firstSeenAt": "2026-09-04T13:36:26.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-category-manager-watch-msc-geneva"
+        ],
+        "fr": [
+          "senior-category-manager-watch-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "senior-category-manager-watch-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-2c13ff3f3d54",
-      "slug": "experience-development-delivery-manager-msc-geneva",
+      "slug": "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva",
       "slugByLocale": {
         "en": "experience-development-delivery-manager-msc-geneva",
-        "it": "experience-development-delivery-manager-msc-geneva",
-        "de": "experience-development-delivery-manager-msc-geneva",
+        "it": "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva",
+        "de": "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
         "fr": "experience-development-delivery-manager-msc-geneva"
       },
       "company": "MSC Group",
@@ -136,12 +147,15 @@
       "previousSlugsByLocale": {
         "it": [
           "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-          "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+          "experience-development-delivery-manager-msc-geneva"
+        ],
+        "de": [
+          "experience-development-delivery-manager-msc-geneva"
         ]
       },
       "previousSlugs": [
         "erfahrungsentwicklung-delivery-manager-msc-group-geneva",
-        "gestione-dello-sviluppo-e-della-consegna-dell-esperienza-msc-group-geneva"
+        "experience-development-delivery-manager-msc-geneva"
       ]
     },
     {
@@ -282,7 +296,7 @@
         "en": "sr-director-of-guest-experience-development-delivery-msc-geneva",
         "it": "sr-director-of-guest-experience-development-delivery-msc-geneva",
         "de": "sr-director-of-guest-experience-development-delivery-msc-geneva",
-        "fr": "sr-director-of-guest-experience-development-delivery-msc-geneva"
+        "fr": "directeur-principal-developpement-et-prestation-de-l-experience-des-invites-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -360,12 +374,12 @@
     },
     {
       "id": "msc-cargo-2e9827752273",
-      "slug": "copywriter-6-months-contract-msc-geneva",
+      "slug": "copywriter-6-mesi-msc-group-geneva",
       "slugByLocale": {
         "en": "copywriter-6-months-contract-msc-geneva",
-        "it": "copywriter-6-months-contract-msc-geneva",
-        "de": "copywriter-6-months-contract-msc-geneva",
-        "fr": "copywriter-6-months-contract-msc-geneva"
+        "it": "copywriter-6-mesi-msc-group-geneva",
+        "de": "texter-6-monate-vertrag-msc-group-geneva",
+        "fr": "redacteur-contrat-de-6-mois-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -421,7 +435,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:36:19.878Z"
+      "firstSeenAt": "2026-09-04T13:36:19.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "de": [
+          "copywriter-6-months-contract-msc-geneva"
+        ],
+        "fr": [
+          "copywriter-6-months-contract-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "copywriter-6-months-contract-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-37ffd0de68db",
@@ -473,14 +501,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "casino-slots-and-technical-operations-manager-msc-geneva",
-        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-        "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+        "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
           "casino-slots-and-technical-operations-manager-msc-geneva",
-          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva",
-          "casino-slots-e-direttore-operazioni-tecniche-msc-group-geneva"
+          "casino-machines-a-sous-et-gestionnaire-des-operations-techniques-msc-group-geneva"
         ]
       },
       "needsRetranslation": true,

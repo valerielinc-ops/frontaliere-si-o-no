@@ -27,7 +27,8 @@
       "slug": "warehouse-logistics-team-leader-mikron",
       "slugByLocale": {
         "en": "warehouse-logistics-team-leader-mikron",
-        "it": "warehouse-logistics-team-leader-mikron"
+        "it": "warehouse-logistics-team-leader-mikron",
+        "de": "teamleiter-warehouse-logistics-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "logistics",
@@ -80,10 +81,11 @@
         "it": "Operatore Magazzino e Logistica",
         "de": "Lager- und Logistikbetreiber"
       },
-      "slug": "warehouse-logistics-operator-mikron",
+      "slug": "operatore-magazzino-e-logistica-mikron-group-boudry",
       "slugByLocale": {
         "en": "warehouse-logistics-operator-mikron",
-        "it": "warehouse-logistics-operator-mikron"
+        "it": "operatore-magazzino-e-logistica-mikron-group-boudry",
+        "de": "lager-und-logistikbetreiber-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "production",
@@ -112,7 +114,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:45:42.652Z"
+      "firstSeenAt": "2026-09-04T13:45:42.652Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "warehouse-logistics-operator-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "warehouse-logistics-operator-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -139,7 +149,8 @@
       "slug": "polymecanic-team-leader-mikron",
       "slugByLocale": {
         "en": "polymecanic-team-leader-mikron",
-        "it": "polymecanic-team-leader-mikron"
+        "it": "polymecanic-team-leader-mikron",
+        "de": "teamleiter-polymecan-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "management",
@@ -192,10 +203,11 @@
         "it": "Allenatore di apprendistato polimecanico",
         "de": "Polymecanische Lehrlingsausbildung"
       },
-      "slug": "polymecanic-apprenticeship-trainer-mikron",
+      "slug": "allenatore-di-apprendistato-polimecanico-mikron-group-boudry",
       "slugByLocale": {
         "en": "polymecanic-apprenticeship-trainer-mikron",
-        "it": "polymecanic-apprenticeship-trainer-mikron"
+        "it": "allenatore-di-apprendistato-polimecanico-mikron-group-boudry",
+        "de": "polymecanische-lehrlingsausbildung-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "apprenticeship",
@@ -224,7 +236,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:45:42.652Z"
+      "firstSeenAt": "2026-09-04T13:45:42.652Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polymecanic-apprenticeship-trainer-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "polymecanic-apprenticeship-trainer-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/controls-engineer-specialist-mfd",
@@ -369,10 +389,11 @@
         "it": "Specialista di conformità del prodotto",
         "de": "Produktkonformitätsspezialist"
       },
-      "slug": "product-conformity-specialist-mikron",
+      "slug": "specialista-di-conformita-del-prodotto-mikron-group-boudry",
       "slugByLocale": {
         "en": "product-conformity-specialist-mikron",
-        "it": "product-conformity-specialist-mikron"
+        "it": "specialista-di-conformita-del-prodotto-mikron-group-boudry",
+        "de": "produktkonformitatsspezialist-mikron-group-boudry"
       },
       "sourceLang": "fr",
       "category": "production",
@@ -401,7 +422,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:45:42.652Z"
+      "firstSeenAt": "2026-09-04T13:45:42.652Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-conformity-specialist-mikron"
+        ]
+      },
+      "previousSlugs": [
+        "product-conformity-specialist-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/product-care-leader-mfd",

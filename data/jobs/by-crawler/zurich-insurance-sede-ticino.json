@@ -70,12 +70,12 @@
     },
     {
       "id": "zurich-insurance-sede-ticino-1371331957",
-      "slug": "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
+      "slug": "prestazioni-performance-manager-motor-vehicles-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-1371331957",
       "slugByLocale": {
         "de": "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
-        "it": "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
+        "it": "prestazioni-performance-manager-motor-vehicles-m-f-d-80-100-zurich-insurance-sede-ticino-zurich-1371331957",
         "en": "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich",
-        "fr": "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+        "fr": "gestionnaire-du-rendement-des-reclamations-vehicules-automobiles-h-f-d-80-100-zurich-insurance-sede-ticino-1371331957"
       },
       "slugDisambiguator": "1371331957",
       "company": "Zurich Insurance (sede Ticino)",
@@ -132,7 +132,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:42:00.689Z"
+      "firstSeenAt": "2026-09-04T13:42:00.689Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+        ],
+        "fr": [
+          "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "claims-performance-manager-motorfahrzeuge-m-w-d-80-100-zurich-insurance-sede-ticino-zurich"
+      ]
     },
     {
       "id": "zurich-insurance-sede-ticino-1371120157",
