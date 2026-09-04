@@ -20,6 +20,13 @@
  *     personal nor a global hour was available (immediate send, no
  *     scheduledAt at all). Reported as "immediate/pre-feature".
  *
+ * `personal` is further split at aggregation time (#6550) into `personal` and
+ * `personal_tail_90_180`: a delivery whose subscriber only cleared
+ * PREFERRED_SEND_MIN_EVENTS thanks to the low-weight 90-180 day tail added to
+ * RECENCY_WINDOWS (functions/src/lib/preferredSendHour.js, PR #6469) is
+ * reported separately instead of folded into `personal` — see
+ * qualifiesOnlyViaTailWindow below.
+ *
  * One-off transactional sends (calculator/LAMal PDF reports, see
  * TRANSACTIONAL_CAMPAIGN_IDS below) are excluded entirely rather than
  * counted as "immediate/pre-feature": they fire instantly on a tool
@@ -87,6 +94,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { twoProportionTest } from '../services/newsletter-ab-stats.mjs';
 import { MissingIndexError } from './lib/missing-index-error.mjs';
+import { PREFERRED_SEND_MIN_EVENTS, PREFERRED_SEND_WINDOW_DAYS } from '../functions/src/lib/preferredSendHour.js';
 
 // #3798 Fix MEDIO #4: a fixed n<100 threshold flags plenty of large-but-close
 // comparisons as "significant" and plenty of small-but-decisive ones as noise.
@@ -96,6 +104,9 @@ import { MissingIndexError } from './lib/missing-index-error.mjs';
 const SIGNIFICANCE_ALPHA = 0.05;
 const BATCH_PAGE_SIZE = 200;
 const SUBCOLLECTION_CONCURRENCY = 20;
+// Subscriber root assumed when a delivery doc carries no usable ref chain
+// (see collectTailLookupFloors) — the newsletter family.
+const DEFAULT_SUBSCRIBER_COLLECTION = 'newsletter_subscribers';
 const DEFAULT_DAYS = 30;
 const HOUR_MS = 60 * 60 * 1000;
 const DAY_MS = 24 * HOUR_MS;
@@ -393,7 +404,197 @@ async function loadEvents(db, cutoffDate) {
 // ── Aggregation ──────────────────────────────────────────────────────────
 
 export const IMMEDIATE_LABEL = 'immediate/pre-feature';
-export const GROUP_ORDER = ['personal', 'global', IMMEDIATE_LABEL];
+
+/**
+ * Sub-bucket of `personal` (#6550): RECENCY_WINDOWS (functions/src/lib/
+ * preferredSendHour.js, PR #6469) added a low-weight 90-180 day tail so a
+ * sparse subscriber who doesn't clear PREFERRED_SEND_MIN_EVENTS within 90
+ * days gets 90 more days to qualify for a personal preferred_send_hour_utc.
+ * The +14.6pp personal-vs-global open-rate that motivated PR #6469 was
+ * measured before that tail existed, i.e. only on the <90-day cohort — so a
+ * `personal` delivery that only qualifies via the tail is split out into this
+ * bucket instead of being folded into `personal`, letting the report show
+ * whether the signal holds for that weaker sub-cohort too.
+ */
+export const PERSONAL_TAIL_LABEL = 'personal_tail_90_180';
+export const GROUP_ORDER = ['personal', PERSONAL_TAIL_LABEL, 'global', IMMEDIATE_LABEL];
+
+// Boundary of the original (pre-#6469) qualification window — the width of
+// the "recent" side of the split this report draws inside `personal`.
+const PERSONAL_TAIL_WINDOW_DAYS = 90;
+
+/**
+ * Did this subscriber's `personal` hour necessarily come from the low-weight
+ * 90-180 day tail window (RECENCY_WINDOWS) rather than the recent 90 days?
+ * True when they have fewer than PREFERRED_SEND_MIN_EVENTS open/click events
+ * in the 90 days strictly before `sentAt` but reach that count somewhere in
+ * the full PREFERRED_SEND_WINDOW_DAYS (180) lookback — mirrors the cold-start
+ * gate in computePreferredSendHour, run against the subscriber's own
+ * open/click history (see loadTailQualificationEvents for where that history
+ * comes from and why the report's own event window is not enough).
+ * @param {Date[]} eventTimes - this subscriber's open/click event times (any campaign), unsorted
+ * @param {Date} sentAt
+ * @returns {boolean}
+ */
+export function qualifiesOnlyViaTailWindow(eventTimes, sentAt) {
+  // A `sent_at` that is truthy but unparsable survives the aggregate loop's
+  // `!d.sent_at` drop and reaches here as an Invalid Date. Every comparison
+  // against NaN is false, so WITHOUT this guard the classification inverts by
+  // construction: no event is skipped by `t >= sentAt`, `daysBefore` is NaN, so
+  // `>= PREFERRED_SEND_WINDOW_DAYS` never `continue`s (within180 counts all)
+  // and `< PERSONAL_TAIL_WINDOW_DAYS` never fires (within90 stays 0) — any
+  // subscriber with PREFERRED_SEND_MIN_EVENTS events returns true. Symmetric to
+  // the guard in collectTailLookupFloors, which already skips these docs: their
+  // 180-day history is never read, so they would be judged on the report's own
+  // window events alone and inflate this small-N bucket. Unclassifiable → keep
+  // them in `personal`, where they were before #6550.
+  if (!(sentAt instanceof Date) || Number.isNaN(sentAt.getTime())) return false;
+  if (!Array.isArray(eventTimes) || eventTimes.length === 0) return false;
+  let within90 = 0;
+  let within180 = 0;
+  for (const t of eventTimes) {
+    if (!(t instanceof Date) || Number.isNaN(t.getTime()) || t >= sentAt) continue;
+    const daysBefore = (sentAt.getTime() - t.getTime()) / DAY_MS;
+    if (daysBefore >= PREFERRED_SEND_WINDOW_DAYS) continue;
+    within180++;
+    if (daysBefore < PERSONAL_TAIL_WINDOW_DAYS) within90++;
+  }
+  return within90 < PREFERRED_SEND_MIN_EVENTS && within180 >= PREFERRED_SEND_MIN_EVENTS;
+}
+
+/**
+ * Per-subscriber floor of the qualification lookback (#6550): for every
+ * subscriber that received a `personal` delivery in the window, the oldest
+ * instant qualifiesOnlyViaTailWindow can still care about — the earliest such
+ * `sent_at` minus PREFERRED_SEND_WINDOW_DAYS.
+ *
+ * Why this exists at all: the report's own query floor covers the DELIVERY
+ * window (`--days`, plus the fixed `--since` baseline), which is far shorter
+ * than the 180-day lookback the qualification uses. Classifying off the events
+ * loaded for the opened/clicked cross-check alone would therefore see almost
+ * none of a recent delivery's lookback, count `within180` as 0 for everybody,
+ * and report an empty `personal_tail_90_180` bucket forever — a silent
+ * always-false, not a measurement. Restricting the extra read to the
+ * `personal` cohort keeps that history cheap: this report is already the
+ * largest Firestore scan in the project (see the cadence note in
+ * .github/workflows/send-hour-impact-report.yml), so widening its
+ * collectionGroup floor by 180 days for every subscriber is exactly what this
+ * avoids.
+ *
+ * WHICH ROOT COLLECTION the history lives under is recorded alongside the
+ * floor, because `personal` deliveries come from BOTH subscriber families:
+ * loadDeliveries uses `collectionGroup('campaign_deliveries')`, which pulls
+ * `newsletter_subscribers/*` and `job_alert_subscribers/*` alike (the latter
+ * written by scripts/send-job-alerts.mjs with `send_time_source: 'personal'`).
+ * Their qualification history is NOT interchangeable: the write path,
+ * refreshPreferredSendHour, takes a `subscriberRef` and reads
+ * `subscriberRef.collection('events')`, so a job-alert subscriber's hour is
+ * derived from `job_alert_subscribers/{email}/events` (see
+ * functions/src/newsletterResendWebhookCore.js, which builds the ref from
+ * `job_alert_subscribers` and refreshes off it). Reading the newsletter root
+ * for those would return an EMPTY snapshot rather than an error — an empty
+ * history is a real answer to aggregate, so the delivery would never fall back
+ * to the window events and could never be classified as tail: exactly the
+ * silent always-false this whole function exists to avoid. An email present in
+ * both families gets both roots recorded and each one queried separately.
+ *
+ * @param {FirebaseFirestore.QueryDocumentSnapshot[]} deliveryDocs
+ * @returns {Map<string, {floor: Date, collections: string[]}>} normalized email →
+ *   lookback floor + the subscriber root collection(s) that floor came from
+ */
+export function collectTailLookupFloors(deliveryDocs) {
+  const floors = new Map();
+  for (const doc of deliveryDocs) {
+    const d = doc?.data?.();
+    if (!d || !d.sent_at || d.send_time_source !== 'personal' || d.is_operator_verification) continue;
+    const email = normalizeEmail(d.email || doc.ref?.parent?.parent?.id || '');
+    if (!email) continue;
+    const sentAt = toDateSafe(d.sent_at);
+    if (Number.isNaN(sentAt?.getTime?.())) continue;
+    const floor = new Date(sentAt.getTime() - PREFERRED_SEND_WINDOW_DAYS * DAY_MS);
+    // `campaign_deliveries/{id}` → parent `.parent` is the subscriber doc and
+    // its `.parent` the root collection. Absent (plain fixture docs), assume
+    // the newsletter family — the historical, and still dominant, source.
+    const root = doc.ref?.parent?.parent?.parent?.id || DEFAULT_SUBSCRIBER_COLLECTION;
+    const current = floors.get(email);
+    if (!current) {
+      floors.set(email, { floor, collections: [root] });
+      continue;
+    }
+    if (floor < current.floor) current.floor = floor;
+    if (!current.collections.includes(root)) current.collections.push(root);
+  }
+  return floors;
+}
+
+// Same per-subscriber cap refreshPreferredSendHour uses in production, for the
+// same reason: it bounds the read cost of a heavy subscriber. Ordering DESC
+// makes the cap safe for this classification — the events it drops are the
+// oldest ones, and a subscriber with 300 events since the floor necessarily
+// has PREFERRED_SEND_MIN_EVENTS inside the recent 90 days, so they are
+// `personal`, never tail, whichever way the tail is counted.
+const TAIL_EVENTS_PER_SUBSCRIBER_CAP = 300;
+
+/**
+ * Read the 90-180 day open/click history needed to classify the `personal`
+ * cohort (#6550), one targeted subcollection query per subscriber returned by
+ * collectTailLookupFloors.
+ *
+ * Reads `occurred_at` (when the ESP says the event happened), not `timestamp`
+ * (when our webhook wrote it): that is the field computePreferredSendHour
+ * scores, so classifying on anything else could disagree with the write path
+ * it is trying to mirror. A subscriber whose query fails maps to `null` rather
+ * than to an empty array, so aggregate can tell "no history" (fall back to the
+ * window events, i.e. leave the delivery in `personal`) apart from "history
+ * read, and it is empty".
+ *
+ * Each subscriber is queried under the root collection collectTailLookupFloors
+ * recorded for them (see its docblock: newsletter vs job-alert history is not
+ * interchangeable), and the result is keyed `${collection}::${email}` so
+ * aggregate can pick the history matching the delivery's own root.
+ *
+ * @param {FirebaseFirestore.Firestore} db
+ * @param {Map<string, {floor: Date, collections: string[]}>} floorsByEmail
+ * @returns {Promise<Map<string, Date[]|null>>} `${collection}::${email}` → times, or null when the read failed
+ */
+async function loadTailQualificationEvents(db, floorsByEmail) {
+  const byEmail = new Map();
+  const entries = [];
+  for (const [email, { floor, collections }] of floorsByEmail) {
+    for (const collection of collections) entries.push([email, floor, collection]);
+  }
+  if (entries.length === 0) return byEmail;
+
+  let failed = 0;
+  const results = await mapWithConcurrency(entries, SUBCOLLECTION_CONCURRENCY, async ([email, floor, collection]) => {
+    try {
+      const snap = await db.collection(collection).doc(email)
+        .collection('events')
+        .where('occurred_at', '>=', floor)
+        .orderBy('occurred_at', 'desc')
+        .limit(TAIL_EVENTS_PER_SUBSCRIBER_CAP)
+        .get();
+      const times = [];
+      for (const doc of snap.docs) {
+        const d = doc.data();
+        if (d?.event_type !== 'open' && d?.event_type !== 'click') continue;
+        const t = toDateSafe(d.occurred_at ?? d.timestamp);
+        if (!Number.isNaN(t?.getTime?.())) times.push(t);
+      }
+      return [`${collection}::${email}`, times];
+    } catch (e) {
+      failed++;
+      console.warn(`⚠️  qualification history unavailable for one subscriber: ${e?.message || e}`);
+      return [`${collection}::${email}`, null];
+    }
+  });
+
+  for (const [key, times] of results) byEmail.set(key, times);
+  if (failed > 0) {
+    console.warn(`⚠️  ${failed}/${entries.length} qualification-history reads failed — those deliveries stay in \`personal\` (\`${PERSONAL_TAIL_LABEL}\` under-reports).`);
+  }
+  return byEmail;
+}
 
 /**
  * One-off transactional sends (see functions/src/sendCalculatorReport.js
@@ -480,14 +681,23 @@ function hasEventAtOrAfter(map, keys, sentAt) {
  * @param {Date|null} [options.windowFloor] - drop deliveries RELEASED before this
  *   instant. Trims the MAX_SCHEDULE_LOOKAHEAD_MS over-fetch computeFetchFloor adds;
  *   null/omitted keeps everything that was fetched.
+ * @param {Map<string, Date[]|null>|null} [options.subscriberEventTimes] - #6550 per-subscriber
+ *   open/click history over the full 180-day qualification lookback, from
+ *   loadTailQualificationEvents. When omitted, the `personal_tail_90_180` split falls back to
+ *   the (much shorter) event history of this report's own window and under-reports.
  */
-export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff = null, windowFloor = null } = {}) {
+export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff = null, windowFloor = null, subscriberEventTimes = null } = {}) {
   // Newsletter events carry campaign_id; job-alert events (job_alert_subscribers
   // .../events) carry alert_id instead — collectionGroup('events') pulls from
   // BOTH collections since they share the subcollection name, so accept either
   // as the send-side identifier.
   const openedTimes = new Map();
   const clickedTimes = new Map();
+  // Per-subscriber (not per-campaign) open/click history — same event docs,
+  // re-indexed by email alone — used by qualifiesOnlyViaTailWindow (#6550) to
+  // tell whether a `personal` delivery's preferred hour could only have come
+  // from the RECENCY_WINDOWS 90-180 day tail.
+  const eventTimesByEmail = new Map();
   for (const doc of eventDocs) {
     const d = doc.data();
     const groupId = d?.campaign_id || d?.alert_id;
@@ -500,6 +710,10 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     const map = d.event_type === 'open' ? openedTimes : clickedTimes;
     if (email) addEventTime(map, key, time);
     if (msgKey) addEventTime(map, msgKey, time);
+    if (email) {
+      if (!eventTimesByEmail.has(email)) eventTimesByEmail.set(email, []);
+      eventTimesByEmail.get(email).push(time);
+    }
   }
 
   const segments = sinceDate ? { before: newSegment(), after: newSegment() } : { combined: newSegment() };
@@ -528,11 +742,27 @@ export function aggregate(deliveryDocs, eventDocs, sinceDate, { maturityCutoff =
     // both would double-count deliveries.
     if (doc.id !== buildCanonicalDeliveryDocId(campaignId, email)) { droppedNonCanonical++; continue; }
 
-    const groupKey = (d.send_time_source === 'personal' || d.send_time_source === 'global')
+    const sentAt = toDateSafe(d.sent_at);
+    let groupKey = (d.send_time_source === 'personal' || d.send_time_source === 'global')
       ? d.send_time_source
       : IMMEDIATE_LABEL;
+    // #6550: split the tail-qualified sub-cohort out of `personal` (see
+    // PERSONAL_TAIL_LABEL docblock above) instead of folding it in.
+    // Prefer the dedicated 180-day history when it was read; `??` (not `||`)
+    // so a subscriber whose read FAILED (null) falls back to the window events
+    // while one with a genuinely empty history keeps it.
+    // Keyed by the delivery's OWN subscriber root: a job-alert delivery must be
+    // classified on job_alert_subscribers/{email}/events, which is what its
+    // preferred hour was computed from (see collectTailLookupFloors). The bare
+    // `email` key is the fallback for callers that pass a plain email-keyed map.
+    const subscriberRoot = doc.ref?.parent?.parent?.parent?.id;
+    const qualificationTimes = (subscriberRoot ? subscriberEventTimes?.get(`${subscriberRoot}::${email}`) : undefined)
+      ?? subscriberEventTimes?.get(email)
+      ?? eventTimesByEmail.get(email);
+    if (groupKey === 'personal' && qualifiesOnlyViaTailWindow(qualificationTimes, sentAt)) {
+      groupKey = PERSONAL_TAIL_LABEL;
+    }
 
-    const sentAt = toDateSafe(d.sent_at);
     // #3798 Fase 4: window, split and maturity all key off the moment the
     // provider RELEASED the message, not the moment we called its API — see
     // the module docblock. For an unscheduled send the two are the same
@@ -655,6 +885,9 @@ function printSegment(name, cells) {
   console.log(comparisonLine('  → personal vs immediate', cells.personal, cells[IMMEDIATE_LABEL], 'personal', 'immediate'));
   console.log(comparisonLine('  → global vs immediate  ', cells.global, cells[IMMEDIATE_LABEL], 'global', 'immediate'));
   console.log(comparisonLine('  → personal vs global   ', cells.personal, cells.global, 'personal', 'global'));
+  // #6550: does the personal-vs-global signal generalize to the weaker
+  // sub-cohort that only qualifies via the RECENCY_WINDOWS 90-180 day tail?
+  console.log(comparisonLine('  → personal_tail_90_180 vs global', cells[PERSONAL_TAIL_LABEL], cells.global, 'personal_tail_90_180', 'global'));
   console.log('');
   console.log(formatCoverageNote(cells));
   // Treated-only (per-protocol) view: restricted to deliveries that really
@@ -758,6 +991,18 @@ async function main() {
     }),
   ]);
 
+  // #6550: the 90-180d qualification history for the `personal` cohort only —
+  // one subcollection query per subscriber that got a personal delivery, not a
+  // 180-day widening of the collectionGroup scan (see collectTailLookupFloors).
+  const tailFloors = collectTailLookupFloors(deliveryDocs);
+  const subscriberEventTimes = await loadTailQualificationEvents(db, tailFloors).catch((e) => {
+    console.warn(`⚠️  Failed to load the 90-180d qualification history: ${e?.message || e} — \`${PERSONAL_TAIL_LABEL}\` will under-report.`);
+    return null;
+  });
+  if (!JSON_OUT && tailFloors.size > 0) {
+    console.log(`   Tail split (#6550): qualification history read for ${tailFloors.size} subscriber(s) with a \`personal\` delivery.`);
+  }
+
   if (deliveryDocs.length === 0) {
     // JSON mode must emit ONLY valid JSON on stdout (a consumer piping this
     // into `jq`/JSON.parse would otherwise choke on the human-readable
@@ -777,7 +1022,7 @@ async function main() {
     droppedOperatorVerification,
     droppedImmature,
     droppedBeforeWindow,
-  } = aggregate(deliveryDocs, eventDocs, SINCE_DATE, { maturityCutoff, windowFloor });
+  } = aggregate(deliveryDocs, eventDocs, SINCE_DATE, { maturityCutoff, windowFloor, subscriberEventTimes });
 
   if (JSON_OUT) {
     console.log(JSON.stringify({
