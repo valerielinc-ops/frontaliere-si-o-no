@@ -152,6 +152,33 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(fam.impressions90d).toBe(96180);
     });
 
+    it('registers the fuel-price template with all four locale slugs (issue #6704)', () => {
+      // Il caso che ha aperto la issue: lo slug IT e quello EN dello STESSO
+      // template fuel superavano la soglia separatamente e venivano rialzati
+      // come due famiglie non censite a ogni passata di discovery.
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'prezzi-benzina')!;
+      expect(fam).toBeDefined();
+      expect(fam.kind).toBe('template');
+      expect(fam.monitored).toBe(true);
+      expect(fam.impressions90d).toBeGreaterThanOrEqual(MIN_IMPRESSIONS_TO_MONITOR);
+      expect(familyPathPrefixes(fam).sort()).toEqual(
+        ['/benzinpreis-schweiz/', '/gasoline-price-switzerland/', '/prezzi-benzina/', '/prix-essence-suisse/'],
+      );
+      // Nessuno dei quattro slug torna più come famiglia non censita,
+      // qualunque sia quello che supera la soglia per primo.
+      const rows = familyPathPrefixes(fam).map((prefix) => ({
+        path: `${prefix}zona/oggi/`,
+        impressions: MIN_IMPRESSIONS_TO_MONITOR * 2,
+      }));
+      expect(discoverUnregisteredFamilies(rows)).toEqual([]);
+      // Il floor deve stare SOTTO il CTR misurato (1,23% a posizione 7,47),
+      // altrimenti il monitor scatterebbe a ogni run dal primo giorno.
+      const target = effectiveTargetCtr(fam, 7.47)!;
+      expect(target).toBeGreaterThan(0);
+      expect(target).toBeLessThan(0.0123);
+      expect(target).toBeGreaterThan(0.0123 * 0.6);
+    });
+
     it('carries pathAliases for every locale slug of a top-level template family (issue #5964)', () => {
       // Automates the manual audit issue #5964 asked for: any registered
       // template family whose `pathContains` matches a top-level
