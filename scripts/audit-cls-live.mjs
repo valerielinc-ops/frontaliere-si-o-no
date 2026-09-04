@@ -135,27 +135,36 @@ const LAB_RETRY_SAMPLES = 2;       // 2 additional samples (3 total)
 const LAB_RETRY_THRESHOLD = 0.25;  // same as HARD_CLS_THRESHOLD
 
 /**
- * L'audit Lighthouse che porta l'attribuzione del layout shift, da qualunque
- * delle due chiavi lo pubblichi.
+ * Le due chiavi sotto cui Lighthouse pubblica l'attribuzione del layout shift,
+ * IN ORDINE DI PRECEDENZA: `layout-shifts` e' quella viva, PSI risponde solo
+ * con lei; `layout-shift-elements` e' ritirata e resta come fallback per i
+ * report archiviati.
+ *
+ * L'ordine sta scritto UNA volta sola, qui: prima viveva in due funzioni
+ * separate che potevano divergere in silenzio (nit della review su PR #7287).
+ */
+const LAYOUT_SHIFT_AUDIT_KEYS = ['layout-shifts', 'layout-shift-elements'];
+
+/**
+ * L'audit di attribuzione del layout shift PIU' la chiave che ha risposto,
+ * insieme: `{ audit, source }`.
+ *
+ * La `source` non e' un extra: `audit.score` NON misura la stessa cosa nelle
+ * due chiavi (audit binario sulla vecchia, CLS scalato sulla nuova), quindi un
+ * confronto storico su quel numero e' valido solo fra report con la stessa
+ * `source`. Derivarla QUI, dall'audit gia' scelto, invece di ri-leggere gli
+ * `audits` altrove, e' cio' che rende impossibile la divergenza.
  *
  * Esportata e pura apposta: il difetto che chiude viveva dentro `runPsi()`,
  * che fa rete, quindi nessun test poteva vederlo e per tre settimane il campo
  * e' tornato `null` senza che niente fallisse.
  */
 export function pickLayoutShiftAudit(audits) {
-  return audits?.['layout-shifts'] ?? audits?.['layout-shift-elements'] ?? undefined;
-}
-
-/**
- * Quale delle due chiavi ha risposto: `attribution.score` NON misura la stessa
- * cosa nelle due (audit binario sulla vecchia, CLS scalato sulla nuova), quindi
- * un confronto storico su quel numero va fatto solo fra report con la stessa
- * `source`. Registrarla costa una stringa e rende il campo interpretabile.
- */
-export function layoutShiftAuditSource(audits) {
-  if (audits?.['layout-shifts']) return 'layout-shifts';
-  if (audits?.['layout-shift-elements']) return 'layout-shift-elements';
-  return null;
+  for (const source of LAYOUT_SHIFT_AUDIT_KEYS) {
+    const audit = audits?.[source];
+    if (audit) return { audit, source };
+  }
+  return { audit: undefined, source: null };
 }
 
 /**
@@ -276,7 +285,7 @@ function parsePsiResponse(j) {
   // Attribuzione del layout shift, proiettata compatta: il payload Lighthouse
   // integrale resta in `raw`. Quale chiave vince e perche' la vecchia resta
   // fallback e' nella jsdoc di `pickLayoutShiftAudit()`.
-  const lsElements = pickLayoutShiftAudit(j.lighthouseResult?.audits);
+  const { audit: lsElements, source: lsSource } = pickLayoutShiftAudit(j.lighthouseResult?.audits);
   const finalScreenshot = j.lighthouseResult?.audits?.['final-screenshot']?.details?.data || null;
 
   return {
@@ -289,7 +298,7 @@ function parsePsiResponse(j) {
     attribution: {
       layoutShiftElements: compactShiftItems(lsElements),
       score: lsElements?.score ?? null,
-      source: layoutShiftAuditSource(j.lighthouseResult?.audits),
+      source: lsSource,
     },
     finalScreenshot,
     raw: j, // full Lighthouse JSON — caller decides whether to persist
