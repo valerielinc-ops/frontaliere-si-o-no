@@ -22,7 +22,7 @@
 
 import { readFile, writeFile, appendFile, mkdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { join, dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -97,42 +97,33 @@ async function queryPerplexity(query) {
   const key = getPerplexityKey();
   if (!key) return null;
 
-  try {
-    const res = await fetch('https://api.perplexity.ai/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${key}`,
-      },
-      body: JSON.stringify({
-        model: 'sonar',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant. Always cite your sources with URLs.',
-          },
-          { role: 'user', content: query },
-        ],
-        max_tokens: 1024,
-        return_citations: true,
-      }),
-    });
+  const res = await fetchWithRetry('Perplexity', 'https://api.perplexity.ai/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      model: 'sonar',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant. Always cite your sources with URLs.',
+        },
+        { role: 'user', content: query },
+      ],
+      max_tokens: 1024,
+      return_citations: true,
+    }),
+  });
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.warn(`  ⚠ Perplexity API ${res.status}: ${text.slice(0, 200)}`);
-      return null;
-    }
+    if (!res) return null;
 
-    const data = await res.json();
-    const content = data.choices?.[0]?.message?.content || '';
-    const citations = data.citations || [];
+  const data = await res.json();
+  const content = data.choices?.[0]?.message?.content || '';
+  const citations = data.citations || [];
 
-    return { content, citations, raw: data };
-  } catch (err) {
-    console.warn(`  ⚠ Perplexity error: ${err.message}`);
-    return null;
-  }
+  return { content, citations, raw: data };
 }
 
 /**
@@ -146,41 +137,36 @@ async function queryGemini(query) {
   const key = getGeminiKey();
   if (!key) return null;
 
-  try {
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{
-            parts: [{
-              text: `Answer the following question and cite specific websites with their URLs where relevant: ${query}`,
-            }],
+  const res = await fetchWithRetry(
+    'Gemini',
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `Answer the following question and cite specific websites with their URLs where relevant: ${query}`,
           }],
-          tools: [{ google_search: {} }],
-          generationConfig: { maxOutputTokens: 1024, temperature: 0.2 },
-        }),
-      },
-    );
+        }],
+        tools: [{ google_search: {} }],
+        generationConfig: { maxOutputTokens: 1024, temperature: 0.2 },
+      }),
+    },
+  );
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.warn(`  ⚠ Gemini API ${res.status}: ${text.slice(0, 200)}`);
-      return null;
-    }
+  if (!res) return null;
 
-    const data = await res.json();
-    const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
-    const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-    const citations = groundingChunks
-      .map(c => c.web?.uri)
-      .filter(Boolean);
-    return { content, citations, raw: data };
-  } catch (err) {
-    console.warn(`  ⚠ Gemini error: ${err.message}`);
-    return null;
-  }
+  const data = await res.json();
+  const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
+  // Grounding chunks expose the source both as a redirect uri (which never
+  // contains the real host) and as `web.title`, which IS the domain — match
+  // on both, otherwise no domain, ours or a competitor's, can ever be found.
+  const citations = groundingChunks
+    .flatMap(c => [c.web?.uri, c.web?.title])
+    .filter(Boolean);
+  return { content, citations, raw: data };
 }
 
 /**
@@ -190,40 +176,71 @@ async function queryGitHubModels(query) {
   const key = getGhModelsPat();
   if (!key) return null;
 
-  try {
-    const res = await fetch('https://models.inference.ai.azure.com/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${key}`,
-      },
-      body: JSON.stringify({
-        model: 'gpt-4o',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a helpful assistant. When answering, cite specific websites with full URLs.',
-          },
-          { role: 'user', content: query },
-        ],
-        max_tokens: 1024,
-        temperature: 0.2,
-      }),
-    });
+  const res = await fetchWithRetry('GitHub Models', 'https://models.inference.ai.azure.com/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${key}`,
+    },
+    body: JSON.stringify({
+      model: 'gpt-4o',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant. When answering, cite specific websites with full URLs.',
+        },
+        { role: 'user', content: query },
+      ],
+      max_tokens: 1024,
+      temperature: 0.2,
+    }),
+  });
 
-    if (!res.ok) {
-      const text = await res.text();
-      console.warn(`  ⚠ GitHub Models API ${res.status}: ${text.slice(0, 200)}`);
-      return null;
+  if (!res) return null;
+
+  const data = await res.json();
+  const content = data.choices?.[0]?.message?.content || '';
+  return { content, citations: [], raw: data };
+}
+
+/**
+ * One request with bounded retry on TRANSIENT failures (HTTP 429/5xx, network
+ * errors), honouring `Retry-After` when the server sends it. Returns the
+ * response on success and `null` when the platform could not be reached —
+ * callers turn that into `checked: false`, never into "not cited": a rate limit
+ * is not a visibility signal (see the score accounting in runCheck).
+ */
+const MAX_ATTEMPTS = 3;
+
+async function fetchWithRetry(label, url, init) {
+  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+    const last = attempt === MAX_ATTEMPTS;
+    try {
+      const res = await fetch(url, init);
+      if (res.ok) return res;
+
+      const body = await res.text();
+      const transient = res.status === 429 || res.status >= 500;
+      if (!transient || last) {
+        console.warn(`  ⚠ ${label} API ${res.status}: ${body.slice(0, 200)}`);
+        return null;
+      }
+      const retryAfter = Number(res.headers.get('retry-after'));
+      const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
+        ? Math.min(retryAfter * 1000, 60_000)
+        : 2000 * 2 ** (attempt - 1);
+      console.warn(`  ⚠ ${label} API ${res.status} (attempt ${attempt}/${MAX_ATTEMPTS}) — retry in ${Math.round(waitMs / 1000)}s`);
+      await sleep(waitMs);
+    } catch (err) {
+      if (last) {
+        console.warn(`  ⚠ ${label} error: ${err.message}`);
+        return null;
+      }
+      console.warn(`  ⚠ ${label} error: ${err.message} (attempt ${attempt}/${MAX_ATTEMPTS})`);
+      await sleep(2000 * 2 ** (attempt - 1));
     }
-
-    const data = await res.json();
-    const content = data.choices?.[0]?.message?.content || '';
-    return { content, citations: [], raw: data };
-  } catch (err) {
-    console.warn(`  ⚠ GitHub Models error: ${err.message}`);
-    return null;
   }
+  return null;
 }
 
 // ─── Analysis helpers ───────────────────────────────────────────────────────
@@ -420,6 +437,10 @@ async function runCheck() {
       await sleep(1000);
     }
 
+    // A query counts as observed only if at least one platform answered. A
+    // query nobody could reach is unknown, not "not cited".
+    result.checkedByAny = Object.values(result.platforms).some(p => p?.checked);
+
     // Deduplicate
     result.citedUrls = [...new Set(result.citedUrls)];
     result.competitorsCited = [...new Set(result.competitorsCited)];
@@ -430,6 +451,10 @@ async function runCheck() {
   // ── Build report ────────────────────────────────────────────────────────
 
   const citedCount = results.filter(r => r.citedByAny).length;
+  // Denominator = queries an AI platform actually answered. Counting a query
+  // whose every API call failed as "not cited" is what turned three months of
+  // total API outage into a credible-looking 0/20 report (issue #7005).
+  const queriesChecked = results.filter(r => r.checkedByAny).length;
 
   const report = {
     meta: {
@@ -437,10 +462,11 @@ async function runCheck() {
       timestamp,
       domain: SITE_DOMAIN,
       totalQueries: QUERIES.length,
+      queriesChecked,
       platformsChecked: availablePlatforms,
       score: citedCount,
-      scoreMax: QUERIES.length,
-      scorePercent: Math.round((citedCount / QUERIES.length) * 100),
+      scoreMax: queriesChecked,
+      scorePercent: queriesChecked > 0 ? Math.round((citedCount / queriesChecked) * 100) : 0,
     },
     results,
     competitorSummary: buildCompetitorSummary(results),
@@ -467,13 +493,29 @@ async function runCheck() {
   // Append a compact summary to the committed history file so the next monthly
   // run can compute trend (reports/ is gitignored → never survives a fresh
   // checkout, so the JSON reports there cannot back the trend in CI).
+  // Nothing observed → no data point. Appending a 0 here would poison the
+  // trend of every later run (and file a monthly "0/20" issue about an outage
+  // dressed up as a ranking result), so fail loudly instead: the workflow's
+  // failure path reports it as what it is, a broken check.
+  if (queriesChecked === 0) {
+    throw new Error(
+      `no AI platform could be reached for any of the ${QUERIES.length} queries ` +
+      `(platforms with a key: ${availablePlatforms.join(', ') || 'none'}) — ` +
+      'report written for inspection, history NOT updated',
+    );
+  }
+
   const historyEntry = {
     date: dateStr,
     score: citedCount,
-    scoreMax: QUERIES.length,
+    scoreMax: queriesChecked,
+    queriesChecked,
+    totalQueries: QUERIES.length,
     scorePercent: report.meta.scorePercent,
     platformsChecked: availablePlatforms,
-    results: Object.fromEntries(results.map(r => [r.query, r.citedByAny])),
+    // `null` = the query could not be checked this run, distinct from `false`
+    // (checked, not cited) — the month-over-month diff must skip it.
+    results: Object.fromEntries(results.map(r => [r.query, r.checkedByAny ? r.citedByAny : null])),
   };
   await mkdir(dirname(HISTORY_FILE), { recursive: true });
   await appendFile(HISTORY_FILE, JSON.stringify(historyEntry) + '\n');
@@ -482,7 +524,10 @@ async function runCheck() {
   // ── Summary ─────────────────────────────────────────────────────────────
 
   console.log(`\n${'═'.repeat(60)}`);
-  console.log(`  AI Visibility Score: ${citedCount}/${QUERIES.length} (${report.meta.scorePercent}%)`);
+  console.log(`  AI Visibility Score: ${citedCount}/${queriesChecked} checked queries (${report.meta.scorePercent}%)`);
+  if (queriesChecked < QUERIES.length) {
+    console.log(`  ⚠ ${QUERIES.length - queriesChecked} queries NOT checked (no platform answered)`);
+  }
   if (trend) {
     const delta = citedCount - trend.previousScore;
     const arrow = delta > 0 ? '📈' : delta < 0 ? '📉' : '➡️';
@@ -524,9 +569,12 @@ async function loadPreviousReport(currentDate) {
         let entry;
         try { entry = JSON.parse(lines[i]); } catch { continue; }
         if (!entry?.date || entry.date === currentDate) continue;
+        // A run where no platform answered carries no score to compare against.
+        if (entry.queriesChecked === 0) continue;
         return {
           previousDate: entry.date,
           previousScore: entry.score ?? 0,
+          previousQueriesChecked: entry.queriesChecked ?? null,
           previousFile: 'data/ai-visibility-history.jsonl',
           previousResults: entry.results || {},
         };
@@ -559,6 +607,7 @@ async function loadPreviousReport(currentDate) {
     return {
       previousDate: prevDate,
       previousScore: prevScore,
+      previousQueriesChecked: prevData.meta?.queriesChecked ?? null,
       previousFile: files[0],
       previousResults: prevByQuery,
     };
@@ -576,7 +625,8 @@ function generateMarkdown(report) {
     `# AI Visibility Report — ${meta.date}`,
     '',
     `**Domain**: ${meta.domain}`,
-    `**Score**: ${meta.score}/${meta.scoreMax} queries cite us (${meta.scorePercent}%)`,
+    `**Score**: ${meta.score}/${meta.scoreMax} checked queries cite us (${meta.scorePercent}%)`,
+    `**Queries checked**: ${meta.queriesChecked ?? meta.scoreMax}/${meta.totalQueries} (the rest: no platform answered — not counted as a miss)`,
     `**Platforms checked**: ${meta.platformsChecked.join(', ')}`,
   ];
 
@@ -587,7 +637,8 @@ function generateMarkdown(report) {
     lines.push(`**Trend**: ${arrow} ${delta > 0 ? '+' : ''}${delta} vs ${trend.previousDate}`);
   }
 
-  lines.push('', '---', '', '## Per-Query Results', '');
+  lines.push('', '---', '', '## Per-Query Results', '',
+    'Legend: ✅ cited · ❌ checked, not cited · ⚪ platform unreachable (excluded from the score)', '');
 
   // Table header
   const platformCols = meta.platformsChecked.map(p => p.charAt(0).toUpperCase() + p.slice(1));
@@ -628,6 +679,7 @@ function generateMarkdown(report) {
     const gained = [];
     const lost = [];
     for (const r of results) {
+      if (!r.checkedByAny) continue; // unknown this month, not a change
       const prev = trend.previousResults[r.query];
       if (prev === false && r.citedByAny) gained.push(r.query);
       if (prev === true && !r.citedByAny) lost.push(r.query);
@@ -647,7 +699,7 @@ function generateMarkdown(report) {
   }
 
   // Action items
-  const uncited = results.filter(r => !r.citedByAny);
+  const uncited = results.filter(r => r.checkedByAny && !r.citedByAny);
   if (uncited.length > 0) {
     lines.push('', '## Action Items', '');
     lines.push('Queries where we are **not cited** by any AI platform:', '');
@@ -662,6 +714,13 @@ function generateMarkdown(report) {
     lines.push('- Ensure the site appears in `llms.txt` with these topic keywords');
   }
 
+  const unchecked = results.filter(r => !r.checkedByAny);
+  if (unchecked.length > 0) {
+    lines.push('', '## Not checked (platform unreachable)', '');
+    lines.push('These queries produced no observation this run — they are excluded from the score:', '');
+    for (const r of unchecked) lines.push(`- "${r.query}"`);
+  }
+
   lines.push('', '---', `*Generated by \`scripts/check-ai-visibility.mjs\` on ${meta.timestamp}*`, '');
 
   return lines.join('\n');
@@ -669,7 +728,13 @@ function generateMarkdown(report) {
 
 // ─── Entry point ────────────────────────────────────────────────────────────
 
-runCheck().catch(err => {
-  console.error('❌ AI visibility check failed:', err.message);
-  process.exit(1);
-});
+const isDirectRun = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isDirectRun) {
+  runCheck().catch(err => {
+    console.error('❌ AI visibility check failed:', err.message);
+    process.exit(1);
+  });
+}
+
+export { fetchWithRetry, findSiteMention, findCompetitorMentions, generateMarkdown, loadPreviousReport, runCheck };
