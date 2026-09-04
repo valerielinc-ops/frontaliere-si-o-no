@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-03T23:40:09.315Z",
+  "generatedAt": "2026-09-04T13:40:16.270Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 17797,
-  "avgDurationMs": 17797,
+  "durationMs": 19580,
+  "avgDurationMs": 19580,
   "durationHistory": [
-    17797
+    19580
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -42,7 +42,6 @@
         "location": "Graubünden"
       },
       "id": "capri-holdings-a8bb48b29f4a",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
       "_qualityScore": 89,
@@ -81,7 +80,6 @@
         "location": "Graubünden"
       },
       "id": "capri-holdings-3a2740ba0b27",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-08-05T11:29:55.397Z",
       "crawledAt": "",
       "_qualityScore": 89,
@@ -120,9 +118,9 @@
         "location": "Manno"
       },
       "id": "capri-holdings-c2a82205abea",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -235,9 +233,9 @@
         "location": "Geneva"
       },
       "id": "capri-holdings-7593aa4af27d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T11:04:35.842Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
