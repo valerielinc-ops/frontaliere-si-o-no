@@ -67,6 +67,26 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   default per tutto ciò che non sta in un run — comprese le decisioni di
   prodotto/business, dal 2026-08-24. `needs-human` è riservato ai soli blocchi
   di capacità reale.
+
+  **Un SECONDO livello di scorporo è escluso, e la ragione è misurata
+  (2026-09-04).** Il drainer manda in `needs-human` le `from-decompose` che
+  esauriscono il turn-budget, perché `isDecomposeEligible` esclude
+  `from-decompose` e `decomposed:1`: sembra un pozzo da tappare ammettendo la
+  profondità 2. Non lo è. Su 253 issue del sito con un verdetto `FIX_OUTCOME`
+  aggiornate dal 2026-08-25, il tasso di `max-turns` è **41,4%** (55/133) sulle
+  issue mai scorporate e **45,3%** (43/95) su quelle `from-decompose` — z=0,59,
+  cioè indistinguibili; `decomposed:1` sta al 32,0% (8/25). Una sub-issue nata
+  dallo scorporo muore per turn-budget quanto una issue intera, quindi la
+  dimensione non è il driver: `max-turns` è il 42% di TUTTI i verdetti (106/253)
+  a ogni dimensione. Chi vuole abbassare quel tasso guardi il volume dell'output
+  e il prompt, non la granularità della issue.
+
+  E il collo di bottiglia di `needs-human` non è nemmeno lo scorporo: è
+  l'USCITA. Il pre-pass deterministico drena solo le famiglie che riconosce —
+  misurato in produzione lo stesso giorno, `requeue=6 decompose=2 keep=41` — e
+  le `keep` passano da un run Claude settimanale con cap 15. Allargare il
+  riconoscimento del pre-pass costa zero quota (D4) e scala; un altro run Claude
+  no. Lavoro scorporato in issue **#7280**.
 - **D6 — Famiglie, non istanze.** Se la stessa fix si sta applicando alla
   N-esima istanza (allowlist che cresce, timeout alzato di nuovo, stessa entry
   ripetuta), la N-esima PR DEVE aggredire la causa di famiglia o aprire
