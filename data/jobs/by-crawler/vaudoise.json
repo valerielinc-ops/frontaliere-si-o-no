@@ -1392,11 +1392,11 @@
     },
     {
       "id": "vaudoise-3e314bd4d800",
-      "slug": "juriste-junior-germanophone-h-f-x-90-vaudoise-ch",
+      "slug": "ufficiale-legale-tedesco-m-f-x-90-vaudoise-assurances-lausanne",
       "slugByLocale": {
-        "it": "juriste-junior-germanophone-h-f-x-90-vaudoise-ch",
-        "en": "juriste-junior-germanophone-h-f-x-90-vaudoise-ch",
-        "de": "juriste-junior-germanophone-h-f-x-90-vaudoise-ch",
+        "it": "ufficiale-legale-tedesco-m-f-x-90-vaudoise-assurances-lausanne",
+        "en": "german-speaking-junior-legal-officer-m-f-x-90-vaudoise-assurances-lausanne",
+        "de": "deutschsprachiger-junior-legal-officer-m-w-x-90-vaudoise-assurances-lausanne",
         "fr": "juriste-junior-germanophone-h-f-x-90-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
@@ -1451,7 +1451,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "juriste-junior-germanophone-h-f-x-90-vaudoise-ch"
+        ],
+        "en": [
+          "juriste-junior-germanophone-h-f-x-90-vaudoise-ch"
+        ],
+        "de": [
+          "juriste-junior-germanophone-h-f-x-90-vaudoise-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juriste-junior-germanophone-h-f-x-90-vaudoise-ch"
+      ]
     },
     {
       "id": "vaudoise-999d0cfa4d6d",

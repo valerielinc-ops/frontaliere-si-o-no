@@ -3198,12 +3198,12 @@
     },
     {
       "id": "concara-90cea4425096",
-      "slug": "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern",
+      "slug": "specialista-pulizia-efz-50-60-concara-domicil-spitex-bern-bern",
       "slugByLocale": {
-        "it": "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern",
-        "en": "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern",
+        "it": "specialista-pulizia-efz-50-60-concara-domicil-spitex-bern-bern",
+        "en": "specialist-housekeeping-efz-50-60-concara-domicil-spitex-bern-bern",
         "de": "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern",
-        "fr": "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern"
+        "fr": "metier-specialise-efz-50-60-concara-domicil-spitex-bern-bern"
       },
       "company": "Concara (Domicil & Spitex Bern)",
       "companyKey": "concara",
@@ -3248,12 +3248,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern",
-        "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern"
+        "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern",
+        "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern",
-          "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern"
+          "fachfrau-mann-hauswirtschaft-efz-50-60-concara-bern",
+          "fachfrau-mann-hauswirtschaft-cfc-60-100-concara-domicil-spitex-bern"
+        ],
+        "en": [
+          "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern"
+        ],
+        "fr": [
+          "fachfrau-mann-hauswirtschaft-efz-60-100-concara-bern"
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:42.292Z",

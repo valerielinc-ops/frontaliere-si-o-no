@@ -63583,7 +63583,7 @@
         "it": "full-stack-software-ingegnere-frontend-backend-cloud-applied-agentic-ai-systems-roche-hyderabad",
         "en": "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch",
         "de": "full-stack-software-ingenieur-frontend-backend-cloud-applied-agentic-ai-systems-roche-hyderabad",
-        "fr": "full-stack-software-ingenieur-frontend-backend-cloud-applied-agentic-ai-systems-roche-hyderabad"
+        "fr": "ingenieur-logiciel-full-stack-frontend-backend-cloud-systemes-d-ia-appliques-et-agents-roche-hyderabad"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -63623,7 +63623,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch"
+        "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch",
+        "full-stack-software-ingenieur-frontend-backend-cloud-applied-agentic-ai-systems-roche-hyderabad"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -63633,7 +63634,8 @@
           "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch"
         ],
         "fr": [
-          "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch"
+          "full-stack-software-engineer-frontend-backend-cloud-applied-agentic-ai-systems-roche-ch",
+          "full-stack-software-ingenieur-frontend-backend-cloud-applied-agentic-ai-systems-roche-hyderabad"
         ]
       },
       "needsRetranslation": true,
@@ -64569,7 +64571,7 @@
         "it": "global-sustainability-manager-corporate-sustainability-reporting-roche-ch",
         "en": "global-sustainability-manager-corporate-sustainability-reporting-roche-ch",
         "de": "global-sustainability-manager-corporate-sustainability-reporting-roche-ch",
-        "fr": "global-sustainability-manager-corporate-sustainability-reporting-roche-ch"
+        "fr": "gestionnaire-de-la-durabilite-mondiale-rapport-sur-la-durabilite-des-entreprises-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -64627,12 +64629,12 @@
     },
     {
       "id": "roche-491da7d2dbf0",
-      "slug": "medical-copywriter-roche-ch",
+      "slug": "copiatore-medico-roche-riga",
       "slugByLocale": {
-        "it": "medical-copywriter-roche-ch",
+        "it": "copiatore-medico-roche-riga",
         "en": "medical-copywriter-roche-ch",
-        "de": "medical-copywriter-roche-riga",
-        "fr": "medical-copywriter-roche-ch"
+        "de": "medizinischer-texter-roche-riga",
+        "fr": "redacteur-medical-roche-riga"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -64685,7 +64687,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-copywriter-roche-ch"
+        ],
+        "de": [
+          "medical-copywriter-roche-riga"
+        ],
+        "fr": [
+          "medical-copywriter-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-copywriter-roche-ch",
+        "medical-copywriter-roche-riga"
+      ]
     },
     {
       "id": "roche-7bde4efbf188",
@@ -64843,7 +64860,7 @@
         "it": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
         "en": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
         "de": "template-manager-p-c-document-management-solution-german-speaking-roche-ch",
-        "fr": "template-manager-p-c-document-management-solution-german-speaking-roche-ch"
+        "fr": "gestionnaire-de-modeles-solution-de-gestion-de-documents-p-c-langue-allemande-roche-budapest"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65601,8 +65618,8 @@
       "slugByLocale": {
         "it": "digital-solution-lead-trial-simulation-protocol-design-roche-ch",
         "en": "digital-solution-lead-trial-simulation-protocol-design-roche-ch",
-        "de": "digital-solution-lead-trial-simulation-protocol-design-roche-ch",
-        "fr": "digital-solution-lead-trial-simulation-protocol-design-roche-ch"
+        "de": "digital-solution-lead-testsimulation-protokolldesign-roche-kaiseraugst",
+        "fr": "solution-numerique-simulation-d-essai-et-conception-de-protocole-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65660,12 +65677,12 @@
     },
     {
       "id": "roche-ef7c19666213",
-      "slug": "digital-solution-lead-clinical-real-world-evidence-roche-ch",
+      "slug": "piombo-della-soluzione-digitale-prove-del-mondo-clinico-e-reale-roche-kaiseraugst",
       "slugByLocale": {
-        "it": "digital-solution-lead-clinical-real-world-evidence-roche-ch",
+        "it": "piombo-della-soluzione-digitale-prove-del-mondo-clinico-e-reale-roche-kaiseraugst",
         "en": "digital-solution-lead-clinical-real-world-evidence-roche-ch",
-        "de": "digital-solution-lead-clinical-real-world-evidence-roche-ch",
-        "fr": "digital-solution-lead-clinical-real-world-evidence-roche-ch"
+        "de": "digital-solution-lead-klinische-und-reale-welt-beweise-roche-kaiseraugst",
+        "fr": "solution-numerique-preuves-cliniques-et-reelles-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65718,16 +65735,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "AG"
+      "addressRegion": "AG",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-solution-lead-clinical-real-world-evidence-roche-ch"
+        ],
+        "de": [
+          "digital-solution-lead-clinical-real-world-evidence-roche-ch"
+        ],
+        "fr": [
+          "digital-solution-lead-clinical-real-world-evidence-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "digital-solution-lead-clinical-real-world-evidence-roche-ch"
+      ]
     },
     {
       "id": "roche-9c4edd84b81c",
-      "slug": "field-support-representative-roche-ch-2",
+      "slug": "rappresentante-del-supporto-di-campo-roche-ontario",
       "slugByLocale": {
-        "it": "field-support-representative-roche-ch-2",
+        "it": "rappresentante-del-supporto-di-campo-roche-ontario",
         "en": "field-support-representative-roche-ch",
-        "de": "field-support-representative-roche-ch-2",
-        "fr": "field-support-representative-roche-ch-2"
+        "de": "au-endienstmitarbeiter-roche-ontario",
+        "fr": "representant-pour-l-appui-aux-missions-roche-ontario"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -65767,11 +65798,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "field-support-representative-roche-ch"
+        "field-support-representative-roche-ch",
+        "field-support-representative-roche-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "field-support-representative-roche-ch"
+          "field-support-representative-roche-ch",
+          "field-support-representative-roche-ch-2"
+        ],
+        "de": [
+          "field-support-representative-roche-ch-2"
+        ],
+        "fr": [
+          "field-support-representative-roche-ch-2"
         ]
       },
       "firstSeenAt": "2026-08-27T00:35:13.036Z",
@@ -68316,12 +68355,12 @@
     },
     {
       "id": "roche-17b04b78b4ec",
-      "slug": "clinical-scientist-late-stage-development-roche-ch",
+      "slug": "scienziato-clinico-late-stage-development-oftalmologia-roche-basel",
       "slugByLocale": {
-        "it": "clinical-scientist-late-stage-development-roche-ch",
+        "it": "scienziato-clinico-late-stage-development-oftalmologia-roche-basel",
         "en": "clinical-scientist-late-stage-development-roche-ch",
-        "de": "clinical-scientist-late-stage-development-roche-ch",
-        "fr": "clinical-scientist-late-stage-development-roche-ch"
+        "de": "klinischer-wissenschaftler-late-stage-development-ophthalmologie-roche-basel",
+        "fr": "scientifique-clinique-developpement-tardif-ophtalmologie-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -68374,7 +68413,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "clinical-scientist-late-stage-development-roche-ch"
+        ],
+        "de": [
+          "clinical-scientist-late-stage-development-roche-ch"
+        ],
+        "fr": [
+          "clinical-scientist-late-stage-development-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "clinical-scientist-late-stage-development-roche-ch"
+      ]
     },
     {
       "id": "roche-4d3f5309ba8c",
@@ -77149,7 +77202,7 @@
         "it": "key-account-manager-ngs-sao-paulo-roche-ch",
         "en": "key-account-manager-ngs-sao-paulo-roche-ch",
         "de": "key-account-manager-ngs-sao-paulo-roche-ch",
-        "fr": "key-account-manager-ngs-sao-paulo-roche-ch"
+        "fr": "directeur-de-compte-cle-ngs-sao-paulo-roche-sao-paulo"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83551,12 +83604,12 @@
     },
     {
       "id": "roche-bdf46ea6c609",
-      "slug": "learning-partner-roche-ch",
+      "slug": "partner-di-apprendimento-roche-basel",
       "slugByLocale": {
-        "it": "learning-partner-roche-ch",
+        "it": "partner-di-apprendimento-roche-basel",
         "en": "learning-partner-roche-ch",
-        "de": "learning-partner-roche-ch",
-        "fr": "learning-partner-roche-ch"
+        "de": "lernpartner-roche-basel",
+        "fr": "partenaire-d-apprentissage-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -83610,7 +83663,21 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "learning-partner-roche-ch"
+        ],
+        "de": [
+          "learning-partner-roche-ch"
+        ],
+        "fr": [
+          "learning-partner-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "learning-partner-roche-ch"
+      ]
     },
     {
       "id": "roche-d99422e771cb",
@@ -90852,7 +90919,7 @@
         "it": "especialista-tecnico-l1-roche-mexico-city",
         "en": "especialista-tecnico-l1-roche-ch",
         "de": "especialista-tecnico-l1-roche-ch",
-        "fr": "especialista-tecnico-l1-roche-ch"
+        "fr": "specialiste-tecnico-l1-roche-mexico-city"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -90896,6 +90963,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "especialista-tecnico-l1-roche-ch"
+        ],
+        "fr": [
           "especialista-tecnico-l1-roche-ch"
         ]
       },

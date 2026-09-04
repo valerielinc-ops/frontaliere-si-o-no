@@ -24253,9 +24253,9 @@
       "slug": "mitarbeiterin-collaboratore-trice-qualitats-e-prozessmanagement-a-80-100-hirslanden-klinik-zurich",
       "slugByLocale": {
         "it": "mitarbeiterin-collaboratore-trice-qualitats-e-prozessmanagement-a-80-100-hirslanden-klinik-zurich",
-        "en": "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich",
+        "en": "employee-quality-and-process-management-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden",
         "de": "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich",
-        "fr": "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich"
+        "fr": "qualite-des-employes-et-gestion-des-processus-a-80-100-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24302,6 +24302,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-qualitats-und-prozessmanagement-a-80-100-hirslanden-zurich"
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:44.614Z",
@@ -24321,12 +24327,12 @@
     },
     {
       "id": "hirslanden-c6d8ca76bb9b",
-      "slug": "study-nurse-a-80-hirslanden-zurich",
+      "slug": "studio-infermiera-a-80-hirslanden-klinik-quality-of-life-stiftung",
       "slugByLocale": {
-        "it": "study-nurse-a-80-hirslanden-zurich",
+        "it": "studio-infermiera-a-80-hirslanden-klinik-quality-of-life-stiftung",
         "en": "study-nurse-a-80-hirslanden-zurich",
         "de": "study-nurse-a-80-hirslanden-zurich",
-        "fr": "study-nurse-a-80-hirslanden-zurich"
+        "fr": "infirmiere-a-80-hirslanden-klinik-quality-of-life-stiftung"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24381,7 +24387,18 @@
           "maxValue": 102400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "study-nurse-a-80-hirslanden-zurich"
+        ],
+        "fr": [
+          "study-nurse-a-80-hirslanden-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "study-nurse-a-80-hirslanden-zurich"
+      ]
     },
     {
       "id": "hirslanden-82fcb1c1dfc7",

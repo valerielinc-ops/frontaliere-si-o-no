@@ -53,7 +53,6 @@
       "externalId": "4056199",
       "previousSlugs": [
         "dipl-experte-expertin-notfallpflege-nds-m-w-d-svar-spitalverbund-ar-herisau",
-        "dipl-expert-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-esperto-di-assistenza-intensiva-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
@@ -68,7 +67,6 @@
       "previousSlugsByLocale": {
         "it": [
           "dipl-experte-expertin-notfallpflege-nds-m-w-d-svar-spitalverbund-ar-herisau",
-          "dipl-expert-expert-emergency-care-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-esperto-di-assistenza-intensiva-nds-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-nds-intensive-care-expert-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-experte-in-nds-intensivpflege-m-w-d-svar-spitalverbund-ar-herisau",
@@ -204,12 +202,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-dc0aecd1df03",
-      "slug": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "subacute-station-infermiera-qualificata-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
-        "it": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "en": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "subacute-station-infermiera-qualificata-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "subacute-station-qualified-nurse-hf-fh-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "de": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "station-secondaire-infirmiere-qualifiee-hf-fh-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -260,7 +258,8 @@
         "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -272,16 +271,19 @@
           "dipl-cura-professionale-hf-med-diagnostica-endoscopia-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-care-professional-hf-med-diagnostics-endoscopy-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
           "dipl-pflegefachperson-hf-med-diagnostik-endoskopie-m-w-d-svar-spitalverbund-ar-herisau",
-          "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-soins-professionnels-hf-med-diagnostic-endoscopie-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "en": [
-          "dipl-care-professional-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-care-professional-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "de": [
           "dipl-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ],
         "fr": [
-          "dipl-soins-professionnels-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+          "dipl-soins-professionnels-hf-fh-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "subakutstation-diplomierte-pflegefachperson-hf-fh-m-w-d-svar-spitalverbund-ar-herisau"
         ]
       },
       "firstSeenAt": "2026-08-27T00:38:06.147Z",

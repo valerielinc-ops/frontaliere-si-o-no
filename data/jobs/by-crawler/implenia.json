@@ -4546,12 +4546,12 @@
     },
     {
       "id": "implenia-302a929097c6",
-      "slug": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
+      "slug": "direttore-immobiliare-m-f-d-zurich-central-80-100-implenia-zurich",
       "slugByLocale": {
-        "it": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
-        "en": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
+        "it": "direttore-immobiliare-m-f-d-zurich-central-80-100-implenia-zurich",
+        "en": "real-estate-manager-m-f-d-zurich-central-80-100-implenia-zurich",
         "de": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch",
-        "fr": "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        "fr": "directeur-immobilier-h-f-d-zurich-central-80-100-implenia-zurich"
       },
       "company": "Implenia",
       "companyKey": "implenia",
@@ -4607,7 +4607,21 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        ],
+        "en": [
+          "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        ],
+        "fr": [
+          "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienbewirtschafter-m-w-d-zurich-central-80-100-implenia-ch"
+      ]
     },
     {
       "id": "implenia-68afcfc176b6",

@@ -21138,7 +21138,7 @@
         "it": "sr-strategic-account-manager-sulzer-ch",
         "en": "sr-strategic-account-manager-sulzer-ch",
         "de": "sr-strategic-account-manager-sulzer-ch",
-        "fr": "sr-strategic-account-manager-sulzer-ch"
+        "fr": "chef-de-compte-strategique-sulzer-johannesburg"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -21334,12 +21334,12 @@
     },
     {
       "id": "sulzer-fa7b102a2096",
-      "slug": "us-holding-tax-manager-sulzer-ch",
+      "slug": "us-holding-responsabile-fiscale-sulzer-houston",
       "slugByLocale": {
-        "it": "us-holding-tax-manager-sulzer-ch",
+        "it": "us-holding-responsabile-fiscale-sulzer-houston",
         "en": "us-holding-tax-manager-sulzer-ch",
-        "de": "us-holding-tax-manager-sulzer-ch",
-        "fr": "us-holding-tax-manager-sulzer-ch"
+        "de": "us-holding-steuermanager-sulzer-houston",
+        "fr": "us-holding-gestionnaire-fiscal-sulzer-houston"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -21392,7 +21392,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "us-holding-tax-manager-sulzer-ch"
+        ],
+        "de": [
+          "us-holding-tax-manager-sulzer-ch"
+        ],
+        "fr": [
+          "us-holding-tax-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "us-holding-tax-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-5d3846b0bb90",
@@ -22484,12 +22498,12 @@
     },
     {
       "id": "sulzer-639dceb01d77",
-      "slug": "senior-commercial-contracts-manager-sulzer-ch",
+      "slug": "responsabile-dei-contratti-commerciali-senior-sulzer-pune",
       "slugByLocale": {
-        "it": "senior-commercial-contracts-manager-sulzer-ch",
+        "it": "responsabile-dei-contratti-commerciali-senior-sulzer-pune",
         "en": "senior-commercial-contracts-manager-sulzer-ch",
         "de": "senior-commercial-contracts-manager-sulzer-ch",
-        "fr": "senior-commercial-contracts-manager-sulzer-ch"
+        "fr": "directeur-principal-des-marches-commerciaux-sulzer-pune"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22543,7 +22557,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-commercial-contracts-manager-sulzer-ch"
+        ],
+        "fr": [
+          "senior-commercial-contracts-manager-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-commercial-contracts-manager-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-1b1cfd87a7c6",

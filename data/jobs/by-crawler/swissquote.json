@@ -2131,11 +2131,11 @@
     },
     {
       "id": "swissquote-bd66ae137a6f",
-      "slug": "central-data-agent-3-months-contract-swissquote-gland",
+      "slug": "dati-centrali-agente-contratto-di-3-mesi-swissquote-gland",
       "slugByLocale": {
-        "it": "central-data-agent-3-months-contract-swissquote-gland",
+        "it": "dati-centrali-agente-contratto-di-3-mesi-swissquote-gland",
         "en": "central-data-agent-3-months-contract-swissquote-gland",
-        "de": "central-data-agent-3-months-contract-swissquote-gland",
+        "de": "zentrale-daten-agent-3-monate-vertrag-swissquote-gland",
         "fr": "central-data-agent-3-months-contract-swissquote-gland"
       },
       "company": "Swissquote",
@@ -2181,14 +2181,17 @@
       "postalCode": "1196",
       "streetAddress": "Chemin de la Crétaux 33",
       "previousSlugs": [
-        "central-data-agent-6-months-contract-swissquote-gland"
+        "central-data-agent-6-months-contract-swissquote-gland",
+        "central-data-agent-3-months-contract-swissquote-gland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "central-data-agent-6-months-contract-swissquote-gland"
+          "central-data-agent-6-months-contract-swissquote-gland",
+          "central-data-agent-3-months-contract-swissquote-gland"
         ],
         "de": [
-          "central-data-agent-6-months-contract-swissquote-gland"
+          "central-data-agent-6-months-contract-swissquote-gland",
+          "central-data-agent-3-months-contract-swissquote-gland"
         ]
       },
       "firstSeenAt": "2026-08-27T00:51:09.597Z",

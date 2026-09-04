@@ -9343,12 +9343,12 @@
     },
     {
       "id": "raiffeisen-6e59c5f00bd7",
-      "slug": "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+      "slug": "consulente-clienti-aziendale-m-f-d-raiffeisen-oberlunkhofen",
       "slugByLocale": {
-        "it": "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "en": "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+        "it": "consulente-clienti-aziendale-m-f-d-raiffeisen-oberlunkhofen",
+        "en": "corporate-client-advisor-m-f-d-raiffeisen-oberlunkhofen",
         "de": "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "fr": "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        "fr": "conseiller-client-d-entreprise-h-f-d-raiffeisen-oberlunkhofen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9403,16 +9403,30 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        ],
+        "en": [
+          "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        ],
+        "fr": [
+          "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        ]
+      },
+      "previousSlugs": [
+        "firmenkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+      ]
     },
     {
       "id": "raiffeisen-9c02ebc95933",
-      "slug": "kundenberater-in-m-w-d-raiffeisen-studen",
+      "slug": "consulente-clienti-in-m-f-d-raiffeisen-studen",
       "slugByLocale": {
-        "it": "kundenberater-in-m-w-d-raiffeisen-studen",
-        "en": "kundenberater-in-m-w-d-raiffeisen-studen",
+        "it": "consulente-clienti-in-m-f-d-raiffeisen-studen",
+        "en": "customer-advisor-in-m-f-d-raiffeisen-studen",
         "de": "kundenberater-in-m-w-d-raiffeisen-studen",
-        "fr": "kundenberater-in-m-w-d-raiffeisen-studen"
+        "fr": "conseiller-client-en-h-f-d-raiffeisen-studen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -9468,7 +9482,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-m-w-d-raiffeisen-studen"
+        ],
+        "en": [
+          "kundenberater-in-m-w-d-raiffeisen-studen"
+        ],
+        "fr": [
+          "kundenberater-in-m-w-d-raiffeisen-studen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-m-w-d-raiffeisen-studen"
+      ]
     },
     {
       "id": "raiffeisen-9a13d52351f3",

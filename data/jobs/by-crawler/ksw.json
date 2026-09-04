@@ -1320,12 +1320,12 @@
     },
     {
       "id": "ksw-fd2bc4316799",
-      "slug": "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch",
+      "slug": "salute-professionale-emergenza-adulto-nfe-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch",
-        "en": "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch",
+        "it": "salute-professionale-emergenza-adulto-nfe-kantonsspital-winterthur-ksw-winterthur",
+        "en": "professional-health-emergency-adult-nfe-kantonsspital-winterthur-ksw-winterthur",
         "de": "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch",
-        "fr": "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch"
+        "fr": "sante-professionnelle-urgence-adulte-nfe-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1380,16 +1380,30 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-notfall-erwachsene-nfe-ksw-ch"
+      ]
     },
     {
       "id": "ksw-f552fc79c232",
       "slug": "physician-associate-hand-e-plastische-chirurgie-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "it": "physician-associate-hand-e-plastische-chirurgie-kantonsspital-winterthur-ksw-winterthur",
-        "en": "physician-associate-hand-und-plastische-chirurgie-ksw-ch",
+        "en": "physician-associate-hand-and-plastic-surgery-kantonsspital-winterthur-ksw-winterthur",
         "de": "physician-associate-hand-und-plastische-chirurgie-ksw-ch",
-        "fr": "physician-associate-hand-und-plastische-chirurgie-ksw-ch"
+        "fr": "medecin-chirurgie-associee-a-la-main-et-a-la-plastique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1436,6 +1450,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "physician-associate-hand-und-plastische-chirurgie-ksw-ch"
+        ],
+        "en": [
+          "physician-associate-hand-und-plastische-chirurgie-ksw-ch"
+        ],
+        "fr": [
           "physician-associate-hand-und-plastische-chirurgie-ksw-ch"
         ]
       },

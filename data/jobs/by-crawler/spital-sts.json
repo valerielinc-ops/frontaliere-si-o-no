@@ -509,12 +509,12 @@
     },
     {
       "id": "spital-sts-6d0bf6370767",
-      "slug": "ausbildner-in-pflege-spital-sts-thun",
+      "slug": "maestro-nella-cura-spital-sts-thun",
       "slugByLocale": {
-        "it": "ausbildner-in-pflege-spital-sts-thun",
-        "en": "ausbildner-in-pflege-spital-sts-thun",
+        "it": "maestro-nella-cura-spital-sts-thun",
+        "en": "teacher-in-care-spital-sts-thun",
         "de": "ausbildner-in-pflege-spital-sts-thun",
-        "fr": "ausbildner-in-pflege-spital-sts-thun"
+        "fr": "enseignant-en-soins-spital-sts-thun"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -569,7 +569,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ausbildner-in-pflege-spital-sts-thun"
+        ],
+        "en": [
+          "ausbildner-in-pflege-spital-sts-thun"
+        ],
+        "fr": [
+          "ausbildner-in-pflege-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "ausbildner-in-pflege-spital-sts-thun"
+      ]
     },
     {
       "id": "spital-sts-758caf44a350",

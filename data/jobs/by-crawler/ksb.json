@@ -6959,12 +6959,12 @@
     },
     {
       "id": "ksb-3bb41db63e66",
-      "slug": "mpa-fage-gefasszentrum-60-80-ksb-ch",
+      "slug": "mpa-fage-centro-vascolare-60-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
-        "it": "mpa-fage-gefasszentrum-60-80-ksb-ch",
-        "en": "mpa-fage-gefasszentrum-60-80-ksb-ch",
+        "it": "mpa-fage-centro-vascolare-60-80-kantonsspital-baden-ksb-baden",
+        "en": "mpa-fage-vascular-center-60-80-kantonsspital-baden-ksb-baden",
         "de": "mpa-fage-gefasszentrum-60-80-ksb-ch",
-        "fr": "mpa-fage-gefasszentrum-60-80-ksb-ch"
+        "fr": "mpa-fage-centre-vasculaire-60-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7018,7 +7018,21 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-fage-gefasszentrum-60-80-ksb-ch"
+        ],
+        "en": [
+          "mpa-fage-gefasszentrum-60-80-ksb-ch"
+        ],
+        "fr": [
+          "mpa-fage-gefasszentrum-60-80-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-fage-gefasszentrum-60-80-ksb-ch"
+      ]
     },
     {
       "id": "ksb-b7807aff80cb",

@@ -472,12 +472,12 @@
     },
     {
       "id": "orell-fuessli-thalia-e0dc2b9e0291",
-      "slug": "category-manager-in-80-100-a-orell-fuessli-thalia-zurich",
+      "slug": "responsabile-categoria-in-80-100-a-orell-fussli-thalia-zurich",
       "slugByLocale": {
-        "it": "category-manager-in-80-100-a-orell-fuessli-thalia-zurich",
+        "it": "responsabile-categoria-in-80-100-a-orell-fussli-thalia-zurich",
         "en": "category-manager-in-80-100-a-orell-fuessli-thalia-zurich",
         "de": "category-manager-in-80-100-a-orell-fuessli-thalia-zurich",
-        "fr": "category-manager-in-80-100-a-orell-fuessli-thalia-zurich"
+        "fr": "gestionnaire-de-categorie-en-80-100-a-orell-fussli-thalia-zurich"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -534,7 +534,18 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "category-manager-in-80-100-a-orell-fuessli-thalia-zurich"
+        ],
+        "fr": [
+          "category-manager-in-80-100-a-orell-fuessli-thalia-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "category-manager-in-80-100-a-orell-fuessli-thalia-zurich"
+      ]
     },
     {
       "id": "orell-fuessli-thalia-9c42abb1f2b1",
@@ -2208,13 +2219,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
-        "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa"
+        "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa",
-          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fussli-thalia-stafa"
+          "detailhandelsfachfrau-mann-papeterie-40-50-a-orell-fuessli-thalia-stafa"
         ]
       },
       "needsRetranslation": true,

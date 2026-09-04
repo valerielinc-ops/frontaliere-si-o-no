@@ -53,14 +53,12 @@
       "jobReqId": "R-25439",
       "previousSlugs": [
         "network-ingenieur-cloud-operations-siemens-healthineers-zurich",
-        "network-engineer-cloud-operations-siemens-healthineers-ch",
-        "network-ingegnere-cloud-operations-siemens-healthineers-zurich"
+        "network-engineer-cloud-operations-siemens-healthineers-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "network-ingenieur-cloud-operations-siemens-healthineers-zurich",
-          "network-engineer-cloud-operations-siemens-healthineers-ch",
-          "network-ingegnere-cloud-operations-siemens-healthineers-zurich"
+          "network-engineer-cloud-operations-siemens-healthineers-ch"
         ],
         "de": [
           "network-engineer-cloud-operations-siemens-healthineers-ch"
@@ -150,12 +148,12 @@
     },
     {
       "id": "siemens-healthineers-d66bed80d71e",
-      "slug": "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
+      "slug": "medico-medico-m-f-d-terapia-protone-siemens-healthineers-zurich",
       "slugByLocale": {
-        "it": "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
+        "it": "medico-medico-m-f-d-terapia-protone-siemens-healthineers-zurich",
         "en": "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
-        "de": "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch",
-        "fr": "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
+        "de": "medizinischer-physiker-m-w-d-protonentherapie-siemens-healthineers-zurich",
+        "fr": "physicien-medical-h-f-d-protonotherapie-siemens-healthineers-zurich"
       },
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
@@ -209,7 +207,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
+        ],
+        "de": [
+          "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
+        ],
+        "fr": [
+          "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medical-physicist-f-m-d-proton-therapy-siemens-healthineers-ch"
+      ]
     },
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
@@ -262,12 +274,10 @@
       "jobReqId": "R-28619",
       "previousSlugsByLocale": {
         "en": [
-          "qa-engineer-siemens-healthineers-dwl-t",
-          "qa-engineer-siemens-healthineers-ch"
+          "qa-engineer-siemens-healthineers-dwl-t"
         ],
         "it": [
-          "qa-engineer-siemens-healthineers-ch",
-          "qa-ingegnere-siemens-healthineers-dwl-t"
+          "qa-engineer-siemens-healthineers-ch"
         ],
         "de": [
           "qa-engineer-siemens-healthineers-ch"
@@ -278,8 +288,7 @@
       },
       "previousSlugs": [
         "qa-engineer-siemens-healthineers-ch",
-        "qa-engineer-siemens-healthineers-dwl-t",
-        "qa-ingegnere-siemens-healthineers-dwl-t"
+        "qa-engineer-siemens-healthineers-dwl-t"
       ],
       "firstSeenAt": "2026-07-08T22:12:19.122Z",
       "salaryMin": 85000,

@@ -3820,12 +3820,12 @@
     },
     {
       "id": "spital-buelach-eb5441ae7583",
-      "slug": "berufsbildner-in-fage-spital-buelach-bulach",
+      "slug": "formazione-professionale-in-fage-spital-bulach-bulach",
       "slugByLocale": {
-        "it": "berufsbildner-in-fage-spital-buelach-bulach",
-        "en": "berufsbildner-in-fage-spital-buelach-bulach",
+        "it": "formazione-professionale-in-fage-spital-bulach-bulach",
+        "en": "vocational-trainers-in-fage-spital-bulach-bulach",
         "de": "berufsbildner-in-fage-spital-buelach-bulach",
-        "fr": "berufsbildner-in-fage-spital-buelach-bulach"
+        "fr": "formation-professionnelle-en-fage-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -3881,7 +3881,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ],
+        "en": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ],
+        "fr": [
+          "berufsbildner-in-fage-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-fage-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-a80e2d981fe7",
@@ -4386,7 +4400,6 @@
       "firstSeenAt": "2026-09-03T23:36:08.010Z",
       "previousSlugsByLocale": {
         "it": [
-          "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
           "dipl-expert-in-emergency-care-spital-bulach-bulach",
           "expert-en-soins-d-urgence-spital-bulach-bulach",
           "esperto-a-anestesia-nds-spital-bulach-bulach",
@@ -4396,7 +4409,6 @@
           "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ],
         "en": [
-          "dipl-expert-in-emergency-care-spital-bulach-bulach",
           "dipl-anesthesia-nurse-specialist-spital-bulach-bulach",
           "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ],
@@ -4404,13 +4416,11 @@
           "dipl-expert-in-anasthesiepflege-nds-spital-buelach-bulach"
         ],
         "fr": [
-          "expert-en-soins-d-urgence-spital-bulach-bulach",
           "infirmier-ere-anesthesie-nds-spital-bulach-bulach",
           "dipl-expert-in-notfallpflege-spital-buelach-bulach"
         ]
       },
       "previousSlugs": [
-        "dipl-esperto-nella-cura-di-emergenza-spital-bulach-bulach",
         "dipl-expert-in-emergency-care-spital-bulach-bulach",
         "expert-en-soins-d-urgence-spital-bulach-bulach",
         "esperto-a-anestesia-nds-spital-bulach-bulach",

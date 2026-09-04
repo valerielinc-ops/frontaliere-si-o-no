@@ -710,12 +710,12 @@
     },
     {
       "id": "kispi-sg-98a9b27c11fd",
-      "slug": "fachmitarbeiterin-fachmitarbeiter-risorse-umane-50-60-ostschweizer-kinderspital-st-gallen",
+      "slug": "specialista-risorse-umane-specializzate-50-60-ostschweizer-kinderspital-st-gallen",
       "slugByLocale": {
-        "it": "fachmitarbeiterin-fachmitarbeiter-risorse-umane-50-60-ostschweizer-kinderspital-st-gallen",
-        "en": "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen",
+        "it": "specialista-risorse-umane-specializzate-50-60-ostschweizer-kinderspital-st-gallen",
+        "en": "specialist-specialist-human-resources-50-60-ostschweizer-kinderspital-st-gallen",
         "de": "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-kispi-sg-st-gallen",
-        "fr": "fachmitarbeiterin-fachmitarbeiter-ressources-humaines-50-60-ostschweizer-kinderspital-st-gallen"
+        "fr": "specialiste-specialiste-des-ressources-humaines-50-60-ostschweizer-kinderspital-st-gallen"
       },
       "company": "Ostschweizer Kinderspital",
       "companyKey": "kispi-sg",
@@ -758,14 +758,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-kispi-sg-st-gallen",
-        "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen"
+        "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen",
+        "fachmitarbeiterin-fachmitarbeiter-risorse-umane-50-60-ostschweizer-kinderspital-st-gallen",
+        "fachmitarbeiterin-fachmitarbeiter-ressources-humaines-50-60-ostschweizer-kinderspital-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-kispi-sg-st-gallen",
-          "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen"
+          "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen",
+          "fachmitarbeiterin-fachmitarbeiter-risorse-umane-50-60-ostschweizer-kinderspital-st-gallen"
         ],
         "fr": [
+          "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen",
+          "fachmitarbeiterin-fachmitarbeiter-ressources-humaines-50-60-ostschweizer-kinderspital-st-gallen"
+        ],
+        "en": [
           "fachmitarbeiterin-fachmitarbeiter-human-resources-50-60-ostschweizer-kinderspital-st-gallen"
         ]
       },

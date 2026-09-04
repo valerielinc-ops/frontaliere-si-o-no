@@ -1960,12 +1960,12 @@
     },
     {
       "id": "stadt-bern-ace642270679",
-      "slug": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+      "slug": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
       "slugByLocale": {
-        "it": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "en": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
+        "it": "assistente-professionale-per-la-protezione-degli-adulti-stadt-bern-bern",
+        "en": "adult-protection-professional-assistant-stadt-bern-bern",
         "de": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern",
-        "fr": "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        "fr": "assistant-professionnel-de-protection-des-adultes-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2021,7 +2021,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "en": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ],
+        "fr": [
+          "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbeistandsperson-erwachsenenschutz-stadt-bern-bern"
+      ]
     },
     {
       "id": "stadt-bern-f7d66e2875f8",
@@ -2309,12 +2323,12 @@
     },
     {
       "id": "stadt-bern-6d682aca8284",
-      "slug": "leiter-in-erbschaftsamt-stadt-bern",
+      "slug": "capo-dell-ufficio-ereditario-stadt-bern-bern",
       "slugByLocale": {
-        "it": "leiter-in-erbschaftsamt-stadt-bern",
-        "en": "leiter-in-erbschaftsamt-stadt-bern-bern",
+        "it": "capo-dell-ufficio-ereditario-stadt-bern-bern",
+        "en": "head-of-the-inheritance-office-stadt-bern-bern",
         "de": "leiter-in-erbschaftsamt-stadt-bern-bern",
-        "fr": "leiter-in-erbschaftsamt-stadt-bern-bern"
+        "fr": "chef-du-bureau-de-succession-stadt-bern-bern"
       },
       "company": "Stadt Bern",
       "companyKey": "stadt-bern",
@@ -2358,10 +2372,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-erbschaftsamt-stadt-bern-bern"
+        "leiter-in-erbschaftsamt-stadt-bern-bern",
+        "leiter-in-erbschaftsamt-stadt-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-erbschaftsamt-stadt-bern-bern",
+          "leiter-in-erbschaftsamt-stadt-bern"
+        ],
+        "en": [
+          "leiter-in-erbschaftsamt-stadt-bern-bern"
+        ],
+        "fr": [
           "leiter-in-erbschaftsamt-stadt-bern-bern"
         ]
       },

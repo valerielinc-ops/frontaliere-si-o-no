@@ -1976,12 +1976,12 @@
     },
     {
       "id": "weisse-arena-d45b9b30ed53",
-      "slug": "shiftleader-in-weisse-arena-ch-2",
+      "slug": "manopole-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "shiftleader-in-weisse-arena-ch-2",
+        "it": "manopole-in-weisse-arena-gruppe-laax",
         "en": "shiftleader-in-weisse-arena-ch-2",
         "de": "shiftleader-in-weisse-arena-ch-ctf0gg",
-        "fr": "shiftleader-in-weisse-arena-ch-2"
+        "fr": "chef-de-quart-en-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2030,11 +2030,16 @@
           "shiftleader-in-weisse-arena-ch"
         ],
         "it": [
-          "shiftleader-in-weisse-arena-ch"
+          "shiftleader-in-weisse-arena-ch",
+          "shiftleader-in-weisse-arena-ch-2"
+        ],
+        "fr": [
+          "shiftleader-in-weisse-arena-ch-2"
         ]
       },
       "previousSlugs": [
-        "shiftleader-in-weisse-arena-ch"
+        "shiftleader-in-weisse-arena-ch",
+        "shiftleader-in-weisse-arena-ch-2"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:40:02.624Z",
@@ -2055,12 +2060,12 @@
     },
     {
       "id": "weisse-arena-fa946fff75bb",
-      "slug": "stv-betriebsleitung-weisse-arena-ch",
+      "slug": "stv-gestione-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "stv-betriebsleitung-weisse-arena-ch",
-        "en": "stv-betriebsleitung-weisse-arena-ch",
+        "it": "stv-gestione-weisse-arena-gruppe-laax",
+        "en": "stv-management-weisse-arena-gruppe-laax",
         "de": "stv-betriebsleitung-weisse-arena-ch",
-        "fr": "stv-betriebsleitung-weisse-arena-ch"
+        "fr": "gestion-des-ressources-humaines-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2119,7 +2124,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-betriebsleitung-weisse-arena-ch"
+        ],
+        "en": [
+          "stv-betriebsleitung-weisse-arena-ch"
+        ],
+        "fr": [
+          "stv-betriebsleitung-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-betriebsleitung-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-2511638ff094",
@@ -2128,7 +2147,7 @@
         "it": "revenue-distribution-coordinatore-in-weisse-arena-gruppe-laax",
         "en": "revenue-distribution-coordinator-in-weisse-arena-ch",
         "de": "revenue-distribution-coordinator-in-weisse-arena-ch",
-        "fr": "revenue-distribution-coordinateur-in-weisse-arena-gruppe-laax"
+        "fr": "coordonnatrice-des-recettes-et-de-la-distribution-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2173,14 +2192,16 @@
       "pensum": "60 - 80%",
       "contractLabel": "Festanstellung",
       "previousSlugs": [
-        "revenue-distribution-coordinator-in-weisse-arena-ch"
+        "revenue-distribution-coordinator-in-weisse-arena-ch",
+        "revenue-distribution-coordinateur-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
           "revenue-distribution-coordinator-in-weisse-arena-ch"
         ],
         "fr": [
-          "revenue-distribution-coordinator-in-weisse-arena-ch"
+          "revenue-distribution-coordinator-in-weisse-arena-ch",
+          "revenue-distribution-coordinateur-in-weisse-arena-gruppe-laax"
         ]
       },
       "needsRetranslation": true,
@@ -2202,12 +2223,12 @@
     },
     {
       "id": "weisse-arena-5cd9f355eab0",
-      "slug": "service-barmitarbeiter-in-weisse-arena-ch",
+      "slug": "servizio-bar-dipendente-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "service-barmitarbeiter-in-weisse-arena-ch",
-        "en": "service-barmitarbeiter-in-weisse-arena-ch",
+        "it": "servizio-bar-dipendente-in-weisse-arena-gruppe-laax",
+        "en": "service-bar-employee-in-weisse-arena-gruppe-laax",
         "de": "service-barmitarbeiter-in-weisse-arena-ch",
-        "fr": "service-barmitarbeiter-in-weisse-arena-ch"
+        "fr": "service-bar-employe-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2266,7 +2287,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-barmitarbeiter-in-weisse-arena-ch"
+        ],
+        "en": [
+          "service-barmitarbeiter-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "service-barmitarbeiter-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-barmitarbeiter-in-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-ce4f93b67a09",
@@ -2354,12 +2389,12 @@
     },
     {
       "id": "weisse-arena-a0b4c14bf6d1",
-      "slug": "betriebsassistent-in-weisse-arena-gruppe-laax",
+      "slug": "assistente-operativo-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "betriebsassistent-in-weisse-arena-gruppe-laax",
-        "en": "betriebsassistent-in-weisse-arena-gruppe-laax",
+        "it": "assistente-operativo-in-weisse-arena-gruppe-laax",
+        "en": "operational-assistant-in-weisse-arena-gruppe-laax",
         "de": "betriebsassistent-in-weisse-arena-ch",
-        "fr": "betriebsassistent-in-weisse-arena-gruppe-laax"
+        "fr": "assistant-operationnel-en-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2404,11 +2439,19 @@
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "betriebsassistent-in-weisse-arena-ch"
+        "betriebsassistent-in-weisse-arena-ch",
+        "betriebsassistent-in-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "betriebsassistent-in-weisse-arena-ch"
+          "betriebsassistent-in-weisse-arena-ch",
+          "betriebsassistent-in-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "betriebsassistent-in-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "betriebsassistent-in-weisse-arena-gruppe-laax"
         ]
       },
       "needsRetranslation": true,
@@ -2523,12 +2566,12 @@
     },
     {
       "id": "weisse-arena-47f247ef882c",
-      "slug": "koch-kochin-sous-chef-in-weisse-arena-ch",
+      "slug": "cuocere-keeper-sous-chef-in-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "koch-kochin-sous-chef-in-weisse-arena-ch",
-        "en": "koch-kochin-sous-chef-in-weisse-arena-ch",
+        "it": "cuocere-keeper-sous-chef-in-weisse-arena-gruppe-laax",
+        "en": "cook-keeper-sous-chef-in-weisse-arena-gruppe-laax",
         "de": "koch-kochin-sous-chef-in-weisse-arena-ch",
-        "fr": "koch-kochin-sous-chef-in-weisse-arena-ch"
+        "fr": "cuisiniere-garde-chef-in-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2587,16 +2630,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-sous-chef-in-weisse-arena-ch"
+        ],
+        "en": [
+          "koch-kochin-sous-chef-in-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-sous-chef-in-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-sous-chef-in-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-f6ce30fb41b4",
-      "slug": "kuchenverantwortliche-r-weisse-arena-gruppe-laax",
+      "slug": "cucina-manager-r-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "kuchenverantwortliche-r-weisse-arena-gruppe-laax",
-        "en": "kuchenverantwortliche-r-weisse-arena-gruppe-laax",
+        "it": "cucina-manager-r-weisse-arena-gruppe-laax",
+        "en": "kitchen-managers-r-weisse-arena-gruppe-laax",
         "de": "kuchenverantwortliche-r-weisse-arena-ch",
-        "fr": "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
+        "fr": "gestionnaires-de-cuisine-r-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2646,7 +2703,8 @@
         "receptionist-in-weisse-arena-gruppe-laax",
         "receptionniste-in-weisse-arena-gruppe-laax",
         "receptionist-in-weisse-arena-ch-p7l4qu",
-        "receptionist-in-weisse-arena-ch"
+        "receptionist-in-weisse-arena-ch",
+        "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2655,13 +2713,18 @@
           "receptionist-in-weisse-arena-gruppe-laax",
           "receptionniste-in-weisse-arena-gruppe-laax",
           "receptionist-in-weisse-arena-ch-p7l4qu",
-          "receptionist-in-weisse-arena-ch"
+          "receptionist-in-weisse-arena-ch",
+          "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
         ],
         "de": [
           "receptionist-in-weisse-arena-gruppe-laax"
         ],
         "fr": [
-          "receptionniste-in-weisse-arena-gruppe-laax"
+          "receptionniste-in-weisse-arena-gruppe-laax",
+          "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "kuchenverantwortliche-r-weisse-arena-gruppe-laax"
         ]
       },
       "firstSeenAt": "2026-08-27T00:40:02.621Z",
@@ -2750,10 +2813,10 @@
     },
     {
       "id": "weisse-arena-033df4fa896b",
-      "slug": "allrounder-in-restauration-weisse-arena-ch-2",
+      "slug": "allrounder-in-restauro-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "allrounder-in-restauration-weisse-arena-ch-2",
-        "en": "allrounder-in-restauration-weisse-arena-ch-2",
+        "it": "allrounder-in-restauro-weisse-arena-gruppe-laax",
+        "en": "allrounder-in-restoration-weisse-arena-gruppe-laax",
         "de": "allrounder-in-restauration-weisse-arena-ch-7gpbvq",
         "fr": "allrounder-in-restauration-weisse-arena-ch-2"
       },
@@ -2800,14 +2863,19 @@
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
       "previousSlugs": [
-        "allrounder-in-restauration-weisse-arena-ch"
+        "allrounder-in-restauration-weisse-arena-ch",
+        "allrounder-in-restauration-weisse-arena-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-restauration-weisse-arena-ch"
+          "allrounder-in-restauration-weisse-arena-ch",
+          "allrounder-in-restauration-weisse-arena-ch-2"
         ],
         "de": [
           "allrounder-in-restauration-weisse-arena-ch"
+        ],
+        "en": [
+          "allrounder-in-restauration-weisse-arena-ch-2"
         ]
       },
       "needsRetranslation": true,

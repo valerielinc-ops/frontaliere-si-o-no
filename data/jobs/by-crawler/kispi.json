@@ -3584,12 +3584,12 @@
     },
     {
       "id": "kispi-4fabb618e076",
-      "slug": "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie",
+      "slug": "diploma-di-studenti-in-analisi-biomediche-hf-m-f-centro-di-laboratorio-ematologia-microbiologia-chimica-clinica",
       "slugByLocale": {
-        "it": "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie",
-        "en": "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie",
+        "it": "diploma-di-studenti-in-analisi-biomediche-hf-m-f-centro-di-laboratorio-ematologia-microbiologia-chimica-clinica",
+        "en": "student-diploma-in-biomedical-analytics-hf-m-f-laboratory-centre-hematology-microbiology-clinical-chemistry-oncology",
         "de": "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie",
-        "fr": "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie"
+        "fr": "diplome-d-etudiant-en-analyse-biomedicale-hf-h-f-centre-de-laboratoire-hematologie-microbiologie-chimie-clinique"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -3644,7 +3644,21 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie"
+        ],
+        "en": [
+          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie"
+        ],
+        "fr": [
+          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-laborzentrum-hamatologie"
+      ]
     },
     {
       "id": "kispi-58f9731730a5",
