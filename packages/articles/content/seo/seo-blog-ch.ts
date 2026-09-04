@@ -70649,6 +70649,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-domanda-permesso-c-glarona-guida': {
+    title: 'Permesso C Glarona: requisiti e come fare domanda',
+    description: 'Guida completa al permesso di domicilio C nel canton Glarona: anni di residenza richiesti, criteri di integrazione, procedure di domanda e accesso',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, glarona, requisiti, fare',
+    ogTitle: 'Permesso C Glarona: requisiti e come fare domanda',
+    ogDescription: 'Trasferirsi stabilmente nel canton Glarona? Scopri i requisiti del permesso C, i tempi di residenza (10 o 5 anni), i criteri di integrazione linguistica e come presentare domanda all\'ufficio cantonale competente.',
+    canonicalPath: '/articoli-svizzera/domanda-permesso-c-glarona-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C Glarona: requisiti e come fare domanda",
+      "description": "Guida completa al permesso di domicilio C nel canton Glarona: anni di residenza richiesti, criteri di integrazione, procedure di domanda e accesso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/domanda-permesso-c-glarona-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo amministrativo svizzero con bandiera e insegne ufficiali, sede degli uffici per permessi di residenza."
+      },
+      "datePublished": "2026-09-04T15:11:21+00:00",
+      "dateModified": "2026-09-04T15:11:21+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/domanda-permesso-c-glarona-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

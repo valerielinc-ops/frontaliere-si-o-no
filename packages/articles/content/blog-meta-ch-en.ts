@@ -5443,6 +5443,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cressier-guasto-benzina-garantita.title': 'Cressier stopped, petrol guaranteed by stocks',
     'blog.article.cressier-guasto-benzina-garantita.excerpt': 'Cressier refinery down for technical failure this week. It covers 30% of Swiss needs. Mandatory stocks guarantee the supply of petrol, diesel and kerosene.',
     'blog.article.cressier-guasto-benzina-garantita.imageAlt': 'Modern petroleum refinery facility with control towers and storage tanks in Swiss industrial landscape',
+    'blog.article.domanda-permesso-c-glarona-guida.title': 'Glarus C Permit: Requirements and How to Apply',
+    'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Complete guide to residence permit C in the canton of Glarus: years of residence required, integration, application procedures and transition to naturalization.',
+    'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Swiss administrative building with official signage, representing immigration and residency services offices.',
 };
 
 export default blogMetaChEn;
