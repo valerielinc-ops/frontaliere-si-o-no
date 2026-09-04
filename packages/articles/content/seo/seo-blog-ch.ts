@@ -70337,6 +70337,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-latte-patate-cari-canicola-svizzera': {
+    title: 'Latte e patate più cari, la canicola prosciuga anche i portafogli',
+    description: 'Ondate di calore e siccità colpiscono l\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, latte, patate, cari, canicola',
+    ogTitle: 'Latte e patate più cari, la canicola prosciuga anche i portafogli',
+    ogDescription: 'Le ondate di calore e la siccità stanno avendo un impatto significativo sull\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Questo ha portato a un aumento dei prezzi per latte e patate, con conseguenze dirette sui',
+    canonicalPath: '/articoli-svizzera/latte-patate-cari-canicola-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Latte e patate più cari, la canicola prosciuga anche i portafogli",
+      "description": "Ondate di calore e siccità colpiscono l'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/latte-patate-cari-canicola-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agricoltori svizzeri lavorano nei campi colpiti dalla siccità, con il lago di Lugano sullo sfondo."
+      },
+      "datePublished": "2026-09-04T09:34:40+00:00",
+      "dateModified": "2026-09-04T09:34:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/latte-patate-cari-canicola-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cpe-s-voto-bilaterali-iii': {
+    title: 'Bilaterali III: la Commissione dice sì agli accordi',
+    description: 'La Commissione di politica estera raccomanda il sì ai Bilaterali III. Il dibattito si sposta al Consiglio degli Stati a fine mese. Scopri i dettagli.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bilaterali, commissione, dice, agli',
+    ogTitle: 'Bilaterali III: la Commissione dice sì agli accordi',
+    ogDescription: 'La Commissione di politica estera del Consiglio degli Stati ha approvato il pacchetto di accordi con l\'UE. Il dibattito parlamentare è fissato per fine mese.',
+    canonicalPath: '/articoli-svizzera/cpe-s-voto-bilaterali-iii/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bilaterali III: la Commissione dice sì agli accordi",
+      "description": "La Commissione di politica estera raccomanda il sì ai Bilaterali III. Il dibattito si sposta al Consiglio degli Stati a fine mese. Scopri i dettagli.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cpe-s-voto-bilaterali-iii.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Parlamento svizzero."
+      },
+      "datePublished": "2026-09-04T10:00:29+00:00",
+      "dateModified": "2026-09-04T10:00:29+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cpe-s-voto-bilaterali-iii/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

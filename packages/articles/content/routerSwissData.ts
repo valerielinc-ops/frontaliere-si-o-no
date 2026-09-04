@@ -1832,6 +1832,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-breve-durata-vaud-proroga': { it: 'permesso-l-breve-durata-vaud-proroga', en: 'work-permit-l-short-term-vaud', de: 'arbeitserlaubnis-l-kurzfristig-waadt', fr: 'permis-l-courte-duree-vaud' },
  'sondaggio-ssr-votazioni-27-settembre': { it: 'sondaggio-ssr-votazioni-27-settembre', en: 'ssr-survey-september-27-votes', de: 'ssr-umfrage-abstimmungen-27-september', fr: 'sondage-ssr-votations-27-septembre' },
  'economia-svizzera-accelerazione-frontalieri': { it: 'economia-svizzera-accelerazione-frontalieri', en: 'swiss-economy-acceleration-frontalieri', de: 'schweizer-wirtschaft-beschleunigung-frontalieri', fr: 'economie-suisse-acceleration-frontalieri' },
+ 'latte-patate-cari-canicola-svizzera': { it: 'latte-patate-cari-canicola-svizzera', en: 'milk-potatoes-expensive-heatwave-switzerland', de: 'milch-kartoffeln-teuer-hitzewelle-schweiz', fr: 'lait-pommes-de-terre-chers-canicule-suisse' },
+ 'cpe-s-voto-bilaterali-iii': { it: 'cpe-s-voto-bilaterali-iii', en: 'cpe-s-vote-bilaterals-iii', de: 'cpe-s-abstimmung-bilaterale-iii', fr: 'cpe-s-vote-bilaterales-iii' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

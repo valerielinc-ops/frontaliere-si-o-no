@@ -5419,6 +5419,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.economia-svizzera-accelerazione-frontalieri.title': 'Accelerating Swiss economy: good news for frontier workers too?',
     'blog.article.economia-svizzera-accelerazione-frontalieri.excerpt': 'The Swiss economy accelerates more than expected with GDP growth of 1.5% in the second quarter of 2026.',
     'blog.article.economia-svizzera-accelerazione-frontalieri.imageAlt': 'Aerial view of Lugano with mountains in the background, showcasing economic growth.',
+    'blog.article.latte-patate-cari-canicola-svizzera.title': 'More expensive milk and potatoes, kennel also dries up wallets',
+    'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Heatwaves and droughts hit Swiss agriculture, with losses estimated at 522 million francs in 2026.',
+    'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Swiss farmers working in fields affected by drought, with Lake Lugano in the background.',
+    'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilateral III: Commission says yes to agreements',
+    'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'The CPE-S gave a favourable opinion to Bilateral Agreements III with 9 votes in favour. The debate will reach the Council of States at the end of the month.',
+    'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Federal Palace in Bern, seat of the Swiss Parliament.',
 };
 
 export default blogMetaChEn;
