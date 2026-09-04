@@ -5491,6 +5491,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Buying a house in Vaud: prices and mortgage',
     'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Complete guide to buying a house in the canton of Vaud: prices, own funds requirements, tax costs, transfer taxes and mortgage loan sustainability.',
     'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Modern residential property in Vaud canton with mountain backdrop; Swiss real estate scene for mortgage and purchase guide.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Zug kindergarten: cantonal costs, fees and subsidies',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'In the canton of Zug, nurseries and childcare facilities follow progressive rates on an income basis. Learn about available options, cantonal subsidies, and access procedures.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Swiss kindergarten classroom with colorful toys and children\'s drawings on walls',
 };
 
 export default blogMetaChEn;
