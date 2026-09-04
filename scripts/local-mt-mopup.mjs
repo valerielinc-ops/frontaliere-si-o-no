@@ -469,7 +469,14 @@ async function main() {
   // processa 53 job in 90 minuti per deadline, quindi una testa fresca da
   // 1.308 job gli mangerebbe tutti gli slot di ogni run senza nemmeno
   // smaltirla.
-  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity, { freshFirst: true });
+  //
+  // `cap` è lo stesso MAX_JOBS con cui si affetta `order` qui sotto, ed è quello
+  // che rende la testa limitata dal CODICE e non dal rapporto misurato fra
+  // ingresso e cap: se un re-crawl completo o una rigenerazione del dataset
+  // resetta `firstSeenAt` in massa, la coorte fresca supera il cap e senza
+  // questo numero si prenderebbe ogni slot del passaggio, lasciando zero slot
+  // alla riserva oldest-first.
+  const { order, stats } = buildTrafficPriority(candidates.map((c) => c.job), popularity, { cap: MAX_JOBS, freshFirst: true });
   for (const line of formatPriorityReport(stats)) console.log(line);
 
   const byJob = new Map(candidates.map((c) => [c.job, c]));
