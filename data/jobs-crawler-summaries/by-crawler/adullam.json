@@ -1,18 +1,18 @@
 {
   "key": "adullam",
   "label": "Adullam-Stiftung",
-  "generatedAt": "2026-09-04T13:36:26.728Z",
-  "total": 11,
+  "generatedAt": "2026-09-04T23:08:39.119Z",
+  "total": 10,
   "discovered": null,
-  "written": 11,
+  "written": 10,
   "newCount": 0,
   "updatedCount": 10,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11261,
-  "avgDurationMs": 11261,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 10290,
+  "avgDurationMs": 10290,
   "durationHistory": [
-    11261
+    10290
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,13 +23,13 @@
       "companyKey": "adullam",
       "companyDomain": "adullam.ch",
       "title": "Berufsbildner/in Pflegezentrum",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel und Riehen",
       "canton": "BS",
       "url": "https://live.solique.ch/adullam/job/details/4064701",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:18.500Z",
+      "crawledAt": "2026-09-04T23:08:31.758Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -50,11 +50,11 @@
       "pensum": "60%",
       "contractDuration": "permanent",
       "firstSeenAt": "2026-09-03T23:21:07.674Z",
-      "_qualityScore": 78,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 18,
+        "translation": 25,
         "completeness": 17
       }
     },
@@ -71,7 +71,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052120",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:17.086Z",
+      "crawledAt": "2026-09-04T23:08:30.502Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052086",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:21.733Z",
+      "crawledAt": "2026-09-04T23:08:34.313Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -155,7 +155,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4049813",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:19.439Z",
+      "crawledAt": "2026-09-04T23:08:32.385Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -197,7 +197,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:20.264Z",
+      "crawledAt": "2026-09-04T23:08:33.019Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:21.006Z",
+      "crawledAt": "2026-09-04T23:08:33.684Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -281,7 +281,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:23.314Z",
+      "crawledAt": "2026-09-04T23:08:35.628Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:22.512Z",
+      "crawledAt": "2026-09-04T23:08:34.944Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -365,7 +365,7 @@
       "url": "https://live.solique.ch/adullam/job/details/3868124",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:17.817Z",
+      "crawledAt": "2026-09-04T23:08:31.137Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -407,7 +407,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:36:24.138Z",
+      "crawledAt": "2026-09-04T23:08:36.260Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -437,8 +437,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "adullam-cb01b7a45399",
       "slug": "stazione-di-ventilazione-hf-fh-certificata-adullam-stiftung-basel",
@@ -485,5 +484,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
