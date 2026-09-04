@@ -2143,11 +2143,28 @@
       "department": "See-Spital",
       "contractDuration": "permanent",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+        "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+        "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
+        "dipl-care-professional-hf-oncology-see-spital-horgen",
+        "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+        "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch"
+          "dipl-pflegefachperson-hf-interdisziplinar-see-spital-ch",
+          "dipl-cura-professionale-hf-oncologia-see-spital-horgen",
+          "dipl-care-professional-hf-oncology-see-spital-horgen",
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch",
+          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
+        ],
+        "en": [
+          "dipl-care-professional-hf-oncology-see-spital-horgen"
+        ],
+        "de": [
+          "dipl-pflegefachperson-hf-onkologie-see-spital-ch"
+        ],
+        "fr": [
+          "dipl-soins-professionnels-hf-oncologie-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:55:51.108Z",
