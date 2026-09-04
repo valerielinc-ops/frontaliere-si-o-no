@@ -200,6 +200,13 @@ const PARENT_CLOSE_MAX_PER_RUN = Number(process.env.FOLLOWUP_PARENT_CLOSE_MAX_PE
  * `reconcile-followups.mjs`) — altrimenti la rimozione di `agent:decompose`
  * che accompagna quell'esito la rende di nuovo eleggibile al giro successivo
  * (#6275: re-queue infinito).
+ * Esclude anche chi ha già bruciato il suo unico ri-armo (`decompose-retried`):
+ * il park del RESCUE più sotto lascia `fu-parked` + `needs-human` +
+ * `decompose-retried` e TOGLIE `agent:decompose`, quindi senza questa clausola
+ * la issue parcheggiata torna eleggibile e il bound «ri-arma UNA volta, alla
+ * seconda morte park» diventa illimitato: ogni giro brucia una run di scorporo
+ * sulla stessa issue troppo grande. La label non viene mai rimossa, per cui
+ * l'esclusione è definitiva by-construction (#7280).
  * NON esclude `needs-human`: i call-site di routing agiscono PRIMA che quel
  * label venga applicato, e un'issue grande già marcata a mano resta comunque
  * decomponibile se qualcuno la ri-accoda.
@@ -209,7 +216,7 @@ export function isDecomposeEligible(iss) {
   const ls = names(iss);
   return !ls.includes(LBL_DECOMPOSED) && !ls.includes(LBL_FROM_DECOMP)
     && !ls.includes(LBL_DECOMP_QUEUED) && !ls.includes(LBL_DECOMP)
-    && !ls.includes(LBL_MAYBE_RESOLVED);
+    && !ls.includes(LBL_MAYBE_RESOLVED) && !ls.includes(LBL_DECOMP_RETRIED);
 }
 
 /**
