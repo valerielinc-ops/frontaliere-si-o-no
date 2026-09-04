@@ -319,7 +319,28 @@ export function fingerprintPage(relPath, html) {
   };
 }
 
-/** Longest common `/`-delimited path prefix — the cohort's human-readable name. */
+/**
+ * Longest common path prefix — the cohort's human-readable name.
+ *
+ * Whole `/`-delimited segments first, then the common character prefix of the
+ * first diverging segment, truncated back to its last `-` so the label always
+ * ends on a slug-token boundary and never on half a word.
+ *
+ * The character step used to run only when NO whole segment was common, which
+ * made the label locale-asymmetric: `/lavoro-argovia-autista/` got the readable
+ * `it:/lavoro-`, while its `/de/`, `/en/`, `/fr/` translations always share the
+ * locale segment, so every flat-slug family in a prefixed locale collapsed to
+ * `/de/`, `/en/`, `/fr/` and then collided into `~skeletonHash` suffixes. That
+ * matters because `KNOWN_LOW_GAIN_COHORTS` is keyed BY label: a key stopping at
+ * `/fr/` stands for several unrelated templates at once. See
+ * `docs/INFORMATION-GAIN.md` for the audit run this came from (issue #6975).
+ *
+ * The `-` boundary is what keeps the label independent of WHICH pages a run
+ * sampled: `tradate|torino` share a `t` but no token, so
+ * `/tasse-frontalieri-comune/<comune>/` stays `/tasse-frontalieri-comune/`
+ * instead of drifting to `/tasse-frontalieri-comune/t` on one sample and
+ * `/tasse-frontalieri-comune/` on the next.
+ */
 export function commonPathPrefix(paths) {
   if (paths.length === 0) return '/';
   const split = paths.map((p) => p.split('/').filter(Boolean));
@@ -330,17 +351,20 @@ export function commonPathPrefix(paths) {
     if (!split.every((parts) => parts[i] === segment)) break;
     out.push(segment);
   }
-  if (out.length === 0) {
-    // Flat slug families (`/lavoro-ticino-<x>/`) share no whole segment, so
-    // fall back to the common character prefix of the first segment: that is
-    // what makes `it:/lavoro-ticino-` a readable, stable cohort label.
-    const firsts = split.map((parts) => parts[0] ?? '');
-    let len = 0;
-    while (firsts.every((s) => s.length > len && s[len] === firsts[0][len])) len += 1;
-    const prefix = firsts[0].slice(0, len);
-    return prefix ? `/${prefix}` : '/';
-  }
-  return `/${out.join('/')}/`;
+  // Flat slug families (`/lavoro-ticino-<x>/`, `/en/jobs-<x>/`) share no whole
+  // segment past this depth, so keep the common characters of the one where
+  // they diverge: that is what makes `it:/lavoro-ticino-` a readable label.
+  const diverging = split.map((parts) => parts[out.length] ?? '');
+  let len = 0;
+  while (diverging.every((s) => s.length > len && s[len] === diverging[0][len])) len += 1;
+  // Back to the last token boundary: an accidental shared letter (`tradate` vs
+  // `torino`) is not a shared template, and cutting there would make the label
+  // depend on which pages the run sampled.
+  const raw = diverging[0].slice(0, len);
+  const cut = raw.lastIndexOf('-');
+  const tail = cut >= 0 ? raw.slice(0, cut + 1) : '';
+  if (out.length === 0) return tail ? `/${tail}` : '/';
+  return tail ? `/${out.join('/')}/${tail}` : `/${out.join('/')}/`;
 }
 
 const median = (values) => {
