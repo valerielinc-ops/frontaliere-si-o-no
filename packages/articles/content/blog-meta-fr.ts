@@ -11311,6 +11311,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano : 79 licenciements en un seul geste',
     'blog.article.bally-caslano-79-licenziamenti.excerpt': 'La multinationale annonce la suppression de 25 postes administratifs et de 54 postes opérationnels. Protestations du Conseil d\'État sur le marché libre. Que doit savoir le frontalier ?',
     'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Siège d\'entreprise à Caslano, Tessin avec vue sur le lac de Lugano',
+    'blog.article.familiari-carico-detrazioni-irpef.title': 'Réforme fiscale : Déductions IRPEF sans cohabitation',
+    'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'La nouvelle réforme fiscale supprime l\'obligation de cohabitation pour les déductions IRPEF sur les personnes à charge, avec des implications importantes pour les frontaliers.',
+    'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'Une famille dans une vue panoramique de Lugano',
 };
 
 export default blogMetaFr;

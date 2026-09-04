@@ -33789,6 +33789,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'familiari-carico-detrazioni-irpef',
+ category: 'fiscale',
+ date: '2026-09-04T08:53:00.867Z',
+ image: '/images/blog/familiari-carico-detrazioni-irpef.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

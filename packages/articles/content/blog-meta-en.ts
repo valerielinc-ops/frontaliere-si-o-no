@@ -11309,6 +11309,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 layoffs in one move',
     'blog.article.bally-caslano-79-licenziamenti.excerpt': 'The multinational announces the cutting of 25 administrative staff and 54 operational staff. Protests of the Council of State on the free market. What does the cross-border commuters need to know?',
     'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Corporate building in Caslano, Ticino with Lake Lugano visible in background',
+    'blog.article.familiari-carico-detrazioni-irpef.title': 'Tax reform: Personal income tax deductions without cohabitation',
+    'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'The new tax reform eliminates the obligation to live together for personal income tax deductions on dependent family members, with important implications for border workers.',
+    'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'A family in a panoramic view of Lugano',
 };
 
 export default blogMetaEn;
