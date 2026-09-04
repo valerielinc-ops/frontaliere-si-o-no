@@ -5389,6 +5389,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.imposte-cantonali-vaud-aliquote.title': 'Kantonale Steuern im Kanton Waadt: Steuersätze und Abzüge',
     'blog.article.imposte-cantonali-vaud-aliquote.excerpt': '3-stufiges Steuersystem, progressive Steuersätze für Einkommensstufen, zulässige Abzüge und offizielles Portal des Kantons Waadt für Erklärungen.',
     'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Verwaltungsgebäude des Kantons Waadt in der Schweiz',
+    'blog.article.ricerca-medicina-ticino-innovazione.title': 'Medizinische Forschung im Tessin: vom Labor zum Patienten',
+    'blog.article.ricerca-medicina-ticino-innovazione.excerpt': 'Der Usi-Forschungstag in Lugano: 200 wissenschaftliche Beiträge darüber, wie Innovation den Weg von der Entdeckung zur Behandlung beschleunigt.',
+    'blog.article.ricerca-medicina-ticino-innovazione.imageAlt': 'Schweizer Biomedizinforschungslabor mit Wissenschaftlern, die an biologischen Proben und medizinischer Innovation arbeiten',
 };
 
 export default blogMetaChDe;

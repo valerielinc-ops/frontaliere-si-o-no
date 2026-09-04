@@ -1822,6 +1822,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-l-san-gallo-proroga': { it: 'permesso-l-san-gallo-proroga', en: 'permit-l-st-gallen-validity-renewal', de: 'permit-l-sanktgallen-gultigkeit-erneuerung', fr: 'permis-l-saint-gall-validite-renouvellement' },
  'fondare-impresa-turgovia-procedura-costi': { it: 'fondare-impresa-turgovia-procedura-costi', en: 'founding-business-thurgau-procedure-costs', de: 'unternehmen-grunden-thurgau-verfahren-kosten', fr: 'fonder-entreprise-thurgovie-procedure-frais' },
  'imposte-cantonali-vaud-aliquote': { it: 'imposte-cantonali-vaud-aliquote', en: 'canton-vaud-cantonal-tax-rates', de: 'kanton-waadt-kantonssteuer-saetze', fr: 'impots-cantonaux-vaud-taux' },
+ 'ricerca-medicina-ticino-innovazione': { it: 'ricerca-medicina-ticino-innovazione', en: 'biomedical-research-innovation-ticino', de: 'biomedizinische-forschung-innovation-tessin', fr: 'recherche-biomedicale-innovation-tessin' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
