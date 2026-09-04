@@ -11299,6 +11299,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordo-edilizia-ticino-nuovo.title': 'Bauwesen: Neuer Sechsjahresvertrag im Tessin',
     'blog.article.accordo-edilizia-ticino-nuovo.excerpt': 'Bauvertrag unterzeichnet: Baustellenentschädigung bis 9 Franken bis 2028 und Reisezeit ab der ersten Minute.',
     'blog.article.accordo-edilizia-ticino-nuovo.imageAlt': 'Baustelle im Tessin mit Bauarbeitern.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.title': 'Leben in Cittiglio und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-cittiglio-lavorare-ticino.excerpt': 'Cittiglio als Wohngebiet für Grenzgänger: Steuern, G-Genehmigung, Lebenshaltungskosten und Vorteile des Umzugs von Varese in den Kanton Tessin.',
+    'blog.article.vivere-cittiglio-lavorare-ticino.imageAlt': 'Bahnhof Mendrisio an der Grenze zwischen Tessin und Italien mit Grenzgängern im Transit',
 };
 
 export default blogMetaDe;

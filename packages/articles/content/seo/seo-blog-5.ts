@@ -84974,6 +84974,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-cittiglio-lavorare-ticino': {
+    title: 'Vivere a Cittiglio e lavorare in Ticino: guida frontaliere',
+    description: 'Trasferirsi a Cittiglio per lavorare in Ticino: regime fiscale frontalieri, permesso G, contributi AVS e assicurazione malattia dopo il 2024. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cittiglio, lavorare, zona',
+    ogTitle: 'Vivere a Cittiglio e lavorare in Ticino: guida frontaliere',
+    ogDescription: 'Trasferirsi a Cittiglio nel Varese per lavorare in Canton Ticino come frontaliere: vantaggi e svantaggi economici, regime fiscale Nuovo Accordo 2024, permesso G, AVS/LPP e come preparare il trasferimento. Guida pratica e checklist.',
+    canonicalPath: '/articoli-frontaliere/vivere-cittiglio-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cittiglio e lavorare in Ticino: guida frontaliere",
+      "description": "Trasferirsi a Cittiglio per lavorare in Ticino: regime fiscale frontalieri, permesso G, contributi AVS e assicurazione malattia dopo il 2024. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-cittiglio-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di Mendrisio al confine tra Ticino e Italia con pendolari frontalieri in transito"
+      },
+      "datePublished": "2026-09-04T07:13:27+00:00",
+      "dateModified": "2026-09-04T07:13:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-cittiglio-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
