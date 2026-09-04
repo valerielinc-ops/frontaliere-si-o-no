@@ -85286,6 +85286,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sciopero-treni-tilo-settembre-2026': {
+    title: 'Sciopero in Italia: i treni TILO si fermano al confine',
+    description: 'Dal 7 al 8 settembre 2026, i servizi TILO non circoleranno in Italia durante lo sciopero nazionale. Bus sostitutivi per la linea S50. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, sciopero, treni, tilo, fermano',
+    ogTitle: 'Sciopero in Italia: i treni TILO si fermano al confine',
+    ogDescription: 'Informazioni sugli impatti dello sciopero nazionale in Italia dal 7 al 8 settembre 2026 sui servizi TILO e le alternative disponibili.',
+    canonicalPath: '/articoli-frontaliere/sciopero-treni-tilo-settembre-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sciopero in Italia: i treni TILO si fermano al confine",
+      "description": "Dal 7 al 8 settembre 2026, i servizi TILO non circoleranno in Italia durante lo sciopero nazionale. Bus sostitutivi per la linea S50. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sciopero-treni-tilo-settembre-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del Lago di Lugano con il paesaggio del Ticino e treni"
+      },
+      "datePublished": "2026-09-04T13:29:16+00:00",
+      "dateModified": "2026-09-04T13:29:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sciopero-treni-tilo-settembre-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

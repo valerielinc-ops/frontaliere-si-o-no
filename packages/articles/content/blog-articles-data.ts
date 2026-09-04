@@ -33834,6 +33834,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'sciopero-treni-tilo-settembre-2026',
+ category: 'novita',
+ date: '2026-09-04T13:29:16.041Z',
+ image: '/images/blog/sciopero-treni-tilo-settembre-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

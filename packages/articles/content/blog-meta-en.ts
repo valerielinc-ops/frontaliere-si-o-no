@@ -11324,6 +11324,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano or Milan: cost of living for border workers',
     'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'As a border worker, the choice to live in Lugano or Milan directly affects the net income received and tax obligations. Compare the actual costs of rent, transportation, spending, and taxation with a handy guide.',
     'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Panoramic view of Lugano city center at sunset with Lake Lugano in the background',
+    'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Strike in Italy: TILO trains stop at the border',
+    'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'From 7 to 8 September 2026, TILO services will not circulate in Italy during the national strike. Replacement buses for line S50.',
+    'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Aerial view of Lake Lugano with Ticino landscape and trains',
 };
 
 export default blogMetaEn;

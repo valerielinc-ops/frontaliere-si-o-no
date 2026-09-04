@@ -11326,6 +11326,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano ou Milan : coût de la vie pour les frontaliers',
     'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'En tant que frontalier, le choix de vivre à Lugano ou à Milan affecte directement le montant net perçu et les obligations fiscales. Comparez les coûts réels de location, de transport, de dépenses et de fiscalité avec un guide pratique.',
     'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Vue panoramique du centre-ville de Lugano au coucher du soleil avec le lac de Lugano en arrière-plan',
+    'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Grève en Italie : les trains TILO s\'arrêtent à la frontière',
+    'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Du 7 au 8 septembre 2026, les services TILO NE circuleront pas en Italie pendant la grève nationale. Bus de remplacement pour la ligne S50.',
+    'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Vue aérienne du lac de Lugano avec le paysage du Tessin et des trains',
 };
 
 export default blogMetaFr;
