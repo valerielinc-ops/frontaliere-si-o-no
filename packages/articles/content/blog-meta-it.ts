@@ -11289,6 +11289,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Vivere a Solbiate con Cagno da frontaliere: come fare',
     'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Trasferirsi in Italia di confine e lavorare in Ticino: vantaggi fiscali, procedure permessi, costi della vita e impatto sulla busta paga.',
     'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Vista panoramica del confine svizzero-italiano in Ticino meridionale, con vallate alpine e aree di confine presso i valichi transfrontalieri.',
+    'blog.article.vivere-albavilla-lavorare-ticino.title': 'Vivere ad Albavilla e lavorare in Ticino: guida frontaliere',
+    'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'Permesso G, fiscalità, AVS, LPP e LAMal per chi risiede ad Albavilla e lavora in Ticino. Guida pratica alla vita frontaliera nella zona Como-Svizzera.',
+    'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Valico della frontiera Ticino-Italia nei pressi di Albavilla, Como, con vista sul Lago Lugano all\'alba',
 };
 
 export default blogMetaIt;
