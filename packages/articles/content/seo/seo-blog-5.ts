@@ -85247,6 +85247,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-costo-vita-lugano-milano-scelta': {
+    title: 'Lugano o Milano: costo della vita per frontalieri',
+    description: 'Confronta il costo della vita tra Lugano e Milano se sei frontaliere: tassazione, affitti, trasporti e spesa. Guida pratica per scegliere dove vivere',
+    keywords: 'frontalieri, ticino, svizzera, italia, lugano, milano, costo, vita',
+    ogTitle: 'Lugano o Milano: costo della vita per frontalieri',
+    ogDescription: 'Frontaliere? Ecco come confrontare affitti, trasporti, spesa e tassazione tra Lugano e Milano. Scopri l\'impatto della tassazione sul netto e scegli dove vivere consapevolmente con il nuovo accordo 2024.',
+    canonicalPath: '/articoli-frontaliere/costo-vita-lugano-milano-scelta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lugano o Milano: costo della vita per frontalieri",
+      "description": "Confronta il costo della vita tra Lugano e Milano se sei frontaliere: tassazione, affitti, trasporti e spesa. Guida pratica per scegliere dove vivere",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/costo-vita-lugano-milano-scelta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del centro di Lugano al tramonto con il Lago di Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-04T12:48:43+00:00",
+      "dateModified": "2026-09-04T12:48:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costo-vita-lugano-milano-scelta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

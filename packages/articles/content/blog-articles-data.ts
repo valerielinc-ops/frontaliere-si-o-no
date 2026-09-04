@@ -33825,6 +33825,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'costo-vita-lugano-milano-scelta',
+ category: 'pratico',
+ date: '2026-09-04T12:48:43.047Z',
+ image: '/images/blog/costo-vita-lugano-milano-scelta.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

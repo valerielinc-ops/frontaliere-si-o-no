@@ -11322,6 +11322,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-remoto-estero-vacanza.title': 'Remoto dall\'estero in vacanza: le tasse del frontaliere',
     'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Lavorare da remoto durante una vacanza in un terzo paese: come funziona la tassazione, cosa copre la LAMal e se il datore deve essere informato. Guida pratica per frontalieri Ticino-Italia.',
     'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Frontaliere che lavora da remoto con laptop durante vacanza in un paese estero',
+    'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano o Milano: costo della vita per frontalieri',
+    'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'Come frontaliere, la scelta di vivere a Lugano o Milano incide direttamente sul netto percepito e sugli obblighi fiscali. Confronta i costi reali di affitti, trasporti, spesa e tassazione con una guida pratica.',
+    'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Vista panoramica del centro di Lugano al tramonto con il Lago di Lugano sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -11320,6 +11320,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-remoto-estero-vacanza.title': 'Fern vom Ausland im Urlaub: Grenzgängersteuern',
     'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Fernarbeit im Urlaub in einem Drittland: Wie die Besteuerung funktioniert, was das KVG abdeckt und ob der Arbeitgeber informiert werden muss. Praktischer Leitfaden für Grenzgänger Tessin-Italien.',
     'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Grenzgänger arbeitet mit Laptop ferngesteuert während des Auslandsurlaubs',
+    'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano oder Mailand: Lebenshaltungskosten für Grenzgänger',
+    'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'Als Grenzgänger wirkt sich die Entscheidung, in Lugano oder Mailand zu leben, direkt auf das Nettoeinkommen und die Steuerpflichten aus. Vergleichen Sie die tatsächlichen Kosten für Miete, Transport, Ausgaben und Besteuerung mit einem praktischen Leitfaden.',
+    'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Panoramablick auf das Luganeser Stadtzentrum bei Sonnenuntergang mit dem Luganer See im Hintergrund',
 };
 
 export default blogMetaDe;
