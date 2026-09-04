@@ -103,6 +103,24 @@ jobs:
                  elif index("CLOSED") then "CLOSED"
                  else "NONE" end)')
 
+            # "NONE" dalla finestra NON significa "nessuna PR": le liste sopra
+            # sono recency-sorted, e su questo repo 400 PR coprono NOVE giorni
+            # (misurato il 2026-09-04: la piu' vecchia in finestra era #6571 del
+            # 26-08, la piu' recente #7332). Un branch di una PR piu' vecchia
+            # cadeva in NONE e finiva nell'ahead-check, dove lo squash-merge lo
+            # rende ahead>0 per sempre: report-only a vita. Stesso difetto
+            # trovato e riparato lato locale in prune-merged-worktrees.mjs.
+            # La query mirata --head non ha finestra e si paga solo sui residui.
+            if [ "$STATE" = "NONE" ]; then
+              STATE=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
+                --json state --jq '[.[].state]
+                  | (if index("OPEN") then "OPEN"
+                     elif index("MERGED") then "MERGED"
+                     elif index("CLOSED") then "CLOSED"
+                     else "NONE" end)' 2>/dev/null || echo NONE)
+              [ "$STATE" != "NONE" ] && echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
+            fi
+
             if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
 
             if [ "$STATE" = "MERGED" ] || [ "$STATE" = "CLOSED" ]; then
