@@ -45,6 +45,28 @@ const shiftedPageTwo = pageTwo
   .replace(rowTwentySix, '')
   .replace('</tbody>', `${rowFortySix}\n</tbody>`);
 
+function pageWithRows(html: string, rows: string[], total: number) {
+  let out = html.replace('of <b>45</b>', `of <b>${total}</b>`);
+  for (const row of [...out.matchAll(/\s*<tr class="data-row">[\s\S]*?<\/tr>/g)].map((m) => m[0])) {
+    out = out.replace(row, '');
+  }
+  return out.replace('</tbody>', `${rows.join('\n')}\n</tbody>`);
+}
+
+function withListingLocation(row: string, location: string) {
+  return row.replace(/(class="jobLocation">)[^<]*/, `$1${location}`);
+}
+
+const rowTwo = rowForReqId(pageOne, '1371000002');
+const unresolvableRowTwo = withListingLocation(rowTwo, 'Neverland-am-See, CH');
+
+function twoRowFetch(page: string) {
+  return (url: string) => {
+    const parsed = new URL(url);
+    return Promise.resolve(parsed.pathname === '/search/' ? page : detailPage);
+  };
+}
+
 function fixtureFetch(url: string) {
   const parsed = new URL(url);
   if (parsed.pathname === '/search/') {
@@ -281,5 +303,34 @@ describe('Zurich Insurance Switzerland crawler', () => {
     expect(merged.previousSlugs).toContain('indexed-legacy-zurich-slug');
     expect(merged.previousSlugsByLocale.it).toContain('vecchio-slug-zurich');
     expect(merged.url).toBe('https://www.careers.zurich.com/job/Swiss-Role-01/1371000001/');
+  });
+  it('counts an unresolvable Swiss location as a reject and keeps publishing the other rows', async () => {
+    const page = pageWithRows(pageOne, [rowOne, unresolvableRowTwo], 2);
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: twoRowFetch(page),
+      detailDelayMs: 0,
+    });
+    const jobs = await crawler.fetchJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs.discoveredCount).toBe(2);
+    expect(jobs.unresolvedLocationCount).toBe(1);
+    expect(jobs[0].id).toBe(`${ZURICH_INSURANCE_KEY}-1371000001`);
+  });
+
+  it('fails loud on the aggregate when no discovered row resolves to a Swiss city', async () => {
+    const page = pageWithRows(
+      pageOne,
+      [withListingLocation(rowOne, 'Neverland-am-See, CH'), unresolvableRowTwo],
+      2,
+    );
+    const crawler = await prepareZurichInsuranceCrawler({
+      fetchPage: twoRowFetch(page),
+      detailDelayMs: 0,
+    });
+
+    await expect(crawler.fetchJobs()).rejects.toThrow(
+      /unresolved Swiss locations: 2\/2 row\(s\).*Neverland-am-See, CH/,
+    );
   });
 });
