@@ -11296,6 +11296,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.formazione-continua-ticino-campagna.title': 'Formation continue, au départ de la campagne cantonale tessinoise',
     'blog.article.formazione-continua-ticino-campagna.excerpt': 'Lancement début septembre de la campagne OFCI sur les compétences de base dans 5 villes. Escape room, film documentaire, stations et soirée avec Andrea Vitali du 5 au 10 septembre.',
     'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Centre de Bellinzone avec les affiches de la campagne UFCI de formation continue affichées sur les places publiques',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Vivre à Sala Comacina et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages du transfert à Sala Comacina pour travailler au Tessin.',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du Lac de Lugano avec le Monte San Salvatore',
 };
 
 export default blogMetaFr;

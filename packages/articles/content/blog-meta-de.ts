@@ -11293,6 +11293,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.formazione-continua-ticino-campagna.title': 'Weiterbildung, die Tessiner Kantonalkampagne beginnt',
     'blog.article.formazione-continua-ticino-campagna.excerpt': 'Anfang September startet die UFCI-Kampagne für Grundkompetenzen in 5 Städten. Escape Room, Dokumentarfilm, Stationen und Abend mit Andrea Vitali vom 5. bis 10. September.',
     'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Bellinzona Zentrum mit Plakaten der UFCI-Kampagne zur Weiterbildung auf öffentlichen Flächen',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Leben in Sala Comacina und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Umzugs nach Sala Comacina, um im Tessin zu arbeiten.',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit dem Monte San Salvatore',
 };
 
 export default blogMetaDe;
