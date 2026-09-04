@@ -1,5 +1,7 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdtempSync } from 'node:fs';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
 import {
   expectedCtrForPosition,
   ctrGapRatio,
@@ -8,6 +10,9 @@ import {
   discoverUnregisteredFamilies,
   familyPathPrefixes,
   classifyUnregisteredFamilyCandidate,
+  loadAutoRegisteredFamilies,
+  mergeRegisteredFamilies,
+  AUTO_FAMILIES_PATH,
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
 } from '../scripts/lib/seo-ctr-curve.mjs';
@@ -354,14 +359,18 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(result.kind).toBe('template');
       expect(result.family).toBeDefined();
       expect(result.family?.kind).toBe('template');
-      expect(result.family?.pathContains).toBe('/find-jobs-ticino/');
+      // Canonicalizzata sullo slug IT, come le entry scritte a mano: lo slug
+      // EN che ha superato la soglia per primo finisce fra gli alias.
+      expect(result.family?.id).toBe('cerca-lavoro-ticino');
+      expect(result.family?.pathContains).toBe('/cerca-lavoro-ticino/');
       expect(result.family?.pathAliases).toEqual(
         expect.arrayContaining([
-          '/cerca-lavoro-ticino/',
+          '/find-jobs-ticino/',
           '/jobs-im-tessin/',
           '/trouver-emploi-tessin/',
         ]),
       );
+      expect(result.family?.pathAliases).not.toContain('/cerca-lavoro-ticino/');
       expect(result.family?.monitored).toBe(true);
     });
 
@@ -370,6 +379,7 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(result.kind).toBe('template');
       expect(result.family).toBeDefined();
       expect(result.family?.kind).toBe('template');
+      expect(result.family?.id).toBe('prezzi-diesel');
       expect(result.family?.pathContains).toBe('/prezzi-diesel/');
       expect(result.family?.pathAliases).toEqual(
         expect.arrayContaining([
@@ -496,5 +506,83 @@ describe('LOCALE_PATH_PREFIXES — la locale di default non ha prefisso (follow-
     const src = readFileSync(new URL('../services/router.ts', import.meta.url), 'utf-8');
     // Se questa riga cambia, `LOCALE_PATH_PREFIXES` va riaperta insieme.
     expect(src).toMatch(/function localePrefix\([^)]*\)[^{]*\{\s*return locale === 'it' \? '' : `\/\$\{locale\}`;/);
+  });
+});
+
+describe('registro auto-registrato (issue #7174)', () => {
+  const FIXTURE_DIR = mkdtempSync(join(tmpdir(), 'seo-ctr-auto-'));
+  const fixture = (name: string, content: string) => {
+    const p = join(FIXTURE_DIR, name);
+    writeFileSync(p, content, 'utf8');
+    return p;
+  };
+
+  it('legge le famiglie auto-registrate da un file JSON', () => {
+    const path = fixture(
+      'ok.json',
+      JSON.stringify([{ id: 'find-jobs-valais', pathContains: '/find-jobs-valais/', kind: 'template' }]),
+    );
+    expect(loadAutoRegisteredFamilies(path)).toHaveLength(1);
+  });
+
+  it('degrada a lista vuota su file assente o corrotto invece di rompere i consumer', () => {
+    expect(loadAutoRegisteredFamilies(join(FIXTURE_DIR, 'non-esiste.json'))).toEqual([]);
+    expect(loadAutoRegisteredFamilies(fixture('rotto.json', '{ non json'))).toEqual([]);
+    expect(loadAutoRegisteredFamilies(fixture('oggetto.json', '{"families":[]}'))).toEqual([]);
+  });
+
+  it('il registro versionato è un array valido', () => {
+    expect(Array.isArray(loadAutoRegisteredFamilies(AUTO_FAMILIES_PATH))).toBe(true);
+  });
+
+  it('unisce le auto in coda alle manuali', () => {
+    const manual = [{ id: 'm', pathContains: '/manuale/', kind: 'template' }];
+    const auto = [{ id: 'a', pathContains: '/auto/', kind: 'template' }];
+    expect(mergeRegisteredFamilies(manual, auto).map((f) => f.id)).toEqual(['m', 'a']);
+  });
+
+  it('scarta una auto che rivendica un prefisso già registrato a mano', () => {
+    // Il caso reale: un umano registra /cerca-lavoro-zurigo/ con i suoi alias
+    // (#7172) dopo che una vecchia auto ne conosceva un solo slug. Contare due
+    // volte lo stesso prefisso gonfierebbe le impression della famiglia.
+    const manual = [
+      {
+        id: 'cerca-lavoro-zurigo',
+        pathContains: '/cerca-lavoro-zurigo/',
+        pathAliases: ['/find-jobs-zurich/', '/jobs-in-zurich/'],
+        kind: 'template',
+      },
+    ];
+    const auto = [{ id: 'find-jobs-zurich', pathContains: '/find-jobs-zurich/', kind: 'template' }];
+    expect(mergeRegisteredFamilies(manual, auto)).toHaveLength(1);
+  });
+
+  it('una volta registrata, la famiglia non viene più riscoperta — nessuna nuova issue umana', () => {
+    // L'invariante che la issue #7174 misura: "0 nuove issue famiglia non
+    // censita per famiglie riconducibili a un generator noto".
+    const rows = [
+      { path: '/find-jobs-valais/', clicks: 400, impressions: 90_000, position: 8, ctr: 0.044 },
+    ];
+    const manual = [{ id: 'x', pathContains: '/altro/', kind: 'template' }];
+
+    const before = discoverUnregisteredFamilies(rows, { families: manual });
+    expect(before.map((c) => c.pathContains)).toEqual(['/find-jobs-valais/']);
+
+    const classified = classifyUnregisteredFamilyCandidate(before[0]);
+    expect(classified.kind).toBe('template');
+
+    const after = discoverUnregisteredFamilies(rows, {
+      families: mergeRegisteredFamilies(manual, [classified.family]),
+    });
+    expect(after).toEqual([]);
+  });
+
+  it('un path senza mapping resta unknown: quello sì apre issue umana', () => {
+    const result = classifyUnregisteredFamilyCandidate({
+      pathContains: '/qualcosa-di-mai-visto/',
+      impressions90d: 80_000,
+    });
+    expect(result.kind).toBe('unknown');
+    expect(result.family).toBeNull();
   });
 });

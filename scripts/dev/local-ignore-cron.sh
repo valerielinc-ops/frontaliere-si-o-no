@@ -48,6 +48,8 @@ PATHS=(
   "data/seo-404-compat/*"
   "data/seo-serp-autopilot-last-run.json"
   "data/seo-serp-experiment-history.json"
+  # Registro delle famiglie CTR auto-classificate (monitor-seo-ctr-by-template.yml, #7174).
+  "scripts/lib/seo-ctr-auto-families.json"
   "data/seo-snapshots/*"
   "data/inspection-state.json"
 

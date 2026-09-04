@@ -68,7 +68,12 @@ jobs:
       - name: Run SEO CTR-by-template monitor
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
-        run: node scripts/monitor-seo-ctr-by-template.mjs
+        # `npx tsx`, not `node`: scripts/lib/seo-ctr-curve.mjs imports
+        # services/router.ts and build-plugins/fuelDailyData.ts for the
+        # canton/fuel slug mappings the auto-classifier needs (issue #7174),
+        # and those TS sources use extensionless relative specifiers that
+        # bare node cannot resolve (ERR_MODULE_NOT_FOUND on services/i18n).
+        run: npx tsx scripts/monitor-seo-ctr-by-template.mjs
 
       - name: Cleanup credentials
         if: always()
@@ -77,15 +82,16 @@ jobs:
       - name: Commit monitor state
         if: always()
         run: |
-          if [ ! -f data/seo-ctr-monitor-state.json ]; then
-            echo "No state file generated; skipping commit."
-            exit 0
-          fi
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add data/seo-ctr-monitor-state.json
+          # Two outputs, both must be committed: the run state AND any family the
+          # discovery pass auto-classified (issue #7174). A registration left in
+          # the runner's filesystem is a registration that never happened — the
+          # next run rediscovers the same segment forever.
+          for f in data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json; do
+            if [ -f "$f" ]; then git add "$f"; fi
+          done
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
@@ -95,7 +101,7 @@ jobs:
 
           bash scripts/lib/git-push-with-retry.sh \
             --branch "$GITHUB_REF_NAME" \
-            --regenerate-cmd "git checkout HEAD@{1} -- data/seo-ctr-monitor-state.json 2>/dev/null || true; git add data/seo-ctr-monitor-state.json"
+            --regenerate-cmd "git checkout HEAD@{1} -- data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json 2>/dev/null || true; git add data/seo-ctr-monitor-state.json scripts/lib/seo-ctr-auto-families.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -21,8 +21,17 @@
  * GSC row-aggregation call sites can't drift apart.
  */
 
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { weightedAveragePosition, computeCtr } from './analytics-opportunity-utils.mjs';
-import { getJobBoardSlugForCanton, getAggregatorJobBoardSlug, parseJobBoardSlug } from '../../services/router.ts';
+// Leaf modules on purpose (issue #7174): `services/jobBoardSlugs.ts` and
+// `build-plugins/fuelDailyData.ts` carry the slug tables without dragging in
+// the SPA/build graph that importing `services/router.ts` would. These are
+// `.ts` sources, so the scripts that import this module run under `npx tsx`,
+// not bare `node` (.github/workflows/monitor-seo-ctr-by-template.yml,
+// campaign-goal-check.yml).
+import { getJobBoardSlugForCanton, getAggregatorJobBoardSlug, parseJobBoardSlug } from '../../services/jobBoardSlugs.ts';
 import { FUEL_SECTION_SLUG } from '../../build-plugins/fuelDailyData.ts';
 
 // Index 0 unused — GSC positions are 1-based. Values are CTR fractions
@@ -126,7 +135,7 @@ export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
  *                 #5961. Use `familyPathPrefixes()` below to read
  *                 `pathContains` + `pathAliases` together.
  */
-export const SEO_CTR_FAMILIES = [
+const MANUAL_SEO_CTR_FAMILIES = [
   {
     id: 'articoli-frontaliere',
     label: 'Articoli (blog)',
@@ -347,6 +356,77 @@ export const SEO_CTR_FAMILIES = [
   },
 ];
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+/**
+ * Where `scripts/monitor-seo-ctr-by-template.mjs` persists the families it
+ * auto-classified (issue #7174).
+ *
+ * Why a JSON side-file and not a rewrite of the array above: the monitor runs
+ * in CI and its only committed output is what the workflow's `git add` names.
+ * A registration that edits this module's source would either be thrown away
+ * with the runner (the workflow commits data files, not sources) or — if it
+ * were committed — codegen into a hand-written registry whose entries carry
+ * the measured GSC numbers in prose comments. A data file keeps the generated
+ * half generated, the reviewed half reviewed, and cannot corrupt the module
+ * that every consumer imports.
+ *
+ * Lives next to this module rather than under `data/` so agent sparse
+ * checkouts (which exclude `/data/`) can still read and commit it.
+ */
+export const AUTO_FAMILIES_PATH = resolve(__dirname, 'seo-ctr-auto-families.json');
+
+/**
+ * Read the auto-registered families. Fail-open by design: a missing file is
+ * the normal state before the first auto-registration, and a corrupt one must
+ * degrade to "no auto families" rather than break every consumer of
+ * SEO_CTR_FAMILIES (the weekly monitor, seo-ctr-baseline, campaign-goal-check).
+ *
+ * @param {string} [path] registry file to read.
+ * @returns {Array<Record<string, any>>} auto-registered families, `[]` when unreadable.
+ */
+export function loadAutoRegisteredFamilies(path = AUTO_FAMILIES_PATH) {
+  try {
+    const parsed = JSON.parse(readFileSync(path, 'utf8'));
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((f) => f && typeof f.pathContains === 'string' && typeof f.id === 'string');
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Manual registry + auto-registered families, with the manual half winning.
+ *
+ * An auto entry is dropped when ANY of its `familyPathPrefixes()` is already
+ * claimed manually: a human who registered `/cerca-lavoro-zurigo/` with its
+ * three locale aliases must not be shadowed by an older auto entry that knew
+ * only one of those slugs, and the same prefix must never be counted twice.
+ *
+ * @param {Array<Record<string, any>>} [manual] hand-curated registry.
+ * @param {Array<Record<string, any>>} [auto] auto-registered families.
+ * @returns {Array<Record<string, any>>} merged registry.
+ */
+export function mergeRegisteredFamilies(manual = MANUAL_SEO_CTR_FAMILIES, auto = loadAutoRegisteredFamilies()) {
+  const claimed = new Set(manual.flatMap((f) => familyPathPrefixes(f)));
+  const extra = [];
+  for (const family of auto) {
+    const prefixes = familyPathPrefixes(family);
+    if (prefixes.some((p) => claimed.has(p))) continue;
+    prefixes.forEach((p) => claimed.add(p));
+    extra.push(family);
+  }
+  return [...manual, ...extra];
+}
+
+/**
+ * The registry every consumer reads: hand-curated families first, then the
+ * ones discovery classified on its own. Same shape either way — callers can't
+ * tell (and must not care) which half an entry came from.
+ */
+export const SEO_CTR_FAMILIES = mergeRegisteredFamilies();
+
+
 /**
  * The CTR floor a family is actually judged against on a given run.
  *
@@ -424,37 +504,47 @@ function isLocaleRootSegment(segment) {
   return LOCALE_PATH_PREFIXES.has(segment);
 }
 
+/**
+ * Canonicalise on the Italian slug, exactly like the hand-written entries.
+ *
+ * Whichever locale slug happens to cross MIN_IMPRESSIONS_TO_MONITOR first is an
+ * accident of traffic, not an identity: `/find-jobs-valais/` and
+ * `/cerca-lavoro-vallese/` are one family. Registering under the IT slug with
+ * the other three as `pathAliases` makes an auto entry indistinguishable from a
+ * manual one (`cerca-lavoro-zurigo`, `cerca-lavoro-vallese`), so the dedup in
+ * `mergeRegisteredFamilies` can actually see the collision.
+ */
 function resolveJobBoardFamilyFromSegment(segment) {
   for (const locale of ROUTER_LOCALES) {
     const match = parseJobBoardSlug(segment, locale);
     if (!match) continue;
 
     const { cantonCode, isAggregator } = match;
+    const slugFor = (l) => (isAggregator ? getAggregatorJobBoardSlug(l) : getJobBoardSlugForCanton(cantonCode, l));
+    const canonical = slugFor('it');
     const pathAliases = uniqueSorted(
-      ROUTER_LOCALES.map((l) => {
-        const slug = isAggregator ? getAggregatorJobBoardSlug(l) : getJobBoardSlugForCanton(cantonCode, l);
-        return `/${slug}/`;
-      }),
-    );
-    const label = `Template job-board ${toTitleCase(segment)}`;
+      ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${slugFor(l)}/`),
+    ).filter((alias) => alias !== `/${canonical}/`);
     return {
-      pathContains: `/${segment}/`,
+      pathContains: `/${canonical}/`,
       pathAliases,
-      id: segment,
-      label,
+      id: canonical,
+      label: `Cerca lavoro ${toTitleCase(canonical.replace(/^cerca-lavoro-/, ''))}`,
       kind: 'template',
       targetCtr: 0.03,
       monitored: true,
-      note: `Auto-registrata da discovery template job-board (${isAggregator ? 'aggregatore' : `cantonCode=${cantonCode}`}).`,
+      note: `Auto-registrata da discovery template job-board (${isAggregator ? 'aggregatore' : `cantonCode=${cantonCode}`}), scoperta via /${segment}/.`,
     };
   }
   return null;
 }
 
+/** Same IT-canonical rule as the job-board resolver above. */
 function resolveFuelFamilyFromSegment(segment) {
   let fuel = null;
   for (const locale of ROUTER_LOCALES) {
     const candidateMap = FUEL_SECTION_SLUG[locale];
+    if (!candidateMap) continue;
     for (const [fuelType, slug] of Object.entries(candidateMap)) {
       if (slug === segment) {
         fuel = fuelType;
@@ -465,19 +555,19 @@ function resolveFuelFamilyFromSegment(segment) {
   }
   if (!fuel) return null;
 
+  const canonical = FUEL_SECTION_SLUG.it[fuel];
   const pathAliases = uniqueSorted(
-    ROUTER_LOCALES.map((l) => `/${FUEL_SECTION_SLUG[l][fuel]}/`),
-  );
-  const familyLabel = `Prezzi ${fuel === 'diesel' ? 'diesel' : 'benzina'}`;
+    ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${FUEL_SECTION_SLUG[l][fuel]}/`),
+  ).filter((alias) => alias !== `/${canonical}/`);
   return {
-    pathContains: `/${segment}/`,
+    pathContains: `/${canonical}/`,
     pathAliases,
-    id: segment,
-    label: familyLabel,
+    id: canonical,
+    label: `Prezzi ${fuel === 'diesel' ? 'diesel' : 'benzina'}`,
     kind: 'template',
     targetCtr: 0.03,
     monitored: true,
-    note: `Auto-registrata da discovery template fuel (${segment}).`,
+    note: `Auto-registrata da discovery template fuel (${fuel}), scoperta via /${segment}/.`,
   };
 }
 
