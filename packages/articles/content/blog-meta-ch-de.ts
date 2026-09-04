@@ -5422,6 +5422,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.latte-patate-cari-canicola-svizzera.title': 'Teurere Milch und Kartoffeln, die Hitze trocknet auch die Geldbörsen',
     'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Hitzewellen und Dürren treffen die Schweizer Landwirtschaft mit geschätzten Verlusten von 522 Millionen Franken im Jahr 2026.',
     'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Schweizer Bauern arbeiten in von Dürre betroffenen Feldern, mit dem Luganersee im Hintergrund.',
+    'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilateral III: Kommission sagt Ja zu Abkommen',
+    'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'Die CPE-S hat die Bilateralen Abkommen III mit 9 Ja-Stimmen befürwortet. Die Debatte wird Ende Monat im Ständerat stattfinden.',
+    'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Bundeshaus in Bern, Sitz des Schweizer Parlaments.',
 };
 
 export default blogMetaChDe;

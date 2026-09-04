@@ -5422,6 +5422,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.latte-patate-cari-canicola-svizzera.title': 'Latte e patate più cari, la canicola prosciuga anche i portafogli',
     'blog.article.latte-patate-cari-canicola-svizzera.excerpt': 'Ondate di calore e siccità colpiscono l\'agricoltura svizzera, con perdite stimate a 522 milioni di franchi nel 2026.',
     'blog.article.latte-patate-cari-canicola-svizzera.imageAlt': 'Agricoltori svizzeri lavorano nei campi colpiti dalla siccità, con il lago di Lugano sullo sfondo.',
+    'blog.article.cpe-s-voto-bilaterali-iii.title': 'Bilaterali III: la Commissione dice sì agli accordi',
+    'blog.article.cpe-s-voto-bilaterali-iii.excerpt': 'La CPE-S ha dato parere favorevole agli Accordi Bilaterali III con 9 voti a favore. Il dibattito approderà al Consiglio degli Stati a fine mese.',
+    'blog.article.cpe-s-voto-bilaterali-iii.imageAlt': 'Palazzo federale a Berna, sede del Parlamento svizzero.',
 };
 
 export default blogMetaChIt;
