@@ -1,10 +1,10 @@
 import React from 'react';
 import AvgRentValue from '@/components/shared/AvgRentValue';
 import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
-import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
+import { CircleMarker, Tooltip } from 'react-leaflet';
+import MapCanvas from '@/components/shared/MapCanvas';
 import type { Municipality } from '@/data/municipalities';
 import { MAP_COLORS } from '@/services/mapColors';
-import 'leaflet/dist/leaflet.css';
 
 interface ScoredMunicipality extends Municipality {
  score: number;
@@ -22,16 +22,7 @@ export default function LivabilityMap({ municipalities }: { municipalities: Scor
  const center: [number, number] = [45.95, 9.05];
 
  return (
- <MapContainer
- center={center}
- zoom={10}
- className="h-full w-full"
- scrollWheelZoom={true}
- >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
+ <MapCanvas center={center} zoom={10}>
  {municipalities.map((m) => (
  <CircleMarker
  key={m.name}
@@ -53,6 +44,6 @@ export default function LivabilityMap({ municipalities }: { municipalities: Scor
  </Tooltip>
  </CircleMarker>
  ))}
- </MapContainer>
+ </MapCanvas>
  );
 }

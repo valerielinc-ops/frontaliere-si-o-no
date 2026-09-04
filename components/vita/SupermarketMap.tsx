@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
-import 'leaflet/dist/leaflet.css';
+import { CircleMarker, Popup } from 'react-leaflet';
+import MapCanvas from '@/components/shared/MapCanvas';
 import { CHAIN_COLORS, type Supermarket } from '@/data/supermarketData';
 import { MAP_COLORS } from '@/services/mapColors';
 
@@ -24,17 +24,13 @@ export default function SupermarketMap({ supermarkets }: Props) {
  }, [supermarkets]);
 
  return (
- <MapContainer
+ <MapCanvas
  center={bounds ? undefined : MAP_CENTER}
  zoom={bounds ? undefined : MAP_ZOOM}
  bounds={bounds}
  scrollWheelZoom={false}
- className="h-[480px] w-full z-0"
+ height="480px"
  >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
  {supermarkets.map(s => (
  <CircleMarker
  key={s.id}
@@ -69,6 +65,6 @@ export default function SupermarketMap({ supermarkets }: Props) {
  </Popup>
  </CircleMarker>
  ))}
- </MapContainer>
+ </MapCanvas>
  );
 }

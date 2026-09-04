@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import MapCanvas from '@/components/shared/MapCanvas';
 import { AlertTriangle, Clock, Car, TrendingUp, RefreshCw, Navigation, CheckCircle2, Filter, ExternalLink } from 'lucide-react';
 import Callout from '@/components/shared/Callout';
 import { trafficService, hasLiveTrafficData, type TrafficData } from '../../services/trafficService';
@@ -200,12 +200,12 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  // INP (#4302 sibling of the BorderMunicipalitiesMap fix): the mobile
  // (`lg:hidden`) and desktop (`hidden lg:grid`) layouts below each render
- // their OWN <MapContainer>, and Tailwind's responsive classes only toggle
+ // their OWN map, and Tailwind's responsive classes only toggle
  // CSS `display` — both React-Leaflet map instances (tile layer + every
  // crossing Marker) mounted unconditionally, doubling the real init cost on
  // a page (/traffico-dogane/<crossing>/oggi/) that only ever shows one of
- // them. Mount only the viewport-matching one; wrapper divs keep their
- // layout either way, so this does not reintroduce CLS.
+ // them. Mount only the viewport-matching one via MapCanvas `active`; the
+ // reserved box keeps its layout either way, so this does not reintroduce CLS.
  const isDesktopViewport = useMediaQuery('(min-width: 1024px)');
 
  const getTrafficForCrossing = (name: string) =>
@@ -415,18 +415,13 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  {chiassoEditorial}
 
  {/* Map */}
- {isDesktopViewport === false && (
- <div className="rounded-xl overflow-hidden border border-edge h-[55vh] min-h-[320px]">
- <MapContainer
+ <MapCanvas
  center={mapCenter}
  zoom={11}
- className="h-full w-full"
- scrollWheelZoom={true}
+ height="55vh"
+ active={isDesktopViewport === false}
+ className="rounded-xl overflow-hidden border border-edge"
  >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
  const status = traffic ? effectiveStatus(traffic) : 'green';
@@ -459,9 +454,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </Marker>
  );
  })}
- </MapContainer>
- </div>
- )}
+ </MapCanvas>
 
  {legend}
 
@@ -538,18 +531,14 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
  {/* Right column — sticky map */}
  <div className="sticky top-4 space-y-3 self-start">
- {isDesktopViewport === true && (
- <div className="rounded-xl overflow-hidden border-2 border-edge shadow-lg h-[70vh] min-h-[500px]">
- <MapContainer
+ <MapCanvas
  center={mapCenter}
  zoom={11}
- className="h-full w-full"
- scrollWheelZoom={true}
+ height="70vh"
+ minHeight={500}
+ active={isDesktopViewport === true}
+ className="rounded-xl overflow-hidden border-2 border-edge shadow-lg"
  >
- <TileLayer
- attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
- url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
- />
  {borderCrossings.map((crossing) => {
  const traffic = getTrafficForCrossing(crossing.name);
  const status = traffic ? effectiveStatus(traffic) : 'green';
@@ -582,9 +571,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
  </Marker>
  );
  })}
- </MapContainer>
- </div>
- )}
+ </MapCanvas>
  {legend}
  </div>
  </div>
