@@ -11283,6 +11283,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Vivere a Castelnuovo Bozzente e lavorare in Ticino da frontaliere',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento.',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con le montagne svizzere sullo sfondo',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Vivere a Dizzasco e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Guida pratica per frontalieri: permesso G, imposte, AVS/LPP, LAMal, ristorni, tempi di percorrenza e costo della vita tra Dizzasco e Ticino.',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Veduta mattutina del Lago di Lugano con le Alpi italiane sullo sfondo e un\'auto da pendolare sulla strada verso il valico di confine.',
 };
 
 export default blogMetaIt;

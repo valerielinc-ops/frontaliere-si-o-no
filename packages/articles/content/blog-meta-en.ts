@@ -11282,6 +11282,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Living in Castelnuovo Bozzente and working in Ticino as a border worker',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Learn about the connections, travel times, cost of living, and benefits of transferring.',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss mountains in the background',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Living in Dizzasco and working in Ticino as a border worker',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Practical guide for border workers: G permit, taxes, AVS/LPP, LAMal, refreshments, travel times and cost of living between Dizzasco and Ticino.',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Early morning Lake Lugano view with Alps in background and a commuter car on the road heading to the border checkpoint.',
 };
 
 export default blogMetaEn;

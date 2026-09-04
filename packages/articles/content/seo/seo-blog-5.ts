@@ -84740,6 +84740,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vivere-dizzasco-lavorare-ticino-frontaliere': {
+    title: 'Vivere a Dizzasco e lavorare in Ticino da frontaliere',
+    description: 'Guida pratica per frontalieri: permesso G, imposte, AVS/LPP, LAMal, ristorni, tempi di percorrenza e costo della vita tra Dizzasco e Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, dizzasco, lavorare, pratica',
+    ogTitle: 'Vivere a Dizzasco e lavorare in Ticino da frontaliere',
+    ogDescription: 'Guida pratica per frontalieri: permesso G, imposte, AVS/LPP, LAMal, ristorni, tempi di percorrenza e costo della vita tra Dizzasco e Ticino.',
+    canonicalPath: '/articoli-frontaliere/vivere-dizzasco-lavorare-ticino-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Dizzasco e lavorare in Ticino da frontaliere",
+      "description": "Guida pratica per frontalieri: permesso G, imposte, AVS/LPP, LAMal, ristorni, tempi di percorrenza e costo della vita tra Dizzasco e Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-dizzasco-lavorare-ticino-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta mattutina del Lago di Lugano con le Alpi italiane sullo sfondo e un'auto da pendolare sulla strada verso il valico di confine."
+      },
+      "datePublished": "2026-09-04T02:25:35+00:00",
+      "dateModified": "2026-09-04T02:25:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-dizzasco-lavorare-ticino-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

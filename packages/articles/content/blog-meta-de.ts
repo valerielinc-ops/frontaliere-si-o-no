@@ -11281,6 +11281,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.title': 'Wohnen in Castelnuovo Bozzente und Arbeiten im Tessin als Grenzgänger',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.excerpt': 'Entdecken Sie die Verbindungen, die Reisezeiten, die Lebenshaltungskosten und die Vorteile des Transfers.',
     'blog.article.vivere-castelnuovo-bozzente-lavorare-ticino-frontaliere.imageAlt': 'Panoramablick auf den Luganersee mit den Schweizer Bergen im Hintergrund',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.title': 'Leben in Dizzasco und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.excerpt': 'Praktischer Leitfaden für Grenzgänger: Bewilligung G, Steuern, AHV/BVG, KVG, Rückerstattungen, Reisezeiten und Lebenshaltungskosten zwischen Dizzasco und Tessin.',
+    'blog.article.vivere-dizzasco-lavorare-ticino-frontaliere.imageAlt': 'Morgendlicher Blick auf den Luganer See mit Alpen im Hintergrund und Auto auf der Straße zum Grenzübergang.',
 };
 
 export default blogMetaDe;
