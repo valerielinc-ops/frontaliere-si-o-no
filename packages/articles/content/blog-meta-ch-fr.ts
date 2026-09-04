@@ -5398,6 +5398,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-san-gallo-mutuo.title': 'Acheter maison Saint-Gall : hypothèque et taxes',
     'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Guide d\'achat immobilier en Suisse : hypothèque, fonds propres, taxe de passage et procédures étape par étape pour ceux qui achètent dans le canton de Saint-Gall.',
     'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Propriété résidentielle suisse dans un paysage naturel, symbole du marché immobilier national',
+    'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS et prestations complémentaires : guide Saint-Gall',
+    'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Comment fonctionne le premier pilier dans le canton de Saint-Gall. Découvrez le rôle de la caisse de compensation cantonale, le calcul de la rente, les écarts de cotisations et les prestations complémentaires pour le minimum vital.',
+    'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Siège de la caisse de compensation du canton de Saint-Gall pour les rentes AVS et prestations complémentaires',
 };
 
 export default blogMetaChFr;

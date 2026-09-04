@@ -5398,6 +5398,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-san-gallo-mutuo.title': 'Buying a house in San Gallo: mortgage and taxes',
     'blog.article.comprare-casa-san-gallo-mutuo.excerpt': 'Guide to buying real estate in Switzerland: mortgage, own funds, transfer tax and step-by-step procedures for buyers in the Canton of St. Gallen.',
     'blog.article.comprare-casa-san-gallo-mutuo.imageAlt': 'Swiss residential property in natural landscape, symbol of national real estate market',
+    'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS and complementary services: St. Gallen guide',
+    'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'How the first pillar works in the Canton of St. Gallen. Learn about the role of the cantonal compensation fund, pension calculation, contribution gaps and supplementary benefits for the living minimum.',
+    'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'St. Gallen cantonal compensation fund office building: key institution for AVS retirement and supplementary benefits services',
 };
 
 export default blogMetaChEn;
