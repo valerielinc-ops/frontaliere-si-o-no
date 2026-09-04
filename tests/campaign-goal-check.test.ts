@@ -6,7 +6,11 @@ import {
   decideGoalAction,
   runCampaignGoalCheck,
   isJobIntentBrandQuery,
+  alertFunnelOutcome,
 } from '../scripts/campaign-goal-check.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
 // Maturation must gate on real elapsed time (14/30/90-day windows), so
 // fixtures are relative to actual now — never hardcoded absolute dates
@@ -317,5 +321,60 @@ describe('runCampaignGoalCheck (orchestration, injected goals — no network)', 
     expect(results[0].state).toBe('failing');
     expect(saveStateImpl).not.toHaveBeenCalled();
     expect(createIssueImpl).not.toHaveBeenCalled();
+  });
+});
+
+/**
+ * Regression pin for issue #7311 — `alert_funnel_conversion` (#4298).
+ *
+ * The goal was scored on raw event counts: `job_alert_created` events over
+ * `job_alert_cta_shown` events. The numerator is capped near one per person
+ * (one alert per keyword, `MAX_ALERTS_PER_USER` for the rest) while the
+ * denominator grows with pageviews × the number of alert CTA surfaces, so
+ * every surface added to the site lowered the ratio even when it added
+ * conversions. Measured on GA4 over the 14d window of #7311: 12,923
+ * impressions from 3,612 people, 238 creations from 163 people — 1.84% per
+ * event, 4.51% per person.
+ *
+ * The target stays 5% and the goal still fails at 4.51%: this pins the unit
+ * of the ratio, never the threshold.
+ */
+describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
+  it('keeps the 5% target: 4.51% (the measured person rate) still fails', () => {
+    const out = alertFunnelOutcome({ created: 163, shown: 3612 });
+    expect(out.value.rate).toBeCloseTo(0.0451, 4);
+    expect(out.passed).toBe(false);
+  });
+
+  it('passes only at/above 5%', () => {
+    expect(alertFunnelOutcome({ created: 5, shown: 100 }).passed).toBe(true);
+    expect(alertFunnelOutcome({ created: 49, shown: 1000 }).passed).toBe(false);
+  });
+
+  it('is unmeasurable rather than 0% when nobody saw a CTA', () => {
+    const out = alertFunnelOutcome({ created: 0, shown: 0 });
+    expect(out.value.rate).toBeNull();
+    expect(out.passed).toBe(false);
+  });
+
+  it('labels the unit in target and detail, and marks the GA4 fallback', () => {
+    const hog = alertFunnelOutcome({ created: 163, shown: 3612 });
+    expect(hog.detail).toContain('163/3612 persone');
+    expect(hog.targetDescription).toContain('persone job_alert_created');
+    const ga4 = alertFunnelOutcome({ created: 163, shown: 3612, viaGa4: true });
+    expect(ga4.detail).toContain('utenti');
+    expect(ga4.detail).toContain('GA4 fallback');
+    expect(ga4.targetDescription).toContain('fallback GA4');
+  });
+
+  it('queries both providers per person, not per event', () => {
+    const src = fs.readFileSync(
+      path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../scripts/campaign-goal-check.mjs'),
+      'utf8',
+    );
+    expect(src).toContain("uniqIf(person_id, event = 'job_alert_created')");
+    expect(src).toContain("uniqIf(person_id, event = 'job_alert_cta_shown')");
+    expect(src).toMatch(/ga4EventCountByName\(token, \['job_alert_cta_shown', 'job_alert_created'\], 14, 'totalUsers'\)/);
+    expect(src).not.toContain("countIf(event = 'job_alert_cta_shown')");
   });
 });
