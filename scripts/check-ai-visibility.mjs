@@ -11,9 +11,14 @@
  *
  * Environment variables (loaded via load-rc-env.mjs in CI):
  *   PERPLEXITY_API_KEY  — Perplexity Sonar API (primary, supports citations)
- *   GEMINI_API_KEY      — Google Gemini API (secondary check)
+ *   GEMINI_API_KEY      — Google Gemini API (secondary check, Google Search grounding)
+ *   OPENROUTER_API_KEY  — OpenRouter with the web-search plugin (second grounded
+ *                         platform; metered, see OPENROUTER_MAX_REQUESTS)
  *   GH_MODELS_PAT       — GitHub Models PAT for GPT-4o (tertiary check)
  *   GROQ_API_KEY        — Groq API (fallback)
+ *
+ *   AI_VISIBILITY_OPENROUTER_DISABLED=1 — kill switch: drops the OpenRouter
+ *                         platform entirely (not listed, no requests, no cost)
  *
  * Outputs:
  *   reports/ai-visibility-{YYYY-MM-DD}.json   — Full structured report
@@ -88,6 +93,27 @@ const VERBOSE = process.argv.includes('--verbose');
 function getPerplexityKey() { return (process.env.PERPLEXITY_API_KEY || '').trim(); }
 function getGeminiKey() { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
 function getGhModelsPat() { return (process.env.GH_MODELS_PAT || '').trim(); }
+function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim(); }
+
+// OpenRouter's web search is METERED (the plugin bills per search result, not
+// per token), so this platform — unlike the others, whose cost is either zero
+// or a flat quota — ships with an explicit per-run ceiling and a kill switch.
+// One billable search request per monitored query, never more:
+//   20 queries × OPENROUTER_WEB_MAX_RESULTS results × $0.004/result ≈ $0.24
+// per monthly run, plus a few cents of model tokens. Failed calls are not
+// billed, so fetchWithRetry's bounded retries do not move that number.
+const OPENROUTER_MODEL = 'openai/gpt-4o-mini';
+const OPENROUTER_WEB_MAX_RESULTS = 3;
+const OPENROUTER_MAX_REQUESTS = QUERIES.length;
+let openRouterRequests = 0;
+
+/** Kill switch — read at call time so it can be flipped per run (and stubbed). */
+function isOpenRouterDisabled() {
+  return /^(1|true|yes|on)$/i.test((process.env.AI_VISIBILITY_OPENROUTER_DISABLED || '').trim());
+}
+
+/** Reset the per-run request budget (a run = one process; tests need it too). */
+function resetOpenRouterBudget() { openRouterRequests = 0; }
 
 /**
  * Call Perplexity Sonar API — returns citations natively.
@@ -204,6 +230,63 @@ async function queryGitHubModels(query) {
 }
 
 /**
+ * Call OpenRouter with the web-search plugin — the second platform whose
+ * answer is GROUNDED, i.e. backed by live retrieval. Without a search tool a
+ * model can only answer from parametric training knowledge and structurally
+ * can never surface a citation for a niche query, so the grounding is the
+ * whole point of adding it (same reasoning as queryGemini).
+ * Docs: https://openrouter.ai/docs/features/web-search
+ */
+async function queryOpenRouter(query) {
+  const key = getOpenRouterKey();
+  if (!key || isOpenRouterDisabled()) return null;
+
+  if (openRouterRequests >= OPENROUTER_MAX_REQUESTS) {
+    console.warn(`  ⚠ OpenRouter per-run cap reached (${OPENROUTER_MAX_REQUESTS} requests) — skipped`);
+    return null;
+  }
+  openRouterRequests++;
+
+  const res = await fetchWithRetry('OpenRouter', 'https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${key}`,
+      'HTTP-Referer': SITE_URL,
+      'X-Title': 'frontaliereticino.ch AI visibility',
+    },
+    body: JSON.stringify({
+      model: OPENROUTER_MODEL,
+      plugins: [{ id: 'web', max_results: OPENROUTER_WEB_MAX_RESULTS }],
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a helpful assistant. Always cite your sources with full URLs.',
+        },
+        { role: 'user', content: query },
+      ],
+      max_tokens: 1024,
+      temperature: 0.2,
+    }),
+  });
+
+  if (!res) return null;
+
+  const data = await res.json();
+  const message = data.choices?.[0]?.message || {};
+  const content = message.content || '';
+  // The web plugin returns its sources as `annotations[].url_citation`, not
+  // inside the prose: those are the real retrieved URLs. Reading only the
+  // text would measure what the model remembers, not what search surfaced.
+  const citations = (message.annotations || [])
+    .filter(a => a?.type === 'url_citation')
+    .map(a => a.url_citation?.url)
+    .filter(Boolean);
+
+  return { content, citations, raw: data };
+}
+
+/**
  * One request with bounded retry on TRANSIENT failures (HTTP 429/5xx, network
  * errors), honouring `Retry-After` when the server sends it. Returns the
  * response on success and `null` when the platform could not be reached —
@@ -287,6 +370,58 @@ function findCompetitorMentions(content, citations = []) {
 }
 
 /**
+ * Record what ONE platform answered for ONE query. Every platform funnels
+ * through here so a newly added one cannot drift from the accounting the
+ * score depends on: an answer we could not obtain is `checked: false`
+ * (unknown), never a `cited: false` (a measured miss) — see runCheck.
+ */
+function applyPlatformAnswer(result, platform, answer) {
+  if (!answer) {
+    result.platforms[platform] = { checked: false, error: 'API call failed' };
+    return result.platforms[platform];
+  }
+
+  const citations = answer.citations || [];
+  const mention = findSiteMention(answer.content, citations);
+  const competitors = findCompetitorMentions(answer.content, citations);
+
+  result.platforms[platform] = {
+    checked: true,
+    cited: mention.cited,
+    citedUrls: mention.citedUrls,
+    competitorsCited: competitors,
+    totalCitations: citations.length,
+  };
+  if (mention.cited) {
+    result.citedByAny = true;
+    result.citedUrls.push(...mention.citedUrls);
+  }
+  result.competitorsCited.push(...competitors);
+  if (VERBOSE) console.log(`    Citations: ${citations.length}, Us: ${mention.cited ? '✅' : '❌'}`);
+
+  return result.platforms[platform];
+}
+
+/**
+ * Which platforms this run can actually query — a platform without its key,
+ * or switched off, is simply ABSENT from the report (it never becomes a
+ * fabricated "checked, not cited" row).
+ */
+function detectPlatforms() {
+  return {
+    perplexity: !!getPerplexityKey(),
+    gemini: !!getGeminiKey(),
+    chatgpt: !!getGhModelsPat(),
+    openrouter: !!getOpenRouterKey() && !isOpenRouterDisabled(),
+  };
+}
+
+/** The `platformsChecked` list of the report, derived from detectPlatforms(). */
+function listAvailablePlatforms(platforms = detectPlatforms()) {
+  return Object.entries(platforms).filter(([, v]) => v).map(([k]) => k);
+}
+
+/**
  * Wait between API calls to respect rate limits.
  */
 function sleep(ms) {
@@ -304,15 +439,9 @@ async function runCheck() {
   console.log(`   Queries: ${QUERIES.length}`);
 
   // Detect available platforms
-  const platforms = {
-    perplexity: !!getPerplexityKey(),
-    gemini: !!getGeminiKey(),
-    chatgpt: !!getGhModelsPat(),
-  };
-
-  const availablePlatforms = Object.entries(platforms)
-    .filter(([, v]) => v)
-    .map(([k]) => k);
+  resetOpenRouterBudget();
+  const platforms = detectPlatforms();
+  const availablePlatforms = listAvailablePlatforms(platforms);
 
   console.log(`   Platforms: ${availablePlatforms.length > 0 ? availablePlatforms.join(', ') : '⚠ NONE (set API keys)'}`);
 
@@ -330,7 +459,8 @@ async function runCheck() {
     if (availablePlatforms.length === 0) {
       console.log('\n⚠ No API keys detected. Set one or more of:');
       console.log('   PERPLEXITY_API_KEY  — Perplexity Sonar API (best: returns native citations)');
-      console.log('   GEMINI_API_KEY      — Google Gemini API');
+      console.log('   GEMINI_API_KEY      — Google Gemini API (Google Search grounding)');
+      console.log('   OPENROUTER_API_KEY  — OpenRouter web search (grounded; metered, capped per run)');
       console.log('   GH_MODELS_PAT       — GitHub Models (GPT-4o)');
       console.log('\n   In CI, keys are loaded from Firebase Remote Config via load-rc-env.mjs.');
       console.log('   Locally: export PERPLEXITY_API_KEY="pplx-..." before running.');
@@ -340,7 +470,7 @@ async function runCheck() {
 
   if (availablePlatforms.length === 0) {
     console.error('\n❌ No API keys available. Cannot perform visibility check.');
-    console.error('   Set at least one of: PERPLEXITY_API_KEY, GEMINI_API_KEY, GH_MODELS_PAT');
+    console.error('   Set at least one of: PERPLEXITY_API_KEY, GEMINI_API_KEY, OPENROUTER_API_KEY, GH_MODELS_PAT');
     process.exit(1);
   }
 
@@ -363,77 +493,28 @@ async function runCheck() {
     // Perplexity (primary — has native citations)
     if (platforms.perplexity) {
       console.log('  → Perplexity...');
-      const pplx = await queryPerplexity(q);
-      if (pplx) {
-        const mention = findSiteMention(pplx.content, pplx.citations);
-        const competitors = findCompetitorMentions(pplx.content, pplx.citations);
-        result.platforms.perplexity = {
-          checked: true,
-          cited: mention.cited,
-          citedUrls: mention.citedUrls,
-          competitorsCited: competitors,
-          totalCitations: pplx.citations.length,
-        };
-        if (mention.cited) {
-          result.citedByAny = true;
-          result.citedUrls.push(...mention.citedUrls);
-        }
-        result.competitorsCited.push(...competitors);
-        if (VERBOSE) console.log(`    Citations: ${pplx.citations.length}, Us: ${mention.cited ? '✅' : '❌'}`);
-      } else {
-        result.platforms.perplexity = { checked: false, error: 'API call failed' };
-      }
+      applyPlatformAnswer(result, 'perplexity', await queryPerplexity(q));
       await sleep(1500); // Rate limit: ~20 req/min for Sonar
     }
 
     // Gemini
     if (platforms.gemini) {
       console.log('  → Gemini...');
-      const gem = await queryGemini(q);
-      if (gem) {
-        const mention = findSiteMention(gem.content, gem.citations);
-        const competitors = findCompetitorMentions(gem.content, gem.citations);
-        result.platforms.gemini = {
-          checked: true,
-          cited: mention.cited,
-          citedUrls: mention.citedUrls,
-          competitorsCited: competitors,
-          totalCitations: gem.citations.length,
-        };
-        if (mention.cited) {
-          result.citedByAny = true;
-          result.citedUrls.push(...mention.citedUrls);
-        }
-        result.competitorsCited.push(...competitors);
-        if (VERBOSE) console.log(`    Us: ${mention.cited ? '✅' : '❌'}`);
-      } else {
-        result.platforms.gemini = { checked: false, error: 'API call failed' };
-      }
+      applyPlatformAnswer(result, 'gemini', await queryGemini(q));
+      await sleep(1000);
+    }
+
+    // OpenRouter (second grounded platform — web-search plugin, metered)
+    if (platforms.openrouter) {
+      console.log('  → OpenRouter (web search)...');
+      applyPlatformAnswer(result, 'openrouter', await queryOpenRouter(q));
       await sleep(1000);
     }
 
     // ChatGPT (via GitHub Models)
     if (platforms.chatgpt) {
       console.log('  → ChatGPT (GitHub Models)...');
-      const gpt = await queryGitHubModels(q);
-      if (gpt) {
-        const mention = findSiteMention(gpt.content);
-        const competitors = findCompetitorMentions(gpt.content);
-        result.platforms.chatgpt = {
-          checked: true,
-          cited: mention.cited,
-          citedUrls: mention.citedUrls,
-          competitorsCited: competitors,
-        };
-        if (mention.cited) {
-          result.citedByAny = true;
-          result.citedUrls.push(...mention.citedUrls);
-        }
-        result.competitorsCited.push(...competitors);
-        if (VERBOSE) console.log(`    Us: ${mention.cited ? '✅' : '❌'}`);
-      } else {
-        result.platforms.chatgpt = { checked: false, error: 'API call failed' };
-      }
+      applyPlatformAnswer(result, 'chatgpt', await queryGitHubModels(q));
       await sleep(1000);
     }
 
@@ -737,4 +818,17 @@ if (isDirectRun) {
   });
 }
 
-export { fetchWithRetry, findSiteMention, findCompetitorMentions, generateMarkdown, loadPreviousReport, runCheck };
+export {
+  fetchWithRetry,
+  findSiteMention,
+  findCompetitorMentions,
+  generateMarkdown,
+  loadPreviousReport,
+  runCheck,
+  queryOpenRouter,
+  applyPlatformAnswer,
+  detectPlatforms,
+  listAvailablePlatforms,
+  resetOpenRouterBudget,
+  OPENROUTER_MAX_REQUESTS,
+};
