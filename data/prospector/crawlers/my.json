@@ -1,0 +1,20 @@
+{
+  "companyKey": "my",
+  "companyName": "Abwasserverband Wasserschloss",
+  "companyHost": "my.jobalino.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/job/9083c223ad9d4778ca1bb98e9ca676b2"
+  ],
+  "detailTemplate": "/job/9083c223ad9d4778ca1bb98e9ca676b2/klaerwaerter-in_8087",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Klärwärter/in / 100%"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-04T09:00:55.574Z"
+}
