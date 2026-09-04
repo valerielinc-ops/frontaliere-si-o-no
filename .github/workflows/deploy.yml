@@ -1399,7 +1399,18 @@ jobs:
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
-          retention-days: 1
+          # 8 giorni, non 1 come il resto degli artifact di questo workflow.
+          # `cathedral-seo-gates-check.yml` gira col cron `47 4 * * 1` e non
+          # costruisce piu' il proprio dist (#5169): replica QUESTO artifact.
+          # Con la retention a 1 giorno bastava una giornata senza deploy
+          # riuscito perche' il gate del lunedi' non trovasse nulla e morisse
+          # su «No successful deploy.yml run on main still has a
+          # 'github-pages' artifact» — motivo per cui e' rimasto rosso dal
+          # 2026-08-31. La finestra deve coprire la cadenza del gate.
+          # Il costo e' trascurabile e non vale per gli altri: questo tar e' il
+          # TRONCO (49 MB), mentre gli shard-batch dello stesso run pesano fino
+          # a 1,5 GB l'uno e restano a 1 giorno.
+          retention-days: 8
           if-no-files-found: error
           # Level 9 = max deflate compression on the zip envelope. Pages
           # backend extracts the zip first, so our content gets the best
