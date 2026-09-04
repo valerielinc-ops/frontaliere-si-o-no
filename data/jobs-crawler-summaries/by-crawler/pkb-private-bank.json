@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-09-03T23:25:47.340Z",
-  "total": 2,
+  "generatedAt": "2026-09-04T13:47:02.685Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6280,
-  "avgDurationMs": 6280,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3932,
+  "avgDurationMs": 3932,
   "durationHistory": [
-    6280
+    3932
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "employmentType": "FULL_TIME",
       "source": "PKB Dedicated Parser (Arca24)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T23:25:44.350Z",
+      "crawledAt": "2026-09-04T13:46:59.931Z",
       "id": "pkb-private-bank-0b868337e255",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-18T10:07:39.850Z",
@@ -46,8 +46,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "Senior Compliance Officer - Client Tax Compliance (FATCA, QI & AEOI/CRS), AML & CDB",
       "company": "PKB Private Bank SA",
@@ -78,13 +77,14 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "crawlerMissStreak": 2,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
