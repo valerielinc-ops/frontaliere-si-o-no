@@ -85364,6 +85364,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-stazione-gallarate-2026': {
+    title: 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
+    description: 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, alla, stazione, gallarate',
+    ogTitle: 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
+    ogDescription: 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi. Pendolari invitati a consultare gli orari aggiornati e a pianificare i loro spostamenti',
+    canonicalPath: '/articoli-frontaliere/lavori-stazione-gallarate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi",
+      "description": "Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-stazione-gallarate-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della stazione di Gallarate durante i lavori di manutenzione"
+      },
+      "datePublished": "2026-09-04T16:09:59+00:00",
+      "dateModified": "2026-09-04T16:09:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-stazione-gallarate-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

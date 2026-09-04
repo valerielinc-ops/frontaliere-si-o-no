@@ -11332,6 +11332,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'Comme export -2,2%, la Suisse croît à +21,2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'La province de Côme enregistre une baisse des exportations de 2,2 %. Textile recule de 7,9 %, mais la Suisse croît : +21,2 %. Analyse de l\'UIL sur les secteurs et l\'emploi.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Vue aérienne du district de Mendrisiotto, zone frontalière entre Tessin et Lombardie',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Travaux à la gare de Gallarate : S5 et bus de remplacement',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'Du 14 septembre au 5 octobre 2026, travaux d\'entretien à la gare de Gallarate. Modifications de la ligne S5 Treviglio-Gallarate-Varese et bus de remplacement.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Vue aérienne de la gare de Gallarate pendant les travaux de maintenance',
 };
 
 export default blogMetaFr;
