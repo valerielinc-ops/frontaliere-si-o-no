@@ -176,6 +176,25 @@ const SF_J2W_MORE_LOCATIONS_TOKEN_RE =
   /\s*[,;]?\s*\+\s*\d+\s*(?:more|weitere[nrs]?|mehr|autres?|de\s+plus|altr[oiae])\b\s*(?:…|\.{3})?/gi;
 
 /**
+ * Same marker, non-global, used to LOCATE the token so the text after it can
+ * be inspected. A `g` regex carries `lastIndex` between calls and would make
+ * the inspection depend on the previous cell.
+ */
+const SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE = new RegExp(
+  SF_J2W_MORE_LOCATIONS_TOKEN_RE.source,
+  'i',
+);
+
+/**
+ * What a further office segment looks like once the marker has been cut off:
+ * a separator, then actual content. Requiring the separator is deliberate — a
+ * skin that renders "Zurich, CH +2 more… Apply now" must NOT have the call to
+ * action glued onto the location, while "Lugano, CH +1 more… , Bern, CH"
+ * carries a real second segment that the tail cut would discard.
+ */
+const SF_J2W_TRAILING_SEGMENT_RE = /^\s*(?:…|\.{3})?\s*[,;]\s*\S/;
+
+/**
  * Normalize the two characters the marker is anchored on, so callers may pass
  * raw HTML as well as decoded text: the ellipsis (`&hellip;`) and the `+`
  * itself (`&#43;`/`&plus;`, plus the fullwidth `＋` some tenant CMSes emit).
@@ -282,10 +301,36 @@ export function stripSuccessFactorsMoreLocations(value) {
   if (typeof value !== 'string') return '';
   const normalized = normalizeMarkerChars(value);
   const withoutTail = normalized.replace(SF_J2W_MORE_LOCATIONS_RE, '').trim();
-  if (withoutTail || !normalized.trim()) return withoutTail;
+  if (!normalized.trim()) return withoutTail;
+  if (withoutTail && !hasSegmentAfterMarker(normalized)) return withoutTail;
   return normalized
     .replace(SF_J2W_MORE_LOCATIONS_TOKEN_RE, ' ')
     .replace(/\s+/g, ' ')
+    // The token took its own separator with it, so removing it can leave the
+    // next segment hanging off a floating " , " — join the offices the way the
+    // cell would have rendered them.
+    .replace(/\s+([,;])/g, '$1')
     .replace(/^[\s,;]+|[\s,;]+$/g, '')
     .trim();
+}
+
+/**
+ * True when the cell keeps a further structured segment AFTER the marker, i.e.
+ * when cutting to end-of-string would throw away an office instead of the
+ * marker alone.
+ *
+ * The tail cut is right for the observed skins (the `<small>` is the LAST node
+ * of the cell) and stays the default, but on "Lugano, CH +1 more… , Bern, CH"
+ * it silently drops ", Bern, CH" — and that discarded segment can be the only
+ * Swiss office of the row, i.e. the posting the crawler exists to keep. The
+ * loss is indistinguishable from the correct case, so the decision is made
+ * here on the shape of the tail rather than left implicit.
+ *
+ * @param {string} normalized Marker-normalized cell text.
+ * @returns {boolean}
+ */
+function hasSegmentAfterMarker(normalized) {
+  const match = normalized.match(SF_J2W_MORE_LOCATIONS_TOKEN_ONCE_RE);
+  if (!match || typeof match.index !== 'number') return false;
+  return SF_J2W_TRAILING_SEGMENT_RE.test(normalized.slice(match.index + match[0].length));
 }
