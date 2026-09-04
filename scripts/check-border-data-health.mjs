@@ -255,6 +255,108 @@ export function collectWebcamUrls(crossings) {
   return map;
 }
 
+// ── Per-webcam status across runs (issue #6644) ──────────────────────
+// The watchdog was STATELESS between runs: every verdict was thrown away at
+// process exit, so an offline→online transition on a SINGLE feed was
+// unobservable. The only recovery signal was the aggregate one (the canonical
+// issue closes when EVERYTHING is healthy), which stays silent while another
+// feed is still broken — exactly the window in which "this camera is back"
+// is the useful news. Persisting `{status, lastCheckedAt, lastOnlineAt}` per
+// URL makes the transition computable on the next run.
+const WEBCAM_STATUS_FILE = 'data/webcam-status.json';
+
+/**
+ * Fold this run's webcam verdicts into the persisted per-webcam state and
+ * report which feeds came back online since the previous run. Pure: takes the
+ * previous state + this run's observations + a clock, returns the next state.
+ *
+ * INDETERMINATE verdicts (cloud-IP block, unreachable from the monitor — see
+ * `evaluateWebcamResult`) are NOT evidence about the feed: they carry the
+ * previous status forward untouched. Treating them as offline would fabricate
+ * a downtime, and treating them as online would fabricate a recovery.
+ *
+ * @param {Record<string, {status?: string, lastCheckedAt?: string, lastOnlineAt?: string|null}>} previous
+ * @param {Array<{url: string, label?: string|null, served?: string[], verdict: {broken?: boolean, indeterminate?: boolean}}>} observations
+ * @param {number} nowMs
+ * @returns {{state: Record<string, {status: string, lastCheckedAt: string, lastOnlineAt: string|null}>, recovered: Array<{url: string, label: string|null, served: string[], offlineForMs: number|null}>}}
+ */
+export function applyWebcamStatus(previous, observations, nowMs) {
+  const nowIso = new Date(nowMs).toISOString();
+  const state = {};
+  const recovered = [];
+  for (const obs of observations || []) {
+    if (!obs?.url) continue;
+    const prev = previous?.[obs.url] ?? null;
+    const prevOnlineAt = prev?.lastOnlineAt ?? null;
+    const verdict = obs.verdict ?? {};
+    if (verdict.indeterminate === true) {
+      state[obs.url] = {
+        status: prev?.status ?? 'unknown',
+        lastCheckedAt: nowIso,
+        lastOnlineAt: prevOnlineAt,
+      };
+      continue;
+    }
+    if (verdict.broken === true) {
+      state[obs.url] = { status: 'offline', lastCheckedAt: nowIso, lastOnlineAt: prevOnlineAt };
+      continue;
+    }
+    if (prev?.status === 'offline') {
+      const since = prevOnlineAt ? Date.parse(prevOnlineAt) : NaN;
+      recovered.push({
+        url: obs.url,
+        label: obs.label ?? null,
+        served: obs.served ?? [],
+        offlineForMs: Number.isFinite(since) ? Math.max(0, nowMs - since) : null,
+      });
+    }
+    state[obs.url] = { status: 'online', lastCheckedAt: nowIso, lastOnlineAt: nowIso };
+  }
+  // Rebuilt from THIS run's observations only, so a URL dropped from the
+  // registry disappears from the file instead of accumulating forever.
+  return { state, recovered };
+}
+
+/**
+ * Human-readable downtime for a recovery alert. `null` (no `lastOnlineAt` ever
+ * recorded — first run after the feed was already down) reads as unknown
+ * rather than as zero, which would understate a real outage.
+ * @param {number|null} ms
+ * @returns {string}
+ */
+export function formatDowntime(ms) {
+  if (ms === null || !Number.isFinite(ms)) return 'durata sconosciuta';
+  const minutes = Math.round(ms / 60000);
+  if (minutes < 60) return `${minutes}min`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  if (hours < 24) return rest ? `${hours}h ${rest}min` : `${hours}h`;
+  const days = Math.floor(hours / 24);
+  const restHours = hours % 24;
+  return restHours ? `${days}g ${restHours}h` : `${days}g`;
+}
+
+function loadWebcamStatus() {
+  const file = path.resolve(process.cwd(), WEBCAM_STATUS_FILE);
+  if (!fs.existsSync(file)) return {};
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    // A corrupt state file must never take the watchdog down: the worst case is
+    // one missed recovery alert while the file is rewritten from scratch.
+    console.warn(`[check-border-data-health] ${WEBCAM_STATUS_FILE} unreadable — restarting from empty state`);
+    return {};
+  }
+}
+
+function saveWebcamStatus(state) {
+  const file = path.resolve(process.cwd(), WEBCAM_STATUS_FILE);
+  // Sorted keys so the committed diff shows real status changes, not key churn.
+  const sorted = Object.fromEntries(Object.keys(state).sort().map((k) => [k, state[k]]));
+  fs.writeFileSync(file, `${JSON.stringify(sorted, null, 2)}\n`);
+}
+
 // ── Network (not unit-tested; exercised live) ───────────────────────
 
 // F5 BIG-IP ASM on www4.ti.ch sets session cookies on the first response;
@@ -439,6 +541,7 @@ async function main() {
     lines.push('ℹ️ No webcams configured in registry');
   }
   const brokenWebcams = [];
+  const webcamObservations = [];
   let indeterminateWebcams = 0;
   // Shared once for the whole loop (not renewed per webcam) so the tiny-body
   // retry budget is a hard cap on TOTAL time actually spent retrying across
@@ -449,6 +552,7 @@ async function main() {
   for (const { url, crossings: served, label, minBytes } of webcamUrls.values()) {
     const result = await fetchWebcam(url, minBytes ?? MIN_WEBCAM_BYTES, retryBudget);
     const verdict = evaluateWebcamResult(result, minBytes ?? MIN_WEBCAM_BYTES);
+    webcamObservations.push({ url, label, served, verdict });
     if (verdict.broken) {
       brokenWebcams.push({ url, served, label, reason: verdict.reason });
       lines.push(`❌ WEBCAM BROKEN: ${url} (${verdict.reason}) — serves: ${served.join(', ')}`);
@@ -464,6 +568,33 @@ async function main() {
   }
   if (indeterminateWebcams > 0) {
     lines.push(`ℹ️ ${indeterminateWebcams} webcam(s) unreachable from the monitor's IP but not confirmed broken (no page).`);
+  }
+
+  // 3b. Post-downtime recovery alert (issue #6644). Computed against the state
+  // the PREVIOUS run persisted, so a feed that comes back while another one is
+  // still broken is announced instead of being swallowed by the aggregate
+  // "all healthy -> close the issue" signal. Never a `problem`: a recovery must
+  // not page, it must be VISIBLE — the lines below ride along in the health
+  // report that the workflow embeds in the canonical issue comment.
+  const recoveredLines = [];
+  if (webcamObservations.length > 0) {
+    const { state, recovered } = applyWebcamStatus(loadWebcamStatus(), webcamObservations, Date.now());
+    saveWebcamStatus(state);
+    for (const r of recovered) {
+      const line = `🔄 WEBCAM RECOVERED: ${r.url} — back online after ${formatDowntime(r.offlineForMs)}${r.served.length ? ` — serves: ${r.served.join(', ')}` : ''}`;
+      recoveredLines.push(line);
+      lines.push(line);
+    }
+  }
+  if (process.env.GITHUB_OUTPUT) {
+    // Emitted on healthy runs too (the `summary` output below is degraded-only),
+    // so the workflow can surface a recovery even when nothing is broken. Same
+    // backtick/quote sanitation as `summary`: it lands in a bash heredoc too.
+    const recoveredOut = recoveredLines.join('\n').replace(/[`"]/g, "'");
+    fs.appendFileSync(
+      process.env.GITHUB_OUTPUT,
+      `recovered<<EOF_RECOVERED\n${recoveredOut}\nEOF_RECOVERED\n`,
+    );
   }
 
   // ── Summary ──

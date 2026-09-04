@@ -19,7 +19,11 @@ on:
   workflow_dispatch: {}
 
 permissions:
-  contents: read
+  # contents: write — the run persists data/webcam-status.json back to main so
+  # the NEXT run can tell an offline→online transition from a feed that was
+  # never down (issue #6644). Without the commit the state file is recreated
+  # empty every run and no recovery is ever detectable.
+  contents: write
   issues: write
 
 jobs:
@@ -70,6 +74,46 @@ jobs:
         env:
           STALE_HOURS: '6'
         run: npx tsx scripts/check-border-data-health.mjs
+
+      # Persist the per-webcam state regardless of the health verdict: a
+      # DEGRADED run is exactly when the transitions are most interesting, and
+      # the file is what makes the next run's recovery alert possible at all.
+      - name: Persist per-webcam status
+        if: always() && steps.health.conclusion != 'skipped'
+        # Never let state bookkeeping mask (or invent) a health verdict: the
+        # issue open/resolve steps below key off the health step's outcome.
+        continue-on-error: true
+        run: |
+          if [ ! -f data/webcam-status.json ]; then
+            echo "No status file written (registry unreadable?) — nothing to persist."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/webcam-status.json
+          if git diff --cached --quiet; then
+            echo "No webcam status change."
+          else
+            git commit -m "chore(webcam): per-webcam status snapshot [skip ci]"
+            bash scripts/lib/git-push-with-retry.sh --soft-fail-exhausted
+          fi
+
+      # Recovery alert (issue #6644). On a DEGRADED run the recovered lines are
+      # already inside HEALTH_SUMMARY (the canonical issue comment). This step
+      # covers the other case — a run where nothing is broken any more — so a
+      # feed coming back after downtime is never silent.
+      - name: Report webcam recoveries
+        if: always() && steps.health.outputs.recovered != ''
+        run: |
+          {
+            echo "### Webcam tornate online"
+            echo ''
+            echo '```'
+            echo "${RECOVERED}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+        env:
+          RECOVERED: ${{ steps.health.outputs.recovered }}
 
       # Degraded → open (or comment on) the canonical issue. The helper dedups on
       # the first 60 chars of the STABLE title, so consecutive degraded runs
