@@ -29,7 +29,9 @@
  */
 
 import { describe, it, expect } from 'vitest';
-import { pickLayoutShiftAudit } from '../scripts/audit-cls-live.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { pickLayoutShiftAudit, compactShiftItems, layoutShiftAuditSource } from '../scripts/audit-cls-live.mjs';
 
 const NEW_AUDIT = {
   score: 1,
@@ -64,5 +66,74 @@ describe('pickLayoutShiftAudit', () => {
   it('undefined quando non c\'e\' nessuna delle due, senza lanciare', () => {
     expect(pickLayoutShiftAudit({})).toBeUndefined();
     expect(pickLayoutShiftAudit(undefined)).toBeUndefined();
+  });
+});
+
+describe('layoutShiftAuditSource — quale chiave ha risposto', () => {
+  // `attribution.score` non misura la stessa cosa nelle due chiavi (audit
+  // binario sulla vecchia, CLS scalato sulla nuova): senza `source` un
+  // confronto storico su quel numero cambia significato in silenzio.
+  it('nomina la chiave nuova quando c\'e\'', () => {
+    expect(layoutShiftAuditSource({ 'layout-shifts': NEW_AUDIT })).toBe('layout-shifts');
+  });
+  it('nomina la chiave vecchia sui report archiviati', () => {
+    expect(layoutShiftAuditSource({ 'layout-shift-elements': OLD_AUDIT })).toBe('layout-shift-elements');
+  });
+  it('null quando non risponde nessuna delle due', () => {
+    expect(layoutShiftAuditSource({})).toBeNull();
+  });
+});
+
+describe('compactShiftItems — forma stabile e compatta', () => {
+  it('proietta sempre {score, node:{selector,snippet,nodeLabel,boundingRect}}', () => {
+    const out = compactShiftItems(NEW_AUDIT);
+    expect(out).toHaveLength(1);
+    expect(Object.keys(out![0]).sort()).toEqual(['node', 'score']);
+    expect(Object.keys(out![0].node).sort()).toEqual(['boundingRect', 'nodeLabel', 'selector', 'snippet']);
+    expect(out![0].node.selector).toBe('div.ft-rail-grid-x');
+  });
+
+  it('scarta `subItems`, che il solo `layout-shifts` puo\' portare e che gonfierebbe l\'artifact', () => {
+    const fat = {
+      details: {
+        items: [{
+          score: 0.5,
+          node: { selector: 'div.a' },
+          subItems: { items: Array.from({ length: 200 }, (_, i) => ({ cause: `c${i}`, extra: 'x'.repeat(500) })) },
+        }],
+      },
+    };
+    const out = compactShiftItems(fat)!;
+    expect(out[0]).not.toHaveProperty('subItems');
+    expect(JSON.stringify(out).length).toBeLessThan(400);
+  });
+
+  it('la stessa forma esce da entrambe le chiavi', () => {
+    const a = compactShiftItems(NEW_AUDIT)![0];
+    const b = compactShiftItems(OLD_AUDIT)![0];
+    expect(Object.keys(a).sort()).toEqual(Object.keys(b).sort());
+    expect(Object.keys(a.node).sort()).toEqual(Object.keys(b.node).sort());
+  });
+
+  it('taglia a `limit` e non lancia su audit vuoto o assente', () => {
+    const many = { details: { items: Array.from({ length: 9 }, (_, i) => ({ score: i, node: { selector: `s${i}` } })) } };
+    expect(compactShiftItems(many)).toHaveLength(5);
+    expect(compactShiftItems(many, 2)).toHaveLength(2);
+    expect(compactShiftItems(undefined)).toBeNull();
+    expect(compactShiftItems({ details: {} })).toBeNull();
+  });
+});
+
+describe('il modulo non esegue niente quando lo si importa', () => {
+  // Il difetto trovato dalla review su PR #7287: `run()` era invocata al
+  // top-level senza guard, quindi importare questo modulo dal test faceva
+  // partire il grid PSI completo (rete live) dentro il worker vitest, che poi
+  // moriva su uno dei `process.exit()` di `run()`. Il test che pinna il
+  // contratto era lo stesso che innescava il gate.
+  it('`run()` sta dietro il main-module guard', () => {
+    const src = fs.readFileSync(path.resolve(__dirname, '../scripts/audit-cls-live.mjs'), 'utf-8');
+    expect(src, 'run() non deve essere invocata al top-level: l\'import deve restare inerte')
+      .toMatch(/if \(import\.meta\.url === pathToFileURL\(process\.argv\[1\] \|\| ''\)\.href\) \{/);
+    expect(src).not.toMatch(/^run\(\)\.catch/m);
   });
 });

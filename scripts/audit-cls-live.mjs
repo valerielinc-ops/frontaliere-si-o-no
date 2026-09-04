@@ -34,7 +34,7 @@
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -146,6 +146,45 @@ export function pickLayoutShiftAudit(audits) {
   return audits?.['layout-shifts'] ?? audits?.['layout-shift-elements'] ?? undefined;
 }
 
+/**
+ * Quale delle due chiavi ha risposto: `attribution.score` NON misura la stessa
+ * cosa nelle due (audit binario sulla vecchia, CLS scalato sulla nuova), quindi
+ * un confronto storico su quel numero va fatto solo fra report con la stessa
+ * `source`. Registrarla costa una stringa e rende il campo interpretabile.
+ */
+export function layoutShiftAuditSource(audits) {
+  if (audits?.['layout-shifts']) return 'layout-shifts';
+  if (audits?.['layout-shift-elements']) return 'layout-shift-elements';
+  return null;
+}
+
+/**
+ * Proiezione COMPATTA e di forma stabile degli item di attribuzione.
+ *
+ * I due audit non hanno la stessa forma di `details.items`: il vecchio e' un
+ * flat `{node, score}`, il nuovo puo' portare anche `subItems`/`cause` per
+ * shift. Persistere gli item grezzi sotto lo stesso nome nell'artifact
+ * post-deploy significherebbe cambiare forma (e dimensione) del campo senza
+ * cambiargli nome — proprio cio' che il commento «compact subset» prometteva di
+ * non fare. Misurato sulla risposta reale del 2026-09-04: item flat, 507 byte
+ * l'uno, nessun `subItems`; ma la forma non e' garantita, quindi si proietta.
+ *
+ * Il payload Lighthouse integrale resta in `raw` per chi indaga davvero.
+ */
+export function compactShiftItems(audit, limit = 5) {
+  const items = audit?.details?.items;
+  if (!Array.isArray(items)) return null;
+  return items.slice(0, limit).map((it) => ({
+    score: it?.score ?? null,
+    node: {
+      selector: it?.node?.selector ?? null,
+      snippet: it?.node?.snippet ?? null,
+      nodeLabel: it?.node?.nodeLabel ?? null,
+      boundingRect: it?.node?.boundingRect ?? null,
+    },
+  }));
+}
+
 async function runPsi(url, strategy) {
   const params = new URLSearchParams({ url, strategy, category: 'performance' });
   if (API_KEY) params.set('key', API_KEY);
@@ -234,23 +273,9 @@ function parsePsiResponse(j) {
     source = 'unavailable';
   }
 
-  // Extract a compact subset of the Lighthouse layout-shift attribution audit
-  // for CLS debugging — sufficient to identify the shifting node without
-  // ballooning the report with the full ~500 KB Lighthouse JSON.
-  // The full payload (`psiRaw`) is also returned for hard regressions so the
-  // post-deploy artifact carries everything an investigator needs.
-  //
-  // DUE CHIAVI, e l'ordine conta. Lighthouse ha RITIRATO
-  // `layout-shift-elements` e oggi pubblica `layout-shifts`; PSI risponde solo
-  // con la seconda. Leggendo la sola chiave vecchia questo campo tornava
-  // `null` a OGNI run — e siccome `null` qui è indistinguibile da «la pagina
-  // non ha shift», due analisi automatiche su #5785 (2026-08-13 e 2026-08-18)
-  // hanno concluso «nessuna telemetria di attribuzione disponibile» mentre
-  // l'attribuzione c'era. Misurato il 2026-09-04 su `/cerca-lavoro-ticino/`
-  // mobile: `layout-shift-elements` ASSENTE, `layout-shifts` con 2 item, di
-  // cui uno da solo vale il 99,7% dello shift della pagina. La chiave nuova
-  // per prima, la vecchia come fallback finché esistono report archiviati che
-  // la contengono.
+  // Attribuzione del layout shift, proiettata compatta: il payload Lighthouse
+  // integrale resta in `raw`. Quale chiave vince e perche' la vecchia resta
+  // fallback e' nella jsdoc di `pickLayoutShiftAudit()`.
   const lsElements = pickLayoutShiftAudit(j.lighthouseResult?.audits);
   const finalScreenshot = j.lighthouseResult?.audits?.['final-screenshot']?.details?.data || null;
 
@@ -262,8 +287,9 @@ function parsePsiResponse(j) {
     effective,
     source,
     attribution: {
-      layoutShiftElements: lsElements?.details?.items?.slice(0, 5) ?? null,
+      layoutShiftElements: compactShiftItems(lsElements),
       score: lsElements?.score ?? null,
+      source: layoutShiftAuditSource(j.lighthouseResult?.audits),
     },
     finalScreenshot,
     raw: j, // full Lighthouse JSON — caller decides whether to persist
@@ -479,7 +505,16 @@ async function run() {
   process.exit(0);
 }
 
-run().catch((e) => {
-  console.error('audit-cls-live: fatal:', e?.stack || e);
-  process.exit(1);
-});
+// Main-module guard, NON decorativo: questo modulo esporta funzioni pure che i
+// test importano, e senza guard l'import fa partire il grid PSI completo
+// (TARGETS x STRATEGIES, rete live) dentro il worker vitest, che poi muore su
+// uno dei `process.exit()` di `run()`. Trovato dalla review su PR #7287: il
+// test che pinna il contratto era lo stesso che innescava il gate.
+// `verify-cls-fix.mjs` lancia questo file come PROCESSO (non lo importa),
+// quindi per lui il guard e' trasparente.
+if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
+  run().catch((e) => {
+    console.error('audit-cls-live: fatal:', e?.stack || e);
+    process.exit(1);
+  });
+}
