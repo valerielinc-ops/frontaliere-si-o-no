@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-09-03T23:20:39.555Z",
+  "assembledAt": "2026-09-04T13:35:41.823Z",
   "jobs": [
     {
       "id": "company-213hln",
@@ -22,7 +22,7 @@
       "salaryMax": 192731,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-09-03T13:43:17.776Z",
       "titleByLocale": {
         "it": "Cancelleria dello Stato",
@@ -102,7 +102,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "titleByLocale": {
         "it": "Assistente di farmacia a tempo parziale (50%), presso l’Ufficio del farmacista cantonale, Mendrisio",
@@ -149,7 +149,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "company-213hlr",
@@ -171,7 +172,7 @@
       "salaryMax": 167309,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-08-28T05:27:13.245Z",
       "titleByLocale": {
         "it": "Medico AI a tempo parziale (50%) – a tempo pieno (100%), presso l’Istituto delle assicurazioni sociali, Ufficio dell’assicurazione invalidità, Servizio medico regionale (SMR), Bellinzona",
@@ -240,7 +241,7 @@
       "salaryMax": 116071,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-08-17T10:02:50.276Z",
       "titleByLocale": {
         "it": "Curatore/trice a tempo parziale (50%), presso l'Ufficio dell’aiuto e della protezione, Bellinzona",
@@ -321,7 +322,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-07-06T22:31:01.671Z",
       "slugByLocale": {
         "it": "candidature-spontanee-per-stage-durante-e-post-studi-universitari-presso-l-amministrazione-cantonale-amministrazione-cantonale-ti-2026-indie-213j37",
@@ -450,7 +451,7 @@
       "salaryMax": 64005,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
@@ -500,7 +501,8 @@
         "allgemeiner-wettbewerb-2026-kuchenhilfe-buro-fur-verpflegung-und-schultransport-bellinzona-orario-di-lavoro-42-ore-settimanali-per-un-rappor",
         "concours-general-2026-aide-cuisine-office-de-la-restauration-et-des-transports-scolaires-bellinzona-orario-di-lavoro-42-ore-settimanali-per-"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "id": "company-213zbv",
@@ -522,7 +524,7 @@
       "salaryMax": 72822,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-03T23:20:33.328Z",
+      "crawledAt": "2026-09-04T13:35:37.060Z",
       "firstSeenAt": "2026-05-31T13:06:08.322Z",
       "slugByLocale": {
         "it": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
