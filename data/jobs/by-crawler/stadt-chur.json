@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-09-03T23:34:51.042Z",
+  "assembledAt": "2026-09-04T13:43:41.688Z",
   "jobs": [
     {
       "title": "Kaufmännische Praktikumsstelle (HMS 3+1)",
@@ -44,7 +44,7 @@
         "de": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
         "fr": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
       },
-      "crawledAt": "2026-09-03T23:29:16.971Z",
+      "crawledAt": "2026-09-04T13:38:07.618Z",
       "id": "stadt-chur-c0496a08b9e2",
       "needsRetranslation": true,
       "salaryMin": 57500,
@@ -105,9 +105,8 @@
         "de": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712",
         "fr": "professeur-adjoint-formation-bilingue-3e-4e-classe-italien-93-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-03T23:30:23.735Z",
+      "crawledAt": "2026-09-04T13:39:14.379Z",
       "id": "stadt-chur-236d71791b5d",
-      "needsRetranslation": true,
       "salaryMin": 45100,
       "salaryMax": 83200,
       "currency": "CHF",
@@ -180,7 +179,7 @@
         "de": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
         "fr": "apprentissage-en-tant-que-commercant-administration-publique-marchande-efz-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-03T23:31:30.497Z",
+      "crawledAt": "2026-09-04T13:40:21.143Z",
       "id": "stadt-chur-820b8f6a45d2",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -199,8 +198,8 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
-          "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur"
+          "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur",
+          "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
         ],
         "en": [
           "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
@@ -210,10 +209,9 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
-        "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur"
-      ],
-      "needsRetranslation": true
+        "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur",
+        "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
+      ]
     },
     {
       "title": "Bereichsleiter/in Friedhöfe/Bestattungen und Stv. Leiter/in Stadtgärtnerei (80-100%)",
@@ -257,7 +255,7 @@
         "de": "bereichsleiter-in-friedhofe-bestattungen-und-stv-leiter-in-stadtgartnerei-80-100-stadt-chur-1694",
         "fr": "gestionnaire-de-secteur-dans-les-cimetieres-bureaux-et-directeur-de-stv-dans-stadtgartnerei-80-100-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-03T23:32:37.260Z",
+      "crawledAt": "2026-09-04T13:41:27.904Z",
       "id": "stadt-chur-1f1f55884c3a",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -332,7 +330,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-03T23:33:44.023Z",
+      "crawledAt": "2026-09-04T13:42:34.666Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -406,7 +404,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-03T23:34:50.782Z",
+      "crawledAt": "2026-09-04T13:43:41.426Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "previousSlugsByLocale": {
         "en": [
@@ -420,8 +418,8 @@
         ]
       },
       "previousSlugs": [
-        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
-        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur"
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur",
+        "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

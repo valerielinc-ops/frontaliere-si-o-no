@@ -1,6 +1,6 @@
 {
   "crawlerKey": "leukerbad-clinic",
-  "assembledAt": "2026-09-03T23:24:22.542Z",
+  "assembledAt": "2026-09-04T13:33:13.545Z",
   "jobs": [
     {
       "id": "leukerbad-clinic-ee4dad784780",
@@ -47,14 +47,16 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-ee4dad784780",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.189Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
+        "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic",
+        "spontanbewerbung-per-eine-stelle-come-fachmann-frau-gesundheit-cfc-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
+          "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic",
+          "spontanbewerbung-per-eine-stelle-come-fachmann-frau-gesundheit-cfc-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "spontanbewerbung-fur-eine-stelle-als-fachmann-frau-gesundheit-efz-leukerbad-clinic"
@@ -123,7 +125,8 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-2ce107b356df",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.189Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "spontanbewerbung-fur-ein-praktikum-in-der-pflege-leukerbad-clinic-leukerbad"
       ],
@@ -198,14 +201,16 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-62d178b67f9d",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.189Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "spontanbewerbung-leukerbad-clinic-leukerbad"
+        "spontanbewerbung-leukerbad-clinic-leukerbad",
+        "attrezzatura-spontan-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spontanbewerbung-leukerbad-clinic-leukerbad"
+          "spontanbewerbung-leukerbad-clinic-leukerbad",
+          "attrezzatura-spontan-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "spontanbewerbung-leukerbad-clinic-leukerbad"
@@ -244,7 +249,7 @@
       "title": "CANDIDATURE SPONTANEE",
       "titleByLocale": {
         "it": "SPONTANCY",
-        "en": "SPONTANCY",
+        "en": "CANDIDATURE SPONTANEE",
         "de": "SPONTANZ",
         "fr": "CANDIDATURE SPONTANEE"
       },
@@ -274,13 +279,16 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-2bcf18b9fd5c",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.189Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+        "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+        "spontancy-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
+          "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
+          "spontancy-leukerbad-clinic-loeche-les-bains"
         ],
         "de": [
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains"
@@ -346,7 +354,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-121ff121f549",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.189Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "spontanbewerbung-fur-eine-stelle-als-diplomierte-r-physiotherapeut-in-leukerbad-clinic",
@@ -443,17 +451,20 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-25df7166bb17",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.058Z",
+      "crawledAt": "2026-09-04T13:33:10.188Z",
+      "needsRetranslation": false,
       "previousSlugs": [
         "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
         "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
-        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad"
+        "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+        "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chief-physician-in-internal-medicine-with-fmh-leukerbad-clinic-leukerbad",
           "medecin-chef-en-medecine-interne-avec-fmh-leukerbad-clinic-leukerbad",
-          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad"
+          "chefarztin-chefarzt-mit-fmh-allgemeine-innere-medizin-leukerbad-clinic-leukerbad",
+          "medico-principale-con-fmh-medicina-interna-generale-leukerbad-clinic-leukerbad"
         ]
       },
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -516,17 +527,20 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-24f51169b1e8",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.058Z",
+      "crawledAt": "2026-09-04T13:33:10.188Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
         "assistant-e-medical-e-leukerbad-clinic-leukerbad",
-        "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad"
+        "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad",
+        "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad",
           "assistant-e-medical-e-leukerbad-clinic-leukerbad",
-          "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad"
+          "assistente-a-medico-a-m-f-leukerbad-clinic-leukerbad",
+          "assistente-medico-pratico-m-f-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-m-w-leukerbad-clinic-leukerbad"
@@ -595,16 +609,18 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-d80ce36d545a",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.188Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-        "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
+        "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+        "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
-          "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
+          "candidatura-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains",
+          "applicazione-spontanea-per-una-posizione-di-physiotherapeute-diplome-e-leukerbad-clinic-loeche-les-bains"
         ],
         "en": [
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche"
@@ -673,7 +689,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-97372b1445ea",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.059Z",
+      "crawledAt": "2026-09-04T13:33:10.188Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains",
@@ -683,7 +699,8 @@
         "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
         "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
         "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-        "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains-cowzgk"
+        "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains-cowzgk",
+        "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -694,7 +711,8 @@
           "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
           "candidature-spontanee-pour-un-poste-de-physiotherapeute-diplome-e-leukerbad-clinic-loeche",
           "candidature-spontanee-leukerbad-clinic-loeche-les-bains",
-          "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains-cowzgk"
+          "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains-cowzgk",
+          "applicazione-spontanea-per-un-stage-in-care-leukerbad-clinic-loeche-les-bains"
         ],
         "en": [
           "candidature-spontanee-pour-un-stage-dans-les-soins-leukerbad-clinic-loeche-les-bains"
@@ -714,231 +732,6 @@
           "@type": "QuantitativeValue",
           "minValue": 77500,
           "maxValue": 108000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-6002fb5ee1f1",
-      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
-      "slugByLocale": {
-        "it": "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
-        "en": "spontaneous-application-for-a-job-as-a-diplomiate-culture-person-leukerbad-clinic-leukerbad",
-        "de": "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
-        "fr": "demande-spontanee-pour-un-emploi-en-tant-que-personnel-de-culture-diplomiate-leukerbad-clinic-leukerbad"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "Spontanbewerbung für eine Stelle als DIPLOMIERTE PFLEGEFACHPERSON",
-      "titleByLocale": {
-        "it": "Domanda spontanea per un lavoro come PERSONALE DIPLOMIATO",
-        "en": "Spontaneous application for a job as a DIPLOMIATE CULTURE PERSON",
-        "de": "Spontanbewerbung für eine Stelle als DIPLOMIERTE PFLEGEFACHPERSON",
-        "fr": "Demande spontanée pour un emploi en tant que PERSONNEL DE CULTURE DIPLOMIATE"
-      },
-      "description": "Pflege\n\nzu vereinbaren · zu vereinbaren\n\nIHR PROFIL\n• Sie haben eine Fachhochschule oder eine europäische Krankenschwesternausbildung absolviert.\n• Sie sind französischer oder deutscher Muttersprachler mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie haben Freude am Kontakt mit Patienten und Angehörigen sowie dem Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, sich in Ihre Arbeit zu investieren\nAUFGABEN\n• Gelebte Pflege nach den fünf Werten der Klinik (Kompetenz, Professionalität, Empathie, Engagement und Entwicklung)\n• Beitrag zur Verbesserung der Qualität und Effizienz der Pflege und zur Entwicklung des Berufsstandes\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Massnahmen\nWIR BIETEN\n• Eine moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Zusammenarbeit mit den Abteilungen für Physiotherapie, Sporttherapie und Ergotherapie\n• Fachliche hausinterne und externe Fort- und Weiterbildungsmöglichkeiten\n• Personalhaus/Personalrestaurant\n• Viele Sport- und Freizeitmöglichkeiten in einem attraktiven Ski- und Berggebiet mit Thermalbädern\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\nHerr Marco Volpi, Pflegedirektor, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
-      "descriptionByLocale": {
-        "it": "Cura\n\nconcordare · concordare\n\nIl tuo progetto\n• Hai completato un college tecnico o una formazione infermieristica europea.\n• Sei un madrelingua francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e parenti e la rete di assistenza\n• Sei dinamico, motivato e disposto a investire nel tuo lavoro\nTASKS\n• Cura vissuta secondo i cinque valori della clinica (competenza, professionalità, empatia, impegno e sviluppo)\n• Contribuire a migliorare la qualità e l'efficienza della cura e lo sviluppo della professione\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nForniamo\n• Un'infrastruttura moderna\n• Attività professionale in un team motivato, impegnato e dinamico\n• Cooperazione interdisciplinare con i dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità professionali di formazione interna ed esterna\n• Staff House/Staff Restaurant\n• Molte opportunità di sport e svago in una zona di sci e montagna attraente con bagni termali\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\nMarco Volpi, Care Director, è lieto di rispondere alle vostre domande - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "en": "Care\n\nto agree · to agree\n\nYOUR PROFILE\n• You have completed a technical college or European nurse training.\n• You are a native French or German speaker with good knowledge of the other language\n• You have the ability to take initiatives\n• You enjoy contact with patients and relatives as well as the care network\n• You are dynamic, motivated and willing to invest in your work\nTASKS\n• Lived care according to the five values of the clinic (competence, professionalism, empathy, commitment and development)\n• Contributing to improving the quality and efficiency of care and the development of the profession\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWe provide\n• A modern infrastructure\n• Professional activity in a motivated, committed and dynamic team\n• Interdisciplinary cooperation with the departments of physiotherapy, sports therapy and occupational therapy\n• Professional in-house and external training opportunities\n• Staff House/Staff Restaurant\n• Many sports and leisure opportunities in an attractive ski and mountain area with thermal baths\nHave we aroused your interest? We look forward to your application.\nMr Marco Volpi, Care Director, is happy to answer your questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "de": "Pflege\n\nzu vereinbaren · zu vereinbaren\n\nIHR PROFIL\n• Sie haben eine Fachhochschule oder eine europäische Krankenschwesternausbildung absolviert.\n• Sie sind französischer oder deutscher Muttersprachler mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie haben Freude am Kontakt mit Patienten und Angehörigen sowie dem Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, sich in Ihre Arbeit zu investieren\nAUFGABEN\n• Gelebte Pflege nach den fünf Werten der Klinik (Kompetenz, Professionalität, Empathie, Engagement und Entwicklung)\n• Beitrag zur Verbesserung der Qualität und Effizienz der Pflege und zur Entwicklung des Berufsstandes\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Massnahmen\nWIR BIETEN\n• Eine moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Zusammenarbeit mit den Abteilungen für Physiotherapie, Sporttherapie und Ergotherapie\n• Fachliche hausinterne und externe Fort- und Weiterbildungsmöglichkeiten\n• Personalhaus/Personalrestaurant\n• Viele Sport- und Freizeitmöglichkeiten in einem attraktiven Ski- und Berggebiet mit Thermalbädern\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\nHerr Marco Volpi, Pflegedirektor, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "fr": "Soins\n\nd'accepter · d'accepter\n\nVOTRE PROFIL\n• Vous avez suivi une formation technique ou d'infirmière européenne.\n• Vous êtes un locuteur natif français ou allemand avec une bonne connaissance de l'autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les proches ainsi que le réseau de soins\n• Vous êtes dynamique, motivé et prêt à investir dans votre travail\nTÂCHES\n• Soins vivants selon les cinq valeurs de la clinique (compétence, professionnalisme, empathie, engagement et développement)\n• Contribuer à l'amélioration de la qualité et de l'efficacité des soins et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation à des mesures préventives, diagnostiques et thérapeutiques\nNous fournissons\n• Une infrastructure moderne\n• Activité professionnelle dans une équipe motivée, engagée et dynamique\n• Coopération interdisciplinaire avec les départements de physiothérapie, de thérapie sportive et d'ergothérapie\n• Possibilités de formation professionnelle interne et externe\n• Maison du personnel / Restaurant du personnel\n• De nombreuses activités sportives et de loisirs dans un domaine skiable et montagneux attrayant avec thermes\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\nM. Marco Volpi, Directeur des soins, est heureux de répondre à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11."
-      },
-      "location": "Leukerbad",
-      "canton": "VS",
-      "addressLocality": "Leukerbad",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-6002fb5ee1f1",
-      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-6002fb5ee1f1",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.057Z",
-      "previousSlugs": [
-        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
-        ],
-        "en": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
-        ],
-        "fr": [
-          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-e191f21bed34",
-      "slug": "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains",
-      "slugByLocale": {
-        "it": "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains",
-        "en": "spontaneous-application-for-a-position-of-swc-assistant-and-community-health-cass-leukerbad-clinic-loeche-les-bains",
-        "de": "candidature-spontanee-pour-un-poste-d-assistent-e-en-soins-et-sante-communautaire-cfc-assc-leukerbad-clinic-loeche-les",
-        "fr": "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "Candidature spontanée pour un poste d'ASSISTANT-E EN SOINS ET SANTE COMMUNAUTAIRE CFC (ASSC)",
-      "titleByLocale": {
-        "it": "Domanda spontanea per una posizione di SWC ASSISTANT E SALUTE COMUNITARIA (CASS)",
-        "en": "Spontaneous application for a position of SWC ASSISTANT AND COMMUNITY HEALTH (CASS)",
-        "de": "Spontane Bewerbung um eine Stelle von SWC ASSISTANT AND COMMUNITY HEALTH (CASS)",
-        "fr": "Candidature spontanée pour un poste d'ASSISTANT-E EN SOINS ET SANTE COMMUNAUTAIRE CFC (ASSC)"
-      },
-      "description": "Soins\n\nà convenir · à convenir\n\nPROFIL\n• Vous êtes au bénéfice d'un CFC d’assistant-e en soins et santé communautaire\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les familles\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Participation au soutien et à la suppléance dans les activités de la vie quotidienne\n• Contribution à l’amélioration de la qualité et de l’efficacité des soins infirmiers et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
-      "descriptionByLocale": {
-        "it": "Cura\n\nessere concordato\n\nPROFESSIONALE\n• State beneficiando di un assistente sociale e sanitario SWC\n• Sei nativo francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e famiglie\n• Sei dinamico, motivato e pronto a investire nel tuo lavoro\nMISSIONI\n• Pratiche infermieristica che rispettano i cinque valori della clinica (Competenza, Professionalità, Empatia, Engagement ed Evoluzione)\n• Partecipazione a sostegno e sostituzione in attività di vita quotidiana\n• Contributo al miglioramento della qualità e dell'efficacia della cura dell'allattamento e dello sviluppo professionale\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nUFFICIO\n• Lavoro diverso in collaborazione con un team interdisciplinare dinamico, in particolare con i dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità di formazione continua interna o esterna\n• Clinica attrattiva orientata al futuro con reputazione consolidata (60 anni di attività)\n• Moderne infrastrutture grazie alle recenti ristrutturazioni\n• Strutture ricettive e ristoranti in loco\n• Molte possibilità di attività sportive in una località sciistica e montana con bagni termali\nAbbiamo sollevato il tuo interesse? In questo caso, non vediamo l'ora di ricevere la vostra domanda.\nMarco Volpi, Direttore della Care, risponderà volentieri alle vostre domande - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "en": "Care\n\nto be agreed\n\nPROFILE\n• You are benefiting from a Community Care and Health Assistant SWC\n• You are native French or German with good knowledge of the other language\n• You have the ability to take initiatives\n• You like contact with patients and families\n• You are dynamic, motivated and ready to invest in your work\nMISSIONS\n• Nursing practices that respect the clinic's five values (Competence, Professionalism, Empathy, Engagement and Evolution)\n• Participation in support and substitution in activities of daily life\n• Contribution to improving the quality and effectiveness of nursing care and professional development\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWE OFFER\n• Diverse work in collaboration with a dynamic interdisciplinary team, particularly with the departments of physiotherapy, sports therapy and occupational therapy\n• Opportunities for internal or external continuing training\n• Future-oriented attractive clinic with established reputation (60 years of activity)\n• Modern infrastructure thanks to recent renovations\n• Accommodation and restaurant facilities on site\n• Many possibilities of sports activities in a ski and mountain resort with thermal baths\nHave we raised your interest? In this case, we look forward to receiving your application.\nMarco Volpi, Director of Care, will gladly answer your questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "de": "Pflege\n\nzu vereinbaren\n\nPROFIL\n• Sie profitieren von einem Community Care and Health Assistant SWC\n• Sie sind Französisch oder Deutsch mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie mögen den Kontakt zu Patienten und Familien\n• Sie sind dynamisch, motiviert und bereit, in Ihre Arbeit zu investieren\nMISSIONEN\n• Pflegepraktiken, die die fünf Werte der Klinik respektieren (Kompetenz, Professionalität, Empathie, Engagement und Evolution)\n• Teilnahme an Unterstützung und Substitution bei Aktivitäten des täglichen Lebens\n• Beitrag zur Verbesserung der Qualität und Effektivität der Pflege und beruflichen Entwicklung\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Maßnahmen\nWIR ANGEBOT\n• Vielfältige Arbeit in Zusammenarbeit mit einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Physiotherapie, Sporttherapie und Ergotherapie\n• Möglichkeiten der internen oder externen Weiterbildung\n• Zukunftsorientierte attraktive Klinik mit etabliertem Ruf (60 Jahre Tätigkeit)\n• Moderne Infrastruktur dank jüngster Renovierungen\n• Unterkunfts- und Restauranteinrichtungen vor Ort\n• Viele Möglichkeiten für sportliche Aktivitäten in einem Ski- und Bergresort mit Thermalbädern\nHaben wir Ihr Interesse geweckt? In diesem Fall freuen wir uns auf Ihre Bewerbung.\nMarco Volpi, Director of Care, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "fr": "Soins\n\nà convenir · à convenir\n\nPROFIL\n• Vous êtes au bénéfice d'un CFC d’assistant-e en soins et santé communautaire\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les familles\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Participation au soutien et à la suppléance dans les activités de la vie quotidienne\n• Contribution à l’amélioration de la qualité et de l’efficacité des soins infirmiers et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11."
-      },
-      "location": "Loèche-les-Bains",
-      "canton": "VS",
-      "addressLocality": "Loèche-les-Bains",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare-nursing",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-e191f21bed34",
-      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-e191f21bed34",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.057Z",
-      "previousSlugs": [
-        "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
-        ],
-        "en": [
-          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
-        ],
-        "de": [
-          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "leukerbad-clinic-3e54b746704c",
-      "slug": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
-      "slugByLocale": {
-        "it": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
-        "en": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
-        "de": "diplated-e-m-w-80-100-leukerbad-clinic-leukerbad",
-        "fr": "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
-      },
-      "company": "Leukerbad Clinic",
-      "companyKey": "leukerbad-clinic",
-      "companyDomain": "leukerbadclinic.ch",
-      "title": "INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%",
-      "titleByLocale": {
-        "it": "DIPLE-E (H/F) 80-100%",
-        "en": "DIPLE-E (H/F) 80-100%",
-        "de": "DIPLATED-E-(M/W) 80-100%",
-        "fr": "INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%"
-      },
-      "description": "80-100% · De suite ou à convenir\n\nNichée à 1400 mètres d’altitude, la Leukerbad Clinic offre à ses patients une prise en charge spécialisée en réadaptation musculosquelettique, en médecine interne et oncologique. Son eau thermale, son approche pluridisciplinaire unique ainsi que la qualité de son personnel ont forgé sa solide réputation.\nPROFIL\n• Vous êtes au bénéfice d’une formation HES ou européenne d’infirmier-ère\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité à prendre des initiatives\n• Vous aimez le contact avec les patients et les familles ainsi que le réseau de soins\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Contribution à l’amélioration de la qualité et l’efficacité de soins infirmiers et au développement de la profession\n• Participation active au travail d’équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Infrastructure moderne\n• Activité professionnelle au sein d’une équipe motivée, engagée et dynamique\n• Travail interdisciplinaire avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Opportunités de formation continue interne et externe\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions – m.volpi@lbcl.ch - +41 27 472 51 11.",
-      "descriptionByLocale": {
-        "it": "80-100% · Immediatamente o da concordare\n\nSituato a 1400 metri sul livello del mare, la Clinica Leukerbad offre ai suoi pazienti cure specialistiche nella riabilitazione muscoloscheletrica, nella medicina interna e nell'oncologia. La sua acqua termale, il suo approccio multidisciplinare unico e la qualità del suo personale hanno forgiato la sua forte reputazione.\nPROFESSIONALE\n• Stai beneficiando di un HES o formazione infermieristica europea\n• Sei nativo francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e famiglie e la rete di assistenza\n• Sei dinamico, motivato e pronto a investire nel tuo lavoro\nMISSIONI\n• Pratiche infermieristica che rispettano i cinque valori della clinica (Competenza, Professionalità, Empatia, Engagement ed Evoluzione)\n• Contributo al miglioramento della qualità e dell'efficacia della cura dell'allattamento e dello sviluppo professionale\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nUFFICIO\n• Infrastrutture moderne\n• Attività professionale all'interno di un team motivato, impegnato e dinamico\n• Lavoro interdisciplinare con dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità di formazione continua interna ed esterna\n• Strutture ricettive e ristoranti in loco\n• Molte possibilità di attività sportive in una località sciistica e montana con bagni termali\nAbbiamo sollevato il tuo interesse? In questo caso, non vediamo l'ora di ricevere la vostra domanda.\nMarco Volpi, Direttore di Care, è lieto di rispondere alle vostre domande – m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "en": "80-100% · Immediately or to be agreed\n\nNestled at 1400 metres above sea level, the Leukerbad Clinic offers its patients specialized care in musculoskeletal rehabilitation, internal medicine and oncology. Its thermal water, its unique multidisciplinary approach and the quality of its staff have forged its strong reputation.\nPROFILE\n• You are benefiting from a HES or European nursing training\n• You are native French or German with good knowledge of the other language\n• You have the capacity to take initiatives\n• You like contact with patients and families as well as the care network\n• You are dynamic, motivated and ready to invest in your work\nMISSIONS\n• Nursing practices that respect the clinic's five values (Competence, Professionalism, Empathy, Engagement and Evolution)\n• Contribution to improving the quality and effectiveness of nursing care and professional development\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWE OFFER\n• Modern infrastructure\n• Professional activity within a motivated, committed and dynamic team\n• Interdisciplinary work with departments of physiotherapy, sports therapy and occupational therapy\n• Opportunities for internal and external continuing training\n• Accommodation and restaurant facilities on site\n• Many possibilities of sports activities in a ski and mountain resort with thermal baths\nHave we raised your interest? In this case, we look forward to receiving your application.\nMarco Volpi, Director of Care, is happy to answer your questions – m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "de": "80-100% · Sofort oder zu vereinbaren\n\nEingebettet auf 1400 Metern über dem Meeresspiegel bietet die Klinik Leukerbad ihren Patienten eine spezialisierte Betreuung in den Bereichen Muskel-Skelett-Rehabilitation, Innere Medizin und Onkologie. Sein Thermalwasser, sein einzigartiger multidisziplinärer Ansatz und die Qualität seiner Mitarbeiter haben seinen guten Ruf geschmiedet.\nPROFIL\n• Sie profitieren von einer HES oder einer europäischen Pflegeausbildung\n• Sie sind Französisch oder Deutsch mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie mögen den Kontakt zu Patienten und Familien sowie zum Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, in Ihre Arbeit zu investieren\nMISSIONEN\n• Pflegepraktiken, die die fünf Werte der Klinik respektieren (Kompetenz, Professionalität, Empathie, Engagement und Evolution)\n• Beitrag zur Verbesserung der Qualität und Effektivität der Pflege und beruflichen Entwicklung\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Maßnahmen\nWIR ANGEBOT\n• Moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Arbeit mit Abteilungen Physiotherapie, Sporttherapie und Ergotherapie\n• Möglichkeiten der internen und externen Weiterbildung\n• Unterkunfts- und Restauranteinrichtungen vor Ort\n• Viele Möglichkeiten für sportliche Aktivitäten in einem Ski- und Bergresort mit Thermalbädern\nHaben wir Ihr Interesse geweckt? In diesem Fall freuen wir uns auf Ihre Bewerbung.\nMarco Volpi, Director of Care, beantwortet gerne Ihre Fragen – m.volpi@lbcl.ch - +41 27 472 51 11.",
-        "fr": "80-100% · De suite ou à convenir\n\nNichée à 1400 mètres d’altitude, la Leukerbad Clinic offre à ses patients une prise en charge spécialisée en réadaptation musculosquelettique, en médecine interne et oncologique. Son eau thermale, son approche pluridisciplinaire unique ainsi que la qualité de son personnel ont forgé sa solide réputation.\nPROFIL\n• Vous êtes au bénéfice d’une formation HES ou européenne d’infirmier-ère\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité à prendre des initiatives\n• Vous aimez le contact avec les patients et les familles ainsi que le réseau de soins\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Contribution à l’amélioration de la qualité et l’efficacité de soins infirmiers et au développement de la profession\n• Participation active au travail d’équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Infrastructure moderne\n• Activité professionnelle au sein d’une équipe motivée, engagée et dynamique\n• Travail interdisciplinaire avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Opportunités de formation continue interne et externe\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions – m.volpi@lbcl.ch - +41 27 472 51 11."
-      },
-      "location": "Leukerbad",
-      "canton": "VS",
-      "addressLocality": "Leukerbad",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3954",
-      "category": "healthcare",
-      "sector": "Salute / Riabilitazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2024-07-29",
-      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-3e54b746704c",
-      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-3e54b746704c",
-      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.056Z",
-      "previousSlugs": [
-        "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
-        ],
-        "en": [
-          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
-        ],
-        "de": [
-          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
-        ]
-      },
-      "firstSeenAt": "2026-07-06T22:22:23.632Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -988,20 +781,256 @@
       "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-62f27c302dc6",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:24:19.057Z",
+      "crawledAt": "2026-09-04T13:33:10.184Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad"
+        "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
+        "personale-amministrativo-gestione-del-paziente-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad"
+          "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad",
+          "personale-amministrativo-gestione-del-paziente-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad"
         ],
         "fr": [
           "verwaltungsmitarbeiter-in-patientenmanagement-leukerbad-clinic-leukerbad"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-6002fb5ee1f1",
+      "slug": "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
+      "slugByLocale": {
+        "it": "spontanbewerbung-per-eine-stelle-come-diplomierte-pflegefachperson-leukerbad-clinic-leukerbad",
+        "en": "spontaneous-application-for-a-job-as-a-diplomiate-culture-person-leukerbad-clinic-leukerbad",
+        "de": "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic",
+        "fr": "demande-spontanee-pour-un-emploi-en-tant-que-personnel-de-culture-diplomiate-leukerbad-clinic-leukerbad"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "Spontanbewerbung für eine Stelle als DIPLOMIERTE PFLEGEFACHPERSON",
+      "titleByLocale": {
+        "it": "Domanda spontanea per un lavoro come PERSONALE DIPLOMIATO",
+        "en": "Spontaneous application for a job as a DIPLOMIATE CULTURE PERSON",
+        "de": "Spontanbewerbung für eine Stelle als DIPLOMIERTE PFLEGEFACHPERSON",
+        "fr": "Demande spontanée pour un emploi en tant que PERSONNEL DE CULTURE DIPLOMIATE"
+      },
+      "description": "Pflege\n\nzu vereinbaren · zu vereinbaren\n\nIHR PROFIL\n• Sie haben eine Fachhochschule oder eine europäische Krankenschwesternausbildung absolviert.\n• Sie sind französischer oder deutscher Muttersprachler mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie haben Freude am Kontakt mit Patienten und Angehörigen sowie dem Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, sich in Ihre Arbeit zu investieren\nAUFGABEN\n• Gelebte Pflege nach den fünf Werten der Klinik (Kompetenz, Professionalität, Empathie, Engagement und Entwicklung)\n• Beitrag zur Verbesserung der Qualität und Effizienz der Pflege und zur Entwicklung des Berufsstandes\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Massnahmen\nWIR BIETEN\n• Eine moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Zusammenarbeit mit den Abteilungen für Physiotherapie, Sporttherapie und Ergotherapie\n• Fachliche hausinterne und externe Fort- und Weiterbildungsmöglichkeiten\n• Personalhaus/Personalrestaurant\n• Viele Sport- und Freizeitmöglichkeiten in einem attraktiven Ski- und Berggebiet mit Thermalbädern\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\nHerr Marco Volpi, Pflegedirektor, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
+      "descriptionByLocale": {
+        "it": "Cura\n\nconcordare · concordare\n\nIl tuo progetto\n• Hai completato un college tecnico o una formazione infermieristica europea.\n• Sei un madrelingua francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e parenti e la rete di assistenza\n• Sei dinamico, motivato e disposto a investire nel tuo lavoro\nTASKS\n• Cura vissuta secondo i cinque valori della clinica (competenza, professionalità, empatia, impegno e sviluppo)\n• Contribuire a migliorare la qualità e l'efficienza della cura e lo sviluppo della professione\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nForniamo\n• Un'infrastruttura moderna\n• Attività professionale in un team motivato, impegnato e dinamico\n• Cooperazione interdisciplinare con i dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità professionali di formazione interna ed esterna\n• Staff House/Staff Restaurant\n• Molte opportunità di sport e svago in una zona di sci e montagna attraente con bagni termali\nAbbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione.\nMarco Volpi, Care Director, è lieto di rispondere alle vostre domande - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "en": "Care\n\nto agree · to agree\n\nYOUR PROFILE\n• You have completed a technical college or European nurse training.\n• You are a native French or German speaker with good knowledge of the other language\n• You have the ability to take initiatives\n• You enjoy contact with patients and relatives as well as the care network\n• You are dynamic, motivated and willing to invest in your work\nTASKS\n• Lived care according to the five values of the clinic (competence, professionalism, empathy, commitment and development)\n• Contributing to improving the quality and efficiency of care and the development of the profession\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWe provide\n• A modern infrastructure\n• Professional activity in a motivated, committed and dynamic team\n• Interdisciplinary cooperation with the departments of physiotherapy, sports therapy and occupational therapy\n• Professional in-house and external training opportunities\n• Staff House/Staff Restaurant\n• Many sports and leisure opportunities in an attractive ski and mountain area with thermal baths\nHave we aroused your interest? We look forward to your application.\nMr Marco Volpi, Care Director, is happy to answer your questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "de": "Pflege\n\nzu vereinbaren · zu vereinbaren\n\nIHR PROFIL\n• Sie haben eine Fachhochschule oder eine europäische Krankenschwesternausbildung absolviert.\n• Sie sind französischer oder deutscher Muttersprachler mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie haben Freude am Kontakt mit Patienten und Angehörigen sowie dem Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, sich in Ihre Arbeit zu investieren\nAUFGABEN\n• Gelebte Pflege nach den fünf Werten der Klinik (Kompetenz, Professionalität, Empathie, Engagement und Entwicklung)\n• Beitrag zur Verbesserung der Qualität und Effizienz der Pflege und zur Entwicklung des Berufsstandes\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Massnahmen\nWIR BIETEN\n• Eine moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Zusammenarbeit mit den Abteilungen für Physiotherapie, Sporttherapie und Ergotherapie\n• Fachliche hausinterne und externe Fort- und Weiterbildungsmöglichkeiten\n• Personalhaus/Personalrestaurant\n• Viele Sport- und Freizeitmöglichkeiten in einem attraktiven Ski- und Berggebiet mit Thermalbädern\nHaben wir Ihr Interesse geweckt? Wir freuen uns auf Ihre Bewerbung.\nHerr Marco Volpi, Pflegedirektor, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "fr": "Soins\n\nd'accepter · d'accepter\n\nVOTRE PROFIL\n• Vous avez suivi une formation technique ou d'infirmière européenne.\n• Vous êtes un locuteur natif français ou allemand avec une bonne connaissance de l'autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les proches ainsi que le réseau de soins\n• Vous êtes dynamique, motivé et prêt à investir dans votre travail\nTÂCHES\n• Soins vivants selon les cinq valeurs de la clinique (compétence, professionnalisme, empathie, engagement et développement)\n• Contribuer à l'amélioration de la qualité et de l'efficacité des soins et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation à des mesures préventives, diagnostiques et thérapeutiques\nNous fournissons\n• Une infrastructure moderne\n• Activité professionnelle dans une équipe motivée, engagée et dynamique\n• Coopération interdisciplinaire avec les départements de physiothérapie, de thérapie sportive et d'ergothérapie\n• Possibilités de formation professionnelle interne et externe\n• Maison du personnel / Restaurant du personnel\n• De nombreuses activités sportives et de loisirs dans un domaine skiable et montagneux attrayant avec thermes\nAvons-nous suscité votre intérêt ? Nous attendons avec impatience votre candidature.\nM. Marco Volpi, Directeur des soins, est heureux de répondre à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11."
+      },
+      "location": "Leukerbad",
+      "canton": "VS",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/de/page/jobs/#job-6002fb5ee1f1",
+      "applyUrl": "https://leukerbadclinic.ch/de/page/jobs/#job-6002fb5ee1f1",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:33:10.184Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
+        ],
+        "en": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
+        ],
+        "fr": [
+          "spontanbewerbung-fur-eine-stelle-als-diplomierte-pflegefachperson-leukerbad-clinic"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-e191f21bed34",
+      "slug": "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains",
+      "slugByLocale": {
+        "it": "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains",
+        "en": "spontaneous-application-for-a-position-of-swc-assistant-and-community-health-cass-leukerbad-clinic-loeche-les-bains",
+        "de": "spontane-bewerbung-um-eine-stelle-von-swc-assistant-and-community-health-cass-leukerbad-clinic-loeche-les-bains",
+        "fr": "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "Candidature spontanée pour un poste d'ASSISTANT-E EN SOINS ET SANTE COMMUNAUTAIRE CFC (ASSC)",
+      "titleByLocale": {
+        "it": "Domanda spontanea per una posizione di SWC ASSISTANT E SALUTE COMUNITARIA (CASS)",
+        "en": "Spontaneous application for a position of SWC ASSISTANT AND COMMUNITY HEALTH (CASS)",
+        "de": "Spontane Bewerbung um eine Stelle von SWC ASSISTANT AND COMMUNITY HEALTH (CASS)",
+        "fr": "Candidature spontanée pour un poste d'ASSISTANT-E EN SOINS ET SANTE COMMUNAUTAIRE CFC (ASSC)"
+      },
+      "description": "Soins\n\nà convenir · à convenir\n\nPROFIL\n• Vous êtes au bénéfice d'un CFC d’assistant-e en soins et santé communautaire\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les familles\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Participation au soutien et à la suppléance dans les activités de la vie quotidienne\n• Contribution à l’amélioration de la qualité et de l’efficacité des soins infirmiers et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
+      "descriptionByLocale": {
+        "it": "Cura\n\nessere concordato\n\nPROFESSIONALE\n• State beneficiando di un assistente sociale e sanitario SWC\n• Sei nativo francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e famiglie\n• Sei dinamico, motivato e pronto a investire nel tuo lavoro\nMISSIONI\n• Pratiche infermieristica che rispettano i cinque valori della clinica (Competenza, Professionalità, Empatia, Engagement ed Evoluzione)\n• Partecipazione a sostegno e sostituzione in attività di vita quotidiana\n• Contributo al miglioramento della qualità e dell'efficacia della cura dell'allattamento e dello sviluppo professionale\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nUFFICIO\n• Lavoro diverso in collaborazione con un team interdisciplinare dinamico, in particolare con i dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità di formazione continua interna o esterna\n• Clinica attrattiva orientata al futuro con reputazione consolidata (60 anni di attività)\n• Moderne infrastrutture grazie alle recenti ristrutturazioni\n• Strutture ricettive e ristoranti in loco\n• Molte possibilità di attività sportive in una località sciistica e montana con bagni termali\nAbbiamo sollevato il tuo interesse? In questo caso, non vediamo l'ora di ricevere la vostra domanda.\nMarco Volpi, Direttore della Care, risponderà volentieri alle vostre domande - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "en": "Care\n\nto be agreed\n\nPROFILE\n• You are benefiting from a Community Care and Health Assistant SWC\n• You are native French or German with good knowledge of the other language\n• You have the ability to take initiatives\n• You like contact with patients and families\n• You are dynamic, motivated and ready to invest in your work\nMISSIONS\n• Nursing practices that respect the clinic's five values (Competence, Professionalism, Empathy, Engagement and Evolution)\n• Participation in support and substitution in activities of daily life\n• Contribution to improving the quality and effectiveness of nursing care and professional development\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWE OFFER\n• Diverse work in collaboration with a dynamic interdisciplinary team, particularly with the departments of physiotherapy, sports therapy and occupational therapy\n• Opportunities for internal or external continuing training\n• Future-oriented attractive clinic with established reputation (60 years of activity)\n• Modern infrastructure thanks to recent renovations\n• Accommodation and restaurant facilities on site\n• Many possibilities of sports activities in a ski and mountain resort with thermal baths\nHave we raised your interest? In this case, we look forward to receiving your application.\nMarco Volpi, Director of Care, will gladly answer your questions - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "de": "Pflege\n\nzu vereinbaren\n\nPROFIL\n• Sie profitieren von einem Community Care and Health Assistant SWC\n• Sie sind Französisch oder Deutsch mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie mögen den Kontakt zu Patienten und Familien\n• Sie sind dynamisch, motiviert und bereit, in Ihre Arbeit zu investieren\nMISSIONEN\n• Pflegepraktiken, die die fünf Werte der Klinik respektieren (Kompetenz, Professionalität, Empathie, Engagement und Evolution)\n• Teilnahme an Unterstützung und Substitution bei Aktivitäten des täglichen Lebens\n• Beitrag zur Verbesserung der Qualität und Effektivität der Pflege und beruflichen Entwicklung\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Maßnahmen\nWIR ANGEBOT\n• Vielfältige Arbeit in Zusammenarbeit mit einem dynamischen interdisziplinären Team, insbesondere mit den Abteilungen Physiotherapie, Sporttherapie und Ergotherapie\n• Möglichkeiten der internen oder externen Weiterbildung\n• Zukunftsorientierte attraktive Klinik mit etabliertem Ruf (60 Jahre Tätigkeit)\n• Moderne Infrastruktur dank jüngster Renovierungen\n• Unterkunfts- und Restauranteinrichtungen vor Ort\n• Viele Möglichkeiten für sportliche Aktivitäten in einem Ski- und Bergresort mit Thermalbädern\nHaben wir Ihr Interesse geweckt? In diesem Fall freuen wir uns auf Ihre Bewerbung.\nMarco Volpi, Director of Care, beantwortet gerne Ihre Fragen - m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "fr": "Soins\n\nà convenir · à convenir\n\nPROFIL\n• Vous êtes au bénéfice d'un CFC d’assistant-e en soins et santé communautaire\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité de prendre des initiatives\n• Vous aimez le contact avec les patients et les familles\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Participation au soutien et à la suppléance dans les activités de la vie quotidienne\n• Contribution à l’amélioration de la qualité et de l’efficacité des soins infirmiers et au développement de la profession\n• Participation active au travail d'équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Travail diversifié en collaboration avec une équipe interdisciplinaire dynamique, en particulier avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Possibilités de formation continue interne ou externe\n• Clinique attractive tournée vers l’avenir avec une réputation établie (60 ans d’activité)\n• Infrastructure moderne grâce aux récentes rénovations\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions - m.volpi@lbcl.ch - +41 27 472 51 11."
+      },
+      "location": "Loèche-les-Bains",
+      "canton": "VS",
+      "addressLocality": "Loèche-les-Bains",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-e191f21bed34",
+      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-e191f21bed34",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-04T13:33:10.184Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
+        "candidature-spontanee-pour-un-poste-d-assistent-e-en-soins-et-sante-communautaire-cfc-assc-leukerbad-clinic-loeche-les",
+        "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
+          "domanda-spontanea-per-una-posizione-di-swc-assistant-e-salute-comunitaria-cass-leukerbad-clinic-loeche-les-bains"
+        ],
+        "en": [
+          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc"
+        ],
+        "de": [
+          "candidature-spontanee-pour-un-poste-d-assistant-e-en-soins-et-sante-communautaire-cfc-assc",
+          "candidature-spontanee-pour-un-poste-d-assistent-e-en-soins-et-sante-communautaire-cfc-assc-leukerbad-clinic-loeche-les"
+        ]
+      },
+      "firstSeenAt": "2026-07-06T22:22:23.632Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "leukerbad-clinic-3e54b746704c",
+      "slug": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
+      "slugByLocale": {
+        "it": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
+        "en": "diple-e-h-f-80-100-leukerbad-clinic-leukerbad",
+        "de": "diplated-e-m-w-80-100-leukerbad-clinic-leukerbad",
+        "fr": "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
+      },
+      "company": "Leukerbad Clinic",
+      "companyKey": "leukerbad-clinic",
+      "companyDomain": "leukerbadclinic.ch",
+      "title": "INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%",
+      "titleByLocale": {
+        "it": "DIPLE-E (H/F) 80-100%",
+        "en": "DIPLE-E (H/F) 80-100%",
+        "de": "INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%",
+        "fr": "INFIRMIER/INFIRMIÈRE DIPLÔMÉ-E (H/F) 80-100%"
+      },
+      "description": "80-100% · De suite ou à convenir\n\nNichée à 1400 mètres d’altitude, la Leukerbad Clinic offre à ses patients une prise en charge spécialisée en réadaptation musculosquelettique, en médecine interne et oncologique. Son eau thermale, son approche pluridisciplinaire unique ainsi que la qualité de son personnel ont forgé sa solide réputation.\nPROFIL\n• Vous êtes au bénéfice d’une formation HES ou européenne d’infirmier-ère\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité à prendre des initiatives\n• Vous aimez le contact avec les patients et les familles ainsi que le réseau de soins\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Contribution à l’amélioration de la qualité et l’efficacité de soins infirmiers et au développement de la profession\n• Participation active au travail d’équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Infrastructure moderne\n• Activité professionnelle au sein d’une équipe motivée, engagée et dynamique\n• Travail interdisciplinaire avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Opportunités de formation continue interne et externe\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions – m.volpi@lbcl.ch - +41 27 472 51 11.",
+      "descriptionByLocale": {
+        "it": "80-100% · Immediatamente o da concordare\n\nSituato a 1400 metri sul livello del mare, la Clinica Leukerbad offre ai suoi pazienti cure specialistiche nella riabilitazione muscoloscheletrica, nella medicina interna e nell'oncologia. La sua acqua termale, il suo approccio multidisciplinare unico e la qualità del suo personale hanno forgiato la sua forte reputazione.\nPROFESSIONALE\n• Stai beneficiando di un HES o formazione infermieristica europea\n• Sei nativo francese o tedesco con buona conoscenza dell'altra lingua\n• Hai la capacità di prendere iniziative\n• Ti piace il contatto con pazienti e famiglie e la rete di assistenza\n• Sei dinamico, motivato e pronto a investire nel tuo lavoro\nMISSIONI\n• Pratiche infermieristica che rispettano i cinque valori della clinica (Competenza, Professionalità, Empatia, Engagement ed Evoluzione)\n• Contributo al miglioramento della qualità e dell'efficacia della cura dell'allattamento e dello sviluppo professionale\n• Partecipazione attiva al lavoro di squadra interdisciplinare\n• Partecipazione a misure preventive, diagnostiche e terapeutiche\nUFFICIO\n• Infrastrutture moderne\n• Attività professionale all'interno di un team motivato, impegnato e dinamico\n• Lavoro interdisciplinare con dipartimenti di fisioterapia, terapia sportiva e terapia occupazionale\n• Opportunità di formazione continua interna ed esterna\n• Strutture ricettive e ristoranti in loco\n• Molte possibilità di attività sportive in una località sciistica e montana con bagni termali\nAbbiamo sollevato il tuo interesse? In questo caso, non vediamo l'ora di ricevere la vostra domanda.\nMarco Volpi, Direttore di Care, è lieto di rispondere alle vostre domande – m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "en": "80-100% · Immediately or to be agreed\n\nNestled at 1400 metres above sea level, the Leukerbad Clinic offers its patients specialized care in musculoskeletal rehabilitation, internal medicine and oncology. Its thermal water, its unique multidisciplinary approach and the quality of its staff have forged its strong reputation.\nPROFILE\n• You are benefiting from a HES or European nursing training\n• You are native French or German with good knowledge of the other language\n• You have the capacity to take initiatives\n• You like contact with patients and families as well as the care network\n• You are dynamic, motivated and ready to invest in your work\nMISSIONS\n• Nursing practices that respect the clinic's five values (Competence, Professionalism, Empathy, Engagement and Evolution)\n• Contribution to improving the quality and effectiveness of nursing care and professional development\n• Active participation in interdisciplinary teamwork\n• Participation in preventive, diagnostic and therapeutic measures\nWE OFFER\n• Modern infrastructure\n• Professional activity within a motivated, committed and dynamic team\n• Interdisciplinary work with departments of physiotherapy, sports therapy and occupational therapy\n• Opportunities for internal and external continuing training\n• Accommodation and restaurant facilities on site\n• Many possibilities of sports activities in a ski and mountain resort with thermal baths\nHave we raised your interest? In this case, we look forward to receiving your application.\nMarco Volpi, Director of Care, is happy to answer your questions – m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "de": "80-100% · Sofort oder zu vereinbaren\n\nEingebettet auf 1400 Metern über dem Meeresspiegel bietet die Klinik Leukerbad ihren Patienten eine spezialisierte Betreuung in den Bereichen Muskel-Skelett-Rehabilitation, Innere Medizin und Onkologie. Sein Thermalwasser, sein einzigartiger multidisziplinärer Ansatz und die Qualität seiner Mitarbeiter haben seinen guten Ruf geschmiedet.\nPROFIL\n• Sie profitieren von einer HES oder einer europäischen Pflegeausbildung\n• Sie sind Französisch oder Deutsch mit guten Kenntnissen der anderen Sprache\n• Sie haben die Fähigkeit, Initiativen zu ergreifen\n• Sie mögen den Kontakt zu Patienten und Familien sowie zum Pflegenetzwerk\n• Sie sind dynamisch, motiviert und bereit, in Ihre Arbeit zu investieren\nMISSIONEN\n• Pflegepraktiken, die die fünf Werte der Klinik respektieren (Kompetenz, Professionalität, Empathie, Engagement und Evolution)\n• Beitrag zur Verbesserung der Qualität und Effektivität der Pflege und beruflichen Entwicklung\n• Aktive Teilnahme an interdisziplinärer Teamarbeit\n• Teilnahme an präventiven, diagnostischen und therapeutischen Maßnahmen\nWIR ANGEBOT\n• Moderne Infrastruktur\n• Professionelle Tätigkeit in einem motivierten, engagierten und dynamischen Team\n• Interdisziplinäre Arbeit mit Abteilungen Physiotherapie, Sporttherapie und Ergotherapie\n• Möglichkeiten der internen und externen Weiterbildung\n• Unterkunfts- und Restauranteinrichtungen vor Ort\n• Viele Möglichkeiten für sportliche Aktivitäten in einem Ski- und Bergresort mit Thermalbädern\nHaben wir Ihr Interesse geweckt? In diesem Fall freuen wir uns auf Ihre Bewerbung.\nMarco Volpi, Director of Care, beantwortet gerne Ihre Fragen – m.volpi@lbcl.ch - +41 27 472 51 11.",
+        "fr": "80-100% · De suite ou à convenir\n\nNichée à 1400 mètres d’altitude, la Leukerbad Clinic offre à ses patients une prise en charge spécialisée en réadaptation musculosquelettique, en médecine interne et oncologique. Son eau thermale, son approche pluridisciplinaire unique ainsi que la qualité de son personnel ont forgé sa solide réputation.\nPROFIL\n• Vous êtes au bénéfice d’une formation HES ou européenne d’infirmier-ère\n• Vous êtes de langue maternelle française ou allemande avec de bonnes connaissances de l’autre langue\n• Vous avez la capacité à prendre des initiatives\n• Vous aimez le contact avec les patients et les familles ainsi que le réseau de soins\n• Vous êtes dynamique, motivé-e et prêt-e à vous investir dans votre travail\nMISSIONS\n• Pratique des soins infirmiers dans le respect des cinq valeurs de la clinique (Compétence, Professionnalisme, Empathie, Engagement et Evolution)\n• Contribution à l’amélioration de la qualité et l’efficacité de soins infirmiers et au développement de la profession\n• Participation active au travail d’équipe interdisciplinaire\n• Participation aux mesures préventives, diagnostiques et thérapeutiques\nNOUS OFFRONS\n• Infrastructure moderne\n• Activité professionnelle au sein d’une équipe motivée, engagée et dynamique\n• Travail interdisciplinaire avec les départements de physiothérapie, de thérapie du sport et d’ergothérapie\n• Opportunités de formation continue interne et externe\n• Possibilités de logement et de restauration sur place\n• Nombreuses possibilités d’activités sportives dans une station de ski et de montagnes avec des bains thermaux\nAvons-nous suscité votre intérêt ? Dans ce cas, nous nous réjouissons de recevoir votre dossier de candidature.\nMonsieur Marco Volpi, directeur des soins, répond volontiers à vos questions – m.volpi@lbcl.ch - +41 27 472 51 11."
+      },
+      "location": "Leukerbad",
+      "canton": "VS",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3954",
+      "category": "healthcare",
+      "sector": "Salute / Riabilitazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2024-07-29",
+      "url": "https://leukerbadclinic.ch/fr/page/jobs/#job-3e54b746704c",
+      "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-3e54b746704c",
+      "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-04T13:33:10.183Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad",
+        "diple-e-h-f-80-100-leukerbad-clinic-leukerbad"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad",
+          "diple-e-h-f-80-100-leukerbad-clinic-leukerbad"
+        ],
+        "en": [
+          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
+        ],
+        "de": [
+          "infirmier-infirmiere-diplome-e-h-f-80-100-leukerbad-clinic-leukerbad"
         ]
       },
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -1064,16 +1093,18 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-b29517b96283",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.056Z",
+      "crawledAt": "2026-09-04T13:33:10.182Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les",
-        "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad"
+        "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad",
+        "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains"
       ],
       "previousSlugsByLocale": {
         "it": [
           "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les",
-          "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad"
+          "candidature-spontanee-pour-un-poste-d-infirmier-diplome-leukerbad-clinic-leukerbad",
+          "applicazione-spontanea-per-una-posizione-diplome-e-infirmier-ere-leukerbad-clinic-loeche-les-bains"
         ],
         "en": [
           "candidature-spontanee-pour-un-poste-d-infirmier-ere-diplome-e-leukerbad-clinic-loeche-les"
@@ -1142,13 +1173,16 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/page/jobs/#job-e4801fc46d03",
       "source": "Leukerbad Clinic Dedicated Parser (Prismic REST API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:24:19.055Z",
+      "crawledAt": "2026-09-04T13:33:10.174Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad"
+        "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad",
+        "assistant-in-cura-e-cfc-salute-comunitaria-ch-h-f-80-100-leukerbad-clinic-leukerbad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad"
+          "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad",
+          "assistant-in-cura-e-cfc-salute-comunitaria-ch-h-f-80-100-leukerbad-clinic-leukerbad"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-cfc-assc-h-f-80-100-leukerbad-clinic-leukerbad"
