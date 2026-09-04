@@ -5377,6 +5377,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-imposta-successione-donazione-svitto.title': 'Inheritance and donation tax: Svitto guide',
     'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Inheritance and gift taxes in the Canton of Schwyz: rates, exemptions, declaration, terms. Complete guide on wealth taxation.',
     'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Cantonal tax administration office desk with inheritance and gift tax documents, calculator and declaration forms.',
+    'blog.article.avviare-attivita-turgovia-commercio.title': 'Opening a business in Thurgau: costs and procedure',
+    'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Step-by-step guide: legal forms, trade register registration, federal/cantonal taxes, AVS/LPP/LAMal contributions and insurance obligations to start a business in Switzerland.',
+    'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Swiss professional reviews commercial register documents and business registration forms',
 };
 
 export default blogMetaChEn;

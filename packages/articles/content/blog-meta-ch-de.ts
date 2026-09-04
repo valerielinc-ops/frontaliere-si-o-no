@@ -5377,6 +5377,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-imposta-successione-donazione-svitto.title': 'Erbschafts- und Schenkungssteuer: Leitfaden Schwyz',
     'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Erbschafts- und Schenkungssteuern im Kanton Schwyz: Sätze, Befreiungen, Erklärung, Fristen. Vollständiger Leitfaden zur Vermögensbesteuerung.',
     'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Schreibtisch der kantonalen Steuerbehörde mit Dokumenten zu Erbschaft- und Schenkungssteuer, Taschenrechner und Erklärungsformularen.',
+    'blog.article.avviare-attivita-turgovia-commercio.title': 'Ein Geschäft im Thurgau eröffnen: Kosten und Ablauf',
+    'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Schritt-für-Schritt-Anleitung: Rechtsformen, Handelsregistereintrag, eidgenössische/kantonale Steuern, AHV/BVG/KVG-Beiträge und Versicherungspflichten für die Unternehmensgründung in der Schweiz.',
+    'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Schweizer Unternehmer prüft Handelsregisterdokumente und Gründungsformulare',
 };
 
 export default blogMetaChDe;

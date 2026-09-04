@@ -37,16 +37,6 @@ export interface Article {
  authorSlug?: string;
  /** A2 — full display name for the byline. Mirrors `data/authors.ts`. */
  authorName?: string;
- /**
-  * Whether THIS article's draft was produced with AI assistance — the fact the
-  * editorial-transparency disclosure states to the reader. Declared per
-  * article because provenance varies per article: a guest journalist can write
-  * one piece himself and draft the next with AI support, and the author
-  * registry cannot tell those apart. Omit it and the disclosure falls back to
-  * the registry inference (`uid` set ⇒ human contributor); see
-  * `services/articleProvenance.ts`.
-  */
- aiAssisted?: boolean;
 }
 
 const RAW_ARTICLES = [

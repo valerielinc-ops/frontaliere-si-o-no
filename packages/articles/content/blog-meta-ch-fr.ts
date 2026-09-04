@@ -5377,6 +5377,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-imposta-successione-donazione-svitto.title': 'Droit de succession et donation : guide Schwyz',
     'blog.article.guida-imposta-successione-donazione-svitto.excerpt': 'Droits de succession et de donation dans le canton de Schwyz : taux, exonérations, déclaration, délais. Guide complet sur la fiscalité du patrimoine.',
     'blog.article.guida-imposta-successione-donazione-svitto.imageAlt': 'Bureau de l\'administration fiscale cantonale avec des documents sur la succession et la donation, calculatrice et formulaires de déclaration.',
+    'blog.article.avviare-attivita-turgovia-commercio.title': 'Ouvrir une entreprise en Thurgovie : coûts et procédure',
+    'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Guide étape par étape : formes juridiques, inscription au registre du commerce, taxes fédérales/cantonales, cotisations AVS/LPP/LAMal et obligations d\'assurance pour démarrer une entreprise en Suisse.',
+    'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Entrepreneur suisse consulte les documents d\'inscription au registre du commerce',
 };
 
 export default blogMetaChFr;
