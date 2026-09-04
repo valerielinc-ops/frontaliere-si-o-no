@@ -5485,6 +5485,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.asilo-nido-custodia-bambini-vaud.title': 'Asilo nido e custodia bambini nel Canton Vaud: costi e sussidi',
     'blog.article.asilo-nido-custodia-bambini-vaud.excerpt': 'Come funziona la custodia nel Canton Vaud: asili nido, famiglie diurne, doposcuola con tariffe progressive sul reddito e sussidi cantonali disponibili.',
     'blog.article.asilo-nido-custodia-bambini-vaud.imageAlt': 'Aula prescolare svizzera luminosa con bambini che giocano, vista sulle Alpi da finestre grandi, arredi educativi colorati.',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.title': 'Comprare casa Vaud: prezzi, mutuo e tasse',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.excerpt': 'Guida pratica all\'acquisto nel Vaud: come funzionano i mutui ipotecari, fondi propri, imposta trapassi e spese notarili. Procedura step-by-step per compratori svizzeri.',
+    'blog.article.comprare-casa-vaud-prezzi-mutuo.imageAlt': 'Vista aerea di moderni edifici residenziali in una città svizzera lacustre con parchi e montagne',
 };
 
 export default blogMetaChIt;
