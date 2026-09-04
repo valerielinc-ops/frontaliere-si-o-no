@@ -1,16 +1,16 @@
 {
   "key": "citta-di-locarno",
   "label": "Locarno",
-  "generatedAt": "2026-09-03T23:12:23.026Z",
+  "generatedAt": "2026-09-04T13:28:23.168Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7233,
-  "avgDurationMs": 7233,
+  "durationMs": 6480,
+  "avgDurationMs": 6480,
   "durationHistory": [
-    7233
+    6480
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,18 +35,19 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "postedDate": "2026-07-10",
       "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=fa2f1a2e-4391-40a5-bd04-d9b82c505300,popup=y",
       "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_concorso_giardiniere_servizi_sport_e_servizio_verde_pubblico.pdf",
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=fa2f1a2e-4391-40a5-bd04-d9b82c505300,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T23:12:17.431Z",
-      "_qualityScore": 73,
+      "crawledAt": "2026-09-04T13:28:17.996Z",
+      "firstSeenAt": "2026-07-09T22:41:46.298Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -69,18 +70,19 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-04",
+      "postedDate": "2026-07-10",
       "url": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=10ee4690-d205-4faf-897a-0a94006b730e,popup=y",
       "pdfUrl": "https://www.locarno.ch/files/documenti/Bando_concorso_operaio_generico_III_(servizi_urbani)_1.pdf",
       "applyUrl": "https://locarno.pi-asp.de/bewerber-web/?company=100-FIRMA-ID&tenant=&lang=I#position,id=10ee4690-d205-4faf-897a-0a94006b730e,popup=y",
       "source": "Locarno Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-03T23:12:18.832Z",
-      "_qualityScore": 73,
+      "crawledAt": "2026-09-04T13:28:19.019Z",
+      "firstSeenAt": "2026-07-09T22:41:46.298Z",
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -113,7 +115,8 @@
       "firstSeenAt": "2026-07-09T22:41:46.298Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,18 +1,18 @@
 {
   "key": "medtronic",
   "label": "Medtronic",
-  "generatedAt": "2026-09-03T23:12:22.323Z",
-  "total": 10,
+  "generatedAt": "2026-09-04T13:28:22.603Z",
+  "total": 8,
   "discovered": null,
-  "written": 10,
+  "written": 8,
   "newCount": 0,
   "updatedCount": 8,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 10473,
-  "avgDurationMs": 10473,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 10306,
+  "avgDurationMs": 10306,
   "durationHistory": [
-    10473
+    10306
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Quality-Systems-Specialist---10-months-contract_R76122-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:12:13.554Z",
+      "crawledAt": "2026-09-04T13:28:13.971Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -66,7 +66,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Technical-Consultant-Pelvic-Health-Switzerland_R75087-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:12:14.187Z",
+      "crawledAt": "2026-09-04T13:28:14.679Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -103,7 +103,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:12:14.857Z",
+      "crawledAt": "2026-09-04T13:28:15.393Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -119,11 +119,11 @@
       "applyUrl": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Sales-Specialist-Operating-Room-Essentials---Surgical-Innovations--h-f-d-_R65064-1",
       "jobReqId": "R65064",
       "firstSeenAt": "2026-08-27T00:38:59.384Z",
-      "_qualityScore": 75,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -140,7 +140,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Superviseur-Maintenance-F-H_R74806-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:12:15.577Z",
+      "crawledAt": "2026-09-04T13:28:16.021Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -177,7 +177,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Lausanne-Vaud-Switzerland/Senior-Supplier-Quality-Engineering-Supervisor_R74374-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:12:16.172Z",
+      "crawledAt": "2026-09-04T13:28:16.649Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Luzern-Luzern-Switzerland/Sales-Representative-Endoscopy--m-w-d-_R70257-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:12:16.776Z",
+      "crawledAt": "2026-09-04T13:28:17.265Z",
       "addressLocality": "Tolochenaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Senior-Technical-Consultant-Manager---m-f-d-_R70585-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:12:17.412Z",
+      "crawledAt": "2026-09-04T13:28:17.883Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "url": "https://medtronic.wd1.myworkdayjobs.com/en-US/MedtronicCareers/job/Bern-Canton-de-Berne-Switzerland/Market-Developer-Specialist--m-w-d-_R69334-1",
       "source": "Medtronic Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:12:18.026Z",
+      "crawledAt": "2026-09-04T13:28:18.494Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -313,8 +313,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "medtronic-0b5ffe14d456",
       "slug": "technical-consulente-cardiac-rhythm-management-m-f-d-medtronic-lugano",
@@ -347,7 +346,6 @@
       "salaryMax": 98500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -388,7 +386,6 @@
       "salaryMax": 120500,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -397,5 +394,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

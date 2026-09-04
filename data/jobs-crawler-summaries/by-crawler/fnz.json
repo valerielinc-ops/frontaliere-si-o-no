@@ -1,18 +1,19 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-09-03T23:12:18.613Z",
-  "total": 0,
-  "discovered": null,
-  "written": 0,
+  "generatedAt": "2026-09-04T13:28:24.251Z",
+  "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 12375,
+  "avgDurationMs": 12375,
+  "durationHistory": [
+    12375
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }
