@@ -21,7 +21,18 @@
  * GSC row-aggregation call sites can't drift apart.
  */
 
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 import { weightedAveragePosition, computeCtr } from './analytics-opportunity-utils.mjs';
+// Leaf modules on purpose (issue #7174): `services/jobBoardSlugs.ts` and
+// `build-plugins/fuelDailyData.ts` carry the slug tables without dragging in
+// the SPA/build graph that importing `services/router.ts` would. These are
+// `.ts` sources, so the scripts that import this module run under `npx tsx`,
+// not bare `node` (.github/workflows/monitor-seo-ctr-by-template.yml,
+// campaign-goal-check.yml).
+import { getJobBoardSlugForCanton, getAggregatorJobBoardSlug, parseJobBoardSlug } from '../../services/jobBoardSlugs.ts';
+import { FUEL_SECTION_SLUG } from '../../build-plugins/fuelDailyData.ts';
 
 // Index 0 unused — GSC positions are 1-based. Values are CTR fractions
 // (0.316 === 31.6%).
@@ -124,7 +135,7 @@ export const MIN_IMPRESSIONS_TO_MONITOR = 50_000;
  *                 #5961. Use `familyPathPrefixes()` below to read
  *                 `pathContains` + `pathAliases` together.
  */
-export const SEO_CTR_FAMILIES = [
+const MANUAL_SEO_CTR_FAMILIES = [
   {
     id: 'articoli-frontaliere',
     label: 'Articoli (blog)',
@@ -345,6 +356,77 @@ export const SEO_CTR_FAMILIES = [
   },
 ];
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+/**
+ * Where `scripts/monitor-seo-ctr-by-template.mjs` persists the families it
+ * auto-classified (issue #7174).
+ *
+ * Why a JSON side-file and not a rewrite of the array above: the monitor runs
+ * in CI and its only committed output is what the workflow's `git add` names.
+ * A registration that edits this module's source would either be thrown away
+ * with the runner (the workflow commits data files, not sources) or — if it
+ * were committed — codegen into a hand-written registry whose entries carry
+ * the measured GSC numbers in prose comments. A data file keeps the generated
+ * half generated, the reviewed half reviewed, and cannot corrupt the module
+ * that every consumer imports.
+ *
+ * Lives next to this module rather than under `data/` so agent sparse
+ * checkouts (which exclude `/data/`) can still read and commit it.
+ */
+export const AUTO_FAMILIES_PATH = resolve(__dirname, 'seo-ctr-auto-families.json');
+
+/**
+ * Read the auto-registered families. Fail-open by design: a missing file is
+ * the normal state before the first auto-registration, and a corrupt one must
+ * degrade to "no auto families" rather than break every consumer of
+ * SEO_CTR_FAMILIES (the weekly monitor, seo-ctr-baseline, campaign-goal-check).
+ *
+ * @param {string} [path] registry file to read.
+ * @returns {Array<Record<string, any>>} auto-registered families, `[]` when unreadable.
+ */
+export function loadAutoRegisteredFamilies(path = AUTO_FAMILIES_PATH) {
+  try {
+    const parsed = JSON.parse(readFileSync(path, 'utf8'));
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((f) => f && typeof f.pathContains === 'string' && typeof f.id === 'string');
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * Manual registry + auto-registered families, with the manual half winning.
+ *
+ * An auto entry is dropped when ANY of its `familyPathPrefixes()` is already
+ * claimed manually: a human who registered `/cerca-lavoro-zurigo/` with its
+ * three locale aliases must not be shadowed by an older auto entry that knew
+ * only one of those slugs, and the same prefix must never be counted twice.
+ *
+ * @param {Array<Record<string, any>>} [manual] hand-curated registry.
+ * @param {Array<Record<string, any>>} [auto] auto-registered families.
+ * @returns {Array<Record<string, any>>} merged registry.
+ */
+export function mergeRegisteredFamilies(manual = MANUAL_SEO_CTR_FAMILIES, auto = loadAutoRegisteredFamilies()) {
+  const claimed = new Set(manual.flatMap((f) => familyPathPrefixes(f)));
+  const extra = [];
+  for (const family of auto) {
+    const prefixes = familyPathPrefixes(family);
+    if (prefixes.some((p) => claimed.has(p))) continue;
+    prefixes.forEach((p) => claimed.add(p));
+    extra.push(family);
+  }
+  return [...manual, ...extra];
+}
+
+/**
+ * The registry every consumer reads: hand-curated families first, then the
+ * ones discovery classified on its own. Same shape either way — callers can't
+ * tell (and must not care) which half an entry came from.
+ */
+export const SEO_CTR_FAMILIES = mergeRegisteredFamilies();
+
+
 /**
  * The CTR floor a family is actually judged against on a given run.
  *
@@ -390,6 +472,174 @@ export function familyPathPrefixes(family) {
 // same set the `locale`-kind exemption in SEO_CTR_FAMILIES is pinned to
 // (`/en/`, `/de/`, `/fr/` — Italian has no prefix, it's the default locale).
 const LOCALE_PATH_PREFIXES = new Set(['en', 'de', 'fr']);
+const ROUTER_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Normalize a route segment for classification, independent from GSC-style path
+ * formatting (trailing slash, locale-prefixed URLs already stripped).
+ */
+function normalizeSegmentFromPathContains(pathContains) {
+  if (!pathContains || typeof pathContains !== 'string') return '';
+  const trimmed = pathContains.trim();
+  if (!trimmed) return '';
+  return trimmed.startsWith('/') ? trimmed.slice(1).replace(/\/$/, '') : trimmed.replace(/\/$/, '');
+}
+
+/**
+ * Build a human-readable label for an auto-registered template family.
+ */
+function toTitleCase(input) {
+  return String(input || '')
+    .split('-')
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}
+
+function uniqueSorted(values) {
+  return [...new Set(values.filter(Boolean))];
+}
+
+function isLocaleRootSegment(segment) {
+  return LOCALE_PATH_PREFIXES.has(segment);
+}
+
+/**
+ * Canonicalise on the Italian slug, exactly like the hand-written entries.
+ *
+ * Whichever locale slug happens to cross MIN_IMPRESSIONS_TO_MONITOR first is an
+ * accident of traffic, not an identity: `/find-jobs-valais/` and
+ * `/cerca-lavoro-vallese/` are one family. Registering under the IT slug with
+ * the other three as `pathAliases` makes an auto entry indistinguishable from a
+ * manual one (`cerca-lavoro-zurigo`, `cerca-lavoro-vallese`), so the dedup in
+ * `mergeRegisteredFamilies` can actually see the collision.
+ */
+function resolveJobBoardFamilyFromSegment(segment) {
+  for (const locale of ROUTER_LOCALES) {
+    const match = parseJobBoardSlug(segment, locale);
+    if (!match) continue;
+
+    const { cantonCode, isAggregator } = match;
+    const slugFor = (l) => (isAggregator ? getAggregatorJobBoardSlug(l) : getJobBoardSlugForCanton(cantonCode, l));
+    const canonical = slugFor('it');
+    const pathAliases = uniqueSorted(
+      ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${slugFor(l)}/`),
+    ).filter((alias) => alias !== `/${canonical}/`);
+    return {
+      pathContains: `/${canonical}/`,
+      pathAliases,
+      id: canonical,
+      label: `Cerca lavoro ${toTitleCase(canonical.replace(/^cerca-lavoro-/, ''))}`,
+      kind: 'template',
+      targetCtr: 0.03,
+      monitored: true,
+      note: `Auto-registrata da discovery template job-board (${isAggregator ? 'aggregatore' : `cantonCode=${cantonCode}`}), scoperta via /${segment}/.`,
+    };
+  }
+  return null;
+}
+
+/** Same IT-canonical rule as the job-board resolver above. */
+function resolveFuelFamilyFromSegment(segment) {
+  let fuel = null;
+  for (const locale of ROUTER_LOCALES) {
+    const candidateMap = FUEL_SECTION_SLUG[locale];
+    if (!candidateMap) continue;
+    for (const [fuelType, slug] of Object.entries(candidateMap)) {
+      if (slug === segment) {
+        fuel = fuelType;
+        break;
+      }
+    }
+    if (fuel) break;
+  }
+  if (!fuel) return null;
+
+  const canonical = FUEL_SECTION_SLUG.it[fuel];
+  const pathAliases = uniqueSorted(
+    ROUTER_LOCALES.filter((l) => l !== 'it').map((l) => `/${FUEL_SECTION_SLUG[l][fuel]}/`),
+  ).filter((alias) => alias !== `/${canonical}/`);
+  return {
+    pathContains: `/${canonical}/`,
+    pathAliases,
+    id: canonical,
+    label: `Prezzi ${fuel === 'diesel' ? 'diesel' : 'benzina'}`,
+    kind: 'template',
+    targetCtr: 0.03,
+    monitored: true,
+    note: `Auto-registrata da discovery template fuel (${fuel}), scoperta via /${segment}/.`,
+  };
+}
+
+function resolveLocaleFamilyFromSegment(segment) {
+  return {
+    pathContains: `/${segment}/`,
+    id: segment,
+    label: `${segment.toUpperCase()} locale (riferimento)`,
+    kind: 'locale',
+    targetCtr: null,
+    monitored: false,
+  };
+}
+
+/**
+ * Classify a discovered candidate into a registry-like family when the top segment
+ * maps to a known generator family. Returns:
+ * - `kind: 'locale'` for `/en|de|fr/`
+ * - `kind: 'template'` for known job-board and fuel sections
+ * - `kind: 'unknown'` otherwise.
+ *
+ * This classifier is intentionally conservative: only deterministic mappings with
+ * explicit generator knowledge are auto-registered.
+ */
+export function classifyUnregisteredFamilyCandidate({ pathContains, impressions90d } = {}) {
+  const segment = normalizeSegmentFromPathContains(pathContains);
+  const impressions = Number(impressions90d) || 0;
+  if (!segment) return { pathContains: pathContains || '', impressions90d: impressions, kind: 'unknown', family: null };
+
+  if (isLocaleRootSegment(segment)) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: 'locale',
+      family: {
+        ...resolveLocaleFamilyFromSegment(segment),
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  const jobBoardFamily = resolveJobBoardFamilyFromSegment(segment);
+  if (jobBoardFamily) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: jobBoardFamily.kind,
+      family: {
+        ...jobBoardFamily,
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  const fuelFamily = resolveFuelFamilyFromSegment(segment);
+  if (fuelFamily) {
+    return {
+      pathContains: `/${segment}/`,
+      impressions90d: impressions,
+      kind: fuelFamily.kind,
+      family: {
+        ...fuelFamily,
+        impressions90d: impressions,
+        measuredOn: new Date().toISOString().slice(0, 10),
+      },
+    };
+  }
+
+  return { pathContains: `/${segment}/`, impressions90d: impressions, kind: 'unknown', family: null };
+}
 
 /**
  * Discover path segments carrying MIN_IMPRESSIONS_TO_MONITOR+ impressions

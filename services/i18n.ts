@@ -414,8 +414,11 @@ export function useLocale(): [Locale, (l: Locale) => void] {
 }
 
 import { getCantonLabel, type CantonLocale } from './cantonList';
-
-const JOB_BOARD_CANTON_AGGREGATE = '_AGGREGATE_';
+// Il sentinel viveva anche qui come letterale: stessa stringa, due
+// definizioni. Ora che `services/jobBoardSlugs.ts` e' un modulo foglia
+// (niente dipendenze SPA, quindi importabile da qui senza ciclo) c'e' una
+// definizione sola — AGENTS.md #6.
+import { JOB_BOARD_CANTON_AGGREGATE } from './jobBoardSlugs';
 
 // Switzerland-wide aggregator label (`/cerca-lavoro-svizzera/`) per locale.
 const AGGREGATE_CANTON_LABEL: Record<Locale, string> = {

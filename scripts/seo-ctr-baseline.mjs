@@ -15,7 +15,9 @@
  *   eval "$(GOOGLE_APPLICATION_CREDENTIALS=mcp-gsc-main/service_account_credentials.json node scripts/load-rc-env.mjs)"
  *
  * Usage:
- *   node scripts/seo-ctr-baseline.mjs [--days 90] [--json]
+ *   npx tsx scripts/seo-ctr-baseline.mjs [--days 90] [--json]
+ *   (`tsx`, non `node`: scripts/lib/seo-ctr-curve.mjs importa i moduli
+ *   foglia .ts services/jobBoardSlugs.ts e build-plugins/fuelDailyData.ts)
  *
  * Always exits 0 — a GSC/auth failure is logged, never blocks CI.
  */

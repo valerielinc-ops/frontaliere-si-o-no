@@ -23,13 +23,19 @@
  * automated version of what issue #4300 did by hand for
  * `/cerca-lavoro-ticino/`, which sat unmonitored at 911k impressions/90gg
  * for years before someone noticed. Opens/comments a GitHub issue per
- * candidate for human triage (add to the registry, or dismiss); never
- * mutates the registry itself.
+ * candidate for human triage ONLY when the segment matches no known generator;
+ * deterministic candidates (a bare locale prefix, a canton job-board slug from
+ * `services/jobBoardSlugs.ts`, a fuel section from
+ * `build-plugins/fuelDailyData.ts`) are classified and persisted to
+ * `scripts/lib/seo-ctr-auto-families.json`, which `seo-ctr-curve.mjs` merges
+ * into SEO_CTR_FAMILIES (issue #7174). The workflow commits that file: a
+ * registration the runner throws away is a registration that never happened.
  *
  * Auth: Firebase service-account JSON via GOOGLE_APPLICATION_CREDENTIALS
  * (same as scripts/seo-ctr-baseline.mjs).
  *
- * Usage: node scripts/monitor-seo-ctr-by-template.mjs [--dry-run]
+ * Usage: npx tsx scripts/monitor-seo-ctr-by-template.mjs [--dry-run]
+ *        (`tsx`, not `node`: seo-ctr-curve.mjs imports .ts leaf modules)
  *
  * Always exits 0 — monitoring only, never blocks CI.
  */
@@ -45,6 +51,9 @@ import {
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
+  classifyUnregisteredFamilyCandidate,
+  loadAutoRegisteredFamilies,
+  AUTO_FAMILIES_PATH,
 } from './lib/seo-ctr-curve.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 
@@ -59,6 +68,29 @@ const dryRun = process.argv.includes('--dry-run');
 
 function pct(n) {
   return n === null || n === undefined ? 'n/a' : `${(n * 100).toFixed(2)}%`;
+}
+
+/**
+ * Persist an auto-classified family so the next run — and every other consumer
+ * of SEO_CTR_FAMILIES — sees it as registered.
+ *
+ * Idempotent on `id` and on any `familyPathPrefixes()` already present: the
+ * discovery pass runs weekly against a 90-day window, so the same segment
+ * comes back until the registration is visible, and a second entry for it
+ * would double-count the family's impressions.
+ */
+function registerFamilyInAutoRegistry(family) {
+  const current = loadAutoRegisteredFamilies();
+  const claimed = new Set(current.flatMap((f) => familyPathPrefixes(f)));
+  const alreadyThere =
+    current.some((f) => f.id === family.id) ||
+    familyPathPrefixes(family).some((prefix) => claimed.has(prefix));
+  if (alreadyThere) {
+    console.log(`   ↩︎ ${family.pathContains} già nel registro automatico, nessuna scrittura`);
+    return;
+  }
+  writeJsonAtomic(AUTO_FAMILIES_PATH, [...current, family]);
+  console.log(`   ✅ Registrata automaticamente: ${family.id} → ${AUTO_FAMILIES_PATH}`);
 }
 
 function loadState() {
@@ -146,6 +178,21 @@ eterogenee senza un generator condiviso, marcarla \`kind: 'listing'\` con un
   }
 }
 
+async function applyAutoFamilyRegistration({ family }) {
+  if (!family || !family.id) return;
+  if (dryRun) {
+    console.log(`   [dry-run] avrei registrato automaticamente ${family.pathContains} come ${family.kind}`);
+    return;
+  }
+
+  try {
+    registerFamilyInAutoRegistry(family);
+  } catch (e) {
+    console.warn(`   ⚠️ impossibile registrare automaticamente in SEO_CTR_FAMILIES: ${e.message}`);
+    await reportUnregisteredFamily({ pathContains: family.pathContains, impressions90d: family.impressions90d });
+  }
+}
+
 async function discoverNewFamilies() {
   console.log(`\n🔎 Scoperta famiglie non censite (finestra ${DISCOVERY_WINDOW_DAYS}gg)`);
   try {
@@ -157,8 +204,16 @@ async function discoverNewFamilies() {
       return;
     }
     for (const candidate of candidates) {
-      console.log(`   ⚠️ ${candidate.pathContains}: ${candidate.impressions90d} impressioni/90gg non censite`);
-      await reportUnregisteredFamily(candidate);
+      const classified = classifyUnregisteredFamilyCandidate(candidate);
+      if (classified.kind === 'unknown') {
+        console.log(`   ⚠️ ${classified.pathContains}: ${classified.impressions90d} impressioni/90gg non censite`);
+        await reportUnregisteredFamily(classified);
+      } else if (classified.family) {
+        console.log(
+          `   ✅ ${classified.pathContains} classificata come ${classified.kind} → registrazione automatica`,
+        );
+        await applyAutoFamilyRegistration(classified);
+      }
     }
   } catch (e) {
     console.warn(`   ⚠️ errore GSC durante la scoperta, salto questo giro: ${e.message}`);
