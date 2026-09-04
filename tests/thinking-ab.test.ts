@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 
+import { claudeCliChildEnv } from '../scripts/lib/ai-models.mjs';
 import {
   ARM_NO_THINKING,
   ARM_THINKING,
@@ -172,9 +173,68 @@ describe('innesto nel cascade', () => {
     expect(cascade).toContain('const retryArm = thinkingAb ? assignThinkingArm(key, thinkingSalt) : null;');
   });
 
+  it('registra il retry ANCHE quando non fa passare niente', () => {
+    // Dentro `if (cleared > 0)` un retry sterile — che il tempo lo ha speso
+    // comunque — non entrerebbe in nessun braccio, e il braccio con piu' retry
+    // a vuoto perderebbe proprio le righe che lo penalizzano: ogni riga
+    // sopravvissuta avrebbe cleared >= 1 e l'acceptRate sarebbe gonfiato per
+    // costruzione.
+    // Sul CODICE, non sul sorgente grezzo: il commento qui sopra nomina
+    // `if (cleared > 0)` per spiegare il difetto, e una ricerca ingenua
+    // troverebbe quello invece del guard vero.
+    const code = cascade.split('\n').filter((l) => !l.trim().startsWith('//')).join('\n');
+    const retryAt = code.indexOf('const retryElapsedMs');
+    const pushAt = code.indexOf("pass: 'retry'", retryAt);
+    const clearedGuardAt = code.indexOf('if (cleared > 0)', retryAt);
+    expect(retryAt).toBeGreaterThan(-1);
+    expect(pushAt).toBeGreaterThan(-1);
+    expect(clearedGuardAt).toBeGreaterThan(-1);
+    expect(pushAt).toBeLessThan(clearedGuardAt);
+  });
+
+  it('la riga di retry non conta i job una seconda volta', () => {
+    // Sono gli stessi job della riga del primo passaggio: il TEMPO del retry
+    // va nel numeratore di msPerJob perche' e' stato speso, i job no.
+    const s = summarizeThinkingAb([
+      { arm: ARM_THINKING, companyKey: 'a', jobCount: 10, elapsedMs: 600_000, attempted: 10, cleared: 6 },
+      { arm: ARM_THINKING, companyKey: 'a', jobCount: 0, elapsedMs: 300_000, attempted: 4, cleared: 2 },
+    ]);
+    expect(s.arms[ARM_THINKING].jobs).toBe(10);
+    expect(s.arms[ARM_THINKING].msPerJob).toBe(90_000);
+    expect(s.arms[ARM_THINKING].acceptRate).toBeCloseTo(8 / 14, 5);
+  });
+
   it('scrive l artefatto nel RUNNER_TEMP, non fra i dati tracciati', () => {
     expect(cascade).toContain("process.env.RUNNER_TEMP");
     expect(cascade).toContain('translation-thinking-ab.json');
     expect(cascade).not.toContain("'data/translation-thinking-ab.json'");
+  });
+});
+
+describe('la leva arriva davvero al processo figlio', () => {
+  // Il dubbio adversarial della review: se il crawler costruisse l'ambiente del
+  // figlio all'import invece di leggerlo allo spawn, la mutazione non
+  // arriverebbe alla CLI e l'esperimento chiuderebbe con «nessuna differenza»
+  // avendo misurato due volte lo stesso braccio. Verificato invece che assunto.
+  it('claudeCliChildEnv vede una mutazione fatta DOPO il caricamento del modulo', () => {
+    const prima = process.env[THINKING_ENV_VAR];
+    try {
+      process.env[THINKING_ENV_VAR] = '0';
+      expect(claudeCliChildEnv()[THINKING_ENV_VAR]).toBe('0');
+      delete process.env[THINKING_ENV_VAR];
+      expect(claudeCliChildEnv()[THINKING_ENV_VAR]).toBeUndefined();
+    } finally {
+      if (prima === undefined) delete process.env[THINKING_ENV_VAR];
+      else process.env[THINKING_ENV_VAR] = prima;
+    }
+  });
+
+  it('esiste un solo punto di spawn della CLI, e legge quell ambiente', () => {
+    const aiModels = fs.readFileSync(
+      path.join(process.cwd(), 'scripts/lib/ai-models.mjs'), 'utf8',
+    );
+    const spawns = aiModels.match(/spawn\(CLAUDE_CLI_BIN/g) || [];
+    expect(spawns.length).toBe(1);
+    expect(aiModels).toContain('env: claudeCliChildEnv()');
   });
 });

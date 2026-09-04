@@ -1622,24 +1622,40 @@ async function main() {
           }
           const retryElapsedMs = LEGACY_CLOCK.now() - retryStartedMs;
           const afterRetry = readJson(DATA_JOBS_PATH);
+          // La riga si registra SEMPRE, anche quando il retry non fa passare
+          // niente. Dentro un `if (cleared > 0)` un retry sterile — che il
+          // tempo lo ha speso comunque — non entrerebbe in nessun braccio, e
+          // il braccio con piu' retry a vuoto perderebbe proprio le righe che
+          // lo penalizzano: ogni riga sopravvissuta avrebbe `cleared >= 1` e
+          // l'acceptRate risulterebbe gonfiato per costruzione. E' l'opposto
+          // di cio' che questa metrica esiste per catturare.
+          const retryAttemptedAll = Array.isArray(afterRetry)
+            ? changedSlugsSince(preRetrySig, afterRetry, key) : new Set();
+          if (retryArm) {
+            thinkingRows.push({
+              arm: retryArm,
+              companyKey: key,
+              pass: 'retry',
+              // Zero, non `count`: sono gli STESSI job gia' contati nella riga
+              // del primo passaggio. Il tempo del retry va nel numeratore di
+              // msPerJob perche' e' stato speso davvero, ma i job non vanno
+              // contati due volte nel denominatore.
+              jobCount: 0,
+              elapsedMs: retryElapsedMs,
+              attempted: retryAttemptedAll.size,
+              cleared: 0,
+            });
+          }
           if (Array.isArray(afterRetry)) {
             const cleared = clearRetranslationFlags(afterRetry);
             if (cleared > 0) {
               writeJsonAtomic(DATA_JOBS_PATH, afterRetry, { compact: true });
               totalFixed += cleared;
               console.log(`   ✅ ${key} retry: ${cleared} more jobs translated`);
-              const retryAttempted = changedSlugsSince(preRetrySig, afterRetry, key);
-              syncTranslationsToCrawlerFile(key, afterRetry, retryAttempted);
+              syncTranslationsToCrawlerFile(key, afterRetry, retryAttemptedAll);
               if (retryArm) {
-                thinkingRows.push({
-                  arm: retryArm,
-                  companyKey: key,
-                  pass: 'retry',
-                  jobCount: count,
-                  elapsedMs: retryElapsedMs,
-                  attempted: retryAttempted.size,
-                  cleared: totalFixed - fixedBeforeRetry,
-                });
+                // La riga e' gia' in coda: qui si aggiorna solo l'esito.
+                thinkingRows[thinkingRows.length - 1].cleared = totalFixed - fixedBeforeRetry;
               }
             }
           }
