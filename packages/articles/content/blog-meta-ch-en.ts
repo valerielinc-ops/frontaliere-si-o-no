@@ -5488,6 +5488,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.comprare-casa-vaud-prezzi-mutuo.title': 'Buying a Vaud house: prices, mortgage and taxes',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.excerpt': 'Practical guide to buying in the Vaud: how mortgage mortgages, own funds, transfer tax and notary fees work. Step-by-step procedure for Swiss buyers.',
     'blog.article.comprare-casa-vaud-prezzi-mutuo.imageAlt': 'Aerial view of modern residential buildings in a Swiss town with parks and mountains',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Buying a house in Vaud: prices and mortgage',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Complete guide to buying a house in the canton of Vaud: prices, own funds requirements, tax costs, transfer taxes and mortgage loan sustainability.',
+    'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Modern residential property in Vaud canton with mountain backdrop; Swiss real estate scene for mortgage and purchase guide.',
 };
 
 export default blogMetaChEn;

@@ -1855,6 +1855,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'borse-studio-vaud-requisiti': { it: 'borse-studio-vaud-requisiti', en: 'scholarships-vaud-requirements', de: 'stipendien-waadt-anforderungen', fr: 'bourses-etude-vaud-conditions' },
  'asilo-nido-custodia-bambini-vaud': { it: 'asilo-nido-custodia-bambini-vaud', en: 'nursery-childcare-vaud-costs-subsidies', de: 'kita-kinderbetreuung-waadt-kosten-subventionen', fr: 'garderie-garde-enfants-vaud-couts-allocations' },
  'comprare-casa-vaud-prezzi-mutuo': { it: 'comprare-casa-vaud-prezzi-mutuo', en: 'buy-house-vaud-prices-mortgage', de: 'haus-kaufen-vaud-preise-hypothek', fr: 'acheter-maison-vaud-prix-hypotheque' },
+ 'comprare-casa-vaud-ipoteca-costi': { it: 'comprare-casa-vaud-ipoteca-costi', en: 'buy-home-vaud-mortgage-costs', de: 'haus-kauf-vaud-hypothek-kosten', fr: 'acheter-maison-vaud-hypotheque-couts' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
