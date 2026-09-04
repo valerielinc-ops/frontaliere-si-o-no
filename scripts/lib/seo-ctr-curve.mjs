@@ -340,6 +340,69 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-09-03',
   },
   {
+    // Il template fuel-price giornaliero (`build-plugins/fuelDailyPagesPlugin.ts`
+    // + `fuelDailyData.ts`, sezione `FUEL_SECTION_SLUG.benzina`): un generator
+    // condiviso di title/description, quindi una famiglia sorvegliabile come le
+    // job-board sopra, non un listing editoriale come `vita-in-ticino`. Non era
+    // censita, cosi` `discoverUnregisteredFamilies` rialzava lo slug IT e quello
+    // EN come DUE famiglie separate sopra soglia (issue #6704, thread #7170).
+    // Misurata live via GSC 90gg (finestra chiusa il 2026-09-04): 140.213 imp
+    // (71.480 IT + 49.633 EN + 14.852 DE + 4.248 FR), 1.718 click, CTR 1,23%,
+    // posizione media ponderata 7,47.
+    id: 'prezzi-benzina',
+    label: 'Prezzi benzina',
+    pathContains: '/prezzi-benzina/',
+    // EN / DE / FR: `FUEL_SECTION_SLUG[locale].benzina` in
+    // build-plugins/fuelDailyData.ts — stessa forma (a) degli alias job-board,
+    // il prefisso di locale c'e` ma il segmento e` tradotto.
+    pathAliases: ['/gasoline-price-switzerland/', '/benzinpreis-schweiz/', '/prix-essence-suisse/'],
+    kind: 'template',
+    monitored: true,
+    // Stessa metodologia "curva propria" delle famiglie sopra, con un segno
+    // opposto da annotare: a posizione 7,47 il benchmark generico attende 3,7%
+    // e questa famiglia rende 1,23%, cioe` 0,33× la sua posizione — SOTTO la
+    // curva, non sopra come le job-board. Il target resta pero` 80% del
+    // rapporto dimostrato (0,8 × 0,33 → 0,27), perche` questo monitor chiede
+    // "lo snippet sta ancora rendendo quanto rendeva", ed e` l'unica domanda a
+    // cui il suo consiglio di rimedio (generator di title/description) sa
+    // rispondere: un target fissato sulla curva generica (3,7%) scatterebbe a
+    // ogni run dal primo giorno, e un allarme sempre acceso non e` un allarme.
+    // Il divario 0,33× resta visibile lo stesso, nel breakdown belowCurvePages
+    // di aggregateFamilyRows, che e` dove va letto.
+    targetCtrCurveMultiple: 0.27,
+    // Floor assoluto quando GSC non da` una posizione usabile: 80% dell'1,23%
+    // misurato, la stessa soglia di regressione ~20% espressa in assoluto.
+    targetCtr: 0.0098,
+    impressions90d: 140213,
+    measuredOn: '2026-09-04',
+  },
+  {
+    // Il gemello diesel dello stesso generator fuel (`FUEL_SECTION_SLUG.diesel`).
+    // NON era stato rialzato da `discoverUnregisteredFamilies` — e non perche`
+    // sia sotto soglia, ma perche` la scoperta somma per SEGMENTO e nessuno dei
+    // quattro slug di locale supera 50.000 da solo (39.017 IT il piu` alto). La
+    // FAMIGLIA invece li supera: misurata live via GSC 90gg (finestra chiusa il
+    // 2026-09-04), 86.458 imp (39.017 IT + 27.370 EN + 16.968 DE + 3.103 FR),
+    // 894 click, CTR 1,03%, posizione media ponderata 7,05. Registrarla qui
+    // insieme a `prezzi-benzina` e` il fix della CLASSE, non di una istanza
+    // (AGENTS.md #6): lasciarla fuori la terrebbe invisibile al monitor finche`
+    // un singolo slug non cresce abbastanza da farsi notare.
+    id: 'prezzi-diesel',
+    label: 'Prezzi diesel',
+    pathContains: '/prezzi-diesel/',
+    pathAliases: ['/diesel-price-switzerland/', '/dieselpreis-schweiz/', '/prix-gasoil-suisse/'],
+    kind: 'template',
+    monitored: true,
+    // Stessa lettura di `prezzi-benzina` sopra: a posizione 7,05 il benchmark
+    // attende 3,7% e la famiglia rende 1,03%, cioe` 0,28× la sua posizione.
+    // Target = 80% del rapporto dimostrato (0,8 × 0,28 → 0,22).
+    targetCtrCurveMultiple: 0.22,
+    // Floor assoluto senza posizione usabile: 80% dell'1,03% misurato.
+    targetCtr: 0.0083,
+    impressions90d: 86458,
+    measuredOn: '2026-09-04',
+  },
+  {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',
