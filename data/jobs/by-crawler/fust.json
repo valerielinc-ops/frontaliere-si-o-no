@@ -4346,9 +4346,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-afp-fust-oberburen-w326lr",
-        "en": "logistiker-in-eba-fust-oberburen-w326lr",
+        "en": "logistician-in-eba-fust-oberburen",
         "de": "logistiker-in-eba-fust-oberburen-w326lr",
-        "fr": "logistiker-in-eba-fust-oberburen-w326lr"
+        "fr": "logisticien-dans-eba-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -4359,20 +4359,23 @@
           "logistiker-in-eba-fust-oberburen"
         ],
         "en": [
-          "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr"
+          "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr",
+          "logistiker-in-eba-fust-oberburen-w326lr"
         ],
         "de": [
           "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr"
         ],
         "fr": [
-          "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr"
+          "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr",
+          "logistiker-in-eba-fust-oberburen-w326lr"
         ]
       },
       "previousSlugs": [
         "logistiker-in-eba-fust-swiss-household-services-ag-oberburen",
         "impiegata-impiegato-in-logistica-afp-fust-swiss-household-services-ag-oberburen-w326lr",
         "logistiker-in-eba-fust-swiss-household-services-ag-oberburen-w326lr",
-        "logistiker-in-eba-fust-oberburen"
+        "logistiker-in-eba-fust-oberburen",
+        "logistiker-in-eba-fust-oberburen-w326lr"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4440,19 +4443,26 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-in-logistica-cfc-fust-oberburen-dublf5",
-        "en": "logistiker-in-efz-fust-oberburen-dublf5",
+        "en": "logistician-in-efz-fust-oberburen",
         "de": "logistiker-in-efz-fust-oberburen-dublf5",
-        "fr": "logistiker-in-efz-fust-oberburen-dublf5"
+        "fr": "logisticien-en-efz-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-fust-oberburen"
+        ],
+        "en": [
+          "logistiker-in-efz-fust-oberburen-dublf5"
+        ],
+        "fr": [
+          "logistiker-in-efz-fust-oberburen-dublf5"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-efz-fust-oberburen"
+        "logistiker-in-efz-fust-oberburen",
+        "logistiker-in-efz-fust-oberburen-dublf5"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -4700,9 +4710,9 @@
       },
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h",
+        "en": "retail-specialist-mann-efz-shape-of-shopping-experiences-fust-oberburen",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h"
+        "fr": "specialiste-du-commerce-de-detail-mann-efz-la-forme-des-experiences-de-shopping-fust-oberburen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -4711,12 +4721,19 @@
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
           "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2",
           "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        ],
+        "en": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h"
+        ],
+        "fr": [
+          "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen",
         "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-2",
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen"
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-fust-oberburen",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-fust-oberburen-l6iy9h"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

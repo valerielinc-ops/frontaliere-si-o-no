@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "vitrea-gesundheit-c735d2be45a9",
-      "slug": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+      "slug": "capo-dipartimento-a-terapia-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
       "slugByLocale": {
-        "it": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "en": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "it": "capo-dipartimento-a-terapia-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
+        "en": "head-of-department-a-therapy-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
         "de": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf",
-        "fr": "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        "fr": "chef-de-departement-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
       },
       "company": "Vitrea Gesundheit",
       "companyKey": "vitrea-gesundheit",
@@ -63,7 +63,21 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "en": [
+          "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ],
+        "fr": [
+          "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+        ]
+      },
+      "previousSlugs": [
+        "ressortleitung-a-therapie-100-vitrea-gesundheit-zihlschlacht-sitterdorf"
+      ]
     },
     {
       "id": "vitrea-gesundheit-b8ac37d2e807",

@@ -2009,12 +2009,12 @@
     },
     {
       "id": "puk-zuerich-b79f50d6d718",
-      "slug": "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-o-fachfrau-gesundheit-fachmann-gesundheit-fage-psychiatrische-universitatsklinik-zurich",
+      "slug": "assistente-di-pratica-medica-mpa-assistente-di-pratica-medica-o-specialista-health-health-specialist-fage-psychiatrische",
       "slugByLocale": {
-        "it": "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-o-fachfrau-gesundheit-fachmann-gesundheit-fage-psychiatrische-universitatsklinik-zurich",
-        "en": "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit",
+        "it": "assistente-di-pratica-medica-mpa-assistente-di-pratica-medica-o-specialista-health-health-specialist-fage-psychiatrische",
+        "en": "medical-practice-assistant-mpa-medical-practice-assistant-or-specialist-health-health-specialist-fage-psychiatrische",
         "de": "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit",
-        "fr": "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit"
+        "fr": "assistant-de-cabinet-medical-mpa-assistant-de-cabinet-medical-ou-specialiste-de-la-sante-specialiste-de-la-sante-fage"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -2060,10 +2060,18 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit"
+        "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit",
+        "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-o-fachfrau-gesundheit-fachmann-gesundheit-fage-psychiatrische-universitatsklinik-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit",
+          "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-o-fachfrau-gesundheit-fachmann-gesundheit-fage-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit"
+        ],
+        "fr": [
           "medizinische-praxisassistentin-mpa-medizinischer-praxisassistent-oder-fachfrau-gesundheit"
         ]
       },
@@ -3166,12 +3174,12 @@
     },
     {
       "id": "puk-zuerich-26eca168eea5",
-      "slug": "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+      "slug": "salute-specialistica-centro-per-le-malattie-psichiatrici-acute-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "en": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
+        "it": "salute-specialistica-centro-per-le-malattie-psichiatrici-acute-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "specialist-health-centre-for-acute-psychiatric-diseases-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich",
-        "fr": "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+        "fr": "specialiste-de-la-sante-centre-des-maladies-psychiatriques-aigues-psychiatrische-universitatsklinik-zurich-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -3221,11 +3229,20 @@
           "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
         ],
         "it": [
-          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
+          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+          "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich"
+        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
+        "fachfrau-fachmann-gesundheit-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "fachfrau-fachmann-gesundheit-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich-zurich"
       ],
       "firstSeenAt": "2026-08-27T00:34:58.580Z",
       "salaryMin": 91500,
@@ -4122,12 +4139,12 @@
     },
     {
       "id": "puk-zuerich-c6886cb5919e",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+      "slug": "dipl-specialista-infermieristico-centro-per-malattie-psichiatriche-acute-psychiatrische-universitatsklinik-zurich-zurich",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "en": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "it": "dipl-specialista-infermieristico-centro-per-malattie-psichiatriche-acute-psychiatrische-universitatsklinik-zurich-zurich",
+        "en": "dipl-nursing-specialist-centre-for-acute-psychiatric-diseases-psychiatrische-universitatsklinik-zurich-zurich",
         "de": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        "fr": "dipl-specialiste-des-soins-infirmiers-centre-des-maladies-psychiatriques-aigues-psychiatrische-universitatsklinik-zurich"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -4178,12 +4195,21 @@
         ],
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm"
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-puk-zuerich",
-        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm"
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psyc-1535fm",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-per-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich",
+        "dipl-pflegefachfrau-pflegefachmann-zentrum-fur-akutpsychiatrische-erkrankungen-psychiatrische-universitatsklinik-zurich"
       ],
       "firstSeenAt": "2026-08-27T00:34:54.772Z",
       "salaryMin": 91500,
@@ -5224,12 +5250,12 @@
     },
     {
       "id": "puk-zuerich-439c2627b2b9",
-      "slug": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
+      "slug": "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
       "slugByLocale": {
-        "it": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
-        "en": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
+        "it": "assistente-psicologo-assistente-psicologo-psychiatrische-universitatsklinik-zurich-rheinau",
+        "en": "assistant-psychologist-assistant-psychologist-psychiatrische-universitatsklinik-zurich-rheinau",
         "de": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau",
-        "fr": "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+        "fr": "assistant-psychologue-assistant-psychologue-psychiatrische-universitatsklinik-zurich-rheinau"
       },
       "company": "Psychiatrische Universitätsklinik Zürich",
       "companyKey": "puk-zuerich",
@@ -5276,11 +5302,19 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau"
+          "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "en": [
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
+        ],
+        "fr": [
+          "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
         ]
       },
       "previousSlugs": [
-        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau"
+        "assistenzpsychologin-assistenzpsychologen-puk-zuerich-rheinau",
+        "assistenzpsychologin-assistenzpsychologen-psychiatrische-universitatsklinik-zurich-rheinau"
       ],
       "firstSeenAt": "2026-08-27T00:34:48.746Z",
       "salaryMin": 91500,

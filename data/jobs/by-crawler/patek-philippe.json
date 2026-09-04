@@ -680,11 +680,11 @@
     },
     {
       "id": "patek-philippe-e7087d28d832",
-      "slug": "operateur-superluminova-h-f-patek-philippe-saint-imier",
+      "slug": "operatore-superluminova-m-f-patek-philippe-saint-imier",
       "slugByLocale": {
-        "it": "operateur-superluminova-h-f-patek-philippe-saint-imier",
-        "en": "operateur-superluminova-h-f-patek-philippe-saint-imier",
-        "de": "operateur-superluminova-h-f-patek-philippe-saint-imier",
+        "it": "operatore-superluminova-m-f-patek-philippe-saint-imier",
+        "en": "operator-superluminova-m-f-patek-philippe-saint-imier",
+        "de": "betreiber-superluminova-m-w-patek-philippe-saint-imier",
         "fr": "operateur-superluminova-h-f-patek-philippe-saint-imier"
       },
       "company": "Patek Philippe",
@@ -739,7 +739,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-superluminova-h-f-patek-philippe-saint-imier"
+        ],
+        "en": [
+          "operateur-superluminova-h-f-patek-philippe-saint-imier"
+        ],
+        "de": [
+          "operateur-superluminova-h-f-patek-philippe-saint-imier"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-superluminova-h-f-patek-philippe-saint-imier"
+      ]
     },
     {
       "id": "patek-philippe-3922ff0216d7",

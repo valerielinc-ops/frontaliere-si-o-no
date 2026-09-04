@@ -18645,12 +18645,12 @@
     },
     {
       "id": "swiss-re-a79f63592818",
-      "slug": "claims-expert-professional-liability-claims-swiss-re-ch",
+      "slug": "reclami-esperto-reclami-di-responsabilita-professionali-swiss-re-zurich",
       "slugByLocale": {
-        "it": "claims-expert-professional-liability-claims-swiss-re-ch",
+        "it": "reclami-esperto-reclami-di-responsabilita-professionali-swiss-re-zurich",
         "en": "claims-expert-professional-liability-claims-swiss-re-ch",
         "de": "claims-expert-professional-liability-claims-swiss-re-ch",
-        "fr": "claims-expert-professional-liability-claims-swiss-re-ch"
+        "fr": "expert-en-reclamations-reclamations-de-responsabilite-professionnelle-swiss-re-zurich"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18704,7 +18704,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "claims-expert-professional-liability-claims-swiss-re-ch"
+        ],
+        "fr": [
+          "claims-expert-professional-liability-claims-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "claims-expert-professional-liability-claims-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-a9f150ec5109",
@@ -18922,12 +18933,12 @@
     },
     {
       "id": "swiss-re-8ef103628de7",
-      "slug": "internship-underwriting-associate-corporate-solutions-swiss-re-ch",
+      "slug": "internship-sottoscrittura-associato-soluzioni-corporate-swiss-re-milano-it",
       "slugByLocale": {
-        "it": "internship-underwriting-associate-corporate-solutions-swiss-re-ch",
+        "it": "internship-sottoscrittura-associato-soluzioni-corporate-swiss-re-milano-it",
         "en": "internship-underwriting-associate-corporate-solutions-swiss-re-ch",
         "de": "internship-underwriting-associate-corporate-solutions-swiss-re-ch",
-        "fr": "internship-underwriting-associate-corporate-solutions-swiss-re-ch"
+        "fr": "stage-associe-de-souscription-solutions-d-entreprise-swiss-re-milano-it"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -18981,7 +18992,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-underwriting-associate-corporate-solutions-swiss-re-ch"
+        ],
+        "fr": [
+          "internship-underwriting-associate-corporate-solutions-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "internship-underwriting-associate-corporate-solutions-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-78bcc9068597",

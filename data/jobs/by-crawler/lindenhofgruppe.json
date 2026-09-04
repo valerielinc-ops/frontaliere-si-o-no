@@ -3346,12 +3346,12 @@
     },
     {
       "id": "lindenhofgruppe-89849399dc84",
-      "slug": "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
+      "slug": "stage-universitario-in-bgm-lindenhofgruppe-engeried",
       "slugByLocale": {
-        "it": "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-        "en": "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
+        "it": "stage-universitario-in-bgm-lindenhofgruppe-engeried",
+        "en": "university-intern-in-bgm-lindenhofgruppe-engeried",
         "de": "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried",
-        "fr": "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
+        "fr": "stage-universitaire-en-bgm-lindenhofgruppe-engeried"
       },
       "company": "Lindenhofgruppe",
       "companyKey": "lindenhofgruppe",
@@ -3396,14 +3396,22 @@
       "firstSeenAt": "2026-08-26T10:17:37.236Z",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
         ],
         "de": [
           "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
+        ],
+        "en": [
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch"
+        "hochschulpraktikant-in-bgm-lindenhofgruppe-ch",
+        "hochschulpraktikant-in-bgm-lindenhofgruppe-engeried"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

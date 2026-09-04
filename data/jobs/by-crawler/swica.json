@@ -2402,12 +2402,12 @@
     },
     {
       "id": "swica-7923f77db62c",
-      "slug": "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
+      "slug": "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur",
       "slugByLocale": {
-        "it": "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
-        "en": "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
+        "it": "specialist-trusted-medical-service-tutti-swica-gesundheitsorganisation-winterthur",
+        "en": "specialist-trusted-medical-service-all-swica-gesundheitsorganisation-winterthur",
         "de": "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur",
-        "fr": "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur"
+        "fr": "service-medical-specialise-tous-swica-gesundheitsorganisation-winterthur"
       },
       "company": "SWICA Gesundheitsorganisation",
       "companyKey": "swica",
@@ -2463,7 +2463,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur"
+        ],
+        "en": [
+          "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur"
+        ],
+        "fr": [
+          "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-vertrauensarztlicher-dienst-alle-swica-winterthur"
+      ]
     },
     {
       "id": "swica-82c18a86bb26",

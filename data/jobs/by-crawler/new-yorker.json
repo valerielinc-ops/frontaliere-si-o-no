@@ -2188,12 +2188,12 @@
     },
     {
       "id": "new-yorker-27804",
-      "slug": "filialleitung-m-w-d-new-yorker-langenthal",
+      "slug": "gestione-branch-m-f-d-new-yorker-langenthal",
       "slugByLocale": {
-        "it": "filialleitung-m-w-d-new-yorker-langenthal",
-        "en": "filialleitung-m-w-d-new-yorker-langenthal",
+        "it": "gestione-branch-m-f-d-new-yorker-langenthal",
+        "en": "branch-management-m-f-d-new-yorker-langenthal",
         "de": "filialleitung-m-w-d-new-yorker-langenthal",
-        "fr": "filialleitung-m-w-d-new-yorker-langenthal"
+        "fr": "direction-generale-h-f-d-new-yorker-langenthal"
       },
       "company": "New Yorker",
       "companyKey": "new-yorker",
@@ -2247,7 +2247,21 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "filialleitung-m-w-d-new-yorker-langenthal"
+        ],
+        "en": [
+          "filialleitung-m-w-d-new-yorker-langenthal"
+        ],
+        "fr": [
+          "filialleitung-m-w-d-new-yorker-langenthal"
+        ]
+      },
+      "previousSlugs": [
+        "filialleitung-m-w-d-new-yorker-langenthal"
+      ]
     },
     {
       "id": "new-yorker-27746",

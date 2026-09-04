@@ -7621,12 +7621,12 @@
     },
     {
       "id": "ksbl-eb0c7ed70ac0",
-      "slug": "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+      "slug": "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-anasthesie-ksbl-liestal",
-        "en": "oberarztin-oberarzt-anasthesie-ksbl-liestal",
+        "it": "anestesia-medico-senior-kantonsspital-baselland-ksbl-liestal",
+        "en": "senior-physician-anesthesia-kantonsspital-baselland-ksbl-liestal",
         "de": "oberarztin-oberarzt-anasthesie-ksbl-liestal",
-        "fr": "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        "fr": "anesthesie-chez-le-medecin-principal-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -7680,7 +7680,21 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        ],
+        "en": [
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-anasthesie-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-44af772333e2",

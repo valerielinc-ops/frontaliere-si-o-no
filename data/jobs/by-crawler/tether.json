@@ -3699,12 +3699,12 @@
     },
     {
       "id": "tether-e20fa1c8da5a",
-      "slug": "expansion-manager-ivory-coast-tether-ch",
+      "slug": "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs",
       "slugByLocale": {
-        "it": "expansion-manager-ivory-coast-tether-ch",
+        "it": "expansion-manager-costa-d-avorio-tether-operations-yamoussoukro-lacs",
         "en": "expansion-manager-ivory-coast-tether-ch",
-        "de": "expansion-manager-ivory-coast-tether-ch",
-        "fr": "expansion-manager-ivory-coast-tether-ch"
+        "de": "expansion-manager-elfenbeinkuste-tether-operations-yamoussoukro-lacs",
+        "fr": "gestionnaire-d-extension-cote-d-ivoire-tether-operations-yamoussoukro-lacs"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
@@ -3762,7 +3762,21 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "expansion-manager-ivory-coast-tether-ch"
+        ],
+        "de": [
+          "expansion-manager-ivory-coast-tether-ch"
+        ],
+        "fr": [
+          "expansion-manager-ivory-coast-tether-ch"
+        ]
+      },
+      "previousSlugs": [
+        "expansion-manager-ivory-coast-tether-ch"
+      ]
     },
     {
       "id": "tether-ffcfea6f0bb1",

@@ -603,7 +603,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
-        "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
         "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
         "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
         "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
@@ -615,7 +614,6 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-fh-60-70-spitex-ch-kilchberg",
-          "professionista-hf-fh-60-70-spitex-zimmerberg-ag-kilchberg",
           "pflegefachperson-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
           "pflegefachperson-hf-fh-50-60-spitex-ch-adliswil",
           "professionista-hf-fh-50-60-spitex-zimmerberg-ag-adliswil",
@@ -2019,12 +2017,12 @@
     },
     {
       "id": "spitex-ch-c0b0c87ce800",
-      "slug": "apprendistato-come-fachfrau-o-fachmann-gesundheit-fage-cfc-spitex-region-lenzburg",
+      "slug": "apprendistato-come-specialista-salute-fage-efz-spitex-region-lenzburg-lenzburg",
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-o-fachmann-gesundheit-fage-cfc-spitex-region-lenzburg",
-        "en": "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg",
+        "it": "apprendistato-come-specialista-salute-fage-efz-spitex-region-lenzburg-lenzburg",
+        "en": "apprenticeship-as-a-specialist-health-fage-efz-spitex-region-lenzburg-lenzburg",
         "de": "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg",
-        "fr": "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg"
+        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-spitex-region-lenzburg-lenzburg"
       },
       "company": "Spitex Region Lenzburg",
       "companyKey": "spitex-ch",
@@ -2073,7 +2071,8 @@
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau",
         "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
         "professional-health-fage-efz-50-100-spitex-regio-liestal-liestal",
-        "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal"
+        "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal",
+        "apprendistato-come-fachfrau-o-fachmann-gesundheit-fage-cfc-spitex-region-lenzburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2082,17 +2081,20 @@
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau",
           "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal",
           "professional-health-fage-efz-50-100-spitex-regio-liestal-liestal",
-          "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal"
+          "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal",
+          "apprendistato-come-fachfrau-o-fachmann-gesundheit-fage-cfc-spitex-region-lenzburg"
         ],
         "en": [
-          "professional-health-fage-efz-50-100-spitex-regio-liestal-liestal"
+          "professional-health-fage-efz-50-100-spitex-regio-liestal-liestal",
+          "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg"
         ],
         "de": [
           "fachfrau-fachmann-gesundheit-fage-efz-zu-50-100-spitex-ch-liestal"
         ],
         "fr": [
           "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-fage-fur-2027-spitex-ch-goldau",
-          "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal"
+          "sante-professionnelle-fage-efz-50-100-spitex-regio-liestal-liestal",
+          "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg"
         ]
       },
       "firstSeenAt": "2026-08-27T00:42:01.747Z",

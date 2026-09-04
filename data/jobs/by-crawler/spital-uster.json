@@ -3990,12 +3990,12 @@
     },
     {
       "id": "spital-uster-3bb1bf759c09",
-      "slug": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch",
+      "slug": "assistente-medico-pratico-in-20-pratica-di-emergenza-spital-uster-uster",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch",
-        "en": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch",
+        "it": "assistente-medico-pratico-in-20-pratica-di-emergenza-spital-uster-uster",
+        "en": "medical-practical-assistant-in-20-emergency-practice-spital-uster-uster",
         "de": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch",
-        "fr": "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+        "fr": "assistant-medical-pratique-en-20-pratique-d-urgence-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -4051,7 +4051,21 @@
           "maxValue": 25600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-20-notfallpraxis-spital-uster-ch"
+      ]
     },
     {
       "id": "spital-uster-6f6bef426e50",

@@ -3461,12 +3461,12 @@
     },
     {
       "id": "ksa-6468ea40431a",
-      "slug": "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
+      "slug": "capo-dipartimento-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
-        "en": "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
+        "it": "capo-dipartimento-kantonsspital-aarau-ksa-aarau",
+        "en": "head-of-department-kantonsspital-aarau-ksa-aarau",
         "de": "abteilungsleitung-kantonsspital-aarau-ksa-aarau",
-        "fr": "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
+        "fr": "chef-de-departement-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -3509,14 +3509,22 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
-        "abteilungsleitung-ksa-ch"
+        "abteilungsleitung-ksa-ch",
+        "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleitung-ksa-ch"
+          "abteilungsleitung-ksa-ch",
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
           "abteilungsleitung-ksa-ch"
+        ],
+        "en": [
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
+        ],
+        "fr": [
+          "abteilungsleitung-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-27T00:37:44.718Z",

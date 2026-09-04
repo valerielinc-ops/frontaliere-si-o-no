@@ -902,11 +902,11 @@
     },
     {
       "id": "google-switzerland-61a826227744",
-      "slug": "technical-lead-xr-semantic-perception-google-switzerland-zurich",
+      "slug": "guida-tecnica-xr-semantic-perception-google-switzerland-zurich",
       "slugByLocale": {
-        "it": "technical-lead-xr-semantic-perception-google-switzerland-zurich",
+        "it": "guida-tecnica-xr-semantic-perception-google-switzerland-zurich",
         "en": "technical-lead-xr-semantic-perception-google-switzerland-zurich",
-        "de": "technical-lead-xr-semantic-perception-google-switzerland-zurich",
+        "de": "technischer-lead-xr-semantische-wahrnehmung-google-switzerland-zurich",
         "fr": "responsable-technique-xr-semantic-perception-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
@@ -975,7 +975,18 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-lead-xr-semantic-perception-google-switzerland-zurich"
+        ],
+        "de": [
+          "technical-lead-xr-semantic-perception-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "technical-lead-xr-semantic-perception-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-2313455c33fd",

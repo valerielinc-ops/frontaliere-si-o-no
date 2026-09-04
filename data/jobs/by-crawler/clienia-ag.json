@@ -6333,12 +6333,12 @@
     },
     {
       "id": "clienia-ag-c23d8e0c5a16",
-      "slug": "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon",
+      "slug": "infermiera-certificata-80-100-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon",
-        "en": "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon",
+        "it": "infermiera-certificata-80-100-clienia-ag-pfaffikon-zh",
+        "en": "certified-nurse-80-100-clienia-ag-pfaffikon-zh",
         "de": "diplomierte-pflegefachperson-80-100-clienia-ag-zurich",
-        "fr": "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
+        "fr": "infirmiere-agreee-80-100-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6381,12 +6381,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "diplomierte-pflegefachperson-80-100-clienia-ag-zurich",
-        "diplomierte-pflegefachperson-im-tagesdienst-80-100-clienia-ag-pfaffikon"
+        "diplomierte-pflegefachperson-im-tagesdienst-80-100-clienia-ag-pfaffikon",
+        "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "diplomierte-pflegefachperson-80-100-clienia-ag-zurich",
-          "diplomierte-pflegefachperson-im-tagesdienst-80-100-clienia-ag-pfaffikon"
+          "diplomierte-pflegefachperson-im-tagesdienst-80-100-clienia-ag-pfaffikon",
+          "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-80-100-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-08-27T00:42:58.508Z",
@@ -6406,12 +6414,12 @@
     },
     {
       "id": "clienia-ag-956f86dc1e74",
-      "slug": "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon",
+      "slug": "pedagoga-sociale-pedagoga-sociale-70-90-clienia-ag-pfaffikon-zh",
       "slugByLocale": {
-        "it": "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon",
-        "en": "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon",
+        "it": "pedagoga-sociale-pedagoga-sociale-70-90-clienia-ag-pfaffikon-zh",
+        "en": "social-pedagogue-social-pedagogue-70-90-clienia-ag-pfaffikon-zh",
         "de": "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-zurich",
-        "fr": "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon"
+        "fr": "pedagogue-sociale-pedagogue-sociale-70-90-clienia-ag-pfaffikon-zh"
       },
       "company": "Clienia AG",
       "companyKey": "clienia-ag",
@@ -6453,11 +6461,19 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-zurich"
+        "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-zurich",
+        "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-zurich"
+          "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-zurich",
+          "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-70-90-clienia-ag-pfaffikon"
         ]
       },
       "firstSeenAt": "2026-08-27T00:42:56.951Z",
