@@ -11276,6 +11276,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.title': 'Living in Induno Olona and working in Ticino as a border worker',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of living in Induno Olona and working in Ticino.',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with the Swiss Alps in the background',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Living in Cassina Rizzardi and working in Ticino',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Permit G, tax at source, AVS/LPP, LAMal: complete guide for border crossers Como-Ticino with procedure, costs and transfer checklist.',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Lake Lugano with Alpine Ticino mountains mirrored in calm waters on a clear morning.',
 };
 
 export default blogMetaEn;
