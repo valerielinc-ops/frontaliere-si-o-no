@@ -5470,6 +5470,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-glarona-conversione.title': 'Patente di guida canton Glarona: conversione ed esami',
     'blog.article.patente-guida-glarona-conversione.excerpt': 'Come convertire la patente straniera nel canton Glarona: procedura completa, esami teorico-pratici e corsi obbligatori per chi si trasferisce in Svizzera.',
     'blog.article.patente-guida-glarona-conversione.imageAlt': 'Strada di montagna nel canton Glarona con segnaletica stradale svizzera',
+    'blog.article.imposta-successione-donazione-glarona.title': 'Imposta di successione e donazione canton Glarona: le aliquote',
+    'blog.article.imposta-successione-donazione-glarona.excerpt': 'Nel Canton Glarona l\'imposta di successione e donazione segue un regime cantonale autonomo con aliquote che variano per grado di parentela ed esenzioni per coniuge e discendenti. Guida pratica e procedura di dichiarazione.',
+    'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Paesaggio alpino del cantone glaronese con edifici amministrativi, simbolo della fiscalità cantonale svizzera e della tassazione di successione e donazione',
 };
 
 export default blogMetaChIt;
