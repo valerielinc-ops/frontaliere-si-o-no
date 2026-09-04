@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-09-03T23:20:35.863Z",
+  "assembledAt": "2026-09-04T13:39:22.322Z",
   "jobs": [
     {
       "id": "company-um2f7f",
@@ -27,7 +27,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-08-31T17:15:45.224Z",
       "slugByLocale": {
         "de": "industrial-controlling-manager-delle-technical-operations-nella-realizzazione-dei-programmi-di-efficientamento-industriale-responsabilita-co-um2f7f",
@@ -117,7 +117,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-08-31T21:29:17.361Z",
       "titleByLocale": {
         "en": "IT Category Manager",
@@ -205,7 +205,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-08-24T10:28:44.645Z",
       "titleByLocale": {
         "en": "Lead HR Operations Officer",
@@ -261,7 +261,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "6926"
+      "postalCode": "6926",
+      "needsRetranslation": true
     },
     {
       "id": "company-u7vkyi",
@@ -289,7 +290,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-08-07T01:12:42.852Z",
       "slugByLocale": {
         "it": "clinical-ricerca-officer-e-il-mantenimento-del-trial-master-file-tmf-attraverso-la-gestione-e-l-archiviazione-della-documentazione-di-studio-u7vkyi",
@@ -378,7 +379,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-08-04T11:42:43.269Z",
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
@@ -470,10 +471,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-07-22T11:43:57.748Z",
       "titleByLocale": {
-        "en": "Jr Clinical &amp; Safety Compliance Specialist",
+        "en": "Jr Clinical & Safety Compliance Specialist",
         "it": "Jr Clinical & Safety Compliance Specialista",
         "de": "Jr Clinical & Safety Compliance Spezialist",
         "fr": "Jr Clinical & Safety Compliance Spécialiste"
@@ -536,7 +537,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "6926"
+      "postalCode": "6926",
+      "needsRetranslation": true
     },
     {
       "id": "company-d18wk3",
@@ -565,7 +567,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-07-22T22:26:29.099Z",
       "titleByLocale": {
         "en": "Pharmaceutical Technology Technician",
@@ -662,7 +664,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-09-03T23:20:34.579Z",
+      "crawledAt": "2026-09-04T13:39:21.204Z",
       "firstSeenAt": "2026-07-14T22:10:56.599Z",
       "titleByLocale": {
         "en": "Jr Medical Writing Specialist",
@@ -737,7 +739,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "postalCode": "6926"
+      "postalCode": "6926",
+      "needsRetranslation": true
     }
   ]
 }
