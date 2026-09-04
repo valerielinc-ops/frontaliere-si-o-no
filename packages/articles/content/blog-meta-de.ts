@@ -11308,6 +11308,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 Entlassungen in einem Zug',
     'blog.article.bally-caslano-79-licenziamenti.excerpt': 'Das multinationale Unternehmen kündigt den Abbau von 25 Verwaltungs- und 54 Betriebsmitarbeitern an. Proteste des Staatsrates gegen den freien Markt. Was muss der Grenzgänger wissen?',
     'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Unternehmenssitz in Caslano, Tessin mit Blick auf den Luganersee',
+    'blog.article.familiari-carico-detrazioni-irpef.title': 'Steuerreform: IRPEF-Abzüge ohne Zusammenleben',
+    'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'Die neue Steuerreform beseitigt die Verpflichtung zum Zusammenleben für IRPEF-Abzüge für unterhaltsberechtigte Familienangehörige mit erheblichen Auswirkungen für Grenzgänger.',
+    'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'Eine Familie in einer Panoramasicht von Lugano',
 };
 
 export default blogMetaDe;

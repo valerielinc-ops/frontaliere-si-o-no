@@ -11310,6 +11310,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bally-caslano-79-licenziamenti.title': 'Bally Caslano: 79 licenziamenti in una sola mossa',
     'blog.article.bally-caslano-79-licenziamenti.excerpt': 'La multinazionale annuncia il taglio di 25 amministrativi e 54 operativi. Proteste del Consiglio di Stato sul libero mercato. Cosa deve sapere il frontaliere?',
     'blog.article.bally-caslano-79-licenziamenti.imageAlt': 'Stabilimento aziendale presso Caslano, Ticino, con vista sul lago di Lugano sullo sfondo',
+    'blog.article.familiari-carico-detrazioni-irpef.title': 'Riforma fiscale: Detrazioni IRPEF senza convivenza',
+    'blog.article.familiari-carico-detrazioni-irpef.excerpt': 'La nuova riforma fiscale elimina l\'obbligo di convivenza per le detrazioni IRPEF sui familiari a carico, con importanti implicazioni per i frontalieri.',
+    'blog.article.familiari-carico-detrazioni-irpef.imageAlt': 'Una famiglia in una vista panoramica di Lugano',
 };
 
 export default blogMetaIt;
