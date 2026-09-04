@@ -11295,6 +11295,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.formazione-continua-ticino-campagna.title': 'Formazione continua, al via la campagna cantonale ticinese',
     'blog.article.formazione-continua-ticino-campagna.excerpt': 'Al via a inizio settembre la campagna UFCI su competenze di base in 5 città. Escape room, docufilm, stazioni e serata con Andrea Vitali dal 5 al 10 settembre.',
     'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Bellinzona centrale con adesivi della campagna UFCI sulla formazione continua esposti negli spazi pubblici',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Vivere a Sala Comacina e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi del trasferimento a Sala Comacina per lavorare in Ticino.',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Vista panoramica del Lago di Lugano con il Monte San Salvatore',
 };
 
 export default blogMetaIt;

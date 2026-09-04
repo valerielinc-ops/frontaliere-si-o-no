@@ -11294,6 +11294,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.formazione-continua-ticino-campagna.title': 'Continuous training, the cantonal Ticino countryside kicks off',
     'blog.article.formazione-continua-ticino-campagna.excerpt': 'The UFCI campaign on basic skills in 5 cities kicked off at the beginning of September. Escape room, docufilm, stations and evening with Andrea Vitali from 5 to 10 September.',
     'blog.article.formazione-continua-ticino-campagna.imageAlt': 'Bellinzona city center with UFCI continuous education campaign posters displayed in public spaces',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.title': 'Living in Sala Comacina and working in Ticino as a border worker',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.excerpt': 'Discover the connections, journey times, cost of living and advantages of transferring to Sala Comacina to work in Ticino.',
+    'blog.article.vivere-sala-comacina-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lake Lugano with Monte San Salvatore',
 };
 
 export default blogMetaEn;
