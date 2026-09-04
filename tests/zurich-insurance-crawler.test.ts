@@ -11,6 +11,7 @@ import {
   prepareZurichInsuranceCrawler,
   ZURICH_INSURANCE_KEY,
 } from '../scripts/lib/zurich-insurance-job-parser.mjs';
+import { mutateFixture } from './helpers/mutateFixture';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const fixture = (name: string) => fs.readFileSync(path.join(__dirname, '__fixtures__', name), 'utf8');
@@ -120,7 +121,8 @@ describe('Zurich Insurance Switzerland crawler', () => {
     // one office renders the extras as a nested `<small>` inside the same
     // jobLocation span, so the cell text read "Zürich, CH +1 more&hellip;" —
     // no Swiss city resolves from that, and the crawler aborted the whole run.
-    const multiLocationPage = pageOne.replace(
+    const multiLocationPage = mutateFixture(
+      pageOne,
       '<span class="jobLocation">Zürich, CH</span>',
       '<span class="jobLocation">Zürich, CH <small class="nobr">+1 more&hellip;</small></span>',
     );

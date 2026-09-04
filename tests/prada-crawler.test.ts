@@ -22,6 +22,7 @@ import {
 } from '@/scripts/lib/prada-job-parser.mjs';
 import { archiveRemovedJobsToSlice } from '@/scripts/lib/expired-jobs-archive.mjs';
 import { sanitizeLocalityForRegion } from '@/build-plugins/shared/jobPostingSchema';
+import { mutateFixture } from './helpers/mutateFixture';
 
 // ── Fixtures matching real SuccessFactors search results ────────────────────
 
@@ -404,7 +405,8 @@ describe('Prada Group crawler — SuccessFactors listing parsing', () => {
   });
 
   it('keeps the visible office of a multi-location row (nested "+N more" marker)', () => {
-    const multiLocation = LISTING_HTML_FIXTURE.replace(
+    const multiLocation = mutateFixture(
+      LISTING_HTML_FIXTURE,
       '<td class="colLocation hidden-phone">Mendrisio</td>',
       '<td class="colLocation hidden-phone">Mendrisio <small class="nobr">+3 more&hellip;</small></td>',
     );
