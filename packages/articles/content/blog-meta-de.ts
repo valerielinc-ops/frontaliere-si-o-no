@@ -11323,6 +11323,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano oder Mailand: Lebenshaltungskosten für Grenzgänger',
     'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'Als Grenzgänger wirkt sich die Entscheidung, in Lugano oder Mailand zu leben, direkt auf das Nettoeinkommen und die Steuerpflichten aus. Vergleichen Sie die tatsächlichen Kosten für Miete, Transport, Ausgaben und Besteuerung mit einem praktischen Leitfaden.',
     'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Panoramablick auf das Luganeser Stadtzentrum bei Sonnenuntergang mit dem Luganer See im Hintergrund',
+    'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Streik in Italien: Tilo-Züge HALTEN an der Grenze',
+    'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Vom 7. bis 8. September 2026 werden die TILO-DIENSTE während des nationalen Streiks in Italien nicht verkehren. Ersatzbusse für die Linie S50.',
+    'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Luftaufnahme des Luganer Sees mit der Landschaft des Tessin und Zügen',
 };
 
 export default blogMetaDe;

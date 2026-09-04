@@ -11325,6 +11325,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.costo-vita-lugano-milano-scelta.title': 'Lugano o Milano: costo della vita per frontalieri',
     'blog.article.costo-vita-lugano-milano-scelta.excerpt': 'Come frontaliere, la scelta di vivere a Lugano o Milano incide direttamente sul netto percepito e sugli obblighi fiscali. Confronta i costi reali di affitti, trasporti, spesa e tassazione con una guida pratica.',
     'blog.article.costo-vita-lugano-milano-scelta.imageAlt': 'Vista panoramica del centro di Lugano al tramonto con il Lago di Lugano sullo sfondo',
+    'blog.article.sciopero-treni-tilo-settembre-2026.title': 'Sciopero in Italia: i treni TILO si fermano al confine',
+    'blog.article.sciopero-treni-tilo-settembre-2026.excerpt': 'Dal 7 al 8 settembre 2026, i servizi TILO non circoleranno in Italia durante lo sciopero nazionale. Bus sostitutivi per la linea S50.',
+    'blog.article.sciopero-treni-tilo-settembre-2026.imageAlt': 'Vista aerea del Lago di Lugano con il paesaggio del Ticino e treni',
 };
 
 export default blogMetaIt;
