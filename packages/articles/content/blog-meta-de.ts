@@ -11329,6 +11329,21 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'Als Export -2,2%, Schweiz wächst mit +21,2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'Die Provinz Como verzeichnet einen Exportrückgang von 2,2%. Textil um 7,9% zurück, aber die Schweiz wächst: +21,2%. UIL-Analyse zu Sektoren und Beschäftigung.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Luftaufnahme des Mendrisio-Bezirks, Grenzregion zwischen Tessin und der Lombardei',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Arbeiten am Bahnhof Gallarate: Änderungen an der Linie S5 und Ersatzbusse',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'Vom 14. September bis 5. Oktober 2026 wurden Wartungsarbeiten am Bahnhof Gallarate durchgeführt. Änderungen an der Linie S5 Treviglio-Gallarate-Varese und Ersatzbusse.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Luftaufnahme des Bahnhofs Gallarate während der Wartungsarbeiten',
+    'blog.article.aumento-bollette-varese-frontalieri.title': 'Rechnungen +39% in Varese: Auswirkungen auf die Grenzen',
+    'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Herbst und Winter mit Energieschub in der Provinz Varese. Geschätzte Steigerungen von 39 %. Was das für diejenigen bedeutet, die im Kanton Tessin arbeiten.',
+    'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Wohnzimmer in der Provinz Varese mit Herbstblick auf die Bündner Berge',
+    'blog.article.varese-export-q1-2026.title': 'Varese zuerst in der Lombardei mit Export +23,2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'Im Q1 2026 dominiert die Provinz Varese das regionale Ranking dank der um 111,9% gestiegenen Luft- und Raumfahrt. Aber die außerordentliche Integrationskasse schreitet um 14,9% voran.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Luftaufnahme der Schweiz-Italien Grenzregion mit Industriegebiet der Provinz Varese und Alpentäler',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Umzug in die Schweiz als Italiener: Führerschein',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Bewilligung B, Schweizer Steuern, AHV und KVG: alle administrativen Schritte für diejenigen, die Italien verlassen.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Blick auf Lugano vom Luganersee: häufiges Transferziel aus Italien',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Als Italiener in die Schweiz ziehen: Der Reiseführer',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Bewilligung G, KVG, AHV, Wohnungssuche im Tessin, Rückerstattungen 2024: Komplettes Verfahren Schritt für Schritt für diejenigen, die (noch) keine Grenzgänger sind.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Luftaufnahme von Lugano und dem Tessin, beliebtes Ziel für Italiener in der Schweiz',
 };
 
 export default blogMetaDe;

@@ -1842,6 +1842,14 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'cressier-guasto-benzina-garantita': { it: 'cressier-guasto-benzina-garantita', en: 'cressier-shutdown-fuel-supply-guaranteed', de: 'cressier-betriebsstillegung-kraftstoff-versorgung', fr: 'cressier-arret-carburant-approvisionnement-garanti' },
  'domanda-permesso-c-glarona-guida': { it: 'domanda-permesso-c-glarona-guida', en: 'residence-permit-c-glarus-application-guide', de: 'aufenthaltsbewilligung-c-glarus-antrag-leitfaden', fr: 'permis-residence-c-glaris-demande-guide' },
  'permesso-c-glarona-come-richiederlo': { it: 'permesso-c-glarona-come-richiederlo', en: 'residence-permit-c-glarus-how-to-apply', de: 'aufenthaltserlaubnis-c-glarus-beantragen', fr: 'permis-residence-c-glaris-demander' },
+ 'soldati-svizzera-video-guerra': { it: 'soldati-svizzera-video-guerra', en: 'swiss-soldiers-war-video', de: 'schweizer-soldaten-kriegsvideo', fr: 'soldats-suisses-video-guerre' },
+ 'volkswagen-taglia-50mila-posti-2030': { it: 'volkswagen-taglia-50mila-posti-2030', en: 'volkswagen-to-cut-50000-jobs-by-2030', de: 'volkswagen-streicht-50000-arbeitsplaetze-bis-2030', fr: 'volkswagen-supprime-50000-emplois-dici-2030' },
+ 'apprendistato-svizzera-guida-pratica': { it: 'apprendistato-svizzera-guida-pratica', en: 'apprenticeship-switzerland-practical-guide', de: 'lehrling-schweiz-praktischer-leitfaden', fr: 'apprentissage-suisse-guide-pratique' },
+ 'tirocinio-formazione-professionale-glarona': { it: 'tirocinio-formazione-professionale-glarona', en: 'apprenticeship-vocational-training-glarus', de: 'lehre-berufsbildung-glarus', fr: 'apprentissage-formation-professionnelle-glaris' },
+ 'assegni-familiari-vaud-importi-domanda': { it: 'assegni-familiari-vaud-importi-domanda', en: 'family-allowances-vaud-amounts-application', de: 'familienbeihilfen-vaud-betrag-antrag', fr: 'allocations-familiales-vaud-montants-demande' },
+ 'apprendistato-canton-vaud': { it: 'apprendistato-canton-vaud', en: 'apprenticeship-canton-vaud', de: 'lehre-kanton-waadt', fr: 'apprentissage-canton-vaud' },
+ 'patente-guida-glarona-conversione': { it: 'patente-guida-glarona-conversione', en: 'driver-license-glarus-conversion', de: 'fuehrerschein-glarus-umwandlung', fr: 'permis-glaris-conversion' },
+ 'imposta-successione-donazione-glarona': { it: 'imposta-successione-donazione-glarona', en: 'inheritance-tax-donation-canton-glarus-rates', de: 'erbschaftssteuer-schenkungssteuer-kanton-glarus', fr: 'impot-succession-donation-canton-glaris' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

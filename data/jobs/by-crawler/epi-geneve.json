@@ -157,7 +157,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T22:53:33.325Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -257,7 +256,6 @@
         "un-assistente-socio-educativo-piscina-di-rinforzo-e-80-cdi-etablissements-publics-pour-l-integration-collonge-bellerive"
       ],
       "firstSeenAt": "2026-07-03T22:53:33.321Z",
-      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -792,8 +790,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

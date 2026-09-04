@@ -11330,6 +11330,21 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'As an export -2.2%, Switzerland grows to +21.2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'The province of Como recorded an export decrease of 2.2%. Textiles lag behind by 7.9%, but Switzerland grows: +21.2%. UIL analysis on sectors and employment.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Aerial view of Mendrisio district, border region between Ticino and Lombardy',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Works at Gallarate station: changes to the S5 line and replacement buses',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'From 14 September to 5 October 2026, maintenance work at Gallarate station. Changes to the S5 Treviglio-Gallarate-Varese line and replacement buses.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Aerial view of Gallarate train station during maintenance work',
+    'blog.article.aumento-bollette-varese-frontalieri.title': 'Bills +39% in Varese: border impact',
+    'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Autumn and winter with energy stalemate in the province of Varese. Estimated increases of 39%. What it means for those who work in Canton Ticino.',
+    'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Residential living room in Varese province with autumn view toward Ticino mountains',
+    'blog.article.varese-export-q1-2026.title': 'Varese first in Lombardy with export +23.2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'In Q1 2026, the Varese province dominated the regional ranking thanks to aerospace which rose by 111.9%. But the extraordinary layoffs advanced by 14.9%.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Aerial view of Switzerland-Italy border region with Varese province industrial landscape and Alpine valleys',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Moving to Switzerland as an Italian: a guide to permits',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permit B, Swiss taxation, AVS and LAMal: all the administrative steps for those leaving Italy.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'View of Lugano from Lake Ceresio: common destination for transfers from Italy',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Moving to Switzerland as an Italian: the guide',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permit G, LAMal, AVS, house search in Ticino, refreshments 2024: complete step-by-step procedure for those who are not (yet) border crossers.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Aerial view of Lugano and Ticino, Switzerland, destination for Italians relocating',
 };
 
 export default blogMetaEn;

@@ -11332,6 +11332,21 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-export-svizzera-2026.title': 'Comme export -2,2%, la Suisse croît à +21,2%',
     'blog.article.como-export-svizzera-2026.excerpt': 'La province de Côme enregistre une baisse des exportations de 2,2 %. Textile recule de 7,9 %, mais la Suisse croît : +21,2 %. Analyse de l\'UIL sur les secteurs et l\'emploi.',
     'blog.article.como-export-svizzera-2026.imageAlt': 'Vue aérienne du district de Mendrisiotto, zone frontalière entre Tessin et Lombardie',
+    'blog.article.lavori-stazione-gallarate-2026.title': 'Travaux à la gare de Gallarate : S5 et bus de remplacement',
+    'blog.article.lavori-stazione-gallarate-2026.excerpt': 'Du 14 septembre au 5 octobre 2026, travaux d\'entretien à la gare de Gallarate. Modifications de la ligne S5 Treviglio-Gallarate-Varese et bus de remplacement.',
+    'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Vue aérienne de la gare de Gallarate pendant les travaux de maintenance',
+    'blog.article.aumento-bollette-varese-frontalieri.title': 'Factures +39 % à Varèse : impact frontalier',
+    'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Automne et hiver avec étang énergétique dans la province de Varèse. Augmentations estimées de 39 %. Ce que cela signifie pour ceux qui travaillent dans le canton du Tessin.',
+    'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Salon résidentiel dans la province de Varèse avec vue automnale sur les montagnes du Tessin',
+    'blog.article.varese-export-q1-2026.title': 'Varese première en Lombardie avec exportation +23,2%',
+    'blog.article.varese-export-q1-2026.excerpt': 'Au 1er trimestre 2026, la province de Varèse domine le classement régional grâce à l\'augmentation de 111,9 % de l\'aérospatiale. Mais la caisse d\'intégration extraordinaire progresse de 14,9 %.',
+    'blog.article.varese-export-q1-2026.imageAlt': 'Vue aérienne de la région frontalière Suisse-Italie avec paysage industriel de la province de Varèse et vallées alpines',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.title': 'Déménager en Suisse en italien : guide des permis',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.excerpt': 'Permis B, fiscalité suisse, AVS et LAMal : toutes les démarches administratives pour ceux qui quittent l\'Italie.',
+    'blog.article.trasferirsi-svizzera-italiano-guida-permessi.imageAlt': 'Vue de Lugano depuis le lac de Lugano: destination commune pour les transferts depuis l\'Italie',
+    'blog.article.trasferirsi-non-frontaliere-guida.title': 'Déménager en Suisse en italien : le guide',
+    'blog.article.trasferirsi-non-frontaliere-guida.excerpt': 'Permis G, LAMal, AVS, recherche maison au Tessin, restaurations 2024 : procédure complète étape par étape pour ceux qui ne sont pas (encore) frontaliers.',
+    'blog.article.trasferirsi-non-frontaliere-guida.imageAlt': 'Vue aérienne de Lugano et du Tessin, destination pour les Italiens s\'installant en Suisse',
 };
 
 export default blogMetaFr;

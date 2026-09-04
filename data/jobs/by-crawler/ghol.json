@@ -48,7 +48,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-04T13:36:03.671Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -77,13 +76,11 @@
       },
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -109,8 +106,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -150,7 +147,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-04T13:36:03.670Z",
-      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -178,24 +174,18 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -260,15 +250,12 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-04T13:36:03.669Z",
-      "needsRetranslation": true,
       "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -342,14 +329,12 @@
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -431,8 +416,7 @@
         "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -449,8 +433,7 @@
           "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -531,13 +514,11 @@
       "crawledAt": "2026-09-04T13:36:03.666Z",
       "needsRetranslation": false,
       "previousSlugs": [
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -567,7 +548,7 @@
       "slugByLocale": {
         "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -577,7 +558,7 @@
       "titleByLocale": {
         "it": "Infermiera di emergenza",
         "en": "Emergency Nurse",
-        "de": "Infirmier·ère urgentiste",
+        "de": "Notfallkrankenschwester",
         "fr": "Infirmier·ère urgentiste"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
@@ -607,16 +588,13 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-04T13:36:03.666Z",
-      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -625,8 +603,7 @@
           "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -634,7 +611,6 @@
         ],
         "de": [
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "fr": [
@@ -704,13 +680,11 @@
       "crawledAt": "2026-09-04T13:36:03.665Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
-        "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
-          "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
         ],
         "en": [
           "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -736,12 +710,12 @@
     },
     {
       "id": "ghol-c4e37dddc379",
-      "slug": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slug": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "it": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "poolist-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
@@ -749,16 +723,16 @@
       "title": "Infirmier·ère pooliste",
       "titleByLocale": {
         "fr": "Infirmier·ère pooliste",
-        "de": "Infirmier·ère pooliste",
-        "it": "Infirmier·ère pooliste",
-        "en": "Infirmier·ère pooliste"
+        "de": "Poolist Krankenschwester",
+        "it": "Infermiere da piscina",
+        "en": "Poolist nurse"
       },
       "description": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
       "descriptionByLocale": {
         "fr": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
-        "it": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
-        "en": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
-        "de": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)"
+        "it": "Sei appassionato di salute e vuoi svolgere un ruolo chiave nel corretto funzionamento delle diverse unità di cura, quindi unisciti al nostro team di Nurse Poolist.\n GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle.\n Vi offriamo un lavoro in un ambiente piacevole, in nuovi locali, circondato da colleghi dinamici, motivati e volontari che vi accoglieranno e vi accompagneranno nelle vostre varie missioni.\n Descrizione della posizione:\n Nelle tue nuove funzioni, rafforza i tuoi team di assistenza in base alle tue preferenze:\n\n• Chirurgia, Medicina ortopedica\n\n• Cura intensiva dell'emodialisi-emergenza\n\n• Pediatria/Maternità\n\n• Pneumologia (Sito di ruolo)\n\n• EMS (Sito di ruolo)\n I vostri vantaggi:\n\n• Si organizza il vostro programma a vostra convenienza, gestendo il vostro tempo di lavoro e tempo di riposo\n\n• Stai assumendo un'attività più o meno gradualmente\n\n• Espandi le tue conoscenze orientandoti in diversi servizi\n\n• Partecipate ai vari corsi di formazione offerti in base alle vostre esigenze. Un catalogo di formazione continua per lo sviluppo professionale e personale è offerto ai dipendenti del Dipartimento di Cura\n\n• Si avrà dopo un certo tempo l'opportunità di raggiungere una posizione fissa come priorità\n\n• Riceverai un bonus di flessibilità e disponibilità oltre al tuo stipendio\n\n• Ore continue di 12 ore / ore su un colpo di stato / giorno / notte / WE\n Profilo richiesto:\n Siamo convinti del vostro rapido successo nelle vostre funzioni future grazie al vostro:\n\n• Facilità di adattamento, reattività alle richieste\n\n• Vuoi espandere le tue conoscenze e competenze\n\n• Utilizzo di strumenti IT (cartelle di cura, applicazioni mobili, ecc.).\n\n• I vostri pochi anni di esperienza di allattamento saranno un vero vantaggio per una rapida integrazione.\n Livello di formazione:\n Corso di laurea HES-SO in Infermieristica richiesto o diploma ritenuto equivalente riconosciuto dalla Croce Rossa svizzera\n Possibile specializzazione in una delle aree specifiche di cura (assistenza intensiva, Anaestesia, Emergenze, Pediatria, Gerontologia, ecc.)",
+        "en": "You are passionate about health and want to play a key role in the proper functioning of the different care units, so join our team of Nurse Poolist.\n GHOL is the reference hospital for the German West with its structures on Nyon and Rolle.\n We offer you a job in a pleasant setting, in new premises, surrounded by dynamic, motivated, volunteer colleagues who will welcome you and accompany you in your various missions.\n Description of position:\n In your new functions, you strengthen your care teams according to your preferences by:\n\n• Surgery, Orthopaedic Medicine\n\n• Hemodialysis-Emergency-Intensive care\n\n• Pediatric/Maternity\n\n• Pneumology (Role site)\n\n• EMS (Role site)\n Your benefits:\n\n• You organize your schedule at your convenience by managing your working time and rest time\n\n• You are taking on an activity more or less gradually\n\n• You expand your knowledge by being oriented in different services\n\n• You participate in the various training courses offered according to your needs. A catalogue of continuing vocational and personal development training is offered to employees of the Department of Care\n\n• You will have after a given time the opportunity to get to a fixed position as a priority\n\n• You will receive a flexibility and availability bonus in addition to your salary\n\n• Continuous hours of 12 hours / hours on a coupe/ day / night / WE\n Profile required:\n We are convinced of your rapid success in your future functions thanks to your:\n\n• Ease of adaptation, responsiveness to requests\n\n• Want to expand your knowledge and skills\n\n• Use of IT tools (care folders, mobile applications, etc.).\n\n• Your few years of nursing experience will be a real asset for rapid integration.\n Level of training:\n Bachelor of Science HES-SO in Nursing required or diploma deemed equivalent recognized by the Swiss Red Cross\n Possible specialization in one of the specific areas of care (Intensive care, Anaesthesia, Emergencies, Pediatrics, Gerontology, etc.)",
+        "de": "Sie sind leidenschaftlich über die Gesundheit und wollen eine Schlüsselrolle in der ordnungsgemäßen Funktion der verschiedenen Pflegeeinheiten spielen, so treten Sie unserem Team von Nurse Poolist.\n GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle.\n Wir bieten Ihnen einen Job in angenehmer Umgebung, in neuen Räumlichkeiten, umgeben von dynamischen, motivierten, ehrenamtlichen Kollegen, die Sie willkommen heißen und Sie in Ihren verschiedenen Missionen begleiten.\n Beschreibung der Position:\n In Ihren neuen Funktionen stärken Sie Ihre Pflegeteams nach Ihren Vorlieben durch:\n\n• Chirurgie, Orthopädische Medizin\n\n• Hämodialyse-Notfall-Intensivpflege\n\n• Kinder/Mutterschaft\n\n• Pneumologie (Rollenstandort)\n\n• EMS (Rollenstandort)\n Ihre Vorteile:\n\n• Sie organisieren Ihren Zeitplan nach Belieben, indem Sie Ihre Arbeitszeit und Ruhezeit verwalten\n\n• Sie übernehmen eine Aktivität mehr oder weniger allmählich\n\n• Sie erweitern Ihr Wissen, indem Sie sich an verschiedenen Dienstleistungen orientieren\n\n• Sie nehmen an den verschiedenen Schulungen teil, die nach Ihren Bedürfnissen angeboten werden. Ein Katalog der Weiterbildung der beruflichen und persönlichen Entwicklung wird für Mitarbeiter des Department of Care angeboten\n\n• Sie haben nach einer bestimmten Zeit die Möglichkeit, eine feste Position als Priorität zu erreichen\n\n• Sie erhalten zusätzlich zu Ihrem Gehalt einen Flexibilitäts- und Verfügbarkeitsbonus\n\n• Kontinuierliche Stunden von 12 Stunden / Stunden auf einem Coupé / Tag / Nacht / WE\n Profil erforderlich:\n Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen dank Ihrer:\n\n• Leichtigkeit der Anpassung, Reaktionsfähigkeit auf Anfragen\n\n• Möchten Sie Ihr Wissen und Ihre Fähigkeiten erweitern\n\n• Verwendung von IT-Tools (Pflegeordner, mobile Anwendungen usw.).\n\n• Ihre wenigen Jahre Pflegeerfahrung werden ein echter Gewinn für eine schnelle Integration sein.\n Ausbildungsniveau:\n Bachelor of Science HES-SO in Nursing erforderlich oder Diplom als gleichwertig anerkannt vom Schweizerischen Roten Kreuz\n Mögliche Spezialisierung in einem der spezifischen Pflegebereiche (Intensivmedizin, Anästhesie, Notfälle, Kinderheilkunde, Gerontologie usw.)"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -780,7 +754,6 @@
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
       "crawledAt": "2026-09-04T13:36:03.664Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -794,7 +767,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-04T13:36:03.664Z"
+      "firstSeenAt": "2026-09-04T13:36:03.664Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ]
     },
     {
       "id": "ghol-fd047f33a8e7",
@@ -802,7 +789,7 @@
       "slugByLocale": {
         "it": "infermiere-di-polmonite-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "en": "pneumonia-nurse-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "fr": "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -812,7 +799,7 @@
       "titleByLocale": {
         "it": "Infermiere di polmonite",
         "en": "Pneumonia nurse",
-        "de": "Infirmier·ère en pneumologie",
+        "de": "Lungenentzündung Krankenschwester",
         "fr": "Infirmier·ère en pneumologie"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Le service de Pneumologie, situé à ROLLE , prend en charge la patientèle adulte souffrant de maladies respiratoires aiguës ou chroniques dans un cadre hospitalier ou ambulatoire. Vous évoluerez au sein d’une structure rénovée dans un cadre exceptionnel face au Lac Léman et aux Alpes. Vous aurez à disposition un équipement de pointe.\n Aujourd’hui, le service de pneumologie est devenu un établissement phare dans la réhabilitation respiratoire.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge et accompagner la patientèle du Pôle de Pneumologie\n\n• Assurer des prestations de soins de qualité basée sur une pratique réflexive\n\n• Effectuer avec rigueur les soins médico-délégués et les soins du rôle autonome\n\n• Offrir des soins infirmiers personnalisés en tenant compte des objectifs et des besoins du · de la patient·e et de sa famille pour le retour à domicile par exemple,\n\n• Transmettre ses observations de manière orale et écrite de manière ciblée et pertinente dans le dossier informatisé des patients·es\n\n• Assurer la commande de pharmacie et de matériel en tenant compte des besoins du service\n\n• Participer activement à la visite médicale, relever et appliquer les prescriptions émises\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre :\n\n• Intérêt marqué pour l’accompagnement et le soutien de la patientèle ayant des affections pneumologiques\n\n• Aptitude à travailler en interdisciplinarité (équipe médicale, physiothérapeute, diététicien·ne, infirmier·ière de liaison, Ligue Pulmonaire Vaudoise)\n\n• Sens aigu des responsabilités et capacité de prise de décisions\n\n• Capacité à faire une évaluation clinique pertinente\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\n Nous vous offrons :\n Un accueil personnalisé, des conseils avisés de professionnels et un suivi individuel de qualité. Une opportunité de développer vos compétences professionnelles et personnelles ainsi qu’une activité variée privilégiant le travail en pluridisciplinarité et les relations humaines.\n Un accompagnement clinique par une répondante spécialisée, un parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n Des nouveaux locaux, une organisation en petits secteurs de 10 lits avec salle de soins et pharmacie\n Un travail en collaboration étroite avec les différents intervenants\n Un accès à une offre de formation continue interne variée et attractive\n La possibilité de stationner sur le parking de l’Hôpital",
@@ -843,8 +830,7 @@
       "sourceLang": "fr",
       "crawledAt": "2026-09-03T23:20:55.951Z",
       "previousSlugs": [
-        "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -854,7 +840,6 @@
           "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
-          "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle",
           "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ]
       },
@@ -872,8 +857,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

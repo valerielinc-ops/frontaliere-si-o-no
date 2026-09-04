@@ -555,8 +555,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-01T08:54:11.938Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-01T08:54:11.938Z"
     },
     {
       "title": "Strategy & Corporate Development Associate",
@@ -1710,7 +1709,7 @@
       "titleByLocale": {
         "it": "Leader Tecnico IT – Infrastrutture e Platform Delivery",
         "en": "Technical Leader IT – Infrastructure & Platform Delivery",
-        "de": "Technical Leader IT – Infrastructure & Platform Delivery",
+        "de": "Technical Leader IT – Infrastruktur & Plattformbereitstellung",
         "fr": "Leader technique IT – Infrastructure et livraison des plateformes"
       },
       "descriptionByLocale": {
@@ -1722,7 +1721,7 @@
       "slugByLocale": {
         "it": "leader-tecnico-it-infrastrutture-e-platform-delivery-avaloq-bioggio",
         "en": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
-        "de": "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
+        "de": "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
         "fr": "leader-technique-it-infrastructure-et-livraison-des-plateformes-avaloq-bioggio"
       },
       "id": "avaloq-7731b5d0591f",
@@ -1744,7 +1743,6 @@
       "previousSlugsByLocale": {
         "de": [
           "technical-leader-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
-          "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
           "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio"
         ],
         "it": [
@@ -1756,11 +1754,9 @@
       },
       "previousSlugs": [
         "technical-leader-it-infrastruktur-plattformbereitstellung-avaloq-bioggio",
-        "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio",
-        "technischer-leiter-it-infrastruktur-plattformbereitstellung-avaloq-bioggio"
+        "technical-leader-it-infrastructure-platform-delivery-avaloq-bioggio"
       ],
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "title": "Software Developer – Output Management specialist for Archive and Infrastructure",

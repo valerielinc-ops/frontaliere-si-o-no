@@ -109,23 +109,47 @@ function fmtNum(n) {
 }
 
 // #4298 — funnel: job_alert_cta_shown → job_alert_created, 14d, target >= 5%.
-async function evalAlertFunnelConversion() {
-  const [created, shown] = await hogqlRow(`
-    SELECT
-      countIf(event = 'job_alert_created') AS created,
-      countIf(event = 'job_alert_cta_shown') AS shown
-    FROM events
-    WHERE timestamp >= now() - INTERVAL 14 DAY
-  `);
+//
+// Counted per PERSON, not per event (fix #7311). A funnel conversion answers
+// "of the people who saw the CTA, how many created an alert": dividing raw
+// event counts answered a different question, because the two sides of the
+// ratio do not scale together. `job_alert_created` is capped near one per
+// person (an alert is created once, and `MAX_ALERTS_PER_USER` caps the rest),
+// while `job_alert_cta_shown` grows with pageviews × the number of alert
+// surfaces on the page — the site now has seven of them. Measured on GA4 over
+// the 14d window of this issue: 12,923 impressions from 3,612 distinct people
+// (3.6 impressions each) against 238 creations from 163 people, i.e. 1.84%
+// per event and 4.51% per person. Every new CTA surface mechanically lowered
+// the per-event number even when it added conversions.
+//
+// This is a measurement-correctness fix, NOT a threshold relaxation: the
+// target stays 5% and the goal still fails at 4.51% (same posture as the
+// instrumentation fix in tests/job-alert-impression-contract.test.tsx). The
+// two other funnel goals in this file were already person/session-scoped —
+// `evalErrorRate` counts persons and `evalCalcDeeplinkInputStart` counts
+// `uniq($session_id)`; the alert funnel was the only one left on raw events.
+export function alertFunnelOutcome({ created, shown, viaGa4 = false }) {
   const shownN = Number(shown) || 0;
   const createdN = Number(created) || 0;
   const rate = shownN > 0 ? createdN / shownN : null;
+  const unit = viaGa4 ? 'utenti' : 'persone';
   return {
     passed: rate !== null && rate >= 0.05,
     value: { rate, created: createdN, shown: shownN },
-    targetDescription: '>= 5% (job_alert_created / job_alert_cta_shown, 14gg)',
-    detail: `${createdN}/${shownN} = ${fmtPct(rate)}`,
+    targetDescription: `>= 5% (${unit} job_alert_created / ${unit} job_alert_cta_shown, 14gg${viaGa4 ? ', fallback GA4' : ''})`,
+    detail: `${createdN}/${shownN} ${unit} = ${fmtPct(rate)}${viaGa4 ? ' [GA4 fallback — PostHog non misurabile]' : ''}`,
   };
+}
+
+async function evalAlertFunnelConversion() {
+  const [created, shown] = await hogqlRow(`
+    SELECT
+      uniqIf(person_id, event = 'job_alert_created') AS created,
+      uniqIf(person_id, event = 'job_alert_cta_shown') AS shown
+    FROM events
+    WHERE timestamp >= now() - INTERVAL 14 DAY
+  `);
+  return alertFunnelOutcome({ created, shown });
 }
 
 // GA4 fallback for #4298, used only when the PostHog vitality guard says the
@@ -133,22 +157,21 @@ async function evalAlertFunnelConversion() {
 // to GA4 instead of leaving the goal `unmeasurable` for the whole duration
 // of an outage). job_alert_cta_shown and job_alert_created are mirrored to
 // GA4 verbatim by Analytics.log() (services/analytics.ts — the same call
-// fires both posthogCapture() and the Firebase/GA4 log), so counting by
-// eventName is a faithful substitute for the PostHog countIf(). #4304's
+// fires both posthogCapture() and the Firebase/GA4 log), so GA4's
+// per-eventName `totalUsers` is a faithful substitute for the PostHog
+// uniqIf(person_id, ...). #4304's
 // native $dead_click (PostHog-only autocapture) and #4307's session-scoped
 // funnel have no GA4 equivalent and are not given a fallback — see GOALS.
 async function evalAlertFunnelConversionGa4() {
   const token = await getGoogleAccessToken();
-  const counts = await ga4EventCountByName(token, ['job_alert_cta_shown', 'job_alert_created'], 14);
-  const shownN = counts.get('job_alert_cta_shown') || 0;
-  const createdN = counts.get('job_alert_created') || 0;
-  const rate = shownN > 0 ? createdN / shownN : null;
-  return {
-    passed: rate !== null && rate >= 0.05,
-    value: { rate, created: createdN, shown: shownN },
-    targetDescription: '>= 5% (job_alert_created / job_alert_cta_shown, 14gg, fallback GA4)',
-    detail: `${createdN}/${shownN} = ${fmtPct(rate)} [GA4 fallback — PostHog non misurabile]`,
-  };
+  // `totalUsers` broken down by eventName = distinct users who fired that
+  // event, GA4's equivalent of the HogQL uniqIf(person_id, ...) above.
+  const counts = await ga4EventCountByName(token, ['job_alert_cta_shown', 'job_alert_created'], 14, 'totalUsers');
+  return alertFunnelOutcome({
+    created: counts.get('job_alert_created') || 0,
+    shown: counts.get('job_alert_cta_shown') || 0,
+    viaGa4: true,
+  });
 }
 
 // #4304 — PostHog's native $dead_click, 14d, target < 5,991 (baseline 25,675
@@ -508,12 +531,13 @@ function ga4EventNameFilter(eventNames) {
   return { filter: { fieldName: 'eventName', inListFilter: { values: eventNames } } };
 }
 
-/** Per-eventName counts (eventCount) — the alert-funnel GA4 fallback needs
- * the two event counts kept separate. */
-async function ga4EventCountByName(token, eventNames, windowDays) {
+/** Per-eventName totals — the alert-funnel GA4 fallback needs the two events
+ * kept separate. `metric` is 'eventCount' by default; the alert funnel passes
+ * 'totalUsers' because it is scored per person (see alertFunnelOutcome). */
+async function ga4EventCountByName(token, eventNames, windowDays, metric = 'eventCount') {
   const data = await ga4RunReport(token, {
     dimensions: [{ name: 'eventName' }],
-    metrics: ['eventCount'],
+    metrics: [metric],
     dimensionFilter: ga4EventNameFilter(eventNames),
     windowDays,
   });

@@ -70727,6 +70727,318 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-soldati-svizzera-video-guerra': {
+    title: 'Soldati svizzeri morti: i Giovani UDC scioccano con un video di guerra',
+    description: 'I Giovani UDC promuovono il sì all\'iniziativa sulla neutralità con un film bellico autoprodotto che mostra una Svizzera in guerra. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, soldati, svizzeri, morti, giovani',
+    ogTitle: 'Soldati svizzeri morti: i Giovani UDC scioccano con un video di guerra',
+    ogDescription: 'Scopri come i Giovani UDC stanno promuovendo il sì all\'iniziativa sulla neutralità con un film bellico che mostra una Svizzera in guerra.',
+    canonicalPath: '/articoli-svizzera/soldati-svizzera-video-guerra/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Soldati svizzeri morti: i Giovani UDC scioccano con un video di guerra",
+      "description": "I Giovani UDC promuovono il sì all'iniziativa sulla neutralità con un film bellico autoprodotto che mostra una Svizzera in guerra. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/soldati-svizzera-video-guerra.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soldati svizzeri in un video di guerra"
+      },
+      "datePublished": "2026-09-04T16:44:25+00:00",
+      "dateModified": "2026-09-04T16:44:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/soldati-svizzera-video-guerra/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-volkswagen-taglia-50mila-posti-2030': {
+    title: 'Volkswagen taglia altri 50’000 posti di lavoro',
+    description: 'Il gruppo Volkswagen ha annunciato un piano di risanamento che prevede il taglio di ulteriori 50’000 posti di lavoro entro il 2030. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, volkswagen, taglia, altri, posti',
+    ogTitle: 'Volkswagen taglia altri 50’000 posti di lavoro',
+    ogDescription: 'Il gruppo Volkswagen ha annunciato un piano di risanamento che prevede il taglio di ulteriori 50’000 posti di lavoro entro il 2030, portando il totale delle perdite occupazionali a 100’000. I siti di produzione maggiormente colpiti saranno quelli',
+    canonicalPath: '/articoli-svizzera/volkswagen-taglia-50mila-posti-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Volkswagen taglia altri 50’000 posti di lavoro",
+      "description": "Il gruppo Volkswagen ha annunciato un piano di risanamento che prevede il taglio di ulteriori 50’000 posti di lavoro entro il 2030. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/volkswagen-taglia-50mila-posti-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con il Lago Lugano sullo sfondo"
+      },
+      "datePublished": "2026-09-04T17:04:53+00:00",
+      "dateModified": "2026-09-04T17:04:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/volkswagen-taglia-50mila-posti-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-svizzera-guida-pratica': {
+    title: 'Apprendistato e formazione: come funziona in Svizzera',
+    description: 'Guida completa all\'apprendistato svizzero: come trovare un tirocinio, contratto, retribuzione, diritti legali e maturità professionale per studi universitari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, funziona, scopri',
+    ogTitle: 'Apprendistato svizzero: guida pratica a tirocinio e formazione',
+    ogDescription: 'Scopri come funziona l\'apprendistato in Svizzera: ricerca del tirocinio, protezioni legali, retribuzione, contributi sociali, maturità professionale e accesso all\'università.',
+    canonicalPath: '/articoli-svizzera/apprendistato-svizzera-guida-pratica/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione: come funziona in Svizzera",
+      "description": "Guida completa all'apprendistato svizzero: come trovare un tirocinio, contratto, retribuzione, diritti legali e maturità professionale per studi universitari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-svizzera-guida-pratica.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Giovane apprendista lavora in officina svizzera moderna durante la formazione pratica con attrezzi professionali"
+      },
+      "datePublished": "2026-09-04T17:31:51+00:00",
+      "dateModified": "2026-09-04T17:31:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-svizzera-guida-pratica/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-tirocinio-formazione-professionale-glarona': {
+    title: 'Apprendistato e formazione professionale nel canton Glarona',
+    description: 'Guida pratica all\'apprendistato nel canton Glarona: come trovare un tirocinio, il contratto, la retribuzione dell\'apprendista e la maturità professionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, canton',
+    ogTitle: 'Apprendistato e formazione professionale nel canton Glarona',
+    ogDescription: 'Scopri come trovare un tirocinio nel canton Glarona, il contratto di tirocinio, la retribuzione dell\'apprendista secondo il ramo e il percorso verso la maturità professionale. Informazioni pratiche e risorse cantonali.',
+    canonicalPath: '/articoli-svizzera/tirocinio-formazione-professionale-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale nel canton Glarona",
+      "description": "Guida pratica all'apprendistato nel canton Glarona: come trovare un tirocinio, il contratto, la retribuzione dell'apprendista e la maturità professionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tirocinio-formazione-professionale-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un giovane apprendista durante una lezione pratica di formazione professionale in un'azienda svizzera con istruttore"
+      },
+      "datePublished": "2026-09-04T17:52:44+00:00",
+      "dateModified": "2026-09-04T17:52:44+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tirocinio-formazione-professionale-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-assegni-familiari-vaud-importi-domanda': {
+    title: 'Assegni familiari Vaud: importi e come fare domanda',
+    description: 'Guida pratica agli assegni familiari nel cantone di Vaud: come fare domanda, diritti dei beneficiari, documenti richiesti e cassa di compensazione competente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assegni, familiari, vaud, importi',
+    ogTitle: 'Assegni familiari Vaud: importi e come fare domanda',
+    ogDescription: 'Guida pratica agli assegni familiari nel cantone di Vaud: come fare domanda, diritti dei beneficiari, documenti richiesti e cassa di compensazione competente.',
+    canonicalPath: '/articoli-svizzera/assegni-familiari-vaud-importi-domanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assegni familiari Vaud: importi e come fare domanda",
+      "description": "Guida pratica agli assegni familiari nel cantone di Vaud: come fare domanda, diritti dei beneficiari, documenti richiesti e cassa di compensazione competente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/assegni-familiari-vaud-importi-domanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia svizzera consulta i documenti sugli assegni familiari in una cucina moderna con vista sulle montagne alpine."
+      },
+      "datePublished": "2026-09-04T18:25:56+00:00",
+      "dateModified": "2026-09-04T18:25:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/assegni-familiari-vaud-importi-domanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-canton-vaud': {
+    title: 'Apprendistato e formazione nel Canton Vaud: guida pratica',
+    description: 'Guida all\'apprendistato nel Canton Vaud: come trovare un tirocinio, diritti dell\'apprendista, retribuzione e maturità professionale in Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, canton, vaud',
+    ogTitle: 'Apprendistato Canton Vaud: come trovare il tirocinio',
+    ogDescription: 'Cercate un\'opportunità di apprendistato nel Canton Vaud? Scoprite come trovare un posto di tirocinio, cosa aspettarvi dal contratto di apprendistato, le retribuzioni e i diritti secondo la legge federale svizzera.',
+    canonicalPath: '/articoli-svizzera/apprendistato-canton-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione nel Canton Vaud: guida pratica",
+      "description": "Guida all'apprendistato nel Canton Vaud: come trovare un tirocinio, diritti dell'apprendista, retribuzione e maturità professionale in Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-canton-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Apprendista al lavoro in un'officina svizzera durante la formazione pratica nel settore artigianale"
+      },
+      "datePublished": "2026-09-04T18:44:05+00:00",
+      "dateModified": "2026-09-04T18:44:05+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-canton-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-patente-guida-glarona-conversione': {
+    title: 'Patente di guida canton Glarona: conversione ed esami',
+    description: 'Procedura per convertire patente straniera nel canton Glarona: esami teorico-pratici, corsi obbligatori e ufficio della circolazione. Guida pratica completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, glarona, conversione',
+    ogTitle: 'Patente di guida canton Glarona: conversione ed esami',
+    ogDescription: 'Scopri come convertire la tua patente straniera nel canton Glarona: procedura completa, esami teorici e pratici, corsi obbligatori, contatti dell\'ufficio della circolazione.',
+    canonicalPath: '/articoli-svizzera/patente-guida-glarona-conversione/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida canton Glarona: conversione ed esami",
+      "description": "Procedura per convertire patente straniera nel canton Glarona: esami teorico-pratici, corsi obbligatori e ufficio della circolazione. Guida pratica completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-glarona-conversione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada di montagna nel canton Glarona con segnaletica stradale svizzera"
+      },
+      "datePublished": "2026-09-04T19:18:40+00:00",
+      "dateModified": "2026-09-04T19:18:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-glarona-conversione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-imposta-successione-donazione-glarona': {
+    title: 'Imposta di successione e donazione canton Glarona: le aliquote',
+    description: 'Come funziona l\'imposta di successione e donazione nel Canton Glarona. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, canton',
+    ogTitle: 'Imposta di successione canton Glarona: aliquote e esenzioni',
+    ogDescription: 'Successione e donazione nel Canton Glarona: scopri come funzionano le aliquote per ogni grado di parentela, le esenzioni per coniuge e discendenti, la procedura di dichiarazione e i termini da rispettare presso l\'amministrazione cantonale glaronese',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione canton Glarona: le aliquote",
+      "description": "Come funziona l'imposta di successione e donazione nel Canton Glarona. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino del cantone glaronese con edifici amministrativi, simbolo della fiscalità cantonale svizzera e della tassazione di successione e donazione"
+      },
+      "datePublished": "2026-09-04T19:35:32+00:00",
+      "dateModified": "2026-09-04T19:35:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

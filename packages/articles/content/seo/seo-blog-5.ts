@@ -85364,6 +85364,201 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-stazione-gallarate-2026': {
+    title: 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
+    description: 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, alla, stazione, gallarate',
+    ogTitle: 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
+    ogDescription: 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi. Pendolari invitati a consultare gli orari aggiornati e a pianificare i loro spostamenti',
+    canonicalPath: '/articoli-frontaliere/lavori-stazione-gallarate-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi",
+      "description": "Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lavori-stazione-gallarate-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea della stazione di Gallarate durante i lavori di manutenzione"
+      },
+      "datePublished": "2026-09-04T16:09:59+00:00",
+      "dateModified": "2026-09-04T16:09:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-stazione-gallarate-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-aumento-bollette-varese-frontalieri': {
+    title: 'Bollette +39% a Varese: impatto frontalieri | Frontaliere Ticino',
+    description: 'Aumenti bollette del 39% stimati in provincia di Varese per autunno-inverno 2026. Impatto su frontalieri Ticino-Varese: strategie di risparmio e pianificazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, varese, impatto, autunno',
+    ogTitle: 'Bollette +39% a Varese: come impatta frontalieri',
+    ogDescription: 'La provincia di Varese si prepara a una stangata energetica con aumenti stimati del 39% per autunno e inverno 2026. Cosa significa per frontalieri che lavorano in Canton Ticino, strategie di risparmio e pianificazione del budget.',
+    canonicalPath: '/articoli-frontaliere/aumento-bollette-varese-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollette +39% a Varese: impatto frontalieri",
+      "description": "Aumenti bollette del 39% stimati in provincia di Varese per autunno-inverno 2026. Impatto su frontalieri Ticino-Varese: strategie di risparmio e pianificazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-bollette-varese-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soggiorno residenziale nella provincia di Varese con veduta autunnale verso i monti del Canton Ticino"
+      },
+      "datePublished": "2026-09-04T18:05:43+00:00",
+      "dateModified": "2026-09-04T18:05:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-bollette-varese-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-varese-export-q1-2026': {
+    title: 'Varese prima in Lombardia con export +23,2% | Frontaliere Ticino',
+    description: 'Nel Q1 2026 Varese domina l\'export regionale +23,2%. Aerospazio boom +111,9%, ma cassa integrazione straordinaria cresce del 14,9%. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, prima, lombardia, export',
+    ogTitle: 'Varese prima in Lombardia con export +23,2%',
+    ogDescription: 'Nel primo trimestre 2026 la provincia di Varese vola con export +23,2% vs 2025. Aerospazio trainante (+111,9%), ma cassa integrazione straordinaria sale del 14,9%. Cosa significa per i frontalieri di confine.',
+    canonicalPath: '/articoli-frontaliere/varese-export-q1-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese prima in Lombardia con export +23,2%",
+      "description": "Nel Q1 2026 Varese domina l'export regionale +23,2%. Aerospazio boom +111,9%, ma cassa integrazione straordinaria cresce del 14,9%. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/varese-export-q1-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta aerea dell'area frontaliera Ticino-Italia con paesaggio industriale della provincia di Varese e valli alpine"
+      },
+      "datePublished": "2026-09-04T18:33:31+00:00",
+      "dateModified": "2026-09-04T18:33:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-export-q1-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-svizzera-italiano-guida-permessi': {
+    title: 'Trasferirsi in Svizzera da italiano: guida ai permessi',
+    description: 'Permesso B, fiscalità svizzera, AVS e LAMal: guida completa ai passaggi amministrativi e fiscali per trasferirsi dall\'Italia in Svizzera come residente.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, permessi, permesso',
+    ogTitle: 'Trasferirsi in Svizzera da italiano: guida ai permessi',
+    ogDescription: 'Scopri come trasferirsi in Svizzera dall\'Italia. Guida ai permessi B, fiscalità, AVS, LPP e LAMal. Confronto frontaliere vs residente. Checklist completa e procedure amministrative.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-svizzera-italiano-guida-permessi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi in Svizzera da italiano: guida ai permessi",
+      "description": "Permesso B, fiscalità svizzera, AVS e LAMal: guida completa ai passaggi amministrativi e fiscali per trasferirsi dall'Italia in Svizzera come residente.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-svizzera-italiano-guida-permessi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano dal Ceresio: destinazione comune per trasferimenti dall'Italia"
+      },
+      "datePublished": "2026-09-04T18:58:35+00:00",
+      "dateModified": "2026-09-04T18:58:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-svizzera-italiano-guida-permessi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trasferirsi-non-frontaliere-guida': {
+    title: 'Trasferirsi in Svizzera da italiano: la guida | Frontaliere Ticino',
+    description: 'Permesso G/B, LAMal, AVS, ricerca casa in Ticino, INPS coordinamento: procedura completa per italiani non frontalieri che si trasferiscono in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferirsi, italiano, permesso, lamal',
+    ogTitle: 'Trasferirsi in Svizzera: guida per italiani non frontalieri',
+    ogDescription: 'Scopri come trasferirsi in Svizzera da italiano non frontaliere: Permesso G/B, cercare casa in Ticino, LAMal obbligatoria, imposta alla fonte, ristorni nuovo accordo 2024, INPS coordinamento. Checklist primo mese e calcolatore stipendio svizzero.',
+    canonicalPath: '/articoli-frontaliere/trasferirsi-non-frontaliere-guida',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferirsi in Svizzera da italiano: la guida",
+      "description": "Permesso G/B, LAMal, AVS, ricerca casa in Ticino, INPS coordinamento: procedura completa per italiani non frontalieri che si trasferiscono in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/trasferirsi-non-frontaliere-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano e del Ticino, destinazione per italiani che si trasferiscono in Svizzera"
+      },
+      "datePublished": "2026-09-04T19:27:02+00:00",
+      "dateModified": "2026-09-04T19:27:02+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferirsi-non-frontaliere-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
