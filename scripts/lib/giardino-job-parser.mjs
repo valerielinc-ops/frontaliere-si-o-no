@@ -330,8 +330,16 @@ export function jobTitleKey(raw = '') {
  * find its own translation. Title keys that are not unique are dropped: two
  * jobs sharing a normalized title cannot be told apart, and a wrong apply link
  * is worse than a German one.
+ *
+ * The uniqueness check is BILATERAL, hence `deListings`. Slugs carry a hotel
+ * prefix (`gm-steward`, `gl-steward-m-w`) but titles do not, so two GERMAN ads
+ * for the same role in different hotels collapse onto one title key. If only
+ * one of them is translated, both would match that single English link and the
+ * apply link of the untranslated one would point at ANOTHER hotel's job — the
+ * exact "wrong apply link" this index exists to avoid. A key ambiguous on
+ * either side is dropped; the exact-slug lookup is unaffected.
  */
-export function buildEnglishIndex(enListings = []) {
+export function buildEnglishIndex(enListings = [], deListings = []) {
   const bySlug = new Map();
   const byTitle = new Map();
   const ambiguous = new Set();
@@ -348,6 +356,17 @@ export function buildEnglishIndex(enListings = []) {
     else byTitle.set(key, link);
   }
   for (const key of ambiguous) byTitle.delete(key);
+
+  // Lato tedesco: conta le occorrenze di ogni title-key e scarta quelle ripetute.
+  const deCounts = new Map();
+  for (const item of Array.isArray(deListings) ? deListings : []) {
+    const key = jobTitleKey(item?.title?.rendered || '');
+    if (!key) continue;
+    deCounts.set(key, (deCounts.get(key) || 0) + 1);
+  }
+  for (const [key, count] of deCounts) {
+    if (count > 1) byTitle.delete(key);
+  }
 
   return { bySlug, byTitle };
 }
@@ -427,7 +446,7 @@ export async function fetchAllGiardinoJobs() {
   console.log(`  📋 WordPress jobs found: ${listings.length}`);
   warnIfListingAtCap({ label: 'Giardino Group WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
 
-  const enIndex = buildEnglishIndex(await fetchEnglishListings());
+  const enIndex = buildEnglishIndex(await fetchEnglishListings(), listings);
   console.log(`  🌐 English permalinks available: ${enIndex.bySlug.size}`);
 
   const jobs = [];

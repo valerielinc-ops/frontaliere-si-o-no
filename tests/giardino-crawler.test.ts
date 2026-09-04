@@ -406,6 +406,51 @@ describe('buildEnglishIndex', () => {
     expect(buildEnglishIndex([]).bySlug.size).toBe(0);
     expect(buildEnglishIndex(undefined).byTitle.size).toBe(0);
   });
+
+  // Slug prefissati per hotel (`gm-`/`gl-`) ma titoli nudi: due annunci TEDESCHI
+  // collassano sullo stesso title-key. Se solo uno e' tradotto, il ramo byTitle
+  // manderebbe entrambi sull'unico link inglese — apply link di un ALTRO hotel.
+  it('drops title keys ambiguous on the GERMAN side too', () => {
+    const deListings = [
+      { slug: 'gm-steward', title: { rendered: 'Steward (m/w)' } },
+      { slug: 'gl-steward-m-w', title: { rendered: 'Steward (m/w)' } },
+    ];
+    const index = buildEnglishIndex(EN_LISTINGS, deListings);
+    expect(index.byTitle.has('steward')).toBe(false);
+    // lo slug-exact resta intatto: e' una corrispondenza univoca, non un indovinello
+    expect(index.bySlug.get('steward-m-f')).toBe(
+      'https://giardinohotels.ch/en/jobs/steward-m-f/',
+    );
+  });
+
+  it('keeps title keys unique on the German side', () => {
+    const index = buildEnglishIndex(EN_LISTINGS, [
+      { slug: 'staff-cook-m-w', title: { rendered: 'Staff Cook (m/w)' } },
+    ]);
+    expect(index.byTitle.get('staff cook')).toBe(
+      'https://giardinohotels.ch/en/jobs/staff-cook-m-f/',
+    );
+  });
+
+  it('a German collision makes the untranslated ad fall back to its German permalink', () => {
+    const deListings = [
+      { slug: 'gm-steward', title: { rendered: 'Steward (m/w)' } },
+      { slug: 'gl-steward-m-w', title: { rendered: 'Steward (m/w)' } },
+    ];
+    const index = buildEnglishIndex(EN_LISTINGS, deListings);
+    // 'gl-steward-m-w' non e' tradotto: senza il de-dup bilaterale avrebbe
+    // ereditato il permalink inglese di un altro hotel.
+    expect(
+      resolvePublicUrl(
+        {
+          slug: 'gl-steward-m-w',
+          title: { rendered: 'Steward (m/w)' },
+          link: 'https://giardinohotels.ch/de/jobs/gl-steward-m-w/',
+        },
+        index,
+      ),
+    ).toBe('https://giardinohotels.ch/de/jobs/gl-steward-m-w/');
+  });
 });
 
 describe('resolvePublicUrl', () => {
