@@ -42,8 +42,12 @@ export const GIARDINO_COMPANY_NAME = 'Giardino Group';
 export const GIARDINO_COMPANY_DOMAIN = 'giardinohotels.ch';
 
 const LISTING_PAGE_CAP = 50;
-const API_URL = `https://giardinohotels.ch/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 const SITE_BASE = 'https://giardinohotels.ch';
+const API_URL = `${SITE_BASE}/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
+// English translations live behind their own locale-prefixed REST route, with
+// their own slugs — the only place the real /en/ permalink can be read from.
+// locale-segment-ok: rotta REST del sito ESTERNO giardinohotels.ch (WPML), non un path per-locale nostro
+const EN_API_URL = `${SITE_BASE}/en/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
 
 /* ── Hotel → location mapping ─────────────────────────────── */
 
@@ -294,12 +298,99 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── Build English public URL ─────────────────────────────── */
 
 /**
- * Build the English public URL for a job from its WordPress slug.
- * The WP API returns German links (e.g. /de/jobs/gl-steward-m-w/),
- * but the English version is available at /en/jobs/{slug}/.
+ * Build the English public URL for a job from its ENGLISH WordPress slug.
+ *
+ * Only safe with a slug that exists in the English listing: WPML gives each
+ * translation its own slug (`staff-cook-m-w` in German, `staff-cook-m-f` in
+ * English), and /en/jobs/{german-slug}/ answers 200 with the site HOMEPAGE,
+ * not the job — a silently dead apply link. Use resolvePublicUrl().
  */
-export function buildPublicUrl(wpSlug) {
-  return `${SITE_BASE}/en/jobs/${wpSlug}/`;
+export function buildEnglishUrl(enSlug) {
+  // locale-segment-ok: permalink WPML del sito esterno, lo slug stesso è quello della versione inglese
+  return `${SITE_BASE}/en/jobs/${enSlug}/`;
+}
+
+/**
+ * Normalize a job title into a translation-agnostic match key.
+ *
+ * The German and English versions of the same post differ only in the gender
+ * marker ("Steward (m/w)" vs "Steward (m/f)"), so that marker must not defeat
+ * the match; everything else in these titles is already English.
+ */
+export function jobTitleKey(raw = '') {
+  return decodeWpEntities(raw)
+    .toLowerCase()
+    .replace(/\(\s*[mwfd](?:\s*\/\s*[mwfd])*\s*\)/g, ' ')
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
+ * Index the English listing by slug and by title key, so a German listing can
+ * find its own translation. Title keys that are not unique are dropped: two
+ * jobs sharing a normalized title cannot be told apart, and a wrong apply link
+ * is worse than a German one.
+ *
+ * The uniqueness check is BILATERAL, hence `deListings`. Slugs carry a hotel
+ * prefix (`gm-steward`, `gl-steward-m-w`) but titles do not, so two GERMAN ads
+ * for the same role in different hotels collapse onto one title key. If only
+ * one of them is translated, both would match that single English link and the
+ * apply link of the untranslated one would point at ANOTHER hotel's job — the
+ * exact "wrong apply link" this index exists to avoid. A key ambiguous on
+ * either side is dropped; the exact-slug lookup is unaffected.
+ */
+export function buildEnglishIndex(enListings = [], deListings = []) {
+  const bySlug = new Map();
+  const byTitle = new Map();
+  const ambiguous = new Set();
+
+  for (const item of Array.isArray(enListings) ? enListings : []) {
+    const slug = String(item?.slug || '').trim();
+    const link = String(item?.link || '').trim();
+    if (!slug || !link || !isTrustedDomain(link)) continue;
+    bySlug.set(slug, link);
+
+    const key = jobTitleKey(item?.title?.rendered || '');
+    if (!key) continue;
+    if (byTitle.has(key)) ambiguous.add(key);
+    else byTitle.set(key, link);
+  }
+  for (const key of ambiguous) byTitle.delete(key);
+
+  // Lato tedesco: conta le occorrenze di ogni title-key e scarta quelle ripetute.
+  const deCounts = new Map();
+  for (const item of Array.isArray(deListings) ? deListings : []) {
+    const key = jobTitleKey(item?.title?.rendered || '');
+    if (!key) continue;
+    deCounts.set(key, (deCounts.get(key) || 0) + 1);
+  }
+  for (const [key, count] of deCounts) {
+    if (count > 1) byTitle.delete(key);
+  }
+
+  return { bySlug, byTitle };
+}
+
+/**
+ * Resolve the public URL of a German listing: its English permalink when the
+ * post is translated, otherwise the German permalink the API itself returned
+ * (always a real page). Never a slug pasted into the /en/ path.
+ */
+export function resolvePublicUrl(listing, enIndex) {
+  const wpSlug = String(listing?.slug || '').trim();
+  const bySlug = enIndex?.bySlug instanceof Map ? enIndex.bySlug : new Map();
+  const byTitle = enIndex?.byTitle instanceof Map ? enIndex.byTitle : new Map();
+
+  const bySlugHit = wpSlug ? bySlug.get(wpSlug) : '';
+  if (bySlugHit) return bySlugHit;
+
+  const byTitleHit = byTitle.get(jobTitleKey(listing?.title?.rendered || ''));
+  if (byTitleHit) return byTitleHit;
+
+  const deLink = String(listing?.link || '').trim();
+  if (deLink && isTrustedDomain(deLink)) return deLink;
+  // locale-segment-ok: fallback al permalink TEDESCO del sito esterno, dove vive lo slug non tradotto
+  return wpSlug ? `${SITE_BASE}/de/jobs/${wpSlug}/` : `${SITE_BASE}/de/jobs/`;
 }
 
 /* ── WordPress API Fetch ──────────────────────────────────── */
@@ -315,6 +406,22 @@ export function buildPublicUrl(wpSlug) {
 function fetchJobListings() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   return fetchJson(API_URL, { timeoutMs, label: 'Giardino Group wp-json job-listings' });
+}
+
+/**
+ * Fetch the English listing, used only to resolve permalinks. A failure here
+ * degrades the apply links to their German permalink — it must never fail the
+ * crawl, since the German listing is the source of truth for the jobs.
+ */
+async function fetchEnglishListings() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  try {
+    const listings = await fetchJson(EN_API_URL, { timeoutMs, label: 'Giardino Group wp-json job-listings (en)' });
+    return Array.isArray(listings) ? listings : [];
+  } catch (err) {
+    console.warn(`⚠️ English job listing unavailable (${err?.message || err}) — falling back to German permalinks.`);
+    return [];
+  }
 }
 
 /* ── Main Fetch ───────────────────────────────────────────── */
@@ -339,11 +446,13 @@ export async function fetchAllGiardinoJobs() {
   console.log(`  📋 WordPress jobs found: ${listings.length}`);
   warnIfListingAtCap({ label: 'Giardino Group WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
 
+  const enIndex = buildEnglishIndex(await fetchEnglishListings(), listings);
+  console.log(`  🌐 English permalinks available: ${enIndex.bySlug.size}`);
+
   const jobs = [];
   for (const listing of listings) {
     // WordPress REST API fields
     const wpTitle = decodeWpEntities(listing.title?.rendered || '');
-    const wpSlug = listing.slug || '';
     const contentHtml = listing.content?.rendered || '';
     const categories = listing.categories || [];
     const wpDate = listing.date || '';
@@ -368,8 +477,8 @@ export async function fetchAllGiardinoJobs() {
     // Build structured description
     const description = buildDescription(sections, title, hotelKey, city);
 
-    // Public URL — use English version
-    const publicUrl = buildPublicUrl(wpSlug);
+    // Public URL — English permalink when translated, German one otherwise
+    const publicUrl = resolvePublicUrl(listing, enIndex);
 
     // Stable ID from WordPress post ID
     const idHash = createHash('sha1')
