@@ -108,6 +108,41 @@ const ORPHAN_MIN_AGE_MIN = 30;
 // incatenare il drain a un fix già finito.
 const SETTLE_MIN = Number(process.env.FOLLOWUP_SETTLE_MIN || 3);
 
+// Quante run `issue-fix` possono essere vive insieme. Era 1 hard-coded — un
+// mutex, non un cap — e con una mediana di 25 min per run piu' il tick di 20
+// min del drainer il tetto teorico era ~32 fix/giorno, ma l'osservato e' ~13.
+//
+// Alzato a 3 su istruzione diretta del proprietario (2026-09-04), con le due
+// misure che dicono che c'e' spazio: al momento del cambio 1 sola PR aperta sul
+// sito, e nessun backoff di quota attivo (`check-quota-backoff.mjs`:
+// `quota_blocked=false`). Il vincolo noto a valle e' la coda CI, che degrada
+// sopra ~5 PR aperte insieme: con 3 run vive le PR aperte restano nella banda
+// sicura.
+//
+// KILL-SWITCH: `FOLLOWUP_MAX_INFLIGHT_FIX=1` ripristina esattamente il
+// comportamento precedente, senza toccare il codice (VISION.md D4: ogni
+// consumer di quota nasce con cap, kill-switch e telemetria — la telemetria e'
+// la riga `in-flight=N/M` nel log di ogni run).
+//
+// `Number.isFinite` e non `Math.max(1, Number(...))`: con un valore non
+// numerico (`FOLLOWUP_MAX_INFLIGHT_FIX=nonsense`) `Number()` da' `NaN`, e
+// `Math.max(1, NaN)` e' `NaN` — ogni confronto con NaN e' falso, quindi il
+// guard NON avrebbe fermato niente e il drain avrebbe promosso l'INTERA coda in
+// un tick. Un refuso in env che disarma il cap invece di ripristinare il
+// default e' il verso sbagliato in cui sbagliare; trovato dal test
+// `un valore assurdo non disarma il guard`.
+// Due casi sbagliati, due esiti DIVERSI di proposito:
+//  - valore NON NUMERICO (refuso): si comporta come variabile assente → default.
+//    Non deve mai diventare `NaN`, che disarmerebbe il cap.
+//  - valore numerico FUORI RANGE (`0`, negativo): e' una richiesta esplicita di
+//    «il meno possibile», tipicamente durante un incidente. Si porta a 1, MAI al
+//    default: dare 3 a chi ha scritto 0 per frenare sarebbe il contrario di
+//    quello che ha chiesto.
+const RAW_MAX_INFLIGHT_FIX = Number(process.env.FOLLOWUP_MAX_INFLIGHT_FIX);
+const MAX_INFLIGHT_FIX = Number.isFinite(RAW_MAX_INFLIGHT_FIX)
+  ? Math.max(1, Math.floor(RAW_MAX_INFLIGHT_FIX))
+  : 3;
+
 const LBL_QUEUED = 'agent:fix-queued';
 const LBL_FIX = 'agent:fix';
 const LBL_PARKED = 'fu-parked';
@@ -2270,12 +2305,13 @@ export function runDrain() {
   // il resto della funzione calcola e logga cosa accadrebbe SE lo slot fosse
   // libero, invece di uscire muta.
   const inflight = inFlightFixCount();
-  if (inflight > 0) {
+  const freeSlots = Math.max(0, MAX_INFLIGHT_FIX - inflight);
+  if (freeSlots === 0) {
     if (!DRY) {
-      console.log(`slot issue-fix occupato (in-flight=${inflight}) → nessuna azione.`);
+      console.log(`slot issue-fix occupati (in-flight=${inflight}/${MAX_INFLIGHT_FIX}) → nessuna azione.`);
       return;
     }
-    console.log(`[dry] slot issue-fix occupato (in-flight=${inflight}) → in modalità reale l'esecuzione si fermerebbe qui; continuo a mostrare la preview ipotetica (nessuna mutazione: --dry-run).`);
+    console.log(`[dry] slot issue-fix occupati (in-flight=${inflight}/${MAX_INFLIGHT_FIX}) → in modalità reale l'esecuzione si fermerebbe qui; continuo a mostrare la preview ipotetica (nessuna mutazione: --dry-run).`);
   }
 
   // --- RESCUE + PARK: agent:fix orfani (nessuna PR, nessuna run, vecchi) -------
@@ -2285,15 +2321,39 @@ export function runDrain() {
   // 'queue': ogni categoria tranne crawler, dal 2026-07-05) per non toccare i
   // crawler agent:fix (production-critical, route diretto, gestione separata).
   const allFix = listIssues(LBL_FIX);
-  const stuckFix = allFix.filter(
+
+  // INVARIANTE DEI RESCUE: `inflight === 0`.
+  //
+  // Tutto il codice qui sotto e' scritto assumendo che nessuna run `issue-fix`
+  // sia viva — il commento dentro il ciclo lo dice testualmente («ha gia'
+  // garantito che NESSUNA run e' queued/in_progress»), e prima del cap
+  // configurabile era vero per costruzione, perche' il guard faceva `return`
+  // con `inflight > 0`. Con `freeSlots > 0` e `inflight` 1 o 2 quell'invariante
+  // cade, e il costo e' concreto: una issue `agent:fix` con la run VIVA da 35
+  // min e la PR non ancora aperta ha `latestFixOutcome() === null` e
+  // `isSettlingPromotion()` falso (35 min > SETTLE_MIN), quindi supererebbe
+  // `ORPHAN_MIN_AGE_MIN` (30) e verrebbe classificata ORFANA: re-queue o park,
+  // tentativo consumato mentre il fix sta lavorando, e al tick dopo una seconda
+  // run sulla stessa issue. Non e' ipotetico sulla nostra distribuzione — il
+  // p90 dei run e' 37 min, sopra la soglia di 30.
+  //
+  // Quindi i rescue girano SOLO a slot completamente liberi: identico al
+  // comportamento di prima del cap, nessuna finestra nuova. Il drain sotto,
+  // che non ha quell'assunzione, continua a lavorare a ogni tick.
+  const rescueSafe = inflight === 0;
+  if (!rescueSafe) {
+    console.log(`rescue orfani/crawler saltati: ${inflight} run issue-fix vive (l'invariante dei rescue e' inflight===0; il drain prosegue).`);
+  }
+
+  const stuckFix = rescueSafe ? allFix.filter(
     (i) => isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED)
-  );
+  ) : [];
   // Il complemento esatto di `stuckFix` dentro `agent:fix`: i crawler
   // (`route='fix'`, unica categoria non queue-managed). Erano l'unica categoria
   // che nessuno strato di recupero guardava — vedi `crawlerFixDecision` (#5514).
-  const crawlerFix = allFix.filter(
+  const crawlerFix = rescueSafe ? allFix.filter(
     (i) => !isQueueManaged(i) && !has(i, LBL_QUEUED) && !has(i, LBL_PARKED) && !has(i, 'needs-human')
-  );
+  ) : [];
   // Promozioni "in assestamento": un agent:fix follow-up giovane e senza PR ha
   // la run viva OPPURE non ancora registrata in `gh run list` (latenza
   // queue→listing di alcuni secondi). In entrambi i casi lo slot issue-fix è
@@ -2633,8 +2693,16 @@ export function runDrain() {
   let overlapSkipped = 0;
   let prFilesMap = null; // lazy: caricato al primo candidato con path estratti, poi cached
 
-  // Promuovi il primo candidato in coda, MA salta (parka) quelli il cui fix è
-  // esclusivamente workflow-scoped (#1724): promuoverli brucerebbe ~1M token in
+  // Quante promozioni sono gia' state fatte in questo tick, e il tetto.
+  // `promoteBudget` NON e' `freeSlots`: in `--dry-run` a slot pieni `freeSlots`
+  // e' 0 ma la preview deve mostrare almeno un candidato — e' l'unico motivo
+  // per cui la si lancia (#5524 item 2). Il `Math.max(1, …)` sta qui, con un
+  // nome, invece di essere ripetuto inline dove andrebbe letto tre volte.
+  const promoteBudget = Math.max(1, freeSlots);
+  let promoted = 0;
+
+  // Promuovi i candidati in coda fino a riempire gli slot, MA salta (parka)
+  // quelli il cui fix è esclusivamente workflow-scoped (#1724): promuoverli brucerebbe ~1M token in
   // un run che il push GitHub-App bloccherebbe comunque (no scope `workflows`).
   // Park preemptivo = stesso esito del NON_RETRYABLE post-hoc, senza il run. Il
   // body serve solo per i candidati realmente considerati → fetch lazy, 1 alla volta.
@@ -2860,12 +2928,29 @@ export function runDrain() {
       }
     }
 
-    console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX}`);
+    console.log(`PROMUOVO #${cand.number} (${has(cand, 'fu-prio:high') ? 'high' : 'low'}) → ${LBL_FIX} [${promoted + 1}/${promoteBudget}]`);
     edit(cand.number, { add: [LBL_FIX], remove: [LBL_QUEUED] });
-    return; // una sola promozione per run (slot issue-fix)
+    promoted += 1;
+    // Si riempiono gli slot liberi calcolati in cima, non uno solo. Il conteggio
+    // in volo non viene ri-letto qui: `inFlightFixCount()` non vedrebbe le run
+    // appena innescate (race di visibilita' label -> run, vedi SETTLE_MIN), e
+    // ri-leggerlo darebbe un numero piu' basso del vero — cioe' promuoverebbe
+    // di piu' del cap. Il budget si calcola UNA volta per run.
+    if (promoted >= promoteBudget) {
+      console.log(`slot riempiti (${promoted}/${promoteBudget} liberi su cap ${MAX_INFLIGHT_FIX}) → stop promozioni per questo tick.`);
+      return;
+    }
   }
   const skipNote = overlapSkipped ? ` + ${overlapSkipped} overlap-file rinviati al prossimo tick` : '';
-  console.log(`coda esaurita (solo candidati parkati${skipNote}) → niente da promuovere.`);
+  // Gated su `promoted === 0`: col cap a piu' di 1 il ciclo puo' esaurire la
+  // coda DOPO aver promosso, e la riga «niente da promuovere» compariva sotto i
+  // `PROMUOVO #N` dello stesso tick. E' la telemetria con cui si giudica
+  // l'effetto del cap: se si contraddice, non serve a niente.
+  if (promoted === 0) {
+    console.log(`coda esaurita (solo candidati parkati${skipNote}) → niente da promuovere.`);
+  } else {
+    console.log(`coda esaurita dopo ${promoted} promozione/i (budget ${promoteBudget}, cap ${MAX_INFLIGHT_FIX}${skipNote}).`);
+  }
 }
 
 // Esegui solo come CLI (non quando importato dai test → evita di lanciare gh).
