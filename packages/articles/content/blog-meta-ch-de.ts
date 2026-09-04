@@ -5386,6 +5386,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Geschäftstätigkeit Thurgau eröffnen: Handelsregister und Kosten',
     'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Praktischer Leitfaden zur Unternehmensgründung im Kanton Thurgau: Anmeldeverfahren, Rechtsformen, Bundes- und Kantonsbesteuerung, Suva- und Vorsorgepflichten.',
     'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Schweizer Geschäftsbüro mit Unterzeichnung eines Handelsregistrierungsdokuments; moderner professioneller Arbeitsplatz.',
+    'blog.article.imposte-cantonali-vaud-aliquote.title': 'Kantonale Steuern im Kanton Waadt: Steuersätze und Abzüge',
+    'blog.article.imposte-cantonali-vaud-aliquote.excerpt': '3-stufiges Steuersystem, progressive Steuersätze für Einkommensstufen, zulässige Abzüge und offizielles Portal des Kantons Waadt für Erklärungen.',
+    'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Verwaltungsgebäude des Kantons Waadt in der Schweiz',
 };
 
 export default blogMetaChDe;

@@ -5386,6 +5386,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Aprire attività Turgovia: registro commercio e costi',
     'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Guida pratica a fondare impresa nel Cantone Turgovia: procedure di iscrizione, forme giuridiche, tassazione federale e cantonale, obblighi SUVA e previdenza.',
     'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Ufficio commerciale svizzero con sottoscrizione di documento di registrazione attività; ambiente professionale moderno.',
+    'blog.article.imposte-cantonali-vaud-aliquote.title': 'Imposte cantonali nel canton Vaud: aliquote e deduzioni',
+    'blog.article.imposte-cantonali-vaud-aliquote.excerpt': 'Sistema fiscale a 3 livelli, aliquote progressive per scaglioni di reddito, deduzioni ammesse e portale ufficiale del canton Vaud per le dichiarazioni.',
+    'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Edificio amministrativo svizzero del cantone Vaud con vista della città',
 };
 
 export default blogMetaChIt;

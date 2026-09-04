@@ -5386,6 +5386,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.fondare-impresa-turgovia-procedura-costi.title': 'Ouvrir l\'activité Thurgovie : registre du commerce et des coûts',
     'blog.article.fondare-impresa-turgovia-procedura-costi.excerpt': 'Guide pratique pour créer une entreprise dans le canton de Thurgovie : procédures d\'inscription, formes juridiques, fiscalité fédérale et cantonale, obligations SUVA et prévoyance.',
     'blog.article.fondare-impresa-turgovia-procedura-costi.imageAlt': 'Bureau commercial suisse avec signature d\'un document d\'enregistrement commercial; environnement de travail professionnel moderne.',
+    'blog.article.imposte-cantonali-vaud-aliquote.title': 'Impôts cantonaux dans le canton de Vaud : taux et déductions',
+    'blog.article.imposte-cantonali-vaud-aliquote.excerpt': 'Système fiscal à 3 niveaux, taux progressifs par tranches de revenus, déductions admises et portail officiel du canton de Vaud pour les déclarations.',
+    'blog.article.imposte-cantonali-vaud-aliquote.imageAlt': 'Bâtiment administratif du canton de Vaud en Suisse romande',
 };
 
 export default blogMetaChFr;

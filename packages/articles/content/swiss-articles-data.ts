@@ -16156,6 +16156,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'imposte-cantonali-vaud-aliquote',
+    category: 'fiscale',
+    date: '2026-09-04T03:23:19.992Z',
+    image: '/images/blog/imposte-cantonali-vaud-aliquote.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
