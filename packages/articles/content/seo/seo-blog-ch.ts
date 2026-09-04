@@ -69908,6 +69908,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposte-cantonali-vaud-aliquote': {
+    title: 'Imposte cantonali nel canton Vaud: aliquote e deduzioni',
+    description: 'Guida alle imposte cantonali del Vaud: sistema a 3 livelli, aliquote progressive, deduzioni ammesse, portale online e scadenze per la dichiarazione dei redditi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposte, cantonali, canton, vaud',
+    ogTitle: 'Imposte cantonali Vaud: aliquote e deduzioni 2026',
+    ogDescription: 'Scopri come funziona il sistema fiscale cantonale del Vaud, le aliquote progressive per scaglioni di reddito, le deduzioni autorizzate e come dichiarare le imposte online. Guida completa con scadenze e informazioni sul portale ufficiale.',
+    canonicalPath: '/articoli-svizzera/imposte-cantonali-vaud-aliquote/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposte cantonali nel canton Vaud: aliquote e deduzioni",
+      "description": "Guida alle imposte cantonali del Vaud: sistema a 3 livelli, aliquote progressive, deduzioni ammesse, portale online e scadenze per la dichiarazione dei redditi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposte-cantonali-vaud-aliquote.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio amministrativo svizzero del cantone Vaud con vista della città"
+      },
+      "datePublished": "2026-09-04T03:23:20+00:00",
+      "dateModified": "2026-09-04T03:23:20+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposte-cantonali-vaud-aliquote/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

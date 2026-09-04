@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Fri, 04 Sep 2026 02:48:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 04 Sep 2026 03:23:20 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,47 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Cantonal taxes in the canton of Vaud: rates and deductions</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/canton-vaud-cantonal-tax-rates/</link>
+      <description><![CDATA[3-tier tax system, progressive rates for income brackets, allowable deductions and official portal of the canton of Vaud for declarations.]]></description>
+      <content:encoded><![CDATA[## In short
+- 3-level system: federal + cantonal + municipal multiplier
+- Progressive rates according to income and wealth brackets
+- Authorized deductions (3a, professional expenses, mortgage interest)
+- Declaration by 31 May of the year following the tax period
+
+## Key facts
+- **What**: Cantonal and municipal taxes on income and wealth in the canton of Vaud
+- Where: Canton of Vaud, Romandy, Switzerland
+- System: 3 tax levels (federal, cantonal, municipal)
+- Structure: Progressive brackets defined by the canton + variable municipal multiplier
+- Portal: Cantonal tax administration publishes rates, multipliers, and forms
+
+The canton of Vaud applies a system of cantonal and municipal taxes structured according to Swiss federal legislation: three levels of taxation (federal, cantonal, municipal). Unlike countries with a centralized tax system, Switzerland grants each canton the autonomy to define rates, brackets, and authorized deductions. The municipalities of Vaud subsequently add a percentage multiplier to the cantonal taxes, which results in variations even between neighboring municipalities.
+
+Vaud cantonal taxes apply to personal income, wealth, and, for business owners, business profits. Gross income is reduced by authorized deductions (pension contributions, professional expenses, mortgage interest, donations); the resulting net income is taxed at progressive rates defined by the canton. Two residents with the same income in two Vaud municipalities may pay slightly different amounts, as the municipal multiplier varies from one municipality to another.
+
+### The progressive bracket system
+
+The rates of the canton of Vaud increase by income brackets: lower incomes pay reduced percentages, higher incomes pay increasing rates. A resident can consult the updated brackets annually on the portal of the cantonal tax administration. In addition to income, there is a separate wealth tax (real estate, accounts, investments) also divided into value brackets. The municipal multiplier — a percentage coefficient set by each municipality — applies to both income tax and wealth tax. Two Vaud municipalities can have different multipliers (for example, one at 120%, the other at 135%), so the taxpayer's residence significantly affects the final tax. The cantonal administration publishes an official table annually with brackets, rates, and municipal multipliers. The income tax return must be filed by the end of May of the year following the tax period, unless there are official extensions.
+The canton of Vaud recognises an extensive catalogue of authorised deductions, in line with Swiss federal law and with specific cantonal additions. The main deductions common to all Swiss cantons, including Vaud, include payments to the third pension pillar (3a), up to the annual ceiling set federally and indexed each year.
+
+Those who practice a self-employed or freelance profession can deduct documented professional expenses and costs of continuous training. Property owners deduct interest expense on mortgages related to the primary residence. Compulsory contributions to unemployment (AD) and accident (LAINF/AC) insurance, already withheld in the paycheck, are recognised as deductions. Donations to recognised non-profit organisations are deductible up to a cantonal ceiling.
+
+### Check deductions in Vaud
+
+As the federal and cantonal regulatory framework is frequently updated, it is crucial that every resident consults the official canton Vaud portal before filing taxes. The site of the cantonal tax administration provides an exhaustive list of authorized deductions, the maximum amounts applicable, the conditions of application and the documents to be attached. Many deductions require supporting documentation (social security contribution certificates, mortgage statements, donation receipts); without this documentation the deduction is not accepted.
+
+## Recommended tools
+For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
+Tax declaration in the canton of Vaud follows a standardized procedure, made easier by the online services of the cantonal tax administration. The general deadline for submitting the declaration is May 31 of the year following the tax period (May 31, 2025 for the 2024 income, and so on). Late declaration incurs an administrative fine; it is therefore important to respect the deadline, unless official extensions are granted by the canton. Step-by-step: how to declare in Vaud Before declaring, the resident must gather income certificates (pay slips, self-employment certificates), bank account statements, receipts for deductible expenses (donations, mortgage interest, pension contributions), and asset documents (deposit statements, property value declarations). The cantonal administration provides paper forms and fillable online versions. The form requires personal data, income by source, itemized deductions, declared assets, and estimated tax calculation based on cantonal brackets and the municipal multiplier. The declaration can be submitted online via the cantonal portal, by mail, or in person at the cantonal tax office; online submission reduces processing times. The cantonal administration reviews the declaration and, if correct, issues an official assessment with the amount due. In case of discrepancies or lack of documentation, the taxpayer receives a request for clarification. The official website of the Vaud cantonal tax administration (www.vd.ch — dedicated tax section) hosts all necessary information: updated brackets, rates, and municipal multipliers, list of authorized deductions, declaration forms, payment deadline guide, FAQ, and local office contacts. It is advisable to consult the official portal before each declaration to verify any regulatory or administrative changes. Many residents also use private tax consulting services or seek help from unions and professional associations, which often offer free assistance in filling out the forms. For a preliminary estimate of your tax burden in the canton of Vaud, you can use the online [tax calculator](nav:calculator), which applies the municipal multipliers and updated rates for a quick assessment.]]></content:encoded>
+      <pubDate>Fri, 04 Sep 2026 03:23:20 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/imposte-cantonali-vaud-aliquote</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/imposte-cantonali-vaud-aliquote.webp" medium="image"/>
+    </item>
     <item>
       <title>Open business Thurgau: trade register and costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/founding-business-thurgau-procedure-costs/</link>
@@ -3364,84 +3405,6 @@ Consultation with a Thurgau notary remains the safest step to understand the tot
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/comprare-casa-turgovia-mutuo</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/comprare-casa-turgovia-mutuo.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Health insurance premiums Canton Thurgau: reduction</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/health-insurance-premiums-canton-aargau-reduction/</link>
-      <description><![CDATA[How to get the LAMal premium reduction in the canton of Thurgau: available deductibles, subsidy requirements and procedures to apply for the cantonal benefit.]]></description>
-      <content:encoded><![CDATA[## In brief
-- LAMal is mandatory for all Swiss residents within 3 months
-- Available deductibles: from CHF 300 to CHF 2500 per year
-- Premium reduction: cantonal subsidy upon annual application
-- Procedure: contact the competent cantonal administrative office
-
-- **What**: Mandatory health insurance with premium reduction option
-- When: Enrollment within 3 months; annual subsidy application, renewal recommended before expiration
-- Where: Canton of Thurgau — cantonal administration
-- Who: Residents with income and assets within cantonal thresholds
-- Deductibles: CHF 300, 500, 1000, 1500, 2000, 2500 per year
-- Reduction: Based on income, assets, family composition
-
-In the Canton of Thurgau, as in the rest of Switzerland, mandatory health insurance (LAMal, known as KVG in German) is a central aspect of the national healthcare system. Every resident is required to take out a policy with a private insurer within three months of arriving in Switzerland. Premiums vary based on several factors: the canton of residence, the region, age, gender, and the chosen coverage model. In addition to the basic premiums, residents have a crucial tool to reduce the economic burden: premium reduction, financed through a cantonal subsidy.
-
-### LAMal in the Canton of Thurgau: structure and obligations
-
-LAMal in Switzerland is not a contributory system funded by the employer, but a private policy with per capita premiums, taken out directly between the insured and the insurance company. Each canton, including Thurgau, sets the coverage obligation for its residents, while management remains at the private level. Premiums consist of two elements: the basic premium (monthly or annual) and the deductible. The deductible represents the amount the insured must pay out of pocket before the insurer starts covering medical expenses.
-
-In the Canton of Thurgau, as in the rest of Switzerland, the available deductibles are CHF 300, CHF 500, CHF 1000, CHF 1500, CHF 2000, and CHF 2500 per year. A higher deductible allows for a lower monthly basic premium, and vice versa: the choice depends on personal needs and financial capacity. Those who expect few medical visits can opt for a high deductible and save on the annual premium; those with regular health needs prefer a low deductible, accepting a higher basic premium.
-
-### Coverage models and alternatives in Thurgau
-
-In Thurgau, several insurance companies operate with varying offers. In addition to the basic model (free choice of doctor), there are alternative models such as insurance with a mandatory primary care physician or limited access to certain hospitals and specialists. These models offer lower premiums compared to the basic model because they limit the freedom of choice and allow the insurer to better manage costs. The choice is individual: those who accept having a primary care physician or limited access benefit from significant savings on the monthly premium. Once the model and deductible are chosen, the premiums are communicated by the insurer and remain fixed until the annual contract expiration. Each year, usually between September and November, insurers communicate the new premiums for the following year, reflecting the adjustment to medical costs and market dynamics at the cantonal level.
-## Cantonal subsidies: how premium reduction works
-
-The reduction of premiums is the first tool that the Swiss system makes available to contain the economic burden of LAMal, especially for residents with modest or medium income. This is not an automatic discount by the insurer, but a cantonal subsidy provided by the Canton of Thurgau directly to the eligible resident. The subsidy is not the same for everyone: it depends on gross and net income, assets, the number of dependants and the composition of the household.
-
-Each canton sets its own criteria and maximum subsidy amounts, based on a federal law that guarantees a minimum level of protection. In Thurgau, these criteria are defined by the competent cantonal administration, typically the Department of Health or an office dedicated to health subsidies. The federal system provides that the insured's net premium (gross premium minus subsidy) does not exceed a percentage of the net income of the household, ensuring that no one is excluded from coverage for economic reasons.
-
-### Eligibility criteria and subsidy calculation
-
-To obtain the premium reduction in Thurgau, the resident must comply with specific criteria related to:
-
-- **Income**: the gross annual income must fall within a maximum threshold set by the canton, which varies according to the number of people in the household (adults, spouses, children).
-- Equity: Equity also
-
-## Useful tools to protect your net income
-To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
-## Step-by-step procedure: how to apply for the premium reduction in Thurgau
-
-To concretely obtain the premium reduction in Thurgau, it is necessary to follow a precise procedure. Although the application can theoretically be submitted at any time of the year, it is advisable to act before the deadline to obtain the subsidy as soon as possible and reduce the economic burden of payments.
-
-**Step 1: Gather documentation**
-
-Prepare all the necessary documentation before submitting the application: copy of the tax return from the previous year (or extract of taxable income), residence certificate issued by the municipality of residence, copy of the LAMal insurance policy or enrollment document with the insurer, any additional income documents (pay slips, bank statements, employment contracts), asset documentation if required, official application form for the Canton of Thurgau downloadable from the administrative portal.
-
-Step 2: Check preliminary eligibility
-
-Consult the website of the Thurgau cantonal administration for a quick estimate of eligibility. Many Swiss cantons offer an online calculator that allows you to enter income and family composition to obtain an estimate of the subsidy amount you are entitled to. This tool provides a first orientation and helps to evaluate whether to proceed with the formal application.
-
-Step 3: Fill out and submit the application
-
-Download the application form from the cantonal administration website or pick it up at the physical counter. Carefully fill out all required fields: personal data, income, assets, family composition, information on the current LAMal policy. Attach the documentation listed in Step 1. Submit the application at the counter of the competent cantonal office (Department of Health or Health Subsidies Office) or send it by registered mail or email, if the canton allows it. Always keep a copy of the application and the delivery receipt.
-
-Step 4: Monitor processing
-
-The cantonal office will communicate the outcome of the application in writing within 30-60 days from the receipt of the complete request. If the application is approved, you will receive communication of the subsidy amount, the method of disbursement (direct credit to the account or payment to the insurer), and the start date of the subsidized coverage.
-
-Step 5: Mandatory annual review
-
-The subsidy is not permanent: it must be renewed every year, following the same procedure. It is advisable to plan the renewal application before the expiration of the rights acquired in the previous year, to avoid interruptions in subsidized coverage. Many cantons send a reminder communication, but it depends on the office: do not rely on this practice. It is the resident's responsibility to monitor the deadlines.
-
-### Practical tools and support
-
-To deepen the costs of LAMal and compare premiums of different insurers in Thurgau, consult the [LAMal calculator](nav:health) available on this platform. For an overview of the cost of living in Switzerland and the weight of healthcare spending on the family budget, access the [cost of living in Switzerland](nav:cost-of-living).
-
-Calculate your annual health insurance contribution in Thurgau and find out if you are entitled to the premium reduction using our [health cost calculator](nav:calculator). Access the tool for a personalized estimate based on your income, assets, and family composition: in a few minutes, you will have a complete picture of your expenses and possible savings through the cantonal subsidy.]]></content:encoded>
-      <pubDate>Thu, 03 Sep 2026 02:24:34 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/premi-cassa-malati-canton-turgovia-riduzione</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/premi-cassa-malati-canton-turgovia-riduzione.webp" medium="image"/>
     </item>
   </channel>
 </rss>
