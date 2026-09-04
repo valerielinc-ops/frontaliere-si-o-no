@@ -16300,6 +16300,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'nidvaldo-comprare-casa-costi-fiscali',
+    category: 'pratico',
+    date: '2026-09-04T13:14:44.775Z',
+    image: '/images/blog/nidvaldo-comprare-casa-costi-fiscali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

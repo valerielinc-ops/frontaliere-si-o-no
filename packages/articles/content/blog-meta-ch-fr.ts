@@ -5434,6 +5434,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.volkswagen-fornitori-svizzeri.title': 'Volkswagen supprime 50 000 postes : quels fournisseurs suisses risquent ?',
     'blog.article.volkswagen-fornitori-svizzeri.excerpt': 'La restructuration allemande du géant frappera Feintool et quelques autres. Analyse de l\'impact sur la place industrielle suisse selon les analystes zurichois.',
     'blog.article.volkswagen-fornitori-svizzeri.imageAlt': 'Intérieur d\'une installation de production suisse avec équipements de précision et travailleurs',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.title': 'Acheter une maison à Nidwald : prix, hypothèque et fiscalité',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.excerpt': 'Acheter une maison en Suisse nécessite de s\'orienter entre trois niveaux d\'imposition, de prêt hypothécaire et de frais de notaire. Découvrez comment fonctionne le système et comment évaluer la durabilité du prêt.',
+    'blog.article.nidvaldo-comprare-casa-costi-fiscali.imageAlt': 'Maison résidentielle avec jardin dans un paysage alpin suisse avec montagnes en arrière-plan.',
 };
 
 export default blogMetaChFr;
