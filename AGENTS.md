@@ -117,12 +117,25 @@ CI test gate: `npm ci`, `node scripts/assemble-jobs-dataset.mjs --stats`, `node 
   # i file su cui main e' avanzato dopo il tuo branch — che non hai toccato.
   # `git diff` NON elenca i file non tracciati: senza il secondo comando una PR
   # che AGGIUNGE file (moduli nuovi, un test nuovo) seleziona zero test.
-  { git diff --name-only "$(git merge-base origin/main HEAD)"
-    git ls-files --others --exclude-standard; } | sort -u > changed-paths.txt
-  printf 'complete\n' > changed-paths-status.txt
+  # Il merge-base PUO' non risolvere (storia non imparentata, clone shallow che
+  # non arriva all'antenato comune — la classe di worktree che il janitor
+  # insegue): li' la command substitution e' VUOTA, `git diff --name-only ""`
+  # esce non-zero e l'elenco resta parziale. Scriverci sopra `complete` sarebbe
+  # un verde che non ha verificato niente, quindi lo stato diventa `partial` e
+  # il runner ricade sulla suite intera.
+  base="$(git merge-base origin/main HEAD 2>/dev/null || true)"
+  if [ -n "$base" ] && git diff --name-only "$base" > changed-paths.txt; then
+    git ls-files --others --exclude-standard >> changed-paths.txt
+    sort -u -o changed-paths.txt changed-paths.txt
+    printf 'complete\n' > changed-paths-status.txt
+  else
+    : > changed-paths.txt
+    printf 'partial\n' > changed-paths-status.txt
+    echo '⚠️ merge-base con origin/main non risolto → nessuna selezione affidabile, suite intera'
+  fi
   node scripts/ci/run-related-tests.mjs
   ```
-  Il ref **senza punti**, non `<ref>..HEAD` né `<ref>...HEAD`: senza punti git confronta il ref col **working tree**, quindi vede anche le modifiche non ancora committate — cioè esattamente il caso in cui stai per girare i test. Le due forme con i punti confrontano commit contro commit e le perdono. Il runner cammina a ritroso un grafo di import statici dai file cambiati, include sempre i test cambiati, e ricade sulla suite intera solo quando non riesce a provare che il diff è completo — quindi «nessun test selezionato» è un'informazione, non un permesso di saltare il gate. `changed-paths.txt` e `changed-paths-status.txt` sono input del runner e sono gitignorati.
+  Il ref **senza punti**, non `<ref>..HEAD` né `<ref>...HEAD`: senza punti git confronta il ref col **working tree**, quindi vede anche le modifiche non ancora committate — cioè esattamente il caso in cui stai per girare i test. Le due forme con i punti confrontano commit contro commit e le perdono. Il runner cammina a ritroso un grafo di import statici dai file cambiati, include sempre i test cambiati, e ricade sulla suite intera solo quando non riesce a provare che il diff è completo — quindi «nessun test selezionato» è un'informazione, non un permesso di saltare il gate. `changed-paths.txt` e `changed-paths-status.txt` sono input del runner e sono gitignorati. Lo stato è l'unico posto in cui la ricetta dichiara di **sapere** cosa è cambiato: `complete` solo quando il merge-base ha risolto E il `git diff` è uscito zero, altrimenti `partial` con l'elenco svuotato — un elenco monco marcato `complete` seleziona zero test e li dichiara verdi, che è il falso verde che questa ricetta esiste per evitare (stessa logica del fail-safe di `tests.yml`, che su una risposta API mancante scrive `error`/`partial` e mai `complete`).
   **Controlla sempre `changed-paths.txt` prima di fidarti del verdetto.** Misurato il 2026-09-04 su questa stessa ricetta nelle sue prime due versioni: con `origin/main` elencava 18 file di `packages/articles/` e `public/` che non avevo toccato — main era semplicemente avanzato su di loro — e ometteva i quattro file nuovi che avevo scritto, così il runner concludeva «zero test da girare» su una PR che aggiungeva tre moduli e un test. La correzione intermedia, un `grep -v` sui prefissi, era peggiore del male: scartava anche i cambi **veri** su quei path lasciando `changed-paths-status.txt` a `complete`, cioè lo stesso falso verde spostato su un'altra classe di file. Il merge-base risolve entrambi senza filtri. Un elenco che non somiglia al tuo diff è la spia, e il verde che ne segue non vale niente.
   In un worktree sparse il runner stampa `N tracked file(s) unreadable … the selection may be incomplete`: è atteso e non è un guasto — sono i symlink verso path esclusi dal profilo, per esempio `services/blogArticleIds.ts` → `packages/articles/content/`. Leggi il numero: se cresce di colpo, il profilo sparse sta escludendo qualcosa che ti serve.
 - **La suite intera NON è l'oracolo pre-PR in un worktree sparse.** Misurato il 2026-09-04 su `wf17`: 32.963 test, **156 rossi su 168 file**, nessuno dei quali toccato dal diff — test di componenti, i18n, router e consenso che falliscono per `public/`/`data/` assenti o per rete verso host finti (`navigation failed for https://acme.test/jobs`). Un rosso ereditato non si distingue da uno proprio senza un secondo worktree su `origin/main` che rifaccia la stessa corsa, che è mezz'ora spesa per una risposta che il gate CI dà meglio. Girala per intero (`node scripts/assemble-jobs-dataset.mjs && npm test`, serve `onnxruntime-node`) solo quando serve davvero la copertura completa, e allora **con** il controllo su `origin/main`: senza, il verdetto non significa niente.
