@@ -1,0 +1,147 @@
+name: pharmacy-data-health-monitor
+
+# Dashboard interna sulla qualità del dato della verticale farmacie (#6753,
+# item "dashboard interna" del residuo #6400).
+#
+# `docs/pharmacy-data-policy.md` dichiara copertura, SLA di freschezza,
+# validazione e regole sui conflitti, ma finora NESSUNO li osservava: gli
+# `_errors[]` che `scripts/import-pharmacies-ticino.mjs` lascia nel dataset non
+# venivano riletti da nulla, e un'anagrafica ferma oltre lo SLA mensile sarebbe
+# rimasta pubblicata su /farmacie/ senza segnale.
+#
+# Cadenza settimanale: l'anagrafica è a bassa volatilità (SLA mensile) e la
+# pipeline turni non esiste ancora (#6750) — un cron più stretto sarebbe rumore.
+# Quando i turni arriveranno, lo SLA giornaliero del registry è già letto dallo
+# script e questa cadenza andrà stretta di conseguenza.
+
+on:
+  schedule:
+    - cron: '10 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: pharmacy-data-health-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      # Nessun `npm ci`: lo script usa solo la stdlib di Node e legge i dataset
+      # checked-in — nessuna rete, nessuna dipendenza.
+      - name: Run pharmacy data-health dashboard
+        id: check
+        continue-on-error: true
+        # `set -euo pipefail` obbligatorio: la shell di default di un `run:` è
+        # `bash -e {0}`, NON `-o pipefail`, quindi senza questa riga l'exit
+        # status della pipe sarebbe quello di `tee` (sempre 0) e il monitor
+        # risulterebbe verde per costruzione. Stesso idiom di
+        # `.github/workflows/corpus-ahead-check.yml`.
+        run: |
+          set -euo pipefail
+          node scripts/check-pharmacy-data-health.mjs | tee /tmp/pharmacy-health.txt
+
+      - name: Open issue for degraded pharmacy data
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          report=data/pharmacy-data-health-report.json
+          if [ ! -f "$report" ]; then
+            # `continue-on-error: true` sullo step precedente impedisce al job di
+            # fallire, quindi `if: failure()` in fondo NON si valuta mai vero:
+            # questo ramo è l'unica rete per uno script morto prima di scrivere
+            # il report (es. registry mancante o illeggibile). Deve aprire lui
+            # l'issue, non delegarla a uno step che non partirà.
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Workflow Failure: ${{ github.workflow }}" \
+              --description "## Dashboard dati farmacie morta prima di emettere il report
+
+          \`scripts/check-pharmacy-data-health.mjs\` è uscito non-zero senza scrivere \`data/pharmacy-data-health-report.json\`: tipicamente \`data/pharmacy-sources-registry.json\` mancante o illeggibile. Nessun verdetto sul dato è stato prodotto — la dashboard non è né verde né rossa, è cieca.
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "${{ github.workflow }}"
+            exit 0
+          fi
+          count=$(jq -r '.problems | length' "$report")
+          problems=$(jq -r '.problems | map("- " + .) | join("\n")' "$report")
+          dashboard=$(jq -r '.dashboard | join("\n")' "$report")
+
+          body=$(cat <<EOF
+          La dashboard dati farmacie ha trovato **${count}** problema/i di copertura, freschezza, fetch o conflitti.
+
+          ${problems}
+
+          \`\`\`
+          ${dashboard}
+          \`\`\`
+
+          Policy di riferimento: \`docs/pharmacy-data-policy.md\` (fonti, SLA, validazione, regole di pubblicazione).
+          Script: \`scripts/check-pharmacy-data-health.mjs\` — report completo in \`data/pharmacy-data-health-report.json\` (artifact sotto).
+          Run: ${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}
+          EOF
+          )
+
+          # Titolo stabile (nessun contatore dentro i primi 60 char): il dedup di
+          # github-issue-creator.mjs commenta sulla issue canonica invece di
+          # aprirne una nuova a ogni settimana in cui il numero si muove.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "[pharmacy-data-health] dato farmacie degradato (copertura/freschezza/fetch/conflitti)" \
+            --description "$body" \
+            --priority 4 \
+            --label content-quality \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve issue on clean dashboard
+        if: steps.check.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "[pharmacy-data-health] dato farmacie degradato (copertura/freschezza/fetch/conflitti)" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: pharmacy-data-health-report
+          path: data/pharmacy-data-health-report.json
+          if-no-files-found: ignore
+          retention-days: 30
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash fuori dalla detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

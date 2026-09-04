@@ -92,6 +92,24 @@ come `verified`.
   `di-turno` per quell'area: mostra al più l'anagrafica (se disponibile) e
   mai un dato di turno inventato o dedotto.
 
+## Osservabilità (dashboard interna)
+
+`scripts/check-pharmacy-data-health.mjs` è l'osservatore di questa policy:
+misura **copertura** (cantoni con fonte registrata sui 26 svizzeri, quali
+`active` hanno davvero un dataset), **freschezza** (età di `_fetchedAt` contro
+lo SLA — mensile per l'anagrafica, `fetchFrequency` × 2 per i turni),
+**errori di fetch** (gli `_errors[]` che gli importer lasciano nel dataset) e
+**conflitti** (id/slug duplicati, stessa farmacia emessa da due regioni, turni
+`conflicting` o ancora `verified` oltre `endsAt`). Emette
+`data/pharmacy-data-health-report.json` ed esce non-zero se degradato;
+`.github/workflows/pharmacy-data-health-monitor.yml` lo gira settimanalmente e
+apre/chiude una issue `content-quality` di conseguenza.
+
+L'assenza dei dataset dei turni è uno stato **atteso** finché la pipeline
+(#6750) non esiste, e non conta come guasto: la dashboard la riporta come tale.
+Quando la pipeline arriverà, lo SLA giornaliero già dichiarato nel registry
+diventa vincolante e la cadenza del monitor va stretta di conseguenza.
+
 ## Ambito non ancora coperto
 
 Pipeline turni, scheduler (`scripts/sync-pharmacy-duties.*` +
