@@ -5413,6 +5413,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Kurzzeiturlaub Waadt: Dauer, Verlängerung und Rechte',
     'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Die Bewilligung L erlaubt bis zu 1 Jahr in der Schweiz zu arbeiten und ist verlängerbar. Erfahren Sie, wie Sie die Verlängerung beantragen, auf die B-Bewilligung wechseln und welche Steuerpflichten bestehen.',
     'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Arbeitserlaubnis und Schweizer Arbeitsvertrag auf dem Schreibtisch',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'SRG-Umfrage zu den eidgenössischen Abstimmungen vom 27. September',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'Die SRG hat am 27. September eine neue Umfrage zu den Abstimmungsinitiativen gestartet. Die Online-Teilnahme ist am kommenden Mittwoch bis 23.00 Uhr geöffnet.',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Schweizer Wahlurne für eidgenössische Abstimmungen',
 };
 
 export default blogMetaChDe;

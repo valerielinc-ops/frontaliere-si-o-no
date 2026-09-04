@@ -16237,6 +16237,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'sondaggio-ssr-votazioni-27-settembre',
+    category: 'novita',
+    date: '2026-09-04T08:34:04.755Z',
+    image: '/images/blog/sondaggio-ssr-votazioni-27-settembre.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

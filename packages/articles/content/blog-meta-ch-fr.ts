@@ -5413,6 +5413,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permis L courte durée vaudois : durée, prorogation et droits',
     'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Le permis L permet de travailler en Suisse jusqu\'à 1 an et est renouvelable. Découvrez comment demander la prolongation, passer au permis B et quelles sont les obligations fiscales.',
     'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Permis de travail et contrat d\'emploi suisse sur un bureau professionnel',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'Sondage SSR sur les votations fédérales du 27 septembre',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'La SSR a lancé un nouveau sondage sur les initiatives votées le 27 septembre. Participation en ligne ouverte jusqu\'à 23h00 mercredi prochain.',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Urne électorale suisse pour les votations fédérales',
 };
 
 export default blogMetaChFr;
