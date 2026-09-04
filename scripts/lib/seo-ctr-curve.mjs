@@ -377,6 +377,32 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-09-04',
   },
   {
+    // Il gemello diesel dello stesso generator fuel (`FUEL_SECTION_SLUG.diesel`).
+    // NON era stato rialzato da `discoverUnregisteredFamilies` — e non perche`
+    // sia sotto soglia, ma perche` la scoperta somma per SEGMENTO e nessuno dei
+    // quattro slug di locale supera 50.000 da solo (39.017 IT il piu` alto). La
+    // FAMIGLIA invece li supera: misurata live via GSC 90gg (finestra chiusa il
+    // 2026-09-04), 86.458 imp (39.017 IT + 27.370 EN + 16.968 DE + 3.103 FR),
+    // 894 click, CTR 1,03%, posizione media ponderata 7,05. Registrarla qui
+    // insieme a `prezzi-benzina` e` il fix della CLASSE, non di una istanza
+    // (AGENTS.md #6): lasciarla fuori la terrebbe invisibile al monitor finche`
+    // un singolo slug non cresce abbastanza da farsi notare.
+    id: 'prezzi-diesel',
+    label: 'Prezzi diesel',
+    pathContains: '/prezzi-diesel/',
+    pathAliases: ['/diesel-price-switzerland/', '/dieselpreis-schweiz/', '/prix-gasoil-suisse/'],
+    kind: 'template',
+    monitored: true,
+    // Stessa lettura di `prezzi-benzina` sopra: a posizione 7,05 il benchmark
+    // attende 3,7% e la famiglia rende 1,03%, cioe` 0,28× la sua posizione.
+    // Target = 80% del rapporto dimostrato (0,8 × 0,28 → 0,22).
+    targetCtrCurveMultiple: 0.22,
+    // Floor assoluto senza posizione usabile: 80% dell'1,03% misurato.
+    targetCtr: 0.0083,
+    impressions90d: 86458,
+    measuredOn: '2026-09-04',
+  },
+  {
     id: 'de',
     label: 'DE locale (riferimento)',
     pathContains: '/de/',

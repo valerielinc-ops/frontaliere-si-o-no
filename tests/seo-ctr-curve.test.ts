@@ -179,6 +179,24 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(target).toBeGreaterThan(0.0123 * 0.6);
     });
 
+    it('registers the diesel twin of the same fuel generator (issue #6704, AGENTS.md #6)', () => {
+      // Il gemello che la scoperta non rialza: la famiglia supera la soglia
+      // (86.458 imp/90gg) ma nessuno dei suoi quattro slug la supera da solo,
+      // quindi senza questa entry resterebbe invisibile al monitor.
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'prezzi-diesel')!;
+      expect(fam).toBeDefined();
+      expect(fam.kind).toBe('template');
+      expect(fam.monitored).toBe(true);
+      expect(fam.impressions90d).toBeGreaterThanOrEqual(MIN_IMPRESSIONS_TO_MONITOR);
+      expect(familyPathPrefixes(fam).sort()).toEqual(
+        ['/diesel-price-switzerland/', '/dieselpreis-schweiz/', '/prezzi-diesel/', '/prix-gasoil-suisse/'],
+      );
+      const target = effectiveTargetCtr(fam, 7.05)!;
+      expect(target).toBeGreaterThan(0);
+      expect(target).toBeLessThan(0.0103);
+      expect(target).toBeGreaterThan(0.0103 * 0.6);
+    });
+
     it('carries pathAliases for every locale slug of a top-level template family (issue #5964)', () => {
       // Automates the manual audit issue #5964 asked for: any registered
       // template family whose `pathContains` matches a top-level
