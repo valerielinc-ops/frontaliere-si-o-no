@@ -5479,6 +5479,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scuola-4-giorni-belp.title': 'At school only 4 days, the experiment (for now) convinces',
     'blog.article.scuola-4-giorni-belp.excerpt': 'For three weeks, in Belp, in the Canton of Bern, a new pilot project has been underway with 4 days of school and 6 weeks of vacation.',
     'blog.article.scuola-4-giorni-belp.imageAlt': 'School in Belp, Canton Berna, with children playing and learning in a modern classroom.',
+    'blog.article.borse-studio-vaud-requisiti.title': 'Scholarships canton Vaud: requirements and amounts',
+    'blog.article.borse-studio-vaud-requisiti.excerpt': 'How to access scholarships and loans for study in the canton of Vaud: economic requirements, academic merit, maximum amounts and application procedure.',
+    'blog.article.borse-studio-vaud-requisiti.imageAlt': 'Lecture hall at Lausanne University with students taking notes',
 };
 
 export default blogMetaChEn;
