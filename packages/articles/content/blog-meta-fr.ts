@@ -11320,6 +11320,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sciopero-tilo-italia-2026.title': 'Nouvelle grève, les TILO s\'arrêtent à la frontière',
     'blog.article.sciopero-tilo-italia-2026.excerpt': 'Grève nationale en Italie du 7 au 8 septembre 2026 : répercussions sur les liaisons TILO',
     'blog.article.sciopero-tilo-italia-2026.imageAlt': 'Vue aérienne de Lugano avec la frontière italienne en arrière-plan',
+    'blog.article.lavoro-remoto-estero-vacanza.title': 'À distance de l\'étranger en vacances : les taxes du frontalier',
+    'blog.article.lavoro-remoto-estero-vacanza.excerpt': 'Travailler à distance pendant des vacances dans un pays tiers : comment fonctionne la fiscalité, ce que couvre la LAMal et si l\'employeur doit être informé. Guide pratique pour les frontaliers Tessin-Italie.',
+    'blog.article.lavoro-remoto-estero-vacanza.imageAlt': 'Travailleur frontalier travaillant à distance avec ordinateur portable en vacances à l\'étranger',
 };
 
 export default blogMetaFr;
