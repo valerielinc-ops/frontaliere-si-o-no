@@ -5491,6 +5491,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.comprare-casa-vaud-ipoteca-costi.title': 'Acheter une maison en Vaud : prix et hypothèque',
     'blog.article.comprare-casa-vaud-ipoteca-costi.excerpt': 'Guide complet pour l\'achat d\'une maison dans le canton de Vaud : prix, exigences de fonds propres, coûts fiscaux, taxes de passage et viabilité du prêt hypothécaire.',
     'blog.article.comprare-casa-vaud-ipoteca-costi.imageAlt': 'Propriété résidentielle dans le canton de Vaud avec montagne; scène immobilière suisse pour guide d\'achat avec hypothèque.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.title': 'Garderie Zoug : coûts, tarifs et subventions cantonales',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.excerpt': 'Dans le canton de Zoug, les crèches et garderies suivent des tarifs progressifs sur la base des revenus. Découvrez les options disponibles, les subventions cantonales et les procédures d\'accès.',
+    'blog.article.custodia-bambini-zugo-tariffe-sussidi.imageAlt': 'Salle de classe de jardin d\'enfants suisse avec des jouets colorés et des dessins d\'enfants',
 };
 
 export default blogMetaChFr;

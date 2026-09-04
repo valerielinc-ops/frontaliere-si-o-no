@@ -1856,6 +1856,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'asilo-nido-custodia-bambini-vaud': { it: 'asilo-nido-custodia-bambini-vaud', en: 'nursery-childcare-vaud-costs-subsidies', de: 'kita-kinderbetreuung-waadt-kosten-subventionen', fr: 'garderie-garde-enfants-vaud-couts-allocations' },
  'comprare-casa-vaud-prezzi-mutuo': { it: 'comprare-casa-vaud-prezzi-mutuo', en: 'buy-house-vaud-prices-mortgage', de: 'haus-kaufen-vaud-preise-hypothek', fr: 'acheter-maison-vaud-prix-hypotheque' },
  'comprare-casa-vaud-ipoteca-costi': { it: 'comprare-casa-vaud-ipoteca-costi', en: 'buy-home-vaud-mortgage-costs', de: 'haus-kauf-vaud-hypothek-kosten', fr: 'acheter-maison-vaud-hypotheque-couts' },
+ 'custodia-bambini-zugo-tariffe-sussidi': { it: 'custodia-bambini-zugo-tariffe-sussidi', en: 'childcare-zugo-tariffs-subsidies', de: 'kinderbetreuung-zug-tarife-subventionen', fr: 'garde-enfants-zoug-tarifs-subventions' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

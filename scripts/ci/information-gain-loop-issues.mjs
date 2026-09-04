@@ -68,6 +68,22 @@ const worstList = (worst = []) =>
     ? '_(nessuna pagina campionata)_'
     : worst.map((p) => `- \`${p.urlPath}\` — ${pct(p.igs)}`).join('\n');
 
+/**
+ * L'identità STABILE di una coorte, cioè quella su cui si costruiscono i
+ * titoli delle issue.
+ *
+ * `label` è il prefisso comune dei path CAMPIONATI, quindi cambia col bucket
+ * che la run ha pescato; `inventoryKey` è la riga d'inventario a cui quella
+ * coorte risolve, e non cambia (#7384). Costruire un titolo sull'etichetta
+ * significa un titolo diverso a ogni run: il dedup a 60 caratteri di
+ * `github-issue-creator` non riconosce la issue già aperta e ne apre una
+ * nuova, mentre l'auto-resolve — che deriva i titoli dalle coorti di QUESTA
+ * run — non chiude quelle delle run precedenti, che restano aperte per
+ * sempre. Fuori inventario `inventoryKey` è `null` e l'etichetta è l'unica
+ * identità disponibile.
+ */
+const identityOf = (c) => c.inventoryKey ?? c.label;
+
 const METHOD_NOTE = `Metrica, maschere e procedura per rimisurare: \`docs/INFORMATION-GAIN.md\`.
 Comando: \`node scripts/ci/information-gain-live-scan.mjs --per-family=12\`.`;
 
@@ -128,17 +144,22 @@ ${METHOD_NOTE}`;
 }
 
 function ratchetBody(r, verdict) {
+  // L'etichetta viene dai path CAMPIONATI, la chiave d'inventario no: con la
+  // risoluzione per prefisso (#7384) le due possono differire, e dettare
+  // `['<etichetta>', …]` manderebbe a togliere una riga che non esiste.
+  const inventoryKey = identityOf(r);
   return `## Misura
 
 La coorte \`${r.label}\` è registrata in \`KNOWN_LOW_GAIN_COHORTS\`
-(\`scripts/audit-information-gain.mjs\`) con ${pct(r.recorded)}, ma oggi misura
-**${pct(r.medianIgs)}**, sopra il floor di ${pct(verdict.floor)}.
+(\`scripts/audit-information-gain.mjs\`) alla riga \`${inventoryKey}\` con
+${pct(r.recorded)}, ma oggi misura **${pct(r.medianIgs)}**, sopra il floor di
+${pct(verdict.floor)}.
 
 Misurato il ${verdict.ranAt}.
 
 ## Cosa serve
 
-Togliere la riga \`['${r.label}', ${r.recorded}]\` da \`KNOWN_LOW_GAIN_COHORTS\`.
+Togliere la riga \`['${inventoryKey}', ${r.recorded}]\` da \`KNOWN_LOW_GAIN_COHORTS\`.
 
 L'inventario è un ratchet che può solo **scendere**: finché la riga c'è, il gate
 protegge quella coorte da un peggioramento ma non le chiede più di stare sopra
@@ -238,7 +259,7 @@ async function main() {
     // priority 2: è un difetto di contenuto su una famiglia intera, non un
     // incidente di produzione. consecutiveGate 2: vedi la nota sulla latenza
     // di deploy nell'header.
-    await open(titles.regression(r.label), regressionBody(r, verdict), {
+    await open(titles.regression(identityOf(r)), regressionBody(r, verdict), {
       priority: 2,
       // Nomi esatti delle label esistenti, minuscoli: `ensureLabelsExist` fa
       // `gh label create` best-effort, e `Bug` con la maiuscola creerebbe (o
@@ -249,7 +270,7 @@ async function main() {
   }
 
   for (const r of verdict.ratchets ?? []) {
-    await open(titles.ratchet(r.label), ratchetBody(r, verdict), {
+    await open(titles.ratchet(identityOf(r)), ratchetBody(r, verdict), {
       priority: 3,
       labels: ['seo'],
     });
@@ -266,18 +287,47 @@ async function main() {
   // bucket ha la sua condizione rientrata. È la metà che rende il ciclo chiuso
   // — senza, resterebbero issue che nessuno chiude (la classe di difetto di
   // #5437: un titolo che promette un auto-resolve inesistente).
-  const regressed = new Set((verdict.regressions ?? []).map((r) => r.label));
-  const ratcheting = new Set((verdict.ratchets ?? []).map((r) => r.label));
+  // Stessa identità dell'apertura, altrimenti le due metà del ciclo parlano di
+  // titoli diversi e nessuna issue si chiude mai.
+  const regressed = new Set((verdict.regressions ?? []).map(identityOf));
+  const ratcheting = new Set((verdict.ratchets ?? []).map(identityOf));
   const opportunityLabel = verdict.opportunity?.label ?? null;
 
+  // Due sotto-famiglie gated della stessa famiglia collassano ora sulla stessa
+  // identità: senza dedup sarebbero due ricerche `gh` per lo stesso titolo.
+  const alreadyTried = new Set();
+  const resolveOnce = (title) => {
+    if (alreadyTried.has(title)) return;
+    alreadyTried.add(title);
+    resolve(title);
+  };
+
   for (const cohort of verdict.cohorts ?? []) {
-    if (!regressed.has(cohort.label)) resolve(titles.regression(cohort.label));
+    const identity = identityOf(cohort);
+    // Asimmetrico come i due produttori (`audit-information-gain.mjs` e
+    // `information-gain-live-scan.mjs`, che allentano il ratchet solo quando
+    // `inventoryKey === cohort.label`): chiudere una regressione è il verso
+    // «recupero», e un campione di UNA sotto-famiglia non è prova family-wide.
+    // Senza il vincolo, con `identity = inventoryKey` una run il cui bucket
+    // pesca la sotto-famiglia sana (`it:/stipendio-medio-svizzera-informatico-`,
+    // sopra baseline) chiuderebbe la issue aperta due run prima dalla
+    // sotto-famiglia ancora a 0 %: si apre con `consecutiveGate: 2` e si
+    // chiuderebbe al primo bucket fortunato, quindi la issue lampeggia col
+    // numero di run e la famiglia thin smette di essere tracciata — il difetto
+    // che #7384 chiude, preso al verso opposto. Fuori inventario `inventoryKey`
+    // è `null`, quindi `identity === label` e il comportamento è invariato.
+    if (!regressed.has(identity) && cohort.label === identity) {
+      resolveOnce(titles.regression(identity));
+    }
     // Il resolve del ratchet solo per le coorti che SONO nell'inventario: una
     // coorte che non c'è non può avere una issue «togli la riga», e ogni
     // resolve costa una ricerca `gh`. Con dodici coorti erano dodici ricerche
-    // per chiudere niente.
-    if (cohort.recorded !== null && !ratcheting.has(cohort.label)) {
-      resolve(titles.ratchet(cohort.label));
+    // per chiudere niente. Qui NON serve il vincolo family-wide di sopra: la
+    // issue di ratchet dice «togli la riga d'inventario», quindi chiuderla su
+    // un campione stretto erra dal lato conservativo (la riga resta, il gate
+    // resta stretto), che è il verso sicuro dell'asimmetria.
+    if (cohort.recorded !== null && !ratcheting.has(identity)) {
+      resolveOnce(titles.ratchet(identity));
     }
     // La issue di opportunità si chiude solo quando la coorte ha RAGGIUNTO il
     // target, non quando un'altra famiglia è diventata la peggiore: altrimenti

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-09-04T13:36:06.422Z",
+  "assembledAt": "2026-09-04T23:08:26.898Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,7 +47,8 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.671Z",
+      "crawledAt": "2026-09-04T23:08:23.987Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Esperienza significativa in sala operatoria",
@@ -76,11 +77,13 @@
       },
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
-        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest"
+          "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
+          "assistente-tecnico-specializzato-in-sala-operatoria-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
           "spezialisierter-technischer-assistent-im-operationssaal-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -106,8 +109,8 @@
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -146,7 +149,8 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.670Z",
+      "crawledAt": "2026-09-04T23:08:23.985Z",
+      "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
           "Almeno 3 anni di esperienza in cucina ospedaliera o in EMS (ambiente medico-sociale)",
@@ -174,18 +178,24 @@
       "previousSlugs": [
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
@@ -200,81 +210,6 @@
           "@type": "QuantitativeValue",
           "minValue": 65500,
           "maxValue": 82500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "ghol-814a2a6c3683",
-      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Assistant technique en stérilisation",
-      "titleByLocale": {
-        "it": "Assistente tecnico in Sterilizzazione",
-        "en": "Technical Assistant in Sterilization",
-        "de": "Technischer Assistent der Sterilisation",
-        "fr": "Assistant technique en stérilisation"
-      },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
-      "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
-        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
-        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\nDescriptif du poste :\nDans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\nVotre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\nVos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\nProfil requis :\nVous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\nVous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\nNiveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\nAvantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-15",
-      "url": "https://app.beehire.com/invite/AWZGWt1g8",
-      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.669Z",
-      "previousSlugs": [
-        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-06-15T14:27:39.540Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
           "unitText": "YEAR"
         }
       }
@@ -324,17 +259,19 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.669Z",
+      "crawledAt": "2026-09-04T23:08:23.984Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+          "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+          "aiuto-e-accompagnamento-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
           "pflege-und-support-groupement-hospitalier-de-l-ouest-lemanique-rolle"
@@ -400,7 +337,7 @@
       "applyUrl": "https://app.beehire.com/invite/iMHZFWFWX",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.668Z",
+      "crawledAt": "2026-09-04T23:08:23.983Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -416,7 +353,8 @@
         "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -433,7 +371,8 @@
           "tecnico-a-in-radiologia-medica-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "technicien-ne-en-radiologie-medicale-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "medical-radiology-technician-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "medizinischer-rontgenassistent-trm-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "ostetrica-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "sage-femme-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -467,30 +406,30 @@
       }
     },
     {
-      "id": "ghol-4bea4bccd510",
-      "slug": "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "id": "ghol-814a2a6c3683",
+      "slug": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "it": "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "it": "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "technical-assistant-in-sterilization-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "technischer-assistent-der-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Infirmier·ère anesthésiste certifié·e",
+      "title": "Assistant technique en stérilisation",
       "titleByLocale": {
-        "it": "Infermiere anestetico certificato",
-        "en": "Certified anaesthetic nurse",
-        "de": "Zertifizierte Narkosekrankenschwester",
-        "fr": "Infirmier·ère anesthésiste certifié·e"
+        "it": "Assistente tecnico in Sterilizzazione",
+        "en": "Technical Assistant in Sterilization",
+        "de": "Technischer Assistent der Sterilisation",
+        "fr": "Assistant technique en stérilisation"
       },
-      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL .\n Descriptif du poste :\n Vous évoluerez au sein d’un bloc opératoire composé de 6 salles d’opération, dans diverses spécialités : chirurgies orthopédique, traumatologique, digestive et bariatrique, urologique, gynécologique, obstétrique, plastique et ORL.\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge de manière autonome les patients·es qui doivent bénéficier d’une intervention chirurgicale\n\n• Travailler en collaboration avec la·e médecin anesthésiste lors de l’induction, de la surveillance peropératoire et du réveil du·de la patient·e\n\n• Préparer le matériel en vue d’une anesthésie dans le respect des règles de sécurité et d’asepsie\n\n• Assurer la traçabilité peropératoire sur un support informatisé joint au dossier du·de la patient·e\n\n• Assurer ponctuellement la fonction d’infirmier·e en salle de réveil\n\n• Participer à la fluidité du déroulement du programme opératoire en collaboration avec l’équipe chirurgicale .\n Profil requis :\n\n• Expérience de 2 années minimum dans une fonction similaire souhaitée\n\n• Être autonome dans sa pratique\n\n• Faire preuve de rigueur et d’un grand sens des responsabilités\n\n• Démontrer un réel esprit d’équipe\n\n• Ethique et conscience professionnelle\n\n• Flexibilité et ponctualité\n\n• Résistance physique et psychique\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers avec spécialisation en anesthésie ou équivalant reconnu par la Croix Rouge Suisse.\n Avantages :\n\n• Bloc opératoire convivial\n\n• Structure à taille humaine dynamique\n\n• Activité variée et multidisciplinaire\n\n• Pouvoir bénéficier d’un :\n\n• 1. Programme de formation continu uniquement dédié aux collaborateurs·trices du bloc opératoire\n\n• 2. Programme de formation généraliste avec également des propositions de développement personnel\n\n• ﻿ Facilité pour participer à des congrès spécialisés (FSIA, SFAR, SSAPM)",
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\n Descriptif du poste :\n Dans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\n Votre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\n Vos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\n Profil requis :\n Vous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\n Vous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\n Niveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\n Avantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité",
       "descriptionByLocale": {
-        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani vi proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL .\nDescrizione del post:\nSi evolverà in una sala operatoria composta da 6 sale operatorie, in varie specialità: chirurgia ortopedica, traumatologica, digestiva e bariatrica, urologica, ginecologica, ostetrica, plastica e chirurgia ENT.\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Auto-cura per i pazienti che hanno bisogno di un intervento chirurgico\n\n• Lavorare in collaborazione con il medico anestetista durante l'induzione, il monitoraggio peroperativo e il risveglio del paziente\n\n• Preparare le attrezzature per l'anestetico secondo le regole di sicurezza e sicurezza\n\n• Assicurare la tracciabilità peroperativa su un mezzo computerizzato attaccato al file del paziente\n\n• Per eseguire la funzione di infermiera nella sala sveglia in tempo\n\n• Partecipa alla fluidità del programma operativo in collaborazione con il team chirurgico.\nProfilo richiesto:\n\n• Esperienza minima di 2 anni in una funzione simile desiderata\n\n• Essere autonomi nella pratica\n\n• Dimostrare rigore e un grande senso di responsabilità\n\n• Dimostra un vero spirito di squadra\n\n• Etica e coscienza professionale\n\n• Flessibilità e tempestività\n\n• Resistenza fisica e psichica\nLivello di formazione:\nCorso di laurea HES-SO in Infermieristica con specializzazione in anestesia o equivalente riconosciuto dalla Croce Rossa svizzera.\nVantaggi:\n\n• Unità operativa facile da usare\n\n• Struttura dinamica delle dimensioni umane\n\n• Attività varie e multidisciplinari\n\n• Per beneficiare di:\n\n• 1. Programma di formazione continua dedicato solo ai dipendenti dell'unità operativa\n\n• 2. Programma generale di formazione con proposte di sviluppo personale\n\n• Facilità per la partecipazione a congressi specializzati (FSIA, SFAR, SSAPM)",
-        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow we propose you to continue your professional development by involving you in your new missions and by participating in the development of GHOL .\nDescription of the post:\nYou will evolve within an operating room consisting of 6 operating rooms, in various specialties: orthopaedic, traumatological, digestive and bariatric surgery, urological, gynaecological, obstetric, plastic and ENT surgery.\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Self-care for patients who need surgery\n\n• Work in collaboration with the anaesthetist physician during induction, peroperative monitoring and patient waking up\n\n• Prepare equipment for anaesthetic in accordance with safety and safety rules\n\n• Ensure peroperative traceability on a computerised medium attached to the patient's file\n\n• To perform the function of nurse in the wake room on time\n\n• Participate in the fluidity of the operation programme in collaboration with the surgical team.\nProfile required:\n\n• Minimum 2 years experience in a similar desired function\n\n• Being autonomous in practice\n\n• Demonstrate rigour and a great sense of responsibility\n\n• Demonstrate a real team spirit\n\n• Ethics and professional conscience\n\n• Flexibility and timeliness\n\n• Physical and psychic resistance\nLevel of training:\nBachelor of Science HES-SO in Nursing with specialization in anesthesia or equivalent recognized by the Swiss Red Cross.\nBenefits:\n\n• User friendly operating unit\n\n• Dynamic human size structure\n\n• Various and multidisciplinary activities\n\n• To benefit from:\n\n• 1. Continuous training programme dedicated only to employees of the operating unit\n\n• 2. General training programme with proposals for personal development\n\n• Facility for participation in specialized congresses (FSIA, SFAR, SSAPM)",
-        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir Ihnen vor, Ihre berufliche Entwicklung fortzusetzen, indem Sie Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL teilnehmen.\nBeschreibung der Post:\nSie werden sich in einem Operationssaal mit 6 Operationssälen in verschiedenen Fachgebieten entwickeln: orthopädische, traumatologische, Verdauungs- und bariatrische Chirurgie, urologische, gynäkologische, geburtshilfliche, plastische und HNO-Chirurgie.\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Selbstpflege für Patienten, die eine Operation benötigen\n\n• Arbeiten Sie in Zusammenarbeit mit dem Anästhesisten während der Induktion, der peroperativen Überwachung und des Aufwachens des Patienten\n\n• Ausrüstung für die Betäubung gemäß Sicherheit und Sicherheitsvorschriften vorbereiten\n\n• Gewährleistung der operativen Rückverfolgbarkeit auf einem elektronischen Datenträger, der der Patientenakte beigefügt ist\n\n• Um die Funktion der Krankenschwester im Wake Room pünktlich auszuführen\n\n• Beteiligen Sie sich an der Fluidität des Operationsprogramms in Zusammenarbeit mit dem chirurgischen Team.\nProfil erforderlich:\n\n• Mindestens 2 Jahre Erfahrung in einer ähnlichen gewünschten Funktion\n\n• Autonomie in der Praxis\n\n• Demonstrieren Sie Strenge und ein großes Verantwortungsbewusstsein\n\n• Demonstrieren Sie einen echten Teamgeist\n\n• Ethik und professionelles Gewissen\n\n• Flexibilität und Aktualität\n\n• Körperlicher und psychischer Widerstand\nAusbildungsniveau:\nBachelor of Science HES-SO in Pflege mit Spezialisierung in Anästhesie oder gleichwertig vom Schweizerischen Roten Kreuz anerkannt.\nLeistungen:\n\n• Benutzerfreundliche Bedieneinheit\n\n• Dynamische menschliche Größenstruktur\n\n• Verschiedene und multidisziplinäre Aktivitäten\n\n• Nutznießer von:\n\n• 1. Weiterbildungsprogramm, das nur für Mitarbeiter der operativen Einheit vorgesehen ist\n\n• 2. Allgemeines Ausbildungsprogramm mit Vorschlägen für die persönliche Entwicklung\n\n• Einrichtung zur Teilnahme an Fachkongressen (FSIA, SFAR, SSAPM)",
-        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL .\nDescriptif du poste :\nVous évoluerez au sein d’un bloc opératoire composé de 6 salles d’opération, dans diverses spécialités : chirurgies orthopédique, traumatologique, digestive et bariatrique, urologique, gynécologique, obstétrique, plastique et ORL.\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge de manière autonome les patients·es qui doivent bénéficier d’une intervention chirurgicale\n\n• Travailler en collaboration avec la·e médecin anesthésiste lors de l’induction, de la surveillance peropératoire et du réveil du·de la patient·e\n\n• Préparer le matériel en vue d’une anesthésie dans le respect des règles de sécurité et d’asepsie\n\n• Assurer la traçabilité peropératoire sur un support informatisé joint au dossier du·de la patient·e\n\n• Assurer ponctuellement la fonction d’infirmier·e en salle de réveil\n\n• Participer à la fluidité du déroulement du programme opératoire en collaboration avec l’équipe chirurgicale .\nProfil requis :\n\n• Expérience de 2 années minimum dans une fonction similaire souhaitée\n\n• Être autonome dans sa pratique\n\n• Faire preuve de rigueur et d’un grand sens des responsabilités\n\n• Démontrer un réel esprit d’équipe\n\n• Ethique et conscience professionnelle\n\n• Flexibilité et ponctualité\n\n• Résistance physique et psychique\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers avec spécialisation en anesthésie ou équivalant reconnu par la Croix Rouge Suisse.\nAvantages :\n\n• Bloc opératoire convivial\n\n• Structure à taille humaine dynamique\n\n• Activité variée et multidisciplinaire\n\n• Pouvoir bénéficier d’un :\n\n• 1. Programme de formation continu uniquement dédié aux collaborateurs·trices du bloc opératoire\n\n• 2. Programme de formation généraliste avec également des propositions de développement personnel\n\n• Facilité pour participer à des congrès spécialisés (FSIA, SFAR, SSAPM)"
+        "it": "GHOL è l'ospedale di riferimento per la parte occidentale del Lago di Ginevra con le sue strutture a Nyon, Rolle e Saint-Cergue. Cerchiamo un professionista rigoroso e impegnato che si unisca al nostro reparto centrale di sterilizzazione e contribuisca, quotidianamente, alla sicurezza dei pazienti e al buon funzionamento della sala operatoria. Descrizione del lavoro: Nel tuo ruolo, entrerai a far parte di un team impegnato quotidianamente nel ricondizionamento dei dispositivi medici utilizzati in sala operatoria e nei reparti di cura. Lavorerai a stretto contatto con le équipe della sala operatoria, coprendo diverse specialità chirurgiche, tra cui ortopedia, traumatologia, chirurgia viscerale, ostetricia, urologia e ORL. Il tuo ruolo consiste in particolare nel:\n• Garantire le diverse fasi del processo di ricondizionamento dei dispositivi medici, nel rispetto delle procedure vigenti.\n• Utilizzare il sistema di tracciabilità per garantire un tracciamento affidabile e sicuro degli strumenti chirurgici.\n• Contribuire al buon funzionamento quotidiano del reparto e alla fluidità del circuito tra sala operatoria e sterilizzazione.\n• Effettuare i controlli usuali, la manutenzione ordinaria e segnalare anomalie relative alle apparecchiature.\n• Partecipare al miglioramento continuo, alla qualità e alla sicurezza delle pratiche professionali. Le tue missioni si svolgono nel rispetto degli standard di sterilizzazione, delle buone pratiche di ricondizionamento dei dispositivi medici e delle direttive istituzionali vigenti. Profilo richiesto: Ti vengono riconosciuti rigore, precisione e senso di responsabilità. Applichi le procedure in modo affidabile e comprendi l'importanza della tracciabilità nella sicurezza del paziente. Ti piace il lavoro di squadra, sai comunicare in modo costruttivo e ti senti a tuo agio in un ambiente tecnico esigente, direttamente collegato alla sala operatoria.\n• Una comprovata esperienza in una funzione equivalente è un vantaggio.\n• Ci si aspetta dimestichezza con gli strumenti informatici.\n• Sarà apprezzata la conoscenza del sistema Kenus o di un software di tracciabilità equivalente. Livello di formazione:\n• È richiesta una formazione convalidata come assistente tecnico in sterilizzazione livello 1, il livello 2 sarebbe un vantaggio\n• Oppure un CFC come tecnologo di dispositivi medici Vantaggi:\n• Una posizione permanente al 100%, all'interno di un team impegnato, collaborativo e orientato alla qualità.\n• Un ambiente di lavoro tecnico e strutturato strettamente legato alla sala operatoria.\n• Solo ore diurne.\n• Accesso al programma di formazione continua della Sala Operatoria e del Centro di Sterilizzazione, nonché al catalogo di formazione continua del Dipartimento di Assistenza GHOL.\n• Benefit riservati ai dipendenti GHOL, in particolare in relazione al Piano Mobilità",
+        "en": "GHOL is the reference hospital for western Lake Geneva with its structures in Nyon, Rolle and Saint-Cergue. We are looking for a rigorous and committed professional to join our central sterilization department and contribute, on a daily basis, to patient safety and the smooth running of the operating room. Job description: In your role, you will join a team involved daily in the reprocessing of medical devices used in the operating room and in care units. You work closely with the operating room teams, covering several surgical specialties, including orthopedics, traumatology, visceral surgery, obstetrics, urology and ENT. Your role consists in particular of:\n• Ensuring the different stages of the medical device reprocessing process, in compliance with current procedures.\n• Use the traceability system to guarantee reliable and secure tracking of surgical instruments.\n• Contribute to the smooth daily running of the department and the fluidity of the circuit between the operating room and sterilization.\n• Carry out usual checks, routine maintenance and report equipment-related anomalies.\n• Participate in the continuous improvement, quality and security of professional practices. Your missions take place in compliance with sterilization standards, good practices for reprocessing medical devices and institutional directives in force. Required profile: You are recognized for your rigor, precision and sense of responsibility. You apply procedures reliably and understand the importance of traceability in patient safety. You enjoy teamwork, know how to communicate constructively and are comfortable in a demanding technical environment, directly linked to the operating room.\n• Proven experience in an equivalent function is an asset.\n• Comfort with computer tools is expected.\n• Proficiency in the Kenus system, or equivalent traceability software, would be appreciated. Level of training:\n• Validated training as a Technical Assistant in Sterilization level 1 is required, level 2 would be an asset\n• Or a CFC as a medical device technologist Advantages:\n• A 100% permanent position, within a committed, collaborative and quality-oriented team.\n• A technical, structured work environment closely linked to the operating room.\n• Daytime hours only.\n• Access to the continuing training program of the Operating Room and Sterilization Center, as well as to the continuing training catalog of the GHOL Care Department.\n• Benefits reserved for GHOL employees, particularly in connection with the Mobility Plan",
+        "de": "GHOL ist das Referenzkrankenhaus für den westlichen Genfersee mit seinen Strukturen in Nyon, Rolle und Saint-Cergue. Wir suchen eine ehrgeizige und engagierte Fachkraft, die unsere Zentralsterilisationsabteilung verstärkt und täglich zur Patientensicherheit und zum reibungslosen Betrieb des Operationssaals beiträgt. Stellenbeschreibung: In Ihrer Rolle werden Sie Teil eines Teams, das sich täglich mit der Aufbereitung von Medizinprodukten befasst, die im Operationssaal und auf Pflegestationen verwendet werden. Sie arbeiten eng mit den Operationsteams zusammen und decken mehrere chirurgische Fachgebiete ab, darunter Orthopädie, Traumatologie, Viszeralchirurgie, Geburtshilfe, Urologie und HNO. Ihre Aufgabe besteht insbesondere darin:\n• Die verschiedenen Phasen des Aufbereitungsprozesses für Medizinprodukte unter Einhaltung der geltenden Verfahren sicherzustellen.\n• Nutzen Sie das Traceability-System, um eine zuverlässige und sichere Nachverfolgung chirurgischer Instrumente zu gewährleisten.\n• Tragen Sie zum reibungslosen Tagesablauf der Abteilung und zur reibungslosen Verbindung zwischen Operationssaal und Sterilisation bei.\n• Führen Sie übliche Kontrollen und routinemäßige Wartungsarbeiten durch und melden Sie gerätebezogene Anomalien.\n• Beteiligen Sie sich an der kontinuierlichen Verbesserung, Qualität und Sicherheit professioneller Praktiken. Ihre Einsätze erfolgen unter Einhaltung der Sterilisationsstandards, bewährten Praktiken für die Wiederaufbereitung von Medizinprodukten und den geltenden institutionellen Richtlinien. Erforderliches Profil: Sie zeichnen sich durch Genauigkeit, Präzision und Verantwortungsbewusstsein aus. Sie wenden Verfahren zuverlässig an und verstehen die Bedeutung der Rückverfolgbarkeit für die Patientensicherheit. Sie haben Spaß an Teamarbeit, wissen konstruktiv zu kommunizieren und fühlen sich in einem anspruchsvollen technischen Umfeld mit direkter Anbindung an den Operationssaal wohl.\n• Nachgewiesene Erfahrung in einer gleichwertigen Funktion ist von Vorteil.\n• Der Umgang mit Computerwerkzeugen wird erwartet.\n• Kenntnisse im Kenus-System oder einer gleichwertigen Rückverfolgbarkeitssoftware sind wünschenswert. Ausbildungsniveau:\n• Eine validierte Ausbildung zum Technischen Assistenten für Sterilisation Stufe 1 ist erforderlich, Stufe 2 wäre von Vorteil.\n• Oder ein CFC als Medizingerätetechnologe. Vorteile:\n• Eine 100 % unbefristete Stelle in einem engagierten, kollaborativen und qualitätsorientierten Team.\n• Eine technische, strukturierte Arbeitsumgebung, die eng mit dem Operationssaal verbunden ist.\n• Nur tagsüber.\n• Zugang zum Weiterbildungsprogramm des OP- und Sterilisationszentrums sowie zum Weiterbildungskatalog der GHOL Care Department.\n• Vorteile, die GHOL-Mitarbeitern vorbehalten sind, insbesondere im Zusammenhang mit dem Mobilitätsplan",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue. Nous recherchons un·e professionnel·le rigoureux·se et engagé·e pour rejoindre notre service de stérilisation centrale et contribuer, au quotidien, à la sécurité des patients et au bon fonctionnement du bloc opératoire.\nDescriptif du poste :\nDans vos fonctions, vous intégrez une équipe impliquée quotidiennement dans le retraitement des dispositifs médicaux utilisés au bloc opératoire et dans les unités de soins. Vous travaillez en lien étroit avec les équipes du bloc opératoire, couvrant plusieurs spécialités chirurgicales, notamment l’orthopédie, la traumatologie, la chirurgie viscérale, l’obstétrique, l’urologie et l’ORL.\nVotre rôle consiste notamment à :\n\n• Assurer les différentes étapes du processus de retraitement des dispositifs médicaux, dans le respect des procédures en vigueur.\n\n• Utiliser le système de traçabilité afin de garantir un suivi fiable et sécurisé des instruments chirurgicaux.\n\n• Contribuer au bon fonctionnement quotidien du service et à la fluidité du circuit entre le bloc opératoire et la stérilisation.\n\n• Réaliser les contrôles usuels, l’entretien courant et le signalement des anomalies liées aux équipements.\n\n• Participer à l’amélioration continue, à la qualité et à la sécurisation des pratiques professionnelles.\nVos missions se déroulent dans le respect des normes de stérilisation, des bonnes pratiques de retraitement des dispositifs médicaux et des directives institutionnelles en vigueur.\nProfil requis :\nVous êtes reconnu·e pour votre rigueur, votre précision et votre sens des responsabilités. Vous appliquez les procédures avec fiabilité et comprenez l’importance de la traçabilité dans la sécurité du patient.\nVous appréciez le travail en équipe, savez communiquer de manière constructive et êtes à l’aise dans un environnement technique exigeant, en lien direct avec le bloc opératoire.\n\n• Une expérience confirmée dans une fonction équivalente constitue un atout.\n\n• Une aisance avec les outils informatiques est attendue.\n\n• La maîtrise du système Kenus, ou d’un logiciel de traçabilité équivalent, serait appréciée.\nNiveau de formation :\n\n• Une formation validée d’Assistant·e Technique en Stérilisation niveau 1 est exigée, le niveau 2 serait un atout\n\n• Ou un CFC de technologue en dispositifs médicaux\nAvantages :\n\n• Un poste en CDI à 100 %, au sein d’une équipe engagée, collaborative et orientée qualité.\n\n• Un environnement de travail technique, structuré et en lien étroit avec le bloc opératoire.\n\n• Des horaires de jour uniquement.\n\n• L’accès au programme de formation continue du Pôle Bloc Opératoire et Stérilisation, ainsi qu’au catalogue de formation continue du Département des Soins du GHOL.\n\n• Des avantages réservés aux collaboratrices et collaborateurs du GHOL, notamment en lien avec le Plan Mobilité"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -499,35 +438,37 @@
       "addressCountry": "CH",
       "country": "CH",
       "postalCode": "1260",
-      "category": "healthcare-nursing",
+      "category": "healthcare",
       "sector": "Salute / Ospedale",
       "contract": "full-time",
-      "employmentType": "FULL_TIME",
+      "employmentType": "OTHER",
       "experienceLevel": "mid",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-31",
-      "url": "https://app.beehire.com/invite/v6aaZampn",
-      "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
+      "postedDate": "2026-06-15",
+      "url": "https://app.beehire.com/invite/AWZGWt1g8",
+      "applyUrl": "https://app.beehire.com/invite/AWZGWt1g8",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.666Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-09-04T23:08:23.983Z",
+      "needsRetranslation": true,
       "previousSlugs": [
-        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "assistant-technique-en-sterilisation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
-      "firstSeenAt": "2026-07-31T12:04:04.810Z",
+      "firstSeenAt": "2026-06-15T14:27:39.540Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -548,7 +489,7 @@
       "slugByLocale": {
         "it": "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "emergency-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -558,7 +499,7 @@
       "titleByLocale": {
         "it": "Infermiera di emergenza",
         "en": "Emergency Nurse",
-        "de": "Notfallkrankenschwester",
+        "de": "Infirmier·ère urgentiste",
         "fr": "Infirmier·ère urgentiste"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures à Nyon, Rolle et Saint-Cergue.\n Descriptif du service :\n Votre nouveau défi se dessine au service des urgences du GHOL, offrant 19 box et répondant à plus de 37'000 consultations par an, animé par une équipe médico-soignante solidaire (binôme infirmier·ière/médecin) et convergeant vers des prises en charges optimales.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact direct sur la qualité de prise en charge des patient·es. Votre rôle consistera notamment à,\n\n• Accueillir, trier et orienter tous les patient·es se présentant au service des urgences\n\n• Prendre en charge 24/24 tout patient·e adulte (y inclus prise en charge neuro-vasculaire dans le cadre de notre STROKE UNIT) pouvant présenter des problèmes de santé à des degrés de gravité très variables dans les domaines physique, psychique et social.\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience impérative dans une unité de soins aigus de 2 ans minimum\n\n• Expérience souhaitée dans une fonction similaire ou dans une unité de soins intensifs\n\n• Conscience professionnelle et empathie\n\n• Sens aigu des responsabilités\n\n• Grande capacité d’adaptation et de réactivité\n\n• Autonomie\n Reconnu·e pour votre esprit d’initiative et vos qualités relationnelles vous êtes apprécié·e pour votre aptitude à travailler en équipe.\n Garant·e d’une organisation optimale des soins, votre résistance physique et votre capacité à gérer votre stress sont de véritables atouts.\n Niveau de formation :\n\n• Bachelor en soins infirmiers HES ou diplôme équivalent reconnu par la Croix rouge suisse exigé\n\n• Une formation post-diplôme d’expert·e en soins d’urgences (EPD ES ou DAS) serait un atout\n Avantages :\n Vous bénéficierez d’une formation continue, stimulante et adaptée aux besoins du service des urgences : cours blocs Urgences tous les semestres, exercice de simulation hebdomadaire, quick teach hebdomadaire\n Vous aurez accès à une offre de formation continue interne variée et attractive.\n Au quotidien, vous travaillerez dans des locaux adaptés aux missions d’un service d’urgences moderne et à taille humaine",
@@ -587,14 +528,17 @@
       "applyUrl": "https://app.beehire.com/invite/iNewpVG3m",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.666Z",
+      "crawledAt": "2026-09-04T23:08:23.980Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infermiera-in-privato-servizio-privato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -603,7 +547,8 @@
           "nurse-in-the-private-private-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-au-service-prive-mi-prive-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "apothekenassistent-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiera-di-emergenza-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -611,6 +556,7 @@
         ],
         "de": [
           "krankenschwester-im-privaten-privaten-service-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "notfallkrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
           "infirmier-ere-urgentiste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "fr": [
@@ -677,14 +623,16 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.665Z",
+      "crawledAt": "2026-09-04T23:08:23.979Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+        "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+        "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
+          "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
+          "assc-per-il-dipartimento-di-medicina-e-unita-neurovascolare-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
           "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -709,30 +657,108 @@
       }
     },
     {
+      "id": "ghol-4bea4bccd510",
+      "slug": "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "certified-anaesthetic-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "zertifizierte-narkosekrankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Infirmier·ère anesthésiste certifié·e",
+      "titleByLocale": {
+        "it": "Infermiere anestetico certificato",
+        "en": "Certified anaesthetic nurse",
+        "de": "Zertifizierte Narkosekrankenschwester",
+        "fr": "Infirmier·ère anesthésiste certifié·e"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL .\n Descriptif du poste :\n Vous évoluerez au sein d’un bloc opératoire composé de 6 salles d’opération, dans diverses spécialités : chirurgies orthopédique, traumatologique, digestive et bariatrique, urologique, gynécologique, obstétrique, plastique et ORL.\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge de manière autonome les patients·es qui doivent bénéficier d’une intervention chirurgicale\n\n• Travailler en collaboration avec la·e médecin anesthésiste lors de l’induction, de la surveillance peropératoire et du réveil du·de la patient·e\n\n• Préparer le matériel en vue d’une anesthésie dans le respect des règles de sécurité et d’asepsie\n\n• Assurer la traçabilité peropératoire sur un support informatisé joint au dossier du·de la patient·e\n\n• Assurer ponctuellement la fonction d’infirmier·e en salle de réveil\n\n• Participer à la fluidité du déroulement du programme opératoire en collaboration avec l’équipe chirurgicale .\n Profil requis :\n\n• Expérience de 2 années minimum dans une fonction similaire souhaitée\n\n• Être autonome dans sa pratique\n\n• Faire preuve de rigueur et d’un grand sens des responsabilités\n\n• Démontrer un réel esprit d’équipe\n\n• Ethique et conscience professionnelle\n\n• Flexibilité et ponctualité\n\n• Résistance physique et psychique\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers avec spécialisation en anesthésie ou équivalant reconnu par la Croix Rouge Suisse.\n Avantages :\n\n• Bloc opératoire convivial\n\n• Structure à taille humaine dynamique\n\n• Activité variée et multidisciplinaire\n\n• Pouvoir bénéficier d’un :\n\n• 1. Programme de formation continu uniquement dédié aux collaborateurs·trices du bloc opératoire\n\n• 2. Programme de formation généraliste avec également des propositions de développement personnel\n\n• ﻿ Facilité pour participer à des congrès spécialisés (FSIA, SFAR, SSAPM)",
+      "descriptionByLocale": {
+        "it": "GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle. Domani vi proponiamo di continuare il vostro sviluppo professionale coinvolgendovi nelle vostre nuove missioni e partecipando allo sviluppo di GHOL .\nDescrizione del post:\nSi evolverà in una sala operatoria composta da 6 sale operatorie, in varie specialità: chirurgia ortopedica, traumatologica, digestiva e bariatrica, urologica, ginecologica, ostetrica, plastica e chirurgia ENT.\nNei vostri nuovi doveri, le vostre missioni hanno un impatto sulla qualità della cura del paziente. Il tuo ruolo includerà:\n\n• Auto-cura per i pazienti che hanno bisogno di un intervento chirurgico\n\n• Lavorare in collaborazione con il medico anestetista durante l'induzione, il monitoraggio peroperativo e il risveglio del paziente\n\n• Preparare le attrezzature per l'anestetico secondo le regole di sicurezza e sicurezza\n\n• Assicurare la tracciabilità peroperativa su un mezzo computerizzato attaccato al file del paziente\n\n• Per eseguire la funzione di infermiera nella sala sveglia in tempo\n\n• Partecipa alla fluidità del programma operativo in collaborazione con il team chirurgico.\nProfilo richiesto:\n\n• Esperienza minima di 2 anni in una funzione simile desiderata\n\n• Essere autonomi nella pratica\n\n• Dimostrare rigore e un grande senso di responsabilità\n\n• Dimostra un vero spirito di squadra\n\n• Etica e coscienza professionale\n\n• Flessibilità e tempestività\n\n• Resistenza fisica e psichica\nLivello di formazione:\nCorso di laurea HES-SO in Infermieristica con specializzazione in anestesia o equivalente riconosciuto dalla Croce Rossa svizzera.\nVantaggi:\n\n• Unità operativa facile da usare\n\n• Struttura dinamica delle dimensioni umane\n\n• Attività varie e multidisciplinari\n\n• Per beneficiare di:\n\n• 1. Programma di formazione continua dedicato solo ai dipendenti dell'unità operativa\n\n• 2. Programma generale di formazione con proposte di sviluppo personale\n\n• Facilità per la partecipazione a congressi specializzati (FSIA, SFAR, SSAPM)",
+        "en": "GHOL is the reference hospital for the German West with its structures on Nyon and Rolle. Tomorrow we propose you to continue your professional development by involving you in your new missions and by participating in the development of GHOL .\nDescription of the post:\nYou will evolve within an operating room consisting of 6 operating rooms, in various specialties: orthopaedic, traumatological, digestive and bariatric surgery, urological, gynaecological, obstetric, plastic and ENT surgery.\nIn your new duties, your missions have an impact on the quality of patient care. Your role will include:\n\n• Self-care for patients who need surgery\n\n• Work in collaboration with the anaesthetist physician during induction, peroperative monitoring and patient waking up\n\n• Prepare equipment for anaesthetic in accordance with safety and safety rules\n\n• Ensure peroperative traceability on a computerised medium attached to the patient's file\n\n• To perform the function of nurse in the wake room on time\n\n• Participate in the fluidity of the operation programme in collaboration with the surgical team.\nProfile required:\n\n• Minimum 2 years experience in a similar desired function\n\n• Being autonomous in practice\n\n• Demonstrate rigour and a great sense of responsibility\n\n• Demonstrate a real team spirit\n\n• Ethics and professional conscience\n\n• Flexibility and timeliness\n\n• Physical and psychic resistance\nLevel of training:\nBachelor of Science HES-SO in Nursing with specialization in anesthesia or equivalent recognized by the Swiss Red Cross.\nBenefits:\n\n• User friendly operating unit\n\n• Dynamic human size structure\n\n• Various and multidisciplinary activities\n\n• To benefit from:\n\n• 1. Continuous training programme dedicated only to employees of the operating unit\n\n• 2. General training programme with proposals for personal development\n\n• Facility for participation in specialized congresses (FSIA, SFAR, SSAPM)",
+        "de": "GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle. Morgen schlagen wir Ihnen vor, Ihre berufliche Entwicklung fortzusetzen, indem Sie Sie in Ihre neuen Missionen einbeziehen und an der Entwicklung von GHOL teilnehmen.\nBeschreibung der Post:\nSie werden sich in einem Operationssaal mit 6 Operationssälen in verschiedenen Fachgebieten entwickeln: orthopädische, traumatologische, Verdauungs- und bariatrische Chirurgie, urologische, gynäkologische, geburtshilfliche, plastische und HNO-Chirurgie.\nIn Ihren neuen Aufgaben haben Ihre Missionen einen Einfluss auf die Qualität der Patientenversorgung. Ihre Rolle umfasst:\n\n• Selbstpflege für Patienten, die eine Operation benötigen\n\n• Arbeiten Sie in Zusammenarbeit mit dem Anästhesisten während der Induktion, der peroperativen Überwachung und des Aufwachens des Patienten\n\n• Ausrüstung für die Betäubung gemäß Sicherheit und Sicherheitsvorschriften vorbereiten\n\n• Gewährleistung der operativen Rückverfolgbarkeit auf einem elektronischen Datenträger, der der Patientenakte beigefügt ist\n\n• Um die Funktion der Krankenschwester im Wake Room pünktlich auszuführen\n\n• Beteiligen Sie sich an der Fluidität des Operationsprogramms in Zusammenarbeit mit dem chirurgischen Team.\nProfil erforderlich:\n\n• Mindestens 2 Jahre Erfahrung in einer ähnlichen gewünschten Funktion\n\n• Autonomie in der Praxis\n\n• Demonstrieren Sie Strenge und ein großes Verantwortungsbewusstsein\n\n• Demonstrieren Sie einen echten Teamgeist\n\n• Ethik und professionelles Gewissen\n\n• Flexibilität und Aktualität\n\n• Körperlicher und psychischer Widerstand\nAusbildungsniveau:\nBachelor of Science HES-SO in Pflege mit Spezialisierung in Anästhesie oder gleichwertig vom Schweizerischen Roten Kreuz anerkannt.\nLeistungen:\n\n• Benutzerfreundliche Bedieneinheit\n\n• Dynamische menschliche Größenstruktur\n\n• Verschiedene und multidisziplinäre Aktivitäten\n\n• Nutznießer von:\n\n• 1. Weiterbildungsprogramm, das nur für Mitarbeiter der operativen Einheit vorgesehen ist\n\n• 2. Allgemeines Ausbildungsprogramm mit Vorschlägen für die persönliche Entwicklung\n\n• Einrichtung zur Teilnahme an Fachkongressen (FSIA, SFAR, SSAPM)",
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL .\nDescriptif du poste :\nVous évoluerez au sein d’un bloc opératoire composé de 6 salles d’opération, dans diverses spécialités : chirurgies orthopédique, traumatologique, digestive et bariatrique, urologique, gynécologique, obstétrique, plastique et ORL.\nDans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge de manière autonome les patients·es qui doivent bénéficier d’une intervention chirurgicale\n\n• Travailler en collaboration avec la·e médecin anesthésiste lors de l’induction, de la surveillance peropératoire et du réveil du·de la patient·e\n\n• Préparer le matériel en vue d’une anesthésie dans le respect des règles de sécurité et d’asepsie\n\n• Assurer la traçabilité peropératoire sur un support informatisé joint au dossier du·de la patient·e\n\n• Assurer ponctuellement la fonction d’infirmier·e en salle de réveil\n\n• Participer à la fluidité du déroulement du programme opératoire en collaboration avec l’équipe chirurgicale .\nProfil requis :\n\n• Expérience de 2 années minimum dans une fonction similaire souhaitée\n\n• Être autonome dans sa pratique\n\n• Faire preuve de rigueur et d’un grand sens des responsabilités\n\n• Démontrer un réel esprit d’équipe\n\n• Ethique et conscience professionnelle\n\n• Flexibilité et ponctualité\n\n• Résistance physique et psychique\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers avec spécialisation en anesthésie ou équivalant reconnu par la Croix Rouge Suisse.\nAvantages :\n\n• Bloc opératoire convivial\n\n• Structure à taille humaine dynamique\n\n• Activité variée et multidisciplinaire\n\n• Pouvoir bénéficier d’un :\n\n• 1. Programme de formation continu uniquement dédié aux collaborateurs·trices du bloc opératoire\n\n• 2. Programme de formation généraliste avec également des propositions de développement personnel\n\n• Facilité pour participer à des congrès spécialisés (FSIA, SFAR, SSAPM)"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-nursing",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-31",
+      "url": "https://app.beehire.com/invite/v6aaZampn",
+      "applyUrl": "https://app.beehire.com/invite/v6aaZampn",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-04T23:08:23.979Z",
+      "needsRetranslation": false,
+      "previousSlugs": [
+        "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-anestetico-certificato-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "infirmier-ere-anesthesiste-certifie-e-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-07-31T12:04:04.810Z",
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
       "id": "ghol-c4e37dddc379",
       "slug": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
-        "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "it": "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "poolist-nurse-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "de": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
       "title": "Infirmier·ère pooliste",
       "titleByLocale": {
-        "fr": "Infirmier·ère pooliste",
-        "de": "Poolist Krankenschwester",
         "it": "Infermiere da piscina",
-        "en": "Poolist nurse"
+        "en": "Poolist nurse",
+        "de": "Infirmier·ère pooliste",
+        "fr": "Infirmier·ère pooliste"
       },
       "description": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
       "descriptionByLocale": {
-        "fr": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\n Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\n Nous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\n Vos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\n Eventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)",
-        "it": "Sei appassionato di salute e vuoi svolgere un ruolo chiave nel corretto funzionamento delle diverse unità di cura, quindi unisciti al nostro team di Nurse Poolist.\n GHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle.\n Vi offriamo un lavoro in un ambiente piacevole, in nuovi locali, circondato da colleghi dinamici, motivati e volontari che vi accoglieranno e vi accompagneranno nelle vostre varie missioni.\n Descrizione della posizione:\n Nelle tue nuove funzioni, rafforza i tuoi team di assistenza in base alle tue preferenze:\n\n• Chirurgia, Medicina ortopedica\n\n• Cura intensiva dell'emodialisi-emergenza\n\n• Pediatria/Maternità\n\n• Pneumologia (Sito di ruolo)\n\n• EMS (Sito di ruolo)\n I vostri vantaggi:\n\n• Si organizza il vostro programma a vostra convenienza, gestendo il vostro tempo di lavoro e tempo di riposo\n\n• Stai assumendo un'attività più o meno gradualmente\n\n• Espandi le tue conoscenze orientandoti in diversi servizi\n\n• Partecipate ai vari corsi di formazione offerti in base alle vostre esigenze. Un catalogo di formazione continua per lo sviluppo professionale e personale è offerto ai dipendenti del Dipartimento di Cura\n\n• Si avrà dopo un certo tempo l'opportunità di raggiungere una posizione fissa come priorità\n\n• Riceverai un bonus di flessibilità e disponibilità oltre al tuo stipendio\n\n• Ore continue di 12 ore / ore su un colpo di stato / giorno / notte / WE\n Profilo richiesto:\n Siamo convinti del vostro rapido successo nelle vostre funzioni future grazie al vostro:\n\n• Facilità di adattamento, reattività alle richieste\n\n• Vuoi espandere le tue conoscenze e competenze\n\n• Utilizzo di strumenti IT (cartelle di cura, applicazioni mobili, ecc.).\n\n• I vostri pochi anni di esperienza di allattamento saranno un vero vantaggio per una rapida integrazione.\n Livello di formazione:\n Corso di laurea HES-SO in Infermieristica richiesto o diploma ritenuto equivalente riconosciuto dalla Croce Rossa svizzera\n Possibile specializzazione in una delle aree specifiche di cura (assistenza intensiva, Anaestesia, Emergenze, Pediatria, Gerontologia, ecc.)",
-        "en": "You are passionate about health and want to play a key role in the proper functioning of the different care units, so join our team of Nurse Poolist.\n GHOL is the reference hospital for the German West with its structures on Nyon and Rolle.\n We offer you a job in a pleasant setting, in new premises, surrounded by dynamic, motivated, volunteer colleagues who will welcome you and accompany you in your various missions.\n Description of position:\n In your new functions, you strengthen your care teams according to your preferences by:\n\n• Surgery, Orthopaedic Medicine\n\n• Hemodialysis-Emergency-Intensive care\n\n• Pediatric/Maternity\n\n• Pneumology (Role site)\n\n• EMS (Role site)\n Your benefits:\n\n• You organize your schedule at your convenience by managing your working time and rest time\n\n• You are taking on an activity more or less gradually\n\n• You expand your knowledge by being oriented in different services\n\n• You participate in the various training courses offered according to your needs. A catalogue of continuing vocational and personal development training is offered to employees of the Department of Care\n\n• You will have after a given time the opportunity to get to a fixed position as a priority\n\n• You will receive a flexibility and availability bonus in addition to your salary\n\n• Continuous hours of 12 hours / hours on a coupe/ day / night / WE\n Profile required:\n We are convinced of your rapid success in your future functions thanks to your:\n\n• Ease of adaptation, responsiveness to requests\n\n• Want to expand your knowledge and skills\n\n• Use of IT tools (care folders, mobile applications, etc.).\n\n• Your few years of nursing experience will be a real asset for rapid integration.\n Level of training:\n Bachelor of Science HES-SO in Nursing required or diploma deemed equivalent recognized by the Swiss Red Cross\n Possible specialization in one of the specific areas of care (Intensive care, Anaesthesia, Emergencies, Pediatrics, Gerontology, etc.)",
-        "de": "Sie sind leidenschaftlich über die Gesundheit und wollen eine Schlüsselrolle in der ordnungsgemäßen Funktion der verschiedenen Pflegeeinheiten spielen, so treten Sie unserem Team von Nurse Poolist.\n GHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle.\n Wir bieten Ihnen einen Job in angenehmer Umgebung, in neuen Räumlichkeiten, umgeben von dynamischen, motivierten, ehrenamtlichen Kollegen, die Sie willkommen heißen und Sie in Ihren verschiedenen Missionen begleiten.\n Beschreibung der Position:\n In Ihren neuen Funktionen stärken Sie Ihre Pflegeteams nach Ihren Vorlieben durch:\n\n• Chirurgie, Orthopädische Medizin\n\n• Hämodialyse-Notfall-Intensivpflege\n\n• Kinder/Mutterschaft\n\n• Pneumologie (Rollenstandort)\n\n• EMS (Rollenstandort)\n Ihre Vorteile:\n\n• Sie organisieren Ihren Zeitplan nach Belieben, indem Sie Ihre Arbeitszeit und Ruhezeit verwalten\n\n• Sie übernehmen eine Aktivität mehr oder weniger allmählich\n\n• Sie erweitern Ihr Wissen, indem Sie sich an verschiedenen Dienstleistungen orientieren\n\n• Sie nehmen an den verschiedenen Schulungen teil, die nach Ihren Bedürfnissen angeboten werden. Ein Katalog der Weiterbildung der beruflichen und persönlichen Entwicklung wird für Mitarbeiter des Department of Care angeboten\n\n• Sie haben nach einer bestimmten Zeit die Möglichkeit, eine feste Position als Priorität zu erreichen\n\n• Sie erhalten zusätzlich zu Ihrem Gehalt einen Flexibilitäts- und Verfügbarkeitsbonus\n\n• Kontinuierliche Stunden von 12 Stunden / Stunden auf einem Coupé / Tag / Nacht / WE\n Profil erforderlich:\n Wir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen dank Ihrer:\n\n• Leichtigkeit der Anpassung, Reaktionsfähigkeit auf Anfragen\n\n• Möchten Sie Ihr Wissen und Ihre Fähigkeiten erweitern\n\n• Verwendung von IT-Tools (Pflegeordner, mobile Anwendungen usw.).\n\n• Ihre wenigen Jahre Pflegeerfahrung werden ein echter Gewinn für eine schnelle Integration sein.\n Ausbildungsniveau:\n Bachelor of Science HES-SO in Nursing erforderlich oder Diplom als gleichwertig anerkannt vom Schweizerischen Roten Kreuz\n Mögliche Spezialisierung in einem der spezifischen Pflegebereiche (Intensivmedizin, Anästhesie, Notfälle, Kinderheilkunde, Gerontologie usw.)"
+        "it": "Sei appassionato di salute e vuoi svolgere un ruolo chiave nel corretto funzionamento delle diverse unità di cura, quindi unisciti al nostro team di Nurse Poolist.\nGHOL è l'ospedale di riferimento per l'Occidente tedesco con le sue strutture su Nyon e Rolle.\nVi offriamo un lavoro in un ambiente piacevole, in nuovi locali, circondato da colleghi dinamici, motivati e volontari che vi accoglieranno e vi accompagneranno nelle vostre varie missioni.\nDescrizione della posizione:\nNelle tue nuove funzioni, rafforza i tuoi team di assistenza in base alle tue preferenze:\n\n• Chirurgia, Medicina ortopedica\n\n• Cura intensiva dell'emodialisi-emergenza\n\n• Pediatria/Maternità\n\n• Pneumologia (Sito di ruolo)\n\n• EMS (Sito di ruolo)\nI vostri vantaggi:\n\n• Si organizza il vostro programma a vostra convenienza, gestendo il vostro tempo di lavoro e tempo di riposo\n\n• Stai assumendo un'attività più o meno gradualmente\n\n• Espandi le tue conoscenze orientandoti in diversi servizi\n\n• Partecipate ai vari corsi di formazione offerti in base alle vostre esigenze. Un catalogo di formazione continua per lo sviluppo professionale e personale è offerto ai dipendenti del Dipartimento di Cura\n\n• Si avrà dopo un certo tempo l'opportunità di raggiungere una posizione fissa come priorità\n\n• Riceverai un bonus di flessibilità e disponibilità oltre al tuo stipendio\n\n• Ore continue di 12 ore / ore su un colpo di stato / giorno / notte / WE\nProfilo richiesto:\nSiamo convinti del vostro rapido successo nelle vostre funzioni future grazie al vostro:\n\n• Facilità di adattamento, reattività alle richieste\n\n• Vuoi espandere le tue conoscenze e competenze\n\n• Utilizzo di strumenti IT (cartelle di cura, applicazioni mobili, ecc.).\n\n• I vostri pochi anni di esperienza di allattamento saranno un vero vantaggio per una rapida integrazione.\nLivello di formazione:\nCorso di laurea HES-SO in Infermieristica richiesto o diploma ritenuto equivalente riconosciuto dalla Croce Rossa svizzera\nPossibile specializzazione in una delle aree specifiche di cura (assistenza intensiva, Anaestesia, Emergenze, Pediatria, Gerontologia, ecc.)",
+        "en": "You are passionate about health and want to play a key role in the proper functioning of the different care units, so join our team of Nurse Poolist.\nGHOL is the reference hospital for the German West with its structures on Nyon and Rolle.\nWe offer you a job in a pleasant setting, in new premises, surrounded by dynamic, motivated, volunteer colleagues who will welcome you and accompany you in your various missions.\nDescription of position:\nIn your new functions, you strengthen your care teams according to your preferences by:\n\n• Surgery, Orthopaedic Medicine\n\n• Hemodialysis-Emergency-Intensive care\n\n• Pediatric/Maternity\n\n• Pneumology (Role site)\n\n• EMS (Role site)\nYour benefits:\n\n• You organize your schedule at your convenience by managing your working time and rest time\n\n• You are taking on an activity more or less gradually\n\n• You expand your knowledge by being oriented in different services\n\n• You participate in the various training courses offered according to your needs. A catalogue of continuing vocational and personal development training is offered to employees of the Department of Care\n\n• You will have after a given time the opportunity to get to a fixed position as a priority\n\n• You will receive a flexibility and availability bonus in addition to your salary\n\n• Continuous hours of 12 hours / hours on a coupe/ day / night / WE\nProfile required:\nWe are convinced of your rapid success in your future functions thanks to your:\n\n• Ease of adaptation, responsiveness to requests\n\n• Want to expand your knowledge and skills\n\n• Use of IT tools (care folders, mobile applications, etc.).\n\n• Your few years of nursing experience will be a real asset for rapid integration.\nLevel of training:\nBachelor of Science HES-SO in Nursing required or diploma deemed equivalent recognized by the Swiss Red Cross\nPossible specialization in one of the specific areas of care (Intensive care, Anaesthesia, Emergencies, Pediatrics, Gerontology, etc.)",
+        "de": "Sie sind leidenschaftlich über die Gesundheit und wollen eine Schlüsselrolle in der ordnungsgemäßen Funktion der verschiedenen Pflegeeinheiten spielen, so treten Sie unserem Team von Nurse Poolist.\nGHOL ist das Referenzkrankenhaus für den deutschen Westen mit seinen Strukturen auf Nyon und Rolle.\nWir bieten Ihnen einen Job in angenehmer Umgebung, in neuen Räumlichkeiten, umgeben von dynamischen, motivierten, ehrenamtlichen Kollegen, die Sie willkommen heißen und Sie in Ihren verschiedenen Missionen begleiten.\nBeschreibung der Position:\nIn Ihren neuen Funktionen stärken Sie Ihre Pflegeteams nach Ihren Vorlieben durch:\n\n• Chirurgie, Orthopädische Medizin\n\n• Hämodialyse-Notfall-Intensivpflege\n\n• Kinder/Mutterschaft\n\n• Pneumologie (Rollenstandort)\n\n• EMS (Rollenstandort)\nIhre Vorteile:\n\n• Sie organisieren Ihren Zeitplan nach Belieben, indem Sie Ihre Arbeitszeit und Ruhezeit verwalten\n\n• Sie übernehmen eine Aktivität mehr oder weniger allmählich\n\n• Sie erweitern Ihr Wissen, indem Sie sich an verschiedenen Dienstleistungen orientieren\n\n• Sie nehmen an den verschiedenen Schulungen teil, die nach Ihren Bedürfnissen angeboten werden. Ein Katalog der Weiterbildung der beruflichen und persönlichen Entwicklung wird für Mitarbeiter des Department of Care angeboten\n\n• Sie haben nach einer bestimmten Zeit die Möglichkeit, eine feste Position als Priorität zu erreichen\n\n• Sie erhalten zusätzlich zu Ihrem Gehalt einen Flexibilitäts- und Verfügbarkeitsbonus\n\n• Kontinuierliche Stunden von 12 Stunden / Stunden auf einem Coupé / Tag / Nacht / WE\nProfil erforderlich:\nWir sind überzeugt von Ihrem schnellen Erfolg in Ihren zukünftigen Funktionen dank Ihrer:\n\n• Leichtigkeit der Anpassung, Reaktionsfähigkeit auf Anfragen\n\n• Möchten Sie Ihr Wissen und Ihre Fähigkeiten erweitern\n\n• Verwendung von IT-Tools (Pflegeordner, mobile Anwendungen usw.).\n\n• Ihre wenigen Jahre Pflegeerfahrung werden ein echter Gewinn für eine schnelle Integration sein.\nAusbildungsniveau:\nBachelor of Science HES-SO in Nursing erforderlich oder Diplom als gleichwertig anerkannt vom Schweizerischen Roten Kreuz\nMögliche Spezialisierung in einem der spezifischen Pflegebereiche (Intensivmedizin, Anästhesie, Notfälle, Kinderheilkunde, Gerontologie usw.)",
+        "fr": "Vous êtes passionné·e par le domaine de la santé et souhaitez jouer un rôle clé dans le bon fonctionnement des différentes unités de soins alors, rejoignez notre équipe d’ Infirmier·ère Pooliste.\nLe GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle.\nNous vous proposons une poste dans un cadre agréable, dans de nouveaux locaux, entouré.e de collègues dynamiques, motivés, volontaires qui vous accueilleront et vous accompagneront dans vos différentes missions.\nDescriptif du poste :\nDans vos nouvelles fonctions, vous renforcez selon vos préférences les équipes de soins en :\n\n• Chirurgie-Orthopédie-Médecine\n\n• Hémodialyse-Urgences-Soins Intensifs\n\n• Pédiatrie-Maternité\n\n• Pneumologie (site de Rolle)\n\n• EMS (site de Rolle)\nVos avantages :\n\n• Vous organisez votre planning à votre convenance en gérant votre temps de travail et vos temps de repos\n\n• Vous reprenez une activité plus ou moins progressivement\n\n• Vous élargissez vos connaissances en étant orienté.e dans différents services\n\n• Vous participez aux différentes formations offertes selon vos besoins. Un catalogue de formation continue de développement professionnel et personnel est proposé aux collaborateurs·trices du Département des Soins\n\n• Vous aurez après un temps donné l’opportunité d’accéder à un poste fixe en priorité\n\n• Vous bénéficierez d’une Prime de flexibilité et de disponibilité en sus de votre salaire\n\n• Horaires continus de 12h / horaires en coupé/ jour / nuit / WE\nProfil requis :\nNous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre:\n\n• Facilité d’adaptation, réactivité à répondre aux demandes\n\n• Envie d’élargir vos connaissances et vos compétences\n\n• Aisance dans l’utilisation des outils informatiques (dossiers de soins, applications mobiles, etc).\n\n• Vos quelques années d’expérience dans les soins infirmiers seront un véritable atout pour une intégration rapide.\nNiveau de formation :\nBachelor of Science HES-SO en Soins infirmiers exigé ou diplôme jugé équivalent reconnu par la Croix Rouge Suisse\nEventuellement spécialisation dans un des secteurs spécifiques de soins (Soins Intensifs, Anesthésie, Urgences, Pédiatrie, Gérontologie,etc.)"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -753,7 +779,27 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:36:03.664Z",
+      "crawledAt": "2026-09-04T23:08:23.978Z",
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infermiere-da-piscina-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "poolist-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-09-04T13:36:03.664Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -766,22 +812,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-04T13:36:03.664Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "previousSlugs": [
-        "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ]
+      }
     },
     {
       "id": "ghol-fd047f33a8e7",
@@ -789,7 +820,7 @@
       "slugByLocale": {
         "it": "infermiere-di-polmonite-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "en": "pneumonia-nurse-groupement-hospitalier-de-l-ouest-lemanique-rolle",
-        "de": "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "de": "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
         "fr": "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -799,7 +830,7 @@
       "titleByLocale": {
         "it": "Infermiere di polmonite",
         "en": "Pneumonia nurse",
-        "de": "Lungenentzündung Krankenschwester",
+        "de": "Infirmier·ère en pneumologie",
         "fr": "Infirmier·ère en pneumologie"
       },
       "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL.\n Le service de Pneumologie, situé à ROLLE , prend en charge la patientèle adulte souffrant de maladies respiratoires aiguës ou chroniques dans un cadre hospitalier ou ambulatoire. Vous évoluerez au sein d’une structure rénovée dans un cadre exceptionnel face au Lac Léman et aux Alpes. Vous aurez à disposition un équipement de pointe.\n Aujourd’hui, le service de pneumologie est devenu un établissement phare dans la réhabilitation respiratoire.\n Descriptif du poste :\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients·es. Votre rôle consistera notamment à :\n\n• Prendre en charge et accompagner la patientèle du Pôle de Pneumologie\n\n• Assurer des prestations de soins de qualité basée sur une pratique réflexive\n\n• Effectuer avec rigueur les soins médico-délégués et les soins du rôle autonome\n\n• Offrir des soins infirmiers personnalisés en tenant compte des objectifs et des besoins du · de la patient·e et de sa famille pour le retour à domicile par exemple,\n\n• Transmettre ses observations de manière orale et écrite de manière ciblée et pertinente dans le dossier informatisé des patients·es\n\n• Assurer la commande de pharmacie et de matériel en tenant compte des besoins du service\n\n• Participer activement à la visite médicale, relever et appliquer les prescriptions émises\n Profil requis :\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre :\n\n• Intérêt marqué pour l’accompagnement et le soutien de la patientèle ayant des affections pneumologiques\n\n• Aptitude à travailler en interdisciplinarité (équipe médicale, physiothérapeute, diététicien·ne, infirmier·ière de liaison, Ligue Pulmonaire Vaudoise)\n\n• Sens aigu des responsabilités et capacité de prise de décisions\n\n• Capacité à faire une évaluation clinique pertinente\n Niveau de formation :\n Bachelor of Science HES-SO en Soins infirmiers exigé (ou titre jugé équivalent homologué par la Croix-Rouge Suisse)\n Nous vous offrons :\n Un accueil personnalisé, des conseils avisés de professionnels et un suivi individuel de qualité. Une opportunité de développer vos compétences professionnelles et personnelles ainsi qu’une activité variée privilégiant le travail en pluridisciplinarité et les relations humaines.\n Un accompagnement clinique par une répondante spécialisée, un parcours d’intégration documenté et évolutif pour faciliter l’adaptation au sein du service\n Des nouveaux locaux, une organisation en petits secteurs de 10 lits avec salle de soins et pharmacie\n Un travail en collaboration étroite avec les différents intervenants\n Un accès à une offre de formation continue interne variée et attractive\n La possibilité de stationner sur le parking de l’Hôpital",
@@ -830,7 +861,8 @@
       "sourceLang": "fr",
       "crawledAt": "2026-09-03T23:20:55.951Z",
       "previousSlugs": [
-        "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
+        "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle",
+        "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -840,6 +872,7 @@
           "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ],
         "de": [
+          "lungenentzundung-krankenschwester-groupement-hospitalier-de-l-ouest-lemanique-rolle",
           "infirmier-ere-en-pneumologie-groupement-hospitalier-de-l-ouest-lemanique-rolle"
         ]
       },
@@ -857,7 +890,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

@@ -1,20 +1,55 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-09-04T13:24:31.135Z",
+  "generatedAt": "2026-09-04T22:53:38.386Z",
   "total": 10,
   "discovered": null,
   "written": 10,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 16507,
-  "avgDurationMs": 16507,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 15470,
+  "avgDurationMs": 15470,
   "durationHistory": [
-    16507
+    15470
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "microsoft-200053819",
+      "slug": "account-technology-strategist-manufacturing-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Account Technology Strategist - Manufacturing",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556988913",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-04T22:53:35.438Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556988913",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "microsoft-200045731",
@@ -28,7 +63,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556946093",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.684Z",
+      "crawledAt": "2026-09-04T22:53:35.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -64,7 +99,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556987057",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.687Z",
+      "crawledAt": "2026-09-04T22:53:35.444Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,17 +115,17 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556987057",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:31:49.140Z",
-      "_qualityScore": 73,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 21,
         "completeness": 14
       }
     },
     {
       "id": "microsoft-200053299",
-      "slug": "customer-success-account-manager-microsoft-zurich-2",
+      "slug": "customer-success-account-manager-microsoft-zurich",
       "company": "Microsoft",
       "companyKey": "microsoft",
       "companyDomain": "microsoft.com",
@@ -100,7 +135,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556985644",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.686Z",
+      "crawledAt": "2026-09-04T22:53:35.443Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -116,47 +151,11 @@
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556985644",
       "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T23:09:35.183Z",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "microsoft-200052774",
-      "slug": "partner-development-manager-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Partner Development Manager",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393556983934",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.688Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-31",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556983934",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-08-31T16:59:16.433Z",
-      "_qualityScore": 73,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -172,7 +171,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556979712",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.690Z",
+      "crawledAt": "2026-09-04T22:53:35.441Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -197,6 +196,42 @@
       }
     },
     {
+      "id": "microsoft-200052774",
+      "slug": "partner-development-manager-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Partner Development Manager",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393556983934",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-04T22:53:35.446Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-31",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556983934",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-08-31T16:59:16.433Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
       "id": "microsoft-200050524",
       "slug": "cloud-and-ai-platforms-caip-specialist-microsoft-zurich",
       "company": "Microsoft",
@@ -208,7 +243,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556979683",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.689Z",
+      "crawledAt": "2026-09-04T22:53:35.442Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -244,7 +279,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556978892",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.692Z",
+      "crawledAt": "2026-09-04T22:53:35.440Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -280,7 +315,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556978844",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.682Z",
+      "crawledAt": "2026-09-04T22:53:35.435Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -316,7 +351,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556943701",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:24:27.691Z",
+      "crawledAt": "2026-09-04T22:53:35.445Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -340,8 +375,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "microsoft-200049084",
       "slug": "scienziato-applicato-microsoft-zurich",
@@ -383,5 +417,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

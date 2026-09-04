@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-09-04T13:47:12.907Z",
+  "assembledAt": "2026-09-04T23:12:46.423Z",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-8220b35f575d",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2546/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:09.978Z",
+      "crawledAt": "2026-09-04T23:12:43.364Z",
       "addressLocality": "Schaffhausen / Beringen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -109,7 +109,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2530/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:09.676Z",
+      "crawledAt": "2026-09-04T23:12:43.062Z",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -187,7 +187,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2550/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:09.375Z",
+      "crawledAt": "2026-09-04T23:12:42.761Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -269,7 +269,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2551/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:09.072Z",
+      "crawledAt": "2026-09-04T23:12:42.458Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -345,7 +345,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2481/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:08.770Z",
+      "crawledAt": "2026-09-04T23:12:42.155Z",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2547/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:08.468Z",
+      "crawledAt": "2026-09-04T23:12:41.853Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -494,7 +494,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2552/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:08.164Z",
+      "crawledAt": "2026-09-04T23:12:41.548Z",
       "addressLocality": "Köniz-Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2553/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:07.861Z",
+      "crawledAt": "2026-09-04T23:12:41.246Z",
       "addressLocality": "Bischofszell",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -643,7 +643,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2548/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:07.555Z",
+      "crawledAt": "2026-09-04T23:12:40.942Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -691,16 +691,16 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:48:23.357Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
+      "salaryMin": 101500,
+      "salaryMax": 154000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
+          "minValue": 101500,
+          "maxValue": 154000,
           "unitText": "YEAR"
         }
       }
@@ -719,16 +719,16 @@
       "companyDomain": "recruitingapp-2765.umantis.com",
       "title": "Sachbearbeiter Liegenschaftsbuchhaltung (m/w/d)",
       "titleByLocale": {
-        "de": "Sachbearbeiter Liegenschaftsbuchhaltung (m/w/d)",
         "it": "Responsabile della proprietà (m/f/d)",
         "en": "Property manager (m/f/d)",
+        "de": "Sachbearbeiter Liegenschaftsbuchhaltung (m/w/d)",
         "fr": "Gestionnaire immobilier (h/f/d)"
       },
       "description": "Deine Aufgaben\nDu liebst Zahlen, arbeitest gerne strukturiert und behältst auch in hektischen Momenten den Überblick? Dann bist du bei uns genau richtig! In dieser Rolle als wirst du Teil eines aufgestellten und erfahrenen Teams und sorgst dafür, dass unsere Rechnungen korrekt erstellt, verbucht und kontiert werden.\n• Kontierung Nebenkostenrelevanter Lieferantenrechnungen\n• Umbuchungen\n• Erstellen von Nebenkostenabrechnungen\n• Unterstützung der Bewirtschaftung\n\nDeine Anforderungen\n• Kaufmännische Grundausbildung oder gleichwertige Ausbildung mit Schwerpunkt Buchhaltung\n• Berufserfahrung und Buchhaltungskenntnisse in der Immobilien-Branche resp. in der Nebenkostenabrechnung von grossem Vorteil, aber nicht Bedingung\n• Gute IT-Anwenderkenntnisse (MS-Office-Programme, ev. REM)",
       "descriptionByLocale": {
-        "de": "Deine Aufgaben\nDu liebst Zahlen, arbeitest gerne strukturiert und behältst auch in hektischen Momenten den Überblick? Dann bist du bei uns genau richtig! In dieser Rolle als wirst du Teil eines aufgestellten und erfahrenen Teams und sorgst dafür, dass unsere Rechnungen korrekt erstellt, verbucht und kontiert werden.\n• Kontierung Nebenkostenrelevanter Lieferantenrechnungen\n• Umbuchungen\n• Erstellen von Nebenkostenabrechnungen\n• Unterstützung der Bewirtschaftung\n\nDeine Anforderungen\n• Kaufmännische Grundausbildung oder gleichwertige Ausbildung mit Schwerpunkt Buchhaltung\n• Berufserfahrung und Buchhaltungskenntnisse in der Immobilien-Branche resp. in der Nebenkostenabrechnung von grossem Vorteil, aber nicht Bedingung\n• Gute IT-Anwenderkenntnisse (MS-Office-Programme, ev. REM)",
         "it": "I tuoi compiti\nAmi i numeri, come lavorare in modo strutturato e tenere traccia anche nei momenti frenetici? Allora hai proprio ragione con noi! In questo ruolo, diventerai parte di un team consolidato e esperto e ti assicurerai che le nostre fatture siano correttamente create, prenotate e contabilizzate.\n• Contabilità delle fatture dei fornitori rilevanti dei costi incidentali\n• Rebooking\n• Preparazione di rapporti sui costi accidentali\n• Sostegno alla gestione\n\nI vostri requisiti\n• Formazione commerciale o equivalente di base con un focus sulla contabilità\n• Esperienza professionale e conoscenza contabile nel settore immobiliare resp. nella contabilità dei costi incidentali di grande vantaggio, ma non condizione\n• Buona conoscenza degli utenti IT (programmi di Office di MS, eventualmente REM)",
         "en": "Your tasks\nDo you love numbers, like to work in a structured way and keep track even in hectic moments? Then you are exactly right with us! In this role, you will become part of a well-established and experienced team and ensure that our invoices are correctly created, booked and accounted for.\n• Accounting of incidental cost relevant supplier invoices\n• Rebooking\n• Preparation of incidental cost reports\n• Management support\n\nYour requirements\n• Basic commercial or equivalent training with a focus on accounting\n• Professional experience and accounting knowledge in the real estate industry resp. in the incidental cost accounting of great advantage, but not condition\n• Good IT user knowledge (MS Office programs, possibly REM)",
+        "de": "Deine Aufgaben\nDu liebst Zahlen, arbeitest gerne strukturiert und behältst auch in hektischen Momenten den Überblick? Dann bist du bei uns genau richtig! In dieser Rolle als wirst du Teil eines aufgestellten und erfahrenen Teams und sorgst dafür, dass unsere Rechnungen korrekt erstellt, verbucht und kontiert werden.\n• Kontierung Nebenkostenrelevanter Lieferantenrechnungen\n• Umbuchungen\n• Erstellen von Nebenkostenabrechnungen\n• Unterstützung der Bewirtschaftung\n\nDeine Anforderungen\n• Kaufmännische Grundausbildung oder gleichwertige Ausbildung mit Schwerpunkt Buchhaltung\n• Berufserfahrung und Buchhaltungskenntnisse in der Immobilien-Branche resp. in der Nebenkostenabrechnung von grossem Vorteil, aber nicht Bedingung\n• Gute IT-Anwenderkenntnisse (MS-Office-Programme, ev. REM)",
         "fr": "Vos tâches\nAimez-vous les nombres, aimez-vous travailler de façon structurée et garder le cap même dans les moments agités ? Alors tu as exactement raison avec nous ! Dans ce rôle, vous allez faire partie d'une équipe bien établie et expérimentée et vous assurer que nos factures sont correctement créées, réservées et comptabilisées.\n• Comptabilisation des factures accessoires des fournisseurs concernés\n• Réréservation\n• Établissement de rapports sur les coûts accessoires\n• Appui à la gestion\n\nVos besoins\n• Formation de base commerciale ou équivalente axée sur la comptabilité\n• Expérience professionnelle et connaissances en comptabilité dans l'industrie immobilière resp. dans la comptabilité des coûts accessoires de grand avantage, mais pas la condition\n• Bonne connaissance de l'utilisateur de la TI (programmes du Bureau du SM, éventuellement REM)"
       },
       "location": "Wallisellen",
@@ -736,7 +736,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2557/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:47:07.249Z",
+      "crawledAt": "2026-09-04T23:12:40.637Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -751,23 +751,10 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://recruitingapp-2765.umantis.com/Vacancies/2557/Description/1",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "firstSeenAt": "2026-09-04T13:47:07.249Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-wallisellen"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-wallisellen"
@@ -779,9 +766,20 @@
           "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-wallisellen"
         ]
       },
-      "previousSlugs": [
-        "sachbearbeiter-liegenschaftsbuchhaltung-m-w-d-apleona-schweiz-ag-wallisellen"
-      ]
+      "firstSeenAt": "2026-09-04T13:47:07.249Z",
+      "salaryMin": 101500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 101500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "apleona-schweiz-ag-9f80d1887622",
@@ -873,7 +871,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     }
   ]
 }

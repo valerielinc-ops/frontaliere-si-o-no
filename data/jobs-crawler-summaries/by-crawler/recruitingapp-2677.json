@@ -1,7 +1,7 @@
 {
   "key": "recruitingapp-2677",
   "label": "E-Recruiting LLB-Gruppe Stellen",
-  "generatedAt": "2026-09-04T13:39:32.126Z",
+  "generatedAt": "2026-09-04T23:01:12.441Z",
   "total": 2,
   "discovered": null,
   "written": 2,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 26806,
-  "avgDurationMs": 26806,
+  "durationMs": 26495,
+  "avgDurationMs": 26495,
   "durationHistory": [
-    26806
+    26495
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,7 +28,7 @@
       "url": "https://recruitingapp-2677.umantis.com/Vacancies/1989/Description/1",
       "source": "E-Recruiting LLB-Gruppe Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:39:29.147Z",
+      "crawledAt": "2026-09-04T23:01:09.705Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "salaryMin": 101000,
       "salaryMax": 172500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,

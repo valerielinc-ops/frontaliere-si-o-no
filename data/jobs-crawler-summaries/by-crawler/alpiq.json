@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-09-04T13:46:23.154Z",
+  "generatedAt": "2026-09-04T23:11:36.243Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 6180,
-  "avgDurationMs": 6180,
+  "durationMs": 3273,
+  "avgDurationMs": 3273,
   "durationHistory": [
-    6180
+    3273
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -38,13 +38,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 17,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.518Z",
+      "crawledAt": "2026-09-04T23:11:34.276Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
@@ -143,13 +143,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9532&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-08-26T10:14:57.161Z",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 17,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -177,7 +177,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=8855&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.518Z",
+      "crawledAt": "2026-09-04T23:11:34.276Z",
       "firstSeenAt": "2026-08-25T10:28:09.340Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "salaryMin": 68000,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -249,7 +249,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=9515&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:46:18.520Z",
+      "crawledAt": "2026-09-04T23:11:34.277Z",
       "firstSeenAt": "2026-07-17T11:43:13.714Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
