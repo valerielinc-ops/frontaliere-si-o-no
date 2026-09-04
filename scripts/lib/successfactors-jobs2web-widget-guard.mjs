@@ -154,9 +154,11 @@ export function sanitizeSuccessFactorsField(value) {
  * `successfactors-shared-job-parser-common.mjs` (CSB tenants) — carried no
  * guard at all, so their location field read literally "Zürich, CH +1
  * more&hellip;".
- * That is not cosmetic: Zurich Insurance fails closed on an unresolvable
- * Swiss location, so ONE multi-location row aborted the whole crawler run
- * ("Zurich listing has an unresolved Swiss location", run 33694169583).
+ * That is not cosmetic: Zurich Insurance fails closed on unresolvable Swiss
+ * geography, and until #7259 it did so per ROW, so ONE multi-location row
+ * aborted the whole crawler run ("Zurich listing has an unresolved Swiss
+ * location", run 33694169583). The gate is now aggregated over the run, but a
+ * guard-less cell still turns every affected row into a counted reject.
  *
  * The marker is anchored on `+<digits>` followed by the locale word j2w uses
  * for "more" (the tenants crawled here serve de/en/fr/it). Anchoring on the

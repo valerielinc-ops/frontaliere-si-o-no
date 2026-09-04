@@ -35,6 +35,15 @@ const MAX_PAGES = 20;
 const SOURCE = 'Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)';
 
 /**
+ * Share of discovered listing rows that may fail Swiss-geography resolution
+ * before the whole run is declared broken. Fail-loud is preserved, but its
+ * unit is the RUN, not the single row: one undecodable office must not erase
+ * the other N-1 vacancies (run 33694169583). Above this ratio — or with zero
+ * publishable rows — the source itself changed and the run still fails closed.
+ */
+const MAX_UNRESOLVED_LOCATION_RATIO = 0.5;
+
+/**
  * @typedef {object} ZurichInsuranceJob
  * @property {string} id
  * @property {string} slug
@@ -72,7 +81,7 @@ const SOURCE = 'Zurich Insurance Switzerland Dedicated Parser (SuccessFactors)';
  * @property {boolean} needsRetranslation
  */
 
-/** @typedef {ZurichInsuranceJob[] & { discoveredCount: number }} ZurichInsuranceJobList */
+/** @typedef {ZurichInsuranceJob[] & { discoveredCount: number, unresolvedLocationCount: number }} ZurichInsuranceJobList */
 
 function decodeHtmlAttribute(value = '') {
   return String(value || '')
@@ -217,7 +226,7 @@ export function parseZurichInsuranceListingPage(html = '', pageUrl = searchUrlFo
     // A posting open in several offices renders the extras as a nested
     // `<small>+N more&hellip;</small>` inside the same span; keep the visible
     // (primary) office, or the row's location never resolves to a Swiss city
-    // and the whole run fails closed.
+    // and the row is dropped as an unresolved reject in `fetchJobs()`.
     const location = stripSuccessFactorsMoreLocations(extractClassContent(rowHtml, 'jobLocation'));
     const rawDate = extractClassContent(rowHtml, 'jobDate');
     if (!anchor?.href || !anchor.title) {
@@ -427,7 +436,9 @@ export async function prepareZurichInsuranceCrawler({
   /** @returns {Promise<ZurichInsuranceJobList>} */
   const fetchJobs = async () => {
     /** @type {ZurichInsuranceJobList} */
-    const jobs = Object.assign([], { discoveredCount: listings.length });
+    const jobs = Object.assign([], { discoveredCount: listings.length, unresolvedLocationCount: 0 });
+    /** @type {Array<{ url: string, title: string, location: string }>} */
+    const unresolved = [];
     const crawlNow = now();
     const crawlDate = crawlNow.toISOString().slice(0, 10);
     const crawledAt = crawlNow.toISOString();
@@ -438,7 +449,11 @@ export async function prepareZurichInsuranceCrawler({
       const canton = inferSwissTargetCanton(listing.location);
       const location = splitJobLocation(listing.location, canton).city;
       if (!canton || !location || !isKnownSwissCity(location, canton)) {
-        throw new Error(`Zurich listing has an unresolved Swiss location: ${listing.location || '?'}`);
+        // Per-row reject, not a run abort: the failure granularity is the run
+        // (aggregate gate below), so one undecodable office cannot zero the
+        // entire Zurich slice.
+        unresolved.push({ url: listing.url, title: listing.title, location: listing.location || '?' });
+        continue;
       }
 
       const description = wordCount(detailDescription) >= 50
@@ -494,6 +509,20 @@ export async function prepareZurichInsuranceCrawler({
       });
 
       if (detailDelayMs > 0) await new Promise((resolve) => setTimeout(resolve, detailDelayMs));
+    }
+
+    jobs.unresolvedLocationCount = unresolved.length;
+    console.log(
+      `   🧭 Zurich unresolved Swiss locations: ${unresolved.length}/${listings.length} listing row(s)`,
+    );
+    if (unresolved.length > 0) {
+      const locations = [...new Set(unresolved.map((item) => item.location))].sort();
+      const detail = `${unresolved.length}/${listings.length} row(s) across ${locations.length}`
+        + ` distinct location(s): ${locations.join(', ')}`;
+      if (jobs.length === 0 || unresolved.length / listings.length > MAX_UNRESOLVED_LOCATION_RATIO) {
+        throw new Error(`Zurich listing has unresolved Swiss locations: ${detail}.`);
+      }
+      console.warn(`   ⚠️ Zurich listing rejected unresolved Swiss locations: ${detail}.`);
     }
 
     return jobs;
