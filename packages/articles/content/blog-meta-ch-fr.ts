@@ -5464,6 +5464,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Allocations familiales vaudoises : montants et modalités de demande',
     'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Guide pratique des allocations familiales dans le canton de Vaud : comment faire une demande, droits des bénéficiaires, documents demandés et caisse de compensation compétente.',
     'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Famille suisse consultant les documents d\'allocations familiales dans une cuisine moderne avec vue sur les Alpes.',
+    'blog.article.apprendistato-canton-vaud.title': 'Apprentissage et formation dans le canton de Vaud : guide pratique',
+    'blog.article.apprendistato-canton-vaud.excerpt': 'Comment trouver un stage dans le canton de Vaud, une rémunération, un contrat d\'apprentissage et une maturité professionnelle selon la loi fédérale suisse.',
+    'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprenti travaillant dans un atelier suisse lors de sa formation pratique dans un métier',
 };
 
 export default blogMetaChFr;

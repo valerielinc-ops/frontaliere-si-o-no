@@ -5464,6 +5464,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Vaud Family Allowances: Amounts and How to Apply',
     'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Practical guide to family allowances in the canton of Vaud: how to apply, beneficiaries\' rights, required documents and competent compensation fund.',
     'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Swiss family reviewing family benefit documents in a modern kitchen with alpine mountain views.',
+    'blog.article.apprendistato-canton-vaud.title': 'Apprenticeship and training in the Canton of Vaud: a practical guide',
+    'blog.article.apprendistato-canton-vaud.excerpt': 'How to find an internship in the Canton of Vaud, salary, apprenticeship contract and professional maturity according to Swiss federal law.',
+    'blog.article.apprendistato-canton-vaud.imageAlt': 'Apprentice working in a Swiss workshop during practical training in a trade profession',
 };
 
 export default blogMetaChEn;

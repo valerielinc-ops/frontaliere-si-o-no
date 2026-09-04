@@ -5464,6 +5464,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assegni-familiari-vaud-importi-domanda.title': 'Waadtländer Familienzulagen: Beträge und Beantragung',
     'blog.article.assegni-familiari-vaud-importi-domanda.excerpt': 'Praktischer Leitfaden zur Familienzulage im Kanton Waadt: Antragstellung, Anspruchsberechtigung, erforderliche Unterlagen und zuständige Ausgleichskasse.',
     'blog.article.assegni-familiari-vaud-importi-domanda.imageAlt': 'Schweizer Familie bespricht Familienleistungsdokumente in einer modernen Küche mit Alpinblick.',
+    'blog.article.apprendistato-canton-vaud.title': 'Lehre und Ausbildung im Kanton Waadt: Praxisleitfaden',
+    'blog.article.apprendistato-canton-vaud.excerpt': 'So finden Sie ein Praktikum im Kanton Waadt, Gehalt, Lehrvertrag und Berufsmaturität nach Schweizer Bundesgesetz.',
+    'blog.article.apprendistato-canton-vaud.imageAlt': 'Lehrling arbeitet in einer Schweizer Werkstatt während der praktischen Ausbildung im Handwerk',
 };
 
 export default blogMetaChDe;

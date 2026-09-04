@@ -16390,6 +16390,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'apprendistato-canton-vaud',
+    category: 'pratico',
+    date: '2026-09-04T18:44:05.375Z',
+    image: '/images/blog/apprendistato-canton-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
