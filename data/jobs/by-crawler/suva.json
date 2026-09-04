@@ -1,7 +1,296 @@
 {
   "crawlerKey": "suva",
-  "assembledAt": "2026-09-03T23:20:17.893Z",
+  "assembledAt": "2026-09-04T13:28:43.985Z",
   "jobs": [
+    {
+      "id": "suva-f3ae3c775bc7",
+      "slug": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
+      "slugByLocale": {
+        "it": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
+        "en": "project-manager-in-construction-management-client-representation-80-100-suva-luzern",
+        "de": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+        "fr": "gestionnaire-de-projet-en-gestion-de-la-construction-representation-des-clients-80-100-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
+      "titleByLocale": {
+        "it": "Project Manager: nella gestione delle costruzioni / rappresentanza cliente 80 - 100%",
+        "en": "Project Manager: in construction management / client representation 80 - 100%",
+        "de": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
+        "fr": "Gestionnaire de projet: en gestion de la construction / représentation des clients 80 - 100%"
+      },
+      "description": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
+      "descriptionByLocale": {
+        "it": "Partecipate attivamente all’attuazione della strategia immobiliare di Suva con questioni economiche, sociali e ambientali.",
+        "en": "You actively participate in the implementation of Suva’s real estate strategy with economic, social and environmental issues.",
+        "de": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
+        "fr": "Vous participez activement à la mise en œuvre de la stratégie immobilière de Suva avec des questions économiques, sociales et environnementales."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:28:40.307Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-04",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
+      "pensum": "80-100%",
+      "sfJobId": "1409638533",
+      "previousSlugs": [
+        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+        "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
+          "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern"
+        ],
+        "en": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ],
+        "fr": [
+          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-04T12:22:43.533Z",
+      "salaryMin": 102500,
+      "salaryMax": 170000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 102500,
+          "maxValue": 170000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
+    {
+      "id": "suva-31a3cc76fdbb",
+      "slug": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
+      "slugByLocale": {
+        "it": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
+        "en": "internship-in-wms-hr-junior-development-100-suva-luzern",
+        "de": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
+        "fr": "stage-en-developpement-junior-rh-du-sgm-100-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Praktikant:in WMS HR Nachwuchsentwicklung 100 %",
+      "titleByLocale": {
+        "it": "Praktikant:in WMS Risorse Umane Nachwuchsentwicklung 100 %",
+        "en": "Internship: in WMS HR Junior Development 100%",
+        "de": "Praktikant:in WMS HR Nachwuchsentwicklung 100 %",
+        "fr": "Stage : en développement junior RH du SGM 100 %"
+      },
+      "description": "Was du bewirkst\n• Als Praktikant:in WMS unterstützt du unser Team Nachwuchsentwicklung bei vielseitigen und spanennden Aufgaben.\n• Du organisierst Anlässe wie Berufsmessen, den Zukunftstag, das Einführungslager und Schnupperevents.\n• Du arbeitest in der Kursadministration mit.\n• Du bringst dich aktiv in Projekte der Nachwuchsentwicklung ein und übernimmst Verantwortung für eigene Aufgaben. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Du packst Aufgaben gerne an und bringst dich aktiv ein.",
+      "descriptionByLocale": {
+        "it": "Cosa fai\n• Come tirocinante: in WMS, supporti il nostro team con lo sviluppo di giovani talenti in attività versatili e di taglio.\n• Organizza eventi come fiere professionali, il Future Day, il campo introduttivo e gli eventi di prova.\n• Lavori nell'amministrazione del corso.\n• Siete attivamente coinvolti in progetti di sviluppo di giovani talenti e assumetevi la responsabilità per i vostri compiti. Cosa porti\n• Frequenti la Wirtschaftsmittelschule (WMS) e stai cercando uno stage dall'agosto 2027.\n• Ti avvicini apertamente ad altre persone e ti godi di lavorare in una squadra.\n• Si può esprimere bene verbalmente e per iscritto.\n• Ti piace affrontare i compiti e partecipare attivamente.",
+        "en": "What you do\n• As an intern: in WMS, you support our team with young talent development in versatile and cutting tasks.\n• You organize events such as professional fairs, the Future Day, the introductory camp and trial events.\n• You work in the course administration.\n• You are actively involved in young talent development projects and take responsibility for your own tasks. What you bring\n• You attend the Wirtschaftsmittelschule (WMS) and are looking for an internship from August 2027.\n• You approach other people openly and enjoy working in a team.\n• You can express yourself well verbally and in writing.\n• You like to tackle tasks and get actively involved.",
+        "de": "Was du bewirkst\n• Als Praktikant:in WMS unterstützt du unser Team Nachwuchsentwicklung bei vielseitigen und spanennden Aufgaben.\n• Du organisierst Anlässe wie Berufsmessen, den Zukunftstag, das Einführungslager und Schnupperevents.\n• Du arbeitest in der Kursadministration mit.\n• Du bringst dich aktiv in Projekte der Nachwuchsentwicklung ein und übernimmst Verantwortung für eigene Aufgaben. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Du packst Aufgaben gerne an und bringst dich aktiv ein.",
+        "fr": "Ce que tu fais\n• En tant que stagiaire : en WMS, vous soutenez notre équipe avec le développement de jeunes talents dans des tâches polyvalentes et coupantes.\n• Vous organisez des événements tels que des foires professionnelles, le Future Day, le camp d'introduction et les événements d'essai.\n• Vous travaillez dans l'administration du cours.\n• Vous participez activement à des projets de développement de jeunes talents et assumez la responsabilité de vos propres tâches. Ce que vous apportez\n• Vous assistez au Wirtschaftsmittelschule (WMS) et recherchez un stage à partir d'août 2027.\n• Vous approchez les autres ouvertement et aimez travailler en équipe.\n• Vous pouvez vous exprimer bien verbalement et par écrit.\n• Vous aimez vous attaquer aux tâches et vous impliquer activement."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-HR-Nachwuchsentwicklung-100-LU-6004/1423913433/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:28:39.276Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-HR-Nachwuchsentwicklung-100-LU-6004/1423913433/",
+      "pensum": "100%",
+      "sfJobId": "1423913433",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:09:52.233Z",
+      "salaryMin": 58500,
+      "salaryMax": 89000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58500,
+          "maxValue": 89000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
+    {
+      "id": "suva-bd970a26367d",
+      "slug": "social-media-manager-in-60-suva-luzern",
+      "slugByLocale": {
+        "it": "social-media-manager-in-60-suva-luzern",
+        "en": "social-media-manager-in-60-suva-luzern",
+        "de": "social-media-manager-in-60-suva-luzern",
+        "fr": "gestionnaire-des-medias-sociaux-60-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Social Media Manager:in 60 %",
+      "titleByLocale": {
+        "it": "Social Media Manager: 60%",
+        "en": "Social Media Manager:in 60 %",
+        "de": "Social Media Manager:in 60 %",
+        "fr": "Gestionnaire des médias sociaux : 60%"
+      },
+      "description": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
+      "descriptionByLocale": {
+        "it": "Cosa fai\n• Riconoscerai nuove tendenze e svilupperai i nostri canali social media in modo strategico e operativo.\n• Insieme alle agenzie, si progetta e produce contenuti orientati al gruppo target che rafforza la portata, l'interazione e la lealtà del marchio.\n• Coordinate i contenuti nelle newsroom e controllate le campagne cross-channel.\n• Gestisci la gestione della comunità e consiglia gli stakeholder interni sui social media. Cosa porti\n• Hai completato gli studi universitari o una formazione equivalente nella comunicazione, marketing o produzione multimediale, nonché diversi anni di esperienza professionale nella gestione dei social media.\n• Si scrive elegantemente e hanno una buona sensazione per diversi gruppi target.\n• Hai una forte comprensione digitale e conosci le più importanti piattaforme di social media, i formati di contenuti e gli strumenti di project management.\n• Lavorate in modo indipendente, strutturato e portate le vostre idee con iniziativa ed energia.\n• Sei una personalità orientata al team con competenze di consulenza, assertività e piacere nel lavorare con diverse aree specialistiche.",
+        "en": "What you do\n• You will recognize new trends and develop our social media channels strategically and operationally.\n• Together with agencies, you design and produce target-group-oriented content that strengthens reach, interaction and brand loyalty.\n• You coordinate the content in the newsroom and control cross-channel campaigns.\n• You manage community management and advise internal stakeholders on social media. What you bring\n• You have completed university studies or an equivalent education in communication, marketing or multimedia production as well as several years of professional experience in social media management.\n• You write stylishly and have a good feeling for different target groups.\n• You have a strong digital understanding and know the most important social media platforms, content formats and project management tools.\n• You work independently, structured and bring your ideas with initiative and energy.\n• You are a team-oriented personality with consulting skills, assertiveness and pleasure in working with different specialist areas.",
+        "de": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
+        "fr": "Ce que tu fais\n• Vous reconnaîtrez les nouvelles tendances et développerez nos canaux de médias sociaux de façon stratégique et opérationnelle.\n• Avec les agences, vous concevez et produisez des contenus axés sur des groupes cibles qui renforcent la portée, l'interaction et la fidélité de la marque.\n• Vous coordonnez le contenu dans la salle de presse et contrôlez les campagnes cross-channel.\n• Vous gérez la gestion communautaire et conseillez les intervenants internes sur les médias sociaux. Ce que vous apportez\n• Vous avez terminé des études universitaires ou une formation équivalente en communication, marketing ou production multimédia ainsi que plusieurs années d'expérience professionnelle en gestion des médias sociaux.\n• Vous écrivez élégamment et avez une bonne sensation pour différents groupes cibles.\n• Vous avez une solide compréhension numérique et connaissez les plateformes de médias sociaux, les formats de contenu et les outils de gestion de projet les plus importants.\n• Vous travaillez de manière indépendante, structurée et apportez vos idées avec initiative et énergie.\n• Vous êtes une personnalité axée sur l'équipe avec des compétences de conseil, d'affirmation et de plaisir à travailler avec différents domaines spécialisés."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:28:38.269Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Assicurazioni",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
+      "pensum": "60%",
+      "sfJobId": "1423914033",
+      "firstSeenAt": "2026-08-17T10:09:49.921Z",
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 102000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 102000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
+    {
+      "id": "suva-3b127aefbd90",
+      "slug": "praktikant-in-wms-servizio-clienti-center-100-suva-luzern",
+      "slugByLocale": {
+        "it": "praktikant-in-wms-servizio-clienti-center-100-suva-luzern",
+        "en": "praktikant-in-wms-customer-service-center-100-suva-luzern",
+        "de": "praktikant-in-wms-customer-service-center-100-suva-luzern",
+        "fr": "stage-dans-le-centre-de-service-a-la-clientele-wms-100-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Praktikant:in WMS Customer Service Center 100 %",
+      "titleByLocale": {
+        "it": "Praktikant:in WMS Servizio Clienti Center 100 %",
+        "en": "Internship: in WMS Customer Service Center 100%",
+        "de": "Praktikant:in WMS Customer Service Center 100 %",
+        "fr": "Stage: dans le centre de service à la clientèle WMS 100%"
+      },
+      "description": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Contact Center und bist die erste Anlaufstelle für unsere Kundinnen und Kunden.\n• Du beantwortest Anfragen zu technischen Problemen und Anwendungen.\n• Du unterstützt bei adminstrativen Aufgaben und erhältst spannende Einblicke in Führungsprozesse.\n• Du übernimmst eigene Projekte und bringst deine Ideen ein. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du telefonierst gerne und hast Freude am Kontakt mit Menschen.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
+      "descriptionByLocale": {
+        "it": "Cosa fai\n• Come tirocinante: in WMS si lavora nel centro di contatto e sono il primo punto di contatto per i nostri clienti.\n• Risponde alle richieste di problemi tecnici e applicazioni.\n• Sosterrai con compiti amministrativi e acquisirai interessanti approfondimenti nei processi di gestione.\n• Voi prendete i vostri progetti e portate le vostre idee. Cosa porti\n• Frequenti la Wirtschaftsmittelschule (WMS) e stai cercando uno stage dall'agosto 2027.\n• Ti piace parlare al telefono e godere di contatto con le persone.\n• Ti avvicini apertamente ad altre persone e ti godi di lavorare in una squadra.\n• Si può esprimere bene verbalmente e per iscritto.\n• Ti dà il piacere di aiutare gli altri e trovare soluzioni adatte.",
+        "en": "What you do\n• As an intern: in WMS you work in the contact center and are the first point of contact for our customers.\n• You answer requests about technical problems and applications.\n• You will support with administrative tasks and gain exciting insights into management processes.\n• You take on your own projects and bring your ideas. What you bring\n• You attend the Wirtschaftsmittelschule (WMS) and are looking for an internship from August 2027.\n• You like to talk on the phone and enjoy contact with people.\n• You approach other people openly and enjoy working in a team.\n• You can express yourself well verbally and in writing.\n• It gives you pleasure to help others and find suitable solutions.",
+        "de": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Contact Center und bist die erste Anlaufstelle für unsere Kundinnen und Kunden.\n• Du beantwortest Anfragen zu technischen Problemen und Anwendungen.\n• Du unterstützt bei adminstrativen Aufgaben und erhältst spannende Einblicke in Führungsprozesse.\n• Du übernimmst eigene Projekte und bringst deine Ideen ein. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du telefonierst gerne und hast Freude am Kontakt mit Menschen.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
+        "fr": "Ce que tu fais\n• En tant que stagiaire: dans WMS vous travaillez dans le centre de contact et êtes le premier point de contact pour nos clients.\n• Vous répondez aux demandes concernant les problèmes techniques et les applications.\n• Vous supporterez les tâches administratives et gagnerez des connaissances passionnantes sur les processus de gestion.\n• Vous prenez vos propres projets et apportez vos idées. Ce que vous apportez\n• Vous assistez au Wirtschaftsmittelschule (WMS) et recherchez un stage à partir d'août 2027.\n• Vous aimez parler au téléphone et profiter du contact avec les gens.\n• Vous approchez les autres ouvertement et aimez travailler en équipe.\n• Vous pouvez vous exprimer bien verbalement et par écrit.\n• Il vous donne le plaisir d'aider les autres et de trouver des solutions appropriées."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:28:37.251Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-17",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
+      "pensum": "100%",
+      "sfJobId": "1423913333",
+      "previousSlugs": [
+        "praktikant-in-wms-customer-service-center-100-suva-luzern",
+        "praktikant-in-wms-servizio-clienti-center-100-suva-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-wms-customer-service-center-100-suva-luzern",
+          "praktikant-in-wms-servizio-clienti-center-100-suva-luzern"
+        ],
+        "fr": [
+          "praktikant-in-wms-customer-service-center-100-suva-luzern"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T10:09:54.463Z",
+      "salaryMin": 61000,
+      "salaryMax": 101000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61000,
+          "maxValue": 101000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
     {
       "id": "suva-c346d50867d5",
       "slug": "praktikant-in-wms-kundenmanagement-e-kommunikation-100-suva-luzern",
@@ -33,7 +322,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Kundenmanagement-und-Kommunikation-100-LU-6004/1423912633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:12.936Z",
+      "crawledAt": "2026-09-04T13:28:36.243Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -82,6 +371,79 @@
       "addressRegion": "LU"
     },
     {
+      "id": "suva-2b23aa246214",
+      "slug": "senior-business-consultant-tutti-i-sessi-80-100-suva-luzern",
+      "slugByLocale": {
+        "it": "senior-business-consultant-tutti-i-sessi-80-100-suva-luzern",
+        "en": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
+        "de": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
+        "fr": "consultant-principal-en-affaires-tous-genres-80-100-suva-luzern"
+      },
+      "company": "Suva",
+      "companyKey": "suva",
+      "companyDomain": "suva.ch",
+      "title": "Senior Business Consultant (alle Geschlechter) 80 - 100 %",
+      "titleByLocale": {
+        "it": "Senior Business Consultant (tutti i sessi) 80 - 100%",
+        "en": "Senior Business Consultant (alle Geschlechter) 80 - 100 %",
+        "de": "Senior Business Berater (alle Geschlechter) 80 - 100 %",
+        "fr": "Consultant principal en affaires (tous genres) 80 - 100%"
+      },
+      "description": "Du entwickelst strategische Vorhaben weiter und bringst dabei unterschiedliche Stakeholder an einen Tisch? Dann bist du bei uns richtig. Was du bewirkst\n• Du verantwortest Beratungsmandate für strategische Vorhaben, Organisationsentwicklung und Operational Excellence für das Kundenmanagement und die Kommunikation.\n• Du wählst die notwendigen Methoden zur Zielerreichung, überführst diese in Vorgehenspläne und verantwortest die Ausführung bis zum Mandatsabschluss. Dabei führst du das Projektteam inhaltlich, fachlich und methodisch.\n• Den nachhaltigen Erfolg deiner Mandate stellst du durch praxisnahe Ergebnisse und den gezielten Wissenstransfer an die Auftraggebenden sicher.\n• Mit deinem Stakeholdermanagement berücksichtigst du die vielfältigen Abhängigkeiten im Kunden- und Partnermanagement, Schadenmanagement und in der Prävention.\n• Du arbeitest aktiv an der Weiterentwicklung des Business Consultings mit. Was du mitbringst\n• Du verfügst über einen Hochschulabschluss in BWL oder VWL und bringst idealerweise mehrere Jahre Erfahrung in der Unternehmensberatung mit.\n• Du bist eine überzeugende, integrative Persönlichkeit mit hoher Kommunikationskompetenz sowie Erfahrung in der anschaulichen Aufbereitung und Präsentation von Inhalten.\n• Du hast Erfahrung in der Begleitung von Führungskräften und Mitarbeitenden durch anspruchsvolle Veränderungsprozesse.\n• Du hast nachgewiesene Fähigkeiten in der Problemanalyse, Abstraktion und Synthese.\n• Deutsch ist deine Muttersprache. Zudem verfügst du über gute Französischkenntnisse.",
+      "descriptionByLocale": {
+        "it": "Sviluppi progetti strategici e porti diversi stakeholder alla stessa tabella? Allora hai ragione con noi. Cosa fai\n• Sei responsabile della consulenza per i progetti strategici, dello sviluppo organizzativo e dell'eccellenza operativa per la gestione e la comunicazione dei clienti.\n• Scegli i metodi necessari per raggiungere gli obiettivi, convertirli in piani di processo e assumerti la responsabilità di esecuzione fino a quando il mandato non sarà completato. Lei guida il team di progetto in termini di contenuto, competenza e metodologia.\n• Garantisci il successo sostenibile dei tuoi mandati attraverso risultati pratici e il trasferimento mirato di conoscenze ai clienti.\n• Con la gestione degli stakeholder, si tiene conto delle diverse dipendenze nella gestione dei clienti e dei partner, nella gestione dei reclami e nella prevenzione.\n• Sei attivamente coinvolto nell'ulteriore sviluppo della consulenza aziendale. Cosa porti\n• Hai una laurea in amministrazione aziendale o amministrazione aziendale e portare idealmente diversi anni di esperienza nella consulenza di gestione.\n• Sei una personalità convincente e integrativa con elevate capacità di comunicazione e l'esperienza nella preparazione e nella presentazione vivida dei contenuti.\n• Hai esperienza in manager e dipendenti che accompagnano i processi di cambiamento.\n• Hai dimostrato competenze nell'analisi dei problemi, nell'astrazione e nella sintesi.\n• Il tedesco e' la tua lingua madre. Hai anche una buona conoscenza del francese.",
+        "en": "You develop strategic projects further and bring different stakeholders to the same table? Then you are right with us. What you do\n• You are responsible for consulting mandates for strategic projects, organizational development and operational excellence for customer management and communication.\n• You choose the necessary methods for achieving goals, convert them into process plans and take responsibility for execution until the mandate is completed. You lead the project team in terms of content, expertise and methodology.\n• You ensure the sustainable success of your mandates through practical results and the targeted transfer of knowledge to the clients.\n• With your stakeholder management, you take into account the diverse dependencies in customer and partner management, claims management and prevention.\n• You are actively involved in the further development of business consulting. What you bring\n• You have a university degree in business administration or business administration and ideally bring several years of experience in management consulting.\n• You are a convincing, integrative personality with high communication skills as well as experience in the vivid preparation and presentation of content.\n• You have experience in accompanying managers and employees through demanding change processes.\n• You have proven skills in problem analysis, abstraction and synthesis.\n• German is your mother tongue. You also have good knowledge of French.",
+        "de": "Du entwickelst strategische Vorhaben weiter und bringst dabei unterschiedliche Stakeholder an einen Tisch? Dann bist du bei uns richtig. Was du bewirkst\n• Du verantwortest Beratungsmandate für strategische Vorhaben, Organisationsentwicklung und Operational Excellence für das Kundenmanagement und die Kommunikation.\n• Du wählst die notwendigen Methoden zur Zielerreichung, überführst diese in Vorgehenspläne und verantwortest die Ausführung bis zum Mandatsabschluss. Dabei führst du das Projektteam inhaltlich, fachlich und methodisch.\n• Den nachhaltigen Erfolg deiner Mandate stellst du durch praxisnahe Ergebnisse und den gezielten Wissenstransfer an die Auftraggebenden sicher.\n• Mit deinem Stakeholdermanagement berücksichtigst du die vielfältigen Abhängigkeiten im Kunden- und Partnermanagement, Schadenmanagement und in der Prävention.\n• Du arbeitest aktiv an der Weiterentwicklung des Business Consultings mit. Was du mitbringst\n• Du verfügst über einen Hochschulabschluss in BWL oder VWL und bringst idealerweise mehrere Jahre Erfahrung in der Unternehmensberatung mit.\n• Du bist eine überzeugende, integrative Persönlichkeit mit hoher Kommunikationskompetenz sowie Erfahrung in der anschaulichen Aufbereitung und Präsentation von Inhalten.\n• Du hast Erfahrung in der Begleitung von Führungskräften und Mitarbeitenden durch anspruchsvolle Veränderungsprozesse.\n• Du hast nachgewiesene Fähigkeiten in der Problemanalyse, Abstraktion und Synthese.\n• Deutsch ist deine Muttersprache. Zudem verfügst du über gute Französischkenntnisse.",
+        "fr": "Vous développez des projets stratégiques plus loin et apportez différentes parties prenantes à la même table? Alors tu as raison avec nous. Ce que tu fais\n• Vous êtes responsable de la consultation des mandats des projets stratégiques, du développement organisationnel et de l'excellence opérationnelle pour la gestion de la clientèle et la communication.\n• Vous choisissez les méthodes nécessaires pour atteindre les objectifs, les convertissez en plans de processus et prenez la responsabilité de l'exécution jusqu'à ce que le mandat soit terminé. Vous dirigez l'équipe du projet en termes de contenu, d'expertise et de méthodologie.\n• Vous veillez au succès durable de vos mandats grâce à des résultats pratiques et au transfert ciblé de connaissances aux clients.\n• Avec votre gestion des intervenants, vous prenez en compte les diverses dépendances dans la gestion des clients et des partenaires, la gestion des réclamations et la prévention.\n• Vous participez activement au développement du conseil en affaires. Ce que vous apportez\n• Vous avez un diplôme universitaire en administration des affaires ou en administration des affaires et vous apportez idéalement plusieurs années d'expérience en conseil en gestion.\n• Vous êtes une personnalité convaincante et intégratrice avec des compétences de communication élevées ainsi que l'expérience dans la préparation et la présentation vives du contenu.\n• Vous avez de l'expérience dans l'accompagnement des gestionnaires et des employés grâce à des processus de changement exigeants.\n• Vous avez prouvé vos compétences en analyse de problèmes, abstraction et synthèse.\n• L'allemand est votre langue maternelle. Vous avez aussi une bonne connaissance du français."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.suva.ch/job/Luzern-Senior-Business-Consultant-%28alle-Geschlechter%29-80-100-LU-6004/1430131133/",
+      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T13:28:35.103Z",
+      "addressLocality": "Luzern",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6004",
+      "streetAddress": "Fluhmattstrasse 1",
+      "category": "Assicurazioni",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://jobs.suva.ch/job/Luzern-Senior-Business-Consultant-%28alle-Geschlechter%29-80-100-LU-6004/1430131133/",
+      "pensum": "80-100%",
+      "sfJobId": "1430131133",
+      "firstSeenAt": "2026-08-26T10:00:24.400Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-consultant-alle-geschlechter-80-100-suva-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-consultant-alle-geschlechter-80-100-suva-luzern"
+      ],
+      "salaryMin": 102500,
+      "salaryMax": 170000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 102500,
+          "maxValue": 170000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "LU"
+    },
+    {
       "id": "suva-59b10e2fd6fe",
       "slug": "stage-in-wms-assistenza-clienti-prestazioni-pensione-100-suva-luzern",
       "slugByLocale": {
@@ -112,7 +474,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Kundenbetreuung-Rentenleistungen-100-LU-6004/1425534333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:12.025Z",
+      "crawledAt": "2026-09-04T13:28:34.102Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -130,11 +492,13 @@
       "pensum": "100%",
       "sfJobId": "1425534333",
       "previousSlugs": [
-        "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern"
+        "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern",
+        "stage-in-wms-assistenza-clienti-prestazioni-pensione-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern"
+          "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern",
+          "stage-in-wms-assistenza-clienti-prestazioni-pensione-100-suva-luzern"
         ],
         "en": [
           "praktikant-in-wms-kundenbetreuung-rentenleistungen-100-suva-luzern"
@@ -191,7 +555,7 @@
       "url": "https://jobs.suva.ch/job/Lucerne-Sp%C3%A9cialiste-oppositions-60-100-LU-6004/1426867233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:20:10.196Z",
+      "crawledAt": "2026-09-04T13:28:33.095Z",
       "addressLocality": "Lucerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -208,11 +572,13 @@
       "pensum": "60-100%",
       "sfJobId": "1426867233",
       "previousSlugs": [
-        "specialiste-oppositions-60-100-suva-lucerne"
+        "specialiste-oppositions-60-100-suva-lucerne",
+        "opposition-specialist-60-100-suva-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-oppositions-60-100-suva-lucerne"
+          "specialiste-oppositions-60-100-suva-lucerne",
+          "opposition-specialist-60-100-suva-lucerne"
         ],
         "en": [
           "specialiste-oppositions-60-100-suva-lucerne"
@@ -222,6 +588,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T10:10:04.766Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -268,7 +635,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Rechtsanw%C3%A4ltin-Rechtsanwalt-Milit%C3%A4rversicherung-%28alle-Geschlechter%29-80-100-BE-3008/1415800833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:09.285Z",
+      "crawledAt": "2026-09-04T13:28:32.078Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -286,11 +653,13 @@
       "pensum": "80-100%",
       "sfJobId": "1415800833",
       "previousSlugs": [
-        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
+        "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern",
+        "avvocato-avvocato-assicurazione-militare-tutti-i-sessi-80-100-suva-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
+          "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern",
+          "avvocato-avvocato-assicurazione-militare-tutti-i-sessi-80-100-suva-bern"
         ],
         "en": [
           "rechtsanwaltin-rechtsanwalt-militarversicherung-alle-geschlechter-80-100-suva-bern"
@@ -300,6 +669,7 @@
         ]
       },
       "firstSeenAt": "2026-07-20T11:54:52.014Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -346,7 +716,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Quereinsteigerin-Pr%C3%A4vention-100-LU-6004/1422839033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:08.371Z",
+      "crawledAt": "2026-09-04T13:28:31.072Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -365,12 +735,14 @@
       "sfJobId": "1422839033",
       "previousSlugs": [
         "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100",
-        "quereinsteiger-in-pravention-100-suva-luzern"
+        "quereinsteiger-in-pravention-100-suva-luzern",
+        "candidato-a-in-riqualificazione-pravention-100-suva-quereinsteiger-in-pravention-100"
       ],
       "previousSlugsByLocale": {
         "it": [
           "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100",
-          "quereinsteiger-in-pravention-100-suva-luzern"
+          "quereinsteiger-in-pravention-100-suva-luzern",
+          "candidato-a-in-riqualificazione-pravention-100-suva-quereinsteiger-in-pravention-100"
         ],
         "en": [
           "quereinsteiger-in-pravention-100-suva-quereinsteiger-in-pravention-100"
@@ -420,9 +792,9 @@
       },
       "description": "Du möchtest psychiatrische Fragestellungen aus einer versicherungsmedizinischen Perspektive beurteilen? Dann bist du bei uns richtig. Was du bewirkst\n• Du erstellst versicherungsmedizinische Beurteilungen auf Basis von Akten oder im Rahmen von psychiatrischen Untersuchungen, auch für die Militärversicherung.\n• Du beantwortest Fragen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsentschädigung.\n• Du berätst Mitarbeitende im Schadenmanagement in psychiatrischen und versicherungsmedizinischen Fragen.\n• Du dokumentierst deine Einschätzungen präzise, nachvollziehbar und adressatengerecht.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst dein Fachwissen aktiv ins Team ein. Was du mitbringst\n• Du verfügst über den Facharzttitel Psychiatrie.\n• Medizinische Sachverhalte kannst du präzise, verständlich und zielgruppenspezifisch formulieren.\n• Du interessierst dich für versicherungsmedizinische Fragen und bist bereit, dich in dieses Fachgebiet zu vertiefen.\n• Du arbeitest zuverlässig, verantwortungsbewusst und gehst sicher mit digitalen Arbeitsmitteln und Informationssystemen um.\n• Du verfügst über stilsichere Deutschkenntnisse in Wort und Schrift. Französisch- oder Italienischkenntnisse sind von Vorteil.",
       "descriptionByLocale": {
-        "de": "Du möchtest psychiatrische Fragestellungen aus einer versicherungsmedizinischen Perspektive beurteilen? Dann bist du bei uns richtig. Was du bewirkst\n• Du erstellst versicherungsmedizinische Beurteilungen auf Basis von Akten oder im Rahmen von psychiatrischen Untersuchungen, auch für die Militärversicherung.\n• Du beantwortest Fragen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsentschädigung.\n• Du berätst Mitarbeitende im Schadenmanagement in psychiatrischen und versicherungsmedizinischen Fragen.\n• Du dokumentierst deine Einschätzungen präzise, nachvollziehbar und adressatengerecht.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst dein Fachwissen aktiv ins Team ein. Was du mitbringst\n• Du verfügst über den Facharzttitel Psychiatrie.\n• Medizinische Sachverhalte kannst du präzise, verständlich und zielgruppenspezifisch formulieren.\n• Du interessierst dich für versicherungsmedizinische Fragen und bist bereit, dich in dieses Fachgebiet zu vertiefen.\n• Du arbeitest zuverlässig, verantwortungsbewusst und gehst sicher mit digitalen Arbeitsmitteln und Informationssystemen um.\n• Du verfügst über stilsichere Deutschkenntnisse in Wort und Schrift. Französisch- oder Italienischkenntnisse sind von Vorteil.",
         "it": "Vuoi valutare i problemi psichiatrici da una prospettiva assicurativa? Allora hai ragione con noi. Cosa fai\n• Prepari le valutazioni mediche di assicurazione basate su file o esami psichiatrici, anche per l'assicurazione militare.\n• Risponde alle domande sulla causalità, sulla capacità di lavoro, sulla ragionevolezza e sulla compensazione dell'integrità.\n• Si consiglia ai dipendenti nella gestione dei reclami sulle questioni mediche psichiatriche e assicurative.\n• Documenti le tue valutazioni con precisione, comprensibilmente e indirizzabile.\n• Lavori a stretto contatto con esperti di diverse discipline e contribuisci attivamente alla tua esperienza nel team. Cosa porti\n• Ha il titolo di psichiatria.\n• È possibile formulare problemi medici con precisione, comprensibilmente e target group-specificamente.\n• Siete interessati a problemi di assicurazione e sono pronti a approfondire in questa zona.\n• Lavori in modo affidabile, responsabile e sicuro con strumenti digitali e sistemi informativi.\n• Hai una conoscenza elegante del tedesco in parola e scrittura. La conoscenza di francese o italiano è un vantaggio.",
         "en": "Do you want to assess psychiatric issues from an insurance perspective? Then you are right with us. What you do\n• You prepare insurance medical assessments based on files or psychiatric examinations, also for military insurance.\n• You answer questions about causality, working ability, reasonableness and integrity compensation.\n• You advise employees in claims management on psychiatric and insurance medical issues.\n• You document your assessments precisely, comprehensibly and addressable.\n• You work closely with experts from different disciplines and actively contribute your expertise to the team. What you bring\n• You have the title psychiatry.\n• You can formulate medical issues precisely, understandably and target group-specifically.\n• You are interested in insurance issues and are ready to delve into this area.\n• You work reliably, responsibly and safely with digital tools and information systems.\n• You have stylish knowledge of German in word and writing. Knowledge of French or Italian is an advantage.",
+        "de": "Du möchtest psychiatrische Fragestellungen aus einer versicherungsmedizinischen Perspektive beurteilen? Dann bist du bei uns richtig. Was du bewirkst\n• Du erstellst versicherungsmedizinische Beurteilungen auf Basis von Akten oder im Rahmen von psychiatrischen Untersuchungen, auch für die Militärversicherung.\n• Du beantwortest Fragen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsentschädigung.\n• Du berätst Mitarbeitende im Schadenmanagement in psychiatrischen und versicherungsmedizinischen Fragen.\n• Du dokumentierst deine Einschätzungen präzise, nachvollziehbar und adressatengerecht.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst dein Fachwissen aktiv ins Team ein. Was du mitbringst\n• Du verfügst über den Facharzttitel Psychiatrie.\n• Medizinische Sachverhalte kannst du präzise, verständlich und zielgruppenspezifisch formulieren.\n• Du interessierst dich für versicherungsmedizinische Fragen und bist bereit, dich in dieses Fachgebiet zu vertiefen.\n• Du arbeitest zuverlässig, verantwortungsbewusst und gehst sicher mit digitalen Arbeitsmitteln und Informationssystemen um.\n• Du verfügst über stilsichere Deutschkenntnisse in Wort und Schrift. Französisch- oder Italienischkenntnisse sind von Vorteil.",
         "fr": "Voulez-vous évaluer les problèmes psychiatriques du point de vue de l'assurance? Alors tu as raison avec nous. Ce que tu fais\n• Vous préparez des évaluations médicales d'assurance basées sur des dossiers ou des examens psychiatriques, également pour l'assurance militaire.\n• Vous répondez à des questions sur la causalité, la capacité de travail, le caractère raisonnable et la compensation de l'intégrité.\n• Vous conseillez les employés de la gestion des réclamations sur les questions psychiatriques et médicales d'assurance.\n• Vous documentez vos évaluations avec précision, compréhensibilité et adresse.\n• Vous travaillez en étroite collaboration avec des experts de différentes disciplines et apportez activement votre expertise à l'équipe. Ce que vous apportez\n• Vous avez le titre de psychiatrie.\n• Vous pouvez formuler des questions médicales avec précision, compréhension et groupe cible spécifique.\n• Vous êtes intéressé par les questions d'assurance et êtes prêt à plonger dans ce domaine.\n• Vous travaillez de manière fiable, responsable et sûre avec des outils numériques et des systèmes d'information.\n• Vous avez une connaissance élégante de l'allemand dans la parole et l'écriture. La connaissance du français ou de l'italien est un avantage."
       },
       "location": "San Gallo",
@@ -430,7 +802,7 @@
       "url": "https://jobs.suva.ch/job/St_-Gallen-Fach%C3%A4rztin-Facharzt-Psychiatrie-%28alle-Geschlechter%29-80-100-SG-9000/1371896633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:07.432Z",
+      "crawledAt": "2026-09-04T13:28:30.022Z",
       "addressLocality": "San Gallo",
       "addressCountry": "CH",
       "country": "CH",
@@ -448,11 +820,13 @@
       "pensum": "80-100%",
       "sfJobId": "1371896633",
       "previousSlugs": [
-        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+        "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
+        "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
+          "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau",
+          "psichiatria-specialistica-tutti-i-sessi-80-100-suva-ticino"
         ],
         "en": [
           "facharztin-facharzt-psychiatrie-alle-geschlechter-80-100-suva-aarau"
@@ -498,9 +872,9 @@
       },
       "description": "Du setzt deine neurologische Expertise gerne für fundierte versicherungsmedizinische Beurteilungen ein? Dann bist du bei uns richtig. Was du bewirkst\n• Du beurteilst neurologische Fragen auf Basis von Akten oder im Rahmen medizinischer Untersuchungen.\n• Du erstellst versicherungsmedizinische Beurteilungen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsschäden.\n• Du dokumentierst deine Einschätzungen klar, nachvollziehbar und adressatengerecht in schriftlichen Berichten.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst deine neurologische Expertise in Fallbesprechungen ein.\n• Du wirkst aktiv an der Weiterentwicklung von Prozessen und fachlichen Standards mit. Was du mitbringst\n• Du verfügst über den Facharzttitel Neurologie und mindestens 3 Jahre klinische Berufserfahrung.\n• Du arbeitest zuverlässig und selbstständig, übernimmst Verantwortung und triffst fundierte Entscheidungen.\n• Du bist versiert mit digitalen Arbeitsmitteln und medizinischen Informationssystemen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und kommunizierst sicher mit unterschiedlichen Anspruchsgruppen.",
       "descriptionByLocale": {
-        "de": "Du setzt deine neurologische Expertise gerne für fundierte versicherungsmedizinische Beurteilungen ein? Dann bist du bei uns richtig. Was du bewirkst\n• Du beurteilst neurologische Fragen auf Basis von Akten oder im Rahmen medizinischer Untersuchungen.\n• Du erstellst versicherungsmedizinische Beurteilungen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsschäden.\n• Du dokumentierst deine Einschätzungen klar, nachvollziehbar und adressatengerecht in schriftlichen Berichten.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst deine neurologische Expertise in Fallbesprechungen ein.\n• Du wirkst aktiv an der Weiterentwicklung von Prozessen und fachlichen Standards mit. Was du mitbringst\n• Du verfügst über den Facharzttitel Neurologie und mindestens 3 Jahre klinische Berufserfahrung.\n• Du arbeitest zuverlässig und selbstständig, übernimmst Verantwortung und triffst fundierte Entscheidungen.\n• Du bist versiert mit digitalen Arbeitsmitteln und medizinischen Informationssystemen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und kommunizierst sicher mit unterschiedlichen Anspruchsgruppen.",
         "it": "Ti piace usare la tua esperienza neurologica per le valutazioni mediche di assicurazione ben fondate? Allora hai ragione con noi. Cosa fai\n• Si valutano domande neurologiche sulla base di file o come parte di esami medici.\n• Si preparerà valutazioni attuariali di causalità, capacità di lavoro, ragionevolezza e danni all'integrità.\n• Voi documentate le vostre valutazioni in modo chiaro, comprensibile e indirizzabile nei rapporti scritti.\n• Lavorate a stretto contatto con i professionisti di diverse discipline e portate la vostra esperienza neurologica alle discussioni di caso.\n• Partecipate attivamente all'ulteriore sviluppo di processi e standard professionali. Cosa porti\n• Hai il titolo specialistico di Neurologia e almeno 3 anni di esperienza professionale clinica.\n• Si lavora in modo affidabile e indipendente, prendere la responsabilità e prendere decisioni informate.\n• Siete ben diversificati con strumenti di lavoro digitali e sistemi di informazione medica.\n• Apprezzi la cooperazione interdisciplinare e comunichi in modo sicuro con diversi stakeholder.",
         "en": "Do you like to use your neurological expertise for well-founded insurance medical assessments? Then you are right with us. What you do\n• You assess neurological questions on the basis of files or as part of medical examinations.\n• You will prepare actuarial assessments of causality, working ability, reasonableness and damage to integrity.\n• You document your assessments clearly, comprehensibly and addressable in written reports.\n• You work closely with professionals from different disciplines and bring your neurological expertise to case discussions.\n• You actively participate in the further development of processes and professional standards. What you bring\n• You have the specialist title Neurology and at least 3 years of clinical professional experience.\n• You work reliably and independently, take responsibility and make informed decisions.\n• You are well-versed with digital work tools and medical information systems.\n• You appreciate the interdisciplinary cooperation and communicate safely with different stakeholders.",
+        "de": "Du setzt deine neurologische Expertise gerne für fundierte versicherungsmedizinische Beurteilungen ein? Dann bist du bei uns richtig. Was du bewirkst\n• Du beurteilst neurologische Fragen auf Basis von Akten oder im Rahmen medizinischer Untersuchungen.\n• Du erstellst versicherungsmedizinische Beurteilungen zu Kausalität, Arbeitsfähigkeit, Zumutbarkeit und Integritätsschäden.\n• Du dokumentierst deine Einschätzungen klar, nachvollziehbar und adressatengerecht in schriftlichen Berichten.\n• Du arbeitest eng mit Fachpersonen verschiedener Disziplinen zusammen und bringst deine neurologische Expertise in Fallbesprechungen ein.\n• Du wirkst aktiv an der Weiterentwicklung von Prozessen und fachlichen Standards mit. Was du mitbringst\n• Du verfügst über den Facharzttitel Neurologie und mindestens 3 Jahre klinische Berufserfahrung.\n• Du arbeitest zuverlässig und selbstständig, übernimmst Verantwortung und triffst fundierte Entscheidungen.\n• Du bist versiert mit digitalen Arbeitsmitteln und medizinischen Informationssystemen.\n• Du schätzt die interdisziplinäre Zusammenarbeit und kommunizierst sicher mit unterschiedlichen Anspruchsgruppen.",
         "fr": "Vous aimez utiliser votre expertise neurologique pour des évaluations médicales d'assurance fondées ? Alors tu as raison avec nous. Ce que tu fais\n• Vous évaluez les questions neurologiques sur la base de dossiers ou dans le cadre d'examens médicaux.\n• Vous préparerez des évaluations actuarielles de la causalité, de la capacité de travail, du caractère raisonnable et des dommages à l'intégrité.\n• Vous documentez vos évaluations de façon claire, compréhensible et adressable dans des rapports écrits.\n• Vous travaillez en étroite collaboration avec des professionnels de différentes disciplines et apportez votre expertise neurologique aux discussions de cas.\n• Vous participez activement au développement des processus et des normes professionnelles. Ce que vous apportez\n• Vous avez le titre de spécialiste en neurologie et au moins 3 ans d'expérience clinique professionnelle.\n• Vous travaillez de manière fiable et indépendante, prenez des responsabilités et prenez des décisions éclairées.\n• Vous êtes bien informé avec des outils de travail numériques et des systèmes d'information médicale.\n• Vous appréciez la coopération interdisciplinaire et communiquez en toute sécurité avec les différents intervenants."
       },
       "location": "Winterthur | Zürich",
@@ -508,7 +882,7 @@
       "url": "https://jobs.suva.ch/job/Z%C3%BCrich-Fach%C3%A4rztin-Facharzt-Neurologie-80-100-ZH-8002/1387059033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:06.496Z",
+      "crawledAt": "2026-09-04T13:28:28.985Z",
       "addressLocality": "Winterthur | Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -526,11 +900,13 @@
       "pensum": "80-100%",
       "sfJobId": "1387059033",
       "previousSlugs": [
-        "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+        "facharztin-facharzt-neurologie-80-100-suva-winterthur",
+        "neurologia-specialistica-80-100-suva-winterthur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-neurologie-80-100-suva-winterthur"
+          "facharztin-facharzt-neurologie-80-100-suva-winterthur",
+          "neurologia-specialistica-80-100-suva-winterthur-zurich"
         ],
         "en": [
           "facharztin-facharzt-neurologie-80-100-suva-winterthur"
@@ -586,7 +962,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Bauingenieurin-Baumeisterin-80%C2%A0-%C2%A0100%C2%A0-LU-6004/1383023233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:05.566Z",
+      "crawledAt": "2026-09-04T13:28:27.946Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -604,11 +980,13 @@
       "pensum": "80-100%",
       "sfJobId": "1383023233",
       "previousSlugs": [
-        "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+        "bauingenieur-in-baumeister-in-80-100-suva-luzern",
+        "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "bauingenieur-in-baumeister-in-80-100-suva-luzern"
+          "bauingenieur-in-baumeister-in-80-100-suva-luzern",
+          "ingegnere-civile-in-baumeister-in-80-100-suva-luzern"
         ],
         "en": [
           "bauingenieur-in-baumeister-in-80-100-suva-luzern"
@@ -665,7 +1043,7 @@
       "url": "https://jobs.suva.ch/job/Basel-Spezialistin-Kurzfristgeldleistungen-80-100-BS-4052/1432420333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:04.609Z",
+      "crawledAt": "2026-09-04T13:28:26.908Z",
       "addressLocality": "Basel | Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -730,7 +1108,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Spezialistin-Arbeitssicherheit-und-Gesundheitsschutz-60-100-LU-6004/1430437233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:03.681Z",
+      "crawledAt": "2026-09-04T13:28:25.835Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -809,7 +1187,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-SAP-Basis-Engineer-%28all-genders%29-80-100-LU-6004/1428590033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:02.756Z",
+      "crawledAt": "2026-09-04T13:28:24.422Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -827,6 +1205,7 @@
       "pensum": "80-100%",
       "sfJobId": "1428590033",
       "firstSeenAt": "2026-08-24T10:06:55.900Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -873,7 +1252,7 @@
       "url": "https://jobs.suva.ch/job/Wetzikon-Spezialistin-Kurzfristgeldleistungen-80-100-ZH-8620/1420760933/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:01.830Z",
+      "crawledAt": "2026-09-04T13:28:23.391Z",
       "addressLocality": "Wetzikon | Ziegelbrücke",
       "addressCountry": "CH",
       "country": "CH",
@@ -891,11 +1270,13 @@
       "pensum": "80-100%",
       "sfJobId": "1420760933",
       "previousSlugs": [
-        "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon"
+        "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon",
+        "specialista-in-prestazioni-a-breve-termine-80-100-suva-wetzikon-ziegelbrucke"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon"
+          "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon",
+          "specialista-in-prestazioni-a-breve-termine-80-100-suva-wetzikon-ziegelbrucke"
         ],
         "en": [
           "spezialist-in-kurzfristgeldleistungen-80-100-suva-wetzikon"
@@ -920,70 +1301,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "id": "suva-2b23aa246214",
-      "slug": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
-      "slugByLocale": {
-        "it": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
-        "en": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
-        "de": "senior-business-consultant-alle-geschlechter-80-100-suva-luzern",
-        "fr": "consultant-principal-en-affaires-tous-genres-80-100-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Senior Business Consultant (alle Geschlechter) 80 - 100 %",
-      "titleByLocale": {
-        "it": "Senior Business Consultant (tutti i sessi) 80 - 100%",
-        "en": "Senior Business Consultant (all genders) 80 - 100%",
-        "de": "Senior Business Berater (alle Geschlechter) 80 - 100 %",
-        "fr": "Consultant principal en affaires (tous genres) 80 - 100%"
-      },
-      "description": "Du entwickelst strategische Vorhaben weiter und bringst dabei unterschiedliche Stakeholder an einen Tisch? Dann bist du bei uns richtig. Was du bewirkst\n• Du verantwortest Beratungsmandate für strategische Vorhaben, Organisationsentwicklung und Operational Excellence für das Kundenmanagement und die Kommunikation.\n• Du wählst die notwendigen Methoden zur Zielerreichung, überführst diese in Vorgehenspläne und verantwortest die Ausführung bis zum Mandatsabschluss. Dabei führst du das Projektteam inhaltlich, fachlich und methodisch.\n• Den nachhaltigen Erfolg deiner Mandate stellst du durch praxisnahe Ergebnisse und den gezielten Wissenstransfer an die Auftraggebenden sicher.\n• Mit deinem Stakeholdermanagement berücksichtigst du die vielfältigen Abhängigkeiten im Kunden- und Partnermanagement, Schadenmanagement und in der Prävention.\n• Du arbeitest aktiv an der Weiterentwicklung des Business Consultings mit. Was du mitbringst\n• Du verfügst über einen Hochschulabschluss in BWL oder VWL und bringst idealerweise mehrere Jahre Erfahrung in der Unternehmensberatung mit.\n• Du bist eine überzeugende, integrative Persönlichkeit mit hoher Kommunikationskompetenz sowie Erfahrung in der anschaulichen Aufbereitung und Präsentation von Inhalten.\n• Du hast Erfahrung in der Begleitung von Führungskräften und Mitarbeitenden durch anspruchsvolle Veränderungsprozesse.\n• Du hast nachgewiesene Fähigkeiten in der Problemanalyse, Abstraktion und Synthese.\n• Deutsch ist deine Muttersprache. Zudem verfügst du über gute Französischkenntnisse.",
-      "descriptionByLocale": {
-        "it": "Sviluppi progetti strategici e porti diversi stakeholder alla stessa tabella? Allora hai ragione con noi. Cosa fai\n• Sei responsabile della consulenza per i progetti strategici, dello sviluppo organizzativo e dell'eccellenza operativa per la gestione e la comunicazione dei clienti.\n• Scegli i metodi necessari per raggiungere gli obiettivi, convertirli in piani di processo e assumerti la responsabilità di esecuzione fino a quando il mandato non sarà completato. Lei guida il team di progetto in termini di contenuto, competenza e metodologia.\n• Garantisci il successo sostenibile dei tuoi mandati attraverso risultati pratici e il trasferimento mirato di conoscenze ai clienti.\n• Con la gestione degli stakeholder, si tiene conto delle diverse dipendenze nella gestione dei clienti e dei partner, nella gestione dei reclami e nella prevenzione.\n• Sei attivamente coinvolto nell'ulteriore sviluppo della consulenza aziendale. Cosa porti\n• Hai una laurea in amministrazione aziendale o amministrazione aziendale e portare idealmente diversi anni di esperienza nella consulenza di gestione.\n• Sei una personalità convincente e integrativa con elevate capacità di comunicazione e l'esperienza nella preparazione e nella presentazione vivida dei contenuti.\n• Hai esperienza in manager e dipendenti che accompagnano i processi di cambiamento.\n• Hai dimostrato competenze nell'analisi dei problemi, nell'astrazione e nella sintesi.\n• Il tedesco e' la tua lingua madre. Hai anche una buona conoscenza del francese.",
-        "en": "You develop strategic projects further and bring different stakeholders to the same table? Then you are right with us. What you do\n• You are responsible for consulting mandates for strategic projects, organizational development and operational excellence for customer management and communication.\n• You choose the necessary methods for achieving goals, convert them into process plans and take responsibility for execution until the mandate is completed. You lead the project team in terms of content, expertise and methodology.\n• You ensure the sustainable success of your mandates through practical results and the targeted transfer of knowledge to the clients.\n• With your stakeholder management, you take into account the diverse dependencies in customer and partner management, claims management and prevention.\n• You are actively involved in the further development of business consulting. What you bring\n• You have a university degree in business administration or business administration and ideally bring several years of experience in management consulting.\n• You are a convincing, integrative personality with high communication skills as well as experience in the vivid preparation and presentation of content.\n• You have experience in accompanying managers and employees through demanding change processes.\n• You have proven skills in problem analysis, abstraction and synthesis.\n• German is your mother tongue. You also have good knowledge of French.",
-        "de": "Du entwickelst strategische Vorhaben weiter und bringst dabei unterschiedliche Stakeholder an einen Tisch? Dann bist du bei uns richtig. Was du bewirkst\n• Du verantwortest Beratungsmandate für strategische Vorhaben, Organisationsentwicklung und Operational Excellence für das Kundenmanagement und die Kommunikation.\n• Du wählst die notwendigen Methoden zur Zielerreichung, überführst diese in Vorgehenspläne und verantwortest die Ausführung bis zum Mandatsabschluss. Dabei führst du das Projektteam inhaltlich, fachlich und methodisch.\n• Den nachhaltigen Erfolg deiner Mandate stellst du durch praxisnahe Ergebnisse und den gezielten Wissenstransfer an die Auftraggebenden sicher.\n• Mit deinem Stakeholdermanagement berücksichtigst du die vielfältigen Abhängigkeiten im Kunden- und Partnermanagement, Schadenmanagement und in der Prävention.\n• Du arbeitest aktiv an der Weiterentwicklung des Business Consultings mit. Was du mitbringst\n• Du verfügst über einen Hochschulabschluss in BWL oder VWL und bringst idealerweise mehrere Jahre Erfahrung in der Unternehmensberatung mit.\n• Du bist eine überzeugende, integrative Persönlichkeit mit hoher Kommunikationskompetenz sowie Erfahrung in der anschaulichen Aufbereitung und Präsentation von Inhalten.\n• Du hast Erfahrung in der Begleitung von Führungskräften und Mitarbeitenden durch anspruchsvolle Veränderungsprozesse.\n• Du hast nachgewiesene Fähigkeiten in der Problemanalyse, Abstraktion und Synthese.\n• Deutsch ist deine Muttersprache. Zudem verfügst du über gute Französischkenntnisse.",
-        "fr": "Vous développez des projets stratégiques plus loin et apportez différentes parties prenantes à la même table? Alors tu as raison avec nous. Ce que tu fais\n• Vous êtes responsable de la consultation des mandats des projets stratégiques, du développement organisationnel et de l'excellence opérationnelle pour la gestion de la clientèle et la communication.\n• Vous choisissez les méthodes nécessaires pour atteindre les objectifs, les convertissez en plans de processus et prenez la responsabilité de l'exécution jusqu'à ce que le mandat soit terminé. Vous dirigez l'équipe du projet en termes de contenu, d'expertise et de méthodologie.\n• Vous veillez au succès durable de vos mandats grâce à des résultats pratiques et au transfert ciblé de connaissances aux clients.\n• Avec votre gestion des intervenants, vous prenez en compte les diverses dépendances dans la gestion des clients et des partenaires, la gestion des réclamations et la prévention.\n• Vous participez activement au développement du conseil en affaires. Ce que vous apportez\n• Vous avez un diplôme universitaire en administration des affaires ou en administration des affaires et vous apportez idéalement plusieurs années d'expérience en conseil en gestion.\n• Vous êtes une personnalité convaincante et intégratrice avec des compétences de communication élevées ainsi que l'expérience dans la préparation et la présentation vives du contenu.\n• Vous avez de l'expérience dans l'accompagnement des gestionnaires et des employés grâce à des processus de changement exigeants.\n• Vous avez prouvé vos compétences en analyse de problèmes, abstraction et synthèse.\n• L'allemand est votre langue maternelle. Vous avez aussi une bonne connaissance du français."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Senior-Business-Consultant-%28alle-Geschlechter%29-80-100-LU-6004/1430131133/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:13.872Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Senior-Business-Consultant-%28alle-Geschlechter%29-80-100-LU-6004/1430131133/",
-      "pensum": "80-100%",
-      "sfJobId": "1430131133",
-      "firstSeenAt": "2026-08-26T10:00:24.400Z",
-      "salaryMin": 102500,
-      "salaryMax": 170000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 102500,
-          "maxValue": 170000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
     },
     {
       "id": "suva-207a83d6c675",
@@ -1016,7 +1333,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Sachbearbeiterin-Customer-Service-Center-100-DEFR-LU-6004/1431399033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:00.932Z",
+      "crawledAt": "2026-09-04T13:28:22.325Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1034,11 +1351,13 @@
       "pensum": "100%",
       "sfJobId": "1431399033",
       "previousSlugs": [
-        "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern"
+        "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
+        "sachbearbeiter-in-servizio-clienti-center-100-de-fr-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern"
+          "sachbearbeiter-in-customer-service-center-100-de-fr-suva-luzern",
+          "sachbearbeiter-in-servizio-clienti-center-100-de-fr-suva-luzern"
         ]
       },
       "needsRetranslation": true,
@@ -1089,7 +1408,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Internal-Auditor-ICT-%28all-genders%29-80-100-LU-6004/1429647333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:00.002Z",
+      "crawledAt": "2026-09-04T13:28:21.308Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1118,211 +1437,6 @@
           "@type": "QuantitativeValue",
           "minValue": 74500,
           "maxValue": 123500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
-    },
-    {
-      "id": "suva-31a3cc76fdbb",
-      "slug": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
-      "slugByLocale": {
-        "it": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
-        "en": "internship-in-wms-hr-junior-development-100-suva-luzern",
-        "de": "praktikant-in-wms-hr-nachwuchsentwicklung-100-suva-luzern",
-        "fr": "stage-en-developpement-junior-rh-du-sgm-100-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Praktikant:in WMS HR Nachwuchsentwicklung 100 %",
-      "titleByLocale": {
-        "it": "Praktikant:in WMS Risorse Umane Nachwuchsentwicklung 100 %",
-        "en": "Internship: in WMS HR Junior Development 100%",
-        "de": "Praktikant:in WMS HR Nachwuchsentwicklung 100 %",
-        "fr": "Stage : en développement junior RH du SGM 100 %"
-      },
-      "description": "Was du bewirkst\n• Als Praktikant:in WMS unterstützt du unser Team Nachwuchsentwicklung bei vielseitigen und spanennden Aufgaben.\n• Du organisierst Anlässe wie Berufsmessen, den Zukunftstag, das Einführungslager und Schnupperevents.\n• Du arbeitest in der Kursadministration mit.\n• Du bringst dich aktiv in Projekte der Nachwuchsentwicklung ein und übernimmst Verantwortung für eigene Aufgaben. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Du packst Aufgaben gerne an und bringst dich aktiv ein.",
-      "descriptionByLocale": {
-        "it": "Cosa fai\n• Come tirocinante: in WMS, supporti il nostro team con lo sviluppo di giovani talenti in attività versatili e di taglio.\n• Organizza eventi come fiere professionali, il Future Day, il campo introduttivo e gli eventi di prova.\n• Lavori nell'amministrazione del corso.\n• Siete attivamente coinvolti in progetti di sviluppo di giovani talenti e assumetevi la responsabilità per i vostri compiti. Cosa porti\n• Frequenti la Wirtschaftsmittelschule (WMS) e stai cercando uno stage dall'agosto 2027.\n• Ti avvicini apertamente ad altre persone e ti godi di lavorare in una squadra.\n• Si può esprimere bene verbalmente e per iscritto.\n• Ti piace affrontare i compiti e partecipare attivamente.",
-        "en": "What you do\n• As an intern: in WMS, you support our team with young talent development in versatile and cutting tasks.\n• You organize events such as professional fairs, the Future Day, the introductory camp and trial events.\n• You work in the course administration.\n• You are actively involved in young talent development projects and take responsibility for your own tasks. What you bring\n• You attend the Wirtschaftsmittelschule (WMS) and are looking for an internship from August 2027.\n• You approach other people openly and enjoy working in a team.\n• You can express yourself well verbally and in writing.\n• You like to tackle tasks and get actively involved.",
-        "de": "Was du bewirkst\n• Als Praktikant:in WMS unterstützt du unser Team Nachwuchsentwicklung bei vielseitigen und spanennden Aufgaben.\n• Du organisierst Anlässe wie Berufsmessen, den Zukunftstag, das Einführungslager und Schnupperevents.\n• Du arbeitest in der Kursadministration mit.\n• Du bringst dich aktiv in Projekte der Nachwuchsentwicklung ein und übernimmst Verantwortung für eigene Aufgaben. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Du packst Aufgaben gerne an und bringst dich aktiv ein.",
-        "fr": "Ce que tu fais\n• En tant que stagiaire : en WMS, vous soutenez notre équipe avec le développement de jeunes talents dans des tâches polyvalentes et coupantes.\n• Vous organisez des événements tels que des foires professionnelles, le Future Day, le camp d'introduction et les événements d'essai.\n• Vous travaillez dans l'administration du cours.\n• Vous participez activement à des projets de développement de jeunes talents et assumez la responsabilité de vos propres tâches. Ce que vous apportez\n• Vous assistez au Wirtschaftsmittelschule (WMS) et recherchez un stage à partir d'août 2027.\n• Vous approchez les autres ouvertement et aimez travailler en équipe.\n• Vous pouvez vous exprimer bien verbalement et par écrit.\n• Vous aimez vous attaquer aux tâches et vous impliquer activement."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-HR-Nachwuchsentwicklung-100-LU-6004/1423913433/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:59.083Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-HR-Nachwuchsentwicklung-100-LU-6004/1423913433/",
-      "pensum": "100%",
-      "sfJobId": "1423913433",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:09:52.233Z",
-      "salaryMin": 58500,
-      "salaryMax": 89000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58500,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
-    },
-    {
-      "id": "suva-3b127aefbd90",
-      "slug": "praktikant-in-wms-servizio-clienti-center-100-suva-luzern",
-      "slugByLocale": {
-        "it": "praktikant-in-wms-servizio-clienti-center-100-suva-luzern",
-        "en": "praktikant-in-wms-customer-service-center-100-suva-luzern",
-        "de": "praktikant-in-wms-customer-service-center-100-suva-luzern",
-        "fr": "stage-dans-le-centre-de-service-a-la-clientele-wms-100-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Praktikant:in WMS Customer Service Center 100 %",
-      "titleByLocale": {
-        "it": "Praktikant:in WMS Servizio Clienti Center 100 %",
-        "en": "Internship: in WMS Customer Service Center 100%",
-        "de": "Praktikant:in WMS Customer Service Center 100 %",
-        "fr": "Stage: dans le centre de service à la clientèle WMS 100%"
-      },
-      "description": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Contact Center und bist die erste Anlaufstelle für unsere Kundinnen und Kunden.\n• Du beantwortest Anfragen zu technischen Problemen und Anwendungen.\n• Du unterstützt bei adminstrativen Aufgaben und erhältst spannende Einblicke in Führungsprozesse.\n• Du übernimmst eigene Projekte und bringst deine Ideen ein. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du telefonierst gerne und hast Freude am Kontakt mit Menschen.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
-      "descriptionByLocale": {
-        "it": "Cosa fai\n• Come tirocinante: in WMS si lavora nel centro di contatto e sono il primo punto di contatto per i nostri clienti.\n• Risponde alle richieste di problemi tecnici e applicazioni.\n• Sosterrai con compiti amministrativi e acquisirai interessanti approfondimenti nei processi di gestione.\n• Voi prendete i vostri progetti e portate le vostre idee. Cosa porti\n• Frequenti la Wirtschaftsmittelschule (WMS) e stai cercando uno stage dall'agosto 2027.\n• Ti piace parlare al telefono e godere di contatto con le persone.\n• Ti avvicini apertamente ad altre persone e ti godi di lavorare in una squadra.\n• Si può esprimere bene verbalmente e per iscritto.\n• Ti dà il piacere di aiutare gli altri e trovare soluzioni adatte.",
-        "en": "What you do\n• As an intern: in WMS you work in the contact center and are the first point of contact for our customers.\n• You answer requests about technical problems and applications.\n• You will support with administrative tasks and gain exciting insights into management processes.\n• You take on your own projects and bring your ideas. What you bring\n• You attend the Wirtschaftsmittelschule (WMS) and are looking for an internship from August 2027.\n• You like to talk on the phone and enjoy contact with people.\n• You approach other people openly and enjoy working in a team.\n• You can express yourself well verbally and in writing.\n• It gives you pleasure to help others and find suitable solutions.",
-        "de": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Contact Center und bist die erste Anlaufstelle für unsere Kundinnen und Kunden.\n• Du beantwortest Anfragen zu technischen Problemen und Anwendungen.\n• Du unterstützt bei adminstrativen Aufgaben und erhältst spannende Einblicke in Führungsprozesse.\n• Du übernimmst eigene Projekte und bringst deine Ideen ein. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du telefonierst gerne und hast Freude am Kontakt mit Menschen.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
-        "fr": "Ce que tu fais\n• En tant que stagiaire: dans WMS vous travaillez dans le centre de contact et êtes le premier point de contact pour nos clients.\n• Vous répondez aux demandes concernant les problèmes techniques et les applications.\n• Vous supporterez les tâches administratives et gagnerez des connaissances passionnantes sur les processus de gestion.\n• Vous prenez vos propres projets et apportez vos idées. Ce que vous apportez\n• Vous assistez au Wirtschaftsmittelschule (WMS) et recherchez un stage à partir d'août 2027.\n• Vous aimez parler au téléphone et profiter du contact avec les gens.\n• Vous approchez les autres ouvertement et aimez travailler en équipe.\n• Vous pouvez vous exprimer bien verbalement et par écrit.\n• Il vous donne le plaisir d'aider les autres et de trouver des solutions appropriées."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:58.151Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Customer-Service-Center-100-LU-6004/1423913333/",
-      "pensum": "100%",
-      "sfJobId": "1423913333",
-      "previousSlugs": [
-        "praktikant-in-wms-customer-service-center-100-suva-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-in-wms-customer-service-center-100-suva-luzern"
-        ],
-        "fr": [
-          "praktikant-in-wms-customer-service-center-100-suva-luzern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:09:54.463Z",
-      "salaryMin": 61000,
-      "salaryMax": 101000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61000,
-          "maxValue": 101000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
-    },
-    {
-      "id": "suva-bd970a26367d",
-      "slug": "social-media-manager-in-60-suva-luzern",
-      "slugByLocale": {
-        "it": "social-media-manager-in-60-suva-luzern",
-        "en": "social-media-manager-in-60-suva-luzern",
-        "de": "social-media-manager-in-60-suva-luzern",
-        "fr": "gestionnaire-des-medias-sociaux-60-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Social Media Manager:in 60 %",
-      "titleByLocale": {
-        "it": "Social Media Manager: 60%",
-        "en": "Social Media Manager: 60%",
-        "de": "Social Media Manager:in 60 %",
-        "fr": "Gestionnaire des médias sociaux : 60%"
-      },
-      "description": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
-      "descriptionByLocale": {
-        "it": "Cosa fai\n• Riconoscerai nuove tendenze e svilupperai i nostri canali social media in modo strategico e operativo.\n• Insieme alle agenzie, si progetta e produce contenuti orientati al gruppo target che rafforza la portata, l'interazione e la lealtà del marchio.\n• Coordinate i contenuti nelle newsroom e controllate le campagne cross-channel.\n• Gestisci la gestione della comunità e consiglia gli stakeholder interni sui social media. Cosa porti\n• Hai completato gli studi universitari o una formazione equivalente nella comunicazione, marketing o produzione multimediale, nonché diversi anni di esperienza professionale nella gestione dei social media.\n• Si scrive elegantemente e hanno una buona sensazione per diversi gruppi target.\n• Hai una forte comprensione digitale e conosci le più importanti piattaforme di social media, i formati di contenuti e gli strumenti di project management.\n• Lavorate in modo indipendente, strutturato e portate le vostre idee con iniziativa ed energia.\n• Sei una personalità orientata al team con competenze di consulenza, assertività e piacere nel lavorare con diverse aree specialistiche.",
-        "en": "What you do\n• You will recognize new trends and develop our social media channels strategically and operationally.\n• Together with agencies, you design and produce target-group-oriented content that strengthens reach, interaction and brand loyalty.\n• You coordinate the content in the newsroom and control cross-channel campaigns.\n• You manage community management and advise internal stakeholders on social media. What you bring\n• You have completed university studies or an equivalent education in communication, marketing or multimedia production as well as several years of professional experience in social media management.\n• You write stylishly and have a good feeling for different target groups.\n• You have a strong digital understanding and know the most important social media platforms, content formats and project management tools.\n• You work independently, structured and bring your ideas with initiative and energy.\n• You are a team-oriented personality with consulting skills, assertiveness and pleasure in working with different specialist areas.",
-        "de": "Du brennst für Social Media und verwandelst kreative Ideen in erfolgreichen Content. Dann bist du bei uns richtig. Was du bewirkst\n• Du erkennst neue Trends und entwickelst unsere Social-Media-Kanäle strategisch und operativ weiter.\n• Gemeinsam mit Agenturen konzipierst und produzierst du zielgruppengerechten Content, der Reichweite, Interaktion und Markenbindung stärkt.\n• Du koordinierst die Inhalte im Newsroom und steuerst kanalübergreifende Kampagnen.\n• Du betreust das Community Management und berätst interne Anspruchsgruppen zu Social Media. Was du mitbringst\n• Du hast ein abgeschlossenes Hochschulstudium oder eine gleichwertige Ausbildung in Kommunikation, Marketing oder Multimedia-Produktion sowie mehrjährige Berufserfahrung im Social-Media-Management.\n• Du schreibst stilsicher und hast ein gutes Gespür für verschiedene Zielgruppen.\n• Du verfügst über ein ausgeprägtes digitales Verständnis und kennst die wichtigsten Social-Media-Plattformen, Content-Formate und Projektmanagement-Tools.\n• Du arbeitest selbstständig, strukturiert und bringst deine Ideen mit Eigeninitiative und Tatkraft ein.\n• Du bist eine teamorientierte Persönlichkeit mit Beratungskompetenz, Durchsetzungsvermögen und Freude an der Zusammenarbeit mit unterschiedlichen Fachbereichen.",
-        "fr": "Ce que tu fais\n• Vous reconnaîtrez les nouvelles tendances et développerez nos canaux de médias sociaux de façon stratégique et opérationnelle.\n• Avec les agences, vous concevez et produisez des contenus axés sur des groupes cibles qui renforcent la portée, l'interaction et la fidélité de la marque.\n• Vous coordonnez le contenu dans la salle de presse et contrôlez les campagnes cross-channel.\n• Vous gérez la gestion communautaire et conseillez les intervenants internes sur les médias sociaux. Ce que vous apportez\n• Vous avez terminé des études universitaires ou une formation équivalente en communication, marketing ou production multimédia ainsi que plusieurs années d'expérience professionnelle en gestion des médias sociaux.\n• Vous écrivez élégamment et avez une bonne sensation pour différents groupes cibles.\n• Vous avez une solide compréhension numérique et connaissez les plateformes de médias sociaux, les formats de contenu et les outils de gestion de projet les plus importants.\n• Vous travaillez de manière indépendante, structurée et apportez vos idées avec initiative et énergie.\n• Vous êtes une personnalité axée sur l'équipe avec des compétences de conseil, d'affirmation et de plaisir à travailler avec différents domaines spécialisés."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:20:11.092Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Social-Media-Managerin-60-LU-6004/1423914033/",
-      "pensum": "60%",
-      "sfJobId": "1423914033",
-      "firstSeenAt": "2026-08-17T10:09:49.921Z",
-      "salaryMin": 61500,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61500,
-          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -1359,7 +1473,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Produktmanagerin-Projektleiterin-Pr%C3%A4vention-80-100-LU-6004/1407285633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:57.234Z",
+      "crawledAt": "2026-09-04T13:28:20.259Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1377,94 +1491,17 @@
       "pensum": "80-100%",
       "sfJobId": "1407285633",
       "previousSlugs": [
-        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
+        "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
+        "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern"
+          "produktmanager-in-projektleiter-in-pravention-80-100-suva-luzern",
+          "produktmanager-in-responsabile-di-progetto-pravention-80-100-suva-luzern"
         ]
       },
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:52:44.412Z",
-      "salaryMin": 102500,
-      "salaryMax": 170000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 102500,
-          "maxValue": 170000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "LU"
-    },
-    {
-      "id": "suva-f3ae3c775bc7",
-      "slug": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
-      "slugByLocale": {
-        "it": "project-manager-nella-gestione-delle-costruzioni-rappresentanza-cliente-80-100-suva-luzern",
-        "en": "project-manager-in-construction-management-client-representation-80-100-suva-luzern",
-        "de": "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern",
-        "fr": "gestionnaire-de-projet-en-gestion-de-la-construction-representation-des-clients-80-100-suva-luzern"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
-      "titleByLocale": {
-        "it": "Project Manager: nella gestione delle costruzioni / rappresentanza cliente 80 - 100%",
-        "en": "Project Manager: in construction management / client representation 80 - 100%",
-        "de": "Projektmanager:in Baumanagement / Bauherrenvertretung 80 - 100 %",
-        "fr": "Gestionnaire de projet: en gestion de la construction / représentation des clients 80 - 100%"
-      },
-      "description": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
-      "descriptionByLocale": {
-        "it": "Partecipate attivamente all’attuazione della strategia immobiliare di Suva con questioni economiche, sociali e ambientali.",
-        "en": "You actively participate in the implementation of Suva’s real estate strategy with economic, social and environmental issues.",
-        "de": "Du wirkst du an der Umsetzung der Immobilienstrategie der Suva mit wirtschaftlichen, sozialen und umweltrelevanten Themen aktiv mit.",
-        "fr": "Vous participez activement à la mise en œuvre de la stratégie immobilière de Suva avec des questions économiques, sociales et environnementales."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:56.107Z",
-      "addressLocality": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-04",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Projektmanagerin-Baumanagement-Bauherrenvertretung-80-100-LU-6004/1409638533/",
-      "pensum": "80-100%",
-      "sfJobId": "1409638533",
-      "previousSlugs": [
-        "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-        ],
-        "en": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-        ],
-        "fr": [
-          "projektmanager-in-baumanagement-bauherrenvertretung-80-100-suva-luzern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-04T12:22:43.533Z",
       "salaryMin": 102500,
       "salaryMax": 170000,
       "salarySource": "estimated",
@@ -1511,7 +1548,7 @@
       "url": "https://jobs.suva.ch/job/Luzern-Medizinischer-Praxisassistentin-60-LU-6004/1417839633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:55.189Z",
+      "crawledAt": "2026-09-04T13:28:19.235Z",
       "addressLocality": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1529,11 +1566,13 @@
       "pensum": "60%",
       "sfJobId": "1417839633",
       "previousSlugs": [
-        "medizinische-r-praxisassistent-in-60-suva-luzern"
+        "medizinische-r-praxisassistent-in-60-suva-luzern",
+        "assistente-medico-in-60-suva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-60-suva-luzern"
+          "medizinische-r-praxisassistent-in-60-suva-luzern",
+          "assistente-medico-in-60-suva-luzern"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-60-suva-luzern"
@@ -1590,7 +1629,7 @@
       "url": "https://jobs.suva.ch/job/Aarau-Spezialistin-Bek%C3%A4mpfung-Versicherungsmissbrauch-80-100-AG-5000/1424876233/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:54.255Z",
+      "crawledAt": "2026-09-04T13:28:18.222Z",
       "addressLocality": "Argovia",
       "addressCountry": "CH",
       "country": "CH",
@@ -1609,12 +1648,14 @@
       "sfJobId": "1424876233",
       "previousSlugs": [
         "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau",
-        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen"
+        "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen",
+        "specialista-nella-lotta-contro-l-abuso-di-assicurazione-80-100-suva-argovia"
       ],
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau",
-          "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen"
+          "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau-basel-bellinzona-bern-chur-delemont-freiburg-genf-la-chaux-de-fonds-lausanne-luzern-root-sion-solothurn-st-gallen",
+          "specialista-nella-lotta-contro-l-abuso-di-assicurazione-80-100-suva-argovia"
         ],
         "en": [
           "spezialist-in-bekampfung-versicherungsmissbrauch-80-100-suva-aarau"
@@ -1671,7 +1712,7 @@
       "url": "https://jobs.suva.ch/job/Sion-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VS-1950/1431769833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:53.308Z",
+      "crawledAt": "2026-09-04T13:28:17.199Z",
       "addressLocality": "Sion",
       "addressCountry": "CH",
       "country": "CH",
@@ -1736,7 +1777,7 @@
       "url": "https://jobs.suva.ch/job/Fribourg-Sp%C3%A9cialiste-en-s%C3%A9curit%C3%A9-int%C3%A9gr%C3%A9e-80-100-FR-1700/1409237433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:52.401Z",
+      "crawledAt": "2026-09-04T13:28:16.172Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -1754,11 +1795,13 @@
       "pensum": "80-100%",
       "sfJobId": "1409237433",
       "previousSlugs": [
-        "specialiste-en-securite-integree-80-100-suva-fribourg"
+        "specialiste-en-securite-integree-80-100-suva-fribourg",
+        "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-securite-integree-80-100-suva-fribourg"
+          "specialiste-en-securite-integree-80-100-suva-fribourg",
+          "ufficiale-di-sicurezza-integrato-80-100-suva-fribourg"
         ],
         "en": [
           "specialiste-en-securite-integree-80-100-suva-fribourg"
@@ -1768,6 +1811,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:37.715Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1814,7 +1858,7 @@
       "url": "https://jobs.suva.ch/job/Root-Leiterin-Centermanagement-D4-Business-Village-80-100-LU-6039/1424797533/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:51.454Z",
+      "crawledAt": "2026-09-04T13:28:15.063Z",
       "addressLocality": "Root",
       "addressCountry": "CH",
       "country": "CH",
@@ -1831,11 +1875,13 @@
       "pensum": "80-100%",
       "sfJobId": "1424797533",
       "previousSlugs": [
-        "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
+        "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
+        "responsabile-centermanagement-d4-business-village-80-100-suva-root"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
+          "leiter-in-centermanagement-d4-business-village-80-100-suva-root",
+          "responsabile-centermanagement-d4-business-village-80-100-suva-root"
         ],
         "fr": [
           "leiter-in-centermanagement-d4-business-village-80-100-suva-root"
@@ -1889,7 +1935,7 @@
       "url": "https://jobs.suva.ch/job/Del%C3%A9mont-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-JU-2800/1432034833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:50.512Z",
+      "crawledAt": "2026-09-04T13:28:14.050Z",
       "addressLocality": "Delémont",
       "addressCountry": "CH",
       "country": "CH",
@@ -1918,86 +1964,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72000,
           "maxValue": 110500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "JU"
-    },
-    {
-      "id": "suva-1ea860cf5a23",
-      "slug": "centro-di-competenza-80-100-suva-delemont-la-chaux-de-fonds",
-      "slugByLocale": {
-        "it": "centro-di-competenza-80-100-suva-delemont-la-chaux-de-fonds",
-        "en": "centre-of-competence-manager-80-100-suva-delemont-la-chaux-de-fonds",
-        "de": "kompetenzzentrum-manager-80-100-suva-delemont-la-chaux-de-fonds",
-        "fr": "gestionnaire-centre-de-competence-80-100-suva-delemont"
-      },
-      "company": "Suva",
-      "companyKey": "suva",
-      "companyDomain": "suva.ch",
-      "title": "Gestionnaire centre de compétence 80 - 100 %",
-      "titleByLocale": {
-        "it": "Centro di competenza 80 - 100%",
-        "en": "Centre of Competence Manager 80 - 100%",
-        "de": "Kompetenzzentrum Manager 80 - 100%",
-        "fr": "Gestionnaire centre de compétence 80 - 100 %"
-      },
-      "description": "Ce que tu accomplis\n• Tu assures un accueil téléphonique de qualité et renseignes les clients sur des questions liées à la gestion des cas d’accident.\n• Dans cette activité, tu réponds aux demandes des clients via les divers canaux de communication (téléphone, mail, courrier, e-services, portail clients).\n• Tu effectues la mise à jour des données, et traites les requêtes et les pièces entrantes (déclarations d'accident, certificats d’incapacité de travail, etc.).\n• Tu t'engages en faveur de l’amélioration continue des processus. Ce que tu apportes\n• Tu as une formation commerciale et/ou d'agent relation client niveau CFC et disposes d’une première expérience professionnelle en assurance.\n• De langue maternelle française, allemande ou italienne, tu parles couramment une 2e langue nationale.\n• En tant que personnalité avenante et orientée service, tu es très à l’aise au téléphone et apprécies le contact client.\n• Tu as de la facilité avec les technologies de l’information et de la communication. Nous proposons dans un premier temps un CDD de 12 mois, avec possibilité d'évolution en CDI en cas d'intérêt mutuel.",
-      "descriptionByLocale": {
-        "it": "Cosa fai\n• L'utente fornisce una reception telefonica di alta qualità e informa i clienti sulle questioni relative alla gestione degli incidenti.\n• In questa attività, rispondete alle richieste dei clienti tramite i vari canali di comunicazione (telefono, e-mail, mail, e-services, portale clienti).\n• Aggiornare i dati e elaborare richieste e documenti in arrivo (relazioni di incidenti, certificati di incapacità di lavoro, ecc.).\n• Ti impegni a migliorare il processo continuo. Cosa porti\n• Si dispone di commerciale e / o rapporto cliente agente di formazione livello CFC e hanno prima esperienza professionale in assicurazione.\n• In francese, tedesco o italiano, sei fluente in una seconda lingua nazionale.\n• Come personalità amichevole e orientata al servizio, sei molto confortevole al telefono e goditi il contatto con il cliente.\n• Hai facilità con le tecnologie dell'informazione e della comunicazione. Proponiamo per la prima volta un CDD di 12 mesi, con la possibilità di evoluzione in CDI in caso di reciproco interesse.",
-        "en": "What You Do\n• You provide a high-quality telephone reception and inform clients about issues related to accident management.\n• In this activity, you respond to customer requests via the various communication channels (telephone, email, mail, e-services, customer portal).\n• You update the data, and process incoming requests and documents (accident reports, work incapacity certificates, etc.).\n• You are committed to continuous process improvement. What you bring\n• You have commercial and/or customer relationship agent training level CFC and have first professional experience in insurance.\n• In French, German or Italian, you are fluent in a second national language.\n• As a friendly and service-oriented personality, you are very comfortable on the phone and enjoy customer contact.\n• You have ease with information and communication technologies. We first propose a 12 month CDD, with the possibility of evolution in CDI in case of mutual interest.",
-        "de": "Was du tust\n• Sie bieten einen hochwertigen Telefonempfang und informieren Kunden über Fragen rund um das Unfallmanagement.\n• In dieser Aktivität antworten Sie auf Kundenanfragen über die verschiedenen Kommunikationskanäle (Telefon, E-Mail, Mail, E-Services, Kundenportal).\n• Sie aktualisieren die Daten und verarbeiten eingehende Anfragen und Dokumente (Unfallberichte, Arbeitsunfähigkeitszertifikate usw.).\n• Sie engagieren sich für kontinuierliche Prozessverbesserung. Was du mitbringst\n• Sie verfügen über ein kaufmännisches und / oder Customer Relationship Agent-Trainingsniveau CFC und verfügen über erste Berufserfahrung in der Versicherung.\n• Auf Französisch, Deutsch oder Italienisch sprechen Sie fließend eine zweite Landessprache.\n• Als freundliche und serviceorientierte Persönlichkeit fühlen Sie sich am Telefon sehr wohl und genießen den Kundenkontakt.\n• Sie haben Leichtigkeit mit Informations- und Kommunikationstechnologien. Wir schlagen zunächst eine 12-monatige CDD vor, mit der Möglichkeit der Entwicklung von CDI im Falle von gegenseitigem Interesse.",
-        "fr": "Ce que tu accomplis\n• Tu assures un accueil téléphonique de qualité et renseignes les clients sur des questions liées à la gestion des cas d’accident.\n• Dans cette activité, tu réponds aux demandes des clients via les divers canaux de communication (téléphone, mail, courrier, e-services, portail clients).\n• Tu effectues la mise à jour des données, et traites les requêtes et les pièces entrantes (déclarations d'accident, certificats d’incapacité de travail, etc.).\n• Tu t'engages en faveur de l’amélioration continue des processus. Ce que tu apportes\n• Tu as une formation commerciale et/ou d'agent relation client niveau CFC et disposes d’une première expérience professionnelle en assurance.\n• De langue maternelle française, allemande ou italienne, tu parles couramment une 2e langue nationale.\n• En tant que personnalité avenante et orientée service, tu es très à l’aise au téléphone et apprécies le contact client.\n• Tu as de la facilité avec les technologies de l’information et de la communication. Nous proposons dans un premier temps un CDD de 12 mois, avec possibilité d'évolution en CDI en cas d'intérêt mutuel."
-      },
-      "location": "Delémont",
-      "canton": "JU",
-      "url": "https://jobs.suva.ch/job/Del%C3%A9mont-Gestionnaire-centre-de-comp%C3%A9tence-80-100-JU-2800/1424773133/",
-      "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:49.628Z",
-      "addressLocality": "Delémont",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2800",
-      "streetAddress": "Quai de la Sorne 22",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-10",
-      "applyUrl": "https://jobs.suva.ch/job/Del%C3%A9mont-Gestionnaire-centre-de-comp%C3%A9tence-80-100-JU-2800/1424773133/",
-      "pensum": "80-100%",
-      "sfJobId": "1424773133",
-      "previousSlugs": [
-        "gestionnaire-centre-de-competence-80-100-suva-delemont",
-        "gestionnaire-centre-de-competence-80-100-suva-delemont-la-chaux-de-fonds"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-centre-de-competence-80-100-suva-delemont",
-          "gestionnaire-centre-de-competence-80-100-suva-delemont-la-chaux-de-fonds"
-        ],
-        "en": [
-          "gestionnaire-centre-de-competence-80-100-suva-delemont"
-        ],
-        "de": [
-          "gestionnaire-centre-de-competence-80-100-suva-delemont"
-        ]
-      },
-      "firstSeenAt": "2026-08-10T21:44:29.606Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
@@ -2034,7 +2000,7 @@
       "url": "https://jobs.suva.ch/job/Bern-Spezialistin-Fallf%C3%BChrung-80-100-BE-3008/1426861633/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:48.714Z",
+      "crawledAt": "2026-09-04T13:28:12.683Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2052,11 +2018,13 @@
       "pensum": "80-100%",
       "sfJobId": "1426861633",
       "previousSlugs": [
-        "spezialist-in-fallfuhrung-80-100-suva-bern"
+        "spezialist-in-fallfuhrung-80-100-suva-bern",
+        "specialista-nella-gestione-dei-casi-80-100-suva-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-in-fallfuhrung-80-100-suva-bern"
+          "spezialist-in-fallfuhrung-80-100-suva-bern",
+          "specialista-nella-gestione-dei-casi-80-100-suva-bern"
         ],
         "en": [
           "spezialist-in-fallfuhrung-80-100-suva-bern"
@@ -2113,7 +2081,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-secteur-assurance-militaire-80-100-GE-1207/1426208033/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:47.724Z",
+      "crawledAt": "2026-09-04T13:28:11.687Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -2131,11 +2099,13 @@
       "pensum": "80-100%",
       "sfJobId": "1426208033",
       "previousSlugs": [
-        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
+        "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
+        "settore-assicurazione-militare-capo-80-100-suva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
+          "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve",
+          "settore-assicurazione-militare-capo-80-100-suva-geneve"
         ],
         "en": [
           "chef-fe-de-secteur-assurance-militaire-80-100-suva-geneve"
@@ -2191,7 +2161,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-GE-1207/1431769133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:46.821Z",
+      "crawledAt": "2026-09-04T13:28:10.504Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -2256,7 +2226,7 @@
       "url": "https://jobs.suva.ch/job/Gen%C3%A8ve-Chef%E2%88%99fe-de-team-pilotage-des-cas-80-100-GE-1207/1424788433/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:45.894Z",
+      "crawledAt": "2026-09-04T13:28:09.511Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -2274,11 +2244,13 @@
       "pensum": "80-100%",
       "sfJobId": "1424788433",
       "previousSlugs": [
-        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
+        "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve",
+        "case-team-leader-80-100-suva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
+          "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve",
+          "case-team-leader-80-100-suva-geneve"
         ],
         "en": [
           "chef-fe-de-team-pilotage-des-cas-80-100-suva-geneve"
@@ -2288,6 +2260,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:44:30.642Z",
+      "needsRetranslation": true,
       "salaryMin": 65500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -2334,7 +2307,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Apprenti%E2%88%99e-2027-employ%C3%A9%E2%88%99e-de-commerce-CFC-100-VD-1003/1431768333/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:44.986Z",
+      "crawledAt": "2026-09-04T13:28:08.491Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2399,7 +2372,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Chef%E2%88%99fe-de-team-m%C3%A9decine-d'assurance-80-100-VD-1003/1398235133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-03T23:19:44.080Z",
+      "crawledAt": "2026-09-04T13:28:07.440Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2482,7 +2455,7 @@
       "url": "https://jobs.suva.ch/job/Lausanne-Teamleiterin-Versicherungsmedizin-80-100-VD-1003/1399745833/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-03T23:19:43.175Z",
+      "crawledAt": "2026-09-04T13:28:06.373Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2501,11 +2474,13 @@
       "sfJobId": "1399745833",
       "previousSlugsByLocale": {
         "de": [
-          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
+          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
+          "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
         ],
         "it": [
           "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
+          "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
+          "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
         ],
         "en": [
           "teamleiter-in-versicherungsmedizin-80-100-suva-genf"
@@ -2516,7 +2491,8 @@
       },
       "previousSlugs": [
         "teamleiter-in-versicherungsmedizin-80-100-suva-genf",
-        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne"
+        "teamleiter-in-versicherungsmedizin-80-100-suva-lausanne",
+        "team-leader-in-medicina-assicurativa-80-100-suva-genf-lausanne"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:22:39.620Z",
@@ -2536,84 +2512,86 @@
       "addressRegion": "VD"
     },
     {
-      "id": "suva-6d2512d59cec",
-      "slug": "stage-in-comunicazione-aziendale-wms-100-suva-luzern",
+      "id": "suva-1ea860cf5a23",
+      "slug": "centro-di-competenza-80-100-suva-delemont-la-chaux-de-fonds",
       "slugByLocale": {
-        "it": "stage-in-comunicazione-aziendale-wms-100-suva-luzern",
-        "en": "internship-in-wms-corporate-communication-100-suva-luzern",
-        "de": "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern",
-        "fr": "stage-dans-le-wms-corporate-communication-100-suva-luzern"
+        "it": "centro-di-competenza-80-100-suva-delemont-la-chaux-de-fonds",
+        "en": "centre-of-competence-manager-80-100-suva-delemont-la-chaux-de-fonds",
+        "de": "kompetenzzentrum-manager-80-100-suva-delemont-la-chaux-de-fonds",
+        "fr": "gestionnaire-centre-de-competence-80-100-suva-delemont"
       },
       "company": "Suva",
       "companyKey": "suva",
       "companyDomain": "suva.ch",
-      "title": "Praktikant:in WMS Unternehmenskommunikation 100 %",
+      "title": "Gestionnaire centre de compétence 80 - 100 %",
       "titleByLocale": {
-        "it": "Stage: in Comunicazione aziendale WMS 100%",
-        "en": "Internship: in WMS Corporate Communication 100%",
-        "de": "Praktikant:in WMS Unternehmenskommunikation 100 %",
-        "fr": "Stage: dans le WMS Corporate Communication 100%"
+        "it": "Centro di competenza 80 - 100%",
+        "en": "Centre of Competence Manager 80 - 100%",
+        "de": "Kompetenzzentrum Manager 80 - 100%",
+        "fr": "Gestionnaire centre de compétence 80 - 100 %"
       },
-      "description": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Sekretariat des Bereichs Unternehmenskommunikation mit und organisierst Termine und Sitzungen.\n• Du unterstützt bei der Erstellung und Veröffentlichung von Publikationen wie der Kunden- und Mitarbeitendenzeitschrift, dem Newsletter und dem Geschäftsbericht.\n• Du hilfst bei der Organisation von Medienkonferenzen und versendest Medienmitteilungen an Journalistinnen und Journalisten.\n• Du veröffentlichst Top-News im Intranet und betreust die SharePoint-Seiten.\n• Du übernimmst die Bestellung und den Versand von Wettbewerbspreisen. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
+      "description": "Ce que tu accomplis\n• Tu assures un accueil téléphonique de qualité et renseignes les clients sur des questions liées à la gestion des cas d’accident.\n• Dans cette activité, tu réponds aux demandes des clients via les divers canaux de communication (téléphone, mail, courrier, e-services, portail clients).\n• Tu effectues la mise à jour des données, et traites les requêtes et les pièces entrantes (déclarations d'accident, certificats d’incapacité de travail, etc.).\n• Tu t'engages en faveur de l’amélioration continue des processus. Ce que tu apportes\n• Tu as une formation commerciale et/ou d'agent relation client niveau CFC et disposes d’une première expérience professionnelle en assurance.\n• De langue maternelle française, allemande ou italienne, tu parles couramment une 2e langue nationale.\n• En tant que personnalité avenante et orientée service, tu es très à l’aise au téléphone et apprécies le contact client.\n• Tu as de la facilité avec les technologies de l’information et de la communication. Nous proposons dans un premier temps un CDD de 12 mois, avec possibilité d'évolution en CDI en cas d'intérêt mutuel.",
       "descriptionByLocale": {
-        "it": "Cosa fai\n• Come tirocinante: in WMS si lavora nel segretariato del dipartimento Comunicazione aziendale e organizzare appuntamenti e incontri.\n• Lei sostiene la creazione e la pubblicazione di pubblicazioni come la rivista cliente e dipendente, la newsletter e il rapporto annuale.\n• Ti aiuterà a organizzare conferenze multimediali e inviare comunicati ai giornalisti.\n• Lei pubblica le migliori notizie sull'intranet e gestisce le pagine di SharePoint.\n• Si prende il controllo dell'ordine e della spedizione dei premi di concorso. Cosa porti\n• Frequenti la Wirtschaftsmittelschule (WMS) e stai cercando uno stage dall'agosto 2027.\n• Ti avvicini apertamente ad altre persone e ti godi di lavorare in una squadra.\n• Si può esprimere bene verbalmente e per iscritto.\n• Ti dà il piacere di aiutare gli altri e trovare soluzioni adatte.",
-        "en": "What you do\n• As an intern: in WMS you work in the secretariat of the Corporate Communications department and organize appointments and meetings.\n• You support the creation and publication of publications such as the customer and employee magazine, the newsletter and the annual report.\n• You will help organize media conferences and send media releases to journalists.\n• You publish top news on the intranet and manage the SharePoint pages.\n• You take over the ordering and shipping of competition prizes. What you bring\n• You attend the Wirtschaftsmittelschule (WMS) and are looking for an internship from August 2027.\n• You approach other people openly and enjoy working in a team.\n• You can express yourself well verbally and in writing.\n• It gives you pleasure to help others and find suitable solutions.",
-        "de": "Was du bewirkst\n• Als Praktikant:in WMS arbeitest du im Sekretariat des Bereichs Unternehmenskommunikation mit und organisierst Termine und Sitzungen.\n• Du unterstützt bei der Erstellung und Veröffentlichung von Publikationen wie der Kunden- und Mitarbeitendenzeitschrift, dem Newsletter und dem Geschäftsbericht.\n• Du hilfst bei der Organisation von Medienkonferenzen und versendest Medienmitteilungen an Journalistinnen und Journalisten.\n• Du veröffentlichst Top-News im Intranet und betreust die SharePoint-Seiten.\n• Du übernimmst die Bestellung und den Versand von Wettbewerbspreisen. Was du mitbringst\n• Du besuchst die Wirtschaftsmittelschule (WMS) und suchst ein Praktikum ab August 2027.\n• Du gehst offen auf andere Menschen zu und arbeitest gerne im Team.\n• Du kannst dich mündlich und schriftlich gut ausdrücken.\n• Es macht dir Freude, anderen zu helfen und passende Lösungen zu finden.",
-        "fr": "Ce que tu fais\n• En tant que stagiaire : dans le WMS, vous travaillez au secrétariat du département Communications corporatives et organisez des rendez-vous et des réunions.\n• Vous soutenez la création et la publication de publications telles que le magazine client et salarié, le bulletin et le rapport annuel.\n• Vous aiderez à organiser des conférences de presse et à envoyer des communiqués de presse aux journalistes.\n• Vous publiez les meilleures nouvelles sur l'intranet et gérez les pages SharePoint.\n• Vous prenez en charge la commande et l'expédition des prix de compétition. Ce que vous apportez\n• Vous assistez au Wirtschaftsmittelschule (WMS) et recherchez un stage à partir d'août 2027.\n• Vous approchez les autres ouvertement et aimez travailler en équipe.\n• Vous pouvez vous exprimer bien verbalement et par écrit.\n• Il vous donne le plaisir d'aider les autres et de trouver des solutions appropriées."
+        "it": "Cosa fai\n• L'utente fornisce una reception telefonica di alta qualità e informa i clienti sulle questioni relative alla gestione degli incidenti.\n• In questa attività, rispondete alle richieste dei clienti tramite i vari canali di comunicazione (telefono, e-mail, mail, e-services, portale clienti).\n• Aggiornare i dati e elaborare richieste e documenti in arrivo (relazioni di incidenti, certificati di incapacità di lavoro, ecc.).\n• Ti impegni a migliorare il processo continuo. Cosa porti\n• Si dispone di commerciale e / o rapporto cliente agente di formazione livello CFC e hanno prima esperienza professionale in assicurazione.\n• In francese, tedesco o italiano, sei fluente in una seconda lingua nazionale.\n• Come personalità amichevole e orientata al servizio, sei molto confortevole al telefono e goditi il contatto con il cliente.\n• Hai facilità con le tecnologie dell'informazione e della comunicazione. Proponiamo per la prima volta un CDD di 12 mesi, con la possibilità di evoluzione in CDI in caso di reciproco interesse.",
+        "en": "What You Do\n• You provide a high-quality telephone reception and inform clients about issues related to accident management.\n• In this activity, you respond to customer requests via the various communication channels (telephone, email, mail, e-services, customer portal).\n• You update the data, and process incoming requests and documents (accident reports, work incapacity certificates, etc.).\n• You are committed to continuous process improvement. What you bring\n• You have commercial and/or customer relationship agent training level CFC and have first professional experience in insurance.\n• In French, German or Italian, you are fluent in a second national language.\n• As a friendly and service-oriented personality, you are very comfortable on the phone and enjoy customer contact.\n• You have ease with information and communication technologies. We first propose a 12 month CDD, with the possibility of evolution in CDI in case of mutual interest.",
+        "de": "Was du tust\n• Sie bieten einen hochwertigen Telefonempfang und informieren Kunden über Fragen rund um das Unfallmanagement.\n• In dieser Aktivität antworten Sie auf Kundenanfragen über die verschiedenen Kommunikationskanäle (Telefon, E-Mail, Mail, E-Services, Kundenportal).\n• Sie aktualisieren die Daten und verarbeiten eingehende Anfragen und Dokumente (Unfallberichte, Arbeitsunfähigkeitszertifikate usw.).\n• Sie engagieren sich für kontinuierliche Prozessverbesserung. Was du mitbringst\n• Sie verfügen über ein kaufmännisches und / oder Customer Relationship Agent-Trainingsniveau CFC und verfügen über erste Berufserfahrung in der Versicherung.\n• Auf Französisch, Deutsch oder Italienisch sprechen Sie fließend eine zweite Landessprache.\n• Als freundliche und serviceorientierte Persönlichkeit fühlen Sie sich am Telefon sehr wohl und genießen den Kundenkontakt.\n• Sie haben Leichtigkeit mit Informations- und Kommunikationstechnologien. Wir schlagen zunächst eine 12-monatige CDD vor, mit der Möglichkeit der Entwicklung von CDI im Falle von gegenseitigem Interesse.",
+        "fr": "Ce que tu accomplis\n• Tu assures un accueil téléphonique de qualité et renseignes les clients sur des questions liées à la gestion des cas d’accident.\n• Dans cette activité, tu réponds aux demandes des clients via les divers canaux de communication (téléphone, mail, courrier, e-services, portail clients).\n• Tu effectues la mise à jour des données, et traites les requêtes et les pièces entrantes (déclarations d'accident, certificats d’incapacité de travail, etc.).\n• Tu t'engages en faveur de l’amélioration continue des processus. Ce que tu apportes\n• Tu as une formation commerciale et/ou d'agent relation client niveau CFC et disposes d’une première expérience professionnelle en assurance.\n• De langue maternelle française, allemande ou italienne, tu parles couramment une 2e langue nationale.\n• En tant que personnalité avenante et orientée service, tu es très à l’aise au téléphone et apprécies le contact client.\n• Tu as de la facilité avec les technologies de l’information et de la communication. Nous proposons dans un premier temps un CDD de 12 mois, avec possibilité d'évolution en CDI en cas d'intérêt mutuel."
       },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Unternehmenskommunikation-100-LU-6004/1423913033/",
+      "location": "Delémont",
+      "canton": "JU",
+      "url": "https://jobs.suva.ch/job/Del%C3%A9mont-Gestionnaire-centre-de-comp%C3%A9tence-80-100-JU-2800/1424773133/",
       "source": "Suva Dedicated Parser (SuccessFactors — jobs2web/CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-02T23:09:01.517Z",
-      "addressLocality": "Luzern",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-03T23:19:49.628Z",
+      "addressLocality": "Delémont",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "6004",
-      "streetAddress": "Fluhmattstrasse 1",
-      "category": "Assicurazioni",
+      "postalCode": "2800",
+      "streetAddress": "Quai de la Sorne 22",
+      "category": "Amministrazione",
       "contract": "full-time",
       "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
+      "experienceLevel": "mid",
       "sector": "Assicurazioni",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-17",
-      "applyUrl": "https://jobs.suva.ch/job/Luzern-Praktikantin-WMS-Unternehmenskommunikation-100-LU-6004/1423913033/",
-      "pensum": "100%",
-      "sfJobId": "1423913033",
+      "postedDate": "2026-08-10",
+      "applyUrl": "https://jobs.suva.ch/job/Del%C3%A9mont-Gestionnaire-centre-de-comp%C3%A9tence-80-100-JU-2800/1424773133/",
+      "pensum": "80-100%",
+      "sfJobId": "1424773133",
       "previousSlugs": [
-        "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern"
+        "gestionnaire-centre-de-competence-80-100-suva-delemont",
+        "gestionnaire-centre-de-competence-80-100-suva-delemont-la-chaux-de-fonds"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern"
+          "gestionnaire-centre-de-competence-80-100-suva-delemont",
+          "gestionnaire-centre-de-competence-80-100-suva-delemont-la-chaux-de-fonds"
         ],
         "en": [
-          "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern"
+          "gestionnaire-centre-de-competence-80-100-suva-delemont"
         ],
-        "fr": [
-          "praktikant-in-wms-unternehmenskommunikation-100-suva-luzern"
+        "de": [
+          "gestionnaire-centre-de-competence-80-100-suva-delemont"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-17T10:09:50.966Z",
-      "salaryMin": 61000,
-      "salaryMax": 101000,
+      "firstSeenAt": "2026-08-10T21:44:29.606Z",
+      "salaryMin": 83000,
+      "salaryMax": 126000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 61000,
-          "maxValue": 101000,
+          "minValue": 83000,
+          "maxValue": 126000,
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "LU",
-      "crawlerMissStreak": 2
+      "addressRegion": "JU",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
