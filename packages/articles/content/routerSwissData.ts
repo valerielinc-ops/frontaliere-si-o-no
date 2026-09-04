@@ -1819,6 +1819,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scuola-svitto-cicli-e-iscrizione': { it: 'scuola-svitto-cicli-e-iscrizione', en: 'school-canton-schwyz-cycles-and-enrollment', de: 'schulen-kanton-schwyz-zyklus-und-anmeldung', fr: 'ecole-canton-schwyz-cycles-et-inscription' },
  'guida-imposta-successione-donazione-svitto': { it: 'guida-imposta-successione-donazione-svitto', en: 'guide-inheritance-gift-tax-schwyz', de: 'leitfaden-erbschafts-schenkungssteuer-schwyz', fr: 'guide-droits-succession-donation-schwytz' },
  'avviare-attivita-turgovia-commercio': { it: 'avviare-attivita-turgovia-commercio', en: 'start-business-thurgau-commercial-register', de: 'gewerbe-anmelden-thurgau-handelsregister', fr: 'demarrer-activite-thurgovie-registre-commerce' },
+ 'permesso-l-san-gallo-proroga': { it: 'permesso-l-san-gallo-proroga', en: 'permit-l-st-gallen-validity-renewal', de: 'permit-l-sanktgallen-gultigkeit-erneuerung', fr: 'permis-l-saint-gall-validite-renouvellement' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {

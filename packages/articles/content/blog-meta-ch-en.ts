@@ -5380,6 +5380,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avviare-attivita-turgovia-commercio.title': 'Opening a business in Thurgau: costs and procedure',
     'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Step-by-step guide: legal forms, trade register registration, federal/cantonal taxes, AVS/LPP/LAMal contributions and insurance obligations to start a business in Switzerland.',
     'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Swiss professional reviews commercial register documents and business registration forms',
+    'blog.article.permesso-l-san-gallo-proroga.title': 'St. Gallen permit: validity and extension',
+    'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Short-term permit L up to 1 year, renewal procedures, constraints on the employer, transformation into permit B. Practical guide.',
+    'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Swiss cantonal administrative building with Swiss flag and alpine mountain backdrop',
 };
 
 export default blogMetaChEn;

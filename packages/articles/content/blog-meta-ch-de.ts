@@ -5380,6 +5380,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avviare-attivita-turgovia-commercio.title': 'Ein Geschäft im Thurgau eröffnen: Kosten und Ablauf',
     'blog.article.avviare-attivita-turgovia-commercio.excerpt': 'Schritt-für-Schritt-Anleitung: Rechtsformen, Handelsregistereintrag, eidgenössische/kantonale Steuern, AHV/BVG/KVG-Beiträge und Versicherungspflichten für die Unternehmensgründung in der Schweiz.',
     'blog.article.avviare-attivita-turgovia-commercio.imageAlt': 'Schweizer Unternehmer prüft Handelsregisterdokumente und Gründungsformulare',
+    'blog.article.permesso-l-san-gallo-proroga.title': 'Ausweis L St. Gallen: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-san-gallo-proroga.excerpt': 'Kurzzeitbewilligung L bis zu 1 Jahr, Verlängerungsverfahren, Verpflichtungen gegenüber dem Arbeitgeber, Umwandlung in Bewilligung B. Praktischer Leitfaden.',
+    'blog.article.permesso-l-san-gallo-proroga.imageAlt': 'Schweizer Kantonsgebäude mit Schweizer Flagge und Alpenpanorama im Hintergrund',
 };
 
 export default blogMetaChDe;
