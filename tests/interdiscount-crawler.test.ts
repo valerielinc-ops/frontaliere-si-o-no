@@ -9,6 +9,8 @@ import {
   htmlToMarkdown,
 } from '../scripts/lib/interdiscount-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { applyCoopSourceDetailToJob } from '../scripts/lib/coop-job-parser.mjs';
+import { fingerprintsForCrawler } from '../scripts/audit-parser-quality.mjs';
 
 describe('Interdiscount crawler parser', () => {
   it('wires strict source-detail enrichment and stable-route preservation', () => {
@@ -143,6 +145,86 @@ describe('Interdiscount crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// Multi-branch listings must not collapse onto the employer HQ (issue #7349)
+//
+// The Coop-family detail page publishes the EMPLOYER's registered address in
+// its JSON-LD `jobLocation`: every Interdiscount branch vacancy carries
+// "Bernstrasse 90, 3303 Jegenstorf" (head office). When the enrichment let that
+// overwrite the per-branch `sza_workplace.*` geography from the listing row,
+// 255/265 published records ended up at the same address — and because the
+// audit's duplicate-listing fingerprint is `title || location || description`,
+// 238 of them (90%) then read as the same vacancy re-posted (CRITICAL), i.e.
+// duplicate content on distinct indexable URLs (Non-Negotiable #4).
+// ──────────────────────────────────────────────────────────────
+describe('Interdiscount multi-branch enrichment (#7349)', () => {
+  const detailDescription = `<h2>Deine Aufgaben</h2><ul>${Array.from({ length: 26 }, (_, index) => `<li>Source-backed Aufgabe ${index + 1} mit Verantwortung und sorgfältiger Zusammenarbeit im Team.</li>`).join('')}</ul>`;
+  // One and the same head-office payload is returned for every branch.
+  const hqDetail = {
+    '@type': 'JobPosting',
+    title: 'Detailhandelsfachfrau:mann',
+    description: detailDescription,
+    jobLocation: {
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Jegensdorf',
+        addressRegion: 'Jegensdorf',
+        addressCountry: 'Schweiz',
+        postalCode: '3303',
+        streetAddress: 'Bernstrasse 90',
+      },
+    },
+  };
+  const branches = [
+    ['Baar', 'ZG'],
+    ['Aarau', 'AG'],
+    ['Baden', 'AG'],
+    ['Lyssach', 'BE'],
+    ['Biel/Bienne', 'BE'],
+  ] as const;
+  const listings = branches.map(([city, canton], index) => ({
+    id: `interdiscount-branch-${index}`,
+    companyKey: INTERDISCOUNT_KEY,
+    url: `https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann/0000000${index}-0000-4000-8000-000000000000`,
+    title: 'Detailhandelsfachfrau:mann',
+    description: 'Listing boilerplate that must disappear',
+    location: city,
+    addressLocality: city,
+    canton,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    sourceLang: 'de',
+  }));
+
+  it('keeps the branch geography instead of the head office the detail page advertises', () => {
+    const enriched = listings.map((job) => applyCoopSourceDetailToJob(job, hqDetail));
+
+    expect(enriched.map((job) => job.location)).toEqual(branches.map(([city]) => city));
+    expect(enriched.map((job) => job.canton)).toEqual(branches.map(([, canton]) => canton));
+    // A head-office street/CAP pinned to a branch city is a wrong address, not
+    // a safe default — it must not travel with the overridden locality.
+    expect(enriched.some((job) => job.streetAddress === 'Bernstrasse 90')).toBe(false);
+    expect(enriched.some((job) => job.postalCode === '3303')).toBe(false);
+  });
+
+  it('publishes no record sharing both title and description with another', () => {
+    const enriched = listings.map((job) => applyCoopSourceDetailToJob(job, hqDetail));
+    const fingerprints = fingerprintsForCrawler(enriched, 'title-aware');
+
+    expect(new Set(fingerprints).size).toBe(enriched.length);
+  });
+
+  it('still takes the detail geography when the listing has only a generic fallback', () => {
+    const fallbackListing = { ...listings[0], location: 'Schweiz', addressLocality: 'Schweiz', canton: 'BE', addressRegion: 'BE' };
+
+    expect(applyCoopSourceDetailToJob(fallbackListing, hqDetail)).toMatchObject({
+      location: 'Jegensdorf',
+      postalCode: '3303',
+      streetAddress: 'Bernstrasse 90',
     });
   });
 });

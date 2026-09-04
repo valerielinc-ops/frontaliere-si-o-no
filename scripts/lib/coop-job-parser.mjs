@@ -9,6 +9,7 @@
 import { JSDOM } from 'jsdom';
 import { fetch as undiciFetch } from 'undici';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import { normalizeSwissTargetLocationText } from './target-swiss-locations.mjs';
 import {
   createSpecUrlPolicy,
   fetchFollowingValidatedRedirects,
@@ -307,13 +308,6 @@ function resolveCoopJsonLdGeography(candidate) {
   return null;
 }
 
-function normalizeLocalityKey(value = '') {
-  return normalizeSpace(value)
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '');
-}
-
 /**
  * Geography carried by the listing row itself (Prospective `sza_workplace.*`),
  * as an address candidate shaped like the JSON-LD ones. Returns `null` when the
@@ -380,8 +374,8 @@ export function applyCoopSourceDetailToJob(job, jsonLd) {
 
   const listingEvidence = listingAddressEvidence(job);
   const listingOverridesDetail = Boolean(listingEvidence)
-    && normalizeLocalityKey(listingEvidence.geography.location)
-      !== normalizeLocalityKey(detailEvidence.geography.location);
+    && normalizeSwissTargetLocationText(listingEvidence.geography.location)
+      !== normalizeSwissTargetLocationText(detailEvidence.geography.location);
   const evidence = listingOverridesDetail ? listingEvidence : detailEvidence;
 
   const sourceLang = String(job?.sourceLang || 'de').trim() || 'de';
