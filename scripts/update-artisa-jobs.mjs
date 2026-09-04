@@ -32,8 +32,9 @@ import {
   parseArtisaCareerPage,
   parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
+  assertCompleteArtisaSnapshot,
 } from './lib/artisa-job-parser.mjs';
-import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 
@@ -52,6 +53,10 @@ const COMPANY_HOST = 'artisagroup.com';
 const COMPANY_DOMAIN = 'artisagroup.com';
 const CAREERS_URL = 'https://artisagroup.com/carriera';
 const LOCALES = ['it', 'en', 'de', 'fr'];
+// Drift floor for a NON-empty parse: finding one or two rows where the page
+// still shows a vacancy list means the selectors are half-broken. A *proven*
+// zero is handled separately by the authoritative-snapshot contract below.
+const MIN_LISTINGS = 3;
 
 function readJson(filePath, fallback) {
   try {
@@ -126,6 +131,22 @@ async function fetchListings() {
   const rows = parseArtisaCareerPage(html);
   console.log(`📋 Ticino rows: ${rows.length}`);
 
+  // Artisa can legitimately run out of open positions: on 2026-09-03 the
+  // careers page dropped its whole vacancy list and every run since failed on
+  // the floor below, re-filing the same issue. A zero is publishable only when
+  // the page proves it rendered in full (both landmark headings, no vacancy
+  // between them); an unproven zero still throws.
+  const { authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(rows, {
+    validateAuthoritativeSnapshot: assertCompleteArtisaSnapshot,
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: 'Artisa Group',
+  });
+  if (authoritativeEmptySnapshot) {
+    console.log('✅ Careers page rendered with no open position — publishing the proven empty snapshot.');
+    return { rows, authoritativeEmptySnapshot };
+  }
+
   // Fetch detail pages from Smartsheet forms (sequential to be polite)
   for (const row of rows) {
     console.log(`  📄 ${row.title} (${row.location})`);
@@ -144,10 +165,10 @@ async function fetchListings() {
     }
   }
 
-  if (rows.length < 3) {
-    throw new Error(`Expected at least 3 Artisa jobs, found ${rows.length}`);
+  if (rows.length < MIN_LISTINGS) {
+    throw new Error(`Expected at least ${MIN_LISTINGS} Artisa jobs, found ${rows.length}`);
   }
-  return rows;
+  return { rows, authoritativeEmptySnapshot };
 }
 
 async function buildArtisaJob(row) {
@@ -281,7 +302,7 @@ function repairLocalizedDescriptions() {
   }
 }
 
-function validateLocales() {
+function validateLocales(authoritativeEmptySnapshot = false) {
   validateDedicatedLocaleCoverage({
     strictEnvVar: 'JOBS_ARTISA_STRICT',
     label: 'Artisa Group',
@@ -290,7 +311,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_artisa_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: !authoritativeEmptySnapshot,
     noJobsMessage: 'No Artisa jobs found after dedicated crawl.',
     detectSourceLang: (text, job) => job?.sourceLang || detectLang(text, 'it'),
   });
@@ -304,7 +325,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
-  const listings = await fetchListings();
+  const { rows: listings, authoritativeEmptySnapshot } = await fetchListings();
   const jobs = [];
   for (const listing of listings) {
     jobs.push(await buildArtisaJob(listing));
@@ -320,7 +341,7 @@ async function main() {
   });
   repairLocalizedDescriptions();
 
-  validateLocales();
+  validateLocales(authoritativeEmptySnapshot);
 
   console.log('\n📊 === Artisa Group Job Stats ===');
   console.log(`  🏢 Total Artisa jobs: ${total}`);

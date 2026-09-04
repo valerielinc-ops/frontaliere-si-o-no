@@ -22,6 +22,12 @@ function slugify(value = '') {
 
 const NON_JOB_TITLES = new Set(['carriera', 'le nostre sedi']);
 
+// The two non-job `h2` landmarks Squarespace renders around the vacancy list.
+// Both present is the structural proof that the careers page rendered in full,
+// so a zero between them is the site's own answer and not a drift/blocked
+// fetch. Used only to qualify an empty snapshot (see assertCompleteArtisaSnapshot).
+const LANDMARK_TITLES = ['carriera', 'le nostre sedi'];
+
 function isCandidateTitle(value = '') {
   const text = normalizeText(value);
   return Boolean(text) && !NON_JOB_TITLES.has(text);
@@ -31,6 +37,7 @@ export function parseArtisaCareerPage(html = '') {
   const document = new JSDOM(html).window.document;
   const nodes = [...document.querySelectorAll('h2, h4, a[href*="app.smartsheet.com/b/form/"]')];
   const jobs = [];
+  const landmarks = new Set();
   let current = null;
   let pendingLocation = '';
 
@@ -50,7 +57,10 @@ export function parseArtisaCareerPage(html = '') {
     const tag = node.tagName.toLowerCase();
     if (tag === 'h2') {
       const title = normalizeSpace(node.textContent || '');
-      if (!isCandidateTitle(title)) continue;
+      if (!isCandidateTitle(title)) {
+        landmarks.add(normalizeText(title));
+        continue;
+      }
       flush();
       current = { title, location: pendingLocation, applyUrl: '', sourceUrl: `https://artisagroup.com/carriera#${slugify(title)}` };
       pendingLocation = '';
@@ -73,7 +83,34 @@ export function parseArtisaCareerPage(html = '') {
   }
 
   flush();
-  return jobs.filter((job) => isTargetSwissLocation(job.location));
+  const targetJobs = jobs.filter((job) => isTargetSwissLocation(job.location));
+  const landmarksComplete = LANDMARK_TITLES.every((title) => landmarks.has(title));
+  Object.defineProperty(targetJobs, 'artisaSnapshotState', {
+    value: targetJobs.length === 0 && landmarksComplete ? 'authoritative-site-zero' : 'unverified',
+    enumerable: false,
+  });
+  return targetJobs;
+}
+
+/**
+ * Authoritative-snapshot validator for the empty case (crawler-template
+ * contract). Returns true only when the careers page rendered both landmark
+ * headings and listed no vacancy between them — i.e. Artisa itself published
+ * zero openings. Anything else (drift, WAF page, truncated fetch) throws, so
+ * the crawler still fails loudly instead of delisting live jobs.
+ *
+ * @param {object[]|undefined|null} jobs
+ * @returns {true}
+ */
+export function assertCompleteArtisaSnapshot(jobs) {
+  if (
+    !Array.isArray(jobs)
+    || jobs.length !== 0
+    || Reflect.get(jobs, 'artisaSnapshotState') !== 'authoritative-site-zero'
+  ) {
+    throw new Error('Artisa Group snapshot is not a proven authoritative empty state (careers page landmarks missing)');
+  }
+  return true;
 }
 
 /**
