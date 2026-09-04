@@ -5401,6 +5401,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS et prestations complémentaires : guide Saint-Gall',
     'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Comment fonctionne le premier pilier dans le canton de Saint-Gall. Découvrez le rôle de la caisse de compensation cantonale, le calcul de la rente, les écarts de cotisations et les prestations complémentaires pour le minimum vital.',
     'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Siège de la caisse de compensation du canton de Saint-Gall pour les rentes AVS et prestations complémentaires',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Permis de séjour B canton de Vaud : exigences et renouvellement',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Comment renouveler le permis B en Vaud ? Quelles sont les exigences ? Guide pratique des procédures, des documents nécessaires et des délais pour la rénovation de la résidence.',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Bureau de migration suisse avec des personnes qui soumettent les documents de renouvellement du permis de séjour B',
 };
 
 export default blogMetaChFr;

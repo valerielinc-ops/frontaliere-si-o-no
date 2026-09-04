@@ -5401,6 +5401,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-lacune-contributive-san-gallo.title': 'AVS and complementary services: St. Gallen guide',
     'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'How the first pillar works in the Canton of St. Gallen. Learn about the role of the cantonal compensation fund, pension calculation, contribution gaps and supplementary benefits for the living minimum.',
     'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'St. Gallen cantonal compensation fund office building: key institution for AVS retirement and supplementary benefits services',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Residence permit B canton Vaud: requirements and renewal',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'How to renew the B permit in the Vaud? What are the requirements? Practical guide to the procedures, necessary documents and deadlines for the renewal of the residence.',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Swiss migration office with people submitting residence permit B renewal documents',
 };
 
 export default blogMetaChEn;

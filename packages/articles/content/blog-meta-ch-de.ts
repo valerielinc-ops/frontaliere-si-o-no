@@ -5401,6 +5401,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.avs-lacune-contributive-san-gallo.title': 'AHV und Ergänzungsleistungen: Führer St. Gallen',
     'blog.article.avs-lacune-contributive-san-gallo.excerpt': 'Wie funktioniert die erste Säule im Kanton St. Gallen? Erfahren Sie mehr über die Rolle der kantonalen Ausgleichskasse, die Rentenberechnung, Beitragslücken und Ergänzungsleistungen für das Lebensminimum.',
     'blog.article.avs-lacune-contributive-san-gallo.imageAlt': 'Gebäude der Ausgleichskasse des Kantons St. Gallen für AHV-Renten und Ergänzungsleistungen',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.title': 'Aufenthaltsbewilligung B Kanton Waadt: Voraussetzungen und Verlängerung',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.excerpt': 'Wie kann ich den Führerschein B im Waadtland erneuern? Was sind die Voraussetzungen? Praktischer Leitfaden zu den Verfahren, erforderlichen Dokumenten und Fristen für die Erneuerung des Wohnsitzes.',
+    'blog.article.permesso-dimora-b-vaud-rinnovo.imageAlt': 'Schweizer Migrationsbehörde mit Personen bei der Einreichung von B-Aufenthaltserlaubnis-Dokumenten',
 };
 
 export default blogMetaChDe;
