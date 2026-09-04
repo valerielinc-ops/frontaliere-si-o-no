@@ -11288,6 +11288,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Living in Solbiate with Cagno as a border crosser: how to do it',
     'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Moving to border Italy and working in Ticino: tax advantages, procedures allowed, costs of living and impact on paycheck.',
     'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Panoramic view of the Switzerland-Italy border in southern Ticino showing Alpine valleys and cross-border checkpoint infrastructure at sunset.',
+    'blog.article.vivere-albavilla-lavorare-ticino.title': 'Living in Albavilla and working in Ticino: border guide',
+    'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'G leave, taxation, AVS, LPP and LAMal for those who reside in Albavilla and work in Ticino. Practical guide to border life in the Como-Switzerland area.',
+    'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Border crossing Ticino-Italy near Albavilla, Como, with view of Lake Lugano at dawn',
 };
 
 export default blogMetaEn;

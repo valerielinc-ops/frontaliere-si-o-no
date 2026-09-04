@@ -11287,6 +11287,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-solbiate-frontaliere-pratica.title': 'Leben in Solbiate mit Cagno als Grenzgänger: So geht\'s',
     'blog.article.vivere-solbiate-frontaliere-pratica.excerpt': 'Nach Italien an die Grenze ziehen und im Tessin arbeiten: Steuervorteile, zulässige Verfahren, Lebenshaltungskosten und Auswirkungen auf die Gehaltsabrechnung.',
     'blog.article.vivere-solbiate-frontaliere-pratica.imageAlt': 'Panoramablick auf die Schweiz-Italien-Grenze in Südtessin mit Alpentälern und grenzüberschreitenden Infrastrukturen bei Sonnenuntergang.',
+    'blog.article.vivere-albavilla-lavorare-ticino.title': 'Wohnen in Albavilla und Arbeiten im Tessin: Grenzüberschreitendes Fahren',
+    'blog.article.vivere-albavilla-lavorare-ticino.excerpt': 'Bewilligung G, Steuern, AHV, BVG und KVG für Personen, die in Albavilla wohnen und im Tessin arbeiten. Praktischer Leitfaden für das Grenzleben in der Region Como-Schweiz.',
+    'blog.article.vivere-albavilla-lavorare-ticino.imageAlt': 'Grenzübergang Tessin-Italien bei Albavilla, Como, mit Blick auf den Luganer See im Morgengrauen',
 };
 
 export default blogMetaDe;
