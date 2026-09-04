@@ -1,10 +1,15 @@
 import { describe, expect, it, vi, afterEach } from 'vitest';
 
 import {
+  OPENROUTER_MAX_REQUESTS,
+  applyPlatformAnswer,
   fetchWithRetry,
   findCompetitorMentions,
   findSiteMention,
   generateMarkdown,
+  listAvailablePlatforms,
+  queryOpenRouter,
+  resetOpenRouterBudget,
 } from '../scripts/check-ai-visibility.mjs';
 
 /**
@@ -41,8 +46,19 @@ const meta = (over: Record<string, unknown> = {}) => ({
 
 afterEach(() => {
   vi.restoreAllMocks();
+  vi.unstubAllEnvs();
   vi.useRealTimers();
+  resetOpenRouterBudget();
 });
+
+const openRouterAnswer = (url: string) => new Response(JSON.stringify({
+  choices: [{
+    message: {
+      content: 'Ecco alcune risorse utili.',
+      annotations: [{ type: 'url_citation', url_citation: { url, title: 'Frontaliere Ticino' } }],
+    },
+  }],
+}), { status: 200 });
 
 describe('unreachable platforms are not a visibility signal', () => {
   it('lists a query nobody could check apart from the misses', () => {
@@ -124,5 +140,73 @@ describe('fetchWithRetry', () => {
 
     expect(await fetchWithRetry('GitHub Models', 'https://example.test', {})).toBeNull();
     expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+/**
+ * Issue #7402. With GitHub Models in retirement brownout, Gemini was the only
+ * platform whose answer is GROUNDED (backed by live retrieval): one 429 of
+ * quota and the whole run observes nothing. OpenRouter's web-search plugin is
+ * a second grounded platform reachable with a key the repo already maps.
+ */
+describe('OpenRouter web-search platform', () => {
+  it('reads the url_citation annotations as the real sources', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://frontaliereticino.ch/calcolo-stipendio'));
+
+    const result = { platforms: {}, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    const entry = applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(entry).toMatchObject({ checked: true, cited: true, totalCitations: 1 });
+    expect(entry.citedUrls).toContain('https://frontaliereticino.ch/calcolo-stipendio');
+    expect(result.citedByAny).toBe(true);
+  });
+
+  it('sends the web plugin, without which no citation can ever surface', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://comparis.ch/x'));
+
+    await queryOpenRouter('costo vita Ticino');
+
+    const body = JSON.parse((fetchMock.mock.calls[0][1] as RequestInit).body as string);
+    expect(body.plugins).toEqual([{ id: 'web', max_results: expect.any(Number) }]);
+  });
+
+  it('stops at the per-run request cap (metered web search)', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockImplementation(async () => openRouterAnswer('https://comparis.ch/x'));
+
+    for (let i = 0; i < OPENROUTER_MAX_REQUESTS + 5; i++) await queryOpenRouter(`q${i}`);
+
+    expect(fetchMock).toHaveBeenCalledTimes(OPENROUTER_MAX_REQUESTS);
+  });
+
+  it('is absent from platformsChecked without a key, and when switched off', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async () => openRouterAnswer('https://x.test'));
+
+    vi.stubEnv('OPENROUTER_API_KEY', '');
+    expect(listAvailablePlatforms()).not.toContain('openrouter');
+
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.stubEnv('AI_VISIBILITY_OPENROUTER_DISABLED', '1');
+    expect(listAvailablePlatforms()).not.toContain('openrouter');
+    expect(await queryOpenRouter('costo vita Ticino')).toBeNull();
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    vi.stubEnv('AI_VISIBILITY_OPENROUTER_DISABLED', '');
+    expect(listAvailablePlatforms()).toContain('openrouter');
+  });
+
+  it('never fabricates a miss when the platform is unreachable', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('no credits', { status: 402 }));
+
+    const result = { platforms: {}, citedByAny: false, citedUrls: [], competitorsCited: [] };
+    applyPlatformAnswer(result, 'openrouter', await queryOpenRouter('costo vita Ticino'));
+
+    expect(result.platforms.openrouter).toEqual({ checked: false, error: 'API call failed' });
   });
 });

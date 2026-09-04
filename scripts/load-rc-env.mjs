@@ -236,6 +236,11 @@ export const RC_TO_ENV = {
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
+  // Read by scripts/check-ai-visibility.mjs, which documents it as the
+  // primary citation platform. Unmapped until now, so the key could never
+  // reach CI no matter what Remote Config held; with the bridge in place the
+  // only step left is provisioning the value in Remote Config itself.
+  PERPLEXITY_API_KEY:             ['PERPLEXITY_API_KEY'],
   HF_TOKEN:                       ['HF_TOKEN', 'HUGGINGFACE_TOKEN'],
   CEREBRAS_API_KEY:               ['CEREBRAS_API_KEY'],
   FIREWORKS_API_KEY:              ['FIREWORKS_API_KEY'],
