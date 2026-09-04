@@ -161,7 +161,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:51:39.216Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -246,7 +245,11 @@
         "conducteur-conductrice-de-machines-emmi-emmen",
         "maschinenfuhrer-in-emmi-emmen",
         "operatore-macchina-emmi-emmen",
-        "operatore-macchina-emmi-emmen-luzern"
+        "operatore-macchina-emmi-emmen-luzern",
+        "operatore-emmi-emmen-luzern",
+        "operator-in-emmi-emmen-luzern",
+        "anlagenfuhrer-in-emmi-ch",
+        "operateur-in-emmi-emmen-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -255,18 +258,26 @@
           "maschinenfuhrer-in-emmi-emmen-cegxx1",
           "maschinenfuhrer-in-emmi-emmen",
           "operatore-macchina-emmi-emmen",
-          "operatore-macchina-emmi-emmen-luzern"
+          "operatore-macchina-emmi-emmen-luzern",
+          "operatore-emmi-emmen-luzern",
+          "operator-in-emmi-emmen-luzern",
+          "anlagenfuhrer-in-emmi-ch",
+          "operateur-in-emmi-emmen-luzern"
         ],
         "en": [
-          "maschinenfuhrer-in-emmi-emmen"
+          "maschinenfuhrer-in-emmi-emmen",
+          "operator-in-emmi-emmen-luzern"
         ],
         "fr": [
           "conducteur-conductrice-de-machines-emmi-emmen",
-          "maschinenfuhrer-in-emmi-emmen"
+          "maschinenfuhrer-in-emmi-emmen",
+          "operateur-in-emmi-emmen-luzern"
+        ],
+        "de": [
+          "anlagenfuhrer-in-emmi-ch"
         ]
       },
       "firstSeenAt": "2026-06-18T12:13:27.095Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -957,7 +968,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:50:40.388Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1439,7 +1449,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:50:40.375Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1532,7 +1541,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:50:40.379Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -1828,7 +1836,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T10:50:40.374Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1921,7 +1928,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:12.661Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2117,7 +2123,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:44:12.660Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2500,7 +2505,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.933Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2698,7 +2702,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.038Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -2795,7 +2798,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.037Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -2993,7 +2995,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.037Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -3187,7 +3188,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T13:12:51.026Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3373,7 +3373,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.921Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3556,7 +3555,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T22:19:42.495Z",
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "salarySource": "estimated",
@@ -3667,7 +3665,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.916Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -3764,7 +3761,6 @@
         ]
       },
       "firstSeenAt": "2026-07-13T23:20:19.917Z",
-      "needsRetranslation": true,
       "salaryMin": 55000,
       "salaryMax": 83000,
       "salarySource": "estimated",
@@ -3987,7 +3983,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T12:11:04.793Z",
-      "needsRetranslation": true,
       "salaryMin": 50500,
       "salaryMax": 77000,
       "salarySource": "estimated",
@@ -4079,7 +4074,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:19:42.390Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -4162,7 +4156,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:19:42.389Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -4734,7 +4727,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:58:33.634Z",
-      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -4947,7 +4939,7 @@
         "it": "Laboratorio:in",
         "en": "Laboratory:in",
         "de": "Laborant:in",
-        "fr": "Laboratoire:en"
+        "fr": "Travailleur:"
       },
       "description": "• Du bist gemeinsam in unserem Team verantwortlich für die Durchführung mikrobiologischer, chemischer und physikalischer Analysen von Rohstoffen, Halbfabrikaten und Fertigprodukten wie Milch, Molke, Frischkäse und Milchpulver.\n\n• Die Durchführung von PCR-Analysen gehört ebenfalls zu deinem Aufgabengebiet.\n\n• Du unterstützt bei der Funktionsprüfung der Laborgeräte und nimmst an Ringversuchen teil.\n\n• Die Bearbeitung des täglichen Probeneingangs erledigst du selbständig, dabei erfolgt die Kontrolle des Probenzustands und das Erfassen der Proben im System.\n\n• Dies geschieht alles unter Einhaltung der Arbeitsanweisungen, Laborvorgaben sowie der Hygiene- und Arbeitssicherheitsvorschriften.\n\n• Deine mitdenkende, vorausschauende und analytische Art lässt dich kontinuierlich am Verbesserungsprozess des Labors teilhaben.\n\n• Du verfügst über eine abgeschlossene Berufslehre als Biologie- oder Chemielaborant, bestenfalls mit praktischer Expertise in milchwirtschaftlicher Laboranalytik\n\n• Einen sicheren Umgang mit MS Office und bestenfalls auch SAP bringst du mit.\n\n• Du zeichnest dich durch sehr hohes Verantwortungs- und Qualitätsbewusstsein mit einer selbstständigen und sorgfältigen Arbeitsweise aus.\n\n• In dieser Position helfen dir zudem eine analytische und strukturierte Denkweise, Organisations- und Kommunikationsgeschick.\n\n• Mit deiner hohen Leistungsbereitschaft und Flexibilität unterstützt du uns bei Wochenend- und Feiertagseinsätzen.",
       "descriptionByLocale": {
@@ -5086,18 +5078,45 @@
       },
       "previousSlugs": [
         "teamleiter-in-milchabfullung-emmi-ch",
-        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau"
+        "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
+        "capo-turno-100-emmi-bischofszell-thurgau",
+        "shift-leader-100-emmi-bischofszell-thurgau",
+        "schichtleiter-in-100-emmi-bischofszell",
+        "chef-d-equipe-100-emmi-bischofszell-thurgau",
+        "schichtleiter-in-100-emmi-ch",
+        "capo-turno-emmi-bischofszell",
+        "schichtleiter-in-emmi-bischofszell",
+        "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau",
+        "schichtleiter-in-emmi-ch",
+        "shift-leader-emmi-bischofszell-thurgau",
+        "capo-turno-emmi-bischofszell-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-milchabfullung-emmi-ch",
-          "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau"
+          "team-leader-nell-imbottigliamento-del-latte-emmi-bischofszell-thurgau",
+          "capo-turno-100-emmi-bischofszell-thurgau",
+          "shift-leader-100-emmi-bischofszell-thurgau",
+          "schichtleiter-in-100-emmi-bischofszell",
+          "chef-d-equipe-100-emmi-bischofszell-thurgau",
+          "schichtleiter-in-100-emmi-ch",
+          "capo-turno-emmi-bischofszell",
+          "schichtleiter-in-emmi-bischofszell",
+          "chef-d-equipe-de-nuit-emmi-bischofszell-thurgau",
+          "schichtleiter-in-emmi-ch",
+          "shift-leader-emmi-bischofszell-thurgau",
+          "capo-turno-emmi-bischofszell-thurgau"
         ],
         "en": [
-          "teamleiter-in-milchabfullung-emmi-ch"
+          "teamleiter-in-milchabfullung-emmi-ch",
+          "shift-leader-100-emmi-bischofszell-thurgau"
         ],
         "fr": [
-          "teamleiter-in-milchabfullung-emmi-ch"
+          "teamleiter-in-milchabfullung-emmi-ch",
+          "chef-d-equipe-100-emmi-bischofszell-thurgau"
+        ],
+        "de": [
+          "schichtleiter-in-100-emmi-bischofszell"
         ]
       },
       "needsRetranslation": true,
@@ -5210,7 +5229,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:49:51.289Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -5417,7 +5435,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:49:51.289Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -5446,10 +5463,10 @@
       "companyDomain": "emmi.com",
       "title": "Betriebsmechaniker:in",
       "titleByLocale": {
-        "it": "Meccanica aziendale:in",
-        "en": "Business mechanic:in",
+        "it": "Meccanica aziendale:",
+        "en": "Business mechanic:",
         "de": "Betriebsmechaniker:in",
-        "fr": "Mécanicien d'entreprise:in"
+        "fr": "Mécanicien d'affaires :"
       },
       "description": "• Mit deinem Engagement sorgst du dafür, dass unsere modernen Produktionsanlagen jederzeit zuverlässig laufen: Du führst Kontroll-, Wartungs- und Instandhaltungsarbeiten selbstständig und verantwortungsvoll durch und leistest damit einen direkten Beitrag zu einem reibungslosen Produktionsablauf.\n\n• Dank deines technischen Know-hows und deiner analytischen Arbeitsweise erkennst du Störungen frühzeitig und behebst sie effizient und nachhaltig. So stellst du eine hohe Anlagenverfügbarkeit sicher und hältst unsere Produktion in Bewegung.\n\n• Du bringst aktiv neue Ideen ein, identifizierst Verbesserungspotenziale und führst Optimierungsprojekte von der ersten Idee bis zur erfolgreichen Umsetzung. Dein Gestaltungswille macht unsere Prozesse jeden Tag ein Stück besser.\n\n• Mit deinem Einsatz trägst du massgeblich dazu bei, dass unsere Produkte sicher und qualitativ hochwertig bleiben – und dass unsere Abläufe wirtschaftlich und effizient funktionieren.\n\n• Die Zusammenarbeit mit Kolleginnen und Kollegen aus Produktion, Technik und weiteren Fachbereichen macht dir Freude. Du schätzt ein Umfeld, in dem man offen kommuniziert, gemeinsam Lösungen findet und kontinuierliche Verbesserung Teil der Kultur ist.\n\n• Du bringst eine abgeschlossene Ausbildung in einem mechanischen oder vergleichbaren technischen Beruf mit – und damit genau das Fachwissen, das im industriellen Umfeld entscheidend ist. Deine Erfahrung bildet die Grundlage für qualitativ hochwertige Arbeit im täglichen Betrieb.\n\n• Flexibilität und Verantwortungsbewusstsein zeichnen dich aus: Während 3–5 Wochen pro Jahr übernimmst du zuverlässig Früh- und Pikettdienst (ohne Schichtbetrieb) und sorgst so dafür, dass unsere Anlagen jederzeit einsatzbereit bleiben.\n\n• Deine hohe Lernbereitschaft sowie deine strukturierte und selbstständige Arbeitsweise ermöglichen es dir, dich schnell in neue Technologien und Aufgaben einzuarbeiten. Du packst an, wirst rasch sicher in neuen Themen und entwickelst dich kontinuierlich weiter\n\n• Als offene, kommunikative und zielorientierte Persönlichkeit arbeitest du gerne im Team – und übernimmst gleichzeitig Verantwortung für deine eigenen Aufgaben. So trägst du aktiv zu einem konstruktiven und lösungsorientierten Miteinander bei.\n\n• Sehr gute Deutschkenntnisse und ein Führerausweis der Kategorie B runden dein Profil ab und machen dich flexibel einsetzbar – egal ob im täglichen Betrieb oder bei Einsätzen vor Ort.",
       "descriptionByLocale": {
@@ -5514,7 +5531,6 @@
           "betriebsmechaniker-in-emmi-dagmersellen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T21:49:51.287Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5827,7 +5843,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:23:21.714Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -6235,7 +6250,7 @@
         "it": "Risorse Umane Business Partner",
         "en": "HR Business Partner:in",
         "de": "Personalwesen Business Partner",
-        "fr": "HR Business Partner"
+        "fr": "Partenaire d'affaires RH"
       },
       "description": "• Betreuung und Beratung von Führungskräften entlang des gesamten Employee Lifecycles.\n\n• Sparring-Partner:in der Standortleitung bei personellen, organisatorischen und kulturellen Fragestellungen.\n\n• Begleitung von Veränderungsprozessen sowie aktive Mitgestaltung der Standort- und Organisationsentwicklung.\n\n• Moderation von Workshops, Führungsdialogen und Teamentwicklungen.\n\n• Entwicklung nachhaltiger Lösungen in den Bereichen Talent Management, Mitarbeiterbindung und Nachfolgeplanung.\n\n• Professioneller Umgang mit anspruchsvollen Personalfällen, arbeitsrechtlichen Fragestellungen und dem Absenzmanagement.\n\n• Enge Zusammenarbeit mit unseren HR Services für eine professionelle und effiziente Personalbetreuung.\n\n• Du verfügst über einen HR-Fachausweis oder eine vergleichbare Weiterbildung sowie mehrere Jahre Erfahrung als HR Business Partner:in in einem produzierenden oder industriellen Umfeld.\n\n• Freude daran, Führungskräfte sowohl im operativen Alltag als auch bei strategischen Fragestellungen zu begleiten.\n\n• Erfahrung oder eine Weiterbildung in den Bereichen Change Management, Organisationsentwicklung, Coaching oder Leadership Development.\n\n• Selbstständige, pragmatische und lösungsorientierte Arbeitsweise.\n\n• Ausgeprägte Beratungs- und Moderationskompetenz sowie ein gutes Gespür für Menschen und Organisationen.\n\n• Stilsichere Deutschkenntnisse und gute Englischkenntnisse.",
       "descriptionByLocale": {
@@ -6325,10 +6340,10 @@
       "companyDomain": "emmi.com",
       "title": "Betriebsmechaniker:in",
       "titleByLocale": {
-        "it": "Betriebsmechaniker",
-        "en": "Betriebsmechaniker",
+        "it": "Meccanica aziendale:",
+        "en": "Business mechanic:",
         "de": "Betriebsmechaniker:in",
-        "fr": "Betriebsmechaniker"
+        "fr": "Mécanicien d'affaires :"
       },
       "description": "• Halte unsere Abfüll-, Produktions-, Verpackungs- und Prozessanlagen instand, unterstütze bei Neuinstallationen und Umbauten, und dokumentiere alle relevanten Schritte zur Qualitätssicherung.\n\n• Sei einsatzbereit im Tagesbetrieb mit gelegentlichem Pikettdienst und optimiere kontinuierlich unsere Anlagen und Komponenten, um reibungslose Abläufe sicherzustellen.\n\n• Setze deine Metallbearbeitungs-Fertigkeiten (Drehen, Fräsen, Bohren, Schweißen) gezielt ein und finde mit einem strukturierten Ansatz Lösungen für technische Herausforderungen.\n\n• Arbeite eng mit dem technischen Einkauf zusammen, um benötigte Ersatzteile effizient zu beschaffen, und halte dabei stets alle Sicherheitsrichtlinien ein.\n\n• Engagiere dich im Projekt EOE (OPTIMO, KAIZEN, KVP) und übernimm weitere Aufgaben nach Vorgabe, um das Emmi Prozess Management zu unterstützen.\n\n• Du hast eine abgeschlossene Ausbildung EFZ als Polymechaniker:in Instandhaltung, Land-/ Baumaschinenmechaniker:in oder vergleichbare Qualifikationen.\n\n• Erfahrung in der Instandhaltung von Produktionsanlagen ist von Vorteil, aber auch motivierte Quereinsteiger sind willkommen!\n\n• Bereitschaft für Piketteinsätze und gelegentliche Wochenendeinsätze.\n\n• Sicherheitsbewusstsein – deine und die Sicherheit deiner Kollegen stehen an erster Stelle!\n\n• Kommunikationsstärke und Teamgeist sind in unserem Umfeld unerlässlich.\n\n• Gute Deutschkenntnisse in Wort und Schrift und Office Programme kannst du gut bedienen.",
       "descriptionByLocale": {
@@ -6385,7 +6400,6 @@
           "betriebsmechaniker-emmi-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:51:07.010Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -6477,7 +6491,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T10:14:16.306Z",
-      "needsRetranslation": true,
       "salaryMin": 36300,
       "salaryMax": 54900,
       "salarySource": "estimated",
@@ -6664,7 +6677,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:11:46.085Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -7305,10 +7317,10 @@
       "companyDomain": "emmi.com",
       "title": "Betriebsmechaniker:in",
       "titleByLocale": {
-        "it": "Meccanica aziendale:in",
-        "en": "Business mechanic:in",
+        "it": "Meccanica aziendale:",
+        "en": "Business mechanic:",
         "de": "Betriebsmechaniker:in",
-        "fr": "Mécanicien d'entreprise:in"
+        "fr": "Mécanicien d'affaires :"
       },
       "description": "• Du sorgst dafür, dass unsere Anlagen zuverlässig laufen - von geplanten Instandhaltungen bis hin zu wiederkehrenden Wartungsarbeiten wie Ventilrevisionen.\n\n• Wenn es technisch wird, bist du in deinem Element: Du ersetzt Dichtungen, Lager und bringst Maschinen wieder in Topform.\n\n• Bei Störungen bleibst du ruhig und lösungsorientiert - im Bereitschaftsdienst bist du die erste Anlaufstelle für die Produktion.\n\n• Du denkst mit, hinterfragst Bestehendes und bringst deine Ideen aktiv ein, um unsere Anlagen kontinuierlich zu verbessern.\n\n• Du arbeitest mit modernen Systemen wie SAP und gestaltest den Aufbau einer zukunftsorientierten Instandhaltung mit.\n\n• Du hast eine technische Ausbildung (Mechanik, Elektrik oder ähnlich) und arbeitest gerne eigenständig und lösungsorientiert.\n\n• Du übernimmst Verantwortung, packst an und findest auch in anspruchsvollen Situationen pragmatische Lösungen.\n\n• Neues motiviert dich - egal ob neue Technologien, Systeme oder technische Herausforderungen.\n\n• Du bist ein Teamplayer, auf den man sich verlassen kann, und organisierst deine Arbeit gleichzeitig selbstständig.\n\n• Du bist flexibel einsetzbar (inkl. Pikettdienst) und bringst idealerweise zusätzliches Know-how in Elektrotechnik oder Automation mit (z. B. NIV 13/15).",
       "descriptionByLocale": {
@@ -7389,7 +7401,6 @@
         "betriebsmechaniker-in-emmi-bischofszell",
         "meccanica-aziendale-in-emmi-bischofszell-thurgau"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:24.053Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -7720,10 +7731,10 @@
       "companyDomain": "emmi.com",
       "title": "Betriebsmechaniker:in",
       "titleByLocale": {
-        "it": "Meccanica aziendale:in",
-        "en": "Business mechanic:in",
+        "it": "Meccanica aziendale:",
+        "en": "Business mechanic:",
         "de": "Betriebsmechaniker:in",
-        "fr": "Mécanicien d'entreprise:in"
+        "fr": "Mécanicien d'affaires :"
       },
       "description": "• Du bist zuständig Für die Wartung/Instandhaltung und Störungsbehebung an modernen Abfüllanlagen.\n\n• Durch dein gutes Selbstmanagement kannst du Arbeiten schnell erkennen, analysieren und erledigen und du bist in der Lage dein Team mit viel Know-How und Motivation effizient zu unterstützen.\n\n• Mit deiner Eigeninitiative erkennst du selbständig was es zu tun gibt und bist so ein wertvolles Teammitglied.\n\n• Du bringst eine abgeschlossene Ausbildung EFZ im technischen Bereich mit und hast schon etwas Berufserfahrung in der Instandhaltung und Pneumatik gesammelt.\n\n• In der deutschen Sprache kannst du dich problemlos mündlich und schriftlich ausdrücken.\n\n• Du lernst gerne Neues und du möchtest dich immer weiterentwickeln.\n\n• Flexibilität ist wichtig und du arbeitest gerne im 3-Schichtmodell mit geplanten Wochenendeinsätzen und hast kein Problem Pikettdienste zu leisten.",
       "descriptionByLocale": {
@@ -7800,7 +7811,6 @@
         "betriebsmechaniker-in-emmi-suhr",
         "meccanica-aziendale-in-emmi-suhr-aargau"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:24.040Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8129,7 +8139,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:24.042Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8242,7 +8251,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:24.051Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -8620,8 +8628,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -85,8 +85,7 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-ab1752bb6b8f",
@@ -197,8 +196,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-297992bab9a7",
@@ -215,7 +213,7 @@
       "title": "AI Governance Manager (m/w/d)",
       "titleByLocale": {
         "it": "Responsabile della Governance AI (m/f/d)",
-        "en": "AI Governance Manager (m/w/d)",
+        "en": "AI Governance Manager (m/f/d)",
         "de": "AI Governance Manager (m/w/d)",
         "fr": "Responsable de la gouvernance de l'IA (m/f/d)"
       },
@@ -290,8 +288,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-2836b2cb5815",
@@ -376,8 +373,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-3de59a224f5d",
@@ -473,8 +469,7 @@
           "maxValue": 110000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-e2bf5b2d46bc",
@@ -562,8 +557,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-b48f8814694a",
@@ -666,8 +660,7 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-f86b06a01487",
@@ -684,7 +677,7 @@
       "title": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Manager / Safety Officer (SiBe) 100% (m/f/d)",
-        "en": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
+        "en": "SHEQ Manager / Security Officer:r (SiBe) 100% (m/f/d)",
         "de": "SHEQ Manager / Sicherheitsbeauftragte:r (SiBe) 100% (m/w/d)",
         "fr": "SHEQ Gestionnaire / Agent de sécurité (SiBe) 100% (m/f/d)"
       },
@@ -758,8 +751,7 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-74d1dcd9cf29",
@@ -851,8 +843,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-86b97b41a6e1",
@@ -945,8 +936,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-ba5b830ac60d",
@@ -963,7 +953,7 @@
       "title": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
       "titleByLocale": {
         "it": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
-        "en": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
+        "en": "Project Management Officer (PMO) & Service Calculations (m/f/d)",
         "de": "Project Management Officer (PMO) & Servicekalkulationen (m/w/d)",
         "fr": "Fonctionnaire chargé de la gestion des projets et calcul des services (m/f/d)"
       },
@@ -1060,8 +1050,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-8a5c61ceba7a",
@@ -1078,7 +1067,7 @@
       "title": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
       "titleByLocale": {
         "it": "Senior SAP Banking & Payment Architetto (EBICS & ISO 20022) (m/w/d)",
-        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
+        "en": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/f/d)",
         "de": "Senior SAP Banking & Payment Architect (EBICS & ISO 20022) (m/w/d)",
         "fr": "Senior SAP Banking & Payment Architecte (EBICS & ISO 20022) (m/w/d)"
       },
@@ -1208,7 +1197,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:18:31.261Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1347,8 +1335,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-1f0b26337c57",
@@ -1438,8 +1425,7 @@
           "maxValue": 156500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-d6f3782d4212",
@@ -1688,17 +1674,22 @@
         ]
       },
       "previousSlugs": [
-        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+        "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
+        "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
+        "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
+          "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
+          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ],
         "fr": [
-          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
+          "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern"
         ]
       },
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
@@ -1714,8 +1705,7 @@
           "maxValue": 38400,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-ef39f617f424",
@@ -1822,7 +1812,7 @@
       "title": "DevOps Engineer (m/w/d)",
       "titleByLocale": {
         "it": "DevOps Ingegnere (m/w/d)",
-        "en": "DevOps Engineer (m/w/d)",
+        "en": "DevOps Engineer (m/f/d)",
         "de": "DevOps Ingenieur (m/w/d)",
         "fr": "DevOps Ingénieur (m/w/d)"
       },
@@ -2533,8 +2523,7 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "coopers-ce95eab173e7",
@@ -3862,16 +3851,16 @@
       "title": "Material Buyer (m/f/d)",
       "titleByLocale": {
         "en": "Material Buyer (m/f/d)",
-        "it": "Material Buyer (m/f/d)",
-        "de": "Material Buyer (m/f/d)",
-        "fr": "Material Buyer (m/f/d)"
+        "it": "Acquirente materiale (m/f/d)",
+        "de": "Materialkäufer (m/w/d)",
+        "fr": "Acheteur de matériel (h/f/d)"
       },
       "description": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
       "descriptionByLocale": {
         "en": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
-        "it": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
-        "de": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset.",
-        "fr": "For our client in the Diagnostics industry, we are looking for a Material Buyer who is going to end-to-end procurement processes for non-finished goods, components and assemblies\n\nMain tasks:\n\n• Order & Inventory Management: Process requisitions, place purchase orders globally, manage Just-In-Time (JIT) processes, and oversee Vendor-Managed Inventory (VMI).\n\n• Delivery & Shortage Mitigation: Track open orders, monitor on-time deliveries, and proactively initiate escalation measures to eliminate production interruptions and resolve material shortages.\n\n• Supplier Relationship & Forecasting: Maintain daily operational supplier relationships, manage iCollab integration (POs, shipping, forecasting, eInvoicing), and distribute supplier forecasts alongside performance data for review meetings.\n\n• Financial & Data Accuracy: Verify and approve incoming invoices, resolve price or quantity discrepancies, manage supplier complaints, and maintain accurate master data in SAP ERP and iCollab.\n\n• Reporting & Onboarding: Generate routine reports on orders, supplier performance, and inventory levels. Mentor and train incoming Buyer 2 and Buyer 3 team members to ensure team knowledge continuity.\n\n• Cross-Site Projects: Contribute to cross-functional and cross-site initiatives focused on optimizing procurement and supply chain processes.\n\n• Workflow Optimization: Continuously evaluate and refine operational workflows to enhance quality, efficiency, and team output\n\nYour experience:\n\n• Education: Bachelor’s degree in Business, Supply Chain Management, Logistics, or a related field.\n\n• Professional Experience: Minimum 2 years of relevant post-graduation work experience in procurement/supply chain (excluding internships, working student roles, or thesis work).\n\n• Technical Skills: Proven proficiency with SAP ERP (MM, PP, and Master Data) and a strong affinity for data-driven decision-making.\n\n• Project Management: Practical experience participating in or leading project-based initiatives.\n\n• Languages: Business fluency in both German and English (written and spoken).\n\n• Soft Skills: Exceptional stakeholder management, strong team spirit, structured work habits, and a systems-thinking mindset."
+        "it": "Per il nostro cliente nell'industria Diagnostica, stiamo cercando un compratore di materiale che finirà per concludere i processi di approvvigionamento per beni non finiti, componenti e assemblaggi\n\nPrincipali compiti:\n\n• Gestione dell'ordine e dell'inventario: Requisizioni di processo, ordini di acquisto di luogo a livello globale, gestione dei processi di Just-In-Time (JIT) e supervisionare l'inventario del venditore-gestito (VMI).\n\n• Consegna & Shortage Mitigation: Traccia gli ordini aperti, monitora le consegne in tempo reale e avvia proattivamente misure di escalation per eliminare le interruzioni di produzione e risolvere la carenza di materiale.\n\n• Rapporti e Previsione del Fornitore: Mantenere le relazioni quotidiane dei fornitori operativi, gestire l'integrazione di iCollab (PO, spedizione, previsione, eInvoicing), e distribuire le previsioni dei fornitori insieme ai dati delle prestazioni per le riunioni di revisione.\n\n• Accuratezza finanziaria e dati: verifica e approva le fatture in arrivo, risolvi il prezzo o le discrepanze di quantità, gestisci i reclami dei fornitori e mantieni i dati master accurati in SAP ERP e iCollab.\n\n• Reporting & Onboarding: Generare rapporti di routine su ordini, prestazioni dei fornitori e livelli di inventario. Mentore e treno in arrivo Buyer 2 e Buyer 3 membri del team per garantire la continuità della conoscenza del team.\n\n• Progetti cross-Site: Contribuire a iniziative interfunzionali e cross-site focalizzate sull'ottimizzazione dei processi di approvvigionamento e supply chain.\n\n• Ottimizzazione del flusso di lavoro: Valutare costantemente e affinare i flussi di lavoro operativi per migliorare la qualità, l'efficienza e l'output del team\n\nLa tua esperienza:\n\n• Istruzione: laurea in Business, Supply Chain Management, Logistica, o un campo relativo.\n\n• Esperienza professionale: minimo 2 anni di esperienza lavorativa post-graduazione rilevante nella catena di approvvigionamento/fornimento (esclusi gli stage, i ruoli degli studenti di lavoro, o il lavoro di tesi).\n\n• Competenze tecniche: Prove competenze con SAP ERP (MM, PP e Master Data) e una forte affinità per il processo decisionale basato sui dati.\n\n• Project Management: Esperienza pratica che partecipa a o alle principali iniziative di progetto.\n\n• Lingue: Fluenza aziendale sia in tedesco che in inglese (scritta e parlata).\n\n• Soft Skills: gestione eccezionale delle parti interessate, forte spirito di squadra, abitudini di lavoro strutturate e una mentalità che pensa ai sistemi.",
+        "de": "Für unseren Kunden in der Diagnostikbranche suchen wir einen Materialkäufer, der die End-to-End-Beschaffungsprozesse für unfertige Waren, Komponenten und Baugruppen durchführt.\n\nHauptaufgaben:\n\n• Order & Inventory Management: Anforderungen bearbeiten, Bestellungen global aufgeben, Just-In-Time (JIT)-Prozesse verwalten und Vendor-Managed Inventory (VMI) beaufsichtigen.\n\n• Liefer- und Engpassminderung: Verfolgen Sie offene Aufträge, überwachen Sie pünktliche Lieferungen und initiieren Sie proaktiv Eskalationsmaßnahmen, um Produktionsunterbrechungen zu beseitigen und Materialknappheit zu beheben.\n\n• Supplier Relationship & Forecasting: Pflegen Sie die täglichen operativen Lieferantenbeziehungen, verwalten Sie die iCollab-Integration (POs, Versand, Prognose, eInvoicing) und verteilen Sie Lieferantenprognosen neben Leistungsdaten für Review-Meetings.\n\n• Finanz- und Datengenauigkeit: Überprüfen und genehmigen Sie eingehende Rechnungen, beheben Sie Preis- oder Mengenabweichungen, verwalten Sie Lieferantenbeschwerden und pflegen Sie genaue Stammdaten in SAP ERP und iCollab.\n\n• Reporting & Onboarding: Generieren Sie Routineberichte über Bestellungen, Lieferantenleistung und Lagerbestände. Mentor und trainieren eingehende Buyer 2 und Buyer 3 Teammitglieder, um die Kontinuität des Teamwissens zu gewährleisten.\n\n• Standortübergreifende Projekte: Beitrag zu funktions- und standortübergreifenden Initiativen zur Optimierung von Beschaffungs- und Lieferkettenprozessen.\n\n• Workflow-Optimierung: Kontinuierliche Evaluierung und Verfeinerung betrieblicher Workflows zur Verbesserung von Qualität, Effizienz und Teamleistung\n\nIhre Erfahrung:\n\n• Ausbildung: Bachelor-Abschluss in Business, Supply Chain Management, Logistik oder einem verwandten Bereich.\n\n• Berufserfahrung: Mindestens 2 Jahre einschlägige Berufserfahrung nach dem Abschluss in der Beschaffungs-/Lieferkette (ausgenommen Praktika, Werkstudentenrollen oder Abschlussarbeiten).\n\n• Technische Fähigkeiten: Bewährte Kenntnisse in SAP ERP (MM, PP und Master Data) und eine starke Affinität für datengesteuerte Entscheidungen.\n\n• Projektmanagement: Praktische Erfahrung in der Teilnahme an oder Leitung von projektbasierten Initiativen.\n\n• Sprachen: Business fließend in Deutsch und Englisch (geschrieben und gesprochen).\n\n• Soft Skills: Außergewöhnliches Stakeholder-Management, starker Teamgeist, strukturierte Arbeitsgewohnheiten und eine systemorientierte Denkweise.",
+        "fr": "Pour notre client dans l'industrie Diagnostics, nous cherchons un acheteur de matériaux qui va de bout en bout des processus d'approvisionnement pour les biens, composants et assemblages non finis\n\nPrincipales tâches:\n\n• Gestion des commandes et des stocks : traitez les demandes, passez des commandes à l'échelle mondiale, gérez les processus JIT et supervisez les stocks gérés par les fournisseurs.\n\n• Atténuation de la livraison et de la pénurie : suivre les commandes ouvertes, surveiller les livraisons à temps et prendre des mesures proactives d'escalade pour éliminer les interruptions de production et résoudre les pénuries matérielles.\n\n• Relations avec les fournisseurs et prévisions : Maintenir des relations opérationnelles quotidiennes avec les fournisseurs, gérer l'intégration iCollab (PO, expédition, prévision, facturation électronique) et distribuer les prévisions des fournisseurs en même temps que les données de performance pour les réunions d'examen.\n\n• Exactitude financière et de données : Vérifier et approuver les factures reçues, résoudre les écarts de prix ou de quantité, gérer les plaintes des fournisseurs et maintenir des données de base précises dans SAP ERP et iCollab.\n\n• Reporting & Inboarding: Générer des rapports de routine sur les commandes, les performances des fournisseurs et les niveaux d'inventaire. Mentor et former les nouveaux membres de l'équipe Acheteur 2 et Acheteur 3 pour assurer la continuité des connaissances de l'équipe.\n\n• Projets transsites : Contribuer à des initiatives interfonctionnelles et intersites axées sur l'optimisation des processus d'approvisionnement et de chaîne d'approvisionnement.\n\n• Optimisation du flux de travail : Évaluer et affiner en permanence les flux de travail opérationnels afin d'améliorer la qualité, l'efficacité et la sortie de l'équipe\n\nVotre expérience:\n\n• Études: Baccalauréat en affaires, gestion de la chaîne d'approvisionnement, logistique, ou un domaine connexe.\n\n• Expérience professionnelle : minimum de 2 ans d'expérience de travail pertinente après l'obtention d'un diplôme dans la chaîne d'approvisionnement (à l'exclusion des stages, des rôles d'étudiants ou des travaux de thèse).\n\n• Compétences techniques : Compétence éprouvée avec SAP ERP (MM, PP et Master Data) et une forte affinité pour la prise de décision axée sur les données.\n\n• Gestion de projet : Expérience pratique de la participation ou de la direction d'initiatives axées sur le projet.\n\n• Langues: Anglais et allemand (écrit et parlé).\n\n• Compétences douces : gestion exceptionnelle des parties prenantes, esprit d'équipe fort, habitudes de travail structurées et état d'esprit de réflexion des systèmes."
       },
       "location": "Zug",
       "canton": "ZG",
@@ -3908,7 +3897,6 @@
           "Supply Chain"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
