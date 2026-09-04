@@ -297,6 +297,35 @@ export const NON_RETRYABLE = new Set([
   'already-fixed',
 ]);
 
+/**
+ * Verdetti su cui il PRE-PASS deterministico di `needs-human`
+ * (`needs-human-prepass.mjs`) NON può ri-accodare da solo: il riconoscimento di
+ * famiglia dal titolo non li scavalca, e la issue resta al giudizio dello sweep
+ * settimanale.
+ *
+ * `max-turns` non sta in `NON_RETRYABLE` — e non deve starci: qui sotto ha una
+ * sua strada (DECOMPOSE-ROUTE), perché un budget di turni esaurito descrive una
+ * issue *troppo grande per una run*, non un verdetto fermo. Ma per il pre-pass
+ * la conseguenza è identica a quella misurata su #5608: ri-accodarla **senza
+ * che nulla sia cambiato** riproduce lo stesso esito allo stesso costo.
+ *
+ * Misurato sull'escalation #7307 (bucket `fix-outcome:max-turns`, 6 issue nella
+ * finestra 14gg). Tutte e sei hanno lo stesso ciclo: morte `max-turns` con ZERO
+ * file toccati → il drainer le parcheggia `fu-parked` + `needs-human` (path
+ * `max-turns` non eleggibile alla decomposizione, riga ~2439) → vengono
+ * ri-accodate → muoiono di nuovo. Chi le ha liberate però NON è lo stesso:
+ *   • #7096 #7158 #7174 #7203 — lo sweep Claude (2026-09-04T08:36-08:37), che
+ *     ha scritto una scheda nuova nel commento (file:line, il call site da
+ *     aggiungere). Lì l'INPUT del fixer è cambiato: è la porta di rientro che
+ *     VISION.md vuole, e resta aperta.
+ *   • #7242 #7179 (`Crawler Failure: Run zurich` / `Run volg`) — questo
+ *     pre-pass (2026-09-04T06:49), sul solo riconoscimento di famiglia, con
+ *     NULLA cambiato dal verdetto. Sono le due che questa costante toglie.
+ * Il pre-pass non sa scrivere una scheda; lo sweep sì. Quindi qui la regola è
+ * «non riaprire una porta che non puoi accompagnare», non «chiudere l'uscita».
+ */
+export const PREPASS_VERDICT_BEATS_FAMILY = new Set([...NON_RETRYABLE, 'max-turns']);
+
 // `blocked-secrets` NON e' piu' qui, e la ragione e' una decisione del
 // proprietario del 2026-08-24 (registro in VISION.md): l'uso dei secret dal
 // ciclo autonomo e' autorizzato in modo permanente. `issue-fix.yml` carica

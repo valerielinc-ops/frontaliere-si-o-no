@@ -478,6 +478,13 @@ jobs:
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude 🔴-fix
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 30min = cap del job meno il setup pre-Claude misurato (~276s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 30
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'
         # Non far fallire il job sull'exit non-zero della action: lo `Classify

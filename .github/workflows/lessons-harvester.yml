@@ -102,6 +102,13 @@ jobs:
         uses: ./.github/actions/setup-headroom
 
       - name: Draft doc-rule proposal (Claude — only if NOVEL patterns)
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (18min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 12min = cap del job meno il setup pre-Claude misurato (~105s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 12
         # Escalations are auto-filed by the harvest step above → Claude is spent
         # ONLY when a genuinely-new (novel) recurring pattern needs a doc rule.
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'

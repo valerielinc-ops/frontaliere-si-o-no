@@ -497,6 +497,19 @@ jobs:
       - name: Run Claude ❌-check-fix
         id: claude_review
         if: steps.guard.outputs.proceed == 'true'
+        # Tetto sullo step, stessa ragione del Checkout qui sopra: senza, l'unico
+        # limite era il cap del job e la run moriva `cancelled`, che NON fa
+        # scattare nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`) — issue #7310, run 33851702755:
+        # Claude a 2140s dentro un job da 40min, ucciso senza diagnosi propria.
+        # 30min lasciano allo step un margine reale (il setup pre-Claude misurato
+        # su quella run è 276s) e ~5min di coda agli step `if: always()` che
+        # classificano l'esito, invece di consumarli tutti e finire nel buco.
+        # Con il `continue-on-error` qui sotto lo scadere del tetto non tinge il
+        # job di rosso da sé: consegna la decisione a `Classify outcome`, che
+        # guarda il LAVORO (commit pushato sulla PR) e non l'exit della CLI —
+        # cioè il contratto che il `cancelled` scavalcava del tutto.
+        timeout-minutes: 30
         # Non far fallire il job sull'exit non-zero della action: lo `Classify
         # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
         # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un

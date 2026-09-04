@@ -88,6 +88,13 @@ jobs:
         uses: ./.github/actions/setup-headroom
 
       - name: Run Claude growth report
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (90min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 80min = cap del job meno il setup pre-Claude misurato (~101s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 80
         id: claude_growth
         continue-on-error: true
         uses: anthropics/claude-code-action@v1
