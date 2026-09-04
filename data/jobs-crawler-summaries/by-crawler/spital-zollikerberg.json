@@ -1,7 +1,7 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-04T13:24:34.579Z",
+  "generatedAt": "2026-09-04T22:53:40.471Z",
   "total": 6,
   "discovered": null,
   "written": 6,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 37015,
-  "avgDurationMs": 37015,
+  "durationMs": 33024,
+  "avgDurationMs": 33024,
   "durationHistory": [
-    37015
+    33024
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://stiftdia.pi-asp.de/bewerber-web?company=1-FIRMA-ID&tenant=&lang=DS#position,id=aa5ba1de-bd67-49bb-9bba-f14c696e8ae5,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Spital Zollikerberg Dedicated Parser (Next.js SSR listing + PI-ASP Playwright detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:24:30.971Z",
+      "crawledAt": "2026-09-04T22:53:37.815Z",
       "addressLocality": "Zollikerberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",

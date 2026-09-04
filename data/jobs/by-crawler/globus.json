@@ -1,6 +1,6 @@
 {
   "crawlerKey": "globus",
-  "assembledAt": "2026-09-04T13:25:10.306Z",
+  "assembledAt": "2026-09-04T22:53:59.263Z",
   "jobs": [
     {
       "id": "globus-acf4a6646645",
@@ -17,7 +17,7 @@
       "title": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
       "titleByLocale": {
         "it": "Supporto alle vendite - Incarichi del sabato 20% nel settore alimentare (f/m/d)",
-        "en": "Sales Support - Saturday assignments 20% in the Food (m/f/d) area",
+        "en": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "de": "Sales Support - Samstagseinsätze 20% im Bereich Food (w/m/d)",
         "fr": "Soutien aux ventes - affectations du samedi 20 % dans le secteur alimentaire (f/m/d)"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-Samstagseinsaetze-20-im-Bereich-Food-wmd-de-j2431.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.589Z",
+      "crawledAt": "2026-09-04T22:53:56.608Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -56,7 +56,8 @@
         "supporto-vendite-sabato-assegna-20-area-non-food-f-m-d-globus-basel",
         "sales-support-saturday-assignments-20-area-non-food-f-m-d-globus-basel",
         "sales-support-samstagseinsatze-20-bereich-non-food-w-m-d-globus-ch",
-        "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel"
+        "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel",
+        "supporto-alle-vendite-incarichi-del-sabato-20-nel-settore-alimentare-f-m-d-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -64,7 +65,8 @@
           "supporto-vendite-sabato-assegna-20-area-non-food-f-m-d-globus-basel",
           "sales-support-saturday-assignments-20-area-non-food-f-m-d-globus-basel",
           "sales-support-samstagseinsatze-20-bereich-non-food-w-m-d-globus-ch",
-          "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel"
+          "soutien-aux-ventes-affectations-du-samedi-20-zone-non-alimentaire-f-m-j-globus-basel",
+          "supporto-alle-vendite-incarichi-del-sabato-20-nel-settore-alimentare-f-m-d-globus-wallisellen"
         ],
         "en": [
           "sales-support-saturday-assignments-20-area-non-food-f-m-d-globus-basel"
@@ -77,6 +79,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.165Z",
+      "needsRetranslation": true,
       "salaryMin": 16600,
       "salaryMax": 25500,
       "salarySource": "estimated",
@@ -122,7 +125,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Herrenmode-de-j2469.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.587Z",
+      "crawledAt": "2026-09-04T22:53:56.606Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -141,11 +144,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-herrenmode-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-herrenmode-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-herrenmode-globus-ch"
@@ -201,7 +206,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2470.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.586Z",
+      "crawledAt": "2026-09-04T22:53:56.605Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -220,11 +225,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-zurich-bahnhofstrasse"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
@@ -244,82 +251,6 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "globus-cd82714bac32",
-      "slug": "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus",
-      "slugByLocale": {
-        "it": "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus",
-        "en": "sales-support-for-assignments-in-the-non-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
-        "de": "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "fr": "soutien-aux-ventes-pour-les-missions-dans-le-secteur-non-alimentaire-20-principalement-les-missions-du-samedi-f-m-d"
-      },
-      "company": "Globus",
-      "companyKey": "globus",
-      "companyDomain": "globus.ch",
-      "title": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
-      "titleByLocale": {
-        "it": "Supporto di vendita per incarichi nel settore non alimentare 20% - principalmente assegnazioni di sabato (f/m/d)",
-        "en": "Sales Support for assignments in the non-food sector 20% - mainly Saturday assignments (m/f/d)",
-        "de": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
-        "fr": "Soutien aux ventes pour les missions dans le secteur non alimentaire 20% - principalement les missions du samedi (f/m/d)"
-      },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n\nFür unsere Non Food-Teams Herrenmode und Beauty in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort oder nach Vereinbarung engagierte Persönlichkeiten als Sales Support im Pensum von 20%. Hierbei wärst du hauptsächlich samstags im Einsatz, bestenfalls wärst du auch für mögliche Einsätze abends oder freitags flexibel. DU UND GLOBUS\nDu bist Gastgeber:in für unsere Kund:innen und sorgst dafür, dass sie sich bei uns jederzeit willkommen fühlen. Du unterstützt unsere Teams in unterschiedlichen Bereichen, bist flexibel und teilst Deine Leidenschaft für die schönen Dinge des Lebens. DU\nDu liebst Menschen und gehst gerne und positiv auf sie zu, hast ein Flair für schöne Produkte -im Bereich Fashion oder Beauty. Du verfügst über sehr gute Deutsch-Kenntnisse, zusätzliche Sprachen sind von Vorteil. WIR\nGlobus bietet Dir \n• Aufgaben in einem spannenden Umfeld, umgeben von faszinierenden Menschen, Kund:innen und Kolleg:innen. Die Anstellungsbedingungen sind attraktiv und Du profitierst von grosszügigen Fringe Benefits aus der Globus Welt. Dein Kontakt\nSprechen wir dich an und möchtest du Berufserfahrung bei Globus sammeln? Dann freuen wir uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da. (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-      "descriptionByLocale": {
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso della Svizzera. Sono persone come te che fanno la differenza e insieme a noi portano l' «place amiamo essere» alla vita. Für i nostri team Non Food Home & Lifestyle, Men's Fashion, Women's Fashion e Lingerie/Skims/Beauty nella filiale Globus Zürich Bahnhofstrasse stiamo cercando personalità assunte come supporto di vendita nella quantità del 20%. Qui siete principalmente il sabato in uso, al meglio wür mösame one¨tze la sera o il venerdì in modo flessibile. Tu e GLOBUS Lei è ospite: in für i nostri clienti e assicurarsi che ci accolgono in qualsiasi momento fü. Sosteni i nostri team in diverse aree, sei flessibile e condividi la tua passione per le grida di vita. Amate le persone e piace avvicinarle positivamente, avere un tocco per i prodotti - sia nella zona di casa & stile di vita, moda o bellezza. Hai una buona conoscenza del tedesco, e le lingue sono un vantaggio. WIR Globus offre attività in un ambiente emozionante circondato da persone affascinanti, clienti e colleghi. Le condizioni di lavoro sono attraenti e si beneficiano di vantaggi di frangia lorda dal mondo del globo. Mettiamoci in contatto con te e mö ottieni esperienza professionale a Globus? Quindi non vediamo l'ora della vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, non vediamo l'ora di rispondere alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni dietro le quinte di GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/ Mi piace essere li' per te. (Nota für agenzia di reclutamento: Sono considerate solo le domande dirette)",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address of Switzerland. It is people like you who make the difference and together with us bring the «place we love to be» to life. Für our Non Food teams Home & Lifestyle, Men's Fashion, Women's Fashion and Lingerie/Skims/Beauty in the Globus branch Zürich Bahnhofstrasse we are looking for hired personalities as sales support in the amount of 20%. Here you are mainly on Saturdays in use, at best wür mösame one¨tze in the evening or Friday flexibly. YOU AND GLOBUS You are host: in für our customers and make sure that they welcome us at any time fü. You support our teams in different areas, are flexible and share Your passion for the shouting things of life. You love people and like to approach them positively, have a flair for products - be it in the area of home & lifestyle, fashion or beauty. You have a very good knowledge of German, and languages are an advantage. WIR Globus offers you tasks in an exciting environment surrounded by fascinating people, customers and colleagues. The employment conditions are attractive and you benefit from gross fringe benefits from the globe world. Let's get in touch with you and mödo you gain professional experience at Globus? Then we look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are looking forward to your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights from GLOBUS and more information, click here: https://karriere.globus.ch/ I like to be there for you. (Note für recruitment agency: Only direct applications are considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n\nFür unsere Non Food-Teams Herrenmode und Beauty in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort oder nach Vereinbarung engagierte Persönlichkeiten als Sales Support im Pensum von 20%. Hierbei wärst du hauptsächlich samstags im Einsatz, bestenfalls wärst du auch für mögliche Einsätze abends oder freitags flexibel. DU UND GLOBUS\nDu bist Gastgeber:in für unsere Kund:innen und sorgst dafür, dass sie sich bei uns jederzeit willkommen fühlen. Du unterstützt unsere Teams in unterschiedlichen Bereichen, bist flexibel und teilst Deine Leidenschaft für die schönen Dinge des Lebens. DU\nDu liebst Menschen und gehst gerne und positiv auf sie zu, hast ein Flair für schöne Produkte -im Bereich Fashion oder Beauty. Du verfügst über sehr gute Deutsch-Kenntnisse, zusätzliche Sprachen sind von Vorteil. WIR\nGlobus bietet Dir \n• Aufgaben in einem spannenden Umfeld, umgeben von faszinierenden Menschen, Kund:innen und Kolleg:innen. Die Anstellungsbedingungen sind attraktiv und Du profitierst von grosszügigen Fringe Benefits aus der Globus Welt. Dein Kontakt\nSprechen wir dich an und möchtest du Berufserfahrung bei Globus sammeln? Dann freuen wir uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da. (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». Pour nos équipes non-food Home & Lifestyle, Mode Homme, Mode Femme et Lingerie/Skims/Beauté de la succursale Globus Zurich Bahnhofstrasse, nous recherchons des personnalités engagées comme support commercial avec une charge de travail de 20%, de suite ou sur rendez-vous. Vous seriez principalement de garde le samedi, mais idéalement vous seriez également flexible pour d'éventuelles missions le soir ou le vendredi. VOUS ET GLOBUS Vous êtes l'hôte de nos clients et veillez à ce qu'ils se sentent les bienvenus à tout moment. Vous accompagnez nos équipes dans différents domaines, êtes flexible et partagez votre passion pour les belles choses de la vie. VOUS Vous aimez les gens et aimez les aborder de manière positive, vous avez un flair pour les beaux produits - que ce soit dans le domaine de la maison et du style de vie, de la mode ou de la beauté. Vous avez une très bonne connaissance de l'allemand, des langues supplémentaires sont un avantage. WIR Globus vous propose des tâches dans un environnement passionnant, entouré de personnes, clients et collègues fascinants. Les conditions de travail sont attractives et vous bénéficiez de généreux avantages sociaux de Globus Welt. Votre interlocuteur Nous vous parlons et vous souhaitez acquérir une expérience professionnelle chez Globus ? Alors nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
-      },
-      "location": "Zürich Bahnhofstrasse",
-      "canton": "ZH",
-      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
-      "source": "Globus Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.585Z",
-      "addressLocality": "Zürich Bahnhofstrasse",
-      "streetAddress": "Schweizergasse 11",
-      "postalCode": "8001",
-      "addressRegion": "Zürich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Commerciale",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail (department store / luxury)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-01",
-      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-        "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
-        "soutien-aux-ventes-pour-les-missions-dans-le-secteur-alimentaire-20-principalement-les-missions-du-samedi-f-m-d-globus"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
-          "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
-          "soutien-aux-ventes-pour-les-missions-dans-le-secteur-alimentaire-20-principalement-les-missions-du-samedi-f-m-d-globus"
-        ]
-      },
-      "firstSeenAt": "2026-06-10T07:52:17.191Z",
-      "salaryMin": 16600,
-      "salaryMax": 25500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 16600,
-          "maxValue": 25500,
           "unitText": "YEAR"
         }
       }
@@ -355,7 +286,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-Visual-Merchandising-Damenmode-100-wmd-de-j2309.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.585Z",
+      "crawledAt": "2026-09-04T22:53:56.605Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -378,14 +309,17 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch"
+        "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch",
+        "dipendente-visual-merchandising-moda-donna-100-f-m-d-globus-zurich-bahnhofstrasse"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch"
+          "mitarbeiter-in-visual-merchandising-damenmode-100-w-m-d-globus-ch",
+          "dipendente-visual-merchandising-moda-donna-100-f-m-d-globus-zurich-bahnhofstrasse"
         ]
       },
       "firstSeenAt": "2026-06-10T07:52:17.193Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -401,41 +335,41 @@
       }
     },
     {
-      "id": "globus-a569c2b63f31",
-      "slug": "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern",
+      "id": "globus-cd82714bac32",
+      "slug": "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus",
       "slugByLocale": {
-        "it": "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern",
-        "en": "sales-consultant-in-delicatessa-40-60-f-m-d-globus-luzern",
-        "de": "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
-        "fr": "consultant-en-ventes-en-delicatessa-40-60-f-m-d-globus-luzern"
+        "it": "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus",
+        "en": "sales-support-for-assignments-in-the-non-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
+        "de": "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "fr": "soutien-aux-ventes-pour-les-missions-dans-le-secteur-non-alimentaire-20-principalement-les-missions-du-samedi-f-m-d"
       },
       "company": "Globus",
       "companyKey": "globus",
       "companyDomain": "globus.ch",
-      "title": "Verkaufsberater:in ***delicatessa 60% (w/m/d)",
+      "title": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
       "titleByLocale": {
-        "it": "Consulente commerciale: in *delicatessa 40-60% (f/m/d)",
-        "en": "Sales consultant:in *delicatessa 40-60% (f/m/d)",
-        "de": "Verkaufsberater:in ***delicatessa 60% (w/m/d)",
-        "fr": "Consultant en ventes: en *delicatessa 40-60% (f/m/d)"
+        "it": "Supporto di vendita per incarichi nel settore non alimentare 20% - principalmente assegnazioni di sabato (f/m/d)",
+        "en": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "de": "Sales Support für Einsätze im Non Food-Bereich 20% - vorwiegend Samstagseinsätze (w/m/d)",
+        "fr": "Soutien aux ventes pour les missions dans le secteur non alimentaire 20% - principalement les missions du samedi (f/m/d)"
       },
-      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du bringst mehrjährige Berufserfahrung im Lebensmittelbereich mit, eine abgeschlossene Berufslehre im Detailhandel ist von Vorteil, aber kein Muss.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten und dafür an einem anderen Wochentag frei zu haben, ist für dich völlig okay.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Luzern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n\nFür unsere Non Food-Teams Herrenmode und Beauty in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort oder nach Vereinbarung engagierte Persönlichkeiten als Sales Support im Pensum von 20%. Hierbei wärst du hauptsächlich samstags im Einsatz, bestenfalls wärst du auch für mögliche Einsätze abends oder freitags flexibel. DU UND GLOBUS\nDu bist Gastgeber:in für unsere Kund:innen und sorgst dafür, dass sie sich bei uns jederzeit willkommen fühlen. Du unterstützt unsere Teams in unterschiedlichen Bereichen, bist flexibel und teilst Deine Leidenschaft für die schönen Dinge des Lebens. DU\nDu liebst Menschen und gehst gerne und positiv auf sie zu, hast ein Flair für schöne Produkte -im Bereich Fashion oder Beauty. Du verfügst über sehr gute Deutsch-Kenntnisse, zusätzliche Sprachen sind von Vorteil. WIR\nGlobus bietet Dir \n• Aufgaben in einem spannenden Umfeld, umgeben von faszinierenden Menschen, Kund:innen und Kolleg:innen. Die Anstellungsbedingungen sind attraktiv und Du profitierst von grosszügigen Fringe Benefits aus der Globus Welt. Dein Kontakt\nSprechen wir dich an und möchtest du Berufserfahrung bei Globus sammeln? Dann freuen wir uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da. (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
       "descriptionByLocale": {
-        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi. Qui fai la differenza\n\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n\n• Grazie al vostro servizio eccellente e consulenza individuale, è possibile garantire esperienze di shopping uniche.\n\n• Voi siete responsabili della freschezza e della qualità dei nostri prodotti di alta qualità.\n\n• Garantisci un rigoroso rispetto delle leggi e delle normative igieniche legali e operative.\n\n• Con il vostro carisma positivo e la vostra passione per la nostra *delicatessa contribuite in modo decisivo al successo dell’azienda.\nQuesto ti tira fuori\n\n• Sei un ospite appassionato: una persona di vendita con passione e cibo di alta qualità ti affascina.\n\n• Si portano diversi anni di esperienza professionale nel settore alimentare, un apprendistato completato nel commercio al dettaglio è un vantaggio, ma non un must.\n\n• Hai buone maniere e un aspetto elegante.\n\n• Hai una conoscenza eccellente del tedesco e anche una o l'altra lingua straniera.\n\n• Lavorare il sabato e avere tempo libero in un altro giorno della settimana è completamente ok per voi.\nPERSONE\nInsieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione.\n\nInoltre, non vedo l'ora di:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Lucerna.\n\n• Premi basati sui benefici e benefici sociali interessanti.\n\n• Modelli di tempo di lavoro flessibili e almeno 5 settimane vacanze (PS: Si ottiene più tempo libero grazie all'opzione \"vacanza non pagata\" - da 7 a 365 giorni).\n\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n\n• Molto di più...\nIl tuo contatto\nAttendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/\nSono felice di esserci per te.\n\nPS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Nota per i reclutatori: Sono considerate solo le domande dirette.)",
-        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us. Here you make the difference\n\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n\n• Thanks to your excellent service and individual advice, you can ensure unique shopping experiences.\n\n• You are jointly responsible for the freshness and quality of our high-quality products.\n\n• You ensure strict compliance with the legal and operational hygiene laws and regulations.\n\n• With your positive charisma and your passion for our *delicatessa you contribute decisively to the company’s success.\nThat draws you out\n\n• You are a passionate host: a sales person with passion and high-quality food fascinates you.\n\n• You bring several years of professional experience in the food sector, a completed apprenticeship in the retail trade is an advantage, but not a must.\n\n• You have perfect manners and a stylish appearance.\n\n• You have excellent knowledge of German and also one or the other foreign language.\n\n• Working on Saturdays and having time off on another weekday is completely okay for you.\nBENEFITS FOR YOU\nTogether with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education.\n\nAlso, look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Lucerne.\n\n• Benefit-based premiums and attractive social benefits.\n\n• Flexible working time models and at least 5 weeks holidays (PS: You get more free time thanks to the option \"unpaid holiday\" - from 7 to 365 days).\n\n• up to 50% discount on products from the globe world for you and your family.\n\n• Much more...\nYour contact\nWe look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/\nI'm happy to be there for you.\n\nPS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note for recruiters: Only direct applications are considered.)",
-        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\nDAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du bringst mehrjährige Berufserfahrung im Lebensmittelbereich mit, eine abgeschlossene Berufslehre im Detailhandel ist von Vorteil, aber kein Muss.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten und dafür an einem anderen Wochentag frei zu haben, ist für dich völlig okay.\nBENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Luzern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\nDein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous. Ici vous faites la différence\n\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n\n• Grâce à votre excellent service et conseil individuel, vous pouvez vous assurer des expériences d'achat uniques.\n\n• Vous êtes conjointement responsable de la fraîcheur et de la qualité de nos produits de haute qualité.\n\n• Vous veillez au strict respect des lois et règlements d'hygiène légale et opérationnelle.\n\n• Avec votre charisme positif et votre passion pour notre *delicatessa, vous contribuez de manière décisive au succès de l'entreprise.\nÇa vous attire.\n\n• Vous êtes un hôte passionné : un vendeur passionné et de haute qualité vous fascine.\n\n• Vous apportez plusieurs années d'expérience professionnelle dans le secteur alimentaire, un apprentissage complet dans le commerce de détail est un avantage, mais pas un must.\n\n• Vous avez des manières parfaites et une apparence élégante.\n\n• Vous avez une excellente connaissance de l'allemand et de l'une ou l'autre langue étrangère.\n\n• Travailler le samedi et prendre un congé un autre jour de semaine vous convient parfaitement.\nAVANTAGES POUR VOUS\nAvec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue.\n\nEn outre, attendez avec impatience :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Lucerne.\n\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n\n• Modèles flexibles de temps de travail et au moins 5 semaines de vacances (PS: Vous obtenez plus de temps libre grâce à l'option \"vacances non payées\" - de 7 à 365 jours).\n\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n\n• Beaucoup plus...\nVotre contact\nNous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\". Pour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/\nJe suis heureux d'être là pour toi.\n\nPS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus :\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso della Svizzera. Sono persone come te che fanno la differenza e insieme a noi portano l' «place amiamo essere» alla vita. Für i nostri team Non Food Home & Lifestyle, Men's Fashion, Women's Fashion e Lingerie/Skims/Beauty nella filiale Globus Zürich Bahnhofstrasse stiamo cercando personalità assunte come supporto di vendita nella quantità del 20%. Qui siete principalmente il sabato in uso, al meglio wür mösame one¨tze la sera o il venerdì in modo flessibile. Tu e GLOBUS Lei è ospite: in für i nostri clienti e assicurarsi che ci accolgono in qualsiasi momento fü. Sosteni i nostri team in diverse aree, sei flessibile e condividi la tua passione per le grida di vita. Amate le persone e piace avvicinarle positivamente, avere un tocco per i prodotti - sia nella zona di casa & stile di vita, moda o bellezza. Hai una buona conoscenza del tedesco, e le lingue sono un vantaggio. WIR Globus offre attività in un ambiente emozionante circondato da persone affascinanti, clienti e colleghi. Le condizioni di lavoro sono attraenti e si beneficiano di vantaggi di frangia lorda dal mondo del globo. Mettiamoci in contatto con te e mö ottieni esperienza professionale a Globus? Quindi non vediamo l'ora della vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, non vediamo l'ora di rispondere alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni dietro le quinte di GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/ Mi piace essere li' per te. (Nota für agenzia di reclutamento: Sono considerate solo le domande dirette)",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address of Switzerland. It is people like you who make the difference and together with us bring the «place we love to be» to life. Für our Non Food teams Home & Lifestyle, Men's Fashion, Women's Fashion and Lingerie/Skims/Beauty in the Globus branch Zürich Bahnhofstrasse we are looking for hired personalities as sales support in the amount of 20%. Here you are mainly on Saturdays in use, at best wür mösame one¨tze in the evening or Friday flexibly. YOU AND GLOBUS You are host: in für our customers and make sure that they welcome us at any time fü. You support our teams in different areas, are flexible and share Your passion for the shouting things of life. You love people and like to approach them positively, have a flair for products - be it in the area of home & lifestyle, fashion or beauty. You have a very good knowledge of German, and languages are an advantage. WIR Globus offers you tasks in an exciting environment surrounded by fascinating people, customers and colleagues. The employment conditions are attractive and you benefit from gross fringe benefits from the globe world. Let's get in touch with you and mödo you gain professional experience at Globus? Then we look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are looking forward to your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights from GLOBUS and more information, click here: https://karriere.globus.ch/ I like to be there for you. (Note für recruitment agency: Only direct applications are considered.)",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken.\n\nFür unsere Non Food-Teams Herrenmode und Beauty in der Globus Filiale Zürich Bahnhofstrasse suchen wir per sofort oder nach Vereinbarung engagierte Persönlichkeiten als Sales Support im Pensum von 20%. Hierbei wärst du hauptsächlich samstags im Einsatz, bestenfalls wärst du auch für mögliche Einsätze abends oder freitags flexibel. DU UND GLOBUS\nDu bist Gastgeber:in für unsere Kund:innen und sorgst dafür, dass sie sich bei uns jederzeit willkommen fühlen. Du unterstützt unsere Teams in unterschiedlichen Bereichen, bist flexibel und teilst Deine Leidenschaft für die schönen Dinge des Lebens. DU\nDu liebst Menschen und gehst gerne und positiv auf sie zu, hast ein Flair für schöne Produkte -im Bereich Fashion oder Beauty. Du verfügst über sehr gute Deutsch-Kenntnisse, zusätzliche Sprachen sind von Vorteil. WIR\nGlobus bietet Dir \n• Aufgaben in einem spannenden Umfeld, umgeben von faszinierenden Menschen, Kund:innen und Kolleg:innen. Die Anstellungsbedingungen sind attraktiv und Du profitierst von grosszügigen Fringe Benefits aus der Globus Welt. Dein Kontakt\nSprechen wir dich an und möchtest du Berufserfahrung bei Globus sammeln? Dann freuen wir uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da. (Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Avec un grand souci du détail, nos collaborateurs font de GLOBUS la première adresse premium et luxe en Suisse. Ce sont des gens comme vous qui font la différence et, avec nous, donnent vie à « l’endroit où nous aimons être ». Pour nos équipes non-food Home & Lifestyle, Mode Homme, Mode Femme et Lingerie/Skims/Beauté de la succursale Globus Zurich Bahnhofstrasse, nous recherchons des personnalités engagées comme support commercial avec une charge de travail de 20%, de suite ou sur rendez-vous. Vous seriez principalement de garde le samedi, mais idéalement vous seriez également flexible pour d'éventuelles missions le soir ou le vendredi. VOUS ET GLOBUS Vous êtes l'hôte de nos clients et veillez à ce qu'ils se sentent les bienvenus à tout moment. Vous accompagnez nos équipes dans différents domaines, êtes flexible et partagez votre passion pour les belles choses de la vie. VOUS Vous aimez les gens et aimez les aborder de manière positive, vous avez un flair pour les beaux produits - que ce soit dans le domaine de la maison et du style de vie, de la mode ou de la beauté. Vous avez une très bonne connaissance de l'allemand, des langues supplémentaires sont un avantage. WIR Globus vous propose des tâches dans un environnement passionnant, entouré de personnes, clients et collègues fascinants. Les conditions de travail sont attractives et vous bénéficiez de généreux avantages sociaux de Globus Welt. Votre interlocuteur Nous vous parlons et vous souhaitez acquérir une expérience professionnelle chez Globus ? Alors nous attendons avec impatience de recevoir votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous attendons avec impatience vos réponses à nos trois questions - suivez simplement « Postulez maintenant ! » lien ci-dessous. Vous trouverez d'autres aperçus des coulisses de GLOBUS et de plus amples informations ici : https://karriere.globus.ch/ Je suis heureux d'être là pour vous. (Remarque pour les recruteurs : seules les candidatures directes seront prises en compte.)"
       },
-      "location": "Luzern",
-      "canton": "LU",
-      "url": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-60-wmd-de-j2480.html",
+      "location": "Zürich Bahnhofstrasse",
+      "canton": "ZH",
+      "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.584Z",
-      "addressLocality": "Luzern",
-      "streetAddress": "Pilatusstrasse 4",
-      "postalCode": "6002",
-      "addressRegion": "Luzern",
+      "crawledAt": "2026-09-04T22:53:56.604Z",
+      "addressLocality": "Zürich Bahnhofstrasse",
+      "streetAddress": "Schweizergasse 11",
+      "postalCode": "8001",
+      "addressRegion": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Commerciale",
@@ -445,50 +379,36 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-07-29",
-      "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-60-wmd-de-j2480.html",
+      "postedDate": "2026-04-01",
+      "applyUrl": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Non-Food-Bereich-20-vorwie-de-j2086.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
-        "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
-        "verkaufsberater-in-delicatessa-40-w-m-d-globus-ch",
-        "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern",
-        "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch",
-        "verkaufsberater-in-delicatessa-60-w-m-d-globus-ch"
+        "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+        "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
+        "soutien-aux-ventes-pour-les-missions-dans-le-secteur-alimentaire-20-principalement-les-missions-du-samedi-f-m-d-globus",
+        "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
-          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
-          "verkaufsberater-in-delicatessa-40-w-m-d-globus-ch",
-          "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern",
-          "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch",
-          "verkaufsberater-in-delicatessa-60-w-m-d-globus-ch"
-        ],
-        "en": [
-          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern"
-        ],
-        "de": [
-          "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch"
-        ],
-        "fr": [
-          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
-          "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern"
+          "sales-support-fur-einsatze-im-non-food-bereich-20-vorwiegend-samstagseinsatze-w-m-d-globus",
+          "sales-support-for-assignments-in-the-food-sector-20-mainly-saturday-assignments-f-m-d-globus-zurich-bahnhofstrasse",
+          "soutien-aux-ventes-pour-les-missions-dans-le-secteur-alimentaire-20-principalement-les-missions-du-samedi-f-m-d-globus",
+          "supporto-di-vendita-per-incarichi-nel-settore-non-alimentare-20-principalmente-assegnazioni-di-sabato-f-m-d-globus"
         ]
       },
+      "firstSeenAt": "2026-06-10T07:52:17.191Z",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-29T22:04:57.028Z",
-      "salaryMin": 47400,
-      "salaryMax": 72900,
+      "salaryMin": 16600,
+      "salaryMax": 25500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 47400,
-          "maxValue": 72900,
+          "minValue": 16600,
+          "maxValue": 25500,
           "unitText": "YEAR"
         }
       }
@@ -524,7 +444,7 @@
       "url": "https://jobs.globus.ch/Verkaufsberaterin-Home-Lifestyle-40-50-wmd-de-j2484.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.583Z",
+      "crawledAt": "2026-09-04T22:53:56.603Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -560,7 +480,8 @@
         "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch",
         "consultant-en-ventes-enfants-papeterie-maison-et-mode-de-vie-80-f-m-d-globus-basel",
         "consultant-en-ventes-dans-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
-        "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse"
+        "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
+        "consulente-commerciale-in-home-lifestyle-40-50-f-m-d-globus-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -581,7 +502,8 @@
           "verkaufsberater-in-kids-papeterie-home-lifestyle-80-w-m-d-globus-ch",
           "consultant-en-ventes-enfants-papeterie-maison-et-mode-de-vie-80-f-m-d-globus-basel",
           "consultant-en-ventes-dans-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
-          "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse"
+          "sales-consultant-in-home-lifestyle-80-f-m-d-globus-zurich-bahnhofstrasse",
+          "consulente-commerciale-in-home-lifestyle-40-50-f-m-d-globus-st-gallen"
         ],
         "en": [
           "verkaufsberater-in-home-lifestyle-40-50-w-m-d-globus-ch",
@@ -612,41 +534,41 @@
       }
     },
     {
-      "id": "globus-f1be2e41072b",
-      "slug": "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel",
+      "id": "globus-a569c2b63f31",
+      "slug": "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern",
       "slugByLocale": {
-        "it": "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel",
-        "en": "sales-support-in-saturday-assignments-in-the-food-sector-20-temporary-until-30-04-2027-f-m-d-globus-basel",
-        "de": "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
-        "fr": "soutien-aux-ventes-dans-les-missions-du-samedi-dans-le-secteur-alimentaire-20-temporaire-jusqu-au-30-04-2027-f-m-d"
+        "it": "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern",
+        "en": "sales-consultant-in-delicatessa-40-60-f-m-d-globus-luzern",
+        "de": "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
+        "fr": "consultant-en-ventes-en-delicatessa-40-60-f-m-d-globus-luzern"
       },
       "company": "Globus",
       "companyKey": "globus",
       "companyDomain": "globus.ch",
-      "title": "Sales Support:in Samstagseinsätze im Bereich Food 20% - befristet bis 31.12.2026 (w/m/d)",
+      "title": "Verkaufsberater:in ***delicatessa 60% (w/m/d)",
       "titleByLocale": {
-        "it": "Supporto di vendita: in assegnazioni di sabato nel settore alimentare 20% - temporaneo fino a 30.04.2027 (f/m/d)",
-        "en": "Sales Support: in Saturday assignments in the food sector 20% - temporary until 30.04.2027 (f/m/d)",
-        "de": "Sales Support:in Samstagseinsätze im Bereich Food 20% - befristet bis 31.12.2026 (w/m/d)",
-        "fr": "Soutien aux ventes : dans les missions du samedi dans le secteur alimentaire 20% - temporaire jusqu'au 30.04.2027 (f/m/d)"
+        "it": "Consulente commerciale: in *delicatessa 40-60% (f/m/d)",
+        "en": "Sales consultant:in *delicatessa 40-60% (f/m/d)",
+        "de": "Verkaufsberater:in ***delicatessa 60% (w/m/d)",
+        "fr": "Consultant en ventes: en *delicatessa 40-60% (f/m/d)"
       },
-      "description": "Bei Globus sind unsere Mitarbeitenden der Schlüssel zum Erfolg, besonders diejenigen, die den letzten Eindruck bei unseren Kunden hinterlassen. Du bist das finale, strahlende Lächeln unserer Marke und sorgst dafür, dass jede:r Kund:in unseren Laden mit einem positiven Gefühl verlässt und gerne zurückkommt. Für unsere Filiale Basel suchen wir genau dich – eine engagierte Persönlichkeit, die mit Leidenschaft und Engagement unseren Kunden ein erstklassiges Erlebnis bietet. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten, ist für dich völlig okay.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Basel .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "description": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du bringst mehrjährige Berufserfahrung im Lebensmittelbereich mit, eine abgeschlossene Berufslehre im Detailhandel ist von Vorteil, aber kein Muss.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten und dafür an einem anderen Wochentag frei zu haben, ist für dich völlig okay.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Luzern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
       "descriptionByLocale": {
-        "it": "A Globus, i nostri dipendenti sono la chiave per il successo, soprattutto quelli che lasciano l'ultima impressione sui nostri clienti. Sei il sorriso finale e raggiante del nostro marchio e assicurati che tutti:r Kund: lasci il nostro negozio con una sensazione positiva e piace tornare. Per il nostro ramo di Basilea, siamo alla ricerca di voi – una personalità impegnata che offre ai nostri clienti un'esperienza di prima classe con passione e impegno. Qui fai la differenza\n\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n\n• Voi siete responsabili della freschezza e della qualità dei nostri prodotti di alta qualità.\n\n• Garantisci un rigoroso rispetto delle leggi e delle normative igieniche legali e operative.\n\n• Con il vostro carisma positivo e la vostra passione per la nostra *delicatessa contribuite in modo decisivo al successo dell’azienda.\nQuesto ti tira fuori\n\n• Sei un ospite appassionato: una persona di vendita con passione e cibo di alta qualità ti affascina.\n\n• Hai buone maniere e un aspetto elegante.\n\n• Hai una conoscenza eccellente del tedesco e anche una o l'altra lingua straniera.\n\n• Lavorare il sabato va tutto bene per te.\nPERSONE\nInsieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione.\n\nInoltre, non vedo l'ora di:\n• Un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Basilea.\n\n• Premi basati sui benefici e benefici sociali interessanti.\n\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n\n• Molto di più...\nIl tuo contatto\nAttendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/\nSono felice di esserci per te.\n\nPS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Nota per i reclutatori: Sono considerate solo le domande dirette.)",
-        "en": "At Globus, our employees are the key to success, especially those who leave the last impression on our customers. You are the final, radiant smile of our brand and make sure that everyone:r Kund: leaves our store with a positive feeling and likes to come back. For our branch in Basel, we are looking for you – a committed personality who offers our customers a first-class experience with passion and commitment. Here you make the difference\n\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n\n• You are jointly responsible for the freshness and quality of our high-quality products.\n\n• You ensure strict compliance with the legal and operational hygiene laws and regulations.\n\n• With your positive charisma and your passion for our *delicatessa you contribute decisively to the company’s success.\nThat draws you out\n\n• You are a passionate host: a sales person with passion and high-quality food fascinates you.\n\n• You have perfect manners and a stylish appearance.\n\n• You have excellent knowledge of German and also one or the other foreign language.\n\n• Working on Saturdays is totally okay for you.\nBENEFITS FOR YOU\nTogether with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education.\n\nAlso, look forward to:\n• An exceptional working environment with flat hierarchies in the heart of Basel.\n\n• Benefit-based premiums and attractive social benefits.\n\n• up to 50% discount on products from the globe world for you and your family.\n\n• Much more...\nYour contact\nWe look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/\nI'm happy to be there for you.\n\nPS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note for recruiters: Only direct applications are considered.)",
-        "de": "Bei Globus sind unsere Mitarbeitenden der Schlüssel zum Erfolg, besonders diejenigen, die den letzten Eindruck bei unseren Kunden hinterlassen. Du bist das finale, strahlende Lächeln unserer Marke und sorgst dafür, dass jede:r Kund:in unseren Laden mit einem positiven Gefühl verlässt und gerne zurückkommt. Für unsere Filiale Basel suchen wir genau dich – eine engagierte Persönlichkeit, die mit Leidenschaft und Engagement unseren Kunden ein erstklassiges Erlebnis bietet. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\nDAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten, ist für dich völlig okay.\nBENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Basel .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\nDein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
-        "fr": "Chez Globus, nos employés sont la clé du succès, surtout ceux qui laissent la dernière impression sur nos clients. Vous êtes le sourire final et radieux de notre marque et assurez-vous que tout le monde:r Kund: quitte notre magasin avec un sentiment positif et aime revenir. Pour notre succursale de Bâle, nous vous recherchons – une personnalité engagée qui offre à nos clients une expérience de première classe avec passion et engagement. Ici vous faites la différence\n\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n\n• Vous êtes conjointement responsable de la fraîcheur et de la qualité de nos produits de haute qualité.\n\n• Vous veillez au strict respect des lois et règlements d'hygiène légale et opérationnelle.\n\n• Avec votre charisme positif et votre passion pour notre *delicatessa, vous contribuez de manière décisive au succès de l'entreprise.\nÇa vous attire.\n\n• Vous êtes un hôte passionné : un vendeur passionné et de haute qualité vous fascine.\n\n• Vous avez des manières parfaites et une apparence élégante.\n\n• Vous avez une excellente connaissance de l'allemand et de l'une ou l'autre langue étrangère.\n\n• Travailler le samedi, c'est parfait pour toi.\nAVANTAGES POUR VOUS\nAvec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue.\n\nEn outre, attendez avec impatience :\n• Un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Bâle.\n\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n\n• Beaucoup plus...\nVotre contact\nNous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\". Pour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/\nJe suis heureux d'être là pour toi.\n\nPS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus :\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
+        "it": "Con grande attenzione ai dettagli, i nostri dipendenti fanno di GLOBUS il principale indirizzo premium e di lusso in Svizzera. Sono persone come te che fanno la differenza e portano il posto che amiamo per vivere insieme a noi. Qui fai la differenza\n\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n\n• Grazie al vostro servizio eccellente e consulenza individuale, è possibile garantire esperienze di shopping uniche.\n\n• Voi siete responsabili della freschezza e della qualità dei nostri prodotti di alta qualità.\n\n• Garantisci un rigoroso rispetto delle leggi e delle normative igieniche legali e operative.\n\n• Con il vostro carisma positivo e la vostra passione per la nostra *delicatessa contribuite in modo decisivo al successo dell’azienda.\nQuesto ti tira fuori\n\n• Sei un ospite appassionato: una persona di vendita con passione e cibo di alta qualità ti affascina.\n\n• Si portano diversi anni di esperienza professionale nel settore alimentare, un apprendistato completato nel commercio al dettaglio è un vantaggio, ma non un must.\n\n• Hai buone maniere e un aspetto elegante.\n\n• Hai una conoscenza eccellente del tedesco e anche una o l'altra lingua straniera.\n\n• Lavorare il sabato e avere tempo libero in un altro giorno della settimana è completamente ok per voi.\nPERSONE\nInsieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione.\n\nInoltre, non vedo l'ora di:\n• un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Lucerna.\n\n• Premi basati sui benefici e benefici sociali interessanti.\n\n• Modelli di tempo di lavoro flessibili e almeno 5 settimane vacanze (PS: Si ottiene più tempo libero grazie all'opzione \"vacanza non pagata\" - da 7 a 365 giorni).\n\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n\n• Molto di più...\nIl tuo contatto\nAttendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/\nSono felice di esserci per te.\n\nPS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Nota per i reclutatori: Sono considerate solo le domande dirette.)",
+        "en": "With great attention to detail, our employees make GLOBUS the leading premium and luxury address in Switzerland. It is people like you who make the difference and bring the place we love to be to life together with us. Here you make the difference\n\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n\n• Thanks to your excellent service and individual advice, you can ensure unique shopping experiences.\n\n• You are jointly responsible for the freshness and quality of our high-quality products.\n\n• You ensure strict compliance with the legal and operational hygiene laws and regulations.\n\n• With your positive charisma and your passion for our *delicatessa you contribute decisively to the company’s success.\nThat draws you out\n\n• You are a passionate host: a sales person with passion and high-quality food fascinates you.\n\n• You bring several years of professional experience in the food sector, a completed apprenticeship in the retail trade is an advantage, but not a must.\n\n• You have perfect manners and a stylish appearance.\n\n• You have excellent knowledge of German and also one or the other foreign language.\n\n• Working on Saturdays and having time off on another weekday is completely okay for you.\nBENEFITS FOR YOU\nTogether with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education.\n\nAlso, look forward to:\n• an exceptional working environment with flat hierarchies in the heart of Lucerne.\n\n• Benefit-based premiums and attractive social benefits.\n\n• Flexible working time models and at least 5 weeks holidays (PS: You get more free time thanks to the option \"unpaid holiday\" - from 7 to 365 days).\n\n• up to 50% discount on products from the globe world for you and your family.\n\n• Much more...\nYour contact\nWe look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/\nI'm happy to be there for you.\n\nPS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note for recruiters: Only direct applications are considered.)",
+        "de": "Mit viel Liebe zum Detail machen unsere Mitarbeiter:innen GLOBUS zur führenden Premium- und Luxusadresse der Schweiz. Es sind Menschen wie du, die den Unterschied ausmachen und zusammen mit uns den «place we love to be» zum Leben erwecken. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Dank deines exzellenten Services und deiner individuellen Beratung stellst du einzigartige Einkaufserlebnisse sicher.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\nDAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du bringst mehrjährige Berufserfahrung im Lebensmittelbereich mit, eine abgeschlossene Berufslehre im Detailhandel ist von Vorteil, aber kein Muss.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten und dafür an einem anderen Wochentag frei zu haben, ist für dich völlig okay.\nBENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Luzern .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• flexible Arbeitszeitmodelle und mindestens 5 Wochen Ferien (PS: Mehr Freizeit bekommst du dank der Option \"unbezahlter Urlaub\" - und zwar von 7 bis 365 Tagen).\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\nDein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Avec une grande attention aux détails, nos collaborateurs font de GLOBUS la première adresse haut de gamme et de luxe en Suisse. Ce sont des gens comme vous qui font la différence et apportent l'endroit où nous aimons être à la vie ensemble avec nous. Ici vous faites la différence\n\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n\n• Grâce à votre excellent service et conseil individuel, vous pouvez vous assurer des expériences d'achat uniques.\n\n• Vous êtes conjointement responsable de la fraîcheur et de la qualité de nos produits de haute qualité.\n\n• Vous veillez au strict respect des lois et règlements d'hygiène légale et opérationnelle.\n\n• Avec votre charisme positif et votre passion pour notre *delicatessa, vous contribuez de manière décisive au succès de l'entreprise.\nÇa vous attire.\n\n• Vous êtes un hôte passionné : un vendeur passionné et de haute qualité vous fascine.\n\n• Vous apportez plusieurs années d'expérience professionnelle dans le secteur alimentaire, un apprentissage complet dans le commerce de détail est un avantage, mais pas un must.\n\n• Vous avez des manières parfaites et une apparence élégante.\n\n• Vous avez une excellente connaissance de l'allemand et de l'une ou l'autre langue étrangère.\n\n• Travailler le samedi et prendre un congé un autre jour de semaine vous convient parfaitement.\nAVANTAGES POUR VOUS\nAvec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue.\n\nEn outre, attendez avec impatience :\n• un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Lucerne.\n\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n\n• Modèles flexibles de temps de travail et au moins 5 semaines de vacances (PS: Vous obtenez plus de temps libre grâce à l'option \"vacances non payées\" - de 7 à 365 jours).\n\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n\n• Beaucoup plus...\nVotre contact\nNous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\". Pour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/\nJe suis heureux d'être là pour toi.\n\nPS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus :\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
       },
-      "location": "Basel",
-      "canton": "BS",
-      "url": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2490.html",
+      "location": "Luzern",
+      "canton": "LU",
+      "url": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-60-wmd-de-j2480.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.582Z",
-      "addressLocality": "Basel",
-      "streetAddress": "Marktplatz 2",
-      "postalCode": "4001",
-      "addressRegion": "Basel-Stadt",
+      "crawledAt": "2026-09-04T22:53:56.603Z",
+      "addressLocality": "Luzern",
+      "streetAddress": "Pilatusstrasse 4",
+      "postalCode": "6002",
+      "addressRegion": "Luzern",
       "addressCountry": "CH",
       "country": "CH",
       "category": "Commerciale",
@@ -656,40 +578,52 @@
       "sector": "Retail (department store / luxury)",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-08-07",
-      "applyUrl": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2490.html",
+      "postedDate": "2026-07-29",
+      "applyUrl": "https://jobs.globus.ch/Verkaufsberaterin-delicatessa-60-wmd-de-j2480.html",
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
-        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-m-w-d-globus-basel",
-        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-31-12-2026-w-m-d-globus"
+        "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
+        "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
+        "verkaufsberater-in-delicatessa-40-w-m-d-globus-ch",
+        "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern",
+        "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch",
+        "verkaufsberater-in-delicatessa-60-w-m-d-globus-ch",
+        "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-m-w-d-globus-basel",
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-31-12-2026-w-m-d-globus"
+          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-ch",
+          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
+          "verkaufsberater-in-delicatessa-40-w-m-d-globus-ch",
+          "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern",
+          "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch",
+          "verkaufsberater-in-delicatessa-60-w-m-d-globus-ch",
+          "consulente-commerciale-in-delicatessa-40-60-f-m-d-globus-luzern"
         ],
         "en": [
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus"
+          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern"
+        ],
+        "de": [
+          "verkaufsberater-in-delicatessa-80-w-m-d-globus-ch"
         ],
         "fr": [
-          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus"
+          "verkaufsberater-in-delicatessa-40-60-w-m-d-globus-luzern",
+          "verkaufsberater-in-delicatessa-80-w-m-d-globus-luzern"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-07T10:20:45.391Z",
-      "salaryMin": 14800,
-      "salaryMax": 22700,
+      "firstSeenAt": "2026-07-29T22:04:57.028Z",
+      "salaryMin": 47400,
+      "salaryMax": 72900,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 14800,
-          "maxValue": 22700,
+          "minValue": 47400,
+          "maxValue": 72900,
           "unitText": "YEAR"
         }
       }
@@ -725,7 +659,7 @@
       "url": "https://jobs.globus.ch/Mitarbeiterin-Warenservice-delicatessa-Grundnahrungsmittel-de-j2488.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.582Z",
+      "crawledAt": "2026-09-04T22:53:56.602Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -744,11 +678,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
+        "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w",
+        "collaboratore-trice-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-m-w-d-globus-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
+          "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w",
+          "collaboratore-trice-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-m-w-d-globus-basel"
         ],
         "en": [
           "mitarbeiter-in-warenservice-delicatessa-grundnahrungsmittel-40-befristet-bis-31-12-2026-w"
@@ -804,7 +740,7 @@
       "url": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Herrenmode-20-de-j2491.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.581Z",
+      "crawledAt": "2026-09-04T22:53:56.601Z",
       "addressLocality": "Basel",
       "streetAddress": "Marktplatz 2",
       "postalCode": "4001",
@@ -824,11 +760,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d"
+          "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d",
+          "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-w-m-d-globus-ch"
         ],
         "it": [
           "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-w-m-d-globus-ch",
-          "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d"
+          "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d",
+          "supporto-di-vendita-in-assegnazioni-di-sabato-nell-area-del-menswear-20-f-m-d-globus-basel"
         ],
         "en": [
           "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-w-m-d-globus-ch"
@@ -839,10 +777,96 @@
       },
       "previousSlugs": [
         "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-w-m-d-globus-ch",
-        "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d"
+        "sales-support-in-samstagseinsatze-im-bereich-herrenmode-20-befristet-bis-31-12-2026-w-m-d",
+        "supporto-di-vendita-in-assegnazioni-di-sabato-nell-area-del-menswear-20-f-m-d-globus-basel"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:20:45.389Z",
+      "salaryMin": 14800,
+      "salaryMax": 22700,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 14800,
+          "maxValue": 22700,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "globus-f1be2e41072b",
+      "slug": "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel",
+      "slugByLocale": {
+        "it": "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel",
+        "en": "sales-support-in-saturday-assignments-in-the-food-sector-20-temporary-until-30-04-2027-f-m-d-globus-basel",
+        "de": "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
+        "fr": "soutien-aux-ventes-dans-les-missions-du-samedi-dans-le-secteur-alimentaire-20-temporaire-jusqu-au-30-04-2027-f-m-d"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Sales Support:in Samstagseinsätze im Bereich Food 20% - befristet bis 31.12.2026 (w/m/d)",
+      "titleByLocale": {
+        "it": "Supporto di vendita: in assegnazioni di sabato nel settore alimentare 20% - temporaneo fino a 30.04.2027 (f/m/d)",
+        "en": "Sales Support: in Saturday assignments in the food sector 20% - temporary until 30.04.2027 (f/m/d)",
+        "de": "Sales Support:in Samstagseinsätze im Bereich Food 20% - befristet bis 31.12.2026 (w/m/d)",
+        "fr": "Soutien aux ventes : dans les missions du samedi dans le secteur alimentaire 20% - temporaire jusqu'au 30.04.2027 (f/m/d)"
+      },
+      "description": "Bei Globus sind unsere Mitarbeitenden der Schlüssel zum Erfolg, besonders diejenigen, die den letzten Eindruck bei unseren Kunden hinterlassen. Du bist das finale, strahlende Lächeln unserer Marke und sorgst dafür, dass jede:r Kund:in unseren Laden mit einem positiven Gefühl verlässt und gerne zurückkommt. Für unsere Filiale Basel suchen wir genau dich – eine engagierte Persönlichkeit, die mit Leidenschaft und Engagement unseren Kunden ein erstklassiges Erlebnis bietet. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\n DAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten, ist für dich völlig okay.\n BENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Basel .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\n Dein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+      "descriptionByLocale": {
+        "it": "A Globus, i nostri dipendenti sono la chiave per il successo, soprattutto quelli che lasciano l'ultima impressione sui nostri clienti. Sei il sorriso finale e raggiante del nostro marchio e assicurati che tutti:r Kund: lasci il nostro negozio con una sensazione positiva e piace tornare. Per il nostro ramo di Basilea, siamo alla ricerca di voi – una personalità impegnata che offre ai nostri clienti un'esperienza di prima classe con passione e impegno. Qui fai la differenza\n\n• Come ospite, si assicura che i nostri clienti si sentono benvenuti e accolti come ospiti.\n\n• Voi siete responsabili della freschezza e della qualità dei nostri prodotti di alta qualità.\n\n• Garantisci un rigoroso rispetto delle leggi e delle normative igieniche legali e operative.\n\n• Con il vostro carisma positivo e la vostra passione per la nostra *delicatessa contribuite in modo decisivo al successo dell’azienda.\nQuesto ti tira fuori\n\n• Sei un ospite appassionato: una persona di vendita con passione e cibo di alta qualità ti affascina.\n\n• Hai buone maniere e un aspetto elegante.\n\n• Hai una conoscenza eccellente del tedesco e anche una o l'altra lingua straniera.\n\n• Lavorare il sabato va tutto bene per te.\nPERSONE\nInsieme a circa 1.700 altri amanti del dettaglio, siete una parte importante del nostro affascinante mondo premium e di lusso. Vivi un vero apprezzamento, lavori in una grande squadra e ci fidiamo di te in modo da poter usare lo spazio e fare la differenza con le tue abilità. Se si capisce il vostro mestiere e portare una grande porzione di passione, allora molte porte di carriera sono aperte a voi. Siamo lieti di sostenervi con formazione interna ma anche esterna e ulteriore istruzione.\n\nInoltre, non vedo l'ora di:\n• Un ambiente di lavoro eccezionale con gerarchie piatte nel cuore di Basilea.\n\n• Premi basati sui benefici e benefici sociali interessanti.\n\n• fino al 50% di sconto sui prodotti del mondo mondiale per voi e la vostra famiglia.\n\n• Molto di più...\nIl tuo contatto\nAttendiamo con ansia la vostra applicazione online. E' molto semplice. Invece di una lettera di motivazione, siamo ansiosi per le vostre risposte alle nostre tre domande - basta seguire il link qui sotto \"Applica ora!\". Per ulteriori informazioni sulle origini su GLOBUS e maggiori informazioni, clicca qui: https://karriere.globus.ch/\nSono felice di esserci per te.\n\nPS: Curioso sulla vera sensazione di GLOBUS? Fare clic su e afferrare le informazioni insider direttamente dalla fonte su Linked Nella vita. Tra le foto, i video e le storie dei dipendenti senza fine, scoprirete cosa ci guida davvero. Dare per saperne di più:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Nota per i reclutatori: Sono considerate solo le domande dirette.)",
+        "en": "At Globus, our employees are the key to success, especially those who leave the last impression on our customers. You are the final, radiant smile of our brand and make sure that everyone:r Kund: leaves our store with a positive feeling and likes to come back. For our branch in Basel, we are looking for you – a committed personality who offers our customers a first-class experience with passion and commitment. Here you make the difference\n\n• As a host, you ensure that our customers feel welcome and welcomed as guests.\n\n• You are jointly responsible for the freshness and quality of our high-quality products.\n\n• You ensure strict compliance with the legal and operational hygiene laws and regulations.\n\n• With your positive charisma and your passion for our *delicatessa you contribute decisively to the company’s success.\nThat draws you out\n\n• You are a passionate host: a sales person with passion and high-quality food fascinates you.\n\n• You have perfect manners and a stylish appearance.\n\n• You have excellent knowledge of German and also one or the other foreign language.\n\n• Working on Saturdays is totally okay for you.\nBENEFITS FOR YOU\nTogether with around 1,700 other detail lovers, you are an important part of our fascinating premium and luxury world. You experience real appreciation, work in a great team and we trust you so that you can use space and make a difference with your skills. If you understand your craft and bring a large portion of passion, then many career doors are open to you. We are happy to support you with internal but also external training and further education.\n\nAlso, look forward to:\n• An exceptional working environment with flat hierarchies in the heart of Basel.\n\n• Benefit-based premiums and attractive social benefits.\n\n• up to 50% discount on products from the globe world for you and your family.\n\n• Much more...\nYour contact\nWe look forward to your online application. It's very straightforward. Instead of a letter of motivation, we are eager for your answers to our three questions - just follow the link below \"Apply now!\". For more behind-the-scenes insights on GLOBUS and more information, click here: https://karriere.globus.ch/\nI'm happy to be there for you.\n\nPS: Curious about the real GLOBUS feeling? Click in and grab insider information directly from the source on LinkedIn Life. Between photos, videos and unvarnished employee stories, you will discover what really drives us. Dare to know more:\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note for recruiters: Only direct applications are considered.)",
+        "de": "Bei Globus sind unsere Mitarbeitenden der Schlüssel zum Erfolg, besonders diejenigen, die den letzten Eindruck bei unseren Kunden hinterlassen. Du bist das finale, strahlende Lächeln unserer Marke und sorgst dafür, dass jede:r Kund:in unseren Laden mit einem positiven Gefühl verlässt und gerne zurückkommt. Für unsere Filiale Basel suchen wir genau dich – eine engagierte Persönlichkeit, die mit Leidenschaft und Engagement unseren Kunden ein erstklassiges Erlebnis bietet. HIER MACHST DU DEN UNTERSCHIED\n\n• Als Gastgeber:in sorgst du dafür, dass sich unsere Kund:innen als Gäste willkommen und aufgehoben fühlen.\n\n• Du bist mitverantwortlich für die Frische und Qualität unserer hochwertigen Produkte.\n\n• Du sorgst für die strikte Einhaltung der gesetzlichen und betrieblichen Hygienerechtlinien sowie Vorschriften.\n\n• Mit deiner positiven Ausstrahlung und deiner Leidenschaft für unsere *delicatessa trägst du entscheidend zum Unternehmenserfolg bei.\nDAS ZEICHNET DICH AUS\n\n• Du bist leidenschaftlich gern Gastgeber:in, eine Verkaufspersönlichkeit mit Passion und qualitativ hochwertige Lebensmittel faszinieren dich.\n\n• Du hast einwandfreie Umgangsformen und ein stilvolles Auftreten.\n\n• Du verfügst über ausgezeichnete Deutschkenntnisse und gerne auch die eine oder andere Fremdsprache dazu.\n\n• Samstags zu arbeiten, ist für dich völlig okay.\nBENEFITS FÜR DICH\nZusammen mit rund 1700 anderen Detailverliebten bist du ein wichtiger Teil unserer faszinierenden Premium- und Luxuswelt. Du erlebst echte Wertschätzung, arbeitest in einem tollen Team und wir schenken dir Vertrauen, damit du Freiräume nutzen und mit deinem Können den Unterschied ausmachen kannst. Wenn du dein Handwerk verstehst und eine grosse Portion Herzblut mitbringst, dann stehen dir viele Karrieretüren offen. Wir unterstützen dich gerne bei internen aber auch externen Aus- und Weiterbildungen.\n\nFreue dich ausserdem auf:\n• ein aussergewöhnliches Arbeitsumfeld mit flachen Hierarchien im Herzen von Basel .\n\n• leistungsabhängige Prämien und attraktive Sozialleistungen .\n\n• bis zu 50% Rabatt auf Produkte aus der Globus Welt für dich und deine Familie.\n\n• vieles mehr...\nDein Kontakt\nWir freuen uns auf deine Onlinebewerbung. Das geht ganz unkompliziert. Statt eines Motivationsschreibens sind wir gespannt auf deine Antworten zu unseren drei Fragen - folge einfach dem untenstehenden Link \"Jetzt bewerben!\". Weitere Einblicke hinter die Kulissen von GLOBUS sowie weitere Informationen findest du hier: https://karriere.globus.ch/\nIch bin gerne für dich da.\n\nPS: Neugierig auf das echte GLOBUS-Feeling? Klick dich rein und schnapp dir Insider-Infos direkt von der Quelle auf LinkedIn Life. Zwischen Fotos, Videos und ungeschminkten Mitarbeiterstories entdeckst du, was uns wirklich antreibt. Trau dich, mehr zu erfahren:\n\nLinkedIn Life (Deutsch): https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Hinweis für Personalvermittler: Es werden ausschliesslich Direktbewerbungen berücksichtigt.)",
+        "fr": "Chez Globus, nos employés sont la clé du succès, surtout ceux qui laissent la dernière impression sur nos clients. Vous êtes le sourire final et radieux de notre marque et assurez-vous que tout le monde:r Kund: quitte notre magasin avec un sentiment positif et aime revenir. Pour notre succursale de Bâle, nous vous recherchons – une personnalité engagée qui offre à nos clients une expérience de première classe avec passion et engagement. Ici vous faites la différence\n\n• En tant qu'hôte, vous veillez à ce que nos clients se sentent accueillis et accueillis en tant qu'invités.\n\n• Vous êtes conjointement responsable de la fraîcheur et de la qualité de nos produits de haute qualité.\n\n• Vous veillez au strict respect des lois et règlements d'hygiène légale et opérationnelle.\n\n• Avec votre charisme positif et votre passion pour notre *delicatessa, vous contribuez de manière décisive au succès de l'entreprise.\nÇa vous attire.\n\n• Vous êtes un hôte passionné : un vendeur passionné et de haute qualité vous fascine.\n\n• Vous avez des manières parfaites et une apparence élégante.\n\n• Vous avez une excellente connaissance de l'allemand et de l'une ou l'autre langue étrangère.\n\n• Travailler le samedi, c'est parfait pour toi.\nAVANTAGES POUR VOUS\nAvec environ 1700 autres amateurs de détail, vous êtes une partie importante de notre monde de luxe et de luxe fascinant. Vous éprouvez une réelle appréciation, travaillez dans une grande équipe et nous vous faisons confiance afin que vous puissiez utiliser l'espace et faire une différence avec vos compétences. Si vous comprenez votre métier et apportez une grande partie de la passion, alors de nombreuses portes de carrière vous sont ouvertes. Nous sommes heureux de vous soutenir avec la formation interne mais aussi externe et la formation continue.\n\nEn outre, attendez avec impatience :\n• Un environnement de travail exceptionnel avec des hiérarchies plates au cœur de Bâle.\n\n• Primes fondées sur les prestations et avantages sociaux attrayants.\n\n• jusqu'à 50% de réduction sur les produits du monde entier pour vous et votre famille.\n\n• Beaucoup plus...\nVotre contact\nNous nous réjouissons de votre candidature en ligne. C'est très simple. Au lieu d'une lettre de motivation, nous sommes impatients de répondre à nos trois questions - il suffit de suivre le lien ci-dessous \"Appliquez maintenant!\". Pour plus d'informations sur GLOBUS et plus d'informations, cliquez ici: https://karriere.globus.ch/\nJe suis heureux d'être là pour toi.\n\nPS : Curieuse au sujet du vrai sentiment GLOBUS ? Cliquez dans et saisir les informations d'initié directement à partir de la source sur Linked Dans la vie. Entre photos, vidéos et histoires d'employés non vernies, vous découvrirez ce qui nous motive vraiment. Osez en savoir plus :\n\nLinkedIn Life: https://www.linkedin.com/company/grands-magasins-globus-sa/life/linkedinlife/?viewAsMember=true\n\n(Note pour les recruteurs : Seules les demandes directes sont prises en considération.)"
+      },
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2490.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-04T22:53:56.601Z",
+      "addressLocality": "Basel",
+      "streetAddress": "Marktplatz 2",
+      "postalCode": "4001",
+      "addressRegion": "Basel-Stadt",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Commerciale",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-07",
+      "applyUrl": "https://jobs.globus.ch/Sales-Supportin-Samstagseinsaetze-im-Bereich-Food-20-befri-de-j2490.html",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
+        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-m-w-d-globus-basel",
+        "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-31-12-2026-w-m-d-globus",
+        "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus",
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-m-w-d-globus-basel",
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-31-12-2026-w-m-d-globus",
+          "supporto-di-vendita-in-assegnazioni-di-sabato-nel-settore-alimentare-20-temporaneo-fino-a-30-04-2027-f-m-d-globus-basel"
+        ],
+        "en": [
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus"
+        ],
+        "fr": [
+          "sales-support-in-samstagseinsatze-im-bereich-food-20-befristet-bis-30-04-2027-w-m-d-globus"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-07T10:20:45.391Z",
       "salaryMin": 14800,
       "salaryMax": 22700,
       "salarySource": "estimated",
@@ -888,7 +912,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-Confection-Dames-fr-j2492.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.580Z",
+      "crawledAt": "2026-09-04T22:53:56.600Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -907,11 +931,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-ere-de-vente-a-80-pour-notre-confection-dames-globus-ch"
+        "conseiller-ere-de-vente-a-80-pour-notre-confection-dames-globus-ch",
+        "consulente-di-vendita-80-per-il-nostro-design-femminile-globus-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-de-vente-a-80-pour-notre-confection-dames-globus-ch"
+          "conseiller-ere-de-vente-a-80-pour-notre-confection-dames-globus-ch",
+          "consulente-di-vendita-80-per-il-nostro-design-femminile-globus-geneve"
         ],
         "en": [
           "conseiller-ere-de-vente-a-80-pour-notre-confection-dames-globus-ch"
@@ -966,7 +992,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-produits-frais-d-fr-j2493.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.579Z",
+      "crawledAt": "2026-09-04T22:53:56.599Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -986,12 +1012,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch",
-        "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus"
+        "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus",
+        "consulente-di-vendita-ai-settori-di-prodotti-freschi-della-nostra-delicatessa-all-80-globus-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch",
-          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus"
+          "conseiller-ere-de-vente-a-80-pour-notre-rayon-produits-frais-de-notre-delicatessa-globus",
+          "consulente-di-vendita-ai-settori-di-prodotti-freschi-della-nostra-delicatessa-all-80-globus-geneve"
         ],
         "en": [
           "conseiller-ere-de-vente-aux-secteurs-produits-frais-de-notre-delicatessa-a-80-globus-ch"
@@ -1049,7 +1077,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Polydesigner-in-3D-EFZ-de-j2494.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.577Z",
+      "crawledAt": "2026-09-04T22:53:56.598Z",
       "addressLocality": "St. Gallen",
       "streetAddress": "Multergasse 47",
       "postalCode": "9001",
@@ -1069,12 +1097,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2",
-        "lehrstelle-als-polydesigner-in-3d-efz-globus-ch"
+        "lehrstelle-als-polydesigner-in-3d-efz-globus-ch",
+        "apprendistato-come-polydesigner-in-3d-cfc-globus-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2",
-          "lehrstelle-als-polydesigner-in-3d-efz-globus-ch"
+          "lehrstelle-als-polydesigner-in-3d-efz-globus-ch",
+          "apprendistato-come-polydesigner-in-3d-cfc-globus-st-gallen"
         ],
         "en": [
           "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2"
@@ -1130,7 +1160,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Damenmode-de-j2495.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.576Z",
+      "crawledAt": "2026-09-04T22:53:56.597Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -1149,11 +1179,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-damenmode-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-damenmode-globus-wallisellen"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-damenmode-globus-ch"
@@ -1208,7 +1240,7 @@
       "url": "https://jobs.globus.ch/Lehrstelle-als-Detailhandelsfachfrau-mann-EFZ-Lebensmittel-de-j2496.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.562Z",
+      "crawledAt": "2026-09-04T22:53:56.584Z",
       "addressLocality": "Wallisellen",
       "streetAddress": "Neue Winterthurerstrasse 99",
       "postalCode": "8304",
@@ -1228,12 +1260,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch-2",
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+        "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch-2",
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-globus-ch",
+          "apprendistato-come-impiegato-a-del-commercio-al-dettaglio-cfc-alimentari-globus-wallisellen"
         ]
       },
       "firstSeenAt": "2026-08-14T10:15:17.797Z",
@@ -1282,7 +1316,7 @@
       "url": "https://jobs.globus.ch/SommelierCaviste-100-fr-j2502.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.545Z",
+      "crawledAt": "2026-09-04T22:53:56.569Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1346,7 +1380,7 @@
       "url": "https://jobs.globus.ch/Hte-sse-de-caisse-80-pour-notre-picerie-fine-delicatessa-e-fr-j2505.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.543Z",
+      "crawledAt": "2026-09-04T22:53:56.568Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1364,6 +1398,22 @@
       "applyUrl": "https://jobs.globus.ch/Hte-sse-de-caisse-80-pour-notre-picerie-fine-delicatessa-e-fr-j2505.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier",
+        "check-in-dell-80-per-la-nostra-buona-spesa-delicatesa-in-cdd-fino-al-16-gennaio-2027-globus-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier",
+          "check-in-dell-80-per-la-nostra-buona-spesa-delicatesa-in-cdd-fino-al-16-gennaio-2027-globus-geneve"
+        ],
+        "en": [
+          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
+        ],
+        "de": [
+          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
+        ]
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:31:50.603Z",
       "salaryMin": 48400,
@@ -1378,21 +1428,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
-        ],
-        "en": [
-          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
-        ],
-        "de": [
-          "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
-        ]
-      },
-      "previousSlugs": [
-        "hote-sse-de-caisse-a-80-pour-notre-epicerie-fine-delicatessa-en-cdd-jusqu-au-16-janvier"
-      ]
+      }
     },
     {
       "id": "globus-41a61fecde77",
@@ -1425,7 +1461,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-100-pour-nos-rayons-Boucherie-Charcu-fr-j2506.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.541Z",
+      "crawledAt": "2026-09-04T22:53:56.567Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1490,7 +1526,7 @@
       "url": "https://jobs.globus.ch/Sales-Support-fuer-Einsaetze-im-Food-Bereich-20-vorwiegend-de-j2507.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-04T13:25:07.540Z",
+      "crawledAt": "2026-09-04T22:53:56.565Z",
       "addressLocality": "Zürich Bahnhofstrasse",
       "streetAddress": "Schweizergasse 11",
       "postalCode": "8001",
@@ -1563,7 +1599,7 @@
       "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-Confection-Hommes-en-C-fr-j2508.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.535Z",
+      "crawledAt": "2026-09-04T22:53:56.561Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1601,34 +1637,34 @@
       "id": "globus-7cd45632488b",
       "slug": "servizio-clienti-collaboratore-20-sabato-globus-geneve",
       "slugByLocale": {
-        "fr": "collaborateur-rice-service-clients-20-samedi-globus-ch",
         "it": "servizio-clienti-collaboratore-20-sabato-globus-geneve",
         "en": "collaborator-customer-service-20-saturday-globus-geneve",
-        "de": "collaborator-customer-service-20-samstag-globus-geneve"
+        "de": "collaborator-customer-service-20-samstag-globus-geneve",
+        "fr": "collaborateur-rice-service-clients-20-samedi-globus-ch"
       },
       "company": "Globus",
       "companyKey": "globus",
       "companyDomain": "globus.ch",
       "title": "Collaborateur/rice Service Clients (20% - samedi)",
       "titleByLocale": {
-        "fr": "Collaborateur/rice Service Clients (20% - samedi)",
         "it": "Servizio Clienti Collaboratore (20% - sabato)",
         "en": "Collaborator Customer Service (20% - Saturday)",
-        "de": "Collaborator Customer Service (20% - Samstag)"
+        "de": "Collaborator Customer Service (20% - Samstag)",
+        "fr": "Collaborateur/rice Service Clients (20% - samedi)"
       },
       "description": "C'est avec une grande passion et l’amour du détail que nos collaboratrices et collaborateurs font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nC'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Assurer l’accueil et la satisfaction de notre clientèle en appliquant nos principes d’excellence\n\n• Répondre aux demandes de nos clients en magasin ainsi que celles faites par téléphone\n\n• Traiter les requêtes spéciales ainsi que les réclamations clients\n\n• Traitement des réclamations et des retours de marchandises\n CE QUI VOUS DISTINGUE\n\n• Vous êtes actuellement en formation de niveau supérieur (type Bachelor EHL ou diplôme HES) et avez une expérience au sein d'une réception ou d'un service de conciergerie dans un établissement de luxe.\n\n• Vous pouvez justifier de bonnes aptitudes en gestion administrative (orthographe irréprochable).\n\n• Vous avez un excellent relationnel, une très bonne présentation et proposez un service à la clientèle d'excellente qualité.\n\n• Vous pouvez faire face à une charge de travail importante, faites preuve de flexibilité et polyvalence. Votre esprit d'équipe vous permet de collaborer avec les différents secteurs.\n\n• D'excellentes connaissances de français et d'anglais (oral et écrit) sont exigées. Toute autre langue parlée constitue un atout important.\n AVANTAGES POUR VOUS\n Avec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n Vous pouvez également profiter des avantages suivants :\n- un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n- des prestations sociales attrayantes.\n- des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n - jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n- et bien plus encore...\n Votre contact\n Nous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n Votre contact pour ce poste:\nGLOBUS\nCédric Martin\nHR Business Partner\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
       "descriptionByLocale": {
-        "fr": "C'est avec une grande passion et l’amour du détail que nos collaboratrices et collaborateurs font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nC'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Assurer l’accueil et la satisfaction de notre clientèle en appliquant nos principes d’excellence\n\n• Répondre aux demandes de nos clients en magasin ainsi que celles faites par téléphone\n\n• Traiter les requêtes spéciales ainsi que les réclamations clients\n\n• Traitement des réclamations et des retours de marchandises\nCE QUI VOUS DISTINGUE\n\n• Vous êtes actuellement en formation de niveau supérieur (type Bachelor EHL ou diplôme HES) et avez une expérience au sein d'une réception ou d'un service de conciergerie dans un établissement de luxe.\n\n• Vous pouvez justifier de bonnes aptitudes en gestion administrative (orthographe irréprochable).\n\n• Vous avez un excellent relationnel, une très bonne présentation et proposez un service à la clientèle d'excellente qualité.\n\n• Vous pouvez faire face à une charge de travail importante, faites preuve de flexibilité et polyvalence. Votre esprit d'équipe vous permet de collaborer avec les différents secteurs.\n\n• D'excellentes connaissances de français et d'anglais (oral et écrit) sont exigées. Toute autre langue parlée constitue un atout important.\nAVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\nVous pouvez également profiter des avantages suivants :\n- un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n- des prestations sociales attrayantes.\n- des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n- jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n- et bien plus encore...\nVotre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\nVotre contact pour ce poste:\nGLOBUS\nCédric Martin\nHR Business Partner\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
-        "it": "È con grande passione e amore per i dettagli che i nostri collaboratori fanno di GLOBUS il primo indirizzo del Swiss Luxury and Premium. Sono persone come te che fanno la differenza e che, con noi, danno senso al \"luogo che amiamo essere\".\n\nE' quello che stai facendo.\n\n• Garantire soddisfazione e ospitalità dei clienti applicando i nostri principi di eccellenza\n\n• Rispondere alle richieste dei nostri clienti in-store così come quelli fatti per telefono\n\n• Elaborare richieste speciali e reclami dei clienti\n\n• Trattamento dei reclami e dei rendimenti delle merci\n Che cosa significa\n\n• Siete attualmente in istruzione superiore (tipo BAchelor EHL o HES) e hanno esperienza in una reception o servizio di concierge in uno stabilimento di lusso.\n\n• È possibile giustificare buone capacità di gestione amministrativa (ortografia impeccabile).\n\n• Hai un rapporto eccellente, una presentazione molto buona e offrire un servizio clienti di ottima qualità.\n\n• È possibile far fronte a un grande carico di lavoro, essere flessibile e versatile. Il tuo spirito di squadra ti permette di collaborare con diversi settori.\n\n• È richiesta un'ottima conoscenza dell'inglese e del francese (orale e scritto). Qualsiasi altra lingua parlata è un bene importante.\n PERSONE\n Con oltre 1.700 altri appassionati di vendita al dettaglio, sei parte integrante del nostro affascinante mondo high-end e lusso. Siete riconosciuti e apprezzati, lavorate con un team emozionante e motivato e vi diamo la nostra fiducia in modo da poter godere del tempo libero e fare la differenza con il vostro know-how. Se sei un esperto nella tua professione e stai mettendo il tuo cuore in esso, molte porte si apriranno per sviluppare la tua carriera. Vi supporteremo volentieri nelle vostre formazioni interne ed esterne.\n Puoi anche godere dei seguenti vantaggi:\n- un ambiente di lavoro eccezionale con una gerarchia orizzontale nel centro della città.\n- benefici sociali attraenti.\n- modelli di lavoro flessibili e almeno 5 settimane di vacanza (PS: Si può godere di più tempo libero grazie all'opzione \"partita non pagata\" - da 7 a 180 giorni).\n - fino al 50% di sconto sui prodotti dell'universo Globus per voi e la vostra famiglia.\n- E molto altro...\n Il tuo contatto\n Non vediamo l'ora di ricevere la vostra applicazione online. E' molto semplice. Invece di una lettera di presentazione, non vediamo l'ora di rispondere alle nostre tre domande - si prega di utilizzare il link fornito nell'annuncio a questo effetto.\n\nSiamo a vostra disposizione.\n Il tuo contatto per questa posizione:\nGLOBALE\nCédric Martin\nHR Business Partner\n\nInformazioni per le agenzie di lavoro: Saranno prese in considerazione solo le domande dirette.",
-        "en": "It is with a great passion and love of detail that our collaborators make GLOBUS the first address of the Swiss Luxury and Premium. They are people like you who make the difference and who, with us, give meaning to \"the place we love to be\".\n\nThat's what you're doing.\n\n• Ensuring customer satisfaction and hospitality by applying our principles of excellence\n\n• Respond to requests from our in-store customers as well as those made by phone\n\n• Process special requests and client claims\n\n• Treatment of claims and returns of goods\n WHAT DISTINCE YOU\n\n• You are currently in higher education (Bachelor EHL type or HES degree) and have experience at a reception or concierge service in a luxury establishment.\n\n• You can justify good administrative management skills (impeccable spelling).\n\n• You have an excellent relationship, a very good presentation and offer excellent quality customer service.\n\n• You can cope with a large workload, be flexible and versatile. Your team spirit allows you to collaborate with different sectors.\n\n• Excellent knowledge of English and French (oral and written) is required. Any other spoken language is an important asset.\n BENEFITS FOR YOU\n With more than 1,700 other retail enthusiasts, you are an integral part of our fascinating high-end and luxury world. You are recognized and valued, you work with an exciting and motivated team and we give you our confidence so that you can enjoy free time and make a difference with your know-how. If you're an expert in your profession and you're putting your heart into it, many doors will open to develop your career. We will gladly support you in your internal and external trainings.\n You can also enjoy the following benefits:\n- an exceptional working environment with a horizontal hierarchy in the city centre.\n- attractive social benefits.\n- flexible work models and at least 5 weeks of vacation (PS: You can enjoy more free time thanks to the option \"unpaid leave\" - from 7 to 180 days).\n - up to 50% discount on Globus universe products for you and your family.\n- And much more...\n Your contact\n We look forward to receiving your application online. It's very simple. Instead of a cover letter, we look forward to your answers to our three questions - please use the link provided in the announcement to this effect.\n\nWe are at your disposal.\n Your contact for this position:\nGLOBUS\nCédric Martin\nHR Business Partner\n\nInformation for employment agencies: Only direct applications will be considered.",
-        "de": "Mit großer Leidenschaft und Liebe zum Detail machen unsere Mitarbeiter GLOBUS zur ersten Adresse des Swiss Luxury and Premium. Sie sind Menschen wie Sie, die den Unterschied machen und mit uns dem \"Ort, an dem wir gerne sind\" einen Sinn geben.\n\nDas ist es, was du tust.\n\n• Sicherstellung der Kundenzufriedenheit und Gastfreundschaft durch Anwendung unserer Exzellenzprinzipien\n\n• Reagieren Sie auf Anfragen unserer In-Store-Kunden sowie auf telefonische Anfragen\n\n• Sonderanfragen bearbeiten und Kundenansprüche\n\n• Behandlung von Forderungen und Rücksendungen von Waren\n WAS UNTERLIEGEN SIE\n\n• Sie sind derzeit in der Hochschule (Bachelor EHL Typ oder HES-Abschluss) und haben Erfahrung an einer Rezeption oder Concierge-Service in einer Luxus-Einrichtung.\n\n• Sie können gute administrative Managementfähigkeiten (unzulässige Rechtschreibung) rechtfertigen.\n\n• Sie haben eine ausgezeichnete Beziehung, eine sehr gute Präsentation und bieten einen exzellenten Kundenservice.\n\n• Sie können mit einer großen Arbeitsbelastung umgehen, flexibel und vielseitig sein. Ihr Teamgeist ermöglicht es Ihnen, mit verschiedenen Sektoren zusammenzuarbeiten.\n\n• Hervorragende Englisch- und Französischkenntnisse (mündlich und schriftlich) sind erforderlich. Jede andere gesprochene Sprache ist ein wichtiges Gut.\n Vorteile für Sie\n Mit mehr als 1.700 anderen Einzelhandelsbegeisterten sind Sie ein integraler Bestandteil unserer faszinierenden High-End- und Luxuswelt. Sie werden anerkannt und geschätzt, arbeiten mit einem spannenden und motivierten Team zusammen und wir geben Ihnen unser Vertrauen, damit Sie die Freizeit genießen und mit Ihrem Know-how etwas bewegen können. Wenn Sie ein Experte in Ihrem Beruf sind und Ihr Herz in ihn stecken, werden sich viele Türen öffnen, um Ihre Karriere zu entwickeln. Gerne unterstützen wir Sie bei Ihren internen und externen Schulungen.\n Sie können auch die folgenden Vorteile genießen:\n- ein außergewöhnliches Arbeitsumfeld mit einer horizontalen Hierarchie im Stadtzentrum.\n- attraktive Sozialleistungen.\n- Flexible Arbeitsmodelle und mindestens 5 Wochen Urlaub (PS: Sie können dank der Option \"unbezahlter Urlaub\" mehr Freizeit genießen - von 7 bis 180 Tagen).\n - Bis zu 50% Rabatt auf Globus Universe Produkte für Sie und Ihre Familie.\n- Und noch viel mehr...\n Ihr Kontakt\n Wir freuen uns auf Ihre Bewerbung online. Es ist sehr einfach. Anstelle eines Anschreibens freuen wir uns auf Ihre Antworten auf unsere drei Fragen - nutzen Sie dazu bitte den in der Ankündigung angegebenen Link.\n\nWir stehen Ihnen zur Verfügung.\n Ihr Ansprechpartner für diese Position:\nGLOBUS\nCédric Martin\nHR Geschäftspartner\n\nInformationen für Arbeitsagenturen: Es werden nur Direktanträge berücksichtigt."
+        "it": "È con grande passione e amore per i dettagli che i nostri collaboratori fanno di GLOBUS il primo indirizzo del Swiss Luxury and Premium. Sono persone come te che fanno la differenza e che, con noi, danno senso al \"luogo che amiamo essere\".\n\nE' quello che stai facendo.\n\n• Garantire soddisfazione e ospitalità dei clienti applicando i nostri principi di eccellenza\n\n• Rispondere alle richieste dei nostri clienti in-store così come quelli fatti per telefono\n\n• Elaborare richieste speciali e reclami dei clienti\n\n• Trattamento dei reclami e dei rendimenti delle merci\nChe cosa significa\n\n• Siete attualmente in istruzione superiore (tipo BAchelor EHL o HES) e hanno esperienza in una reception o servizio di concierge in uno stabilimento di lusso.\n\n• È possibile giustificare buone capacità di gestione amministrativa (ortografia impeccabile).\n\n• Hai un rapporto eccellente, una presentazione molto buona e offrire un servizio clienti di ottima qualità.\n\n• È possibile far fronte a un grande carico di lavoro, essere flessibile e versatile. Il tuo spirito di squadra ti permette di collaborare con diversi settori.\n\n• È richiesta un'ottima conoscenza dell'inglese e del francese (orale e scritto). Qualsiasi altra lingua parlata è un bene importante.\nPERSONE\nCon oltre 1.700 altri appassionati di vendita al dettaglio, sei parte integrante del nostro affascinante mondo high-end e lusso. Siete riconosciuti e apprezzati, lavorate con un team emozionante e motivato e vi diamo la nostra fiducia in modo da poter godere del tempo libero e fare la differenza con il vostro know-how. Se sei un esperto nella tua professione e stai mettendo il tuo cuore in esso, molte porte si apriranno per sviluppare la tua carriera. Vi supporteremo volentieri nelle vostre formazioni interne ed esterne.\nPuoi anche godere dei seguenti vantaggi:\n- un ambiente di lavoro eccezionale con una gerarchia orizzontale nel centro della città.\n- benefici sociali attraenti.\n- modelli di lavoro flessibili e almeno 5 settimane di vacanza (PS: Si può godere di più tempo libero grazie all'opzione \"partita non pagata\" - da 7 a 180 giorni).\n- fino al 50% di sconto sui prodotti dell'universo Globus per voi e la vostra famiglia.\n- E molto altro...\nIl tuo contatto\nNon vediamo l'ora di ricevere la vostra applicazione online. E' molto semplice. Invece di una lettera di presentazione, non vediamo l'ora di rispondere alle nostre tre domande - si prega di utilizzare il link fornito nell'annuncio a questo effetto.\n\nSiamo a vostra disposizione.\nIl tuo contatto per questa posizione:\nGLOBALE\nCédric Martin\nHR Business Partner\n\nInformazioni per le agenzie di lavoro: Saranno prese in considerazione solo le domande dirette.",
+        "en": "It is with a great passion and love of detail that our collaborators make GLOBUS the first address of the Swiss Luxury and Premium. They are people like you who make the difference and who, with us, give meaning to \"the place we love to be\".\n\nThat's what you're doing.\n\n• Ensuring customer satisfaction and hospitality by applying our principles of excellence\n\n• Respond to requests from our in-store customers as well as those made by phone\n\n• Process special requests and client claims\n\n• Treatment of claims and returns of goods\nWHAT DISTINCE YOU\n\n• You are currently in higher education (Bachelor EHL type or HES degree) and have experience at a reception or concierge service in a luxury establishment.\n\n• You can justify good administrative management skills (impeccable spelling).\n\n• You have an excellent relationship, a very good presentation and offer excellent quality customer service.\n\n• You can cope with a large workload, be flexible and versatile. Your team spirit allows you to collaborate with different sectors.\n\n• Excellent knowledge of English and French (oral and written) is required. Any other spoken language is an important asset.\nBENEFITS FOR YOU\nWith more than 1,700 other retail enthusiasts, you are an integral part of our fascinating high-end and luxury world. You are recognized and valued, you work with an exciting and motivated team and we give you our confidence so that you can enjoy free time and make a difference with your know-how. If you're an expert in your profession and you're putting your heart into it, many doors will open to develop your career. We will gladly support you in your internal and external trainings.\nYou can also enjoy the following benefits:\n- an exceptional working environment with a horizontal hierarchy in the city centre.\n- attractive social benefits.\n- flexible work models and at least 5 weeks of vacation (PS: You can enjoy more free time thanks to the option \"unpaid leave\" - from 7 to 180 days).\n- up to 50% discount on Globus universe products for you and your family.\n- And much more...\nYour contact\nWe look forward to receiving your application online. It's very simple. Instead of a cover letter, we look forward to your answers to our three questions - please use the link provided in the announcement to this effect.\n\nWe are at your disposal.\nYour contact for this position:\nGLOBUS\nCédric Martin\nHR Business Partner\n\nInformation for employment agencies: Only direct applications will be considered.",
+        "de": "Mit großer Leidenschaft und Liebe zum Detail machen unsere Mitarbeiter GLOBUS zur ersten Adresse des Swiss Luxury and Premium. Sie sind Menschen wie Sie, die den Unterschied machen und mit uns dem \"Ort, an dem wir gerne sind\" einen Sinn geben.\n\nDas ist es, was du tust.\n\n• Sicherstellung der Kundenzufriedenheit und Gastfreundschaft durch Anwendung unserer Exzellenzprinzipien\n\n• Reagieren Sie auf Anfragen unserer In-Store-Kunden sowie auf telefonische Anfragen\n\n• Sonderanfragen bearbeiten und Kundenansprüche\n\n• Behandlung von Forderungen und Rücksendungen von Waren\nWAS UNTERLIEGEN SIE\n\n• Sie sind derzeit in der Hochschule (Bachelor EHL Typ oder HES-Abschluss) und haben Erfahrung an einer Rezeption oder Concierge-Service in einer Luxus-Einrichtung.\n\n• Sie können gute administrative Managementfähigkeiten (unzulässige Rechtschreibung) rechtfertigen.\n\n• Sie haben eine ausgezeichnete Beziehung, eine sehr gute Präsentation und bieten einen exzellenten Kundenservice.\n\n• Sie können mit einer großen Arbeitsbelastung umgehen, flexibel und vielseitig sein. Ihr Teamgeist ermöglicht es Ihnen, mit verschiedenen Sektoren zusammenzuarbeiten.\n\n• Hervorragende Englisch- und Französischkenntnisse (mündlich und schriftlich) sind erforderlich. Jede andere gesprochene Sprache ist ein wichtiges Gut.\nVorteile für Sie\nMit mehr als 1.700 anderen Einzelhandelsbegeisterten sind Sie ein integraler Bestandteil unserer faszinierenden High-End- und Luxuswelt. Sie werden anerkannt und geschätzt, arbeiten mit einem spannenden und motivierten Team zusammen und wir geben Ihnen unser Vertrauen, damit Sie die Freizeit genießen und mit Ihrem Know-how etwas bewegen können. Wenn Sie ein Experte in Ihrem Beruf sind und Ihr Herz in ihn stecken, werden sich viele Türen öffnen, um Ihre Karriere zu entwickeln. Gerne unterstützen wir Sie bei Ihren internen und externen Schulungen.\nSie können auch die folgenden Vorteile genießen:\n- ein außergewöhnliches Arbeitsumfeld mit einer horizontalen Hierarchie im Stadtzentrum.\n- attraktive Sozialleistungen.\n- Flexible Arbeitsmodelle und mindestens 5 Wochen Urlaub (PS: Sie können dank der Option \"unbezahlter Urlaub\" mehr Freizeit genießen - von 7 bis 180 Tagen).\n- Bis zu 50% Rabatt auf Globus Universe Produkte für Sie und Ihre Familie.\n- Und noch viel mehr...\nIhr Kontakt\nWir freuen uns auf Ihre Bewerbung online. Es ist sehr einfach. Anstelle eines Anschreibens freuen wir uns auf Ihre Antworten auf unsere drei Fragen - nutzen Sie dazu bitte den in der Ankündigung angegebenen Link.\n\nWir stehen Ihnen zur Verfügung.\nIhr Ansprechpartner für diese Position:\nGLOBUS\nCédric Martin\nHR Geschäftspartner\n\nInformationen für Arbeitsagenturen: Es werden nur Direktanträge berücksichtigt.",
+        "fr": "C'est avec une grande passion et l’amour du détail que nos collaboratrices et collaborateurs font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nC'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Assurer l’accueil et la satisfaction de notre clientèle en appliquant nos principes d’excellence\n\n• Répondre aux demandes de nos clients en magasin ainsi que celles faites par téléphone\n\n• Traiter les requêtes spéciales ainsi que les réclamations clients\n\n• Traitement des réclamations et des retours de marchandises\nCE QUI VOUS DISTINGUE\n\n• Vous êtes actuellement en formation de niveau supérieur (type Bachelor EHL ou diplôme HES) et avez une expérience au sein d'une réception ou d'un service de conciergerie dans un établissement de luxe.\n\n• Vous pouvez justifier de bonnes aptitudes en gestion administrative (orthographe irréprochable).\n\n• Vous avez un excellent relationnel, une très bonne présentation et proposez un service à la clientèle d'excellente qualité.\n\n• Vous pouvez faire face à une charge de travail importante, faites preuve de flexibilité et polyvalence. Votre esprit d'équipe vous permet de collaborer avec les différents secteurs.\n\n• D'excellentes connaissances de français et d'anglais (oral et écrit) sont exigées. Toute autre langue parlée constitue un atout important.\nAVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\nVous pouvez également profiter des avantages suivants :\n- un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n- des prestations sociales attrayantes.\n- des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n- jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n- et bien plus encore...\nVotre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\nVotre contact pour ce poste:\nGLOBUS\nCédric Martin\nHR Business Partner\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération."
       },
       "location": "Genève",
       "canton": "GE",
       "url": "https://jobs.globus.ch/Collaborateurrice-Service-Clients-20-samedi-fr-j2510.html",
       "source": "Globus Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-04T13:25:07.523Z",
+      "crawledAt": "2026-09-04T22:53:56.559Z",
       "addressLocality": "Genève",
       "streetAddress": "Rue du Rhône 48",
       "postalCode": "1204 ",
@@ -1646,6 +1682,24 @@
       "applyUrl": "https://jobs.globus.ch/Collaborateurrice-Service-Clients-20-samedi-fr-j2510.html",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "collaborateur-rice-service-clients-20-samedi-globus-ch",
+        "servizio-clienti-collaboratore-20-sabato-globus-geneve"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-rice-service-clients-20-samedi-globus-ch",
+          "servizio-clienti-collaboratore-20-sabato-globus-geneve"
+        ],
+        "en": [
+          "collaborateur-rice-service-clients-20-samedi-globus-ch"
+        ],
+        "de": [
+          "collaborateur-rice-service-clients-20-samedi-globus-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-03T23:09:57.212Z",
+      "needsRetranslation": true,
       "salaryMin": 12100,
       "salaryMax": 18300,
       "salarySource": "estimated",
@@ -1658,22 +1712,141 @@
           "maxValue": 18300,
           "unitText": "YEAR"
         }
+      }
+    },
+    {
+      "id": "globus-67842a9407e0",
+      "slug": "conseiller-ere-de-vente-a-80-pour-notre-rayon-home-lifestyle-en-cdd-jusqu-au-16-janvier",
+      "slugByLocale": {
+        "fr": "conseiller-ere-de-vente-a-80-pour-notre-rayon-home-lifestyle-en-cdd-jusqu-au-16-janvier",
+        "it": "conseiller-ere-de-vente-a-80-pour-notre-rayon-home-lifestyle-en-cdd-jusqu-au-16-janvier",
+        "en": "conseiller-ere-de-vente-a-80-pour-notre-rayon-home-lifestyle-en-cdd-jusqu-au-16-janvier",
+        "de": "conseiller-ere-de-vente-a-80-pour-notre-rayon-home-lifestyle-en-cdd-jusqu-au-16-janvier"
       },
-      "firstSeenAt": "2026-09-03T23:09:57.212Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-rice-service-clients-20-samedi-globus-ch"
-        ],
-        "en": [
-          "collaborateur-rice-service-clients-20-samedi-globus-ch"
-        ],
-        "de": [
-          "collaborateur-rice-service-clients-20-samedi-globus-ch"
-        ]
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Conseiller/ère de vente à 80% pour notre rayon Home & Lifestyle en CDD (jusqu'au 16 janvier 2027)",
+      "titleByLocale": {
+        "fr": "Conseiller/ère de vente à 80% pour notre rayon Home & Lifestyle en CDD (jusqu'au 16 janvier 2027)",
+        "it": "Conseiller/ère de vente à 80% pour notre rayon Home & Lifestyle en CDD (jusqu'au 16 janvier 2027)",
+        "en": "Conseiller/ère de vente à 80% pour notre rayon Home & Lifestyle en CDD (jusqu'au 16 janvier 2027)",
+        "de": "Conseiller/ère de vente à 80% pour notre rayon Home & Lifestyle en CDD (jusqu'au 16 janvier 2027)"
       },
-      "previousSlugs": [
-        "collaborateur-rice-service-clients-20-samedi-globus-ch"
-      ]
+      "description": "Conseiller/ère de vente pour notre rayon Home & Lifestyle en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+      "descriptionByLocale": {
+        "fr": "Conseiller/ère de vente pour notre rayon Home & Lifestyle en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "it": "Conseiller/ère de vente pour notre rayon Home & Lifestyle en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "en": "Conseiller/ère de vente pour notre rayon Home & Lifestyle en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "de": "Conseiller/ère de vente pour notre rayon Home & Lifestyle en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-Home-Lifestyle-e-fr-j2511.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-04T22:53:56.556Z",
+      "addressLocality": "Genève",
+      "streetAddress": "Rue du Rhône 48",
+      "postalCode": "1204 ",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-04",
+      "applyUrl": "https://jobs.globus.ch/Conseillerre-de-vente-80-pour-notre-rayon-Home-Lifestyle-e-fr-j2511.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 48400,
+      "salaryMax": 73200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48400,
+          "maxValue": 73200,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-04T22:53:56.556Z"
+    },
+    {
+      "id": "globus-5efacad90ebf",
+      "slug": "conseiller-ere-de-vente-a-70-pour-le-corner-babobab-au-rayon-home-lifestyle-en-cdd-du-1-10",
+      "slugByLocale": {
+        "fr": "conseiller-ere-de-vente-a-70-pour-le-corner-babobab-au-rayon-home-lifestyle-en-cdd-du-1-10",
+        "it": "conseiller-ere-de-vente-a-70-pour-le-corner-babobab-au-rayon-home-lifestyle-en-cdd-du-1-10",
+        "en": "conseiller-ere-de-vente-a-70-pour-le-corner-babobab-au-rayon-home-lifestyle-en-cdd-du-1-10",
+        "de": "conseiller-ere-de-vente-a-70-pour-le-corner-babobab-au-rayon-home-lifestyle-en-cdd-du-1-10"
+      },
+      "company": "Globus",
+      "companyKey": "globus",
+      "companyDomain": "globus.ch",
+      "title": "Conseiller/ère de vente à 70% pour le corner Babobab au rayon Home & Lifestyle en CDD (du 1.10 au 31.12.2026)",
+      "titleByLocale": {
+        "fr": "Conseiller/ère de vente à 70% pour le corner Babobab au rayon Home & Lifestyle en CDD (du 1.10 au 31.12.2026)",
+        "it": "Conseiller/ère de vente à 70% pour le corner Babobab au rayon Home & Lifestyle en CDD (du 1.10 au 31.12.2026)",
+        "en": "Conseiller/ère de vente à 70% pour le corner Babobab au rayon Home & Lifestyle en CDD (du 1.10 au 31.12.2026)",
+        "de": "Conseiller/ère de vente à 70% pour le corner Babobab au rayon Home & Lifestyle en CDD (du 1.10 au 31.12.2026)"
+      },
+      "description": "Conseiller/ère de vente pour la marque Baobab en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour le corner Baobab de notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+      "descriptionByLocale": {
+        "fr": "Conseiller/ère de vente pour la marque Baobab en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour le corner Baobab de notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "it": "Conseiller/ère de vente pour la marque Baobab en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour le corner Baobab de notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "en": "Conseiller/ère de vente pour la marque Baobab en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour le corner Baobab de notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération.",
+        "de": "Conseiller/ère de vente pour la marque Baobab en CDD\nC'est avec une grande passion et l’amour du détail que nos collaborateurs et collaboratrices font de GLOBUS la première adresse du Luxe et du Premium de Suisse. Ce sont des personnes comme vous qui font la différence et qui, avec nous, donnent un sens à \"the place we love to be\".\n\nNous recrutons pour le corner Baobab de notre rayon Home & Lifestyle une personne dynamique et motivée, passionnée par le design intérieur et les articles de maison !\n C'EST LA QUE VOUS FAITES LA DIFFÉRENCE\n\n• Accueil, conseil et vente à la clientèle selon les exigences de notre enseigne\n\n• Responsabilité de l’atteinte du chiffre d’affaires fixé par une démarche active\n\n• Elargissement et fidélisation de la clientèle\n\n• Traitement des commandes et des demandes des clients en assurant un service de haute qualité\n\n• Présentation des produits afin d’inspirer les clients\n\n• Encaissement sur nos systèmes de caisses informatisées et autres dispositifs numériques\n CE QUI VOUS DISTINGUE\n\n• Vous êtes au bénéfice d’une expérience de vente dans le commerce de détail\n\n• Vous êtes véritablement passionné(e) par la vente dans le domaine du Home & Lifestyle\n\n• Servir, conseiller et fidéliser nos clients constituent, pour vous, une source de motivation constante\n\n• Vos aptitudes physiques, votre rapidité et votre sens de l’organisation vous permettent de gérer efficacement les moments de grande fréquentation et de pic d’activité\n\n• Doté d’un bon esprit d’équipe, vous vous investissez dans le groupe pour atteindre un but commun\n\n• Présentation irréprochable, courtois(e) et prévenant(e)\n\n• Souriant(e) avec un très bon savoir-être et savoir-faire\n\n• Sens accru du service, du détail et de l'écoute active\n\n• Maîtrise parfaite du Français et Anglais B2, toute autre langue constitue un sérieux atout\n AVANTAGES POUR VOUS\nAvec plus de 1700 autres passionnés du monde du commerce de détail, vous faites partie intégrante de notre univers fascinant du haut de gamme et du luxe. Vous êtes reconnu et estimé, vous travaillez avec une équipe passionnante et motivée et nous vous accordons notre confiance afin que vous puissiez bénéficier de moments de temps libre et faire la différence grâce à votre savoir-faire. Si vous êtes un expert dans votre métier et vous y mettez du c&oelig;ur, de nombreuses portes s’ouvriront pour développer votre carrière. Nous vous soutiendrons volontiers dans vos formations internes, mais aussi externes.\n\nVous pouvez également profiter des avantages suivants :\n• un environnement de travail exceptionnel avec une hiérarchie horizontale au centre ville .\n\n• des primes liées à la performance et des prestations sociales attrayantes .\n\n• des modèles de travail flexibles et au minimum 5 semaines de vacances (PS: Vous pourrez bénéficier de plus de temps libre grâce à l'option \"congé non payé\" - et ce de 7 à 180 jours).\n\n• jusqu'à 50% de rabais sur les produits de l’univers Globus pour vous et votre famille.\n\n• et bien plus encore...\n Votre contact\nNous nous réjouissons de recevoir votre candidature en ligne. C'est très simple. A la place d'une lettre de motivation, nous sommes impatients de connaître vos réponses à nos trois questions - veuillez utiliser le lien prévu dans l’annonce à cet effet.\n\nNous nous tenons à votre disposition.\n\nVotre contact pour ce poste:\nGLOBUSCédric Martin\nRessources humaines\n\nInformation pour les agences de placement : Seules les postulations directes seront prises en considération."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://jobs.globus.ch/Conseillerre-de-vente-70-pour-le-corner-Babobab-au-rayon-H-fr-j2512.html",
+      "source": "Globus Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-04T22:53:56.544Z",
+      "addressLocality": "Genève",
+      "streetAddress": "Rue du Rhône 48",
+      "postalCode": "1204 ",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail (department store / luxury)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-05",
+      "applyUrl": "https://jobs.globus.ch/Conseillerre-de-vente-70-pour-le-corner-Babobab-au-rayon-H-fr-j2512.html",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 42400,
+      "salaryMax": 64000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 42400,
+          "maxValue": 64000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-04T22:53:56.544Z"
     }
   ]
 }

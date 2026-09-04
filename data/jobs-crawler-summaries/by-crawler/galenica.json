@@ -1,19 +1,21 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-04T13:26:22.770Z",
-  "total": 378,
+  "generatedAt": "2026-09-04T22:55:17.198Z",
+  "total": 379,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 109653,
-  "avgDurationMs": 109653,
+  "unchangedCount": 1,
+  "durationMs": 99116,
+  "avgDurationMs": 99116,
   "durationHistory": [
-    109653
+    99116
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistente di farmacia AFC",
       "company": "Coop Vitality  (Galenica)",
@@ -38,7 +40,7 @@
       "addressLocality": "Egerkingen",
       "addressRegion": "SO",
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,7 +49,5 @@
         "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
