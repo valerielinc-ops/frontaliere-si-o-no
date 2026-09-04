@@ -29,6 +29,7 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { AUTHORS, getAuthorBySlug } from '../data/authors';
+import { resolveArticleProvenance } from '../services/articleProvenance';
 
 const ROOT = join(__dirname, '..');
 
@@ -132,6 +133,60 @@ describe('editorial transparency disclosure matches how the article was produced
     expect(src).toMatch(
       /isHumanContributor[\s\S]{0,400}bozza assistita da intelligenza artificiale/,
     );
-    expect(src).toMatch(/const isHumanContributor = Boolean\(bylineAuthor\?\.uid\)/);
+    // ...and the gate reads the article's provenance, not the author's `uid`
+    // directly. A bare `Boolean(bylineAuthor?.uid)` here is the assumption
+    // this module exists to remove: it answers "how was THIS article made"
+    // with a property of the person, so a guest journalist's AI-assisted
+    // piece would carry the "no AI assistance" claim.
+    expect(src).toMatch(/const isHumanContributor = !resolveArticleProvenance\(article, bylineAuthor\)\.aiAssisted/);
+    expect(src).not.toMatch(/isHumanContributor\s*=\s*Boolean\(bylineAuthor\?\.uid\)/);
+  });
+});
+
+/**
+ * The reviewer's counterpart to the incident: the fix above stops the AI
+ * wording from printing over a human byline, but a disclosure derived from the
+ * author registry can still be false in the other direction — a guest
+ * journalist drafting one piece with AI support would be announced as having
+ * used none. `resolveArticleProvenance` makes the fact declarable per article
+ * and keeps the registry only as the default.
+ */
+describe('article provenance is declared per article, inferred only as a default', () => {
+  it('an explicit declaration wins over the registry, in both directions', () => {
+    const guest = { uid: 'firebase-uid' };
+    const persona = {};
+
+    // The case the registry cannot express: a human contributor who did use AI.
+    expect(resolveArticleProvenance({ aiAssisted: true }, guest))
+      .toEqual({ aiAssisted: true, basis: 'declared' });
+    // ...and its mirror: a persona byline on a piece written without AI.
+    expect(resolveArticleProvenance({ aiAssisted: false }, persona))
+      .toEqual({ aiAssisted: false, basis: 'declared' });
+  });
+
+  it('without a declaration it reproduces the behaviour #7227 shipped', () => {
+    expect(resolveArticleProvenance({}, { uid: 'firebase-uid' }))
+      .toEqual({ aiAssisted: false, basis: 'inferred-from-uid' });
+    expect(resolveArticleProvenance({}, {}))
+      .toEqual({ aiAssisted: true, basis: 'inferred-from-uid' });
+    expect(resolveArticleProvenance(undefined, undefined))
+      .toEqual({ aiAssisted: true, basis: 'inferred-from-uid' });
+  });
+
+  it('a malformed declaration falls back instead of reading as "no AI"', () => {
+    // The overlay index is untrusted JSON published by another repo. A string
+    // or a null there must not become a "written without AI assistance" claim
+    // by truthiness — it is not a declaration, so the default applies.
+    for (const bad of ['false', 0, null, '']) {
+      expect(resolveArticleProvenance({ aiAssisted: bad as never }, {}))
+        .toEqual({ aiAssisted: true, basis: 'inferred-from-uid' });
+    }
+  });
+
+  it('the overlay can carry the declaration for articles this build does not ship', () => {
+    // Freshly published articles reach the page only through the overlay, so a
+    // field that stops at the bundled record would be dead for exactly them.
+    const src = readFileSync(join(ROOT, 'services/articlesOverlay.ts'), 'utf-8');
+    expect(src).toMatch(/aiAssisted\?: boolean/);
   });
 });
