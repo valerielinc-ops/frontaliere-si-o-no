@@ -85403,6 +85403,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-bollette-varese-frontalieri': {
+    title: 'Bollette +39% a Varese: impatto frontalieri | Frontaliere Ticino',
+    description: 'Aumenti bollette del 39% stimati in provincia di Varese per autunno-inverno 2026. Impatto su frontalieri Ticino-Varese: strategie di risparmio e pianificazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bollette, varese, impatto, autunno',
+    ogTitle: 'Bollette +39% a Varese: come impatta frontalieri',
+    ogDescription: 'La provincia di Varese si prepara a una stangata energetica con aumenti stimati del 39% per autunno e inverno 2026. Cosa significa per frontalieri che lavorano in Canton Ticino, strategie di risparmio e pianificazione del budget.',
+    canonicalPath: '/articoli-frontaliere/aumento-bollette-varese-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Bollette +39% a Varese: impatto frontalieri",
+      "description": "Aumenti bollette del 39% stimati in provincia di Varese per autunno-inverno 2026. Impatto su frontalieri Ticino-Varese: strategie di risparmio e pianificazione.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/aumento-bollette-varese-frontalieri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Soggiorno residenziale nella provincia di Varese con veduta autunnale verso i monti del Canton Ticino"
+      },
+      "datePublished": "2026-09-04T18:05:43+00:00",
+      "dateModified": "2026-09-04T18:05:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-bollette-varese-frontalieri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

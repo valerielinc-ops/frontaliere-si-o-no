@@ -11334,6 +11334,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-stazione-gallarate-2026.title': 'Lavori alla stazione di Gallarate: modifiche alla linea S5 e bus sostitutivi',
     'blog.article.lavori-stazione-gallarate-2026.excerpt': 'Dal 14 settembre al 5 ottobre 2026, lavori di manutenzione alla stazione di Gallarate. Modifiche alla linea S5 Treviglio-Gallarate-Varese e bus sostitutivi.',
     'blog.article.lavori-stazione-gallarate-2026.imageAlt': 'Vista aerea della stazione di Gallarate durante i lavori di manutenzione',
+    'blog.article.aumento-bollette-varese-frontalieri.title': 'Bollette +39% a Varese: impatto frontalieri',
+    'blog.article.aumento-bollette-varese-frontalieri.excerpt': 'Autunno e inverno con stangata energetica in provincia di Varese. Aumenti stimati del 39%. Cosa significa per chi lavora in Canton Ticino.',
+    'blog.article.aumento-bollette-varese-frontalieri.imageAlt': 'Soggiorno residenziale nella provincia di Varese con veduta autunnale verso i monti del Canton Ticino',
 };
 
 export default blogMetaIt;

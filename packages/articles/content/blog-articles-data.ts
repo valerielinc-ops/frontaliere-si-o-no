@@ -33861,6 +33861,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'aumento-bollette-varese-frontalieri',
+ category: 'pratico',
+ date: '2026-09-04T18:05:43.568Z',
+ image: '/images/blog/aumento-bollette-varese-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
