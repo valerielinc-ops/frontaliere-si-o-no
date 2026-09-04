@@ -1,20 +1,21 @@
 {
   "key": "clariant",
   "label": "Clariant",
-  "generatedAt": "2026-09-04T13:28:14.395Z",
-  "total": 3,
+  "generatedAt": "2026-09-04T22:56:17.208Z",
+  "total": 2,
   "discovered": null,
-  "written": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "written": 2,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4373,
-  "avgDurationMs": 4373,
+  "unchangedCount": 0,
+  "durationMs": 4672,
+  "avgDurationMs": 4672,
   "durationHistory": [
-    4373
+    4672
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clariant-21a956795abf",
       "slug": "global-talent-acquisition-inclusion-manager-m-f-d-clariant-pratteln",
@@ -27,7 +28,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Global-Talent-Acquisition-&-Inclusion-Manager-%28mfd%29/1433814033/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:28:11.224Z",
+      "crawledAt": "2026-09-04T22:56:14.062Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -43,16 +44,16 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://careers.clariant.com/job/Pratteln-Global-Talent-Acquisition-&-Inclusion-Manager-%28mfd%29/1433814033/",
       "jobReqId": "41808",
-      "_qualityScore": 69,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-04T13:28:11.224Z",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clariant-0f4a3cc6e705",
       "slug": "intern-corporate-strategy-innovation-clariant-pratteln",
@@ -65,7 +66,7 @@
       "url": "https://careers.clariant.com/job/Pratteln-Intern-Corporate-Strategy-&-Innovation/1405838633/",
       "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:28:11.764Z",
+      "crawledAt": "2026-09-04T22:56:14.710Z",
       "addressLocality": "Pratteln",
       "addressRegion": "Basel-Landschaft",
       "streetAddress": "Rothausstrasse 61",
@@ -92,47 +93,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "clariant-74dc35ebdfa6",
-      "slug": "senior-gestione-delle-imposte-e-del-governo-fiscale-clariant-pratteln",
-      "company": "Clariant",
-      "companyKey": "clariant",
-      "companyDomain": "clariant.com",
-      "title": "(Senior) Manager National Tax & Tax Governance",
-      "location": "Pratteln",
-      "canton": "BL",
-      "url": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-      "source": "Clariant Dedicated Parser (SuccessFactors Jobs2Web)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:17:52.458Z",
-      "addressLocality": "Pratteln",
-      "addressRegion": "Basel-Landschaft",
-      "streetAddress": "Rothausstrasse 61",
-      "postalCode": "4132",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "finance",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "sector": "Chimica Speciale",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-31",
-      "applyUrl": "https://careers.clariant.com/job/Pratteln-%28Senior%29-Manager-National-Tax-&-Tax-Governance/1421384933/",
-      "jobReqId": "41654",
-      "firstSeenAt": "2026-07-31T22:16:31.933Z",
-      "salaryMin": 178000,
-      "salaryMax": 313000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
