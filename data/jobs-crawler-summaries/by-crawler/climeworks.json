@@ -1,20 +1,21 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-09-04T13:26:55.742Z",
-  "total": 8,
+  "generatedAt": "2026-09-04T22:54:28.887Z",
+  "total": 7,
   "discovered": null,
-  "written": 8,
-  "newCount": 1,
-  "updatedCount": 6,
+  "written": 7,
+  "newCount": 0,
+  "updatedCount": 7,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2787,
-  "avgDurationMs": 2787,
+  "unchangedCount": 0,
+  "durationMs": 3416,
+  "avgDurationMs": 3416,
   "durationHistory": [
-    2787
+    3416
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-be6687f2b9e4",
       "slug": "senior-partnership-development-manager-100-climeworks-opfikon-zurich",
@@ -27,7 +28,7 @@
       "url": "https://climeworks.recruitee.com/o/senior-partnership-development-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.279Z",
+      "crawledAt": "2026-09-04T22:54:25.699Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -41,16 +42,16 @@
       "postedDate": "2026-09-04",
       "applyUrl": "https://climeworks.recruitee.com/o/senior-partnership-development-manager-100",
       "remote": true,
-      "_qualityScore": 64,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-04T13:26:53.279Z",
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "climeworks-67da6ab480ce",
       "slug": "intern-in-testing-capabilities-100-climeworks-zurich",
@@ -63,7 +64,7 @@
       "url": "https://climeworks.recruitee.com/o/intern-in-testing-capabilities-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.284Z",
+      "crawledAt": "2026-09-04T22:54:25.714Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -98,7 +99,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.287Z",
+      "crawledAt": "2026-09-04T22:54:25.717Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +134,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.289Z",
+      "crawledAt": "2026-09-04T22:54:25.719Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -169,7 +170,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.292Z",
+      "crawledAt": "2026-09-04T22:54:25.722Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -204,7 +205,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-mechanical-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.294Z",
+      "crawledAt": "2026-09-04T22:54:25.725Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -239,7 +240,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-04T13:26:53.296Z",
+      "crawledAt": "2026-09-04T22:54:25.729Z",
       "addressLocality": "Opfikon, Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -264,47 +265,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "climeworks-0089974d4fc1",
-      "slug": "intern-in-sorbent-characterization-100-climeworks-zurich",
-      "company": "Climeworks",
-      "companyKey": "climeworks",
-      "companyDomain": "climeworks.com",
-      "title": "Intern in Sorbent Characterization (100%)",
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://climeworks.recruitee.com/o/intern-in-sorbent-characterization-100-102",
-      "source": "Climeworks Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:15:40.303Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "fixed-term",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Clima e Sostenibilità",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-24",
-      "applyUrl": "https://climeworks.recruitee.com/o/intern-in-sorbent-characterization-100-102",
-      "remote": true,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-24T10:05:56.650Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 21,
-        "completeness": 19
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
