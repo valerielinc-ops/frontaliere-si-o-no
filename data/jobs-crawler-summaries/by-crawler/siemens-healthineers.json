@@ -1,18 +1,18 @@
 {
   "key": "siemens-healthineers",
   "label": "Siemens Healthineers",
-  "generatedAt": "2026-09-03T23:23:07.506Z",
+  "generatedAt": "2026-09-04T13:42:04.474Z",
   "total": 4,
   "discovered": null,
   "written": 4,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6818,
-  "avgDurationMs": 6818,
+  "unchangedCount": 2,
+  "durationMs": 5875,
+  "avgDurationMs": 5875,
   "durationHistory": [
-    6818
+    5875
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -29,7 +29,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/TOI-L-112/Medical-Physicist--f-m-d----Proton-Therapy_R-25505-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:23:02.497Z",
+      "crawledAt": "2026-09-04T13:42:00.402Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -45,11 +45,11 @@
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/TOI-L-112/Medical-Physicist--f-m-d----Proton-Therapy_R-25505-1",
       "jobReqId": "R-25505",
       "firstSeenAt": "2026-08-27T00:49:17.406Z",
-      "_qualityScore": 75,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -66,7 +66,7 @@
       "url": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/LPN-BO/Senior-Strategic-Accounts-Manager-EMEA_R-29705-1",
       "source": "Siemens Healthineers Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-03T23:23:03.203Z",
+      "crawledAt": "2026-09-04T13:42:01.135Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -89,10 +89,13 @@
         "translation": 23,
         "completeness": 14
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "siemens-healthineers-50bb33ddba45",
-      "slug": "network-engineer-cloud-operations-siemens-healthineers-ch",
+      "slug": "network-ingegnere-cloud-operations-siemens-healthineers-zurich",
       "company": "Siemens Healthineers",
       "companyKey": "siemens-healthineers",
       "companyDomain": "siemens-healthineers.com",
@@ -119,17 +122,18 @@
       "applyUrl": "https://onehealthineers.wd3.myworkdayjobs.com/en-US/SHSJB/job/CEY-BO/Network-Engineer---Cloud-Operations_R-25439-1",
       "jobReqId": "R-25439",
       "firstSeenAt": "2026-07-16T22:28:43.520Z",
-      "_qualityScore": 82,
+      "salaryMin": 83000,
+      "salaryMax": 126000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 14
+        "completeness": 19
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "siemens-healthineers-f0d6a464ad2c",
       "slug": "qa-ingegnere-siemens-healthineers-dwl-t",
@@ -162,7 +166,7 @@
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
