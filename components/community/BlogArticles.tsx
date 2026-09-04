@@ -435,7 +435,15 @@ function countWordsIn(text: string): number {
  return t.split(/\s+/).filter(Boolean).length;
 }
 
-function renderFormattedContent(
+/**
+ * Renders one article body segment, injecting inline ads at section boundaries.
+ *
+ * Exported for `tests/community/BlogArticles.ad-table-boundary.test.tsx`: the
+ * ad-vs-table placement rule of `docs/ads-placement-longform.md` §2 is a
+ * property of THIS function, and asserting it through the whole component would
+ * drown it in i18n/router/Suspense setup.
+ */
+export function renderFormattedContent(
  text: string,
  navigators?: NavigatorMap,
  adRenderer?: (keyPrefix: string) => ReactElement | null,
