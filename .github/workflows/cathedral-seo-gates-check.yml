@@ -2,28 +2,33 @@ name: cathedral-seo-gates-check
 
 # Weekly read-only sweep of the 6 SEO content gates. Detects:
 #   - REGRESSIONS  → fail workflow + open issue (current > baseline)
-#   - IMPROVEMENTS → open issue + safe-rebaseline PR (current < baseline)
+#   - IMPROVEMENTS → job summary; issue ONLY for gates D9 does not cover
 #   - PASSES       → single-line job summary, no action
 #
-# This workflow never WIDENS a baseline, and never writes one to `main`.
-# Per CLAUDE.md non-negotiables #1 and #5 a widening stays a deliberate human
-# action; a TIGHTENING is the ratchet doing its job, and since issue #7354 it
-# is applied here instead of being left to an operator who cannot run it.
+# This workflow NEVER mutates baselines. Per CLAUDE.md non-negotiables #1
+# and #5, baseline widening is a deliberate human action — the issue body
+# carries the exact `gh workflow run` / `npm run audit:*:rebaseline` command
+# for the operator to execute manually after review.
 #
-# Why it moved (#5983 → #7354). The improvement issue asked a human to run
-# `npm run audit:*:rebaseline`, which needs the rehydrated dist/ of a deploy
-# run — materialised by THIS job and nowhere else (~2.5 h). So it was never
-# run: the same issue was refiled with the same numbers, three agent runs
-# closed it `needs-human`, and the ratchet sat parked at the loose value
-# (text-html-ratio at 6912 while the site measured 2618 — a 4294-page
-# regression could have landed undetected). The real objection was never the
-# authority to rebaseline, it was that the `:rebaseline` scripts overwrite the
-# committed file and compare NOTHING, so a truncated measurement freezes a
-# worse state forever (docs/SEO-GATES.md §4b, incident #5434→#5543). That
-# comparison now exists — `scripts/ci/lib/baseline-ratchet.mjs` refuses any
-# rewrite where a bucket got looser or the scanned corpus shrank, restoring
-# the committed file byte for byte — and the result lands as a PR that goes
-# through the normal review + `## LGTM` gate, not as a push to main.
+# Improvements are NOT all reportable (issue #7354). VISION.md driver D9 —
+# owner instruction of 2026-08-25, given on issue #5983, which was this same
+# improvement issue naming these same gates (text-html-ratio 6912→2562,
+# max-bfs-depth 26398→11108) — refuses tightening the baseline of a
+# "nice-to-have" gate when its measurement improves: the ratchet would make
+# the gate ever stricter on a heuristic Google does not require, and the
+# direction of travel is making such a gate advisory (#6462) instead. So the
+# improvement issue asked for work that is forbidden the moment it is filed;
+# with a stable title it was refiled unchanged (#5983 → #7354) and routed to
+# the autonomous fixer every time, which burned a run rediscovering D9 and
+# closed it `needs-human`.
+#
+# `scripts/ci/seo-gates-improvement-report.mjs` now files the issue only for
+# improved gates that are NOT in the `QUALITY_GATES` table of
+# `classify-validate-dist-failures.mjs` — the same table that decides which
+# gate may not sequester `publish`, so "is this a Google requirement?" has one
+# answer and not two. Nice-to-have improvements land in the job summary.
+# Regressions are untouched: `current > baseline` still opens one issue per
+# gate and still fails this workflow.
 #
 # CLAUDE.md non-negotiable #14 — live test after merge:
 #   gh workflow run cathedral-seo-gates-check.yml --ref main
@@ -46,14 +51,6 @@ on:
           artifacts (they expire after 8 days).
         required: false
         type: string
-      apply_rebaseline:
-        description: >-
-          Apply the rebaseline of every IMPROVED gate and open a PR with the
-          diff (each file kept only if `scripts/ci/lib/baseline-ratchet.mjs`
-          proves it is a tightening). Set to false for a detect-only run.
-        required: false
-        type: boolean
-        default: true
   push:
     # Re-run when the gates checker itself changes — does NOT run on data /
     # plugin / dist edits (those are validated by deploy.yml).
@@ -63,14 +60,8 @@ on:
       - 'scripts/cathedral-seo-gates-check.mjs'
 
 permissions:
-  # `contents: write` + `pull-requests: write` cover the safe-rebaseline PR
-  # below. They are NOT what authenticates it: a PR opened with
-  # secrets.GITHUB_TOKEN is refused by GitHub anti-recursion ("GitHub Actions is
-  # not permitted to create pull requests"), so that step uses the App token /
-  # GITHUB_PAT, same idiom as refine-url-first-seen.yml.
-  contents: write
+  contents: read
   issues: write
-  pull-requests: write
   # Listing + downloading the `github-pages` artifact of the deploy run whose
   # dist/ this gate audits (issue #5169 — it no longer builds its own).
   actions: read
@@ -385,7 +376,7 @@ jobs:
             echo "_Checked at $(jq -r .checkedAt data/cathedral-seo-gates-verdict.json)_"
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Open issue for improvements (rebaseline opportunity)
+      - name: Report improvements (issue only for gates D9 does not cover)
         id: improvements
         if: steps.gates.outcome == 'success'
         env:
@@ -394,149 +385,43 @@ jobs:
         run: |
           set -euo pipefail
           improved=$(jq '.summary.improved' data/cathedral-seo-gates-verdict.json)
-          # Consumed by the safe-rebaseline steps below, which must not run
-          # (nor mint a token) when there is nothing to tighten.
-          echo "improved=$improved" >> "$GITHUB_OUTPUT"
           if [ "$improved" = "0" ]; then
-            echo "No gate improvements detected — nothing to file."
+            echo "No gate improvements detected — nothing to report."
+            exit 0
+          fi
+
+          # Partitions the improved gates: nice-to-have ones (VISION.md D9) are
+          # written to the job summary and stop there; the rest get
+          # /tmp/issue-body.md. See the header of this file and of the script
+          # for why the unconditional issue was a treadmill.
+          # The body file is written ONLY when at least one improved gate is
+          # outside D9 — its presence is the decision, so a stale file from a
+          # previous step must not stand in for it.
+          rm -f /tmp/issue-body.md
+          node scripts/ci/seo-gates-improvement-report.mjs --issue-body=/tmp/issue-body.md
+
+          if [ ! -f /tmp/issue-body.md ]; then
+            echo "All improved gates are nice-to-have (D9) — job summary only, no issue filed."
             exit 0
           fi
 
           # Stable title: the improved-gate COUNT used to sit at ~char 52, inside
           # the 60-char window the dedup matches on, so a month where 3 gates
           # improved instead of 2 opened a second issue for the same standing
-          # opportunity. The count moves into the body, next to the per-gate
+          # opportunity. The count lives in the body, next to the per-gate
           # detail that actually drives the rebaseline decision.
           title="chore(seo-gates): possible rebaseline opportunity"
-
-          {
-            echo "Automated check detected **${improved}** SEO content gate(s) where the"
-            echo "current value is BELOW the committed baseline. Per CLAUDE.md non-negotiables"
-            echo "#1 + #5, baseline widening is a deliberate human action — review the data"
-            echo "before running the rebaseline command(s) below."
-            echo ""
-            echo "## Improved gates"
-            echo ""
-            jq -r '.gates[]
-              | select(.status == "improved")
-              | "### `\(.name)`\n\n- Current: **\(.current)** (was \(.baseline), delta \(.delta))\n- Rebaseline: `\(.rebaselineCmd)`\n- Notes: \(.notes)\n"' \
-              data/cathedral-seo-gates-verdict.json
-            echo ""
-            echo "## Workflow run"
-            echo ""
-            echo "${GITHUB_SERVER_URL:-https://github.com}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID:-}"
-          } > /tmp/issue-body.md
 
           # `github-issue-creator.mjs` (ISSUES.md dedup a monte) owns both the
           # create and the dedup: same stable title → comment on the canonical
           # issue instead of a new one. It also always exits 0, which removes the
-          # `set -euo pipefail` hazard the raw `gh` call carried here (this step,
-          # unlike the regression one below, had no `|| echo` fallback, so a
-          # single failed create reddened the whole job).
+          # `set -euo pipefail` hazard the raw `gh` call carried here.
           node scripts/lib/github-issue-creator.mjs \
             --title "$title" \
             --description "$(cat /tmp/issue-body.md)" \
             --priority 4 \
             --label seo-gates \
             --workflow "${{ github.workflow }}"
-
-      # ── Safe rebaseline (issue #7354) ────────────────────────────────────
-      # Only reached when at least one gate IMPROVED. The App token / PAT is
-      # needed because a PR opened with secrets.GITHUB_TOKEN is refused by
-      # anti-recursion; minting it before the audit would waste a credential on
-      # every clean weekly run, so it happens here, behind the same condition.
-      - name: Materialize Firebase SA (Remote Config)
-        id: rc_sa
-        if: >-
-          steps.gates.outcome == 'success' &&
-          steps.improvements.outputs.improved != '0' &&
-          github.event.inputs.apply_rebaseline != 'false'
-        continue-on-error: true
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON not set — GITHUB_PAT unavailable; the rebaseline PR falls back to the App token alone."
-            exit 1
-          fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          chmod 600 /tmp/firebase-sa.json
-
-      - name: Load RC secrets (GITHUB_PAT)
-        if: steps.rc_sa.outcome == 'success'
-        continue-on-error: true
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: /tmp/firebase-sa.json
-        run: node scripts/load-rc-env.mjs
-
-      # App installation token = primary push/PR identity (it re-triggers the
-      # review + test workflows on the PR, which GITHUB_TOKEN would not).
-      # Falls back to env.GITHUB_PAT loaded above.
-      - name: Mint App token (primary identity, PAT fallback)
-        if: >-
-          steps.gates.outcome == 'success' &&
-          steps.improvements.outputs.improved != '0' &&
-          github.event.inputs.apply_rebaseline != 'false'
-        continue-on-error: true
-        env:
-          APP_ID: ${{ secrets.APP_ID }}
-          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: node scripts/ci/mint-app-token.mjs
-
-      - name: Cleanup SA
-        if: always()
-        run: rm -f /tmp/firebase-sa.json
-
-      # Runs each improved gate's own `:rebaseline` script against the dist/
-      # already on disk, then KEEPS the rewritten file only if it is a
-      # tightening (every bucket at least as strict, corpus not shrunk).
-      # A refusal restores the committed baseline and is a warning, not a
-      # failure: the outcome is then exactly the status quo — the issue filed
-      # above, baselines untouched.
-      - name: Apply safe rebaseline for improved gates
-        id: rebaseline
-        if: >-
-          steps.gates.outcome == 'success' &&
-          steps.improvements.outputs.improved != '0' &&
-          github.event.inputs.apply_rebaseline != 'false'
-        run: node scripts/ci/seo-gates-rebaseline.mjs --report=/tmp/rebaseline-report.md
-
-      - name: Open PR with the tightened baselines
-        if: steps.rebaseline.outputs.applied_count != '' && steps.rebaseline.outputs.applied_count != '0'
-        env:
-          # GITHUB_PAT arrives from Remote Config (Firebase RC, not an Actions
-          # secret). Used for BOTH the push and the PR creation — see the
-          # permissions block at the top of this file.
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          APPLIED_FILES: ${{ steps.rebaseline.outputs.applied_files }}
-          GH_REPO: ${{ github.repository }}
-        run: |
-          set -euo pipefail
-          if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::error::No App/PAT token — cannot open the rebaseline PR (a secrets.GITHUB_TOKEN PR is blocked by anti-recursion). The baselines stay as committed; the rebaseline issue above still carries the opportunity."
-            exit 1
-          fi
-          BRANCH="chore/seo-gates-rebaseline-${GITHUB_RUN_ID}"
-          git config user.name "seo-gates-bot"
-          git config user.email "seo-gates-bot@frontaliereticino.ch"
-          git checkout -b "$BRANCH"
-          # Explicit paths only: dist/ and the verdict file are byproducts of
-          # this run and must never ride along into the PR.
-          # shellcheck disable=SC2086
-          git add -- $APPLIED_FILES
-          git commit -m "chore(seo-gates): ratchet-checked rebaseline of the improved gates (run ${GITHUB_RUN_ID})"
-          git -c http.https://github.com/.extraheader= push "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" "$BRANCH"
-          node scripts/ci/seo-gates-rebaseline-pr-body.mjs \
-            --report=/tmp/rebaseline-report.md \
-            --files="$APPLIED_FILES" \
-            --run-url="${GITHUB_SERVER_URL}/${GH_REPO}/actions/runs/${GITHUB_RUN_ID}" \
-            > /tmp/pr-body.md
-          gh pr create \
-            --base main \
-            --head "$BRANCH" \
-            --title "chore(seo-gates): ratchet-checked rebaseline of the improved gates (run ${GITHUB_RUN_ID})" \
-            --body-file /tmp/pr-body.md
 
       - name: Open issue + fail workflow on regression
         id: failgate
