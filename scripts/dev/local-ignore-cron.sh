@@ -26,51 +26,25 @@ set -euo pipefail
 
 cd "$(git rev-parse --show-toplevel)"
 
-# --- Paths managed by cron workflows. Edit here when a new cron lands. ---
+# --- Paths managed by cron workflows ---
+#
+# The list itself lives in `scripts/lib/cron-managed-paths.mjs`: it is the
+# single source shared with `scripts/prune-merged-worktrees.mjs`, which needs
+# the same knowledge to tell cron noise from real uncommitted work. Add a new
+# cron path THERE, not here.
 #
 # Plain paths are passed straight to `git update-index`. Globs are expanded
 # via `git ls-files` so directory contents are picked up dynamically.
-PATHS=(
-  # Job crawlers — the noisiest set
-  "data/all-known-job-slugs/*"
-  "data/known-company-slugs.json"
-  "data/jobs/by-crawler/*"
-  "data/jobs-crawler-adapters/adapters/*"
-  "data/jobs-crawler-summaries/by-crawler/*"
-  "data/jobs-crawler-parser-proposals.json"
-  "data/jobs-keys-snapshot.json"
-  "data/jobs-stats-history.json"
-  "data/jobs-snapshots-history/*"
-  "public/data/expired-jobs.json"
+PATHS=()
+while IFS= read -r p; do
+  [ -n "$p" ] && PATHS+=("$p")
+done < <(node --input-type=module -e \
+  'import { CRON_MANAGED_GLOBS } from "./scripts/lib/cron-managed-paths.mjs"; process.stdout.write(CRON_MANAGED_GLOBS.join("\n"));')
 
-  # SEO / GSC pipelines
-  "data/gsc-orphan-queries-clusters.json"
-  "data/seo-404-compat/*"
-  "data/seo-serp-autopilot-last-run.json"
-  "data/seo-serp-experiment-history.json"
-  # Registro delle famiglie CTR auto-classificate (monitor-seo-ctr-by-template.yml, #7174).
-  "scripts/lib/seo-ctr-auto-families.json"
-  "data/seo-snapshots/*"
-  "data/inspection-state.json"
-
-  # Daily refresh feeds
-  "data/fuel-prices.json"
-  "public/data/fuel-prices.json"
-  "data/health-premiums.json"
-  "public/data/health-premiums.json"
-  "data/health-premiums/*"
-  "public/data/health-premiums/*"
-  "data/border-wait-current.json"
-  "data/border-wait-history/*"
-  "public/data/switzerland-unemployment-rate.json"
-
-  # Weekly aggregates
-  "data/weekly-employers-delta.json"
-  "data/company-logos-broken.json"
-
-  # FAQ batch progress
-  "data/batch-faq-progress.json"
-)
+if [ ${#PATHS[@]} -eq 0 ]; then
+  echo "✖ nessun path caricato da scripts/lib/cron-managed-paths.mjs — abort" >&2
+  exit 1
+fi
 
 # Resolve PATHS into a deduplicated list of actual tracked files.
 resolve_files() {

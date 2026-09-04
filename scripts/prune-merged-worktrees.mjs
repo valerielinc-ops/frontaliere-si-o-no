@@ -33,6 +33,9 @@
 import { execFileSync, execSync } from 'node:child_process';
 import { join } from 'node:path';
 
+import { makePrStateResolver, rankPrState } from './lib/pr-state-window.mjs';
+import { classifyDirty } from './lib/worktree-dirty.mjs';
+
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 
@@ -167,15 +170,26 @@ const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
 // Protezione OPEN da query DEDICATA `--state open` (set piccolo, mai troncato
 // dalla finestra): un branch con PR aperta deve restare protetto anche se la sua
 // PR è oltre le N più recenti combinate. Cancellazioni (MERGED|CLOSED) da una
-// finestra closed più larga; un MERGED/CLOSED oltre finestra ricade in "no-PR" e
-// viene cancellato solo se 0-ahead (= niente di unico), quindi safe.
+// finestra closed più larga.
+//
+// La finestra da sola NON basta e non è "safe" cadere in no-PR quando sfora.
+// Misurato il 2026-09-04: 400 PR su questo repo coprono NOVE GIORNI (la più
+// vecchia in finestra era #6571 del 26-08, la più recente #7332). Il vecchio
+// commento si difendeva dicendo che un MERGED fuori finestra «viene cancellato
+// solo se 0-ahead, quindi safe» — ma con lo squash-merge i commit del branch
+// non sono mai antenati di main, quindi `ahead>0` SEMPRE, anche quando il
+// contenuto è interamente su main. Le due condizioni si incastravano e il
+// branch restava report-only per sempre: 21 worktree e 14 GB accumulati, con
+// #6022, #6299, #6313 e #6855 tutte mergiate e invisibili allo script.
+// Da qui `resolvePrState()`: la finestra resta la via veloce, e per i soli
+// branch che non risolve si paga UNA query mirata `--head`, che non ha
+// finestra. Costo proporzionale ai residui, non al volume di PR del repo.
 let ghOk = sh('gh --version', { allowFail: true }) !== '';
 const prState = new Map();
-const rankState = (s) => ({ OPEN: 3, MERGED: 2, CLOSED: 1 }[s] ?? 0);
 function ingestPrs(json) {
   for (const pr of JSON.parse(json)) {
     const prev = prState.get(pr.headRefName);
-    if (!prev || rankState(pr.state) > rankState(prev)) prState.set(pr.headRefName, pr.state);
+    if (!prev || rankPrState(pr.state) > rankPrState(prev)) prState.set(pr.headRefName, pr.state);
   }
 }
 if (ghOk) {
@@ -190,6 +204,12 @@ if (ghOk) {
     if (openRaw) ingestPrs(openRaw); // OPEN ingerito per ultimo: vince sempre via rank
   }
 }
+
+const resolvePrState = makePrStateResolver({
+  cache: prState,
+  runQuery: (cmd) => sh(cmd, { allowFail: true }),
+  enabled: ghOk,
+});
 
 // Ritorna il numero di commit unici di `ref` su origin/main, o `null` se git
 // fallisce (ref mancante, origin/main non risolto). null = SCONOSCIUTO, MAI
@@ -248,17 +268,25 @@ const reportWt = []; // {path, branch, reason}
 for (const wt of worktrees) {
   if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees → mai toccare (incl. main checkout)
   if (wt.branch === mainBranch) continue;    // doppia guardia: mai il branch default
-  const dirty = sh(`git -C "${wt.path}" status --porcelain`, { allowFail: true }).length > 0;
-  const state = wt.branch ? prState.get(wt.branch) : undefined;
+  const { significant, ignored } = classifyDirty(wt.path);
+  const dirty = significant.length > 0;
+  const state = wt.branch ? resolvePrState(wt.branch) : undefined;
   if (state === 'OPEN') continue; // PR aperta → lavoro vivo
   if (state === 'MERGED' || state === 'CLOSED') {
-    if (dirty) { reportWt.push({ ...wt, reason: `PR ${state} ma worktree DIRTY — ispeziona a mano` }); continue; }
+    if (dirty) {
+      reportWt.push({
+        ...wt,
+        reason: `PR ${state} ma worktree DIRTY su ${significant.length} file — ispeziona a mano: ${significant.slice(0, 5).join(', ')}`,
+      });
+      continue;
+    }
+    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / blocco gitnexus), PR ${state}.`);
     removeWt.push(wt);
   } else if (wt.detached) {
     reportWt.push({ ...wt, reason: 'detached HEAD, nessuna PR — probabile abbandono (rimuovi a mano se confermi)' });
   } else if (issueClosed(wt.branch)) {
     // fix/issue-N senza PR ma issue #N CLOSED → lavoro risolto, worktree leftover.
-    if (dirty) reportWt.push({ ...wt, reason: `issue #${/\d+/.exec(wt.branch)[0]} CLOSED ma worktree DIRTY — ispeziona a mano` });
+    if (dirty) reportWt.push({ ...wt, reason: `issue #${/\d+/.exec(wt.branch)[0]} CLOSED ma worktree DIRTY su ${significant.length} file — ispeziona a mano` });
     else removeWt.push(wt);
   } else {
     // Worktree senza PR: NON auto-rimuovere mai. Un worktree clean+0-ahead è
@@ -266,7 +294,8 @@ for (const wt of worktrees) {
     // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
     const gone = wt.branch && upstreamGone(wt.branch) ? ' upstream-GONE (remoto cancellato — probabile merged/closed altrove, es. worktree Codex)' : '';
-    reportWt.push({ ...wt, reason: `clean=${!dirty} ahead=${ahead ?? 'unknown'} no-PR${gone} — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
+    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron/gitnexus)` : '';
+    reportWt.push({ ...wt, reason: `clean=${!dirty}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone} — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
   }
 }
 
@@ -280,7 +309,7 @@ const reportBranch = []; // {name, reason}
 for (const b of allLocal) {
   if (b === mainBranch) continue;
   if (wtBranches.has(b)) continue; // gestito sopra come worktree
-  const state = prState.get(b);
+  const state = resolvePrState(b);
   if (state === 'OPEN') continue;
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
   if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
