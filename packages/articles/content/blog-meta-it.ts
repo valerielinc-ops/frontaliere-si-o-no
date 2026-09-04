@@ -11277,6 +11277,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.title': 'Vivere a Induno Olona e lavorare in Ticino da frontaliere',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.excerpt': 'Scopri i collegamenti, i tempi di percorrenza, il costo della vita e i vantaggi di vivere a Induno Olona e lavorare in Ticino.',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.imageAlt': 'Panoramica del Lago di Lugano con le Alpi Svizzere sullo sfondo',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Vivere a Cassina Rizzardi e lavorare in Ticino',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Permesso G, imposta alla fonte, AVS/LPP, LAMal: guida completa per frontalieri Como-Ticino con procedura, costi e checklist trasferimento.',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Lago di Lugano con le Alpi ticinesi riflesse nelle acque calme, mattina serena.',
 };
 
 export default blogMetaIt;

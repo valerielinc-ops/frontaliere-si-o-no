@@ -11278,6 +11278,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.title': 'Vivre à Induno Olona et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.excerpt': 'Découvrez les connexions, les temps de trajet, le coût de la vie et les avantages de vivre à Induno Olona et de travailler au Tessin.',
     'blog.article.vivere-induno-olona-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique du Lac de Lugano avec les Alpes suisses en arrière-plan',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.title': 'Vivre à Cassina Rizzardi et travailler au Tessin',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.excerpt': 'Permis G, taxe à la source, AVS/LPP, LAMal : guide complet pour les frontaliers Côme-Tessin avec procédure, coûts et checklist de transfert.',
+    'blog.article.vivere-cassina-rizzardi-lavorare-ticino.imageAlt': 'Lac de Lugano avec les Alpes tessinoises reflétées dans les eaux calmes par une matinée claire.',
 };
 
 export default blogMetaFr;
