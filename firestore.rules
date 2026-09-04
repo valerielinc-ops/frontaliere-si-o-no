@@ -29,13 +29,26 @@ service cloud.firestore {
     // #5928). True if the incoming write touches any of the fields that
     // together form the art. 25 consent record — a change here is what an
     // unauthenticated forger would need to falsify.
+    //
+    // This list and the browser writers that produce those fields do not share
+    // a source — a rules file is not importable from TypeScript — so the two
+    // are kept in lockstep by a test instead: tests/firestore-rules-consent-
+    // key-drift.test.ts parses the array below and fails if any `consent_*`
+    // key written by a `newsletter_subscribers` writer under services/ is
+    // missing from it. It found the first drift itself (#6681): the proof
+    // built by services/newsletterConsentUpgrade.ts carries
+    // `consent_upgraded_at` and `consent_proof_verified`, neither of which was
+    // guarded, and `consent_proof_verified` is precisely the field that says a
+    // proof of possession was checked — writable in isolation by anyone who
+    // knew the address, which is the forge this guard exists to close.
     function consentFieldsTouched(newData, oldData) {
       return newData.diff(oldData).affectedKeys().hasAny([
         'consent_text', 'consent_text_version', 'consent_text_displayed',
         'consent_page_version', 'consent_act', 'consent_origin',
         'consent_method', 'consent_given', 'consent_given_at',
         'consent_source_url', 'consent_user_agent', 'consent_ip',
-        'consent_ip_recorded_at',
+        'consent_ip_recorded_at', 'consent_upgraded_at',
+        'consent_proof_verified',
       ]);
     }
 
