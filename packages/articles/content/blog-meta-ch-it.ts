@@ -5413,6 +5413,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permesso L breve durata Vaud: durata, proroga e diritti',
     'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'Il permesso L consente di lavorare in Svizzera fino a 1 anno ed è rinnovabile. Scopri come richiedere la proroga, passare al permesso B e quali sono gli obblighi fiscali.',
     'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Documento permesso di lavoro e contratto d\'impiego svizzero su scrivania in ufficio',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'Sondaggio SSR sulle votazioni federali del 27 settembre',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'La SSR ha avviato un nuovo sondaggio sulle iniziative in votazione il 27 settembre. Partecipazione online aperta fino alle 23.00 di mercoledì prossimo.',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Urna elettorale svizzera per le votazioni federali',
 };
 
 export default blogMetaChIt;

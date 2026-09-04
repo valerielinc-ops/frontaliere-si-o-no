@@ -5413,6 +5413,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-l-breve-durata-vaud-proroga.title': 'Permit L short duration Vaud: duration, extension and rights',
     'blog.article.permesso-l-breve-durata-vaud-proroga.excerpt': 'The L permit allows you to work in Switzerland for up to 1 year and is renewable. Learn how to apply for the extension, move to permit B, and what your tax obligations are.',
     'blog.article.permesso-l-breve-durata-vaud-proroga.imageAlt': 'Work permit and Swiss employment contract on office desk',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.title': 'SSR Survey on Federal Voting on September 27',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.excerpt': 'The SRG launched a new survey on the initiatives on the ballot on 27 September. Online participation open until 23.00 next Wednesday.',
+    'blog.article.sondaggio-ssr-votazioni-27-settembre.imageAlt': 'Swiss ballot box for federal elections',
 };
 
 export default blogMetaChEn;
