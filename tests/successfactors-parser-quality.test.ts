@@ -1,3 +1,4 @@
+import os from 'node:os';
 import fs from 'node:fs';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -213,28 +214,55 @@ const MORE_LOCATIONS_MARKER = /\+\s*\d+\s*(?:more|weitere|mehr|autres?|altr)/i;
  */
 const j2wListing = (href: string = J2W_FIXTURE_HREF) => J2W_FIXTURE.replaceAll(J2W_FIXTURE_HREF, href);
 
-/** Modules that read a location out of a j2w listing row, discovered from source. */
-const discoverJ2wListingModules = () => {
-  const dir = path.resolve(process.cwd(), 'scripts', 'lib');
-  const discovered = fs.readdirSync(dir)
-    .filter((file) => file.endsWith('.mjs'))
-    .filter((file) => {
-      const source = fs.readFileSync(path.join(dir, file), 'utf8');
-      return /colLocation|jobLocation/.test(source) && /jobTitle-link|data-row/.test(source);
-    });
+/**
+ * The location cell of a j2w row, as a string literal in a regex parser
+ * (`class="jobLocation"`) or as a JSDOM selector (`.colLocation`, `.jobLocation`).
+ */
+const J2W_LOCATION_CELL = /colLocation|jobLocation/;
+
+/**
+ * The row the cell hangs off. Beyond the two j2w class literals this accepts the
+ * bare `tbody > tr` shape: a tenant that walks the table with JSDOM and picks the
+ * cell by class alone cites neither `data-row` nor `jobTitle-link`, and used to
+ * join the family invisibly.
+ */
+const J2W_LISTING_ROW = /jobTitle-link|data-row|tbody\s*>?\s*tr/;
+
+/** Whether a module source reads a location out of a j2w listing row. */
+const isJ2wListingSource = (source: string) => J2W_LOCATION_CELL.test(source) && J2W_LISTING_ROW.test(source);
+
+const mjsFilesUnder = (dir: string, prefix = ''): string[] => fs.readdirSync(dir, { withFileTypes: true })
+  .flatMap((entry) => (entry.isDirectory()
+    ? mjsFilesUnder(path.join(dir, entry.name), `${prefix}${entry.name}/`)
+    : (entry.name.endsWith('.mjs') ? [`${prefix}${entry.name}`] : [])));
+
+/**
+ * Modules that read a location out of a j2w listing row, discovered from source.
+ * The scan is recursive: a parser filed under `scripts/lib/<subdir>/` is as much
+ * a family member as a flat one, and must not be able to hide from the gate.
+ */
+const discoverJ2wListingModules = (root = path.resolve(process.cwd(), 'scripts', 'lib')) => {
+  const discovered = mjsFilesUnder(root)
+    .filter((file) => isJ2wListingSource(fs.readFileSync(path.join(root, file), 'utf8')));
   // The shared CSB parser reads `td.colLocation` for every tenant that delegates
   // its listing to it, but names neither `data-row` nor `jobTitle-link`.
   return [...new Set([...discovered, 'successfactors-shared-job-parser-common.mjs'])].sort();
 };
 
 /**
- * Family members with no listing location to protect. Keeping them here — and
- * not silently outside the scan — is what makes a new omission reviewable.
+ * Discovered modules with no j2w listing location to protect — family members
+ * without a location field, plus the false positives the widened predicate
+ * necessarily sweeps in. Keeping them here, motivated and asserted still
+ * discovered, is what makes a new omission reviewable instead of silent.
  */
 const J2W_LISTING_MODULES_WITHOUT_LOCATION: Record<string, string> = {
   // Tile listing (`li.job-tile`), and `parseListingTiles()` emits no location
   // field at all: the marker has nowhere to leak into.
   'stadt-zuerich-job-parser.mjs': 'listing tiles carry no location field',
+  // Not a j2w tenant: its own `#joboffers` table on amag.ch, rows keyed by
+  // `#jobTitel`/`#jobStandort` and `-j{id}.html` hrefs. The `jobLocation` token
+  // is the JSON-LD field of the detail page, not a listing cell.
+  'amag-job-parser.mjs': 'own #joboffers listing table, jobLocation is detail JSON-LD',
 };
 
 type J2wListingCase = {
@@ -317,5 +345,37 @@ describe('SuccessFactors j2w multi-office listing row', () => {
     ]);
 
     expect(discoverJ2wListingModules().filter((module) => !covered.has(module))).toEqual([]);
+  });
+
+  it('keeps the motivated exclusions tied to modules the scan still discovers', () => {
+    const discovered = new Set(discoverJ2wListingModules());
+    const stale = Object.keys(J2W_LISTING_MODULES_WITHOUT_LOCATION).filter((module) => !discovered.has(module));
+
+    // An exclusion for a module the predicate no longer elects is a licence
+    // nobody reviews: it would keep a real member out once it comes back.
+    expect(stale).toEqual([]);
+  });
+
+  it('elects a tenant that picks the cell by class alone, in a subdirectory', () => {
+    // The shape the current literals miss: JSDOM over `tbody > tr`, cell by
+    // `.jobLocation`, no `data-row` and no `jobTitle-link` anywhere.
+    const futureTenant = [
+      "const rows = [...document.querySelectorAll('#searchresults tbody > tr')];",
+      "const location = row.querySelector('.jobLocation')?.textContent ?? '';",
+    ].join('\n');
+
+    expect(isJ2wListingSource(futureTenant)).toBe(true);
+
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'j2w-discovery-'));
+    try {
+      fs.mkdirSync(path.join(root, 'tenants'));
+      fs.writeFileSync(path.join(root, 'tenants', 'future-job-parser.mjs'), futureTenant);
+      fs.writeFileSync(path.join(root, 'tenants', 'unrelated.mjs'), 'export const noop = () => {};');
+
+      expect(discoverJ2wListingModules(root)).toContain('tenants/future-job-parser.mjs');
+      expect(discoverJ2wListingModules(root)).not.toContain('tenants/unrelated.mjs');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
