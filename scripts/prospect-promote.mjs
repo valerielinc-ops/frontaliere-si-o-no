@@ -39,6 +39,7 @@ import { selectForPromotion, clampMinDays, findOpenPromotionPr, GATE_DEFAULTS } 
 import { loadCoverage } from './lib/prospector/coverage.mjs';
 import { ROOT, PROSPECTOR_DIR } from './lib/prospector/config.mjs';
 import { checkPrBodySections } from './lib/pr-body-sections-check.mjs';
+import { canPushWorkflows } from './ci/followup-drainer.mjs';
 
 const argv = process.argv.slice(2);
 const arg = (n, d) => { const h = argv.find((a) => a.startsWith(`--${n}=`)); return h ? h.slice(n.length + 3) : d; };
@@ -348,11 +349,19 @@ try {
 // fine, al push — misurato qui: 10 crawler scaffoldati e poi
 // «refusing to allow a GitHub App to create or update workflow».
 //
-// Fail-closed: si rigenera solo se `mint-app-token.mjs` ha LETTO la capacita'
-// dalla risposta dell'API. Senza, il crawler entra comunque (parser, runner,
-// test, voce di manifest) e resta solo da schedulare — una PR in meno di valore,
-// non una PR bloccata.
-const canWriteWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
+// Fail-closed: si rigenera solo se la capacita' e' stata LETTA da una risposta
+// dell'API. Senza, il crawler entra comunque (parser, runner, test, voce di
+// manifest) e resta solo da schedulare — una PR in meno di valore, non una PR
+// bloccata.
+//
+// `canPushWorkflows()` e non `process.env.APP_TOKEN_WORKFLOWS` diretto: quella
+// env descrive UNA sola identita' (la GitHub App), e leggerla da sola e' la
+// stessa forma di difetto corretta il 2026-09-04 nel pre-flight del drainer —
+// dove sul corpus, che pusha con un PAT classico con scope `workflow`, la
+// risposta era `false` per costruzione. Qui oggi il risultato non cambia (il
+// loop del prospector gira con la App e non scrive `PAT_WORKFLOWS_SCOPE`), ma
+// la capacita' si legge da entrambe le sorgenti in un posto solo.
+const canWriteWorkflows = canPushWorkflows();
 let groupsRegenerated = false;
 if (canWriteWorkflows) {
   try {

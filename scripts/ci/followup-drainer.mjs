@@ -2792,21 +2792,36 @@ export function runDrain() {
     // `APP_TOKEN_WORKFLOWS` è la capacità LETTA dalla risposta API, ed è fail-closed:
     // non scritta o diversa da 'true' → si parcheggia, come prima del 2026-08-06.
     //
+    // Ma `APP_TOKEN_WORKFLOWS` descrive UNA SOLA identità — la GitHub App del sito —
+    // e questo call-site la leggeva da solo, mentre `isCapabilityScoped` (il guard
+    // gemello del parked-retry) era già passato a `canPushWorkflows()` il 2026-08-24.
+    // Sul corpus non esiste una App: il fixer pusha con `GITHUB_PAT_NANAKO`, il cui
+    // `x-oauth-scopes` include `workflow` (misurato; e il probe scrive
+    // `PAT_WORKFLOWS_SCOPE=true` a ogni run del drainer, verificato nel run
+    // 33839771105 del 2026-09-04). Qui la risposta era quindi `false` PER
+    // COSTRUZIONE, e ogni follow-up il cui fix toccasse `.github/workflows/**`
+    // veniva parcheggiata come terminale con una motivazione che nomina una
+    // credenziale che quel repo non usa: 4 issue aperte in `needs-human` il
+    // 2026-09-03/04 (corpus #758 #754 #714 #659), tutte con verdetto emesso dal
+    // pre-flight e non da Claude. Stessa causa del 2026-08-24, altro call-site: la
+    // funzione strutturale esisteva già e bastava chiamarla.
+    //
     // Senza questa condizione la follow-up verrebbe parcheggiata come TERMINALE con una
     // motivazione ormai falsa («manca lo scope workflows»): non solo non arriverebbe mai alla
     // capability appena sbloccata, ma lascerebbe agli atti una spiegazione sbagliata di
     // perché. Un parcheggio motivato male è peggio di nessun parcheggio — nessuno lo rimette
     // in discussione.
-    const issueFixCanPushWorkflows = process.env.APP_TOKEN_WORKFLOWS === 'true';
+    const issueFixCanPushWorkflows = canPushWorkflows();
     // NB: una riga sola, per contratto — `tests/issue-fix-app-token-wiring.test.ts` asserisce
-    // la forma testuale di questa condizione (`!issueFixCanPushWorkflows && body && detectWorkflowScoped`).
+    // la forma testuale di questa condizione (`!issueFixCanPushWorkflows && body && detectWorkflowScoped`)
+    // e che la capacità arrivi da `canPushWorkflows()`, non da una singola env.
     if (!issueFixCanPushWorkflows && body && detectWorkflowScoped(`${cand.title}\n${body}`, { title: cand.title, labels: cand.labels })) {
       // Title INCLUDED (#5595): a monitor auto-file ("Workflow Failure: <name>") names its
       // workflow subject only there, so a body-only scan renders an empty `(...)` list.
       const wfRefs = extractWorkflowRefs(`${cand.title}\n${body}`).slice(0, 5).join(', ');
       const subject = wfRefs || 'workflow indicato dal monitor che ha aperto la issue';
       console.log(`PARK #${cand.number} (workflow-scoped: ${subject}) → no promozione, evito run bloccato`);
-      const note = `⏭️ **Pre-flight drainer (zero-Claude, #1724/#5595)**: il fix di questa follow-up tocca **esclusivamente** file \`.github/workflows/**\` (${subject}), che il token GitHub App di \`issue-fix\` non può pushare (manca lo scope \`workflows\`). Promuoverla a \`agent:fix\` brucerebbe ~1M token in un run che finirebbe comunque \`blocked-workflows-scope\`. **Non promuovo**: serve un PAT abilitato o mano umana. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->`;
+      const note = `⏭️ **Pre-flight drainer (zero-Claude, #1724/#5595)**: il fix di questa follow-up tocca **esclusivamente** file \`.github/workflows/**\` (${subject}), che l'identità con cui \`issue-fix\` pusha su questo repo non può modificare (capacità letta da \`canPushWorkflows()\`: né la GitHub App ha \`workflows: write\`, né il PAT di push espone lo scope \`workflow\`). Promuoverla a \`agent:fix\` brucerebbe ~1M token in un run che finirebbe comunque \`blocked-workflows-scope\`. **Non promuovo**: serve un PAT abilitato o mano umana. Rimuovo \`agent:fix-queued\` e parko (riapribile: togli \`fu-parked\` se il contesto cambia).\n\n<!-- FIX_OUTCOME: blocked-workflows-scope -->`;
       if (DRY) { console.log(`[dry] park #${cand.number} (workflow-scoped)`); continue; }
       try { gh(['issue', 'comment', String(cand.number), '--repo', REPO, '--body', note], { json: false }); }
       catch (e) { console.log(`::warning::comment #${cand.number} fallito: ${String(e).slice(0, 120)}`); }

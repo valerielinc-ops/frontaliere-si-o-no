@@ -280,7 +280,16 @@ describe('i sibling che assumevano l\'assenza dello scope (review round 1)', () 
     // Ma la presenza di APP_TOKEN non è la capability (#5288), e qui sbagliava nel verso
     // peggiore: SBLOCCAVA la promozione di follow-up che il push avrebbe rifiutato,
     // mandandole a bruciare ~1M token ciascuna per morire al `git push`.
-    expect(drainer).toMatch(/const issueFixCanPushWorkflows = process\.env\.APP_TOKEN_WORKFLOWS === 'true'/);
+    // Dal 2026-09-04 la capacità arriva da `canPushWorkflows()` e non piu' da una
+    // singola env: `APP_TOKEN_WORKFLOWS` descrive la sola GitHub App del sito, e il
+    // corpus — che pusha con un PAT classico con scope `workflow` — otteneva `false`
+    // PER COSTRUZIONE, parcheggiando come terminali fix perfettamente pushabili
+    // (corpus #758 #754 #714 #659). Il guard gemello `isCapabilityScoped` era gia'
+    // passato a `canPushWorkflows()` il 2026-08-24: questo call-site era rimasto
+    // indietro. Il fail-closed non cambia — `canPushWorkflows()` e' l'OR di due
+    // letture, entrambe `!== 'true'` quando non scritte.
+    expect(drainer).toMatch(/const issueFixCanPushWorkflows = canPushWorkflows\(\);/);
+    expect(drainer).not.toMatch(/const issueFixCanPushWorkflows = process\.env\./);
     expect(drainer).toMatch(/if \(!issueFixCanPushWorkflows && body && detectWorkflowScoped/);
   });
 });
