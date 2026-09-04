@@ -5470,6 +5470,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-glarona-conversione.title': 'Führerschein Kanton Glarus: Umschulung und Prüfungen',
     'blog.article.patente-guida-glarona-conversione.excerpt': 'Wie man einen ausländischen Führerschein im Kanton Glarus umwandelt: komplettes Verfahren, theoretisch-praktische Prüfungen und Pflichtkurse für Personen, die in die Schweiz ziehen.',
     'blog.article.patente-guida-glarona-conversione.imageAlt': 'Bergstraße im Kanton Glarus mit Schweizer Verkehrsschildern',
+    'blog.article.imposta-successione-donazione-glarona.title': 'Erbschafts- und Schenkungssteuer Kanton Glarus: die Steuersätze',
+    'blog.article.imposta-successione-donazione-glarona.excerpt': 'Im Kanton Glarus folgt die Erbschafts- und Schenkungssteuer einem autonomen kantonalen System mit Sätzen, die je nach Verwandtschaftsgrad variieren, und Befreiungen für Ehepartner und Nachkommen. Praktischer Leitfaden und Deklarationsverfahren.',
+    'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Alpines Landschaftsbild des Kantons Glarus mit Verwaltungsgebäuden, Symbol der Schweizer Kantonsbesteuerung und der Erbschafts- und Schenkungssteuer',
 };
 
 export default blogMetaChDe;

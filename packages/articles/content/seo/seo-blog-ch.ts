@@ -71000,6 +71000,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-imposta-successione-donazione-glarona': {
+    title: 'Imposta di successione e donazione canton Glarona: le aliquote',
+    description: 'Come funziona l\'imposta di successione e donazione nel Canton Glarona. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, successione, donazione, canton',
+    ogTitle: 'Imposta di successione canton Glarona: aliquote e esenzioni',
+    ogDescription: 'Successione e donazione nel Canton Glarona: scopri come funzionano le aliquote per ogni grado di parentela, le esenzioni per coniuge e discendenti, la procedura di dichiarazione e i termini da rispettare presso l\'amministrazione cantonale glaronese',
+    canonicalPath: '/articoli-svizzera/imposta-successione-donazione-glarona/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta di successione e donazione canton Glarona: le aliquote",
+      "description": "Come funziona l'imposta di successione e donazione nel Canton Glarona. Aliquote per grado di parentela, esenzioni per coniuge e discendenti, procedura",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/imposta-successione-donazione-glarona.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio alpino del cantone glaronese con edifici amministrativi, simbolo della fiscalità cantonale svizzera e della tassazione di successione e donazione"
+      },
+      "datePublished": "2026-09-04T19:35:32+00:00",
+      "dateModified": "2026-09-04T19:35:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/imposta-successione-donazione-glarona/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
