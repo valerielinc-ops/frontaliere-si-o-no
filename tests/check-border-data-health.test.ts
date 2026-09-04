@@ -16,6 +16,8 @@ import {
   collectWebcamUrls,
   isStalenessCheckActive,
   staleThresholdMinutesFor,
+  applyWebcamStatus,
+  formatDowntime,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/check-border-data-health.mjs';
 
@@ -285,5 +287,101 @@ describe('staleness page-gate (issue #2587 regression)', () => {
     const snapshot = '2026-07-15T08:43:00Z'; // 124 min old — within morning gap
     expect(evaluateStaleness({ updatedAt: snapshot }, now, 6).stale).toBe(false); // fine for 6h backstop
     expect(PAGE(snapshot, now)).toBe(false); // must NOT page: morning gap, not a real freeze
+  });
+});
+
+describe('applyWebcamStatus (post-downtime recovery, issue #6644)', () => {
+  const now = Date.now();
+  const online = { broken: false };
+  const broken = { broken: true, reason: 'HTTP 404' };
+  const indeterminate = { broken: false, indeterminate: true, reason: 'blocked from monitor' };
+
+  it('records an online feed with lastOnlineAt = now', () => {
+    const { state, recovered } = applyWebcamStatus({}, [{ url: 'a', verdict: online }], now);
+    expect(state.a.status).toBe('online');
+    expect(state.a.lastOnlineAt).toBe(new Date(now).toISOString());
+    expect(recovered).toEqual([]);
+  });
+
+  it('marks a broken feed offline and FREEZES lastOnlineAt at the last good read', () => {
+    const before = { a: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) } };
+    const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: broken }], now);
+    expect(state.a.status).toBe('offline');
+    expect(state.a.lastOnlineAt).toBe(before.a.lastOnlineAt);
+    expect(state.a.lastCheckedAt).toBe(new Date(now).toISOString());
+    expect(recovered).toEqual([]);
+  });
+
+  it('reports a recovery with the downtime measured from lastOnlineAt', () => {
+    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+    const { state, recovered } = applyWebcamStatus(
+      before,
+      [{ url: 'a', label: 'Chiasso', served: ['Chiasso-Brogeda'], verdict: online }],
+      now,
+    );
+    expect(state.a.status).toBe('online');
+    expect(recovered).toHaveLength(1);
+    expect(recovered[0].url).toBe('a');
+    expect(recovered[0].served).toEqual(['Chiasso-Brogeda']);
+    expect(Math.round(recovered[0].offlineForMs / HOUR)).toBe(30);
+  });
+
+  it('does NOT re-report a recovery on the following healthy run', () => {
+    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+    const first = applyWebcamStatus(before, [{ url: 'a', verdict: online }], now);
+    const second = applyWebcamStatus(first.state, [{ url: 'a', verdict: online }], now + HOUR);
+    expect(first.recovered).toHaveLength(1);
+    expect(second.recovered).toEqual([]);
+  });
+
+  it('reports a recovery with unknown downtime when no lastOnlineAt was ever recorded', () => {
+    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(HOUR), lastOnlineAt: null } };
+    const { recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: online }], now);
+    expect(recovered).toHaveLength(1);
+    expect(recovered[0].offlineForMs).toBeNull();
+  });
+
+  it('carries the previous status forward on an INDETERMINATE read (no fabricated downtime)', () => {
+    const before = { a: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) } };
+    const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: indeterminate }], now);
+    expect(state.a.status).toBe('online');
+    expect(state.a.lastOnlineAt).toBe(before.a.lastOnlineAt);
+    expect(recovered).toEqual([]);
+  });
+
+  it('does not fabricate a recovery when an offline feed reads INDETERMINATE', () => {
+    const before = { a: { status: 'offline', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(30 * HOUR) } };
+    const { state, recovered } = applyWebcamStatus(before, [{ url: 'a', verdict: indeterminate }], now);
+    expect(state.a.status).toBe('offline');
+    expect(recovered).toEqual([]);
+  });
+
+  it('prunes URLs no longer in the registry instead of growing forever', () => {
+    const before = {
+      gone: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) },
+      kept: { status: 'online', lastCheckedAt: isoAgo(6 * HOUR), lastOnlineAt: isoAgo(6 * HOUR) },
+    };
+    const { state } = applyWebcamStatus(before, [{ url: 'kept', verdict: online }], now);
+    expect(Object.keys(state)).toEqual(['kept']);
+  });
+
+  it('tolerates an empty/missing previous state', () => {
+    expect(applyWebcamStatus(undefined, [{ url: 'a', verdict: online }], now).recovered).toEqual([]);
+    expect(applyWebcamStatus({}, [], now).state).toEqual({});
+  });
+});
+
+describe('formatDowntime', () => {
+  it('formats minutes, hours and days', () => {
+    expect(formatDowntime(45 * MIN)).toBe('45min');
+    expect(formatDowntime(3 * HOUR)).toBe('3h');
+    expect(formatDowntime(3 * HOUR + 20 * MIN)).toBe('3h 20min');
+    expect(formatDowntime(50 * HOUR)).toBe('2g 2h');
+    expect(formatDowntime(48 * HOUR)).toBe('2g');
+  });
+
+  it('reads as unknown rather than zero when the downtime start is unrecorded', () => {
+    expect(formatDowntime(null)).toBe('durata sconosciuta');
+    expect(formatDowntime(Number.NaN)).toBe('durata sconosciuta');
   });
 });
