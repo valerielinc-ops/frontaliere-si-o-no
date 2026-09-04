@@ -33897,6 +33897,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'apertura-conto-svizzera-frontalieri',
+ category: 'pratico',
+ date: '2026-09-04T19:48:13.597Z',
+ image: '/images/blog/apertura-conto-svizzera-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
