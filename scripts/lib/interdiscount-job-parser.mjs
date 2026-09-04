@@ -408,7 +408,15 @@ export async function fetchAllInterdiscountJobs() {
       crawledAt: new Date().toISOString(),
 
       // ── Location details ──
-      addressLocality: city || location,
+      // Only a real workplace city, never the `location` region fallback:
+      // `location` degrades to the REGION label (and then to "Schweiz") when
+      // `sza_workplace.city` is empty, and several region labels are also
+      // municipality names (Bern, Zürich, Zug…). Publishing one as
+      // `addressLocality` made it look like branch-level evidence, which
+      // `applyCoopSourceDetailToJob()` would then prefer over the detail
+      // page's real municipality (issue #7349 review). Absent instead, the
+      // detail payload stays authoritative for those rows.
+      ...(city ? { addressLocality: city } : {}),
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',

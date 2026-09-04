@@ -5470,6 +5470,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-glarona-conversione.title': 'Canton Glarus Driving License: Conversion and Exams',
     'blog.article.patente-guida-glarona-conversione.excerpt': 'How to convert your foreign driver\'s license in the canton of Glarus: complete procedure, theoretical-practical exams and mandatory courses for those who move to Switzerland.',
     'blog.article.patente-guida-glarona-conversione.imageAlt': 'Mountain road in Glarus Canton with Swiss traffic signs',
+    'blog.article.imposta-successione-donazione-glarona.title': 'Inheritance and donation tax of the canton of Glarus: the rates',
+    'blog.article.imposta-successione-donazione-glarona.excerpt': 'In the Canton of Glarus, inheritance and gift tax follows an autonomous cantonal regime with rates that vary by degree of kinship and exemptions for spouse and descendants. Practical guide and declaration procedure.',
+    'blog.article.imposta-successione-donazione-glarona.imageAlt': 'Alpine landscape of Glarus canton with administrative buildings, representing Swiss cantonal taxation and inheritance law matters',
 };
 
 export default blogMetaChEn;
