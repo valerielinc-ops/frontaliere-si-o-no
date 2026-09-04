@@ -157,9 +157,17 @@ describe('prepassDecision — verdetti superati dalla decisione sui secret', () 
     const title = 'follow-up(#6205): 3 item deferred — REST files-cap';
     expect(prepassDecision({ title }).action).toBe('decompose');
     for (const l of ['decomposed:1', 'from-decompose', 'agent:decompose-queued', 'maybe-resolved']) {
-      expect(prepassDecision({ title, labels: [l] }).action, l).not.toBe('decompose');
+      // `keep`, non un `not.toBe('decompose')` qualsiasi: l'asserzione debole
+      // lasciava passare il `requeue`, che è il ri-accodo intero del container —
+      // «il modo documentato di rifare max-turns», cioè il loop da un'altra
+      // porta (🔴 review #7325).
+      expect(prepassDecision({ title, labels: [l] }).action, l).toBe('keep');
     }
-    // E con un verdetto catturato cade sul ramo del verdetto, non sul requeue.
+    // E SENZA verdetto, che è il caso che il fallthrough mancava: `verdict` è
+    // `null` sia quando la issue non porta un marker `FIX_OUTCOME`, sia quando
+    // la lettura dei commenti fallisce e il `catch` in `main()` lo azzera.
+    expect(prepassDecision({ title, labels: ['decomposed:1'], verdict: null }).action).toBe('keep');
+    // Con un verdetto catturato, idem.
     expect(prepassDecision({ title, labels: ['from-decompose'], verdict: 'max-turns' }).action).toBe('keep');
   });
 

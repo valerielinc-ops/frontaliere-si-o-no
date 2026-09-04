@@ -154,14 +154,27 @@ export function prepassDecision({ title = '', labels = [], verdict = null } = {}
   // è quello del drainer, `isDecomposeEligible`, importato e non riscritto: là
   // esclude `decomposed:1`, `from-decompose`, `agent:decompose*` e
   // `maybe-resolved`, e `issue-decompose.yml` NON ri-controlla l'eleggibilità —
-  // va dritto al run Claude. Senza questo gate il pre-pass mandava allo scorporo
-  // proprio le issue che il drainer ne aveva appena escluse, cioè spostava il
-  // loop dalla porta `requeue` a quella `decompose` invece di chiuderlo (❓ della
-  // review su #7318). Un aggregato non eleggibile cade quindi sul ramo del
-  // verdetto qui sotto, che è il posto giusto: lo guarda lo sweep.
-  if (monitor && AGGREGATE_ITEMS_RE.test(title)
-      && isDecomposeEligible({ labels: labels.map((name) => ({ name })) })) {
-    return { action: 'decompose', reason: 'container multi-item generato da un monitor' };
+  // va dritto al run Claude. Senza il gate, il pre-pass mandava allo scorporo
+  // proprio le issue che il drainer ne aveva appena escluse (❓ review #7318).
+  //
+  // E l'ineleggibile esce `keep` QUI, esplicito, invece di cadere più giù. Il
+  // fallthrough sembrava innocuo perché sotto c'è il ramo del verdetto, ma
+  // quel ramo è condizionato a `verdict &&`, e `verdict` è `null` sia quando la
+  // issue non porta nessun marker `FIX_OUTCOME` sia quando la lettura dei
+  // commenti fallisce (in `main()` il `catch` la azzera, silenzioso). Un
+  // container `decomposed:1` senza verdetto arrivava quindi al `requeue` finale,
+  // cioè al ri-accodo intero che il commento qui sopra chiama «il modo
+  // documentato di rifare max-turns»: il loop non si chiudeva, cambiava porta
+  // (🔴 review #7325). Né scorporo né ri-accodo: lo guarda lo sweep.
+  const aggregate = monitor && AGGREGATE_ITEMS_RE.test(title);
+  if (aggregate) {
+    if (isDecomposeEligible({ labels: labels.map((name) => ({ name })) })) {
+      return { action: 'decompose', reason: 'container multi-item generato da un monitor' };
+    }
+    return {
+      action: 'keep',
+      reason: 'container multi-item che il drainer ha già escluso dallo scorporo: né decompose né requeue intero, decide lo sweep',
+    };
   }
 
   if (verdict && STALE_BLOCK_VERDICTS.has(verdict)) {
