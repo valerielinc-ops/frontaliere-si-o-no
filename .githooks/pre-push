@@ -5,19 +5,28 @@
 # bucket: fixers must inspect untouched sibling files BEFORE pushing, not after
 # the reviewer fires 🔴 post-PR-open (which costs an extra review cycle).
 #
-# Runs check-sibling-patterns.mjs --strict: exits 1 if any untouched file shares
-# a distinctive construct with the diff (SCREAMING_SNAKE, camelCase helper,
-# kebab import, literal slug).  Advisory output + exit 0 if the diff touches
-# only non-code paths (data/, public/, reports/).
+# Runs check-sibling-patterns.mjs: prints every untouched file that shares a
+# distinctive construct with the diff (SCREAMING_SNAKE, camelCase helper, kebab
+# import, literal slug).  Always exits 0 — see the ADVISORY note below.
 #
-# To bypass (AGENTS.md § Workflow — sibling-hook exception):
-#   Allowed ONLY when ALL surfaced candidates have been individually assessed:
-#   • Real sibling found → fix it in this branch, then push normally.
-#   • False positive → document it in ## Non implementato with justification
-#     (per-file, not a blanket "tutti falsi positivi"), then:
-#       git push --no-verify
-#   A blanket dismiss without per-file justification is not a bypass; the
-#   reviewer will still fire 🔴 sibling-class-fix on the opened PR.
+# ADVISORY dal 2026-09-04 (istruzione diretta del proprietario): questo hook
+# STAMPA i candidati e lascia passare il push. Non blocca piu'.
+#
+# Perche': qui non c'e' body da leggere, quindi l'unica uscita era un
+# `git push --no-verify` — cioe' un gate che non si puo' soddisfare, solo
+# aggirare, e che fa fallire `git push` con un nudo
+# `error: failed to push some refs` senza nemmeno stampare la ragione a chi
+# usa un client che non mostra stdout dell'hook. Un gate la cui unica risposta
+# corretta e' il bypass insegna a bypassare, e il bypass e' indiscriminato:
+# spegne l'hook per l'intero push, non per il candidato che hai valutato.
+#
+# L'ENFORCEMENT NON SPARISCE, si sposta dove e' soddisfacibile:
+#   • `scripts/ci/sibling-check-gate.mjs` (PreToolUse su `gh pr create`) legge
+#     il body della PR e blocca l'apertura finche' ogni candidato non e'
+#     dichiarato falso positivo per-file in `## Non implementato`;
+#   • il reviewer fa comunque 🔴 sibling-class-fix sulla PR aperta.
+# L'output qui sotto resta perche' vederlo PRIMA di scrivere il body e' utile:
+# e' un promemoria, non piu' una porta chiusa.
 set -euo pipefail
 
 # ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
@@ -45,4 +54,5 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
   fi
 fi
 
-node scripts/ci/check-sibling-patterns.mjs --strict
+# Niente `--strict`: senza quel flag lo script stampa i candidati ed esce 0.
+node scripts/ci/check-sibling-patterns.mjs
