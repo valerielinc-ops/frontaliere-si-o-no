@@ -5446,6 +5446,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.domanda-permesso-c-glarona-guida.title': 'Permesso C Glarona: requisiti e come fare domanda',
     'blog.article.domanda-permesso-c-glarona-guida.excerpt': 'Guida completa al permesso di domicilio C nel canton Glarona: anni di residenza richiesti, integrazione, procedure di domanda e passaggio verso la naturalizzazione.',
     'blog.article.domanda-permesso-c-glarona-guida.imageAlt': 'Palazzo amministrativo svizzero con bandiera e insegne ufficiali, sede degli uffici per permessi di residenza.',
+    'blog.article.permesso-c-glarona-come-richiederlo.title': 'Permesso C Glarona: requisiti, procedure e domanda',
+    'blog.article.permesso-c-glarona-come-richiederlo.excerpt': 'Residenza permanente in Cantone Glarona: guida ai requisiti del permesso C, conoscenze linguistiche, integrazione e procedura di domanda presso le autorità cantonali.',
+    'blog.article.permesso-c-glarona-come-richiederlo.imageAlt': 'Ufficio amministrativo svizzero con documenti di permesso di domicilio C e carta d\'identità sulla scrivania',
 };
 
 export default blogMetaChIt;

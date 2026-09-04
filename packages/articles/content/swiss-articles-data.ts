@@ -16336,6 +16336,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-c-glarona-come-richiederlo',
+    category: 'pratico',
+    date: '2026-09-04T15:52:04.016Z',
+    image: '/images/blog/permesso-c-glarona-come-richiederlo.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

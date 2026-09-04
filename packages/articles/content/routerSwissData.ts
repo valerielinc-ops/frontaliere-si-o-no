@@ -1841,6 +1841,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'aggiornamento-direttiva-crs-2026': { it: 'aggiornamento-direttiva-crs-2026', en: 'crs-directive-update-2026', de: 'crs-richtlinien-update-2026', fr: 'mise-a-jour-directive-crs-2026' },
  'cressier-guasto-benzina-garantita': { it: 'cressier-guasto-benzina-garantita', en: 'cressier-shutdown-fuel-supply-guaranteed', de: 'cressier-betriebsstillegung-kraftstoff-versorgung', fr: 'cressier-arret-carburant-approvisionnement-garanti' },
  'domanda-permesso-c-glarona-guida': { it: 'domanda-permesso-c-glarona-guida', en: 'residence-permit-c-glarus-application-guide', de: 'aufenthaltsbewilligung-c-glarus-antrag-leitfaden', fr: 'permis-residence-c-glaris-demande-guide' },
+ 'permesso-c-glarona-come-richiederlo': { it: 'permesso-c-glarona-come-richiederlo', en: 'residence-permit-c-glarus-how-to-apply', de: 'aufenthaltserlaubnis-c-glarus-beantragen', fr: 'permis-residence-c-glaris-demander' },
 };
 
 export const REVERSE_SWISS: Record<ArticleLocale, Record<string, string>> = (() => {
