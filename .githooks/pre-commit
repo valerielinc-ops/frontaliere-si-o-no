@@ -40,6 +40,21 @@ fi
 if [ "${GITHUB_ACTIONS:-}" != "true" ]; then
   exit 0
 fi
+# `APP_TOKEN_WORKFLOWS=true` is the capability READ from the App token minting
+# response (`permissions.workflows == 'write'`), written by `mint-app-token.mjs`
+# on every path and already the signal every other gate in the fleet trusts:
+# issue-fix.yml picks the permissive capability-guard text on it, pr-redflag-fixer
+# and pr-redcheck-fixer derive HAS_PAT from it, prospect-promote.mjs wraps it in
+# `canPushWorkflows()`. This hook was the only place still assuming that any run
+# inside Actions is workflow-incapable — an assumption that predates the App
+# token. With the scope actually granted, blocking here does not prevent a
+# doomed push: it aborts a fix that would have gone through (observed on
+# issue #6687, where regenerating the sparse-checkout profiles is by definition
+# a `.github/workflows/**` diff). Fail-closed stays the default: anything other
+# than a verified `true` — unset, `false`, a mint that never ran — still blocks.
+if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
+  exit 0
+fi
 
 STAGED_WORKFLOW_FILES=$(git diff --cached --name-only | grep -E '^\.github/workflows/' || true)
 if [ -z "$STAGED_WORKFLOW_FILES" ]; then
@@ -52,7 +67,7 @@ echo "" >&2
 echo "Staged workflow files:" >&2
 echo "$STAGED_WORKFLOW_FILES" | sed 's/^/   /' >&2
 echo "" >&2
-echo "The issue-fix CI environment uses GH_TOKEN (GitHub App — no \`workflows\` scope)." >&2
+echo "This run has no verified \`workflows\` scope (APP_TOKEN_WORKFLOWS is not 'true')." >&2
 echo "Pushing .github/workflows/** files ALWAYS fails here: the push is rejected." >&2
 echo "" >&2
 echo "→ CAPABILITY GUARD (ISSUES.md § \"Pre-condizioni\"):" >&2
@@ -66,5 +81,7 @@ echo "  3. Terminate this run without opening a PR." >&2
 echo "" >&2
 echo "To bypass (human or CI with a PAT that has \`workflows\` scope):" >&2
 echo "  git commit --no-verify   (or WORKFLOWS_COMMIT_OK=1 for a whole CI step)" >&2
+echo "A run whose App token reports \`permissions.workflows == write\` sets" >&2
+echo "APP_TOKEN_WORKFLOWS=true and never reaches this message." >&2
 echo "" >&2
 exit 1
