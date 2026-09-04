@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import {
   RESERVE_FOR_OLDEST,
   FRESH_WINDOW_MS,
+  FRESH_HEAD_MAX_SHARE,
   QUEUE_AGE_ALERT_DAYS,
   QUEUE_AGE_BUCKET_KEYS,
   QUEUE_AGE_DISJOINT_BUCKET_KEYS,
@@ -215,6 +216,53 @@ describe('corsia freschezza (#18) — il vincolo delle 24 ore ha una corsia', ()
     const con = buildTrafficPriority([job('fresh', daysAgo(0.2)), ...rest], pop, { now: NOW, freshFirst: true });
     expect(con.order[0].slug).toBe('fresh');
     expect(con.order.slice(1).map((j: any) => j.slug)).toEqual(senza.order.map((j: any) => j.slug));
+  });
+
+  it('un reset di massa di firstSeenAt NON azzera la riserva oldest-first', () => {
+    // Il caso che il tetto esiste per coprire: re-crawl completo / rigenerazione
+    // del dataset / backfill → l'INTERA coda diventa fresca e supera il cap del
+    // chiamante. Senza tetto la testa e' il batch, lo stride non gira mai e la
+    // riserva prende zero slot per tutto il passaggio.
+    const cap = 20;
+    const pending = [
+      ...Array.from({ length: 60 }, (_, i) => job(`f${i}`, daysAgo(0.1))),
+      job('ancient', daysAgo(400)),
+    ];
+    const { order, stats } = buildTrafficPriority(pending, {}, { now: NOW, cap, freshFirst: true });
+    expect(stats.freshHead).toBe(Math.floor(cap * FRESH_HEAD_MAX_SHARE));
+    expect(stats.freshDeferred).toBe(60 - stats.freshHead);
+    // Il job piu' vecchio della coda entra nel batch che il chiamante prende
+    // davvero: e' la riserva oldest-first, che senza tetto sarebbe rimasta fuori.
+    expect(order.slice(0, cap).some((j: any) => j.slug === 'ancient')).toBe(true);
+    // Nessun job perso: i freschi tagliati tornano nello stride, non nel vuoto.
+    expect(new Set(order.map((j: any) => j.slug)).size).toBe(61);
+  });
+
+  it('il tetto non morde quando la coorte sta dentro meta batch', () => {
+    // La corsia resta quella di prima nel regime misurato (~1.421 job/giorno
+    // contro un cap di 6.000): il tetto e' una rete, non una quota.
+    const fresh = Array.from({ length: 7 }, (_, i) => job(`f${i}`, daysAgo(0.5)));
+    const rest = Array.from({ length: 20 }, (_, i) => job(`r${i}`, daysAgo(40)));
+    const { stats } = buildTrafficPriority([...rest, ...fresh], {}, { now: NOW, cap: 20, freshFirst: true });
+    expect(stats.freshHead).toBe(7);
+    expect(stats.freshDeferred).toBe(0);
+  });
+
+  it('senza cap dichiarato il chiamante prende tutta la coda, quindi nessuno muore di fame', () => {
+    // `cap` di default = Infinity → il tetto si misura sulla coda intera, che
+    // e' la verita' per un chiamante che non affetta: tutti sono serviti.
+    const pending = Array.from({ length: 10 }, (_, i) => job(`f${i}`, daysAgo(0.1)));
+    const { stats } = buildTrafficPriority(pending, {}, { now: NOW, freshFirst: true });
+    expect(stats.freshHead).toBe(5);
+    expect(stats.freshDeferred).toBe(5);
+  });
+
+  it('il mop-up dichiara a buildTrafficPriority lo stesso cap con cui affetta', () => {
+    // Un tetto calcolato su un cap che non e' quello vero non garantisce
+    // niente: e' il numero passato che deve essere lo stesso dello slice.
+    const mopup = fs.readFileSync(path.join(ROOT, 'scripts/local-mt-mopup.mjs'), 'utf-8');
+    expect(mopup).toMatch(/buildTrafficPriority\([^;]*cap:\s*MAX_JOBS/s);
+    expect(mopup).toMatch(/order\.slice\(0,\s*MAX_JOBS\)/);
   });
 
   it('il report dice sempre in che stato e la corsia', () => {

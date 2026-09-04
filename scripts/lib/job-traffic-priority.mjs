@@ -83,6 +83,32 @@ export const QUEUE_AGE_ALERT_DAYS = 150;
 export const FRESH_WINDOW_MS = 24 * 60 * 60 * 1000;
 
 /**
+ * Ceiling on the freshness head, as a share of the slots the caller will
+ * actually take (`cap`).
+ *
+ * The head has no quota by design — see the partition in
+ * buildTrafficPriority() — and the argument for that is an INTAKE ratio
+ * (~1.421 jobs/day against a 6.000-job cap per run), not an invariant of this
+ * code. Anything that resets `firstSeenAt` in bulk — a full re-crawl, a
+ * dataset regeneration, a backfill — makes the whole queue "fresh" at once and
+ * the head then covers every slot of the cap: the stride below never runs, so
+ * the oldest-first reserve gets ZERO slots for that pass, which is exactly the
+ * starvation RESERVE_FOR_OLDEST exists to prevent.
+ *
+ * Half, so that the guarantee is stated in one number and holds unconditionally:
+ * at most half the batch is head, the other half keeps the ordinary stride, and
+ * the reserve therefore keeps ~`reserveForOldest` of that half instead of
+ * nothing. Fresh jobs cut by the ceiling are NOT dropped — they fall back into
+ * the stride like any other job (and, being the newest, never take a reserve
+ * slot they did not earn) — and their count is reported as `freshDeferred`, so
+ * a truncation that changes the ordering can never be silent.
+ *
+ * Not a knob: it is the bound that makes the lane's promise unconditional. The
+ * one number meant to be tuned here stays `RESERVE_FOR_OLDEST`.
+ */
+export const FRESH_HEAD_MAX_SHARE = 0.5;
+
+/**
  * Every key the `stats` half of `buildTrafficPriority()` returns.
  *
  * Exported for the same reason as QUEUE_AGE_BUCKET_KEYS below, and after the
@@ -92,7 +118,7 @@ export const FRESH_WINDOW_MS = 24 * 60 * 60 * 1000;
  * keeps its own copy of this list is a consumer that will drift.
  */
 export const TRAFFIC_STATS_KEYS = Object.freeze([
-  'age', 'freshFirst', 'freshHead', 'freshWindowMs',
+  'age', 'freshDeferred', 'freshFirst', 'freshHead', 'freshWindowMs',
   'matchRate', 'matched', 'queued', 'reserveForOldest', 'totalViews', 'trafficEntries',
 ]);
 
@@ -267,12 +293,17 @@ function round1(n) { return Math.round(n * 10) / 10; }
  * one of those slots for a cohort twenty-five times larger than the cascade
  * can serve, starving traffic and backlog on the paid path for nothing.
  *
+ * The head is bounded to FRESH_HEAD_MAX_SHARE of `cap` — how many of these
+ * slots the caller will actually take — so that a queue that turns fresh all at
+ * once cannot leave the oldest-first reserve with zero slots. `cap` is a HINT
+ * about the caller's own slice, never applied to the returned ordering.
+ *
  * @param {object[]} pending
  * @param {Record<string, number>} popularity
- * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean }} [opts]
+ * @param {{ reserveForOldest?: number, now?: number, freshFirst?: boolean, cap?: number }} [opts]
  * @returns {{ order: object[], stats: object }}
  */
-export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false } = {}) {
+export function buildTrafficPriority(pending, popularity, { reserveForOldest = RESERVE_FOR_OLDEST, now = Date.now(), freshFirst = false, cap = Infinity } = {}) {
   const jobs = Array.isArray(pending) ? pending : [];
   const pop = popularity && typeof popularity === 'object' ? popularity : {};
 
@@ -291,15 +322,19 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   // ── The freshness lane ────────────────────────────────────────────────
   //
   // Jobs first seen less than FRESH_WINDOW_MS ago go FIRST, all of them, with
-  // no quota — and then the rest of the queue keeps exactly the stride it had.
+  // no quota up to a ceiling of half the batch (FRESH_HEAD_MAX_SHARE) — and
+  // then the rest of the queue keeps exactly the stride it had.
   //
   // Why no quota. Three lanes cannot be interleaved by a single stride: that
   // needs two ratios, and the tunable here must stay ONE observable number,
   // because it is the lever a feedback loop has to be able to move on its own.
   // The fresh cohort does not need a ratio because it is SELF-LIMITING —
   // ~1.421 jobs arrive per day against a 6.000-job cap per run, five runs a
-  // day — so it drains itself instead of starving traffic and backlog. The
-  // 24-hour threshold is fixed by the destination it serves, not tuned.
+  // day — so it drains itself instead of starving traffic and backlog. That
+  // ratio is a MEASUREMENT though, not an invariant, and a bulk reset of
+  // `firstSeenAt` violates it; the ceiling above turns the promise into one
+  // the code keeps on its own, without adding a second tunable. The 24-hour
+  // threshold is fixed by the destination it serves, not tuned.
   //
   // Why the ordering is not enough on its own: measured 2026-09-04, 1.308 of
   // the 1.421 jobs seen in the last 24 hours were still pending — 92,0%. The
@@ -308,11 +343,25 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
   const isFresh = (s) => s.queuedAt >= freshCutoff && Number.isFinite(s.queuedAt);
   // Within the head, highest traffic first: the cohort is served whole either
   // way, so its internal order only decides who is repaired first inside it.
-  const freshHead = freshFirst
+  const freshCohort = freshFirst
     ? scored.filter(isFresh).sort((a, b) =>
       b.views - a.views || a.queuedAt - b.queuedAt || a.index - b.index)
     : [];
-  const rest = freshFirst ? scored.filter((s) => !isFresh(s)) : scored;
+  // ...unless the cohort is bigger than half the batch the caller will take,
+  // in which case the head would BE the batch and the stride below would never
+  // run — see FRESH_HEAD_MAX_SHARE. A caller that declares no cap takes the
+  // whole queue in one pass, so `jobs.length` IS its cap and no job starves.
+  // The floor of one slot keeps the lane alive on a batch too small to split.
+  const capSlots = Number.isFinite(cap) && cap > 0 ? Math.min(cap, jobs.length) : jobs.length;
+  const freshHeadMax = Math.max(1, Math.floor(capSlots * FRESH_HEAD_MAX_SHARE));
+  const freshHead = freshCohort.slice(0, freshHeadMax);
+  // Cut from the head, NOT from the queue: these go back into the stride with
+  // everybody else, where — being the newest jobs in it — they sort last on the
+  // age list and cannot take a reserve slot they did not earn.
+  const deferred = new Set(freshCohort.slice(freshHeadMax).map((s) => s.index));
+  const rest = freshFirst
+    ? scored.filter((s) => !isFresh(s) || deferred.has(s.index))
+    : scored;
 
   // Highest traffic first; ties broken OLDEST first (not by array order) so the
   // 33% of the queue with zero recorded traffic still drains front-to-back
@@ -375,6 +424,11 @@ export function buildTrafficPriority(pending, popularity, { reserveForOldest = R
       // altra traccia, e una corsia che smette di funzionare sarebbe muta.
       freshFirst,
       freshHead: freshHead.length,
+      // Quanti job freschi il tetto ha rimandato nello stride. Diverso da zero
+      // solo su una coorte piu' grande di meta' batch — cioe' esattamente il
+      // caso (reset di massa di `firstSeenAt`) in cui l'ordinamento cambia:
+      // senza questo numero la troncatura sarebbe muta.
+      freshDeferred: freshCohort.length - freshHead.length,
       freshWindowMs: freshFirst ? FRESH_WINDOW_MS : 0,
       age: summarizeQueueAge(jobs, { now }),
     },
@@ -445,6 +499,9 @@ export function formatPriorityReport(stats) {
     // riga insieme al suo effetto.
     `   Freshness lane:       ${stats.freshFirst
       ? `${stats.freshHead} job(s) ahead of the stride (< ${Math.round(stats.freshWindowMs / 3_600_000)}h old)`
+        + (stats.freshDeferred > 0
+          ? ` · ${stats.freshDeferred} more deferred to the stride (head capped at ${pct(FRESH_HEAD_MAX_SHARE)} of the batch, so the oldest-first reserve keeps its slots)`
+          : '')
       : 'off (this consumer keeps the plain traffic/age stride)'}`,
     `   Queue age (from first-seen, upper bound on time-in-queue):`,
     `     oldest ${a.oldestAgeDays ?? 'n/a'}d · p50 ${a.p50AgeDays ?? 'n/a'}d · p90 ${a.p90AgeDays ?? 'n/a'}d` +
