@@ -60,6 +60,7 @@
  */
 
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isIncomplete as isIncompleteCanonical } from './relocalize-pending-jobs.mjs';
@@ -69,6 +70,27 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 
 const CRAWLERS_DIR = 'data/jobs/by-crawler';
 const STATS_FILE = 'data/translation-stats-history.json';
+
+/**
+ * Sidecar carrying the incomplete cohort from the `before` pass to the `after`
+ * pass of the SAME run. Deliberately OUTSIDE the repository.
+ *
+ * Age at completion — the number the translation map's 24-hour target is
+ * actually about — cannot be read off a single snapshot: a job that finishes
+ * leaves the queue, so `queueAge` never sees it again. It needs a before/after
+ * diff, and the only per-job state that requires is "which jobs were incomplete
+ * when this run started".
+ *
+ * The corpus is NOT where that belongs. Stamping a `completedAt` on every job
+ * record would put ~14k writes and a schema change into the hot path to
+ * produce one median. The two passes run as two steps of one GitHub Actions
+ * job, so the runner's temp dir already outlives the gap between them, and the
+ * file dies with the runner.
+ *
+ * Override with TRANSLATION_COHORT_FILE (tests, local runs).
+ */
+const COHORT_FILE = process.env.TRANSLATION_COHORT_FILE
+  || path.join(os.tmpdir(), 'translation-incomplete-cohort.json');
 export const LOCALES = ['it', 'en', 'de', 'fr'];
 export const MIN_DESC = 120;
 export const MIN_TITLE = 3;
@@ -204,17 +226,56 @@ export function emptyCounters() {
     // metric (#5653 item 2). Not the job objects themselves: keeping references
     // to 10k jobs would pin every slice this loop was written to release.
     queuedSamples: [],
+    // Identity of every INCOMPLETE job, collected only when the caller asks
+    // (the `before` pass). ~14k short strings; the `after` pass does not need
+    // them and does not pay for them.
+    incompleteIds: [],
+    // The same minimal stand-in, for jobs that are complete NOW and were in the
+    // cohort the `before` pass handed over — i.e. the jobs THIS run completed.
+    // A few hundred per run, never the whole corpus, because the cohort filter
+    // is applied here rather than after the fact.
+    //
+    // `null`, not `[]`, is the DEFAULT on purpose: every caller that does not
+    // hand over a cohort — the `before` pass, a manual snapshot,
+    // lib/translation-observability.mjs — has not measured age at completion,
+    // which is a different statement from having measured zero. An empty array
+    // by default would quietly make all of them claim the second.
+    completedSamples: null,
   };
+}
+
+/**
+ * Stable-enough identity for the before/after cohort diff.
+ *
+ * `url` is the field every crawler slice carries for every job (1.226/1.226 on
+ * roche.json, the shape is uniform) and it is what `extractStableJobId()` is
+ * itself derived from. A job whose URL changes between the two passes of one
+ * run simply drops out of the cohort, which understates the completion count
+ * rather than inventing one.
+ *
+ * @param {object} job
+ * @returns {string|null}
+ */
+export function jobCohortId(job) {
+  const url = job && typeof job.url === 'string' ? job.url.trim() : '';
+  return url || null;
 }
 
 /**
  * Count one array of jobs (one crawler slice). Pure — no I/O.
  *
  * @param {object[]} jobs
+ * @param {{ collectIncompleteIds?: boolean, previouslyIncomplete?: Set<string>|null }} [opts]
+ *   `collectIncompleteIds` fills `incompleteIds` (the `before` pass writes it to
+ *   the cohort sidecar). `previouslyIncomplete` is that cohort read back on the
+ *   `after` pass: a job that is complete now and appears in it was completed by
+ *   THIS run, and only those jobs land in `completedSamples`.
  * @returns {ReturnType<typeof emptyCounters>}
  */
-export function summarizeJobs(jobs) {
+export function summarizeJobs(jobs, { collectIncompleteIds = false, previouslyIncomplete = null } = {}) {
   const c = emptyCounters();
+  // Asked for the diff — so from here on "no sample" means zero, not unmeasured.
+  if (previouslyIncomplete) c.completedSamples = [];
   for (const job of jobs) {
     c.total++;
     const { incomplete, sourceCopyExcused } = classifyJob(job);
@@ -240,8 +301,27 @@ export function summarizeJobs(jobs) {
       c.slotsPresentByLength++;
       if (isLanguageVerified(job)) c.languageVerified++;
     }
+    // Age AT COMPLETION, the number the 24-hour target is about (#17).
+    // `queueAge` cannot produce it: a job that finishes leaves the queue, so a
+    // snapshot never sees the moment it was served. Only the diff against the
+    // cohort the `before` pass captured identifies the jobs this run completed.
+    if (!incomplete && previouslyIncomplete) {
+      const id = jobCohortId(job);
+      if (id && previouslyIncomplete.has(id)) {
+        c.completedSamples.push({
+          firstSeenAt: job.firstSeenAt,
+          postedDate: job.postedDate,
+          crawledAt: job.crawledAt,
+          datePosted: job.datePosted,
+        });
+      }
+    }
     if (incomplete) {
       c.incomplete++;
+      if (collectIncompleteIds) {
+        const id = jobCohortId(job);
+        if (id) c.incompleteIds.push(id);
+      }
       const sourceDesc = (job.description || '').trim().toLowerCase();
       const sourceLang = job.sourceLang || 'it';
       for (const loc of LOCALES) {
@@ -269,6 +349,14 @@ export function mergeCounters(dst, src) {
   dst.languageVerified += src.languageVerified;
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
   if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
+  if (src.incompleteIds?.length) dst.incompleteIds.push(...src.incompleteIds);
+  // An EMPTY array still promotes `dst` out of `null`: a slice that was diffed
+  // and completed nothing is a measurement, and merging it must not read as
+  // "never measured". Only a `null` on every side leaves the total unmeasured.
+  if (Array.isArray(src.completedSamples)) {
+    if (!Array.isArray(dst.completedSamples)) dst.completedSamples = [];
+    dst.completedSamples.push(...src.completedSamples);
+  }
   return dst;
 }
 
@@ -297,6 +385,18 @@ export function finalizeEntry(counters, { label, topPending = [], timestamp = ne
   // QUEUE_AGE_ALERT_DAYS, which sits above the live maximum measured on
   // 2026-08-14 (123,2 days).
   const queueAge = summarizeQueueAge(counters.queuedSamples || [], { now });
+  // Age AT COMPLETION for the jobs THIS run finished (#17). Same function, a
+  // different population: `summarizeQueueAge` measures "days since first seen"
+  // for whatever jobs it is handed, so handing it the newly-completed cohort
+  // turns `p50AgeDays` into the median age at completion the map's second
+  // destination condition is written against — no second implementation of the
+  // same percentile.
+  //
+  // `null`, not an empty summary, when the `before` pass left no cohort: a run
+  // that could not measure must not read as a run that completed nothing.
+  const completionAge = counters.completedSamples
+    ? summarizeQueueAge(counters.completedSamples, { now })
+    : null;
   return {
     timestamp,
     label,
@@ -323,6 +423,9 @@ export function finalizeEntry(counters, { label, topPending = [], timestamp = ne
     // the flag was set. Named for what it measures, never conflated with a
     // flag-time age this repo does not have.
     queueAge,
+    // Present only on the `after` pass of a run whose `before` pass ran; `null`
+    // everywhere else, including on the 200 rows written before #17.
+    completionAge,
     topPending,
   };
 }
@@ -367,12 +470,27 @@ export function formatReport(entry) {
   if (qa) {
     row('Queue age (oldest):', `${qa.oldestAgeDays ?? 'n/a'}d`,
         `(p50 ${qa.p50AgeDays ?? 'n/a'}d · p90 ${qa.p90AgeDays ?? 'n/a'}d · dated ${qa.withTimestamp}/${qa.count} · from first-seen, upper bound)`);
-    row('Queue age buckets:', Object.entries(qa.buckets).map(([k, v]) => `${k}=${v}`).join(' '));
+    row('Queue age buckets:', Object.entries(qa.buckets).map(([k, v]) => `${k}=${v}`).join(' '),
+        '(0-1d/1-2d/2-7d subdivide 0-7d — they are not additional to it)');
     if (qa.alert) {
       lines.push(`   ⚠️ QUEUE AGE ALERT — oldest queued job is ${qa.oldestAgeDays}d, at or past the ${qa.alertDays}d ratchet:`);
       lines.push('      the count can still be falling while the tail is never served. Check the oldest-first');
       lines.push('      reserve (RESERVE_FOR_OLDEST in scripts/lib/job-traffic-priority.mjs) and the cascade cap.');
     }
+  }
+
+  // Age AT COMPLETION (#17). Printed unconditionally, `not measured` included,
+  // so a run that lost its before/after cohort is visible instead of passing
+  // for a run that completed nothing.
+  const ca = entry.completionAge;
+  if (ca == null) {
+    row('Age at completion (p50):', 'not measured',
+        '(no `before` cohort for this run — needs both passes)');
+  } else if (ca.count === 0) {
+    row('Age at completion (p50):', 'n/a', '(this run completed no job)');
+  } else {
+    row('Age at completion (p50):', `${ca.p50AgeDays ?? 'n/a'}d`,
+        `(p90 ${ca.p90AgeDays ?? 'n/a'}d · ${ca.count} jobs completed this run · under 24h: ${ca.buckets['0-1d']})`);
   }
 
   // COMPLETE is reserved for the exact case: nothing missing and nothing
@@ -393,8 +511,29 @@ export function formatReport(entry) {
   return lines;
 }
 
+/**
+ * Read the cohort the `before` pass left behind, or `null` when there is none.
+ *
+ * Fail-open on purpose: a missing, empty or malformed sidecar degrades the run
+ * to "age at completion not measured" and is reported as such. It must never
+ * fail the translation run, which has real work to commit either way.
+ *
+ * @returns {Set<string>|null}
+ */
+function readCohort() {
+  const raw = readJson(COHORT_FILE);
+  if (!Array.isArray(raw) || raw.length === 0) return null;
+  return new Set(raw);
+}
+
 function main() {
   const label = process.argv[2] || 'translate-pending';
+  // The two passes of one translate-pending run, and the only two labels the
+  // live workflow uses. Any other label (a manual run, a one-off audit) is a
+  // snapshot with no partner pass, so it neither writes nor reads the cohort.
+  const isBefore = label === 'before';
+  const isAfter = label === 'after';
+  const previouslyIncomplete = isAfter ? readCohort() : null;
 
   const files = listSliceFileNames(CRAWLERS_DIR);
 
@@ -405,7 +544,10 @@ function main() {
     const content = readJson(path.join(CRAWLERS_DIR, file));
     if (!content) continue;
     const jobs = Array.isArray(content) ? content : (content.jobs || []);
-    const sliceCounters = summarizeJobs(jobs);
+    const sliceCounters = summarizeJobs(jobs, {
+      collectIncompleteIds: isBefore,
+      previouslyIncomplete,
+    });
     mergeCounters(counters, sliceCounters);
     if (sliceCounters.incomplete > 0) {
       const company = jobs[0]?.company || file.replace('.json', '');
@@ -425,6 +567,18 @@ function main() {
   if (history.length > 200) history.splice(0, history.length - 200);
   fs.writeFileSync(STATS_FILE, JSON.stringify(history, null, 2) + '\n', 'utf-8');
   console.log(`   Saved to ${STATS_FILE} (${history.length} entries total)\n`);
+
+  // Hand the incomplete cohort to the `after` pass of this same run. Written
+  // LAST so a failure here cannot cost the history entry, and swallowed for the
+  // same reason: losing the sidecar costs one metric, not the run.
+  if (isBefore) {
+    try {
+      fs.writeFileSync(COHORT_FILE, JSON.stringify(counters.incompleteIds), 'utf-8');
+      console.log(`   Cohort for age-at-completion: ${counters.incompleteIds.length} incomplete jobs → ${COHORT_FILE}\n`);
+    } catch (err) {
+      console.warn(`   ⚠️ Could not write ${COHORT_FILE}: ${err.message} — age at completion will read "not measured".\n`);
+    }
+  }
 }
 
 // Main-guarded so the pure helpers above can be imported by tests (and by

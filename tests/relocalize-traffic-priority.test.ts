@@ -225,8 +225,42 @@ describe('eta della coda (#5653 item 2) — il conteggio da solo non basta', () 
     expect(a.count).toBe(5);
     expect(a.withTimestamp).toBe(5);
     expect(a.oldestAgeDays).toBe(200);
-    expect(a.buckets).toEqual({ '0-7d': 2, '7-30d': 0, '30-90d': 1, '90-180d': 1, '180d+': 1 });
+    expect(a.buckets).toEqual({
+      '0-1d': 0, '1-2d': 1, '2-7d': 1,
+      '0-7d': 2, '7-30d': 0, '30-90d': 1, '90-180d': 1, '180d+': 1,
+    });
     expect(a.p90AgeDays).toBeGreaterThanOrEqual(a.p50AgeDays!);
+  });
+
+  it('le fasce fini suddividono 0-7d, non si aggiungono a essa', () => {
+    // Il vincolo delle 24 ore della mappa e' invisibile a risoluzione di sette
+    // giorni: il 2026-09-04 `0-7d` valeva 4.360 job, di cui 1.308 sotto le 24
+    // ore. Ma `0-7d` RESTA, e resta la somma delle tre: le 200 righe gia'
+    // committate in data/translation-stats-history.json si leggono su quella
+    // chiave, e toglierla romperebbe la serie in silenzio.
+    const jobs = [daysAgo(0.2), daysAgo(0.9), daysAgo(1.5), daysAgo(3), daysAgo(6.9), daysAgo(50)]
+      .map((d, i) => job(`j${i}`, d));
+    const a = summarizeQueueAge(jobs, { now: NOW });
+    expect(a.buckets['0-1d']).toBe(2);
+    expect(a.buckets['1-2d']).toBe(1);
+    expect(a.buckets['2-7d']).toBe(2);
+    expect(a.buckets['0-7d']).toBe(5);
+    expect(a.buckets['0-1d'] + a.buckets['1-2d'] + a.buckets['2-7d']).toBe(a.buckets['0-7d']);
+    // La somma di TUTTE le fasce non sovrapposte resta il totale datato.
+    const disjoint = ['0-7d', '7-30d', '30-90d', '90-180d', '180d+'] as const;
+    expect(disjoint.reduce((s, k) => s + a.buckets[k], 0)).toBe(a.withTimestamp);
+  });
+
+  it('il preflight v2 accetta le fasce nuove — il suo controllo di chiavi e ESATTO', () => {
+    // `validTrafficStats` in translation-shadow-preflight-v2.mjs confronta le
+    // chiavi di `age.buckets` una per una. Una fascia aggiunta qui e non la'
+    // non rompe niente di rumoroso: invalida OGNI osservazione del preflight,
+    // in silenzio e a ogni run. Questo caso rende quel disallineamento rosso.
+    const src = fs.readFileSync(path.join(ROOT, 'scripts/lib/translation-shadow-preflight-v2.mjs'), 'utf-8');
+    const { stats } = buildTrafficPriority([job('x', daysAgo(1))], { x: 1 }, { now: NOW });
+    for (const key of Object.keys(stats.age.buckets)) {
+      expect(src, `il preflight v2 non conosce la fascia ${key}`).toContain(`'${key}'`);
+    }
   });
 
   it('un job oltre la soglia alza l ALLARME, e il report lo dice a parole', () => {

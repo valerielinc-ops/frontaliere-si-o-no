@@ -154,10 +154,26 @@ export function summarizeQueueAge(jobs, { now = Date.now(), alertDays = QUEUE_AG
   }
   ages.sort((a, b) => a - b);
 
-  const buckets = { '0-7d': 0, '7-30d': 0, '30-90d': 0, '90-180d': 0, '180d+': 0 };
+  // `0-1d`, `1-2d` and `2-7d` are a SUBDIVISION of `0-7d`, which is kept and
+  // still counts all three, so the 200 committed history rows stay comparable
+  // against new ones on the key they already carry. The overlap is deliberate:
+  // dropping `0-7d` would silently break every reader of the old series.
+  //
+  // The fine buckets exist because the map's 24-hour target is invisible at
+  // 7-day resolution — on 2026-09-04 `0-7d` held 4.360 jobs, of which 1.308
+  // were younger than a day. Without `0-1d` a change that fixes the freshest
+  // cohort and a change that does nothing trace the same number.
+  const buckets = {
+    '0-1d': 0, '1-2d': 0, '2-7d': 0,
+    '0-7d': 0, '7-30d': 0, '30-90d': 0, '90-180d': 0, '180d+': 0,
+  };
   for (const a of ages) {
-    if (a < 7) buckets['0-7d']++;
-    else if (a < 30) buckets['7-30d']++;
+    if (a < 7) {
+      buckets['0-7d']++;
+      if (a < 1) buckets['0-1d']++;
+      else if (a < 2) buckets['1-2d']++;
+      else buckets['2-7d']++;
+    } else if (a < 30) buckets['7-30d']++;
     else if (a < 90) buckets['30-90d']++;
     else if (a < 180) buckets['90-180d']++;
     else buckets['180d+']++;

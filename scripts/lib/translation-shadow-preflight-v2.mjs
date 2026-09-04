@@ -527,7 +527,13 @@ function validTrafficStats(stats, deadlineMs = Number.POSITIVE_INFINITY, now = D
       || !boundedInteger(age.count) || !boundedInteger(age.withTimestamp)
       || !nullableFiniteNumber(age.oldestAgeDays) || !nullableFiniteNumber(age.p50AgeDays)
       || !nullableFiniteNumber(age.p90AgeDays)
-      || !exactKeys(age.buckets, ['0-7d', '180d+', '30-90d', '7-30d', '90-180d'])) return false;
+      // `0-1d`, `1-2d` and `2-7d` (#17) subdivide `0-7d`, which stays. This is
+      // an EXACT key check, so it is not optional bookkeeping: adding a bucket
+      // to summarizeQueueAge() without adding it here makes every shadow
+      // preflight observation invalid, silently and for every run.
+      || !exactKeys(age.buckets, [
+        '0-1d', '0-7d', '1-2d', '180d+', '2-7d', '30-90d', '7-30d', '90-180d',
+      ])) return false;
   for (const value of Object.values(age.buckets)) {
     checkDeadline(deadlineMs, now);
     if (!boundedInteger(value)) return false;
