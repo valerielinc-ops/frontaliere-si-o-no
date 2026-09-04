@@ -5371,6 +5371,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Permesso di dimora B San Gallo: requisiti e rinnovo',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Guida pratica al permesso di dimora B nel Cantone di San Gallo: requisiti, documenti, durata e procedura di rinnovo presso l\'ufficio della migrazione cantonale.',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Veduta della città di San Gallo con edifici amministrativi e architettura svizzera alpina sullo sfondo',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Cantone Svitto: cicli scolastici e iscrizione',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'L\'obbligo scolastico nel cantone Svitto inizia a 6 anni. Scopri cicli, iscrizioni, calendario e transizione alle scuole superiori.',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Aula di una scuola primaria svizzera nel cantone Svitto, con bambini in classe, arredo scolastico moderno e grande finestra che affaccia sul paesaggio alpino.',
 };
 
 export default blogMetaChIt;

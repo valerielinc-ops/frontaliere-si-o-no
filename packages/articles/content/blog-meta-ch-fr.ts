@@ -5371,6 +5371,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.title': 'Permis de séjour B Saint-Gall : exigences et renouvellement',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.excerpt': 'Guide pratique du permis de séjour B dans le canton de Saint-Gall : exigences, documents, durée et procédure de renouvellement auprès de l\'office cantonal des migrations.',
     'blog.article.permesso-b-san-gallo-requisiti-rinnovo.imageAlt': 'Vue de la ville de Saint-Gall avec bâtiments administratifs et architecture suisse alpine',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.title': 'Canton de Schwyz : cycles scolaires et inscription',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.excerpt': 'L\'obligation scolaire dans le canton de Schwyz commence à 6 ans. Découvrez les cycles, les inscriptions, le calendrier et la transition vers les lycées.',
+    'blog.article.scuola-svitto-cicli-e-iscrizione.imageAlt': 'Salle de classe d\'une école primaire suisse du canton de Schwyz avec enfants en cours, mobilier moderne et fenêtre donnant sur le paysage alpin.',
 };
 
 export default blogMetaChFr;
